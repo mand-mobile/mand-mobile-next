@@ -1,0 +1,92 @@
+{
+  "name": "@mand-mobile/vue-cli-plugin-builder",
+  "version": "0.0.1",
+  "description": "mand-mobile 构建层封装",
+  "keywords": [
+    "mand-mobile",
+    "buildtime"
+  ],
+  "author": "lucker <guoyunlong@didichuxing.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "test": "jest --coverage --passWithNoTests",
+    "test:watch": "jest --watch --collectCoverage=false"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/(*.)+(test|spec).ts"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.10.3",
+    "@mand-mobile/components": "^0.0.1",
+    "@mand-mobile/platform": "^0.0.1",
+    "@mand-mobile/shared": "^0.0.1",
+    "@rollup/plugin-babel": "^5.0.4",
+    "@vue/cli": "^4.4.4",
+    "@vue/cli-plugin-babel": "^4.4.4",
+    "@vue/cli-plugin-typescript": "^4.4.4",
+    "@vue/cli-service": "^4.4.4",
+    "@vue/cli-shared-utils": "^4.4.4",
+    "@vue/cli-test-utils": "^4.4.4",
+    "@vue/compiler-sfc": "^3.0.0-beta.15",
+    "@vue/component-compiler": "^4.2.3",
+    "babel-loader": "^8.1.0",
+    "babel-preset-minify": "^0.5.1",
+    "babelrc-rollup": "^3.0.0",
+    "jest": "^26.0.1",
+    "postcss": "^7.0.32",
+    "postcss-comment": "^2.0.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-pxtorem": "^5.1.1",
+    "postcss-url": "^8.0.0",
+    "ramda": "^0.27.0",
+    "rollup": "^2.18.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-filesize": "^9.0.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^3.1.2",
+    "rollup-plugin-progress": "^1.1.2",
+    "rollup-plugin-stylus-compiler": "^1.0.1",
+    "rollup-plugin-typescript": "^1.0.1",
+    "rollup-plugin-uglify": "^6.0.4",
+    "rollup-plugin-vue": "^6.0.0-beta.6",
+    "style-resources-loader": "^1.3.3",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.5",
+    "vue": "^2.6.11",
+    "webpack-chain": "^6.4.0",
+    "yargs": "^15.3.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.0",
+    "@types/ramda": "^0.27.6"
+  }
+}

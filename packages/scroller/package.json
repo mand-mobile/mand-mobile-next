@@ -1,0 +1,25 @@
+{
+  "name": "@mand-mobile/scroller",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "lucker <guoyunlong@didichuxing.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc -w"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "@mand-mobile/shared": "^0.0.1",
+    "@types/jest": "^26.0.4",
+    "jest": "^26.1.0"
+  }
+}

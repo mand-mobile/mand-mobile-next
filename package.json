@@ -1,0 +1,57 @@
+{
+  "name": "examples-uni",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "cz": "git add -A && npx git-cz",
+    "prebootstrap": "lerna clean",
+    "bootstrap": "yarn && lerna bootstrap && lerna link",
+    "serve": "cd packages/examples && npm run serve --",
+    "serve:web": "cd packages/examples && npm run serve:web --",
+    "serve:uni": "cd packages/examples && npm run serve:uni --",
+    "pub": "npm run clean:lock && lerna publish --conventional-commits",
+    "pub:prerelease": "lerna publish --conventional-commits --cd-version=prerelease --preid=alpha --npm-tag=alpha"
+  },
+  "dependencies": {
+    "core-js": "^2.6.5",
+    "flyio": "^0.6.2",
+    "regenerator-runtime": "^0.12.1",
+    "vue": "^2.6.10",
+    "vuex": "^3.0.1"
+  },
+  "husky": {
+    "hooks-todo-open": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@commitlint/config-lerna-scopes": "^8.1.0",
+    "@types/html5plus": "*",
+    "@types/uni-app": "*",
+    "@vue/cli-plugin-babel": "^3.0.3",
+    "@vue/cli-plugin-typescript": "^4.4.4",
+    "@vue/cli-service": "^3.0.3",
+    "commitizen": "^4.1.2",
+    "cross-env": "^7.0.2",
+    "cz-mand-mobile-changelog": "2.0.0",
+    "husky": "^1.1.2",
+    "lerna": "^3.8.0",
+    "mini-types": "*",
+    "miniprogram-api-typings": "^2.8.0-2",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "browserslist": [
+    "Android >= 4",
+    "ios >= 8"
+  ],
+  "uni-app": {
+    "scripts": {}
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-mand-mobile-changelog"
+    }
+  }
+}

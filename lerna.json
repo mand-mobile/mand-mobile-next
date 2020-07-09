@@ -1,0 +1,15 @@
+{
+  "lerna": "3.16.1",
+  "packages": ["packages/*"],
+  "version": "independent",
+  "npmClient": "yarn",
+  "command": {
+    "publish": {
+      "allowBranch": ["master", "release_*", "release"],
+      "ignoreChanges": ["*.md","lerna.json"]
+    },
+    "npmClientArgs": [
+      "--no-package-lock"
+    ]
+  }
+}

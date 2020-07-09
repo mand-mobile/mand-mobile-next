@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Basic 1`] = `
+<div class="md-example-child md-example-child-button md-example-child-button-0"><button type="button" class="md-button default active block">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">Default</div>
+    </div>
+  </button> <button type="button" disabled="disabled" class="md-button default inactive block">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">Default Inactive</div>
+    </div>
+  </button> <button type="button" class="md-button primary active block">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">Primary</div>
+    </div>
+  </button> <button type="button" disabled="disabled" class="md-button primary inactive block">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">Primary Inactive</div>
+    </div>
+  </button> <button type="button" class="md-button primary active block">
+    <div class="md-button-inner">
+      <div class="md-activity-indicator-rolling md-button-loading">
+        <div class="rolling-container"><svg viewBox="0 0 81.66666666666667 81.66666666666667" preserveAspectRatio="xMidYMid" class="md-activity-indicator-svg rolling" style="width:70px;height:70px;transform:rotateZ(0deg);">
+            <circle fill="none" stroke="rgba(0, 0, 0, .1)" stroke-width="5.833333333333333" cx="40.833333333333336" cy="40.833333333333336" r="35"></circle>
+            <g class="circle">
+              <circle cx="40.833333333333336" cy="40.833333333333336" fill="transparent" stroke="#2F86F6" stroke-width="5.833333333333333" stroke-dasharray="193.5164" stroke-linecap="round" r="35" class="stroke">
+                <animate attributeName="stroke-dashoffset" values="633.3264;246.2936" dur="2.2s" keyTimes="0;1" calcMode="spline" fill="freeze" keySplines="0.41,0.314,0.8,0.54" repeatCount="indefinite" begin="0"></animate>
+                <animateTransform dur="2s" values="0 40.833333333333336 40.833333333333336;360 40.833333333333336 40.833333333333336" attributeName="transform" type="rotate" calcMode="linear" keyTimes="0;1" begin="0" repeatCount="indefinite"></animateTransform>
+              </circle>
+            </g>
+          </svg>
+          <div class="content"></div>
+        </div>
+      </div>
+      <div class="md-button-content">Loading</div>
+    </div>
+  </button> <button type="button" class="md-button warning active block">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">Warning</div>
+    </div>
+  </button> <button type="button" disabled="disabled" class="md-button warning inactive block">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">Warning Inactive</div>
+    </div>
+  </button> <button type="button" disabled="disabled" class="md-button disabled active block">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">Disabled</div>
+    </div>
+  </button></div>
+`;
+
+exports[`Button Inline 1`] = `
+<div class="md-example-child  md-example-child-button md-example-child-button-3">
+  <div class="md-example-section"><button type="button" class="md-button primary active inline">
+      <div class="md-button-inner"><i class="md-icon icon-font md-icon-edit edit md" style="color:;"></i>
+        <div class="md-button-content">Inline Primary</div>
+      </div>
+    </button> <button type="button" class="md-button primary active inline plain">
+      <div class="md-button-inner">
+        <!---->
+        <div class="md-button-content">Inline Plain</div>
+      </div>
+    </button></div>
+  <div class="md-example-section"><button type="button" class="md-button warning active inline small">
+      <div class="md-button-inner">
+        <!---->
+        <div class="md-button-content">Warning</div>
+      </div>
+    </button> <button type="button" disabled="disabled" class="md-button disabled active inline small">
+      <div class="md-button-inner">
+        <!---->
+        <div class="md-button-content">Disabled</div>
+      </div>
+    </button></div>
+</div>
+`;
+
+exports[`Button Plain 1`] = `
+<div class="md-example-child md-example-child-button md-example-child-button-1"><button type="button" class="md-button default active block plain">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">Default &amp; Plain</div>
+    </div>
+  </button> <button type="button" class="md-button primary active block plain">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">Primary &amp; Plain</div>
+    </div>
+  </button> <button type="button" class="md-button warning active block plain">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">Warning &amp; Plain</div>
+    </div>
+  </button> <button type="button" disabled="disabled" class="md-button disabled active block plain">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">Disabled &amp; Plain</div>
+    </div>
+  </button> <button type="button" class="md-button primary active block round plain">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">Primary &amp; Plain &amp; Round</div>
+    </div>
+  </button> <button type="button" class="md-button primary active block round plain">
+    <div class="md-button-inner">
+      <div class="md-activity-indicator-rolling md-button-loading">
+        <div class="rolling-container"><svg viewBox="0 0 81.66666666666667 81.66666666666667" preserveAspectRatio="xMidYMid" class="md-activity-indicator-svg rolling" style="width:70px;height:70px;transform:rotateZ(0deg);">
+            <circle fill="none" stroke="rgba(0, 0, 0, .1)" stroke-width="5.833333333333333" cx="40.833333333333336" cy="40.833333333333336" r="35"></circle>
+            <g class="circle">
+              <circle cx="40.833333333333336" cy="40.833333333333336" fill="transparent" stroke="#2F86F6" stroke-width="5.833333333333333" stroke-dasharray="193.5164" stroke-linecap="round" r="35" class="stroke">
+                <animate attributeName="stroke-dashoffset" values="633.3264;246.2936" dur="2.2s" keyTimes="0;1" calcMode="spline" fill="freeze" keySplines="0.41,0.314,0.8,0.54" repeatCount="indefinite" begin="0"></animate>
+                <animateTransform dur="2s" values="0 40.833333333333336 40.833333333333336;360 40.833333333333336 40.833333333333336" attributeName="transform" type="rotate" calcMode="linear" keyTimes="0;1" begin="0" repeatCount="indefinite"></animateTransform>
+              </circle>
+            </g>
+          </svg>
+          <div class="content"></div>
+        </div>
+      </div>
+      <div class="md-button-content">Primary &amp; Plain &amp; Loading</div>
+    </div>
+  </button></div>
+`;
+
+exports[`Button Round 1`] = `
+<div class="md-example-child md-example-child-button md-example-child-button-2"><button type="button" class="md-button default active block round">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">Default &amp; Round</div>
+    </div>
+  </button> <button type="button" class="md-button primary active block round">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">Primary &amp; Round</div>
+    </div>
+  </button> <button type="button" class="md-button warning active block round">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">Warning &amp; Round</div>
+    </div>
+  </button> <button type="button" disabled="disabled" class="md-button disabled active block round">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">Disabled &amp; Round</div>
+    </div>
+  </button></div>
+`;
+
+exports[`Button Text link 1`] = `
+<div class="md-example-child  md-example-child-button md-example-child-button-3"><button type="button" class="md-button link active block">
+    <div class="md-button-inner"><i class="md-icon icon-font md-icon-message message md" style="color:;"></i>
+      <div class="md-button-content">评论</div>
+    </div>
+  </button> <button type="button" disabled="disabled" class="md-button link inactive block">
+    <div class="md-button-inner">
+      <!---->
+      <div class="md-button-content">去看看<i class="md-icon icon-font md-icon-arrow-right arrow-right md" style="color:;"></i></div>
+    </div>
+  </button></div>
+`;

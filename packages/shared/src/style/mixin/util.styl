@@ -1,0 +1,140 @@
+absolute-pos(t = 0, r = 0, b = 0, l = 0)
+  top t
+  right r
+  bottom b
+  left l
+fixed-pos(t = 0, r = 0, b = 0, l = 0)
+  absolute-pos(t, r, b, l)
+
+block()
+  float left
+  width 100%
+  
+clearfix()
+  &:after
+    content ""
+    display table
+    clear both
+
+word-break()
+  word-break break-all
+  word-wrap break-word
+word-ellipsis()
+  white-space nowrap
+  overflow hidden
+  text-overflow ellipsis
+
+hairline-common(direction)
+  content ''
+  position absolute
+  z-index 2
+  transform-origin 100% 50%
+  if direction == top
+    transform scaleY(0.5) translateY(-100%)
+    @media (min-resolution: 3dppx)
+      transform scaleY(0.33) translateY(-100%)
+  else if direction == bottom
+    transform scaleY(0.5) translateY(100%)
+    @media (min-resolution: 3dppx)
+      transform scaleY(0.33) translateY(100%)
+  else if direction == left
+    transform scaleX(0.5) translateX(-100%)
+    @media (min-resolution: 3dppx)
+      transform scaleX(0.33) translateX(-100%)
+  else if direction == right
+    transform scaleX(0.5) translateX(100%)
+    @media (min-resolution: 3dppx)
+      transform scaleX(0.33) translateX(100%)
+
+hairline(direction = all, color = color-border-base, radius = 0, size = border-width-base)
+  if direction == top
+    &::after
+      hairline-common(direction)
+      top 0
+      left 0
+      right auto
+      bottom auto
+      width 100%
+      border-top solid size color
+      transform-origin 50% 0
+
+  else if direction == bottom
+    &::before
+      hairline-common(direction)
+      bottom 0
+      left 0
+      right auto
+      top auto
+      width 100%
+      border-bottom solid size color
+      transform-origin 50% 100%
+
+  else if direction == left
+    &::after
+      hairline-common(direction)
+      top 0
+      left 0
+      right auto
+      bottom auto
+      border-left solid size color
+      height 100%
+      transform-origin 0 50%
+
+  else if direction == right
+    &::before
+      hairline-common(direction)
+      top 0
+      right 0
+      left auto
+      bottom auto
+      border-right solid size color
+      height 100%
+      transform-origin 100% 50%
+
+  else
+    &::after
+      content ''
+      position absolute
+      top 0
+      left 0
+      right auto
+      bottom auto
+      width 200%
+      height 200%
+      border solid size color
+      box-sizing border-box
+      transform-origin 0 0
+      transform scale(0.5)
+      z-index 2
+      if radius is a 'unit'
+        border-radius radius * 2
+      else
+        border-radius "calc(%s * 2)" % radius
+
+remove-hairline(direction = all)
+  if direction == top
+    &::after
+      display none
+
+  else if direction == bottom
+    &::before
+      display none
+
+  else if direction == left
+    &::after
+      display none
+
+  else if direction == right
+    &::before
+      display none
+
+  else
+    &::after
+      display none
+
+svg-background(svg)
+  background-image url(svg)
+
+vertical-height(height)
+  height height
+  line-height height

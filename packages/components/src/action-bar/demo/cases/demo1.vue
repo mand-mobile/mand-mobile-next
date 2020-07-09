@@ -1,0 +1,41 @@
+<template>
+  <div class="md-example-child md-example-child-action-bar md-example-child-0">
+    <md-action-bar :actions="data"></md-action-bar>
+  </div>
+</template>
+
+<script>
+import ActionBar from '../../index'
+
+export default {
+  name: 'action-bar-demo',
+  /* DELETE */
+  title: '多按钮',
+  titleEnUS: 'Multiple buttons',
+  height: 150,
+  /* DELETE */
+  components: {
+    'md-action-bar': ActionBar
+  },
+  data() {
+    return {
+      data: [
+        {
+          text: '次要按钮',
+          onClick: this.handleClick,
+        },
+        {
+          text: '主要按钮',
+          onClick: this.handleClick,
+        },
+      ],
+    }
+  },
+  methods: {
+    handleClick() {
+      // Toast.succeed('Click')
+    },
+  },
+}
+
+</script>
