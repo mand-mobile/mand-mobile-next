@@ -24,6 +24,13 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
+  "lint-staged": {
+    "components/**/*.{vue,js,json}": [
+      "aesir lint -s",
+      "aesir format -S",
+      "git add"
+    ]
+  },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
@@ -33,11 +40,13 @@
     "@vue/cli-plugin-babel": "^3.0.3",
     "@vue/cli-plugin-typescript": "^4.4.4",
     "@vue/cli-service": "^3.0.3",
+    "aesir-cli": "^0.0.5",
     "commitizen": "^4.1.2",
     "cross-env": "^7.0.2",
     "cz-mand-mobile-changelog": "2.0.0",
     "husky": "^1.1.2",
     "lerna": "^3.8.0",
+    "lint-staged": "^5.0.0",
     "mini-types": "*",
     "miniprogram-api-typings": "^2.8.0-2",
     "vue-template-compiler": "^2.6.10"

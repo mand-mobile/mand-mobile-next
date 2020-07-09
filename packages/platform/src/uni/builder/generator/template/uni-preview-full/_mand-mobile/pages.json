@@ -1,0 +1,22 @@
+{
+  "pages": [
+    {
+      "path": "pages/category"
+    },
+    <% components.forEach(item => { %>
+      {"path": "pages/<%- item.dashedStyledName %>"},
+    <%}) %>
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "uni-app"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  }
+}

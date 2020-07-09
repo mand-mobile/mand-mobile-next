@@ -1,9 +1,9 @@
 .DS_Store
 node_modules
-/dist
-/src
+dist
+lib
 # 这部分目录需要vue cli的generator在每次构建时生成
-/.mand-mobile
+.mand-mobile
 # local env files
 .env.local
 .env.*.local
