@@ -16,16 +16,20 @@
     "core-js": "^2.6.5",
     "flyio": "^0.6.2",
     "regenerator-runtime": "^0.12.1",
+    "rxjs-compat": "^6.6.0",
     "vue": "^2.6.10",
     "vuex": "^3.0.1"
   },
   "husky": {
     "hooks-todo-open": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    },
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "components/**/*.{vue,js,json}": [
+    "packages/**/*.{vue,js,json,ts}": [
       "aesir lint -s",
       "aesir format -S",
       "git add"
