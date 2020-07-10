@@ -10,11 +10,9 @@
     "lib": "lib",
     "test": "__tests__"
   },
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "nothing to build"
+    "build": "echo \"nothing to build\""
   }
 }

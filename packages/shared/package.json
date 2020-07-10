@@ -10,19 +10,17 @@
     "lib": "lib",
     "test": "__tests__"
   },
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "scripts": {
     "prebuild": "rm -fr lib || true",
     "build": "tsc && copyfiles -s -u 1 -e **/*.ts src/**/* src/**/**/* lib",
     "build:watch": "chokidar \"src/**/*\" -c \"npm run build\"",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "chokidar-cli": "^2.1.0",
-    "copyfiles": "^2.3.0"
+    "copyfiles": "^2.3.0",
+    "typescript": "^3.9.6"
   }
 }
