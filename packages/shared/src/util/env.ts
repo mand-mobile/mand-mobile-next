@@ -1,5 +1,8 @@
 import Vue from 'vue'
 
+declare var Page: any
+declare var Component: any
+
 // Development environment
 export const isProd = process.env.NODE_ENV === 'production'
 
