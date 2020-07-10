@@ -3531,6 +3531,11 @@ coa@^2.0.2:
     chalk "^2.4.1"
     q "^1.1.2"
 
+coalescy@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/coalescy/-/coalescy-1.0.0.tgz#4b065846b836361ada6c4b4a4abf4bc1cac31bf1"
+  integrity sha1-SwZYRrg2NhrabEtKSr9LwcrDG/E=
+
 code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
@@ -4841,7 +4846,7 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   resolved "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-aesir-mandatory@^0.0.3:
+eslint-config-aesir-mandatory@0.0.3, eslint-config-aesir-mandatory@^0.0.3:
   version "0.0.3"
   resolved "https://registry.npmjs.org/eslint-config-aesir-mandatory/-/eslint-config-aesir-mandatory-0.0.3.tgz#714f9658d67861ff42205a3f78b0ebb87d5296d5"
   integrity sha512-e+b7OZHtkEr5RgWsD2dkKnK9CZmJf3wEhTXZddswoxpiwr5SFrdupeS4hXAMgEQxOi30eWbp1VhZJmexpNjh8A==
@@ -4861,6 +4866,22 @@ eslint-config-aesir-recommand@^0.0.2:
     eslint-plugin-promise "^3.5.0"
     eslint-plugin-standard "^3.0.0"
 
+eslint-config-standard@^10.2.1:
+  version "10.2.1"
+  resolved "https://registry.npmjs.org/eslint-config-standard/-/eslint-config-standard-10.2.1.tgz#c061e4d066f379dc17cd562c64e819b4dd454591"
+  integrity sha1-wGHk0GbzedwXzVYsZOgZtN1FRZE=
+
+eslint-friendly-formatter@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/eslint-friendly-formatter/-/eslint-friendly-formatter-3.0.0.tgz#278874435a6c46ec1d94fa0b1ff494e30ef04290"
+  integrity sha1-J4h0Q1psRuwdlPoLH/SU4w7wQpA=
+  dependencies:
+    chalk "^1.0.0"
+    coalescy "1.0.0"
+    extend "^3.0.0"
+    minimist "^1.2.0"
+    text-table "^0.2.0"
+
 eslint-import-resolver-node@^0.3.3:
   version "0.3.4"
   resolved "https://registry.npmjs.org/eslint-import-resolver-node/-/eslint-import-resolver-node-0.3.4.tgz#85ffa81942c25012d8231096ddf679c03042c717"
@@ -4868,6 +4889,17 @@ eslint-import-resolver-node@^0.3.3:
   dependencies:
     debug "^2.6.9"
     resolve "^1.13.1"
+
+eslint-loader@^1.7.1:
+  version "1.9.0"
+  resolved "https://registry.npmjs.org/eslint-loader/-/eslint-loader-1.9.0.tgz#7e1be9feddca328d3dcfaef1ad49d5beffe83a13"
+  integrity sha512-40aN976qSNPyb9ejTqjEthZITpls1SVKtwguahmH1dzGCwQU/vySE+xX33VZmD8csU0ahVNCtFlsPgKqRBiqgg==
+  dependencies:
+    loader-fs-cache "^1.0.0"
+    loader-utils "^1.0.2"
+    object-assign "^4.0.1"
+    object-hash "^1.1.4"
+    rimraf "^2.6.1"
 
 eslint-module-utils@^2.6.0:
   version "2.6.0"
@@ -5256,7 +5288,7 @@ extend-shallow@^3.0.0, extend-shallow@^3.0.2:
     assign-symbols "^1.0.0"
     is-extendable "^1.0.1"
 
-extend@~3.0.2:
+extend@^3.0.0, extend@~3.0.2:
   version "3.0.2"
   resolved "https://registry.npmjs.org/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
   integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
@@ -5442,6 +5474,15 @@ find-babel-config@^1.1.0:
   dependencies:
     json5 "^0.5.1"
     path-exists "^3.0.0"
+
+find-cache-dir@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/find-cache-dir/-/find-cache-dir-0.1.1.tgz#c8defae57c8a52a8a784f9e31c57c742e993a0b9"
+  integrity sha1-yN765XyKUqinhPnjHFfHQumToLk=
+  dependencies:
+    commondir "^1.0.1"
+    mkdirp "^0.5.1"
+    pkg-dir "^1.0.0"
 
 find-cache-dir@^1.0.0:
   version "1.0.0"
@@ -7335,6 +7376,14 @@ load-json-file@^5.3.0:
     strip-bom "^3.0.0"
     type-fest "^0.3.0"
 
+loader-fs-cache@^1.0.0:
+  version "1.0.3"
+  resolved "https://registry.npmjs.org/loader-fs-cache/-/loader-fs-cache-1.0.3.tgz#f08657646d607078be2f0a032f8bd69dd6f277d9"
+  integrity sha512-ldcgZpjNJj71n+2Mf6yetz+c9bM4xpKtNds4LbqXzU/PTdeAX0g3ytnU1AJMEcTk2Lex4Smpe3Q/eCTsvUBxbA==
+  dependencies:
+    find-cache-dir "^0.1.1"
+    mkdirp "^0.5.1"
+
 loader-runner@^2.3.1, loader-runner@^2.4.0:
   version "2.4.0"
   resolved "https://registry.npmjs.org/loader-runner/-/loader-runner-2.4.0.tgz#ed47066bfe534d7e84c4c7b9998c2a75607d9357"
@@ -8349,6 +8398,11 @@ object-copy@^0.1.0:
     define-property "^0.2.5"
     kind-of "^3.0.3"
 
+object-hash@^1.1.4:
+  version "1.3.1"
+  resolved "https://registry.npmjs.org/object-hash/-/object-hash-1.3.1.tgz#fde452098a951cb145f039bb7d455449ddc126df"
+  integrity sha512-OSuu/pU4ENM9kmREg0BdNrUDIl1heYa4mBZacJc+vVWz4GtAwu7jO8s4AIt2aGRUTqxykpWzI3Oqnsm13tTMDA==
+
 object-inspect@^1.7.0:
   version "1.8.0"
   resolved "https://registry.npmjs.org/object-inspect/-/object-inspect-1.8.0.tgz#df807e5ecf53a609cc6bfe93eac3cc7be5b3a9d0"
@@ -8934,6 +8988,13 @@ pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.npmjs.org/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
+
+pkg-dir@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/pkg-dir/-/pkg-dir-1.0.0.tgz#7a4b508a8d5bb2d629d447056ff4e9c9314cf3d4"
+  integrity sha1-ektQio1bstYp1EcFb/TpyTFM89Q=
+  dependencies:
+    find-up "^1.0.0"
 
 pkg-dir@^2.0.0:
   version "2.0.0"
@@ -10088,7 +10149,7 @@ right-pad@^1.0.1:
   resolved "https://registry.npmjs.org/right-pad/-/right-pad-1.0.1.tgz#8ca08c2cbb5b55e74dafa96bf7fd1a27d568c8d0"
   integrity sha1-jKCMLLtbVedNr6lr9/0aJ9VoyNA=
 
-rimraf@^2.5.2, rimraf@^2.5.4, rimraf@^2.6.2, rimraf@^2.6.3:
+rimraf@^2.5.2, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2, rimraf@^2.6.3:
   version "2.7.1"
   resolved "https://registry.npmjs.org/rimraf/-/rimraf-2.7.1.tgz#35797f13a7fdadc566142c29d4f07ccad483e3ec"
   integrity sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==
@@ -11070,7 +11131,7 @@ text-extensions@^1.0.0:
   resolved "https://registry.npmjs.org/text-extensions/-/text-extensions-1.9.0.tgz#1853e45fee39c945ce6f6c36b2d659b5aabc2a26"
   integrity sha512-wiBrwC1EhBelW12Zy26JeOUkQ5mRu+5o8rpsJk5+2t+Y5vE7e842qtZDQ2g1NpX/29HdyFeJ4nSIhI47ENSxlQ==
 
-text-table@~0.2.0:
+text-table@^0.2.0, text-table@~0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
