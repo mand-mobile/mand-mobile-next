@@ -91,9 +91,9 @@ $ npm run pub
 - `BEM` 代表 **块（block），元素（element），修饰符（modifier）**。  
 - 拓展关系
   - `-` 中划线，做连字符使用，无实际意义。
-  - `__` 双下滑线，用来连接块和其子元素。
-  - `_` 单下划线用来描述块或块的子元素的一种状态
-> 如：`md-button__content_active`
+  - `_` 单下滑线，用来连接块和其子元素。
+  - `--` 双中划线用来描述块或块的子元素的一种状态
+> 如：`md-button_content--active`
 
 ### 块（block）
 
@@ -122,7 +122,7 @@ $ npm run pub
 
 👏
 .md-button {}
-.md-button__content {}
+.md-button_content {}
 ```
 
 ### 修饰符（modifier）
@@ -140,10 +140,10 @@ $ npm run pub
 
 👏
 .md-button {}
-.md-button_mine {}
-.md-button_small {}
-.md-button_normal {}
-.md-button_large {}
+.md-button--mini {}
+.md-button--small {}
+.md-button--normal {}
+.md-button--large {}
 ```
 
 ### ✍️ 书写风格
@@ -154,17 +154,17 @@ $ npm run pub
 👋
 .md-button
   width 100%
-.md-button__content
+.md-button_content
   width 100%
-.md-button_active
+.md-button--active
   background $highlight
 
 👏
 .md-button
   width 100%
-  &__content
+  &_content
     width 100%
-  &_active
+  &--active
     background $highlight
 ```
 样式属性顺序尽可能的保持如下规则
@@ -172,8 +172,9 @@ $ npm run pub
 - 自身属性：`width height min-height max-height min-width max-width` 等。
 - 文字样式：`color font-size letter-spacing, color text-align` 等。
 - 背景：`background-image border` 等。
-- 文本属性: `text-align vertical-align text-wrap text-transform text-indent text-decoration  letter-spacing word-spacing white-space text-overflow` 等。
+- 文本属性: `text-align vertical-align text-wrap text-transform text-indent text-decoration letter-spacing word-spacing white-space text-overflow` 等。
 - css3中属性：`content、box-shadow、animation、border-radius、transform` 等
 
 ### 其他
+
 `BEM` 旨在解决命名空间污染和组件解耦，缺点是会导致类名变长。
