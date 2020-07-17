@@ -74,3 +74,5 @@ export function trimValue(value, gap = ' ') {
   value = value.toString().replace(reg, '')
   return value
 }
+
+
