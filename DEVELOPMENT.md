@@ -181,6 +181,20 @@ $ npm run pub
 
 ### 组件暴露
 
-- #### Component.json编写规范: 
+#### Component.js编写规范: 
 
-- 
+以button为例，需要在组件根目录放置`component.js`用于生成展示示例和开发预览所必要的元信息
+
+:blush: 如果是用于暴露API的组件比如`Form-Item`，组件目录下无需配置`component.js`文件
+
+```json
+export default {
+  'name': 'tag',
+  'text': '标签',
+  'category': 'basic',
+  'description': '小标签',
+  'author': 'guoyunlong <guoyunlong@didichuxing.com>'
+}
+
+```
+
