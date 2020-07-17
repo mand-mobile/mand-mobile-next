@@ -10,6 +10,7 @@ import * as utils from '@mand-mobile/shared/utils'
 
 ## Structure
 
+```
 ├─src
 |  ├─util
 |  |  ├─debug.ts
@@ -34,3 +35,4 @@ import * as utils from '@mand-mobile/shared/utils'
 |  |   |   └warn-color.svg
 |  ├─mixin
 |  |   └proxy.ts
+```
