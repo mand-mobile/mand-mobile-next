@@ -1,11 +1,9 @@
 # `@mand-mobile/shared`
 
-> TODO: description
+Internal utility functions, stylus, and constants shared across `@mand-mobile` packages.
 
 ## Usage
 
-```
-const mandMobileShared = require('@mand-mobile/shared');
-
-// TODO: DEMONSTRATE API
+``` typescript
+import * as utils from '@mand-mobile/shared/utils'
 ```

@@ -30,6 +30,9 @@ if (inBrowser) {
 
 export { mdDocument, MDDocument }
 
+/**
+ * Get display dpr
+ */
 export function getDpr() {
   const getParam = (name: string, str: string) => {
     const reg = new RegExp(`(^|,)${name}=([^,]*)(,|$)`, 'i')

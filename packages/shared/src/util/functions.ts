@@ -1,6 +1,5 @@
 import { warn } from './debug'
 import { hyphenate } from './index'
-import { mdDocument } from './window'
 
 export const NOOP = () => {}
 
@@ -42,6 +41,11 @@ export function throttle(fn = NOOP, interval = 300) {
     }
   }
 }
+
+/**
+ * simple deep clone by JSON
+ * @param data unknown
+ */
 
 export function cloneJSON(data: unknown) {
   try {
