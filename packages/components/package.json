@@ -2,9 +2,7 @@
   "name": "@mand-mobile/components",
   "version": "0.0.1",
   "description": "mand-mobile source code",
-  "keywords": [
-    "mfe"
-  ],
+  "keywords": ["mfe"],
   "author": "lucker <guoyunlong@didichuxing.com>",
   "homepage": "",
   "license": "ISC",
@@ -13,16 +11,13 @@
     "lib": "lib",
     "test": "__tests__"
   },
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
     "build": "echo \"build nothing\""
   },
   "dependencies": {
     "@mand-mobile/platform": "^0.0.1",
-    "jest": "^26.0.1",
-    "typescript": "^3.9.5"
+    "jest": "^26.0.1"
   }
 }

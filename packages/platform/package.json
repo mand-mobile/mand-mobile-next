@@ -2,9 +2,7 @@
   "name": "@mand-mobile/platform",
   "version": "0.0.1",
   "description": "mand-mobile runtime cross platform plugins",
-  "keywords": [
-    "mfe"
-  ],
+  "keywords": ["mfe"],
   "author": "lucker <guoyunlong@didichuxing.com>",
   "homepage": "",
   "license": "ISC",
@@ -13,9 +11,7 @@
     "lib": "lib",
     "test": "__tests__"
   },
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
     "prebuild": "rm -fr lib || true",
@@ -25,7 +21,6 @@
     "@vue/compiler-sfc": "^3.0.0-beta.18",
     "jest": "^26.0.1",
     "stylus-loader": "^3.0.2",
-    "typescript": "^3.9.5",
     "vue": "^2.6.11"
   },
   "devDependencies": {
