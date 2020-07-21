@@ -1,5 +1,5 @@
 <template>
-  <!-- <svg
+  <svg
     v-if="svg || isInnerSvg"
     class="md-icon icon-svg"
     :class="[`md-icon-${name}`, size]"
@@ -7,9 +7,9 @@
     @click="$emit('click', $event)"
   >
     <use :xlink:href="`#${name}`"/>
-  </svg> -->
+  </svg>
   <i
-    v-if="name"
+    v-else
     class="md-icon icon-font"
     :class="[`md-icon-${name}`, name, size]"
     :style="{color}"
@@ -17,9 +17,9 @@
   ></i>
 </template>
 
-<script>
-// import loadSprite from './load-spirte'
-// import defaultSvg from './default-svg-list'
+<script>import {ismp} from '@mand-mobile/shared/lib/util'
+import loadSprite from './load-spirte'
+import defaultSvg from './default-svg-list'
 
 export default {
   name: 'md-icon',
@@ -43,18 +43,19 @@ export default {
     },
   },
 
-  // mounted() {
-  //   loadSprite()
-  // },
+  mounted() {
+    if (!ismp) {
+      loadSprite()
+    }
+  },
 
-  // computed: {
-  //   isInnerSvg() {
-  //     return !!defaultSvg[this.name]
-  //   },
-  // },
+  computed: {
+    isInnerSvg() {
+      return !!defaultSvg[this.name]
+    },
+  },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-icon
