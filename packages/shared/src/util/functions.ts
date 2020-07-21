@@ -1,6 +1,3 @@
-import { warn } from './debug'
-import { hyphenate } from './index'
-
 export const NOOP = () => {}
 
 export const NO = () => false
@@ -43,19 +40,6 @@ export function throttle(fn = NOOP, interval = 300) {
 }
 
 /**
- * simple deep clone by JSON
- * @param data unknown
- */
-
-export function cloneJSON(data: unknown) {
-  try {
-    return JSON.parse(JSON.stringify(data))
-  } catch(e) {
-    warn(e.message)
-  }
-}
-
-/**
  * Multiple Array traversal
  * @return 1 continue
  * @return 2 break
@@ -93,37 +77,4 @@ export function traverse(data, childrenKeys = [], fn: any) {
     indexs = []
   }
   walk(data)
-}
-
-/**
- * transform a Function to Blob Url
- */
-export function functionToUrl(fn: Function) {
-  const blob = new Blob([`(${fn.toString()})(null)`], {type: 'application/javascript'})
-  return URL.createObjectURL(blob)
-}
-
-/**
- * generate random id
- */
-export function randomId(prefix = '', length = 8) {
-  return process.env.NODE_ENV !== 'test'
-    ? `${prefix}-${parseInt('' + Math.random() * Math.pow(10, length))}`
-    : ''
-}
-
-export function transformDate(dateStr: string | Date) {
-  if (typeof dateStr === 'string') {
-    return new Date(dateStr)
-  }
-  return dateStr
-}
-
-export function flatStyleObject(styles = {}) {
-  if (!styles) {
-    return ''
-  }
-  return Object.keys(styles).reduce((prev, prop) => {
-    return prev += (prop ? `${hyphenate(prop)}:${styles[prop]};` : '')
-  }, '')
 }

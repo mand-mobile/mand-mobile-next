@@ -15,7 +15,7 @@ import * as utils from '@mand-mobile/shared/utils'
 |  ├─util
 |  |  ├─debug.ts
 |  |  ├─env.ts
-|  |  ├─formate.ts
+|  |  ├─data.ts
 |  |  ├─functions.ts
 |  |  ├─index.ts
 |  |  └─window.ts
