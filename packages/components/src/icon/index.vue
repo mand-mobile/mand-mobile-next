@@ -82,35 +82,35 @@ export default {
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
     &.xss
-      font-size icon-size-xxs
+      font-size md-icon-size-xxs
     &.xs
-      font-size icon-size-xs
+      font-size md-icon-size-xs
     &.sm
-      font-size icon-size-sm
+      font-size md-icon-size-sm
     &.md
-      font-size icon-size-md
+      font-size md-icon-size-md
     &.lg
-      font-size icon-size-lg
+      font-size md-icon-size-lg
     &:before
       position relative
       z-index 2
 
   &.icon-svg
     &.xss
-      width icon-size-xxs
-      vertical-height(icon-size-xxs)
+      width md-icon-size-xxs
+      vertical-height(md-icon-size-xxs)
     &.xs
       width icon-size-xs
-      vertical-height(icon-size-xs)
+      vertical-height(md-icon-size-xs)
     &.sm
       width icon-size-sm
-      vertical-height(icon-size-sm)
+      vertical-height(md-icon-size-sm)
     &.md
       width icon-size-md
-      vertical-height(icon-size-md)
+      vertical-height(md-icon-size-md)
     &.lg
       width icon-size-lg
-      vertical-height(icon-size-lg)
+      vertical-height(md-icon-size-lg)
 
 // name
 .md-icon-rectangle:before
@@ -228,5 +228,5 @@ export default {
   font-weight normal
   /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
   /* Version is required */
-  src icon-font-family
+  src md-icon-font-family
 </style>
