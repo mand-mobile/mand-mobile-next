@@ -1,15 +1,15 @@
-import {getDpr} from 'mand-mobile/_util'
+import {getDpr} from '@mand-mobile/shared/lib/util'
 
 class WebDevice {
-  device = {}
   constructor() {
+    this.device = {}
     this.device.pixelRatio = getDpr()
   }
   vibrate() {}
 }
 
 let globalDevice = null
-export const Device = function () {
+export const Device = function() {
   if (!globalDevice) {
     globalDevice = new WebDevice()
   }

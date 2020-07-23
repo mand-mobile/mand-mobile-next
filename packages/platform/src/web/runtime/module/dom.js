@@ -1,10 +1,12 @@
-import {root, mdDocument} from 'mand-mobile/_util'
+import {root, mdDocument} from '@mand-mobile/shared/lib/util'
 
 class WebDom {
-  nodeRef = null
-  vm = null
+  constructor() {
+    this.nodeRef = null
+    this.vm = null
+  }
 
-  _bindApi (node) {
+  _bindApi(node) {
     if (node) {
       node.element = node
       node.getNode = this.getNode.bind(this)
@@ -17,11 +19,11 @@ class WebDom {
     this.nodeRef = mdDocument.documentElement
     return this._bindApi(this.nodeRef)
   }
-  querySelector (el = '') { 
+  querySelector(el = '') {
     this.nodeRef = (this.vm || mdDocument).querySelector(el)
     return this._bindApi(this.nodeRef)
   }
-  querySelectorAll (el, vm = null) {
+  querySelectorAll(el, vm = null) {
     const nodeRef = (this.vm || mdDocument).querySelectorAll(el)
     this.nodeRef = Array.isArray(nodeRef) ? nodeRef : Array.prototype.slice.call(nodeRef)
     return new Proxy(this.nodeRef, {
@@ -32,26 +34,26 @@ class WebDom {
           return this._bindApi(val)
         }
         return val || this[prop]
-      }
+      },
     })
   }
-  getNode () {
+  getNode() {
     return this.nodeRef
   }
-  getScrollOffset (el) {
+  getScrollOffset(el) {
     const view = el || this.nodeRef
     const res = {
       scrollLeft: view.scrollLeft,
-      scrollTop: view.scrollTop
+      scrollTop: view.scrollTop,
     }
     return res
   }
-  getComputedStyle (props = [], el) {
+  getComputedStyle(props = [], el) {
     return root.getComputedStyle(el || this.nodeRef)
   }
 }
 
-export const Dom = function () {
+export const Dom = function() {
   const dom = new WebDom()
   dom.vm = this.$el
   return new Proxy(dom, {
@@ -61,6 +63,6 @@ export const Dom = function () {
       } else {
         return mdDocument[prop]
       }
-    }
+    },
   })
 }
