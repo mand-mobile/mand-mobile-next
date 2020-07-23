@@ -51,7 +51,7 @@ export default {
 
   computed: {
     isInnerSvg() {
-      return !!defaultSvg[this.name]
+      return !ismp && !!defaultSvg[this.name]
     },
   },
 }

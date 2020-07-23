@@ -5,7 +5,7 @@ Internal utility functions, stylus, and constants shared across `@mand-mobile` p
 ## Usage
 
 ``` typescript
-import * as utils from '@mand-mobile/shared/utils'
+import * as utils from '@mand-mobile/shared/lib/util'
 ```
 
 ## Structure

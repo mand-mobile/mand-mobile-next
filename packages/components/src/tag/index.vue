@@ -35,8 +35,8 @@
   </div>
 </template>
 
-<script>
-import {transformCamelCase, inBrowser} from '@mand-mobile/shared/lib/util'
+<script>import {camelize, inBrowser, ismp} from '@mand-mobile/shared/lib/util'
+import {Dom} from '@mand-mobile/platform/lib/runtime/module'
 export default {
   name: 'md-tag',
   props: {
@@ -92,7 +92,7 @@ export default {
     inlineStyles() {
       let content = ''
       for (let prop in this.colorStyle) {
-        let key = prop.replace(/([A-Z])/g, "-$1").toLowerCase()
+        let key = prop.replace(/([A-Z])/g, '-$1').toLowerCase()
         content += key + ':' + this.colorStyle[prop] + ';'
       }
       return content
@@ -113,6 +113,7 @@ export default {
     },
   },
   mounted() {
+    const dom = new Dom()
     this.$nextTick(() => {
       const setStyle = height => {
         const radius = height / 2
@@ -120,34 +121,38 @@ export default {
         this.$set(this.sizeStyle, 'paddingRight', radius + 'px')
         this.$set(this.sizeStyle, 'borderRadius', radius + 'px')
         if (this.sharp) {
-          this.$set(this.sizeStyle, transformCamelCase(`border-${this.sharp}-radius`), 0)
+          this.$set(this.sizeStyle, camelize(`border-${this.sharp}-radius`), 0)
         }
       }
-      if (this.shape !== 'circle') return
-      if (typeof uni === 'object' && !inBrowser) {
-        uni.createSelectorQuery().in(this).select('.shape-circle').boundingClientRect(data => {
-          setStyle(data.height)
-        }).exec()
+      if (this.shape !== 'circle') {
+        return
+      }
+      if (typeof uni === 'object' && !inBrowser && ismp) {
+        dom
+          .querySelector('.shape-circle')
+          .getBoundingClientRect()
+          .then(data => {
+            setStyle(data.height)
+          })
       } else {
         setStyle(this.$el.offsetHeight)
       }
     })
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-tag
-  color color-text-base
+  color md-color-text-base
   font-size 28px
   text-align center
   display inline-block
   -webkit-user-select none
   .default
     background rgba(0,0,0,0)
-    color tag-color
-    border-color tag-color
+    color md-tag-color
+    border-color md-tag-color
   .shape-square
     padding 0 12px
     border-radius 50%
@@ -156,7 +161,7 @@ export default {
     border-radius 0
   .shape-fillet
     padding 2px 8px
-    border-radius tag-fillet-radius
+    border-radius md-tag-fillet-radius
   .shape-quarter
     position relative
     display flex
@@ -180,8 +185,8 @@ export default {
       left 0
       width 200%
       height 200%
-      border-radius radius-circle
-      background-color checkbox-active-color
+      border-radius md-radius-circle
+      background-color md-checkbox-active-color
     .quarter-wrap
       display inline-block
       padding 16px 12px 10px 26px
@@ -228,7 +233,7 @@ export default {
   .shape-bubble
     width 50px
     padding 6px 0
-    border-radius radius-circle
+    border-radius md-radius-circle
     border-bottom-left-radius 0
     box-sizing border-box
 
@@ -240,16 +245,16 @@ export default {
       padding 2px 0
 
   .size-large
-    font-size tag-large-font-size
+    font-size md-tag-large-font-size
   .size-small
-    font-size tag-small-font-size
+    font-size md-tag-small-font-size
   .size-tiny
-    font-size tag-tiny-font-size
+    font-size md-tag-tiny-font-size
   .type-fill
-    color color-text-base-inverse
-    background tag-color
+    color md-color-text-base-inverse
+    background md-tag-color
   .type-ghost
-    border 1px solid tag-color
+    border 1px solid md-tag-color
     background rgba(0,0,0,0)
 
   .font-weight-normal
