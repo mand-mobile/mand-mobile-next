@@ -39,8 +39,12 @@
   </div>
 </template>
 
-<script>import {InputItem, NumberKeyboard, Field, Icon, Toast} from 'mand-mobile'
-import '@examples/assets/images/bank-zs.svg'
+<script>import '@examples/assets/images/bank-zs.svg'
+import InputItem from '../../index.vue'
+import Field from '../../../field/index.vue'
+import NumberKeyboard from '../../../number-keyboard/index.vue'
+import Icon from '../../../icon/index.vue'
+import Toast from '../../../toast/index.js'
 
 export default {
   name: 'input-item-demo',
@@ -51,10 +55,10 @@ export default {
   messageEnUS: 'Please scan QR code and preview on mobile device',
   /* DELETE */
   components: {
-    [InputItem.name]: InputItem,
-    [NumberKeyboard.name]: NumberKeyboard,
-    [Field.name]: Field,
-    [Icon.name]: Icon,
+    'md-input-item': InputItem,
+    'md-number-keyboard': NumberKeyboard,
+    'md-field': Field,
+    'md-icon': Icon,
   },
   methods: {
     onClick() {

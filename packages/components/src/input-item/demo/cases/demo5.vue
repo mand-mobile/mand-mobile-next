@@ -27,7 +27,9 @@
   </div>
 </template>
 
-<script>import {InputItem, Field, Dialog} from 'mand-mobile'
+<script>import InputItem from '../../index.vue'
+import Field from '../../../field/index.vue'
+import Dialog from '../../../dialog/index.js'
 
 export default {
   name: 'input-item-demo',
@@ -36,8 +38,8 @@ export default {
   titleEnUS: 'Input with error message',
   /* DELETE */
   components: {
-    [InputItem.name]: InputItem,
-    [Field.name]: Field,
+    'md-input-item': InputItem,
+    'md-field': Field,
   },
   data() {
     return {
