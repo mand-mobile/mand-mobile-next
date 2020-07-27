@@ -462,6 +462,11 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@mand-mobile/platform@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.npmjs.org/@mand-mobile/platform/-/platform-0.0.1.tgz#619f2cd603f71a090858daf3da0aefd3a76c7ea6"
+  integrity sha512-W1O28gNUnZzrDHa1vbZsXjRRSFY4CVw62hPkgM8eFR58N/nB0kPQgiu4Jt9sfbc/L2cjws6DzVslTfCHxapQAQ==
+
 "@sinonjs/commons@^1.7.0":
   version "1.8.0"
   resolved "https://registry.npmjs.org/@sinonjs/commons/-/commons-1.8.0.tgz#c8d68821a854c555bba172f3b06959a0039b236d"

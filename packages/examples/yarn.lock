@@ -1003,6 +1003,26 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@mand-mobile/components@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-0.0.1.tgz#edc7afdfcb30c2664419f3310f1f944c0b8c6409"
+  integrity sha512-TJR8B7RcT5VReW6rJ6BQrFEgDsTFy5wreuKh4Xut2zZz3yte8/ISvs9wgkLckcUKroQkN6MNjokaq7ERH0AhpA==
+
+"@mand-mobile/platform@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.npmjs.org/@mand-mobile/platform/-/platform-0.0.1.tgz#619f2cd603f71a090858daf3da0aefd3a76c7ea6"
+  integrity sha512-W1O28gNUnZzrDHa1vbZsXjRRSFY4CVw62hPkgM8eFR58N/nB0kPQgiu4Jt9sfbc/L2cjws6DzVslTfCHxapQAQ==
+
+"@mand-mobile/shared@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.npmjs.org/@mand-mobile/shared/-/shared-0.0.1.tgz#de9b5d44bacd45e6c656ec5823b0aae01644a608"
+  integrity sha512-KyHspe36JXXUoh5SkSbO1P4Fl2E9amLgiGwbM9G9bUWIYzGfh18QoQiOVUgrwWFNjgN5Z+VXrVOJkGvQAmSVuA==
+
+"@mand-mobile/vue-cli-plugin-builder@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.npmjs.org/@mand-mobile/vue-cli-plugin-builder/-/vue-cli-plugin-builder-0.0.1.tgz#3b0682b11bc2b699602cec414af068877d80bceb"
+  integrity sha512-A0D0WEITJZLXG2MVxIvZwF5d+JMkUVG/MBCKJ+vvHG8pzCn3Haxe+Hf6GXsKg4hslLSe2h2H0YpPHJ/1oDPclg==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.npmjs.org/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

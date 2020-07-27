@@ -5,7 +5,7 @@
   "scripts": {
     "cz": "git add -A && npx git-cz",
     "prebootstrap": "lerna clean",
-    "bootstrap": "yarn && lerna bootstrap && lerna exec --bail=false npm run build",
+    "bootstrap": "yarn && lerna exec --no-bail PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn  && lerna exec --bail=false npm run build",
     "serve": "cd packages/examples && npm run serve --",
     "serve:web": "cd packages/examples && npm run serve:web --",
     "serve:uni": "cd packages/examples && npm run serve:uni --",
