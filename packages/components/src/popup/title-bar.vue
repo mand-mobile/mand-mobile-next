@@ -2,21 +2,21 @@
   <div
     class="md-popup-title-bar"
     :class="[
-      `title-align-${titleAlign}`,
-      {large: !!describe},
+      `md-popup-title-bar--align-${titleAlign}`,
+      {'md-popup-title-bar--large': !!describe},
     ]"
-    @touchmove="$_preventScroll"
+    @touchmove.prevent
   >
     <!-- Cancel -->
     <template v-if="!onlyClose">
       <div
-        class="title-bar-left md-popup-cancel"
+        class="md-popup-title-bar_left md-popup-cancel"
         v-if="cancelText"
         v-html="cancelText"
         @click="$emit('cancel')"
       ></div>
       <div
-        class="title-bar-left md-popup-cancel"
+        class="md-popup-title-bar_left md-popup-cancel"
         v-else-if="$slots.cancel"
         @click="$emit('cancel')"
       >
@@ -27,36 +27,36 @@
     <!-- Title -->
     <div
       v-if="title"
-      class="title-bar-title"
+      class="md-popup-title-bar_title"
     >
       <p
         v-if="title"
-        class="title"
+        class="md-popup-title-bar_title_main"
         v-html="title"
       ></p>
       <p
         v-if="describe"
-        class="describe"
+        class="md-popup-title-bar_title_describe"
         v-html="describe"
       ></p>
     </div>
     <div
-      class="title-bar-title"
+      class="md-popup-title-bar_title"
       v-else
     >
-      <slot name="title"></slot>
+      <slot name="md-popup-title-bar_title_main"></slot>
     </div>
 
     <!-- Ok -->
     <template v-if="!onlyClose">
       <div
-        class="title-bar-right md-popup-confirm"
+        class="md-popup-title-bar_right md-popup-confirm"
         v-if="okText"
         v-html="okText"
         @click="$emit('confirm')"
       ></div>
       <div
-        class="title-bar-right md-popup-confirm"
+        class="md-popup-title-bar_right md-popup-confirm"
         v-else-if="$slots.confirm"
         @click="$emit('confirm')"
       >
@@ -65,7 +65,7 @@
     </template>
     <template v-if="onlyClose">
       <div
-        class="title-bar-right md-popup-close"
+        class="md-popup-title-bar_right md-popup-close"
         @click="$emit('cancel')"
       >
         <md-icon name="close" size="lg"></md-icon>
@@ -74,8 +74,7 @@
   </div>
 </template>
 
-<script>
-// import titleBarMixin from './mixins/title-bar'
+<script>// import titleBarMixin from './mixins/title-bar'
 import Icon from '../icon'
 
 export default {
@@ -123,39 +122,31 @@ export default {
       immediate: true,
     },
   },
-
-  methods: {
-    $_preventScroll(e) {
-      /* istanbul ignore next */
-      e.preventDefault()
-    },
-  },
 }
-
-</script>
+</script>
 
 <style lang="stylus" scoped>
 .md-popup-title-bar
   position relative
   width 100%
-  height popup-title-bar-height
-  background-color popup-title-bar-bg
-  border-radius popup-title-bar-radius popup-title-bar-radius 0 0
+  height md-popup-title-bar-height
+  background-color md-popup-title-bar-bg
+  border-radius md-popup-title-bar-radius md-popup-title-bar-radius 0 0
   clearfix()
   overflow hidden
-  &.large
-    height popup-title-bar-height-large
-  &.title-align-left
-    .title-bar-title
-      padding-left h-gap-sl
+  &.md-popup-title-bar--large
+    height md-popup-title-bar-height-large
+  &.md-popup-title-bar--align-left
+    .md-popup-title-bar_title
+      padding-left md-h-gap-sl
       align-items flex-start
-    .title-bar-left
+    .md-popup-title-bar_left
       display none
-  &.title-align-right
-    .title-bar-title
-      padding-right h-gap-sl
+  &.md-popup-title-bar--align-right
+    .md-popup-title-bar_title
+      padding-right md-h-gap-sl
       align-items flex-end
-    .title-bar-right
+    .md-popup-title-bar_right
       display none
   &>div
     display flex
@@ -169,41 +160,41 @@ export default {
     text-overflow ellipsis
     word-break break-word
     white-space nowrap
-  .title-bar-left, .title-bar-right
+  .md-popup-title-bar_left, .md-popup-title-bar_right
     position absolute
     width 20%
-    max-height popup-title-bar-height
-    font-size popup-title-bar-font-size-button
-    font-weight popup-title-bar-font-weight-button
+    max-height md-popup-title-bar-height
+    font-size md-popup-title-bar-font-size-button
+    font-weight md-popup-title-bar-font-weight-button
     box-sizing border-box
     line-height 1
-  .title-bar-title
+  .md-popup-title-bar_title
     width 100%
     padding-left 20%
     padding-right 20%
     box-sizing border-box
     line-height 1
-    p.title
-      font-size popup-title-bar-font-size-title
-      color popup-title-bar-color-title
-    p.describe
+    &_main
+      font-size md-popup-title-bar-font-size-title
+      color md-popup-title-bar-color-title
+    &_describe
       margin-top 15px
-      font-size popup-title-bar-font-size-describe
-      color popup-title-bar-color-describe
-  .title-bar-left
+      font-size md-popup-title-bar-font-size-describe
+      color md-popup-title-bar-color-describe
+  .md-popup-title-bar_left
     left 0
-    padding-left h-gap-sl
+    padding-left md-h-gap-sl
     align-items flex-start
-  .title-bar-right
+  .md-popup-title-bar_right
     right 0
-    padding-right h-gap-sl
+    padding-right md-h-gap-sl
     align-items flex-end
   .md-popup-cancel
-    color popup-title-bar-color-button-left
+    color md-popup-title-bar-color-button-left
   .md-popup-confirm
-    color popup-title-bar-color-button-right
+    color md-popup-title-bar-color-button-right
   .md-popup-close
-    padding-top h-gap-sl
-    color popup-title-bar-color-button-left
+    padding-top md-h-gap-sl
+    color md-popup-title-bar-color-button-left
     justify-content flex-start
 </style>

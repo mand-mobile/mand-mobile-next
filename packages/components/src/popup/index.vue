@@ -3,14 +3,14 @@
     v-show="isPopupWrapperShow"
     class="md-popup"
     :class="[
-      hasMask ? 'with-mask' : '',
-      position,
-      isAbsolute? 'md-popup-absolute' : '',
+      hasMask ? 'md-popup--mask' : '',
+      position ? `md-popup--${position}` : '',
+      isAbsolute? 'md-popup--absolute' : '',
       isInner? 'inner-popup' : ''
     ]"
   >
     <md-transition :show="hasMask && isPopupBoxShow" name="md-fade">
-      <div class="md-popup-mask" @click="$_onPopupMaskClick"></div>
+      <div class="md-popup_mask" @click="$_onPopupMaskClick"></div>
     </md-transition>
     <md-transition
       :show="isPopupBoxShow"
@@ -21,15 +21,14 @@
       @after-enter="$_onPopupTransitionEnd"
       @after-leave="$_onPopupTransitionEnd"
     >
-      <div class="md-popup-box"  :class="[transitionName, isFullScreen ? 'md-popup-box-full' : '' ]">
+      <div class="md-popup_box"  :class="[transitionName, isFullScreen ? 'md-popup_box--full' : '' ]">
         <slot></slot>
       </div>
     </md-transition>
   </div>
 </template>
 
-<script>
-import Transition from '../transition'
+<script>import Transition from '../transition'
 import popupMixin from './mixins'
 
 export default {
@@ -45,7 +44,7 @@ export default {
     },
     transition: {
       type: String,
-      default: ''
+      default: '',
     },
     preventScroll: {
       type: Boolean,
@@ -59,16 +58,16 @@ export default {
     },
     isFullScreen: {
       type: Boolean,
-      default: false
+      default: false,
     },
     isAbsolute: {
       type: Boolean,
-      default: false
+      default: false,
     },
     isInner: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
     // Mixin Props
     // value: {
     //   type: Boolean,
@@ -111,11 +110,11 @@ export default {
       }
     },
     transition: {
-      handler () {
+      handler() {
         this.transitionName = this.$_getTransitionName()
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
 
   mounted() {
@@ -207,8 +206,7 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-popup
@@ -216,62 +214,62 @@ export default {
   position fixed
   display flex
   pointer-events none
-  z-index popup-zindex
-  .md-popup-box-full
-    position absolute
-    absolute-pos()
-  &.center, &.center-top, &.center-bottom
+  z-index md-popup-zindex
+  &--center, &--center-top, &--center-bottom
     justify-content center
     align-items center
 
-  &.top
+  &--top
     flex-direction column
     justify-content flex-start
-    .md-popup-box
+    .md-popup_box
       width 100%
 
-  &.bottom
+  &--bottom
     flex-direction column
     justify-content flex-end
-    .md-popup-box
+    .md-popup_box
       width 100%
 
-  &.left
+  &--left
     justify-content flex-start
-    .md-popup-box
+    .md-popup_box
       height 100%
 
-  &.right
+  &--right
     justify-content flex-end
-    .md-popup-box
+    .md-popup_box
       height 100%
 
-  &.center-top
+  &--center-top
     top 50px
     bottom auto
 
-  &.center-bottom
+  &--center-bottom
     bottom 50px
     top auto
 
-  &.md-popup-absolute
+  &--absolute
     position absolute
-  &.inner-popup .md-popup-box
-    background-color color-bg-inverse
-    border-radius popup-title-bar-radius popup-title-bar-radius 0 0
+  &.inner-popup .md-popup_box
+    background-color md-color-bg-inverse
+    border-radius md-popup-title-bar-radius md-popup-title-bar-radius 0 0
 
-.md-popup-mask
+.md-popup_mask
   absolute-pos()
   position absolute
-  pointer-events auto
   z-index 1
-  background-color popup-mask-bg
-
-.md-popup-box
-  position relative
   pointer-events auto
+  background-color md-popup-mask-bg
+
+.md-popup_box
+  position relative
   z-index 2
   max-width 100%
   max-height 100%
   overflow auto
+  pointer-events auto
+  &--full
+    position absolute
+    absolute-pos()
 </style>
