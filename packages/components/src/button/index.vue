@@ -191,7 +191,7 @@ export default {
       color md-button-warning-plain-color
       hairline(all, md-button-warning-fill, md-button-radius, 3px)
       &.active:active
-        background-color button-warning-plain-active-fill
+        background-color md-button-warning-plain-active-fill
       .md-button-loading .md-activity-indicator-svg .circle circle
         stroke md-button-warning-plain-color !important
     &.disabled
@@ -207,7 +207,7 @@ export default {
 
   &.inline
     display inline-block
-    padding 0 h-gap-md
+    padding 0 md-h-gap-md
   &.block
     width 100%
 
