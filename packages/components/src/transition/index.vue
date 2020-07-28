@@ -16,8 +16,6 @@
 </template>
 
 <script>import Transition from '@mand-mobile/platform/lib/runtime/component/transition'
-import '@mand-mobile/shared/lib/style/transition.styl'
-
 import {camelize} from '@mand-mobile/shared/lib/util'
 
 export default {
