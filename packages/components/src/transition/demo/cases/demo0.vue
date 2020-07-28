@@ -29,8 +29,11 @@
 </template>
 
 <script>
-import Button from 'mand-mobile/button'
-import Transition from 'mand-mobile/transition'
+// import {Button, Transition} from 'mand-mobile'
+import { Button } from 'mand-mobile/src/button'
+import { Transition } from 'mand-mobile/src/transition'
+
+console.info(Button, Transition)
 
 export default {
   name: 'transition-demo',
