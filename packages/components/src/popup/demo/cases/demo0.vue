@@ -1,5 +1,5 @@
 <template>
-  <div class="md-example-child md-example-child-popup md-example-child-popup-0" @touchstart="touchstart">
+  <div class="md-example-child md-example-child-popup md-example-child-popup-0">
     <md-button class="md-button" id="md-button" @click="showPopUp('center')" style="{height:100px}">屏幕中弹出</md-button>
     <md-popup v-model="isPopupShow.center">
       <div class="md-example-popup md-example-popup-center">
@@ -64,49 +64,25 @@
   </div>
 </template>
 
-<script>
-import Popup from 'mand-mobile/popup'
-import PopupTitleBar from 'mand-mobile/popup/title-bar'
-import Button from 'mand-mobile/button'
-import Icon from 'mand-mobile/icon'
-import {root} from 'mand-mobile/_util'
+<script>import Popup from '../../index'
+import PopupTitleBar from '../../title-bar'
+import Button from '../../../button'
+import Icon from '../../../icon'
 
 export default {
   name: 'popup-demo',
   components: {
     'md-popup': Popup,
-    // [PopupTitleBar.name]: PopupTitleBar,
+    'md-popup-title-bar': PopupTitleBar,
     'md-button': Button,
     'md-icon': Icon,
-    'md-popup-title-bar': PopupTitleBar
   },
   data() {
     return {
-      isPopupShow: {}
+      isPopupShow: {},
     }
   },
-  async mounted() {
-    const ref = this.$MDDom().querySelectorAll('.md-button')[1]
-    const res0 = await ref.id
-    console.log(res0)
-    // const res1 = await this.$MDDom().querySelector('#md-button').getComputedStyle(['height'])
-    // setTimeout(async () => {
-    //   const res2 = await this.$MDDom().documentElement().getScrollOffset()
-    //   console.log(res2)
-    // }, 3000)
-    // root.requestAnimationFrame(() => {
-    //   console.log('xxxxxx')
-    // })
-    // uni.getSystemInfo({
-    //   success: (res) => {
-    //     console.log(res)
-    //   }
-    // })
-  },
   methods: {
-    touchstart(e) {
-      console.log(e.touches[0])
-    },
     showPopUp(type) {
       this.$set(this.isPopupShow, type, true)
     },
@@ -115,52 +91,60 @@ export default {
     },
   },
 }
+</script>
 
-</script>
-
-<style lang="stylus">
-.md-example-child-popup-0
-  position relative
-  float left
-  width 100%
-  .md-button
-    display block
-    margin-bottom 20px
-    height 100px
-  .md-example-popup
-    position relative
-    font-size 28px
-    font-family DINPro
-    font-weight 500
-    box-sizing border-box
-    text-align center
-    background-color #FFF
-  .md-example-popup-center
-    padding 50px
-    border-radius radius-normal
-  .md-example-popup-top
-    display flex
-    justify-content center
-    align-items center
-    position relative
-    width 100%
-    height 75px
-    line-height 75px
-    background #4a4c5b
-    color #fff
-    .md-icon
-      position absolute
-      right 20px
-      top 50%
-      transform translateY(-50%)
-  .md-example-popup-bottom
-    width 100%
-    padding 100px 0
-    p
-      line-height 50px
-  .md-example-popup-left, .md-example-popup-right
-    height 100%
-    padding 0 150px
-    display flex
-    align-items center
+<style>
+.md-example-child-popup-0 {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+.md-example-child-popup-0 .md-button {
+  display: block;
+  height: 100px;
+  margin-bottom: 20px;
+}
+.md-example-child-popup-0 .md-example-popup {
+  position: relative;
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #FFF;
+}
+.md-example-child-popup-0 .md-example-popup-center {
+  padding: 50px;
+  border-radius: 8px;
+}
+.md-example-child-popup-0 .md-example-popup-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 75px;
+  line-height: 75px;
+  background: #4a4c5b;
+  color: #FFF;
+}
+.md-example-child-popup-0 .md-example-popup-top .md-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.md-example-child-popup-0 .md-example-popup-bottom {
+  width: 100%;
+  padding: 100px 0;
+}
+.md-example-child-popup-0 .md-example-popup-bottom p {
+  line-height: 50px;
+}
+.md-example-child-popup-0 .md-example-popup-left,
+.md-example-child-popup-0 .md-example-popup-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 150px;
+}
 </style>
