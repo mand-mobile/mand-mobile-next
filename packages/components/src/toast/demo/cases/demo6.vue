@@ -1,11 +1,10 @@
 <template>
-  <div class="md-example-child md-example-child-toast md-example-child-toast-0">
+  <div class="md-example-child md-example-child-toast">
     <md-button @click="showTextToast">自定义位置</md-button>
   </div>
 </template>
 
-<script>
-import Button from '../../../button'
+<script>import Button from '../../../button'
 import Toast from '../../../toast'
 
 export default {
@@ -15,11 +14,11 @@ export default {
   },
   methods: {
     showTextToast() {
-      Toast({
+      Toast.create({
         content: '自定义位置',
         position: 'bottom',
       })
     },
   },
 }
-</script>
+</script>

@@ -1,11 +1,10 @@
 <template>
-  <div class="md-example-child md-example-child-toast md-example-child-toast-2">
+  <div class="md-example-child md-example-child-toast">
     <md-button @click="showSucceedToast">失败</md-button>
   </div>
 </template>
 
-<script>
-import Button from '../../../button'
+<script>import Button from '../../../button'
 import Toast from '../../../toast'
 
 export default {
@@ -19,4 +18,4 @@ export default {
     },
   },
 }
-</script>
+</script>
