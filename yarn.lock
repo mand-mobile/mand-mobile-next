@@ -4244,10 +4244,10 @@ cz-conventional-changelog@3.2.0:
   optionalDependencies:
     "@commitlint/load" ">6.1.1"
 
-cz-mand-mobile-changelog@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/cz-mand-mobile-changelog/-/cz-mand-mobile-changelog-2.0.0.tgz#608914cd92e8c1461072a8abdf761e55c0a2f9a0"
-  integrity sha512-imM+Uzm9cL8CPKTMEPODrDZU316K+V7Jvtebiv5kEyRmTjpsqwE9N/efpmcjuughstfPlVDFSTIMuTAA8Qda9A==
+cz-mand-mobile-changelog@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/cz-mand-mobile-changelog/-/cz-mand-mobile-changelog-2.0.1.tgz#215429d023a0649301896af0770dba7634865336"
+  integrity sha512-O4VvhuHFzdRv2aafSydDP7kZGwJLJNqvvxayyJFwhQItrUZ3R2UimoRNcWYdWXMQV3tHNonFVYJTqKKkeZbsxQ==
   dependencies:
     lodash.map "^4.5.1"
     longest "^1.0.1"

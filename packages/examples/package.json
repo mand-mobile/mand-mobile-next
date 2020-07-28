@@ -10,8 +10,7 @@
   "scripts": {
     "serve": "run-p clean:* && sh ./scripts/preview.sh all",
     "build": "echo \"todo for build\"",
-    "build:bundle":
-      "run-p clean:* && VUE_CLI_SKIP_DIRTY_GIT_PROMPT=true vue invoke @mand-mobile/vue-cli-plugin-builder --platform web --target bundle && vue-cli-service md-build --platform=web --target=bundle .mand-mobile/main.js",
+    "build:bundle": "run-p clean:* && VUE_CLI_SKIP_DIRTY_GIT_PROMPT=true vue invoke @mand-mobile/vue-cli-plugin-builder --platform web --target bundle && vue-cli-service md-build --platform=web --target=bundle .mand-mobile/main.js",
     "clean:dist": "rm -fr dist",
     "clean:workspace": "rm -fr .mand-mobile",
     "serve:uni": "run-p clean:* && sh ./scripts/preview.sh uni",
@@ -19,7 +18,9 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "main": "lib/mand-mobile.js",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "dependencies": {
     "@mand-mobile/components": "^0.0.1",
     "@mand-mobile/platform": "^0.0.1",
@@ -39,12 +40,18 @@
     "npm-run-all": "^4.1.5",
     "vue-router": "^3.3.3"
   },
-  "browserslist": ["> 1%", "last 2 versions", "not dead"],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
   "directories": {
     "lib": "lib",
     "test": "__tests__"
   },
   "homepage": "",
-  "keywords": ["mand-mobile"],
+  "keywords": [
+    "mand-mobile"
+  ],
   "license": "ISC"
 }

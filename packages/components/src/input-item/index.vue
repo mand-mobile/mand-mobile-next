@@ -115,13 +115,19 @@
   </md-field-item>
 </template>
 
-<script>
+<script>import {
+  noop,
+  randomId,
+  debounce,
+  inBrowser,
+  formatValueByGapRule,
+  formatValueByGapStep,
+  trimValue,
+} from '@mand-mobile/shared/lib/util'
 import Icon from '../icon'
 import FieldItem from '../field/item.vue'
 import NumberKeyboard from '../number-keyboard'
 import {getCursorsPosition, setCursorsPosition} from './cursor'
-import {noop, randomId, debounce, inBrowser} from '@mand-mobile/shared/lib/util'
-import {formatValueByGapRule, formatValueByGapStep, trimValue} from '@mand-mobile/shared/lib/util/formate-value'
 
 export default {
   name: 'md-input-item',
@@ -211,7 +217,7 @@ export default {
     },
     virtualKeyboardDisorder: {
       type: Boolean,
-      default: false
+      default: false,
     },
     virtualKeyboardOkText: {
       type: String,
@@ -301,25 +307,27 @@ export default {
 
     // chrildSlotshow
     hasChildrenSlot() {
-      return this.isInputError
-        || (this.isInputBrief && !this.isInputError)
-        || (this.isVirtualKeyboard && !this.virtualKeyboardVm)
+      return (
+        this.isInputError ||
+        (this.isInputBrief && !this.isInputError) ||
+        (this.isVirtualKeyboard && !this.virtualKeyboardVm)
+      )
     },
     // classmap
     contentClassList() {
       const {
-          isHighlight,
-          isTitleLatent,
-          isInputActive,
-          isInputFocus,
-          isInputBrief,
-          isInputError,
-          isDisabled,
-          isAmount,
-          clearable,
-          hasChildrenSlot,
-          align,
-          size,
+        isHighlight,
+        isTitleLatent,
+        isInputActive,
+        isInputFocus,
+        isInputBrief,
+        isInputError,
+        isDisabled,
+        isAmount,
+        clearable,
+        hasChildrenSlot,
+        align,
+        size,
       } = this
       return [
         'input-item-wrapper',
@@ -329,8 +337,8 @@ export default {
         isInputFocus ? 'is-focus' : '',
         isInputError ? 'is-error' : '',
         isInputBrief && !isInputError ? 'with-brief' : '',
-        isDisabled ? 'is-disabled': '',
-        isAmount ? 'is-amount': '',
+        isDisabled ? 'is-disabled' : '',
+        isAmount ? 'is-amount' : '',
         clearable ? 'is-clear' : '',
         hasChildrenSlot ? 'has-children' : '',
         align,
@@ -405,7 +413,7 @@ export default {
       }
 
       // custom format by user
-      const customValue = this.formation  && this.formation(name, curValue, curPos)
+      const customValue = this.formation && this.formation(name, curValue, curPos)
 
       if (customValue) {
         return customValue
@@ -615,8 +623,7 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-input-item
@@ -633,21 +640,21 @@ export default {
     z-index 10
 .md-input-item-clear
   padding 10px 0
-  color input-item-icon
+  color md-input-item-icon
   .md-icon
     display flex
-    background color-bg-base
-    border-radius radius-circle
+    background md-color-bg-base
+    border-radius md-radius-circle
 
 .md-input-item-input,
 .md-input-item-fake
   // display flex
   width 100%
-  height input-item-height
-  color input-item-color
-  font-size input-item-font-size
-  font-weight input-item-font-weight
-  font-family font-family-normal
+  height md-input-item-height
+  color md-input-item-color
+  font-size md-input-item-font-size
+  font-weight md-input-item-font-weight
+  font-family md-font-family-normal
   line-height 1
   -webkit-appearance none
   border none
@@ -661,13 +668,13 @@ export default {
   &:disabled, &[disabled]
     opacity 1
   &::-webkit-input-placeholder
-    color input-item-placeholder
-    font-weight font-weight-normal
+    color md-input-item-placeholder
+    font-weight md-font-weight-normal
   &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
     -webkit-appearance none
 
 .md-input-item-fake
-  line-height input-item-height
+  line-height md-input-item-height
   word-ellipsis()
   cursor text
   &::after
@@ -675,8 +682,8 @@ export default {
     z-index 2
     display none
     content " "
-    height input-item-font-size-large
-    border-right solid 1.5px color-text-base
+    height md-input-item-font-size-large
+    border-right solid 1.5px md-color-text-base
   &.is-focus:after
     display inline
   &.is-waiting:after
@@ -687,8 +694,8 @@ export default {
   top 0
   left 0
   width 100%
-  color input-item-placeholder
-  font-weight font-weight-normal
+  color md-input-item-placeholder
+  font-weight md-font-weight-normal
 
 .md-input-item-msg,
 .md-input-item-brief
@@ -697,12 +704,12 @@ export default {
     margin-bottom 10px
 
 .md-input-item-brief
-  font-size input-item-font-size-brief
-  color input-item-color-brief
+  font-size md-input-item-font-size-brief
+  color md-input-item-color-brief
 
 .md-input-item-msg
-  font-size input-item-font-size-error
-  color input-item-color-error
+  font-size md-input-item-font-size-error
+  color md-input-item-color-error
 
 .md-input-item
   &.left
@@ -726,8 +733,8 @@ export default {
       top 50%
       left 0
       height auto
-      font-size input-item-title-latent-font-size
-      color input-item-title-latent-color
+      font-size md-input-item-title-latent-font-size
+      color md-input-item-title-latent-color
       transform translate3d(0, -50%, 0)
       transition all .3s ease
       opacity 0
@@ -755,23 +762,23 @@ export default {
     .md-input-item-input,
     .md-input-item-fake,
     .md-input-item-fake-placeholder
-      -webkit-text-fill-color input-item-color-disabled
-      color input-item-color-disabled
+      -webkit-text-fill-color md-input-item-color-disabled
+      color md-input-item-color-disabled
 
   &.is-amount
     .md-input-item-input,
     .md-input-item-fake
-      font-family font-family-number
+      font-family md-font-family-number
     &.large
       .md-input-item-input,
       .md-input-item-fake
-        padding-top v-gap-xs
+        padding-top md-v-gap-xs
 
   &.large
     .md-input-item-input,
     .md-input-item-fake
       padding-bottom 15px
-      font-size input-item-font-size-large
+      font-size md-input-item-font-size-large
     .md-input-item-input::-webkit-input-placeholder
         font-size 60px
         line-height 100px
@@ -790,10 +797,10 @@ export default {
       border-radius 2px
   &.is-android
     .md-input-item-fake::after
-      border-right solid 4px color-text-base
+      border-right solid 4px md-color-text-base
     .md-input-item-input,
     .md-input-item-fake
-      font-weight input-item-font-weight-android
+      font-weight md-input-item-font-weight-android
 
 @-webkit-keyframes keyboard-cursor
   0%

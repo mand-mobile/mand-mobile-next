@@ -28,7 +28,8 @@
   </div>
 </template>
 
-<script>import Button from '../../../button'
+<script>
+import Button from '../../../button'
 import Transition from '../../index'
 
 export default {
@@ -58,7 +59,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style>
 .md-example-child-transition .md-button {

@@ -49,19 +49,8 @@
   </div>
 </template>
 
-<script>
-import InputItem from '../../index.vue'
+<script>import InputItem from '../../index.vue'
 import Field from '../../../field/index.vue'
-
-const generateNameMap = (component) => {
-  const prefix = 'md-'
-  const name = component.name
-  const reg = /\B([A-Z])/g
-  const compName = `${prefix}${name.replace(reg, '-$1').toLowerCase()}`
-  return {
-    [compName]: component
-  }
-}
 
 export default {
   name: 'input-item-demo',
@@ -74,5 +63,4 @@ export default {
     'md-field': Field,
   },
 }
-
-</script>
+</script>

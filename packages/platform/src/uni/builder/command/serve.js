@@ -27,11 +27,16 @@ module.exports = (args, api) => {
 
   // 创建platform/node_modules软链接到src/node_modules下用于绕过uni对于包依赖加载路径的限制
   execa('ln', ['-s', `${platformRootPath}/node_modules`, `${exeRootPath}/${MAND_INPUT_DIR}/node_modules`])
+
   execa('ln', [
     '-s',
     `${exeRootPath}/node_modules/@mand-mobile/components`,
     `${exeRootPath}/${MAND_INPUT_DIR}/_mand-mobile`,
   ])
+
+  execa('ln', ['-s', `${exeRootPath}/node_modules/@mand-mobile/platform`, `${exeRootPath}/${MAND_INPUT_DIR}/_platform`])
+
+  execa('ln', ['-s', `${exeRootPath}/node_modules/@mand-mobile/shared`, `${exeRootPath}/${MAND_INPUT_DIR}/_shared`])
 
   const runner = execa(vueCliService, ['uni-build', '--watch'], {
     stdio: 'inherit',
@@ -43,7 +48,7 @@ module.exports = (args, api) => {
       MAND_PLATFORM,
       UNI_OUTPUT_DIR: path.resolve(exeRootPath, MAND_OUTPUT_DIR),
       UNI_INPUT_DIR: path.resolve(exeRootPath, MAND_INPUT_DIR),
-      VUE_CLI_SERVICE_CONFIG_PATH: path.resolve(exeRootPath, 'vue.config.js'),
+      VUE_CLI_SERVICE_CONFIG_PATH: path.resolve(`${exeRootPath}/${MAND_INPUT_DIR}`, 'vue.config.js'),
       VUE_CLI_CONTEXT: __dirname,
       NODE_PATH,
     },

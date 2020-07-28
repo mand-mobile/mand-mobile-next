@@ -66,8 +66,7 @@
   </div>
 </template>
 
-<script>
-// import { noop } from '@mand-mobile/shared/lib/util'
+<script>// import { noop } from '@mand-mobile/shared/lib/util'
 import Key from './key'
 
 export default {
@@ -117,7 +116,7 @@ export default {
     },
     keyNumberListNumber() {
       return this.keyNumberList.slice(0, 9)
-    }
+    },
   },
 
   created() {
@@ -151,8 +150,7 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-number-keyboard-container
@@ -160,14 +158,14 @@ export default {
   -webkit-user-select none
   -webkit-tap-highlight-color transparent
   display flex
-  width number-keyboard-width
-  height number-keyboard-height
-  hairline(top, number-keyboard-key-border-color)
+  width md-number-keyboard-width
+  height md-number-keyboard-height
+  hairline(top, md-number-keyboard-key-border-color)
   .keyboard-number, .keyboard-operate
     display flex
   .keyboard-number
     flex 3
-    background number-keyboard-bg
+    background md-number-keyboard-bg
     .keyboard-number-list
       // float left
       width 100%
@@ -178,18 +176,18 @@ export default {
         // float left
         width 33.3%
         flex 1 1 33.3%
-        height number-keyboard-key-height
+        height md-number-keyboard-key-height
         padding-top 5px
-        hairline(right, number-keyboard-key-border-color)
-        hairline(top, number-keyboard-key-border-color)
+        hairline(right, md-number-keyboard-key-border-color)
+        hairline(top, md-number-keyboard-key-border-color)
         text-align center
-        line-height number-keyboard-key-height
-        font-size number-keyboard-key-font-size
-        font-weight number-keyboard-key-font-weight
-        font-family font-family-number
-        color number-keyboard-key-color
+        line-height md-number-keyboard-key-height
+        font-size md-number-keyboard-key-font-size
+        font-weight md-number-keyboard-key-font-weight
+        font-family md-font-family-number
+        color md-number-keyboard-key-color
         transition background .3s
-        background number-keyboard-key-bg
+        background md-number-keyboard-key-bg
         box-sizing border-box
         &.no-bg
           background transparent
@@ -198,16 +196,16 @@ export default {
         &:nth-of-type(3n)
           width 33.4%
         &.delete
-          background url(@mand-mobile/shared/lib/images/keyboard-del.png) center no-repeat
+          background url(~@mand-mobile/shared/lib/images/keyboard-del.png) center no-repeat
           background-size 46px
         &.slidedown
-          background number-keyboard-key-bg url(@mand-mobile/shared/lib/images/keyboard-hide.png) center no-repeat
+          background md-number-keyboard-key-bg url(~@mand-mobile/shared/lib/images/keyboard-hide.png) center no-repeat
           background-size 54px
         &.large-item
           width 66.7%
           flex 1 1 66.7%
         &:active, &.active
-          background-color number-keyboard-key-bg-tap
+          background-color md-number-keyboard-key-bg-tap
         &:before, &:after
           pointer-events none
   .keyboard-operate
@@ -223,7 +221,7 @@ export default {
         position relative
         // float left
         width 100%
-        background number-keyboard-key-bg
+        background md-number-keyboard-key-bg
         transition background .3s
         &.delete
           flex 1
@@ -231,20 +229,20 @@ export default {
           align-items center
           justify-content center
           height 214px
-          background number-keyboard-key-bg url(@mand-mobile/shared/lib/images/keyboard-del.png) center no-repeat
+          background md-number-keyboard-key-bg url(~@mand-mobile/shared/lib/images/keyboard-del.png) center no-repeat
           background-size 42px
           &:active
-            background-color number-keyboard-key-bg-tap
+            background-color md-number-keyboard-key-bg-tap
         &.confirm
           padding-top 5px
-          color number-keyboard-key-confirm-color
-          font-size font-caption-large
-          background number-keyboard-key-confirm-bg
+          color md-number-keyboard-key-confirm-color
+          font-size md-font-caption-large
+          background md-number-keyboard-key-confirm-bg
           display flex
           flex 1
           height 214px
           align-items center
           justify-content center
           &:active
-            background-color number-keyboard-key-confirm-bg-tap
+            background-color md-number-keyboard-key-confirm-bg-tap
 </style>
