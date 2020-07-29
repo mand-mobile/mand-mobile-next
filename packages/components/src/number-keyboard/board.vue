@@ -161,6 +161,12 @@ export default {
   width md-number-keyboard-width
   height md-number-keyboard-height
   hairline(top, md-number-keyboard-key-border-color)
+  &.simple
+    .keyboard-number
+      .keyboard-number-list
+        .keyboard-number-item
+          &:nth-of-type(3n)
+            remove-hairline(right)
   .keyboard-number, .keyboard-operate
     display flex
   .keyboard-number
@@ -196,10 +202,10 @@ export default {
         &:nth-of-type(3n)
           width 33.4%
         &.delete
-          background url(@mand-mobile/shared/lib/images/keyboard-del.png) center no-repeat
+          background url(assets/images/keyboard-del.png) center no-repeat
           background-size 46px
         &.slidedown
-          background md-number-keyboard-key-bg url(@mand-mobile/shared/lib/images/keyboard-hide.png) center no-repeat
+          background md-number-keyboard-key-bg url(assets/images/keyboard-hide.png) center no-repeat
           background-size 54px
         &.large-item
           width 66.7%
@@ -229,7 +235,7 @@ export default {
           align-items center
           justify-content center
           height 214px
-          background md-number-keyboard-key-bg url(@mand-mobile/shared/lib/images/keyboard-del.png) center no-repeat
+          background md-number-keyboard-key-bg url(assets/images/keyboard-del.png) center no-repeat
           background-size 42px
           &:active
             background-color md-number-keyboard-key-bg-tap

@@ -27,8 +27,7 @@
   </div>
 </template>
 
-<script>
-import Button from '../../../button'
+<script>import Button from '../../../button'
 import NumberKeyboard from '../../index'
 
 export default {
@@ -77,13 +76,14 @@ export default {
       this.number = this.number.substr(0, this.number.length - 1)
     },
     handler(val) {
+      // eslint-disable-next-line no-console
       console.log(this.isKeyBoardShow)
+      // eslint-disable-next-line no-console
       console.log(val)
-    }
+    },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-example-child
@@ -102,4 +102,7 @@ export default {
     transform translate(-50%, -50%)
     font-size 120px
     text-shadow 0 4px 20px #666
+.md-button
+  display block
+  margin-bottom 10px
 </style>
