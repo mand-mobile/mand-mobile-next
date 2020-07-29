@@ -1,3 +1,4 @@
+
 <template>
   <div class="md-example-child md-example-child-toast md-example-child-toast-7">
     <md-toast ref="toast">
@@ -12,8 +13,7 @@
   </div>
 </template>
 
-<script>
-import Button from '../../../button'
+<script>import Button from '../../../button'
 import Toast from '../../../toast'
 import ActivityIndicator from '../../../activity-indicator'
 
@@ -45,5 +45,4 @@ export default {
     },
   },
 }
-
-</script>
+</script>

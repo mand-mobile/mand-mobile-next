@@ -14,7 +14,7 @@ Toast.succeed('操作成功')
 
 this.$toast.info('提示') // 全量引入
 
-Vue.component(Toast.component.name, Toast.component) // 组件引入
+Vue.component(Toast.name, Toast) // 组件引入
 ```
 
 ### 代码演示
@@ -24,7 +24,7 @@ Vue.component(Toast.component.name, Toast.component) // 组件引入
 
 #### Toast Static Methods
 
-##### Toast({content, icon, iconSvg, duration, position, hasMask, parentNode})
+##### Toast.create({content, icon, iconSvg, duration, position, hasMask, parentNode})
 显示自定义提示
 
 |属性 | 说明 | 类型 | 默认值|备注|

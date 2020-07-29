@@ -9,25 +9,24 @@
       @show="$_onShow"
       @hide="$_onHide"
     >
-      <div class="md-toast-content" v-if="$slots.default">
-        <slot></slot>
+      <div class="md-toast_content" v-if="$slots.default">
+        <slot/>
       </div>
-      <div class="md-toast-content" v-else>
+      <div class="md-toast_content" v-else>
         <md-icon
           v-if="innerIcon"
           class="md-icon"
           :name="innerIcon"
-          size="lg"
           :svg="iconSvg"
+          size="lg"
         />
-        <div class="md-toast-text" v-if="content" v-text="content"></div>
+        <div class="md-toast_text" v-if="content" v-text="content"></div>
       </div>
     </md-popup>
   </div>
 </template>
 
-<script>
-import Popup from '../popup'
+<script>import Popup from '../popup'
 import Icon from '../icon'
 
 export default {
@@ -42,7 +41,7 @@ export default {
     type: {
       // info, succeed, failed
       type: String,
-      default: ''
+      default: '',
     },
     icon: {
       type: String,
@@ -91,16 +90,16 @@ export default {
           break
         case 'loading':
           return this.icon || 'spinner'
-          break 
+          break
         default:
           return this.icon
       }
-    }
+    },
   },
 
   beforeDestroy() {
-    if (this.$_timer) {
-      clearTimeout(this.$_timer)
+    if (this.timer) {
+      clearTimeout(this.timer)
     }
   },
 
@@ -112,11 +111,11 @@ export default {
       this.$emit('hide')
     },
     fire() {
-      if (this.$_timer) {
-        clearTimeout(this.$_timer)
+      if (this.timer) {
+        clearTimeout(this.timer)
       }
       if (this.visible && this.duration) {
-        this.$_timer = setTimeout(() => {
+        this.timer = setTimeout(() => {
           this.hide()
         }, this.duration)
       }
@@ -130,42 +129,41 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-toast
   .md-popup
-    z-index toast-zindex
-    .md-popup-box
+    z-index md-toast-zindex
+    .md-popup_box
       width 540px
       display flex
       justify-content center
-    .md-popup-mask
+    .md-popup_mask
       background transparent
   .md-icon
     flex-shrink 0
-    color toast-color
-  .md-icon + .md-toast-text
-    margin-left h-gap-sm
+    color md-toast-color
+  .md-icon + .md-toast_text
+    margin-left md-h-gap-sm
 
-.md-toast-content
+.md-toast_content
   display inline-flex
   align-items center
   max-width 100%
   min-width 80px
-  padding toast-padding
-  border-radius toast-radius
-  font-size toast-font-size
-  text-align left
+  padding md-toast-padding
   line-height 1.42857142
-  color toast-color
-  background-color toast-fill
+  text-align left
+  font-size md-toast-font-size
+  color md-toast-color
+  background-color md-toast-fill
   box-sizing border-box
+  border-radius md-toast-radius
   overflow hidden
 
-.md-toast-text
+.md-toast_text
   white-space nowrap
-  text-overflow: ellipsis
+  text-overflow ellipsis
   overflow hidden
 </style>

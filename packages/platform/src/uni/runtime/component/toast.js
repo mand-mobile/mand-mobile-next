@@ -1,17 +1,15 @@
-export default function toastFactory (ToastOptions) {
-  const Toast = function({
-    content = '',
-    icon = 'none',
-    duration = 3000,
-    position = 'center',
-    hasMask = false,
-  }) {
+/* global uni */
+
+export default function toastFactory() {
+  function Toast() {}
+
+  Toast.create = function({content = '', icon = 'none', duration = 3000, position = 'center', hasMask = false}) {
     uni.showToast({
       title: content,
       mask: hasMask,
       icon,
       position,
-      duration
+      duration,
     })
   }
 
@@ -25,7 +23,7 @@ export default function toastFactory (ToastOptions) {
 
   Toast.info = (content = '', duration = 3000, hasMask = false) => {
     Toast.type = 'info'
-    return Toast({
+    return Toast.create({
       content,
       duration,
       hasMask,
@@ -34,7 +32,7 @@ export default function toastFactory (ToastOptions) {
 
   Toast.succeed = (content = '', duration = 3000, hasMask = false) => {
     Toast.type = 'succeed'
-    return Toast({
+    return Toast.create({
       icon: 'success',
       content,
       duration,
@@ -44,7 +42,7 @@ export default function toastFactory (ToastOptions) {
 
   Toast.failed = (content = '', duration = 3000, hasMask = false) => {
     Toast.type = 'failed'
-    return Toast({
+    return Toast.create({
       icon: 'none',
       content,
       duration,
@@ -52,15 +50,14 @@ export default function toastFactory (ToastOptions) {
     })
   }
 
+  /* eslint no-unused-vars: ["error", { "args": "none" }] */
   Toast.loading = (content = '', duration = 0, hasMask = true) => {
     Toast.type = 'loading'
     return uni.showLoading({
       title: content,
-      mask: hasMask
+      mask: hasMask,
     })
   }
-
-  Toast.component = ToastOptions
 
   return Toast
 }

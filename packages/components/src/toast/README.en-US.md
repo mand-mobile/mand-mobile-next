@@ -11,6 +11,8 @@ import { Toast } from 'mand-mobile'
 Toast.succeed('Good Job!')
 
 this.$toast.info('hint') // Totally Import
+
+Vue.component(Toast.name, Toast) // Component Import
 ```
 
 ### Instruction
@@ -22,7 +24,7 @@ this.$toast.info('hint') // Totally Import
 
 #### Toast Static Methods
 
-##### Toast({content, icon, iconSvg, duration, position, hasMask, parentNode})
+##### Toast.create({content, icon, iconSvg, duration, position, hasMask, parentNode})
 Dynamically create a toast
 
 | Props | Description | Type | Default | Note |

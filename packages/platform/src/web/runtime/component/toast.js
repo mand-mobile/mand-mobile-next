@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import {mdDocument} from '@mand-mobile/shared/lib/util'
 
-export default function toastFactory (ToastOptions) {
+export default function toastFactory(Toast) {
   /**
    * Toast factory
    *
    * @param {Object} props
    * @return {Toast}
    */
-  const Toast = function({
+  const generate = function({
     content = '',
     icon = '',
     iconSvg = false,
@@ -20,7 +20,7 @@ export default function toastFactory (ToastOptions) {
     let vm = Toast._instance
 
     if (!vm) {
-      const ToastConstructor = Vue.extend(ToastOptions)
+      const ToastConstructor = Vue.extend(Toast)
       vm = Toast._instance = new ToastConstructor({
         propsData: {
           content,
@@ -53,11 +53,20 @@ export default function toastFactory (ToastOptions) {
   // There is only one toast singleton
   Toast._instance = null
 
+  Toast.create = generate
+
+  Toast.hide = () => {
+    const ToastConstructor = Vue.extend(Toast)
+    if (Toast._instance instanceof ToastConstructor && Toast._instance.visible) {
+      Toast._instance.hide()
+    }
+  }
+
   /**
    * Hide toast
    */
   Toast.hide = () => {
-    const ToastConstructor = Vue.extend(ToastOptions)
+    const ToastConstructor = Vue.extend(Toast)
     if (Toast._instance instanceof ToastConstructor && Toast._instance.visible) {
       Toast._instance.hide()
     }
@@ -73,7 +82,7 @@ export default function toastFactory (ToastOptions) {
    */
 
   Toast.info = (content = '', duration = 3000, hasMask = false, parentNode = mdDocument.body) => {
-    return Toast({
+    return generate({
       icon: '',
       content,
       duration,
@@ -92,7 +101,7 @@ export default function toastFactory (ToastOptions) {
    */
 
   Toast.succeed = (content = '', duration = 3000, hasMask = false, parentNode = mdDocument.body) => {
-    return Toast({
+    return generate({
       icon: 'success',
       content,
       duration,
@@ -111,7 +120,7 @@ export default function toastFactory (ToastOptions) {
    */
 
   Toast.failed = (content = '', duration = 3000, hasMask = false, parentNode = mdDocument.body) => {
-    return Toast({
+    return generate({
       icon: 'fail',
       content,
       duration,
@@ -129,7 +138,7 @@ export default function toastFactory (ToastOptions) {
    * @returns {Toast}
    */
   Toast.loading = (content = '', duration = 0, hasMask = true, parentNode = mdDocument.body) => {
-    return Toast({
+    return generate({
       icon: 'spinner',
       iconSvg: true,
       content,
@@ -138,8 +147,6 @@ export default function toastFactory (ToastOptions) {
       parentNode,
     })
   }
-
-  Toast.component = ToastOptions
 
   return Toast
 }
