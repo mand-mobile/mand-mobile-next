@@ -13,14 +13,14 @@
     :disabled="inactive || type === 'disabled'"
     @click="clickHandler"
   >
-    <div class="md-button-inner">
+    <div class="md-button_inner">
       <template v-if="loading">
-        <!-- <md-activity-indicator-rolling class="md-button-loading"></md-activity-indicator-rolling> -->
+        <!-- <md-activity-indicator-rolling class="md-button_loading"></md-activity-indicator-rolling> -->
       </template>
       <template v-else-if="icon">
         <md-icon :name="icon" :svg="iconSvg"></md-icon>
       </template>
-      <p class="md-button-content">
+      <p class="md-button_content">
         <slot></slot>
       </p>
     </div>
@@ -107,7 +107,7 @@ export default {
   -webkit-tap-highlight-color transparent
   overflow visible
 
-.md-button-inner
+.md-button_inner
   display flex
   align-items center
   justify-content center
@@ -118,13 +118,13 @@ export default {
   word-break break-word
   white-space nowrap
 
-.md-button-loading
+.md-button_loading
   .md-activity-indicator-svg
     width 35px !important
     height 35px !important
     margin-right 10px
 
-.md-button-content
+.md-button_content
   display flex
   align-items center
   padding 0 6px
@@ -145,7 +145,7 @@ export default {
     hairline(all, md-color-border-element, md-button-radius, 3px)
     &.active:active
       background-color md-button-default-active-fill
-    .md-button-loading .md-activity-indicator-svg .circle circle
+    .md-button_loading .md-activity-indicator-svg .circle circle
       stroke md-button-default-color !important
   &.primary
     background-color md-button-primary-fill
@@ -153,7 +153,7 @@ export default {
     hairline(all, md-button-primary-fill, md-button-radius, 3px)
     &.active:active
       background-color md-button-primary-active-fill
-    .md-button-loading .md-activity-indicator-svg .circle circle
+    .md-button_loading .md-activity-indicator-svg .circle circle
       stroke md-button-primary-color !important
   &.warning
     background-color md-button-warning-fill
@@ -161,13 +161,13 @@ export default {
     hairline(all, md-button-warning-fill, md-button-radius, 3px)
     &.active:active
       background-color md-button-warning-active-fill
-    .md-button-loading .md-activity-indicator-svg .circle circle
+    .md-button_loading .md-activity-indicator-svg .circle circle
       stroke md-button-warning-color !important
   &.disabled
     background-color md-button-disabled-fill
     color md-button-disabled-color
     hairline(all, md-button-disabled-fill, md-button-radius, 3px)
-    .md-button-loading .md-activity-indicator-svg .circle circle
+    .md-button_loading .md-activity-indicator-svg .circle circle
       stroke md-button-disabled-color !important
 
   &.plain
@@ -178,26 +178,26 @@ export default {
       hairline(all, md-color-border-element, md-button-radius, 3px)
       &.active:active
         background-color md-button-default-plain-active-fill
-      .md-button-loading .md-activity-indicator-svg .circle circle
+      .md-button_loading .md-activity-indicator-svg .circle circle
         stroke md-button-default-plain-color !important
     &.primary
       color md-button-primary-plain-color
       hairline(all, md-button-primary-fill, md-button-radius, 3px)
       &.active:active
         background-color md-button-primary-plain-active-fill
-      .md-button-loading .md-activity-indicator-svg .circle circle
+      .md-button_loading .md-activity-indicator-svg .circle circle
         stroke md-button-primary-plain-color !important
     &.warning
       color md-button-warning-plain-color
       hairline(all, md-button-warning-fill, md-button-radius, 3px)
       &.active:active
         background-color md-button-warning-plain-active-fill
-      .md-button-loading .md-activity-indicator-svg .circle circle
+      .md-button_loading .md-activity-indicator-svg .circle circle
         stroke md-button-warning-plain-color !important
     &.disabled
       color md-button-disabled-plain-color
       hairline(all, md-color-border-element, md-button-radius, 3px)
-      .md-button-loading .md-activity-indicator-svg .circle circle
+      .md-button_loading .md-activity-indicator-svg .circle circle
         stroke md-button-disabled-plain-color !important
 
   &.round
