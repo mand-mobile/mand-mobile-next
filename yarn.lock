@@ -4244,7 +4244,7 @@ cz-conventional-changelog@3.2.0:
   optionalDependencies:
     "@commitlint/load" ">6.1.1"
 
-cz-mand-mobile-changelog@2.0.1:
+cz-mand-mobile-changelog@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/cz-mand-mobile-changelog/-/cz-mand-mobile-changelog-2.0.1.tgz#215429d023a0649301896af0770dba7634865336"
   integrity sha512-O4VvhuHFzdRv2aafSydDP7kZGwJLJNqvvxayyJFwhQItrUZ3R2UimoRNcWYdWXMQV3tHNonFVYJTqKKkeZbsxQ==

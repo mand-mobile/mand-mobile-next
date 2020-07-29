@@ -49,8 +49,7 @@
   </div>
 </template>
 
-<script>
-import Popup from '../popup'
+<script>import Popup from '../popup'
 import Keyborad from './board'
 
 export default {
@@ -140,16 +139,15 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-number-keyboard
   .md-popup
-    z-index number-keyboard-zindex
+    z-index md-number-keyboard-zindex
   .md-popup-box
     padding-top 1px
-    background-color color-bg-base
+    background-color md-color-bg-base
     padding-bottom constant(safe-area-inset-bottom)
     padding-bottom env(safe-area-inset-bottom)
 </style>
