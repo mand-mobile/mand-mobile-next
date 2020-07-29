@@ -77,8 +77,7 @@
   </div>
 </template>
 
-<script>
-import Dialog from '../dialog/dialog'
+<script>import Dialog from '../dialog/dialog'
 import Codebox from '../codebox'
 import Button from '../button'
 // import {mdDocument} from '@mand-mobile/shared/lib/util'
@@ -249,31 +248,30 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-captcha
   .md-dialog
     .md-popup
-      z-index captcha-zindex
+      z-index md-captcha-zindex
     .md-dialog-body
       padding 60px 60px 30px 60px
     .md-dialog-content
-      margin-bottom number-keyboard-height
+      margin-bottom md-number-keyboard-height
   .md-codebox
     margin-bottom 28px
 
 .md-captcha-content
-  font-size captcha-font-size
-  color captcha-color
+  font-size md-captcha-font-size
+  color md-captcha-color
   text-align center
   line-height 1.2
   margin-bottom 50px
 
 .md-captcha-title
-  color captcha-title-color
-  font-size captcha-title-font-size
+  color md-captcha-title-color
+  font-size md-captcha-title-font-size
   font-weight normal
   line-height 1.15
   margin 0 0 16px 0
@@ -281,7 +279,7 @@ export default {
 .md-captcha-footer
   margin 28px 0
   display flex
-  font-size captcha-footer-font-size
+  font-size md-captcha-footer-font-size
   justify-content space-between
   align-items center
   overflow hidden
@@ -289,19 +287,19 @@ export default {
 .md-captcha-error, .md-captcha-brief
   flex 1 1 0%
 .md-captcha-error
-  color captcha-error-color
+  color md-captcha-error-color
 .md-captcha-brief
-  color captcha-brief-color
+  color md-captcha-brief-color
 
 .md-captcha-btn
   display inline-block
-  color captcha-btn-color
-  font-size captcha-footer-font-size
+  color md-captcha-btn-color
+  font-size md-captcha-footer-font-size
   padding 0
   margin 0 0 0 12px
   border 0
   border-radius 0
   background none
   &:disabled
-    color color-text-disabled
+    color md-color-text-disabled
 </style>

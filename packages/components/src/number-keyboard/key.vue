@@ -17,8 +17,7 @@
   </li> -->
 </template>
 
-<script>
-export default {
+<script>export default {
   name: 'md-number-key',
 
   props: {
@@ -36,8 +35,8 @@ export default {
     },
     customClass: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
 
   data() {
@@ -62,17 +61,17 @@ export default {
     },
   },
 }
-</script>
+</script>
 
 <style lang="stylus">
 // 注： uni-app 中组件嵌套时，在父组件覆盖子组件的样式时，可能导致高度没有被撑开，元素无法点击
 .keyboard-number-item
-  height number-keyboard-key-height
+  height md-number-keyboard-key-height
 .keyboard-operate-item
   position relative
   // float left
   width 100%
-  background number-keyboard-key-bg
+  background md-number-keyboard-key-bg
   transition background .3s
   &.delete
     flex 1
@@ -80,24 +79,24 @@ export default {
     align-items center
     justify-content center
     height 214px
-    background number-keyboard-key-bg url(@mand-mobile/shared/lib/style/images/keyboard-del.png) center no-repeat
+    background md-number-keyboard-key-bg url(@mand-mobile/shared/lib/style/images/keyboard-del.png) center no-repeat
     background-size 42px
     &:active
-      background-color number-keyboard-key-bg-tap
+      background-color md-number-keyboard-key-bg-tap
   &.confirm
     padding-top 5px
-    color number-keyboard-key-confirm-color
-    font-size font-caption-large
-    background number-keyboard-key-confirm-bg
+    color md-number-keyboard-key-confirm-color
+    font-size md-font-caption-large
+    background md-number-keyboard-key-confirm-bg
     display flex
     flex 1
     height 214px
     align-items center
     justify-content center
     &:active
-      background-color number-keyboard-key-confirm-bg-tap
+      background-color md-number-keyboard-key-confirm-bg-tap
 .slidedown
-  height number-keyboard-key-height
-  background number-keyboard-key-bg url(@mand-mobile/shared/lib/style/images/keyboard-hide.png) center no-repeat
+  height md-number-keyboard-key-height
+  background md-number-keyboard-key-bg url(@mand-mobile/shared/lib/style/images/keyboard-hide.png) center no-repeat
   background-size 54px
 </style>

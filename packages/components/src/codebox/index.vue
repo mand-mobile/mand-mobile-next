@@ -81,8 +81,7 @@
   </div>
 </template>
 
-<script>
-import { inBrowser } from '@mand-mobile/shared/lib/util/env'
+<script>import {inBrowser} from '@mand-mobile/shared/lib/util/env'
 import NumberKeyboard from '../number-keyboard'
 
 export default {
@@ -159,13 +158,13 @@ export default {
     innerNumMap() {
       const _arr = []
       for (let i = 0; i < this.num; i++) {
-        _arr.push(i+1)
+        _arr.push(i + 1)
       }
       return _arr.map(k => ({
         i: k,
-        isActive: this.focused && (this.code.length + 1 === k),
-        isFilled: this.code.charAt(k-1) !== '',
-        showVal: this.code.charAt(k-1)
+        isActive: this.focused && this.code.length + 1 === k,
+        isFilled: this.code.charAt(k - 1) !== '',
+        showVal: this.code.charAt(k - 1),
       }))
     },
     inputType() {
@@ -177,25 +176,25 @@ export default {
     },
   },
   mounted() {
-    if (this.closable) {
-      document && document.addEventListener('click', this.$_handleOutClick)
+    if (this.closable && document) {
+      document.addEventListener('click', this.$_handleOutClick)
     }
-    if (!this.system && !this.isView) {
-      document && document.body.appendChild(this.$refs.keyboard.$el)
+    if (!this.system && !this.isView && document) {
+      document.body.appendChild(this.$refs.keyboard.$el)
     }
     this.$nextTick(() => {
       this.focused = this.autofocus
     })
   },
   beforeDestroy() {
-    if (this.closable) {
-      document && document.removeEventListener('click', this.$_handleOutClick)
+    if (this.closable && document) {
+      document.removeEventListener('click', this.$_handleOutClick)
     }
     if (this.focused) {
       this.blur()
     }
-    if (!this.system && !this.isView) {
-      document && document.body.removeChild(this.$refs.keyboard.$el)
+    if (!this.system && !this.isView && document) {
+      document.body.removeChild(this.$refs.keyboard.$el)
     }
   },
   methods: {
@@ -247,11 +246,11 @@ export default {
     // MARK: public methods
     blur() {
       this.focused = false
-      if (this.system) {
-        if (this.$refs.input) {
-          typeof this.$refs.input.blur === 'function'
-            ? this.$refs.input.blur()
-            : this.$refs.input.$refs.input.blur()
+      if (this.system && this.$refs.input) {
+        if (typeof this.$refs.input.blur === 'function') {
+          this.$refs.input.blur()
+        } else {
+          this.$refs.input.$refs.input.blur()
         }
       }
     },
@@ -261,18 +260,17 @@ export default {
       }
 
       this.focused = true
-      if (this.system) {
-        if (this.$refs.input) {
-          typeof this.$refs.input.focus === 'function'
-            ? this.$refs.input.focus()
-            : this.$refs.input.$refs.input.focus()
+      if (this.system && this.$refs.input) {
+        if (typeof this.$refs.input.focus === 'function') {
+          this.$refs.input.focus()
+        } else {
+          this.$refs.input.$refs.input.focus()
         }
       }
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-codebox-wrapper
@@ -293,23 +291,23 @@ export default {
 
 .md-codebox-box
   position relative
-  flex 0 1 codebox-width
-  width codebox-width
-  height codebox-height
+  flex 0 1 md-codebox-width
+  width md-codebox-width
+  height md-codebox-height
   display flex
   align-items center
   justify-content center
-  color codebox-color
-  font-family font-family-number
-  font-size codebox-font-size
+  color md-codebox-color
+  font-family md-font-family-number
+  font-size md-codebox-font-size
   font-weight normal
   line-height 1.2
   if codebox-gutter is a 'unit'
-    margin-left (codebox-gutter / 2)
-    margin-right (codebox-gutter / 2)
+    margin-left (md-codebox-gutter / 2)
+    margin-right (md-codebox-gutter / 2)
   else
-    margin-left "calc(%s / 2)" % codebox-gutter
-    margin-right "calc(%s / 2)" % codebox-gutter
+    margin-left "calc(%s / 2)" % md-codebox-gutter
+    margin-right "calc(%s / 2)" % md-codebox-gutter
 
   hairline(bottom, color-border-element)
   &:first-child
@@ -317,64 +315,64 @@ export default {
   &:last-child
     margin-right 0
   &.is-active, &.is-filled
-    border-color codebox-border-active-color
+    border-color md-codebox-border-active-color
 
 .md-codebox-blink
   display block
   if tab-height is a 'unit'
-    height (codebox-height * 0.8)
+    height (md-codebox-height * 0.8)
   else
-    height "calc(%s * 0.8)" % codebox-height
+    height "calc(%s * 0.8)" % md-codebox-height
   width 2px
-  background-color codebox-blink-color
-  animation md-codebox-flash steps(2) 1s infinite
+  background-color md-codebox-blink-color
+  animation md-md-codebox-flash steps(2) 1s infinite
 
 .md-codebox-dot
   display block
   height 10px
   width 10px
   border-radius 5px
-  background-color codebox-dot-color
+  background-color md-codebox-dot-color
 
 .md-codebox-holder
   pointer-events none
-  height codebox-height
-  line-height codebox-height
-  padding 0 codebox-holder-space
+  height md-codebox-height
+  line-height md-codebox-height
+  padding 0 md-codebox-holder-space
   width 100%
   text-align center
-  font-size codebox-font-size
+  font-size md-codebox-font-size
   outline none
-  color codebox-color
+  color md-codebox-color
   letter-spacing 0.1em
   border-radius 0
   border-style solid
-  border-width 0 0 codebox-border-width 0
-  border-color codebox-border-color
+  border-width 0 0 md-codebox-border-width 0
+  border-color md-codebox-border-color
   background none
   box-shadow none
   box-sizing border-box
   -webkit-appearance none
-  -webkit-text-fill-color codebox-color
+  -webkit-text-fill-color md-codebox-color
   &[disabled],
   &[readonly]
     opacity 1
-    color codebox-color
-    border-color codebox-border-color
+    color md-codebox-color
+    border-color md-codebox-border-color
   &.is-active
-    border-color codebox-border-active-color
+    border-color md-codebox-border-active-color
 
 .md-codebox.is-disabled
   .md-codebox-box
-    color codebox-disabled-color
-    border-color codebox-disabled-color
+    color md-codebox-disabled-color
+    border-color md-codebox-disabled-color
   .md-codebox-blink
     display none
   .md-codebox-dot
-    background-color codebox-disabled-color
+    background-color md-codebox-disabled-color
   .md-codebox-holder
-    color codebox-disabled-color
-    border-color codebox-disabled-color
+    color md-codebox-disabled-color
+    border-color md-codebox-disabled-color
 
 @keyframes md-codebox-flash
   from
