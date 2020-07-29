@@ -38,11 +38,10 @@
   </div>
 </template>
 
-<script>
-import Popup from 'mand-mobile/popup'
-import PopupTitleBar from 'mand-mobile/popup/title-bar'
-import Button from 'mand-mobile/button'
-import Icon from 'mand-mobile/icon'
+<script>import Popup from '../../index'
+import PopupTitleBar from '../../title-bar'
+import Button from '../../../button'
+import Icon from '../../../icon'
 
 export default {
   name: 'popup-demo',
@@ -67,61 +66,69 @@ export default {
     },
   },
 }
+</script>
 
-</script>
-
-<style lang="stylus">
-.md-example-child-popup-1
-  float left
-  width 100%
-  .md-button
-    display block
-    margin-bottom 20px
-  .md-popup-title-bar
-    .md-popup-cancel
-      .md-icon
-        align-self flex-start
-        margin-left 32px
-  .md-example-popup
-    position relative
-    font-size font-minor-large
-    background color-bg-base
-    box-sizing border-box
-    text-align center
-    background-color #FFF
-  .md-example-popup-align
-    padding 0 40px
-    .md-scroll-view
-      height 500px
-      background #EEE
-      p
-        line-height 500px
-        font-size 64px
-        font-weight 200
-        color #999
-  .md-example-popup-top
-    position relative
-    width 100%
-    height 75px
-    line-height 75px
-    background #4a4c5b
-    color #fff
-    .md-icon
-      position absolute
-      right 20px
-      top 50%
-      transform translateY(-50%)
-  .md-example-popup-bottom
-    width 100%
-    padding 0 0 150px
-    p
-      margin-bottom 100px
-      font-size 64px
-      font-weight 200
-      color #999
-  .md-example-popup-left, .md-example-popup-right
-    height 100%
-    padding 0 150px
-    display flex
-    align-items center
+<style>
+.md-example-child-popup-1 {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+.md-example-child-popup-1 .md-button {
+  display: block;
+  height: 100px;
+  margin-bottom: 20px;
+}
+.md-example-child-popup-1 .md-popup-title-bar .md-popup-cancel .md-icon {
+  align-self: flex-start;
+  margin-left: 32px;
+}
+.md-example-child-popup-1 .md-example-popup {
+  position: relative;
+  font-size: 24px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.md-example-child-popup-1 .md-example-popup-align {
+  padding: 0 40px;
+  background: #FFF;
+}
+.md-example-child-popup-1 .md-example-popup-align .md-scroll-view {
+  line-height: 500px;
+  font-size: 64px;
+  font-weight: 200;
+  color: #999;
+  background: #F9FAFB;
+}
+.md-example-child-popup-1 .md-example-popup-top {
+  position: relative;
+  width: 100%;
+  height: 75px;
+  line-height: 75px;
+  background: #4a4c5b;
+  color: #FFF;
+}
+.md-example-child-popup-1 .md-example-popup-top .md-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.md-example-child-popup-1 .md-example-popup-bottom {
+  width: 100%;
+  padding: 0 0 150px;
+}
+.md-example-child-popup-1 .md-example-popup-bottom p {
+  margin-bottom: 100px;
+  font-size: 64px;
+  font-weight: 200;
+  color: #999;
+}
+.md-example-child-popup-1 .md-example-popup-left,
+.md-example-child-popup-1 .md-example-popup-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 150px;
+}
 </style>
