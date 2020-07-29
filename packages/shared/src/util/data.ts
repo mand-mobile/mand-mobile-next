@@ -1,5 +1,77 @@
 import { warn } from './debug'
-import { hyphenate } from './index'
+
+/**
+ * Convert a input value to a number for persistence.
+ * If the conversion fails, return original string.
+ */
+export const toNumber = (val: any): any => {
+  const n = parseFloat(val)
+  return isNaN(n) ? val : n
+}
+
+
+const cacheStringFunction = <T extends (str: string) => string>(fn: T): T => {
+  const cache: Record<string, string> = Object.create(null)
+  return ((str: string) => {
+    const hit = cache[str]
+    return hit || (cache[str] = fn(str))
+  }) as any
+}
+
+const camelizeRE = /-(\w)/g
+export const camelize = cacheStringFunction(
+  (str: string): string => {
+    return str.replace(camelizeRE, (_, c) => (c ? c.toUpperCase() : ''))
+  }
+)
+
+const hyphenateRE = /\B([A-Z])/g
+export const hyphenate = cacheStringFunction(
+  (str: string): string => {
+    return str.replace(hyphenateRE, '-$1').toLowerCase()
+  }
+)
+
+export const capitalize = cacheStringFunction(
+  (str: string): string => {
+    return str.charAt(0).toUpperCase() + str.slice(1)
+  }
+)
+
+export const extend = Object.assign
+
+/**
+ * Merge an Array of Objects into a single Object.
+ */
+export function toObject<T extends object>(arr: Array<T>) {
+  const res = {}
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]) {
+      extend(res, arr[i])
+    }
+  }
+  return res
+}
+
+/**
+ * Convert an Array-like object to a real Array.
+ */
+export function toArray<T = any>(list: ArrayLike<T>, start: number = 0) {
+  let i = list.length - start
+  const ret = []
+  while (i--) {
+    ret.unshift(list[i + start])
+  }
+  return ret
+}
+
+/**
+ * Convert a value to a string
+ */
+export function toString(val: unknown) {
+  return val == null ? '' : typeof val === 'object' ? JSON.stringify(val, null, 2) : String(val)
+}
+
 
 export function formatValueByGapRule(gapRule: string, value: string, gap = ' ', range: any, isAdd = 1) {
   const arr = value ? value.split('') : []
