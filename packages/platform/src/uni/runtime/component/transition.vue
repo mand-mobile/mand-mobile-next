@@ -11,60 +11,54 @@
   </div>
 </template>
 
-<script>
-import '@mand-mobile/shared/lib/style/transition.styl'
+<script>import {flatStyleObject} from '@mand-mobile/shared/lib/util'
 
 export default {
   name: 'md-transition-uni',
   props: {
     show: {
       type: Boolean,
-      default: false
+      default: false,
     },
     name: {
       type: String,
-      default: ''
+      default: '',
     },
     styles: {
       type: Object,
-      default () {
+      default() {
         return {}
-      }
-    }
+      },
+    },
   },
-  data () {
+  data() {
     return {
       transitionClass: [],
       isShow: false,
-      whenTransitionEnds: null
+      whenTransitionEnds: null,
     }
   },
   computed: {
     inlineStyles() {
-      let content = ''
-      for (let prop in this.styles) {
-        let key = prop.replace(/([A-Z])/g, "-$1").toLowerCase()
-        content += key + ':' + this.styles[prop] + ';'
-      }
-      return content
-    }
+      return flatStyleObject(this.styles)
+    },
   },
   watch: {
-    show (val) {
+    show(val) {
       if (val) {
         this.$_enterTransition()
       } else {
         this.$_leaveTransition()
       }
-    }
+    },
   },
-  mounted () {
+  mounted() {
     if (this.show) {
       this.isShow = true
     }
   },
   methods: {
-    $_enterTransition () {
+    $_enterTransition() {
       if (!this.name) {
         return
       }
@@ -91,7 +85,7 @@ export default {
       this.isShow = true
       this.$emit('enter')
     },
-    $_leaveTransition () {
+    $_leaveTransition() {
       if (!this.name) {
         return
       }
@@ -116,35 +110,35 @@ export default {
       })
       this.$emit('leave')
     },
-    $_getTransitionClass (name) {
+    $_getTransitionClass(name) {
       return {
         enterClass: `${name}-enter`,
         enterToClass: `${name}-enter-to`,
         enterActiveClass: `${name}-enter-active`,
         leaveClass: `${name}-leave`,
         leaveToClass: `${name}-leave-to`,
-        leaveActiveClass: `${name}-leave-active`
+        leaveActiveClass: `${name}-leave-active`,
       }
     },
-    $_addTransitionClass (className) {
+    $_addTransitionClass(className) {
       const index = this.transitionClass.indexOf(className)
       if (!~index) {
         this.transitionClass.push(className)
       }
     },
-    $_removeTransitionClass (className) {
+    $_removeTransitionClass(className) {
       const index = this.transitionClass.indexOf(className)
       if (~index) {
         this.transitionClass.splice(index, 1)
       }
     },
-    $_onTransitionendEnd () {
+    $_onTransitionendEnd() {
       this.whenTransitionEnds && this.whenTransitionEnds()
-    }
-  }
+    },
+  },
 }
-</script>
+</script>
 
 <style lang="stylus">
-// @import '@mand-mobile/shared/lib/style/transition.styl'
+@import '~@mand-mobile/shared/lib/style/transition.styl'
 </style>

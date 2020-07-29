@@ -1,17 +1,15 @@
 <template functional>
   <transition v-bind="props" v-on="listeners">
     <div v-show="props.show">
-      <slot></slot>  
+      <slot/>
     </div>
   </transition>
 </template>
 
-<script>
-import '@mand-mobile/shared/lib/style/transition.styl'
-export default {
+<script>export default {
   name: 'md-transition-primitive',
 }
-</script>
+</script>
 <style lang="stylus">
-// @import '@mand-mobile/shared/lib/style/transition.styl'
+@import '~@mand-mobile/shared/lib/style/transition.styl'
 </style>
