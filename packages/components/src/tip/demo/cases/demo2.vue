@@ -6,7 +6,8 @@
   </div>
 </template>
 
-<script>import {Tip, Button} from 'mand-mobile'
+<script>import Tip from '../../index.js'
+import Button from '../../../button/index'
 
 export default {
   name: 'tips-demo',

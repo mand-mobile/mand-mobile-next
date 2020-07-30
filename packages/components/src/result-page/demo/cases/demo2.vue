@@ -4,8 +4,8 @@
   </div>
 </template>
 
-<script>
-import ResultPage from 'mand-mobile/result-page'
+<script>import ResultPage from '../../index'
+import Toast from '../../../toast/index.js'
 
 export default {
   name: 'result-page-demo',
@@ -22,12 +22,12 @@ export default {
         {
           text: '普通按钮',
 
-          handlerName: 'commonClick'
+          handlerName: 'commonClick',
         },
         {
           text: '高亮按钮',
           type: 'primary',
-          handlerName: 'highlightClick'
+          handlerName: 'highlightClick',
         },
       ],
     }
@@ -36,20 +36,21 @@ export default {
     customHandler(name) {
       switch (name) {
         case 'commonClick':
-          uni.showToast({title: '普通操作'})
-          break;
+          Toast.info('普通操作')
+          break
         case 'highlightClick':
-          uni.showToast({title: '高亮按钮操作'})
+          Toast.info('高亮按钮操作')
+          break
         default:
-          break;
+          break
       }
-    }
-  }
+    },
+  },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
-.md-example-child-result-page-2
-  background #FFF
+.md-example-child-result-page-2 {
+  background: #FFF;
+}
 </style>

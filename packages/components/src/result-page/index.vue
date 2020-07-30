@@ -1,11 +1,11 @@
 <template>
   <div class="md-result">
-    <div class="md-result-image">
+    <div class="md-result_image">
       <img mode="widthFix" :src="actualImgUrl" :class="!imgUrl && type"/>
     </div>
-    <div class="md-result-text" v-if="actualText">{{actualText}}</div>
-    <div class="md-result-subtext" v-if="actualSubText">{{actualSubText}}</div>
-    <div class="md-result-buttons" v-if="buttons.length">
+    <div class="md-result_text" v-if="actualText">{{actualText}}</div>
+    <div class="md-result_subtext" v-if="actualSubText">{{actualSubText}}</div>
+    <div class="md-result_buttons" v-if="buttons.length">
       <md-button
         v-for="(button, index) of buttons"
         :type="button.type"
@@ -25,8 +25,7 @@
   </div>
 </template>
 
-<script>
-import Button from '../button'
+<script>import Button from '../button'
 
 export default {
   name: 'md-result-page',
@@ -60,7 +59,6 @@ export default {
     },
   },
 
-
   computed: {
     actualImgUrl() {
       const pre = '//manhattan.didistatic.com/static/manhattan/mand-mobile/result-page/2.1/'
@@ -90,8 +88,7 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-result
@@ -103,24 +100,24 @@ export default {
   height 100%
   text-align center
 
-.md-result-image
-  width result-page-image-size
-  img
-    width 100%
-    margin-bottom 40px
+  &_image
+    width md-result-page-image-size
+    img
+      width 100%
+      margin-bottom 40px
 
-.md-result-text
-  margin 20px 20px 0
-  color result-page-title-color
-  font-size result-page-title-font-size
+  &_text
+    margin 20px 20px 0
+    color md-result-page-title-color
+    font-size md-result-page-title-font-size
 
-.md-result-subtext
-  margin-top 16px
-  color result-page-describe-color
-  font-size result-page-describe-font-size
+  &_subtext
+    margin-top 16px
+    color md-result-page-describe-color
+    font-size md-result-page-describe-font-size
 
-.md-result-buttons
-  display flex
-  .md-button
-    margin 10px
+  &_buttons
+    display flex
+    .md-button
+      margin 10px
 </style>

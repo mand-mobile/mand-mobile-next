@@ -14,7 +14,10 @@
   </div>
 </template>
 
-<script>import {Tip, Button, Toast} from 'mand-mobile'
+<script>import Tip from '../../index.js'
+import Button from '../../../button/index'
+import Toast from '../../../toast/index.js'
+
 export default {
   name: 'tips-demo',
   /* DELETE */
@@ -27,14 +30,13 @@ export default {
   },
   methods: {
     onShow(name) {
-      Toast({
-        content: `显示了${name}`,
-      })
+      // Toast.create.info({
+      //   content: `显示了${name}`,
+      // })
+      Toast.succeed(`显示了${name}`)
     },
     onHide(name) {
-      Toast({
-        content: `隐藏了${name}`,
-      })
+      Toast.succeed(`隐藏了${name}`)
     },
   },
 }

@@ -4,27 +4,21 @@
   </div>
 </template>
 
-<script>
-// #ifdef H5
-import Slider from "mand-mobile/slider";
-// #endif
-// #ifdef MP-WEIXIN
-import Slider from "mand-mobile/slider/index.uni";
-// #endif
+<script>import Slider from '../../index'
 
 export default {
-  name: "slider-demo",
+  name: 'slider-demo',
   /* DELETE */
-  title: "基本",
-  titleEnUS: "Basic",
+  title: '基本',
+  titleEnUS: 'Basic',
   /* DELETE */
   components: {
-    "md-slider": Slider,
+    'md-slider': Slider,
   },
   data() {
     return {
       quantity: 25,
-    };
-  }
-};
-</script>
+    }
+  },
+}
+</script>

@@ -4,13 +4,7 @@
 	</div>
 </template>
 
-<script>
-// #ifdef H5
-import Slider from "mand-mobile/slider";
-// #endif
-// #ifdef MP-WEIXIN
-import Slider from "mand-mobile/slider/index.uni";
-// #endif
+<script>import Slider from '../../index'
 
 export default {
   name: 'slider-demo',
@@ -27,6 +21,5 @@ export default {
     }
   },
 }
-
-</script>
+</script>
 

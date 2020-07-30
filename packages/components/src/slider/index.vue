@@ -1,8 +1,8 @@
 <template>
   <div class="md-slider" :class="{'is-disabled': disabled}">
     <template v-if="range">
-      <div class="md-slider-bar" :style="barStyle"></div>
-      <div class="md-slider-handle is-lower"
+      <div class="md-slider_bar" :style="barStyle"></div>
+      <div class="md-slider_handle is-lower"
         :data-hint="format(values[0])"
         :class="{
           'is-active': isDragging && !isDragingUpper
@@ -13,7 +13,7 @@
           @touchstart="$_startLowerDrag"
         ></span>
       </div>
-      <div class="md-slider-handle is-higher"
+      <div class="md-slider_handle is-higher"
         :data-hint="format(values[1])"
         :class="{
           'is-active': isDragging && isDragingUpper
@@ -26,8 +26,8 @@
       </div>
     </template>
     <template v-else>
-      <div class="md-slider-bar" :style="barStyle"></div>
-      <div class="md-slider-handle"
+      <div class="md-slider_bar" :style="barStyle"></div>
+      <div class="md-slider_handle"
         :data-hint="format(values[0])"
         :class="{
           'is-active': isDragging
@@ -42,8 +42,7 @@
   </div>
 </template>
 
-<script>
-export default {
+<script>export default {
   name: 'md-slider',
 
   props: {
@@ -189,10 +188,10 @@ export default {
       this.startVal = this.values[0]
       this.isDragingUpper = false
       this.isDragging = true
-      window.addEventListener('mousemove', this.$_onDrag, { passive: false })
-      window.addEventListener('touchmove', this.$_onDrag, { passive: false })
-      window.addEventListener('mouseup', this.$_onUp, { passive: false })
-      window.addEventListener('touchend', this.$_onUp, { passive: false })
+      window.addEventListener('mousemove', this.$_onDrag, {passive: false})
+      window.addEventListener('touchmove', this.$_onDrag, {passive: false})
+      window.addEventListener('mouseup', this.$_onUp, {passive: false})
+      window.addEventListener('touchend', this.$_onUp, {passive: false})
     },
     $_startUpperDrag(e) {
       if (this.disabled) {
@@ -205,10 +204,10 @@ export default {
       this.startVal = this.values[1]
       this.isDragingUpper = true
       this.isDragging = true
-      window.addEventListener('mousemove', this.$_onDrag, { passive: false })
-      window.addEventListener('touchmove', this.$_onDrag, { passive: false })
-      window.addEventListener('mouseup', this.$_onUp, { passive: false })
-      window.addEventListener('touchend', this.$_onUp, { passive: false })
+      window.addEventListener('mousemove', this.$_onDrag, {passive: false})
+      window.addEventListener('touchmove', this.$_onDrag, {passive: false})
+      window.addEventListener('mouseup', this.$_onUp, {passive: false})
+      window.addEventListener('touchend', this.$_onUp, {passive: false})
     },
     $_onDrag(e) {
       if (this.disabled) {
@@ -240,15 +239,14 @@ export default {
     $_stopDrag() {
       this.isDragging = false
       this.isDragingUpper = false
-      window.removeEventListener('mousemove', this.$_onDrag, { passive: false })
-      window.removeEventListener('touchmove', this.$_onDrag, { passive: false })
-      window.removeEventListener('mouseup', this.$_onUp, { passive: false })
-      window.removeEventListener('touchend', this.$_onUp, { passive: false })
+      window.removeEventListener('mousemove', this.$_onDrag, {passive: false})
+      window.removeEventListener('touchmove', this.$_onDrag, {passive: false})
+      window.removeEventListener('mouseup', this.$_onUp, {passive: false})
+      window.removeEventListener('touchend', this.$_onUp, {passive: false})
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-slider
@@ -263,64 +261,64 @@ export default {
     right 0
     height 4px
     border-radius 2px
-    background-color slider-bg-base
+    background-color md-slider-bg-base
   &.is-disabled
-    .md-slider-bar
+    .md-slider_bar
       opacity 0.35
-    .md-slider-handle span
+    .md-slider_handle span
       cursor: not-allowed
 
-.md-slider-bar
-  position absolute
-  left 0
-  top 28px
-  height 4px
-  background-color slider-bg-tap
-  border-radius 2px
-  z-index 5
-
-.md-slider-handle
-  position absolute
-  top 10px
-  left 0
-  margin-left -20px
-  z-index 15
-  overflow visible
-  &::after
-    content attr(data-hint)
-    color tip-color
+  &_bar
     position absolute
-    pointer-events none
-    opacity 0
-    visibility hidden
+    left 0
+    top 28px
+    height 4px
+    background-color md-slider-bg-tap
+    border-radius 2px
+    z-index 5
+
+  &_handle
+    position absolute
+    top 10px
+    left 0
+    margin-left -20px
     z-index 15
-    font-size font-minor-normal
-    line-height 1.25
-    padding 8px 16px
-    border-radius radius-normal
-    background-color tip-fill
-    white-space nowrap
-    left 50%
-    bottom 100%
-    margin-bottom 20px
-    transform translateX(-50%)
+    overflow visible
+    &::after
+      content attr(data-hint)
+      color md-tip-color
+      position absolute
+      pointer-events none
+      opacity 0
+      visibility hidden
+      z-index 15
+      font-size md-font-minor-normal
+      line-height 1.25
+      padding 8px 16px
+      border-radius md-radius-normal
+      background-color md-tip-fill
+      white-space nowrap
+      left 50%
+      bottom 100%
+      margin-bottom 20px
+      transform translateX(-50%)
 
-  &:hover::after,
-  &:active::after
-    opacity 1
-    visibility visible
+    &:hover::after,
+    &:active::after
+      opacity 1
+      visibility visible
 
-  &.is-higher
-    z-index 20
-  &.is-active span
-    transform scale(1.3)
-  span
-    display block
-    cursor pointer
-    width 40px
-    height 40px
-    background-color slider-handle-bg
-    border-radius 50%
-    box-shadow 0 1px 2px rgba(0, 0, 0, 0.2)
-    transition transform 200ms
+    &.is-higher
+      z-index 20
+    &.is-active span
+      transform scale(1.3)
+    span
+      display block
+      cursor pointer
+      width 40px
+      height 40px
+      background-color md-slider-handle-bg
+      border-radius 50%
+      box-shadow 0 1px 2px rgba(0, 0, 0, 0.2)
+      transition transform 200ms
 </style>

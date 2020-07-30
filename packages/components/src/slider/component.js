@@ -3,5 +3,5 @@ export default {
   'text': '滑块',
   'category': 'form',
   'description': '',
-  'author': 'moyu <moyuboy@gmail.com>'
+  'author': 'Jetin <caijiating@didiglobal.com>'
 }
