@@ -3,12 +3,12 @@
     :type="nativeType"
     class="md-button"
     :class="[
-      type,
-      inactive ? 'inactive' : 'active',
-      inline ? 'inline' : 'block',
-      round ? 'round' : '',
-      plain ? 'plain' : '',
-      size === 'small' ? 'small' : '',
+      `md-button--${type}`,
+      inactive ? 'md-button--inactive' : 'md-button--active',
+      inline ? 'md-button--inline' : 'md-button--block',
+      round ? 'md-button--round' : '',
+      plain ? 'md-button--plain' : '',
+      size === 'small' ? 'md-button--small' : '',
     ]"
     :disabled="inactive || type === 'disabled'"
     @click="clickHandler"
@@ -139,88 +139,88 @@ export default {
     justify-content center
     padding 0 6px
   // type
-  &.default
+  &.md-button--default
     background-color md-button-default-fill
     color md-button-default-color
     hairline(all, md-color-border-element, md-button-radius, 3px)
-    &.active:active
+    &.md-button--active:active
       background-color md-button-default-active-fill
     .md-button_loading .md-activity-indicator-svg .circle circle
       stroke md-button-default-color !important
-  &.primary
+  &.md-button--primary
     background-color md-button-primary-fill
     color md-button-primary-color
     hairline(all, md-button-primary-fill, md-button-radius, 3px)
-    &.active:active
+    &.md-button--active:active
       background-color md-button-primary-active-fill
     .md-button_loading .md-activity-indicator-svg .circle circle
       stroke md-button-primary-color !important
-  &.warning
+  &.md-button--warning
     background-color md-button-warning-fill
     color md-button-warning-color
     hairline(all, md-button-warning-fill, md-button-radius, 3px)
-    &.active:active
+    &.md-button--active:active
       background-color md-button-warning-active-fill
     .md-button_loading .md-activity-indicator-svg .circle circle
       stroke md-button-warning-color !important
-  &.disabled
+  &.md-button--disabled
     background-color md-button-disabled-fill
     color md-button-disabled-color
     hairline(all, md-button-disabled-fill, md-button-radius, 3px)
     .md-button_loading .md-activity-indicator-svg .circle circle
       stroke md-button-disabled-color !important
 
-  &.plain
+  &.md-button--plain
     background transparent
 
-    &.default
+    &.md-button--default
       color md-button-default-plain-color
       hairline(all, md-color-border-element, md-button-radius, 3px)
       &.active:active
         background-color md-button-default-plain-active-fill
       .md-button_loading .md-activity-indicator-svg .circle circle
         stroke md-button-default-plain-color !important
-    &.primary
+    &.md-button--primary
       color md-button-primary-plain-color
       hairline(all, md-button-primary-fill, md-button-radius, 3px)
-      &.active:active
+      &.md-button--active:active
         background-color md-button-primary-plain-active-fill
       .md-button_loading .md-activity-indicator-svg .circle circle
         stroke md-button-primary-plain-color !important
-    &.warning
+    &.md-button--warning
       color md-button-warning-plain-color
       hairline(all, md-button-warning-fill, md-button-radius, 3px)
-      &.active:active
+      &.md-button--active:active
         background-color md-button-warning-plain-active-fill
       .md-button_loading .md-activity-indicator-svg .circle circle
         stroke md-button-warning-plain-color !important
-    &.disabled
+    &.md-button--disabled
       color md-button-disabled-plain-color
       hairline(all, md-color-border-element, md-button-radius, 3px)
       .md-button_loading .md-activity-indicator-svg .circle circle
         stroke md-button-disabled-plain-color !important
 
-  &.round
+  &.md-button--round
     border-radius md-button-height
     &:after
       border-radius md-button-height !important
 
-  &.inline
+  &.md-button--inline
     display inline-block
     padding 0 md-h-gap-md
-  &.block
+  &.md-button--block
     width 100%
 
-  &.small
+  &.md-button--small
     height md-button-small-height
     line-height md-button-small-height
     font-size md-button-small-font-size
-    &.round
+    &.md-button--round
       border-radius md-button-small-height
       &:after
         border-radius md-button-small-height
 
-  &.link
+  &.md-button--link
     display inline
     width auto
     height auto
@@ -229,12 +229,12 @@ export default {
     font-weight md-font-weight-normal
     color md-button-primary-fill
     background transparent
-    &.inactive
+    &.md-button--inactive
       color md-color-text-disabled
       opacity 1
 
-  &.inactive
+  &.md-button--inactive
     opacity md-opacity-disabled
-    &.disabled
+    &.md-button--disabled
       opacity 1
 </style>
