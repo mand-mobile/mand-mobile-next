@@ -27,7 +27,8 @@
   </button>
 </template>
 
-<script>import ActivityIndicatorRolling from '../activity-indicator/roller'
+<script>
+import ActivityIndicatorRolling from '../activity-indicator/roller'
 import Icon from '../icon'
 export default {
   name: 'md-button',
@@ -85,7 +86,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-button
