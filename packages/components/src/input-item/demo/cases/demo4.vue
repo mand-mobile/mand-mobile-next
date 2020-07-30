@@ -39,7 +39,7 @@
   </div>
 </template>
 
-<script>import '@examples/assets/images/bank-zs.svg'
+<script>import '../assets/bank-zs.svg'
 import InputItem from '../../index.vue'
 import Field from '../../../field/index.vue'
 import NumberKeyboard from '../../../number-keyboard/index.vue'
@@ -106,6 +106,7 @@ export default {
       // }, 300)
     },
     onFakeInputBlur() {
+      // eslint-disable-next-line no-unused-expressions
       this.scrollInputBack && this.scrollInputBack()
     },
   },
