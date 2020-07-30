@@ -23,8 +23,7 @@
   </div>
 </template>
 
-<script>
-import { Toast } from 'mand-mobile'
+<script>import Toast from '../../../toast/index.js'
 import InputItem from '../../index.vue'
 import Field from '../../../field/index.vue'
 import Icon from '../../../icon/index.vue'
@@ -38,7 +37,7 @@ export default {
   components: {
     'md-input-item': InputItem,
     'md-field': Field,
-    'md-icon': Icon
+    'md-icon': Icon,
   },
   data() {
     return {
@@ -55,15 +54,14 @@ export default {
       this.value = '300000'
     },
     onClick() {
-      Toast({
+      Toast.create({
         content: 'some information',
         icon: 'warn',
       })
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-example-child-input-item-3

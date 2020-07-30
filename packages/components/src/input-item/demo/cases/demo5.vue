@@ -29,7 +29,7 @@
 
 <script>import InputItem from '../../index.vue'
 import Field from '../../../field/index.vue'
-import Dialog from '../../../dialog/index.js'
+import Toast from '../../../toast/index.js'
 
 export default {
   name: 'input-item-demo',
@@ -56,7 +56,7 @@ export default {
       }
     },
     bankCardTip() {
-      Dialog.alert({
+      Toast.info({
         content: '以6222开头',
       })
     },

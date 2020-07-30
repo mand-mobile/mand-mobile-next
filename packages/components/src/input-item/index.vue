@@ -107,6 +107,7 @@
       <md-number-keyboard
         v-if="isVirtualKeyboard && !virtualKeyboardVm"
         ref="number-keyboard"
+        :data-id="`${name}-number-keyboard`"
         custom-class="md-input-item-number-keyboard"
         :ok-text="virtualKeyboardOkText"
         :disorder="virtualKeyboardDisorder"
@@ -304,7 +305,6 @@ export default {
     isInputBrief() {
       return this.$slots.brief || this.brief !== ''
     },
-
     // chrildSlotshow
     hasChildrenSlot() {
       return (
@@ -385,14 +385,15 @@ export default {
     this.inputValue = this.$_formateValue(this.$_subValue(this.value + '')).value
   },
   mounted() {
-    this.isVirtualKeyboard &&
+    if (inBrowser && this.isVirtualKeyboard) {
       this.$nextTick(() => {
-        // this.$_initNumberKeyBoard()
+        this.$_initNumberKeyBoard()
       })
+    }
   },
   beforeDestroy() {
     const keyboard = this.inputNumberKeyboard
-    if (keyboard && keyboard.$el) {
+    if (keyboard && keyboard.$el && document) {
       document.body.removeChild(keyboard.$el)
     }
   },
@@ -481,7 +482,9 @@ export default {
     }, 500),
     $_clearInput() {
       this.inputValue = ''
-      !this.isTitleLatent && this.focus()
+      if (!this.isTitleLatent) {
+        this.focus()
+      }
       this.isPreview = false
     },
     $_stopPreview() {
@@ -501,10 +504,14 @@ export default {
       this.$_removeBlurListener()
     },
     $_addBlurListener() {
-      document && document.addEventListener('click', this.$_blurFakeInput, false)
+      if (document) {
+        document.addEventListener('click', this.$_blurFakeInput, false)
+      }
     },
     $_removeBlurListener() {
-      document && document.removeEventListener('click', this.$_blurFakeInput, false)
+      if (document) {
+        document.removeEventListener('click', this.$_blurFakeInput, false)
+      }
     },
     $_initNumberKeyBoard() {
       let keyboard =
@@ -520,7 +527,9 @@ export default {
         keyboard.$on('delete', this.$_onNumberKeyBoardDelete)
         keyboard.$on('confirm', this.$_onNumberKeyBoardConfirm)
         this.inputNumberKeyboard = keyboard
-        document && document.body.appendChild(keyboard.$el)
+        if (document) {
+          document.body.appendChild(keyboard.$el)
+        }
       }
     },
 
@@ -550,7 +559,9 @@ export default {
       this.$emit('keydown', this.name, event)
       if (!(+event.keyCode === 13 || +event.keyCode === 108)) {
         this.$_startEditInput()
-        this.isPreview && this.$_stopPreview()
+        if (this.isPreview) {
+          this.$_stopPreview()
+        }
       }
     },
     $_onFocus() {
@@ -614,7 +625,9 @@ export default {
       if (this.isVirtualKeyboard) {
         this.$_blurFakeInput()
       } else {
-        this.$el.querySelector('.md-input-item-input').blur()
+        if (document) {
+          this.$el.querySelector('.md-input-item-input').blur()
+        }
         this.isInputFocus = false
       }
     },
@@ -756,7 +769,7 @@ export default {
   &.is-highlight
     &.is-focus
       >>> .md-field-item-content
-        hairline(bottom, input-item-color-highlight, 0, 4px)
+        hairline(bottom, md-input-item-color-highlight, 0, 4px)
 
   &.is-disabled
     .md-input-item-input,
@@ -785,7 +798,7 @@ export default {
 
   &.is-error
     >>> .md-field-item-content
-      hairline(bottom, input-item-color-error, 0, 4px)
+      hairline(bottom, md-input-item-color-error, 0, 4px)
 
   &.is-ios
     .md-input-item-input::-webkit-input-placeholder
