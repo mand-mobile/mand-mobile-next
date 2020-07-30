@@ -39,7 +39,7 @@
   </div>
 </template>
 
-<script>import '@examples/assets/images/bank-zs.svg'
+<script>import '../assets/bank-zs.svg'
 import InputItem from '../../index.vue'
 import Field from '../../../field/index.vue'
 import NumberKeyboard from '../../../number-keyboard/index.vue'
@@ -62,12 +62,14 @@ export default {
   },
   methods: {
     onClick() {
-      Toast({
+      Toast.create({
         content: 'some information',
         icon: 'warn',
       })
     },
     onFakeInputFocus() {
+      // eslint-disable-next-line no-console
+      // console.log('Focus')
       // function getElementPosition(element) {
       //   const defaultRect = {top: 0, left: 0}
       //   const rect = element
@@ -84,7 +86,7 @@ export default {
       //   const inputer = this.$refs['input10']
       //   const inputEl = inputer.$el
       //   const keyboardEl = document
-      //     .querySelector(`#${inputer.name}-number-keyboard`)
+      //     .querySelector(`div[data-id=${inputer.name}-number-keyboard]`)
       //     .querySelector('.md-number-keyboard-container')
       //   const offset =
       //     keyboardEl.clientHeight +
@@ -106,6 +108,7 @@ export default {
       // }, 300)
     },
     onFakeInputBlur() {
+      // eslint-disable-next-line no-unused-expressions
       this.scrollInputBack && this.scrollInputBack()
     },
   },
@@ -113,7 +116,7 @@ export default {
 </script>
 
 <style lang="stylus">
-.md-example-child-input-item-2
+.md-example-child-input-item-4
   .md-number-keyboard .md-popup-box
     max-width 720px
 </style>

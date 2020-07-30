@@ -1,11 +1,11 @@
-export const NOOP = () => {}
+export const noop = () => {}
 
-export const NO = () => false
+export const no = () => false
 
 /**
  * Creates a debounced function that delays invoking fn until after delay milliseconds
  */
-export function debounce(fn = NOOP, delay = 300) {
+export function debounce(fn = noop, delay = 300) {
   let timer = null
 
   return function() {
@@ -25,7 +25,7 @@ export function debounce(fn = NOOP, delay = 300) {
 /**
  * Creates a throttled function that only invokes fn at most once per every interval milliseconds
  */
-export function throttle(fn = NOOP, interval = 300) {
+export function throttle(fn = noop, interval = 300) {
   let last = 0
 
   return function() {

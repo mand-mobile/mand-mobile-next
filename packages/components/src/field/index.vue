@@ -19,8 +19,7 @@
   </fieldset>
 </template>
 
-<script>
-export default {
+<script>export default {
   name: 'md-field',
 
   props: {
@@ -48,14 +47,13 @@ export default {
     }
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-field
-  padding field-padding-v field-padding-h
+  padding md-field-padding-v md-field-padding-h
   border none
-  background-color field-bg-color
+  background-color md-field-bg-color
   &.is-plain
     padding 0
     background-color transparent
@@ -65,7 +63,7 @@ export default {
   display flex
   align-items center
   justify-content space-between
-  margin-bottom field-header-gap
+  margin-bottom md-field-header-gap
 
 .md-field-heading
   flex 1 1 0%
@@ -76,24 +74,24 @@ export default {
   align-items center
   align-self flex-start
   justify-content flex-end
-  margin-left h-gap-sm
-  color field-action-color
-  font-size field-action-font-size
+  margin-left md-h-gap-sm
+  color md-field-action-color
+  font-size md-field-action-font-size
 
 .md-field-title
-  color field-title-color
-  font-size field-title-font-size
-  font-weight field-title-font-weight
+  color md-field-title-color
+  font-size md-field-title-font-size
+  font-weight md-field-title-font-weight
   line-height 1
 
 .md-field-brief
-  margin-top v-gap-xs
-  color field-brief-color
-  font-size field-brief-font-size
+  margin-top md-v-gap-xs
+  color md-field-brief-color
+  font-size md-field-brief-font-size
   line-height 1.4
 
 .md-field-footer
-  margin-top field-footer-gap
+  margin-top md-field-footer-gap
 
 .md-field
   &:disabled,
@@ -103,5 +101,5 @@ export default {
     .md-field-action,
     .md-field-content,
     .md-field-footer
-      color color-text-disabled
+      color md-color-text-disabled
 </style>

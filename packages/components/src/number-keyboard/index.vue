@@ -112,7 +112,9 @@ export default {
   },
 
   mounted() {
-    this.value && (this.isKeyboardShow = this.value)
+    if (this.value) {
+      this.isKeyboardShow = this.value
+    }
   },
 
   methods: {
@@ -125,7 +127,9 @@ export default {
     },
     $_onConfirm() {
       this.$emit('confirm')
-      this.isHideConfirm && this.hide()
+      if (this.isHideConfirm) {
+        this.hide()
+      }
     },
 
     // MARK: public methods

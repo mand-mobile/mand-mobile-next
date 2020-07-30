@@ -1357,6 +1357,11 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@mand-mobile/platform@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.npmjs.org/@mand-mobile/platform/-/platform-0.0.1.tgz#619f2cd603f71a090858daf3da0aefd3a76c7ea6"
+  integrity sha512-W1O28gNUnZzrDHa1vbZsXjRRSFY4CVw62hPkgM8eFR58N/nB0kPQgiu4Jt9sfbc/L2cjws6DzVslTfCHxapQAQ==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.npmjs.org/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

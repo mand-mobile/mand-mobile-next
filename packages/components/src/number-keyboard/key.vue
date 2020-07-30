@@ -49,7 +49,9 @@
     $_onFocus(event) {
       if (!this.noPrevent) {
         event.preventDefault()
-        event.stopImmediatePropagation && event.stopImmediatePropagation()
+        if (event.stopImmediatePropagation) {
+          event.stopImmediatePropagation()
+        }
       }
       // if (!this.noTouch) {
       //   this.active = true
@@ -79,7 +81,7 @@
     align-items center
     justify-content center
     height 214px
-    background md-number-keyboard-key-bg url(@mand-mobile/shared/lib/style/images/keyboard-del.png) center no-repeat
+    background md-number-keyboard-key-bg url(assets/images/keyboard-del.png) center no-repeat
     background-size 42px
     &:active
       background-color md-number-keyboard-key-bg-tap
@@ -97,6 +99,6 @@
       background-color md-number-keyboard-key-confirm-bg-tap
 .slidedown
   height md-number-keyboard-key-height
-  background md-number-keyboard-key-bg url(@mand-mobile/shared/lib/style/images/keyboard-hide.png) center no-repeat
+  background md-number-keyboard-key-bg url(assets/images/keyboard-hide.png) center no-repeat
   background-size 54px
 </style>
