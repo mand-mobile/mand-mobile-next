@@ -16,10 +16,9 @@
   </div>
 </template>
 
-<script>
-import Field from 'mand-mobile/field'
-import CellItem from 'mand-mobile/cell-item'
-import Switch from 'mand-mobile/switch'
+<script>import Field from '../../../field'
+import CellItem from '../../../cell-item'
+import Switch from './../../switch'
 export default {
   name: 'cell-item-demo',
   /* DELETE */
@@ -38,13 +37,13 @@ export default {
     }
   },
 }
+</script>
 
-</script>
-
-<style lang="stylus" scoped>
-.holder
-  display block
-  width 48px
-  height 48px
-  background-color #E6E6E6
+<style scoped>
+.holder {
+  display: block;
+  width: 48px;
+  height: 48px;
+  background-color: #E6E6E6;
+}
 </style>

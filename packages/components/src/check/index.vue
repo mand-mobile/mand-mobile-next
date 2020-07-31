@@ -2,22 +2,21 @@
   <label
     class="md-check"
     :class="{
-      'is-disabled': disabled,
-      'is-checked': isChecked
+      'md-check--is-disabled': disabled,
+      'md-check--is-checked': isChecked
     }"
-    @click.native.stop="$_onClick"
+    @click.stop="$_onClick"
   >
-    <div class="md-check-icon">
+    <div class="md-check_icon">
       <md-icon :name="currentIcon" :size="size" :svg="iconSvg"/>
     </div>
-    <div class="md-check-label" v-if="$slots.default || label">
+    <div class="md-check_label" v-if="$slots.default || label">
       <slot>{{ label }}</slot>
     </div>
   </label>
 </template>
 
-<script>
-import Icon from '../icon'
+<script>import Icon from '../icon'
 import checkMixin from './mixin'
 
 export default {
@@ -26,7 +25,7 @@ export default {
   mixins: [checkMixin],
 
   components: {
-    "md-icon": Icon,
+    'md-icon': Icon,
   },
 
   props: {
@@ -64,10 +63,14 @@ export default {
   },
 
   mounted() {
-    this.rootGroup && this.rootGroup.register(this)
+    if (this.rootGroup) {
+      this.rootGroup.register(this)
+    }
   },
   destroyed() {
-    this.rootGroup && this.rootGroup.unregister(this)
+    if (this.rootGroup) {
+      this.rootGroup.unregister(this)
+    }
   },
 
   methods: {
@@ -92,30 +95,29 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-check
   display flex
   align-items center
-  margin-top v-gap-sm
-  margin-bottom v-gap-sm
-  &.is-checked
-    .md-check-icon
-      color check-color
-  &.is-disabled
-    .md-check-icon
-    .md-check-label
-      color color-text-disabled
+  margin-top md-v-gap-sm
+  margin-bottom md-v-gap-sm
+  &--is-checked
+    .md-check_icon
+      color md-check-color
+  &--is-disabled
+    .md-check_icon
+    .md-check_label
+      color md-color-text-disabled
 
-.md-check-icon
+.md-check_icon
   position relative
-  color color-text-placeholder
+  color md-color-text-placeholder
   .md-icon
     display flex
 
-.md-check-label
-  margin-left h-gap-sm
+.md-check_label
+  margin-left md-h-gap-sm
   font-size inherit
 </style>

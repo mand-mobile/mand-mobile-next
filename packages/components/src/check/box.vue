@@ -10,8 +10,7 @@
   </md-check-base-box>
 </template>
 
-<script>
-import CheckBaseBox from '../check-base'
+<script>import CheckBaseBox from '../check-base'
 
 export default {
   name: 'md-check-box',
@@ -48,10 +47,14 @@ export default {
   },
 
   mounted() {
-    this.rootGroup && this.rootGroup.register(this)
+    if (this.rootGroup) {
+      this.rootGroup.register(this)
+    }
   },
   destroyed() {
-    this.rootGroup && this.rootGroup.unregister(this)
+    if (this.rootGroup) {
+      this.rootGroup.unregister(this)
+    }
   },
 
   methods: {
@@ -76,27 +79,26 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-check-box
   position relative
-  &.is-checked
-    color checkbox-active-color
-    border-color checkbox-active-border-color
-    &.is-disabled
-      color checkbox-active-color
-      border-color checkbox-active-border-color
+  &--is-checked
+    color md-checkbox-active-color
+    border-color md-checkbox-active-border-color
+    &--is-disabled
+      color md-checkbox-active-color
+      border-color md-checkbox-active-border-color
       opacity 0.6
-  &.is-disabled
-    color checkbox-disabled-color
-    border-color checkbox-disabled-color
+  &--is-disabled
+    color md-checkbox-disabled-color
+    border-color md-checkbox-disabled-color
 
   .md-tag
     position absolute
     top 0
     right 0
     .quarter-bg
-      background-color checkbox-active-color
+      background-color md-checkbox-active-color
 </style>

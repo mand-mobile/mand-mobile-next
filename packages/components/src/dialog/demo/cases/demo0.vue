@@ -66,20 +66,15 @@
   </div>
 </template>
 
-<script>
-// import {Dialog, Button, Toast} from 'mand-mobile'
-import Dialog from '../../dialog'
-// import Dialog from '../../index'
+<script>import Dialog from '../../dialog'
 import Button from '../../../button'
-import Toast from '../../../toast/toast'
+import Toast from '../../../toast'
 
-function onBasicCancel() {console.log(8989)}
 export default {
   name: 'dialog-demo0',
   components: {
-    "md-dialog": Dialog,
-    "md-button": Button,
-    "md-toast": Toast
+    'md-dialog': Dialog,
+    'md-button': Button,
   },
   data() {
     return {
@@ -89,12 +84,12 @@ export default {
           {
             text: '取消',
             handler: this.onBasicCancel,
-            handlerName: "onBasicCancel",
+            handlerName: 'onBasicCancel',
           },
           {
             text: '确认操作',
             handler: this.onBasicConfirm,
-            handlerName: "onBasicConfirm"
+            handlerName: 'onBasicConfirm',
           },
         ],
       },
@@ -104,7 +99,7 @@ export default {
           {
             text: '确认操作',
             handler: this.onIconConfirm,
-            handlerName: 'onIconConfirm'
+            handlerName: 'onIconConfirm',
           },
         ],
       },
@@ -118,7 +113,7 @@ export default {
             text: '警示操作',
             warning: true,
             handler: this.onWarnConfirm,
-            handlerName: 'onWarnConfirm'
+            handlerName: 'onWarnConfirm',
           },
         ],
       },
@@ -129,7 +124,7 @@ export default {
             text: '开始搜索',
             icon: 'search',
             handler: this.onAsyncConfirm,
-            handlerName: 'onAsyncConfirm'
+            handlerName: 'onAsyncConfirm',
           },
         ],
       },
@@ -140,7 +135,7 @@ export default {
             text: '操作一',
             type: 'danger',
             handler: this.onActConfirm,
-            handlerName: 'onActConfirm'
+            handlerName: 'onActConfirm',
           },
           {
             text: '操作二',
@@ -151,7 +146,7 @@ export default {
           {
             text: '操作三',
             handler: this.onActConfirm,
-            handlerName: 'onActConfirm'
+            handlerName: 'onActConfirm',
           },
         ],
       },
@@ -167,28 +162,24 @@ export default {
   },
   methods: {
     onBasicConfirm() {
-      // Toast({
-      //   content: '你点击了确认',
-      // })
-      console.log('你点击了确认')
+      Toast.create({
+        content: '你点击了确认',
+      })
       this.basicDialog.open = false
     },
     onBasicCancel() {
-      // Toast({
-      //   content: '你点击了取消',
-      // })
-      console.log('你点击了取消')
+      Toast.create({
+        content: '你点击了取消',
+      })
       this.basicDialog.open = false
     },
     onIconConfirm() {
-      // Toast({
-      //   content: '你点击了确认',
-      // })
-      console.log('你点击了确认')
+      Toast.create({
+        content: '你点击了确认',
+      })
       this.iconDialog.open = false
     },
     onActConfirm() {
-      console.log('你点击了确认')
       this.actDialog.open = false
     },
     onAsyncConfirm(btn) {
@@ -201,24 +192,27 @@ export default {
 
       setTimeout(() => {
         this.asyncDialog.open = false
+        // this.$set(btn, 'loading', false)
+        // this.$set(btn, 'text', '开始搜索')
         this.$set(defBtn, 'loading', false)
         this.$set(defBtn, 'text', '开始搜索')
-        // Toast({
-        //   content: '搜索成功',
-        // })
+        Toast.create({
+          content: '搜索成功',
+        })
       }, 1500)
     },
   },
 }
+</script>
 
-</script>
-
-<style lang="stylus">
-.dialog-banner
-  img
-    display block
-    width 100%
-.md-button
-  display block
-  margin-bottom 16px
+<style>
+.dialog-banner img {
+  display: block;
+  width: 100%;
+}
+    
+.md-button {
+  display: block;
+  margin-bottom: 16px;
+}
 </style>

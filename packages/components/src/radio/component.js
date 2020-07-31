@@ -3,5 +3,5 @@ export default {
   'text': '单选框',
   'category': 'form',
   'description': '',
-  'author': 'moyu <moyuboy@gmail.com>'
+  'author': 'chengyanjing <chengyanjing@didiglobal.com>'
 }

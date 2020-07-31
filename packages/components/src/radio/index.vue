@@ -2,23 +2,22 @@
   <label
     class="md-radio"
     :class="{
-      'is-disabled': disabled,
-      'is-checked': isChecked,
-      'is-inline': inline
+      'md-radio--is-disabled': disabled,
+      'md-radio--is-checked': isChecked,
+      'md-radio--is-inline': inline
     }"
     @click="$_onClick"
   >
-    <div class="md-radio-icon">
+    <div class="md-radio_icon">
       <md-icon :name="currentIcon" :size="size" :svg="iconSvg"/>
     </div>
-    <div class="md-radio-label" v-if="$slots.default || label">
+    <div class="md-radio_label" v-if="$slots.default || label">
       <slot>{{ label }}</slot>
     </div>
   </label>
 </template>
 
-<script>
-import Icon from '../icon'
+<script>import Icon from '../icon'
 import radioMixin from './mixins'
 
 export default {
@@ -96,39 +95,38 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-radio
   display flex
   align-items center
   line-height 1.5
-  margin-top v-gap-sm
-  margin-bottom v-gap-sm
-  .md-radio-icon
-    color color-text-placeholder
+  margin-top md-v-gap-sm
+  margin-bottom md-v-gap-sm
+  &_icon
+    color md-color-text-placeholder
     .md-icon
       display flex
-  &.is-checked
-    .md-radio-icon
-      color radio-color
-  &.is-disabled
-    .md-radio-icon
-    .md-radio-label
-      color color-text-disabled
-  &.is-inline
+  &--is-checked
+    .md-radio_icon
+      color md-radio-color
+  &--is-disabled
+    .md-radio_icon
+    .md-radio_label
+      color md-color-text-disabled
+  &--is-inline
     display inline-flex
     &:not(:last-child)
       margin-right 40px
 
-.md-radio-icon
+.md-radio_icon
   position relative
   flex-shrink 0
 
-.md-radio-label
-  margin-left h-gap-sm
+.md-radio_label
+  margin-left md-h-gap-sm
   font-size inherit
-  font-weight font-weight-normal
+  font-weight md-font-weight-normal
 </style>
 

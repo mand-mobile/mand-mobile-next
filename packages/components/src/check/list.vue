@@ -2,7 +2,7 @@
   <md-check-group
     ref="group"
     class="md-check-list"
-    :class="{ 'is-align-center': alignCenter }"
+    :class="{ 'md-check-list--is-align-center': alignCenter }"
     :value="value"
     @input="$_onInput"
   >
@@ -11,7 +11,7 @@
       :key="index"
       class="md-check-item"
       :class="{
-        'is-checked': value.indexOf(item.value) !== -1,
+        'md-check-item--is-checked': value.indexOf(item.value) !== -1,
       }"
       :title="hasSlot ? '' : (item.text || item.label)"
       :active="isTitleActive && value.indexOf(item.value) !== -1"
@@ -25,7 +25,6 @@
       <!--iconPosition-->
       <template #right>
         <md-check
-          class="md-check right"
           v-if="!alignCenter && iconPosition === 'right'"
           :name="item.value"
           :disabled="item.disabled"
@@ -38,7 +37,6 @@
       </template>
       <template #left>
         <md-check
-          class="md-check left"
           v-if="!alignCenter && iconPosition === 'left'"
           :name="item.value"
           :disabled="item.disabled"
@@ -53,8 +51,7 @@
   </md-check-group>
 </template>
 
-<script>
-import Check from './index'
+<script>import Check from './index'
 import CheckGroup from './group'
 import CellItem from '../cell-item'
 import checkMixin from './mixin'
@@ -107,7 +104,7 @@ export default {
 
   methods: {
     // MARK: private methods 小程序事件冒泡不生效
-    $_check(option, index) {
+    $_check(option) {
       this.$refs.group.toggle(option.value)
     },
     // MARK: private events
@@ -116,20 +113,9 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus" scoped>
 .md-check-item
   text-align left
-  // .md-check
-  //   margin-top 0
-  //   margin-bottom 0
-  //   pointer-events none
-  //   -webkit-flex-shrink 0
-  //   flex-shrink 0
-  //   margin-right 32upx
-  //   width 32p
-  // .md-cell-item-body.multilines .md-cell-item-title
-  //   font-weight font-weight-medium
 </style>

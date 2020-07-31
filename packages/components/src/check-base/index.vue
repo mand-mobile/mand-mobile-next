@@ -2,8 +2,8 @@
   <div
     class="md-check-base-box"
     :class="{
-      'is-disabled': disabled,
-      'is-checked': isChecked
+      'md-check-base-box--is-disabled': disabled,
+      'md-check-base-box--is-checked': isChecked
     }"
   >
     <slot></slot>
@@ -19,8 +19,7 @@
   </div>
 </template>
 
-<script>
-import Tag from '../tag'
+<script>import Tag from '../tag'
 import Icon from '../icon'
 export default {
   name: 'md-check-base-box',
@@ -45,32 +44,31 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-check-base-box
   position relative
   display inline-block
-  margin-right 8rpx
+  margin-right 8px
   text-align center
-  color checkbox-color
-  font-size checkbox-font-size
-  padding v-gap-sm h-gap-md
-  border 1px solid checkbox-border-color
-  border-radius checkbox-border-radius
+  color md-checkbox-color
+  font-size md-checkbox-font-size
+  padding md-v-gap-sm md-h-gap-md
+  border 1px solid md-checkbox-border-color
+  border-radius md-checkbox-border-radius
   box-sizing border-box
   overflow hidden
-  &.is-checked
-    color checkbox-active-color
-    border-color checkbox-active-border-color
-    &.is-disabled
-      color checkbox-active-color
-      border-color checkbox-active-border-color
+  &--is-checked
+    color md-checkbox-active-color
+    border-color md-checkbox-active-border-color
+    &--is-disabled
+      color md-checkbox-active-color
+      border-color md-checkbox-active-border-color
       opacity 0.6
-  &.is-disabled
-    color checkbox-disabled-color
-    border-color checkbox-disabled-color
+  &--is-disabled
+    color md-checkbox-disabled-color
+    border-color md-checkbox-disabled-color
 
   .md-tag
     position absolute

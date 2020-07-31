@@ -7,8 +7,7 @@
   </div>
 </template>
 
-<script>
-import Dialog from '../../index'
+<script>import Dialog from '../../index'
 import Button from '../../../button'
 export default {
   name: 'dialog-demo1',
@@ -26,6 +25,7 @@ export default {
         content: '您正在进行非法操作',
         cancelText: '取消',
         confirmText: '确定',
+        // eslint-disable-next-line no-console
         onConfirm: () => console.log('[Dialog.alert] confirm clicked'),
       })
     },
@@ -34,6 +34,7 @@ export default {
         title: '确认',
         content: '请确认是否进行操作',
         confirmText: '确定',
+        // eslint-disable-next-line no-console
         onConfirm: () => console.log('[Dialog.confirm] confirm clicked'),
       })
     },
@@ -42,6 +43,7 @@ export default {
         title: '成功',
         content: '恭喜您成功完成操作',
         confirmText: '确定',
+        // eslint-disable-next-line no-console
         onConfirm: () => console.log('[Dialog.succeed] confirm clicked'),
       })
     },
@@ -50,9 +52,10 @@ export default {
         title: '失败',
         content: '操作失败，请稍后重试',
         confirmText: '确定',
+        // eslint-disable-next-line no-console
         onConfirm: () => console.log('[Dialog.failed] confirm clicked'),
       })
     },
   },
 }
-</script>
+</script>

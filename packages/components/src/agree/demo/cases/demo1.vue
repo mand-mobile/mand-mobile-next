@@ -11,8 +11,7 @@
   </div>
 </template>
 
-<script>
-import Agree from '../../index'
+<script>import Agree from '../../index'
 
 export default {
   name: 'agree-demo',
@@ -22,7 +21,7 @@ export default {
   height: 120,
   /* DELETE */
   components: {
-     "md-agree": Agree,
+    'md-agree': Agree,
   },
   data() {
     return {
@@ -37,9 +36,9 @@ export default {
   },
   methods: {
     onChange(name, checked) {
+      // eslint-disable-next-line no-console
       console.log(`agree name = ${name} is ${checked ? 'checked' : 'unchecked'}`)
     },
   },
 }
-
-</script>
+</script>
