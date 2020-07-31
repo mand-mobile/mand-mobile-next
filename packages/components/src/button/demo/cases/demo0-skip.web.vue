@@ -12,7 +12,8 @@
 </template>
 
 <script>
-console.info('common')
+console.info('web')
+
 import Button from 'mand-mobile/lib/button'
 
 export default {
