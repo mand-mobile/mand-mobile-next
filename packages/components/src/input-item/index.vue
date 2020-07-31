@@ -35,7 +35,7 @@
         :placeholder="inputPlaceholder"
         :disabled="isDisabled"
         :readonly="readonly"
-        :maxlength="isInputFormative ? '' : maxlength"
+        :maxlength="isInputFormative ? inputItemMaxLength : maxlength"
         autocomplete="off"
         @focus="$_onFocus"
         @blur="$_onBlur"
@@ -281,6 +281,13 @@ export default {
         return 11
       } else {
         return this.maxlength
+      }
+    },
+    inputItemMaxLength() {
+      if (inBrowser) {
+        return ''
+      } else {
+        return 200
       }
     },
     inputPlaceholder() {
