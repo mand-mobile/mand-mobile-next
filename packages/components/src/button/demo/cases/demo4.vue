@@ -5,9 +5,8 @@
   </div>
 </template>
 
-<script>
-import Button from '../../../button'
-import Icon from '../../../icon'
+<script>import Button from 'mand-mobile/lib/button'
+import Icon from 'mand-mobile/lib/icon'
 
 export default {
   name: 'button-demo',
@@ -21,8 +20,7 @@ export default {
     'md-icon': Icon,
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus" scoped>
 .md-example-child-button-3
