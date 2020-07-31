@@ -1,6 +1,6 @@
 <template>
   <svg
-    v-if="svg || isInnerSvg"
+    v-if="!ismp && (svg || isInnerSvg)"
     class="md-icon icon-svg"
     :class="[`md-icon-${name}`, size]"
     :style="{fill: color}"
@@ -41,6 +41,12 @@ export default {
       type: Boolean,
       default: false,
     },
+  },
+
+  data() {
+    return {
+      ismp,
+    }
   },
 
   mounted() {

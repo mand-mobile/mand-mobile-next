@@ -615,7 +615,9 @@ export default {
       if (this.isVirtualKeyboard) {
         this.$_onFakeInputClick()
       } else {
-        this.$el.querySelector('.md-input-item-input').focus()
+        if (document) {
+          this.$el.querySelector('.md-input-item-input').blur()
+        }
         setTimeout(() => {
           this.isInputFocus = true
         }, 200)
