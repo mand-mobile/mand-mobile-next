@@ -200,7 +200,9 @@ export default {
     },
     $_onHide() {
       this.visible = false
-      this.$refs.codebox && this.$refs.codebox.blur()
+      if (this.$refs.codebox) {
+        this.$refs.codebox.blur()
+      }
       this.$emit('hide')
     },
     $_onSubmit(code) {
@@ -213,7 +215,9 @@ export default {
       this.$emit('send', this.countdown)
     },
     $_emitSend() {
-      this.autoSend && this.$_onResend()
+      if (this.autoSend) {
+        this.$_onResend()
+      }
     },
     // MARK: public methods
     countdown() {
