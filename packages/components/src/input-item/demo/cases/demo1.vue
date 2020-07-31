@@ -7,6 +7,7 @@
         value="张**"
         title="真实姓名"
         placeholder="投保人姓名"
+        isTitleLatent
       ></md-input-item>
       <md-input-item
         ref="id"
@@ -16,13 +17,13 @@
         title="银行卡号"
         placeholder="投保人银行卡号"
         is-virtual-keyboard
+        isTitleLatent
         ></md-input-item>
     </md-field>
   </div>
 </template>
 
-<script>
-import InputItem from '../../index.vue'
+<script>import InputItem from '../../index.vue'
 import Field from '../../../field/index.vue'
 
 export default {
@@ -36,8 +37,7 @@ export default {
     'md-field': Field,
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-example-child-input-item-1

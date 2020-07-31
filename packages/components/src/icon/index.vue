@@ -100,16 +100,16 @@ export default {
       width md-icon-size-xxs
       vertical-height(md-icon-size-xxs)
     &.xs
-      width icon-size-xs
+      width md-icon-size-xs
       vertical-height(md-icon-size-xs)
     &.sm
-      width icon-size-sm
+      width md-icon-size-sm
       vertical-height(md-icon-size-sm)
     &.md
-      width icon-size-md
+      width md-icon-size-md
       vertical-height(md-icon-size-md)
     &.lg
-      width icon-size-lg
+      width md-icon-size-lg
       vertical-height(md-icon-size-lg)
 
 // name

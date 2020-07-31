@@ -31,9 +31,8 @@
   </div>
 </template>
 
-<script>
+<script>import {isIOS, isAndroid} from '@mand-mobile/shared/lib/util'
 import Icon from '../icon'
-import {isIOS, isAndroid} from '@mand-mobile/shared/lib/util'
 
 export default {
   name: 'md-field-item',
@@ -88,7 +87,7 @@ export default {
     customContentClass: {
       type: Array,
       default: () => [],
-    }
+    },
   },
 
   computed: {
@@ -115,8 +114,7 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-field-item
@@ -127,23 +125,23 @@ export default {
   display flex
   align-items center
   justify-content space-between
-  min-height field-item-min-height
-  padding-top field-item-padding-v
-  padding-bottom field-item-padding-v
+  min-height md-field-item-min-height
+  padding-top md-field-item-padding-v
+  padding-bottom md-field-item-padding-v
   box-sizing border-box
-  hairline(bottom, field-item-border-color)
+  hairline(bottom, md-field-item-border-color)
   &.input-item-wrapper
     padding-top 0
     padding-bottom 0
   &.is-error
-    hairline(bottom, input-item-color-error, 0, 4px)
+    hairline(bottom, md-input-item-color-error, 0, 4px)
   &.is-highlight
     &.is-focus
-      hairline(bottom, input-item-color-highlight, 0, 4px)
+      hairline(bottom, md-input-item-color-highlight, 0, 4px)
 .md-field-item-title
   flex-shrink 0
-  margin-right field-item-title-gap
-  font-size field-item-font-size
+  margin-right md-field-item-title-gap
+  font-size md-field-item-font-size
 
 .md-field-item-left
   flex-shrink 0
@@ -151,52 +149,52 @@ export default {
   display inline-flex
   align-items center
   justify-content flex-start
-  color field-item-addon-color
-  font-size field-item-addon-font-size
+  color md-field-item-addon-color
+  font-size md-field-item-addon-font-size
 
 .md-field-item-control
   position relative
   flex 1 1 0%
-  color field-item-color
-  font-size field-item-font-size
-  font-weight field-item-font-weight
+  color md-field-item-color
+  font-size md-field-item-font-size
+  font-weight md-field-item-font-weight
 
 .md-field-item-placeholder
-  color field-item-placeholder-color
-  font-weight font-weight-normal
+  color md-field-item-placeholder-color
+  font-weight md-font-weight-normal
 
 .md-field-item-right
   position relative
   flex-shrink 0
-  margin-left h-gap-sm
+  margin-left md-h-gap-sm
   display inline-flex
   align-items center
   justify-content flex-end
-  color field-item-addon-color
-  font-size field-item-addon-font-size
+  color md-field-item-addon-color
+  font-size md-field-item-addon-font-size
   .md-icon-arrow-right
     margin-right -6px
-    color color-text-placeholder
+    color md-color-text-placeholder
 
 .md-field-item-children
-  font-size field-item-children-font-size
-  margin-top v-gap-md
+  font-size md-field-item-children-font-size
+  margin-top md-v-gap-md
   &.has-children
-    margin-top v-gap-md
+    margin-top md-v-gap-md
 
 .md-field-item
   &.is-solid
     .md-field-item-title
-      width field-item-title-width
+      width md-field-item-title-width
   &.is-disabled
     .md-field-item-control,
     .md-field-item-left,
     .md-field-item-right
-      color color-text-disabled
+      color md-color-text-disabled
   &.is-align-right
     .md-field-item-control
       text-align right
   &.is-android
     .md-field-item-control
-      font-weight field-title-font-weight-android
+      font-weight md-field-title-font-weight-android
 </style>

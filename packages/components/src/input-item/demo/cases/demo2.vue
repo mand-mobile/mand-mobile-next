@@ -40,8 +40,7 @@
   </div>
 </template>
 
-<script>
-import InputItem from '../../index.vue'
+<script>import InputItem from '../../index.vue'
 import Field from '../../../field/index.vue'
 
 export default {
@@ -63,12 +62,13 @@ export default {
   },
   methods: {
     onInputKeydown(name, event) {
+      // eslint-disable-next-line no-console
       console.log(`[Mand Mobile InputItem keydown] ${event.keyCode}`)
     },
     onInputChange(name, value) {
+      // eslint-disable-next-line no-console
       console.log(`[Mand Mobile InputItem change] ${value}`)
     },
   },
 }
-
-</script>
+</script>

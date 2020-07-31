@@ -202,8 +202,8 @@ export default {
 
     // MARK: events handler
     $_handleOutClick(e) {
-      if (!this.$el.contains(e.target)) {
-        // this.focused = false
+      if (inBrowser && !this.$el.contains(e.target)) {
+        this.focused = false
       }
     },
     $_onInputChange(e) {
@@ -309,7 +309,7 @@ export default {
     margin-left "calc(%s / 2)" % md-codebox-gutter
     margin-right "calc(%s / 2)" % md-codebox-gutter
 
-  hairline(bottom, color-border-element)
+  hairline(bottom, md-color-border-element)
   &:first-child
     margin-left 0
   &:last-child
@@ -325,7 +325,7 @@ export default {
     height "calc(%s * 0.8)" % md-codebox-height
   width 2px
   background-color md-codebox-blink-color
-  animation md-md-codebox-flash steps(2) 1s infinite
+  animation md-codebox-flash steps(2) 1s infinite
 
 .md-codebox-dot
   display block
