@@ -106,9 +106,10 @@
       <!-- ------------ -->
       <md-number-keyboard
         v-if="isVirtualKeyboard && !virtualKeyboardVm"
+        v-model="isInputFocus"
         ref="number-keyboard"
-        :data-id="`${name}-number-keyboard`"
         custom-class="md-input-item-number-keyboard"
+        :data-id="`${name}-number-keyboard`"
         :ok-text="virtualKeyboardOkText"
         :disorder="virtualKeyboardDisorder"
       ></md-number-keyboard>
@@ -376,15 +377,25 @@ export default {
       }
     },
     isInputFocus(val) {
-      if (!this.isVirtualKeyboard || !this.inputNumberKeyboard) {
+      if (!this.isVirtualKeyboard || !this.inputNumberKeyboard || !this.$refs['number-keyboard']) {
         return
       }
-      if (val) {
-        this.inputNumberKeyboard.show()
-        this.$emit('focus', this.name)
-      } else {
-        this.inputNumberKeyboard.hide()
-        this.$emit('blur', this.name)
+      if (inBrowser) {
+        if (val) {
+          this.inputNumberKeyboard.show()
+          this.$emit('focus', this.name)
+        } else {
+          this.inputNumberKeyboard.hide()
+          this.$emit('blur', this.name)
+        }
+      } else if (!inBrowser && this.$refs['number-keyboard']) {
+        if (val) {
+          this.$refs['number-keyboard'].show()
+          this.$emit('focus', this.name)
+        } else {
+          this.$refs['number-keyboard'].hide()
+          this.$emit('blur', this.name)
+        }
       }
     },
   },
@@ -396,6 +407,12 @@ export default {
       this.$nextTick(() => {
         this.$_initNumberKeyBoard()
       })
+    } else if (!inBrowser && this.isVirtualKeyboard) {
+      if (this.$refs['number-keyboard']) {
+        this.$refs['number-keyboard'].$on('enter', this.$_onNumberKeyBoardEnter)
+        this.$refs['number-keyboard'].$on('delete', this.$_onNumberKeyBoardDelete)
+        this.$refs['number-keyboard'].$on('confirm', this.$_onNumberKeyBoardConfirm)
+      }
     }
   },
   beforeDestroy() {
@@ -500,7 +517,6 @@ export default {
     },
     $_focusFakeInput() {
       this.isInputFocus = true
-      // todo
       this.showNumKeyboard = true
       setTimeout(() => {
         this.$_addBlurListener()
@@ -508,6 +524,7 @@ export default {
     },
     $_blurFakeInput() {
       this.isInputFocus = false
+      this.showNumKeyboard = false
       this.$_removeBlurListener()
     },
     $_addBlurListener() {

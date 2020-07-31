@@ -1,6 +1,6 @@
 /* eslint-disable */
 import {baseParse} from '@vue/compiler-core'
-import {existsSync, readFileSync, writeFile} from 'fs'
+import {existsSync, readFileSync, writeFile, mkdirSync} from 'fs'
 import {resolve} from 'path'
 import {transformJs} from './script-gen'
 import {concatcStyle} from './style-gen'
@@ -52,4 +52,14 @@ function genUniComponet({template, script, style}, path) {
     }
     console.log('执行完毕')
   })
+}
+
+const run = () => {
+  const args = process.argv.slice(2)
+  console.log(args)
+  if (!args[0]) {
+    console.error(`请加上组件名称参数。\n npm run transform component.name \n e: npm run transform button`)
+    return
+  }
+  genUniComponet(compilerCode(readVueFile(`${args[0]}/index.vue`)), `${args[0]}.vue`)
 }
