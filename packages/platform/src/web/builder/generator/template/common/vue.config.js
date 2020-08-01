@@ -35,6 +35,7 @@ module.exports = {
       alias: {
         '@mand-mobile/platform/lib': path.join(__dirname, `_platform/lib/${process.env.MAND_PLATFORM}`),
         '@mand-mobile/shared': path.join(__dirname, '_shared'),
+        'mand-mobile/lib': path.join(__dirname, '_mand-mobile/src'),
         'mand-mobile': path.join(__dirname, '_mand-mobile'),
       },
     },
