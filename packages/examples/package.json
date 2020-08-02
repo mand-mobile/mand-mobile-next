@@ -12,8 +12,7 @@
     "build": "echo \"todo for build\"",
     "build:bundle":
       "run-p clean:* && VUE_CLI_SKIP_DIRTY_GIT_PROMPT=true vue invoke @mand-mobile/vue-cli-plugin-builder --platform web --target bundle && vue-cli-service md-build --platform=web --target=bundle .mand-mobile/main.js",
-    "build:lib":
-      "run-p clean:* && VUE_CLI_SKIP_DIRTY_GIT_PROMPT=true  vue invoke @mand-mobile/vue-cli-plugin-builder --platform web --target lib && vue-cli-service md-build --platform=web --target=lib .mand-mobile/main.lib.js",
+    "build:lib": "run-p clean:* && sh ./scripts/build.sh web",
     "clean:dist": "rm -fr dist",
     "clean:workspace": "rm -fr .mand-mobile",
     "serve:uni": "run-p clean:* && sh ./scripts/preview.sh uni",
