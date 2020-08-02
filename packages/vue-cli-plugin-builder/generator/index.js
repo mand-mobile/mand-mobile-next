@@ -76,8 +76,7 @@ function resolveComponents({platform: PLATFORM}) {
                 }
                 // 假设web平台构建
                 // 当前目录下存在 index-only.web.vue index-skip.web.vue index.web.vue
-                // 则不加载index.vue
-                console.info(dic, `${name}${ele}.${PLATFORM}.${ext}`, name)
+                // 则不加载index.vue和index-skip.web.vue
                 return !dic[`${name}${ele}.${PLATFORM}.${ext}`]
               },
               true,

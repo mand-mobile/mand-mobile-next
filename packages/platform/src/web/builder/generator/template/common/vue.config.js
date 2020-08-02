@@ -1,6 +1,5 @@
 // @todo 收敛`vue.config.js`到模板工程内
 const path = require('path')
-
 //@fixme需要找更优雅的路径解析方式, 注意相对路径的hack，这个文件要放到相对于根路径的三级目录下 example: src/
 const nodeModuleDir = path.resolve(__dirname, '../../node_modules')
 
@@ -41,6 +40,14 @@ module.exports = {
     },
   },
   chainWebpack: config => {
+    /**
+     * 根据环境变量，为webpack resovle 扩展平台相关代码 比如 index.web.vue 优先于 index.vue
+     */
+    if (process.env.MAND_PLATFORM) {
+      const extFiletypes = Array.from(config.resolve.extensions.store)
+      extFiletypes.forEach(ext => config.resolve.extensions.prepend(`.${process.env.MAND_PLATFORM}${ext}`))
+    }
+
     config.plugin('html').tap(args => {
       if (process.env.MAND_INPUT_DIR) {
         args[0].template = `${process.env.MAND_INPUT_DIR}/public/index.html`
