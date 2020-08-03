@@ -8,34 +8,33 @@
       @show="$_onShow"
       @hide="$_onHide"
     >
-      <div class="md-action-sheet-content">
-        <header class="md-action-sheet-header" v-if="title">{{ title }}</header>
-        <ul class="md-action-sheet-list">
+      <div class="md-action-sheet_content">
+        <header class="md-action-sheet_header" v-if="title">{{ title }}</header>
+        <ul class="md-action-sheet_list">
           <template v-for="(item, index) in options">
             <li
               :key="index"
               :class="{
-                'active': index === clickIndex,
-                'disabled': index=== invalidIndex,
-                'md-action-sheet-item': true
+                'md-action-sheet_item--active': index === clickIndex,
+                'md-action-sheet_item--disabled': index=== invalidIndex,
+                'md-action-sheet_item': true
               }"
               @click="$_onSelect(item, index)"
             >
-              <div class="md-action-sheet-item-wrapper">
-                <div class="md-action-sheet-item-section" v-html="item.text || item.label"></div>
+              <div class="md-action-sheet_item_wrapper">
+                <div class="md-action-sheet_item_section" v-html="item.text || item.label"></div>
               </div>
             </li>
           </template>
-          <li class="md-action-sheet-cancel" @click="$_onCancel">{{ cancelText }}</li>
+          <li class="md-action-sheet_cancel" @click="$_onCancel">{{ cancelText }}</li>
         </ul>
       </div>
     </md-popup>
   </div>
 </template>
 
-<script>
+<script>import {inArray} from '@mand-mobile/shared/lib/util'
 import Popup from '../popup'
-import {inArray} from '../_util'
 
 export default {
   name: 'md-action-sheet',
@@ -118,65 +117,64 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-action-sheet
-  color action-sheet-color
+  color md-action-sheet-color
   -webkit-font-smoothing antialiased
   .md-popup
-    z-index action-sheet-zindex
+    z-index md-action-sheet-zindex
   .md-popup-box
-    background-color color-bg-base
+    background-color md-color-bg-base
 
-.md-action-sheet-content
+.md-action-sheet_content
   position relative
   width 100%
-  font-size action-sheet-font-size
-  background action-sheet-bg
+  font-size md-action-sheet-font-size
+  background md-action-sheet-bg
   text-align center
   overflow auto
 
-.md-action-sheet-header
+.md-action-sheet_header
   position relative
-  vertical-height(action-sheet-height)
-  hairline(bottom, color-border-base)
+  vertical-height(md-action-sheet-height)
+  hairline(bottom, md-color-border-base)
   word-ellipsis()
   overflow visible
 
-.md-action-sheet-item
+.md-action-sheet_item
   position relative
-  vertical-height(action-sheet-height)
-  padding 0 action-sheet-padding-h
+  vertical-height(md-action-sheet-height)
+  padding 0 md-action-sheet-padding-h
   box-sizing border-box
-  font-size action-sheet-font-size
-  transition background-color .3s
+  font-size md-action-sheet-font-size
+  transition md-background-color .3s
   -webkit-user-select none
-  &.active
-    color action-sheet-color-highlight
-  &.disabled .md-action-sheet-item-section
-    opacity action-sheet-disabled-opacity
+  &--active
+    color md-action-sheet-color-highlight
+  &--disabled .md-action-sheet_item_section
+    opacity md-action-sheet-disabled-opacity
   &:first-of-type
-    .md-action-sheet-item-wrapper:after
+    .md-action-sheet_item_wrapper:after
       display none
   &:active
-    background-color color-bg-tap
-    &.disabled
+    background-color md-color-bg-tap
+    &--disabled
       background-color transparent
 
-.md-action-sheet-item-wrapper
-  position relative
-  hairline(top, color-border-base)
+  &_wrapper
+    position relative
+    hairline(top, md-color-border-base)
 
-.md-action-sheet-cancel
+.md-action-sheet_cancel
   height 132px
   line-height 120px
-  color action-sheet-color-cancel
-  font-weight font-weight-medium
+  color md-action-sheet-color-cancel
+  font-weight md-font-weight-medium
   &::before
     display block
     content ''
     height 12px
-    background action-sheet-cancel-gap-bg
+    background md-action-sheet-cancel-gap-bg
 </style>

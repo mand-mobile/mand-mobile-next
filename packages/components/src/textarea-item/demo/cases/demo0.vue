@@ -5,6 +5,7 @@
         ref="demo0"
         title="普通"
         class="example"
+        :autosize="true"
         v-model="value"
         placeholder="普通文本域"
       />
@@ -52,9 +53,10 @@
   </div>
 </template>
 
-<script>
-import TextareaItem from 'mand-mobile/textarea-item'
-import Field from 'mand-mobile/field'
+<script>import TextareaItem from '../../index'
+import Field from '../../../field'
+// import TextareaItem from 'mand-mobile/lib/TextareaItem'
+// import Field from 'mand-mobile/lib/Field'
 
 export default {
   name: 'tips-demo',
@@ -77,5 +79,4 @@ export default {
     }, 1000)
   },
 }
-
-</script>
+</script>

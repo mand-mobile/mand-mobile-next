@@ -67,9 +67,9 @@
   </div>
 </template>
 
-<script>
-import Landscape from 'mand-mobile/landscape'
-import Button from 'mand-mobile/button'
+<script>import Landscape from '../../index'
+import Button from '../../../button'
+import Toast from '../../../toast'
 
 export default {
   name: 'landscape-demo',
@@ -92,25 +92,30 @@ export default {
   },
   methods: {
     alert(msg) {
+      // console.log(msg)
       Toast.succeed(msg)
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
-.md-example-child-landscape
+.md-example-child-landscape img {
+  width: 100%;
+}
   img 
     width 100%
-  .md-button
-    margin-bottom 20px
-
-.md-landscape-content
-  padding 30px
-  font-size 30px
-  line-height 1.5
-  color #666
-  p
-    margin-bottom 30px
+.md-example-child-landscape .md-button {
+  margin-bottom: 20px;
+ }
+.md-landscape-content {
+  padding: 30px;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #666;
+}
+  
+.md-landscape-content p {
+  margin-bottom: 30px;
+}
 </style>

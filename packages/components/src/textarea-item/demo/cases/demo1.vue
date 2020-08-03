@@ -5,6 +5,7 @@
         ref="demo1"
         title="错误提示"
         class="example"
+        :autosize="true"
         v-model="value"
         @blur="blur"
         @change="change"
@@ -19,9 +20,8 @@
   </div>
 </template>
 
-<script>
-import TextareaItem from 'mand-mobile/textarea-item'
-import Field from 'mand-mobile/field'
+<script>import TextareaItem from '../../index'
+import Field from '../../../field'
 export default {
   name: 'tips-demo',
   /* DELETE */
@@ -58,5 +58,4 @@ export default {
     },
   },
 }
-
-</script>
+</script>

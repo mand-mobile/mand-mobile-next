@@ -14,11 +14,10 @@
   </div>
 </template>
 
-<script>
-// import {ActionSheet, Button, Dialog} from 'mand-mobile'
+<script>// import {ActionSheet, Button, Dialog} from 'mand-mobile'
 import ActionSheet from '../../action-sheet'
 import Button from '../../../button'
-import Dialog from '../../../dialog'
+// import Dialog from '../../../dialog'
 
 export default {
   name: 'action-sheet-demo',
@@ -55,18 +54,17 @@ export default {
       this.value = true
     },
     $_selected(item) {
-      Dialog.alert({
-        content: `selected: ${JSON.stringify(item)}`,
-      })
+      // Dialog.alert({
+      //   content: `selected: ${JSON.stringify(item)}`,
+      // })
       console.log('action-sheet selected:', JSON.stringify(item))
     },
     $_cancel() {
-      Dialog.alert({
-        content: 'cancel',
-      })
+      // Dialog.alert({
+      //   content: 'cancel',
+      // })
       console.log('action-sheet cancel')
     },
   },
 }
-
-</script>
+</script>
