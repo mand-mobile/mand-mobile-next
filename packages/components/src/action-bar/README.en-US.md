@@ -50,9 +50,10 @@ left content
 
 #### ActionBar Events
 
-##### @click(event, action)
+##### @click(event, action, index)
 Button click event
 
 |Props | Description | Type |
 |----|-----|------|
 |action|object corresponding to the clicked button in the actions list|Object: ActionOptions|
+|index|index of object corresponding to the clicked button in the actions list|Number|

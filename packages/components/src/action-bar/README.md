@@ -51,9 +51,10 @@ Vue.component(ActionBar.name, ActionBar)
 
 #### ActionBar Events
 
-##### @click(event, action)
+##### @click(event, action, index)
 按钮点击事件
 
 |属性 | 说明 | 类型 |
 |----|-----|------|
-|action|actions列表中与被点击按钮对应的对象|Object: ActionOptions|
+|action|actions列表中被点击按钮对应的对象|Object: ActionOptions|
+|index|actions列表中被点击按钮对应的对象的数组下标|Number|
