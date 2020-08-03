@@ -8,6 +8,8 @@ const compiler = require('zp-vueify').compiler
 const findPostcssConfig = require('postcss-load-config')
 const postcss = require('postcss')
 const stylus = require('stylus')
+const { resultLog } = require('./utils')
+
 
 
 let env = {}
@@ -200,20 +202,16 @@ module.exports = (webpackConfig, args, api) => {
   const libDir = path.resolve(exeRootPath, '../components/lib')
   env.exeRootPath = exeRootPath
 
-  function main() {
-    return move(componentsDir, path.resolve(libDir, 'components'))
-      .then(() => move(sharedDir, path.resolve(libDir, 'shared')))
-      .then(() => Promise.all([compileAndReplaceAllJsFile(libDir),compileAndReplaceAllVueFile(libDir),compileGlobalStylus()]))
-      .then(() => {
-        resultLog('success', 'Build **Components** Complete!')
-      })
-      .catch(e => {
-        // eslint-disable-next-line no-console
-        console.error(e)
-        resultLog('error', 'Build **Components** Fail!')
-      })
-  }
-
-  main()
+  return move(componentsDir, path.resolve(libDir, 'components'))
+    .then(() => move(sharedDir, path.resolve(libDir, 'shared')))
+    .then(() => Promise.all([compileAndReplaceAllJsFile(libDir),compileAndReplaceAllVueFile(libDir),compileGlobalStylus()]))
+    .then(() => {
+      resultLog('success', 'Build **Components** Complete!')
+    })
+    .catch(e => {
+      // eslint-disable-next-line no-console
+      console.error(e)
+      resultLog('error', 'Build **Components** Fail!')
+    })
   
 }

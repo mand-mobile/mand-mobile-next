@@ -11363,6 +11363,13 @@ postcss-ordered-values@^4.1.2:
     postcss "^7.0.0"
     postcss-value-parser "^3.0.0"
 
+postcss-pixel-to-viewport@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/postcss-pixel-to-viewport/-/postcss-pixel-to-viewport-1.0.2.tgz#be63ac52dccd80851cc5148e7edc0bae28233a4b"
+  integrity sha512-JMt8S8vXNZ/nyQxfy1lzEHxrgEVpjOYDvxokqr+43WA5CByzbFjNrnFjtGtpA1MzhwSd5cfct4ME68lWwlSTbQ==
+  dependencies:
+    postcss "^6.0.21"
+
 postcss-reduce-idents@^2.2.2:
   version "2.4.0"
   resolved "https://registry.npmjs.org/postcss-reduce-idents/-/postcss-reduce-idents-2.4.0.tgz#c2c6d20cc958284f6abfbe63f7609bf409059ad3"
@@ -11537,7 +11544,7 @@ postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0
     source-map "^0.5.6"
     supports-color "^3.2.3"
 
-postcss@^6.0.1:
+postcss@^6.0.1, postcss@^6.0.21:
   version "6.0.23"
   resolved "https://registry.npmjs.org/postcss/-/postcss-6.0.23.tgz#61c82cc328ac60e677645f979054eb98bc0e3324"
   integrity sha512-soOk1h6J3VMTZtVeVpv15/Hpdl2cBLX3CAw4TAbkpTJiNPk9YP/zWcD1ND+xEtvyuuvKzbxliTOIyvkSeSJ6ag==
@@ -14381,26 +14388,6 @@ vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.npmjs.org/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
-
-vueify@^9.4.1:
-  version "9.4.1"
-  resolved "https://registry.npmjs.org/vueify/-/vueify-9.4.1.tgz#d29a9775a33c4b8a8601e186a85da2ab800ca0d6"
-  integrity sha1-0pqXdaM8S4qGAeGGqF2iq4AMoNY=
-  dependencies:
-    chalk "^1.1.1"
-    convert-source-map "^1.2.0"
-    cssnano "^3.3.2"
-    hash-sum "^1.0.2"
-    json5 "^0.5.1"
-    lru-cache "^4.0.0"
-    object-assign "^4.0.1"
-    postcss "^5.0.10"
-    postcss-selector-parser "^2.0.0"
-    source-map "^0.5.6"
-    through "^2.3.6"
-    vue-hot-reload-api "^2.0.1"
-    vue-template-compiler "^2.0.0-alpha.8"
-    vue-template-es2015-compiler "^1.2.2"
 
 w3c-hr-time@^1.0.2:
   version "1.0.2"
