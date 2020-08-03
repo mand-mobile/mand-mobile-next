@@ -30,6 +30,9 @@
 <script>
 import ActivityIndicatorRolling from '../activity-indicator/roller'
 import Icon from '../icon'
+
+console.info('called by specific platform web')
+
 export default {
   name: 'md-button',
 

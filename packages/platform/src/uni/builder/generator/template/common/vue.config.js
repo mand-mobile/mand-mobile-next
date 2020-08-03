@@ -35,11 +35,20 @@ module.exports = {
       alias: {
         '@mand-mobile/platform/lib': path.join(__dirname, `_platform/lib/${process.env.MAND_PLATFORM}`),
         '@mand-mobile/shared': path.join(__dirname, '_shared'),
+        'mand-mobile/lib': path.join(__dirname, '_mand-mobile/src'),
         'mand-mobile': path.join(__dirname, '_mand-mobile'),
       },
     },
   },
   chainWebpack: config => {
+    /**
+     * 根据环境变量，为webpack resovle 扩展平台相关代码 比如 index.web.vue 优先于 index.vue
+     */
+    if (process.env.MAND_PLATFORM) {
+      const extFiletypes = Array.from(config.resolve.extensions.store)
+      extFiletypes.forEach(ext => config.resolve.extensions.prepend(`.${process.env.MAND_PLATFORM}${ext}`))
+    }
+
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
     types.forEach(type => addStyleResource(config.module.rule('stylus').oneOf(type)))
   },

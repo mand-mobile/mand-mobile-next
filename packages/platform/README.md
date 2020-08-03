@@ -127,16 +127,8 @@ import actionSheetFactory from '@mand-mobile/platform/lib/runtime/component/acti
 ```javascript
 import {Dom} from '@mand-mobile/platform/lib/runtime/module'
 
-const dom = Dom()
-dom.querySelector('xxxx').getScrollOffset()
-```
- or
-```javascript
-export default {
-  mounted () {
-    this.$MDDom().querySelector('xxxx').getScrollOffset()
-  }
-}
+const $MDDom = Dom.bind(this) // scoped selector like refs
+$MDDom().querySelector('xxxx').getScrollOffset()
 ```
 
 #### API
@@ -148,7 +140,7 @@ export default {
 > uniapp返回的是可视区域实例 [查看详情](https://uniapp.dcloud.io/api/ui/nodes-info?id=selectorqueryselectviewport)
 
 ```javascript
-this.$MDDom().documentElement()
+$MDDom().documentElement()
 ```
 
 ##### querySelector
@@ -186,13 +178,13 @@ export default {
 > web中不做处理直接返回dom节点，uniapp支持Canvas节点的获取 [查看详情](https://uniapp.dcloud.io/api/ui/nodes-info?id=nodesrefnode)
 
 ```javascript
-const nodeRefs = this.$MDDom().querySelectorAll('.test')
+const nodeRefs = $MDDom().querySelectorAll('.test')
 const nodes = await nodeRefs.getNode()
  
  
 console.log(nodes) // [node, node, ...]
  
-const nodeRef = this.$MDDom().querySelector('.test')
+const nodeRef = $MDDom().querySelector('.test')
 const node = await nodeRefs.getNode()
  
 console.log(node) 
@@ -207,7 +199,7 @@ console.log(node)
 ```javascript
 export default {
   async mounted () {
-    await this.$MDDom().querySelector('.test').getAttribute('id')
+    await $MDDom().querySelector('.test').getAttribute('id')
   }
 }
 ```
@@ -219,7 +211,7 @@ export default {
 ```javascript
 export default {
   async mounted () {
-    await this.$MDDom().querySelector('.test').getBoundingClientRect()
+    await $MDDom().querySelector('.test').getBoundingClientRect()
   }
 }
 ```
@@ -231,7 +223,7 @@ export default {
 ```javascript
 export default {
   async mounted () {
-    await this.$MDDom().querySelector('.test').getScrollOffset()
+    await $MDDom().querySelector('.test').getScrollOffset()
   }
 }
 ```
@@ -243,7 +235,7 @@ export default {
 ```javascript
 export default {
   async mounted () {
-    await this.$MDDom().querySelector('.test').getComputedStyle(['position'])
+    await $MDDom().querySelector('.test').getComputedStyle(['position'])
   }
 }
 ```
@@ -262,7 +254,7 @@ device.vibrate()
 ```javascript
 export default {
   mounted () {
-    this.$MDDevice().vibrate()
+    $MDDevice().vibrate()
   }
 }
 ```
