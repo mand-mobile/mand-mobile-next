@@ -44,7 +44,7 @@
                 'md-dialog_content_actions_btn--warning': !btn.disabled && !!btn.warning,
               }"
               :key="index"
-              @click="$_onClick(btn)"
+              @click="$_onClick(btn, index)"
               @touchmove.prevent
             >
               <!--              <md-activity-indicator-rolling v-if="btn.loading" class="md-dialog-btn-loading"></md-activity-indicator-rolling>-->
@@ -163,20 +163,16 @@ export default {
     $_onHide() {
       this.$emit('hide')
     },
-    $_onClick(btn) {
+    $_onClick(btn, index) {
       if (btn.disabled || btn.loading) {
         return
       }
-      if (btn.handlerName && this.$parent[btn.handlerName]) {
-        this.$parent[btn.handlerName].call(null, btn)
-      } else {
+      if (typeof btn.handler === 'function') {
+        btn.handler.call(null, btn)
+      } else if (!btn.autoCloseDisabled) {
         this.close()
       }
-      // if (typeof btn.handler === 'function') {
-      //   btn.handler.call(null, btn)
-      // } else {
-      //   this.close()
-      // }
+      this.$emit('click', btn, index)
     },
     // MARK: public methods
     close() {

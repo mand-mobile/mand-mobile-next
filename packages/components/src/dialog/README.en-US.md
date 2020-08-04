@@ -46,6 +46,7 @@ this.$dialog.alert({ content: '' }) // Totally Import
 |loading <sup class="version-after">2.4.0+</sup>|loading button|Boolean|`false`|
 |icon|name of icon|String|-|
 |iconSvg|svg icon|Boolean|`false`|
+|autoCloseDisabled|disabled auto close|Boolean|`false`|
 
 #### Dialog Slots
 
@@ -71,6 +72,15 @@ Invoked after dialog is shown
 
 ##### @hide()
 Invoked after dialog is hidden
+
+##### @click(btn, index)
+Invoked after some button is clicked
+
+|Props | Description | Type |
+|----|-----|------|
+|btn|object corresponding to the clicked button in the btns list|Object: DialogBtnOptions|
+|index|index of object corresponding to the clicked button in the btns list|Number|
+
 
 #### Dialog Static Methods
 Dynamically create interactive dialogs
