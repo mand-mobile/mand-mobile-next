@@ -46,6 +46,7 @@ this.$dialog.alert({ content: '' }) // 全量引入
 |loading <sup class="version-after">2.4.0+</sup>|加载中按钮|Boolean|`false`|
 |icon|按钮图标|String|-|
 |iconSvg|按钮svg图标|Boolean|`false`|
+|autoCloseDisabled|禁用自动关闭|Boolean|`false`|
 
 #### Dialog Slots
 
@@ -71,6 +72,14 @@ this.$dialog.alert({ content: '' }) // 全量引入
 
 ##### @hide()
 模态窗口隐藏后触发的事件
+
+##### @click(btn, index)
+按钮被点击后触发的事件
+
+|属性 | 说明 | 类型 |
+|----|-----|------|
+|btn|btns列表中被点击按钮对应的对象|Object: DialogBtnOptions|
+|index|btns列表中被点击按钮对应的对象的数组下标|Number|
 
 #### Dialog Static Methods
 

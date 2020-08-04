@@ -32,14 +32,20 @@ export default {
     }
   },
   methods: {
-    onBtnClick(event, action) {
-      this.$set(action, 'loading', true)
-      this.$set(action, 'inactive', true)
+    onBtnClick(event, action, index) {
+      this.$set(this.data, index, {
+        ...action,
+        loading: true,
+        inactive: true,
+      })
       Dialog.alert({
         content: `${action.text}点击`,
         onConfirm: () => {
-          this.$set(action, 'loading', false)
-          this.$set(action, 'inactive', false)
+          this.$set(this.data, index, {
+            ...action,
+            loading: false,
+            inactive: false,
+          })
         },
       })
     },

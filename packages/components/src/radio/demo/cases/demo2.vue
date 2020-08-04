@@ -23,9 +23,8 @@
   </div>
 </template>
 
-<script>
-import Field from 'mand-mobile/field'
-import RadioList from 'mand-mobile/radio/list'
+<script>import Field from '../../../field'
+import RadioList from '../../list'
 
 export default {
   name: 'radio-demo',
@@ -35,8 +34,8 @@ export default {
   align: 'right',
   /* DELETE */
   components: {
-    "md-field": Field,
-    "md-radio-list": RadioList,
+    'md-field': Field,
+    'md-radio-list': RadioList,
   },
   data() {
     return {
@@ -85,10 +84,10 @@ export default {
     }
   },
 }
+</script>
 
-</script>
-
-<style lang="stylus" scoped>
-  .radio-field
-    margin-bottom 40px
+<style scoped>
+  .radio-field {
+    margin-bottom: 40px;
+  }
 </style>

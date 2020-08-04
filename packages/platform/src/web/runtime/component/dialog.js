@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import { mdDocument } from 'mand-mobile/_util'
+import {mdDocument} from '@mand-mobile/shared/lib/util'
 
-export default function DialogFactory(DialogOptions) {
+export default function DialogFactory(Dialog) {
   /* istanbul ignore next */
   const noop = function() {}
 
@@ -43,7 +43,7 @@ export default function DialogFactory(DialogOptions) {
 
     instances.push(vm)
 
-    vm.$on('input', (val) => {
+    vm.$on('input', val => {
       /* istanbul ignore else */
       if (!val) {
         vm.value = false
@@ -66,7 +66,9 @@ export default function DialogFactory(DialogOptions) {
 
     return vm
   }
-  let Dialog = DialogOptions
+
+  Dialog.create = generate
+
   /**
    * Dynamically create a confirm dialog
    *
@@ -169,7 +171,7 @@ export default function DialogFactory(DialogOptions) {
    * @param {Object} props
    * @return {Dialog}
    */
-  Dialog.succeed = (props) => {
+  Dialog.succeed = props => {
     props.icon = 'success-color'
     return Dialog.confirm(props)
   }
@@ -180,7 +182,7 @@ export default function DialogFactory(DialogOptions) {
    * @param {Object} props
    * @return {Dialog}
    */
-  Dialog.failed = (props) => {
+  Dialog.failed = props => {
     props.icon = 'warn-color'
     return Dialog.confirm(props)
   }
@@ -192,7 +194,7 @@ export default function DialogFactory(DialogOptions) {
    * @return void
    */
   Dialog.closeAll = () => {
-    instances.forEach((instance) => {
+    instances.forEach(instance => {
       instance.close()
     })
   }

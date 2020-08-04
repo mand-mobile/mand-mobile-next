@@ -1,14 +1,13 @@
 <template>
-  <div class="md-detail-item" :class="{ 'is-bold': bold }">
-    <div class="md-detail-title" v-text="title"></div>
-    <div class="md-detail-content">
+  <div class="md-detail-item" :class="{ 'md-detail-item--is-bold': bold }">
+    <div class="md-detail-item_title" v-text="title"></div>
+    <div class="md-detail-item_content">
       <slot>{{ content }}</slot>
     </div>
   </div>
 </template>
 
-<script>
-export default {
+<script>export default {
   name: 'md-detail-item',
 
   props: {
@@ -26,8 +25,7 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-detail-item
@@ -35,26 +33,26 @@ export default {
   align-items center
   justify-content space-between
   line-height 1.35
-  font-size detail-item-font-size
-  padding-top detail-item-gap
-  padding-bottom detail-item-gap
+  font-size md-detail-item-font-size
+  padding-top md-detail-item-gap
+  padding-bottom md-detail-item-gap
 
-.md-detail-title
-  flex-shrink 0
-  color detail-item-title-color
+  &_title
+    flex-shrink 0
+    color md-detail-item-title-color
 
-.md-detail-content
-  flex 1 1 0%
-  color detail-item-content-color
-  display flex
-  align-items center
-  justify-content flex-end
-  margin-left h-gap-sm
+  &_content
+    flex 1 1 0%
+    color md-detail-item-content-color
+    display flex
+    align-items center
+    justify-content flex-end
+    margin-left md-h-gap-sm
 
 .md-detail-item
-  &.is-bold
-    .md-detail-title,
-    .md-detail-content
+  &--is-bold
+    .md-detail-item_title,
+    .md-detail-item_content
       font-weight bold
-      color detail-item-content-color
+      color md-detail-item-content-color
 </style>

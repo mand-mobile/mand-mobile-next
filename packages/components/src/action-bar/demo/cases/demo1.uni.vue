@@ -1,6 +1,6 @@
 <template>
   <div class="md-example-child md-example-child-action-bar md-example-child-0">
-    <md-action-bar :actions="data"></md-action-bar>
+    <md-action-bar :actions="data" @click="onBtnClick"></md-action-bar>
   </div>
 </template>
 
@@ -22,18 +22,27 @@ export default {
       data: [
         {
           text: '次要按钮',
-          onClick: this.handleClick,
+          onClick: this.handlePrimaryClick,
         },
         {
           text: '主要按钮',
-          onClick: this.handleClick,
+          onClick: this.handleSecondaryClick,
         },
       ],
     }
   },
   methods: {
-    handleClick() {
-      Toast.succeed('Click')
+    handlePrimaryClick() {
+      Toast.succeed('Primary Click')
+    },
+    handleSecondaryClick() {
+      Toast.succeed('Second Click')
+    },
+    onBtnClick(event, action, index) {
+      const item = this.data[index]
+      if (item && item.onClick) {
+        item.onClick()
+      }
     },
   },
 }
