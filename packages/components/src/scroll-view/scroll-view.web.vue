@@ -181,6 +181,7 @@ export default {
 
       this.refresher = new PulldownRefresh(scroller, {
         stop: this.refreshOffsetY,
+        threshold: this.refreshOffsetY,
       })
       scroller.on('pullingDownReady', ready => {
         this.isRefreshActive = ready
