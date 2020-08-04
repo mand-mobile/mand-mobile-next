@@ -16,7 +16,8 @@
   </div>
 </template>
 
-<script>import Swiper from '../../index'
+<script>
+import Swiper from '../../index'
 import SwiperItem from '../../swiper-item'
 import simple from '../../demo/data/simple'
 
@@ -45,9 +46,10 @@ export default {
     // },
   },
 }
-</script>
 
-<style lang="stylus">
+</script>
+
+<style>
 .md-example-child-swiper-1 {
   height: 250px;
 }
