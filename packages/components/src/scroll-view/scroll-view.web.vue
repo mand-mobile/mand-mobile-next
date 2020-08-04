@@ -37,7 +37,7 @@
       <slot></slot>
       <div
         v-if="moreLoaderEnable"
-        :class="{active: isEndReachingStart || isEndReaching}"
+        :class="{'md-active': isEndReachingStart || isEndReaching}"
         class="md-scroll-view_more"
       >
         <slot name="more" :is-end-reaching="isEndReachingStart || isEndReaching"></slot>
@@ -386,7 +386,7 @@ export default {
       transform translate3d(0, -100%, 0)
     .md-scroll-view_more
       visibility hidden
-      &.active
+      &.md-active
         visibility visible
     &.md-horizon
         display inline-block
