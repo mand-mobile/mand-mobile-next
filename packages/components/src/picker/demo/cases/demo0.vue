@@ -13,9 +13,8 @@
 </template>
 
 <script>
-import PickerView from 'mand-mobile/picker/picker-view'
-// import {Picker, Dialog} from 'mand-mobile'
-import simple from 'mand-mobile/picker/demo/data/simple'
+import PickerView from 'mand-mobile/lib/picker/picker-view'
+import simple from 'mand-mobile/lib/picker/demo/data/simple'
 
 export default {
   name: 'picker-demo',
@@ -48,7 +47,7 @@ export default {
   methods: {
     onPickerInitialed() {
       const value = this.$refs.picker.getColumnValues()
-      // console.log(`[Mand Mobile] Picker Initialed: ${JSON.stringify(value)}`)
+      console.log(`[Mand Mobile] Picker Initialed: ${JSON.stringify(value)}`)
     },
     onPickerConfirm(columnIndex, itemIndex, value) {
       if (value) {
@@ -57,12 +56,14 @@ export default {
     },
     getColumnValues(picker) {
       const value = this.$refs[picker].getColumnValues()
+      console.log(`[Mand Mobile]: ${JSON.stringify(value)}`)
       // Dialog.alert({
       //   content: `<pre>${JSON.stringify(value)}</pre>`,
       // })
     },
     getColumnIndexs(picker) {
       const value = this.$refs[picker].getColumnIndexs()
+      console.log(`[Mand Mobile]: ${JSON.stringify(value)}`)
       // Dialog.alert({
       //   content: `<pre>${JSON.stringify(value)}</pre>`,
       // })
