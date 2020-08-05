@@ -9,7 +9,6 @@
 </template>
 
 <script>
-// import {Stepper, Field, FieldItem} from 'mand-mobile'
 import Stepper from '../../index'
 import Field from '../../../field/index'
 import FieldItem from '../../../field/item'
@@ -21,12 +20,9 @@ export default {
   titleEnUS: 'Minimum is 4 which is greater than default',
   /* DELETE */
   components: {
-    // [Field.name]: Field,
-    // [FieldItem.name]: FieldItem,
-    // [Stepper.name]: Stepper,
-    'md-stepper':Stepper,
-    'md-field':Field,
-    'md-field-item':FieldItem
+    'md-stepper': Stepper,
+    'md-field': Field,
+    'md-field-item': FieldItem,
   },
 }
 

@@ -9,7 +9,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/image-reader
 
 ```javascript
 import { ImageReader } from 'mand-mobile'
-import imageProcessor from 'mand-mobile/lib/image-reader/image-processor' // 图片处理插件，用法参考#imageProcessor
+import imageProcessor from 'mand-mobile/lib/image-reader/image-processor' // 图片处理插件，仅支持web，用法参考#imageProcessor
 
 Vue.component(ImageReader.name, ImageReader)
 ```
@@ -24,15 +24,15 @@ Vue.component(ImageReader.name, ImageReader)
 |----|-----|------|------|------|
 |name|标识|String|-|可用于区分多个选择器|
 |size|图片尺寸限制|String/Number|-|单位`kb`|
-|mime|支持图片类型|Array|`*`|如`['jpeg','png']`|
+|mime|支持图片类型，仅支持web|Array|`*`|如`['jpeg','png']`|
 |is-camera-only|是否只支持拍照|Boolean|`false`|-|
-|is-multiple|是否支持选择多张|Boolean|`false`|存在[兼容问题](https://caniuse.com/#feat=input-file-multiple)|
+|is-multiple|是否支持选择多张，仅支持web|Boolean|`false`|存在[兼容问题](https://caniuse.com/#feat=input-file-multiple)|
 |amount|选择多张|Number|-|只在`is-multiple`为`true`时有效|
 
 #### ImageReader Events
 
 ##### @select(name, { files })
-图片选择完成事件，还未开始读取
+图片选择完成事件，还未开始读取，仅支持web
 
 |属性 | 说明 | 类型| 备注|
 |-----|-----|-----|-----|
@@ -46,7 +46,7 @@ Vue.component(ImageReader.name, ImageReader)
 |-----|-----|-----|-----|
 |name|选择器标识|String|-|
 |dataUrl|图片Base64|String|-|
-|blob|图片Blob对象，可用于`formData`|Blob|-|
+|blob|图片Blob对象，可用于`formData`，仅支持web|Blob|-|
 |file|图片对象|File|-|
 
 ##### @error(name, { code, msg })
@@ -60,7 +60,7 @@ Vue.component(ImageReader.name, ImageReader)
 
 ### imageProcessor
 
-用于图片轴向修正，图片质量压缩，宽高控制
+用于图片轴向修正，图片质量压缩，宽高控制，仅支持web
 
 #### 引入
 
