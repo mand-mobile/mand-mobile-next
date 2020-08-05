@@ -19,7 +19,7 @@ export = (api: any) => async (args: any) => {
   const config = api.resolveWebpackConfig()
   
   const platform =  args.platform
-  const command = require(`@mand-mobile/platform/lib/${platform}/builder/command/build`)
+  const command = require(`@mand-mobile/platform/src/${platform}/builder/command/build`)
 
 
   const vueCliService = require.resolve('@vue/cli-service/bin/vue-cli-service', {
@@ -35,7 +35,9 @@ export = (api: any) => async (args: any) => {
     pluginRootPath,
     MAND_PLATFORM: platform,
     webpackConfig: config,
-    MAND_BUILD_TARGET: args.target
+    MAND_BUILD_TARGET: args.target,
+    MAND_INPUT_DIR: process.env.MAND_INPUT_DIR || '.mand-mobile',
+    MAND_OUTPUT_DIR: process.env.MAND_OUTPUT_DIR || 'dist'
   })
   api.mdUtils = Object.assign({}, args.mdUtils, utils)
 

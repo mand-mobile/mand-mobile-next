@@ -7,8 +7,10 @@
   </div>
 </template>
 
-<script>import Button from 'mand-mobile/lib/button'
-
+<script>
+import Button from 'mand-mobile/lib/button'
+// 测试lib用
+// import Button from '@mand-mobile/components/lib/components/button'
 export default {
   name: 'button-demo',
   /* DELETE */
@@ -19,7 +21,8 @@ export default {
     'md-button': Button,
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus" scoped>
 .md-button
