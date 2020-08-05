@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import ActivityIndicator from '../../../activity-indicator'
+import ActivityIndicator from '../../'
 import Button from '../../../button'
 
 export default {
@@ -50,16 +50,25 @@ export default {
 </script>
 
 <style lang="stylus">
-.md-example-child-md-activity-indicator-2
-  display flex
-  flex-direction column
-  align-items center
-  .md-activity-indicator
-    margin-bottom 30px
-  .md-button
-    width 100%
-    .md-activity-indicator-css
-      margin-bottom 0
-      .md-activity-indicator-svg
-        height 15px !important
+.md-example-child-md-activity-indicator-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  
+.md-activity-indicator {
+  margin-bottom: 30px;
+}
+    
+.md-example-child-md-activity-indicator-2 .md-button {
+  width: 100%;
+}
+
+.md-example-child-md-activity-indicator-2 .md-activity-indicator-css .md-activity-indicator-css {
+  margin-bottom: 0;
+}
+
+.md-example-child-md-activity-indicator-2 .md-activity-indicator-css .md-activity-indicator_svg {
+  height: 15px !important;
+}     
 </style>

@@ -1,10 +1,10 @@
 <template>
   <div
     class="md-activity-indicator-spinning"
-    :class="{dark: color === 'dark'}"
+    :class="{'md-activity-indicator-spinning--dark': color === 'dark'}"
   >
     <md-icon
-      class="md-activity-indicator-svg"
+      class="md-activity-indicator_svg"
       name="spinner"
       :style="{width: `${size}px`, height: `${size}px`}"
     ></md-icon>
@@ -43,7 +43,7 @@ export default {
   clearfix()
   .md-icon
     float left
-  &.dark
+  &--dark
     .md-icon
       filter invert(1)
 </style>

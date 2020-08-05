@@ -1,11 +1,11 @@
 <template>
   <div class="md-activity-indicator-rolling">
-    <div class="rolling-container">
+    <div class="md-activity-indicator-rolling_container">
       <svg
         :viewBox="`0 0 ${viewBoxSize} ${viewBoxSize}`"
         :style="{width: `${size}px`, height: `${size}px`, transform: `rotateZ(${rotate}deg)`}"
         preserveAspectRatio="xMidYMid"
-        class="md-activity-indicator-svg rolling"
+        class="md-activity-indicator_svg md-activity-indicator-rolling_rolling"
       >
         <circle
           fill="none"
@@ -17,11 +17,11 @@
         />
         <g
           v-if="!$slots.circle"
-          class="circle"
+          class="md-circle"
         >
           <circle
             v-if="isAutoAnimation || process > 0"
-            class="stroke"
+            class="md-stroke"
             :cx="viewBoxSize/2"
             :cy="viewBoxSize/2"
             :fill="fill"
@@ -59,12 +59,13 @@
         <slot name="circle" v-else></slot>
         <slot name="defs"></slot>
       </svg>
-      <div class="content"><slot></slot></div>
+      <div class="md-activity-indicator-rolling_content"><slot></slot></div>
     </div>
   </div>
 </template>
 
-<script>export default {
+<script>
+export default {
   name: 'md-activity-indicator-rolling',
 
   props: {
@@ -129,19 +130,20 @@
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-activity-indicator-rolling
   clearfix()
-  .rolling-container
+  &_container
     position relative
     float left
-  .rolling
+  &_rolling
     float left
-    circle.stroke
+    circle.md-stroke
       will-change auto
-  .content
+  &_content
     position absolute
     absolute-pos()
     display flex

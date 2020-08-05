@@ -87,7 +87,7 @@ export default {
   align-items center
   overflow hidden
   .md-activity-indicator-rolling
-    .md-activity-indicator-svg
+    .md-activity-indicator_svg
       width 32px !important
       height 32px !important
       transform rotateZ(-45deg)

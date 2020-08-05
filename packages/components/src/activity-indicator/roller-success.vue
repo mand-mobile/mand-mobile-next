@@ -21,7 +21,7 @@
         v-if="isSuccess"
         viewBox="0 0 100 100"
         preserveAspectRatio="xMidYMid"
-        class="right"
+        class="md-activity-indicator-rolling-success_right"
         :style="{transform: `translate(-50%, -50%) scale(${size/70})`}"
       >
         <g>
@@ -119,7 +119,7 @@ export default {
 <style lang="stylus">
 .md-activity-indicator-rolling-success
   position relative
-  .right
+  &_right
     position absolute
     left 50%
     top 50%

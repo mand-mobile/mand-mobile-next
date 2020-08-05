@@ -5,7 +5,7 @@
       :viewBox="viewBox"
       :fill="color"
       :style="{width: `${viewWidth}px`, height: `${size}px`}"
-      class="md-activity-indicator-svg carouseling"
+      class="md-activity-indicator_svg md-activity-indicator-carousel_carouseling"
     >
       <md-activity-indicator-carousel-circle
         v-for="(value, index) in circleAnimateValues"
@@ -66,7 +66,7 @@ export default {
 <style lang="stylus">
 .md-activity-indicator-carousel
   clearfix()
-  .carouseling
+  &_carouseling
     float left
     overflow visible
 </style>
