@@ -33,7 +33,8 @@
   </div>
 </template>
 
-<script>import {inArray} from '@mand-mobile/shared/lib/util'
+<script>
+import {inArray} from '@mand-mobile/shared/lib/util'
 import Popup from '../popup'
 
 export default {
@@ -117,7 +118,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-action-sheet
@@ -125,7 +127,7 @@ export default {
   -webkit-font-smoothing antialiased
   .md-popup
     z-index md-action-sheet-zindex
-  .md-popup-box
+  .md-popup_box
     background-color md-color-bg-base
 
 .md-action-sheet_content

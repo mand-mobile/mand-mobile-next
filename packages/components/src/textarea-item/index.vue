@@ -1,7 +1,7 @@
 <template>
   <md-field-item
     class="md-textarea-item"
-    :class="[isDisabled ? 'is-disabled' : '', errorInfo ? 'is-error' : '']"
+    :class="[isDisabled ? 'md-textarea-item--is-disabled' : '', errorInfo ? 'md-textarea-item--is-error' : '']"
     :title="title"
     :solid="solid"
   >
@@ -40,7 +40,8 @@
     </template>
   </md-field-item>
 </template>
-<script>import MdFieldItem from '../field/item'
+<script>
+import MdFieldItem from '../field/item'
 import MdIcon from '../icon'
 export default {
   name: 'md-textarea-item',
@@ -203,18 +204,19 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 <style lang="stylus">
 .md-textarea-item
   &-msg
     color md-textarea-item-color-error
-  .md-field-item-content
+  .md-field-item_content
     align-items normal
-  &.is-disabled
+  &.md-textarea-item--is-disabled
     .md-textarea-item__textarea
       // -webkit-text-fill-color textarea-item-color-disabled
       color md-textarea-item-color-disabled
-  .md-field-item-right
+  .md-field-item_right
     align-items start
   &__clear
     padding 6px 0
@@ -237,7 +239,7 @@ export default {
     &::-webkit-input-placeholder
       color md-textarea-item-placeholder-color
       font-weight md-textarea-item-placeholder-weight
-  &.is-error
-    .md-field-item-content
+  &.md-textarea-item--is-error
+    .md-field-item_content
       hairline(bottom, md-textarea-item-color-error, 0, 4px)
 </style>

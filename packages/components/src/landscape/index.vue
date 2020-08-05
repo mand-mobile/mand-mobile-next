@@ -1,5 +1,5 @@
 <template>
-  <div class="md-landscape" :class="{'is-full': fullScreen}">
+  <div class="md-landscape" :class="{'md-landscape--is-full': fullScreen}">
 		<md-popup
       v-model="isLandscapeShow"
       :mask-closable="maskClosable"
@@ -26,7 +26,8 @@
   </div>
 </template>
 
-<script>import Popup from '../popup'
+<script>
+import Popup from '../popup'
 import Icon from '../icon'
 
 export default {
@@ -85,11 +86,12 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-landscape
-  &.is-full
+  &.md-landscape--is-full
     .md-landscape_body
       width 100%
       height 100%
@@ -105,7 +107,7 @@ export default {
       top 25px
       margin auto
 
-  .md-popup, .md-popup-box
+  .md-popup, .md-popup_box
     z-index md-landscape-zindex
   .md-landscape_body
     .md-landscape_body_close

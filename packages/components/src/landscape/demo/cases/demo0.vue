@@ -67,7 +67,8 @@
   </div>
 </template>
 
-<script>import Landscape from '../../index'
+<script>
+import Landscape from '../../index'
 import Button from '../../../button'
 import Toast from '../../../toast'
 
@@ -97,14 +98,13 @@ export default {
     },
   },
 }
-</script>
 
-<style lang="stylus">
+</script>
+
+<style>
 .md-example-child-landscape img {
   width: 100%;
 }
-  img 
-    width 100%
 .md-example-child-landscape .md-button {
   margin-bottom: 20px;
  }

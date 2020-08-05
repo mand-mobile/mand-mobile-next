@@ -4,9 +4,10 @@
   </div>
 </template>
 
-<script>import ActionSheet from '../../action-sheet'
+<script>
+import ActionSheet from '../../action-sheet'
 import Button from '../../../button'
-// import Dialog from '../../../dialog/dialog'
+import Dialog from '../../../dialog/dialog'
 export default {
   name: 'action-sheet-demo',
   /* DELETE */
@@ -44,17 +45,16 @@ export default {
       })
     },
     $_selected(item) {
-      // Dialog.alert({
-      //   content: `selected: ${JSON.stringify(item)}`,
-      // })
-      console.log('action-sheet selected:', JSON.stringify(item))
+      Dialog.alert({
+        content: `selected: ${JSON.stringify(item)}`,
+      })
     },
     $_cancel() {
-      // Dialog.alert({
-      //   content: 'cancel',
-      // })
-      console.log('action-sheet cancel')
+      Dialog.alert({
+        content: 'cancel',
+      })
     },
   },
 }
-</script>
+
+</script>

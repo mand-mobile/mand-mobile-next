@@ -15,7 +15,8 @@
   </div>
 </template>
 
-<script>import Skeleton from '../../index'
+<script>
+import Skeleton from '../../index'
 import Field from '../../../field'
 import CellItem from '../../../cell-item'
 export default {
@@ -50,24 +51,25 @@ export default {
     },
   },
 }
-</script>
 
-<style lang="stylus" scoped>
+</script>
+
+<style>
 .md-example-child-skeleton-2 {
   margin: 30px 0;
 }
 .skeleton-switch {
   margin-bottom: 32px;
 }
-.skeleton-item:last-child {
+.md-example-child-skeleton-2 .skeleton-item:last-child {
   margin-bottom: 0;
   margin-bottom: 24px;
 }
-.md-cell-item.skeleton-item {
+.md-example-child-skeleton-2 .md-cell-item.skeleton-item {
   margin-bottom: 0;
 }
-.holder {
-  display: block
+.md-example-child-skeleton-2 .holder {
+  display: block;
   width: 80px;
   height: 80px;
   background-color: #e6e6e6;
