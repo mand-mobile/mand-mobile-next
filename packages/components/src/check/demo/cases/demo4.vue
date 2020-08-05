@@ -16,8 +16,7 @@
 	</div>
 </template>
 
-<script>
-import Field from '../../../field'
+<script>import Field from '../../../field'
 import CellItem from '../../../cell-item'
 import CheckList from '../../list'
 import Button from '../../../button'
@@ -55,12 +54,14 @@ export default {
     },
   },
 }
+</script>
 
-</script>
-
-<style lang="stylus" scoped>
-.md-example-child
-  font-size 28px
-.md-button
-  margin-right 8rpx
+<style scoped>
+.md-example-child {
+  font-size: 28px;
+}
+  
+.md-button {
+  margin-right: 8px;
+}
 </style>

@@ -6,8 +6,7 @@
 	</div>
 </template>
 
-<script>
-import RadioBox from 'mand-mobile/radio/box'
+<script>import RadioBox from '../../box'
 
 export default {
   name: 'radio-demo',
@@ -17,7 +16,7 @@ export default {
   align: 'left',
   /* DELETE */
   components: {
-    "md-radio-box": RadioBox,
+    'md-radio-box': RadioBox,
   },
   data() {
     return {
@@ -25,5 +24,4 @@ export default {
     }
   },
 }
-
-</script>
+</script>

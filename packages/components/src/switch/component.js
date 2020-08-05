@@ -3,5 +3,5 @@ export default {
   'text': '滑动开关',
   'category': 'basic',
   'description': '',
-  'author': 'chengyanjing'
+  'author': 'chengyanjing <chengyanjing@didiglobal.com>'
 }

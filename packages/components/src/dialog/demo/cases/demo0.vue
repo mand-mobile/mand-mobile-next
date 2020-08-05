@@ -38,6 +38,7 @@
       :closable="false"
       v-model="asyncDialog.open"
       :btns="asyncDialog.btns"
+      @click="cc"
     >
       每个人都有属于自己的一片森林，也许我们 从来不曾去过，但它一直在那里，总会在那里。迷失的人迷失了，相逢的人会再相逢。
     </md-dialog>
@@ -66,20 +67,15 @@
   </div>
 </template>
 
-<script>
-// import {Dialog, Button, Toast} from 'mand-mobile'
-import Dialog from '../../dialog'
-// import Dialog from '../../index'
+<script>import Dialog from '../../dialog'
 import Button from '../../../button'
-import Toast from '../../../toast/toast'
+import Toast from '../../../toast'
 
-function onBasicCancel() {console.log(8989)}
 export default {
   name: 'dialog-demo0',
   components: {
-    "md-dialog": Dialog,
-    "md-button": Button,
-    "md-toast": Toast
+    'md-dialog': Dialog,
+    'md-button': Button,
   },
   data() {
     return {
@@ -89,12 +85,10 @@ export default {
           {
             text: '取消',
             handler: this.onBasicCancel,
-            handlerName: "onBasicCancel",
           },
           {
             text: '确认操作',
             handler: this.onBasicConfirm,
-            handlerName: "onBasicConfirm"
           },
         ],
       },
@@ -104,7 +98,6 @@ export default {
           {
             text: '确认操作',
             handler: this.onIconConfirm,
-            handlerName: 'onIconConfirm'
           },
         ],
       },
@@ -118,7 +111,6 @@ export default {
             text: '警示操作',
             warning: true,
             handler: this.onWarnConfirm,
-            handlerName: 'onWarnConfirm'
           },
         ],
       },
@@ -129,7 +121,6 @@ export default {
             text: '开始搜索',
             icon: 'search',
             handler: this.onAsyncConfirm,
-            handlerName: 'onAsyncConfirm'
           },
         ],
       },
@@ -140,18 +131,15 @@ export default {
             text: '操作一',
             type: 'danger',
             handler: this.onActConfirm,
-            handlerName: 'onActConfirm'
           },
           {
             text: '操作二',
             handler: this.onActConfirm,
-            handlerName: 'onActConfirm',
             disabled: true,
           },
           {
             text: '操作三',
             handler: this.onActConfirm,
-            handlerName: 'onActConfirm'
           },
         ],
       },
@@ -166,59 +154,53 @@ export default {
     }
   },
   methods: {
+    cc() {},
     onBasicConfirm() {
-      // Toast({
-      //   content: '你点击了确认',
-      // })
-      console.log('你点击了确认')
+      Toast.create({
+        content: '你点击了确认',
+      })
       this.basicDialog.open = false
     },
     onBasicCancel() {
-      // Toast({
-      //   content: '你点击了取消',
-      // })
-      console.log('你点击了取消')
+      Toast.create({
+        content: '你点击了取消',
+      })
       this.basicDialog.open = false
     },
     onIconConfirm() {
-      // Toast({
-      //   content: '你点击了确认',
-      // })
-      console.log('你点击了确认')
+      Toast.create({
+        content: '你点击了确认',
+      })
       this.iconDialog.open = false
     },
     onActConfirm() {
-      console.log('你点击了确认')
       this.actDialog.open = false
     },
     onAsyncConfirm(btn) {
-      const defBtn = this.asyncDialog.btns.filter(item => item.handlerName === btn.handlerName)[0]
-      // this.$set(btn, 'loading', true)
-      // this.$set(btn, 'text', '搜索中')
-      // uni的使用方式
-      this.$set(defBtn, 'loading', 'true')
-      this.$set(defBtn, 'text', '搜索中')
+      this.$set(btn, 'loading', true)
+      this.$set(btn, 'text', '搜索中')
 
       setTimeout(() => {
         this.asyncDialog.open = false
-        this.$set(defBtn, 'loading', false)
-        this.$set(defBtn, 'text', '开始搜索')
-        // Toast({
-        //   content: '搜索成功',
-        // })
+        this.$set(btn, 'loading', false)
+        this.$set(btn, 'text', '开始搜索')
+        Toast.create({
+          content: '搜索成功',
+        })
       }, 1500)
     },
   },
 }
+</script>
 
-</script>
-
-<style lang="stylus">
-.dialog-banner
-  img
-    display block
-    width 100%
-.md-button
-  display block
-  margin-bottom 16px
+<style>
+.dialog-banner img {
+  display: block;
+  width: 100%;
+}
+    
+.md-button {
+  display: block;
+  margin-bottom: 16px;
+}
 </style>

@@ -12,7 +12,8 @@
 </template>
 
 <script>
-import Button from '../../../button'
+console.info('common')
+import Button from 'mand-mobile/lib/button'
 
 export default {
   name: 'button-demo',

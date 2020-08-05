@@ -1,0 +1,71 @@
+<template>
+  <div class="md-example-child md-example-child-action-bar md-example-child-3">
+    <md-action-bar :actions="data" @click="onBtnClick">
+      <span class="price">
+        &yen;128.00<small>起</small>
+      </span>
+    </md-action-bar>
+  </div>
+</template>
+
+<script>import ActionBar from '../../index'
+import Dialog from '../../../dialog'
+
+export default {
+  name: 'action-bar-demo',
+  /* DELETE */
+  title: '使用插槽',
+  titleEnUS: 'With slot',
+  height: 150,
+  /* DELETE */
+  components: {
+    'md-action-bar': ActionBar,
+  },
+  data() {
+    return {
+      data: [
+        {
+          text: '主要按钮',
+          round: true,
+        },
+      ],
+    }
+  },
+  methods: {
+    onBtnClick(event, action, index) {
+      this.$set(this.data, index, {
+        ...action,
+        loading: true,
+        inactive: true,
+      })
+      Dialog.alert({
+        content: `${action.text}点击`,
+        onConfirm: () => {
+          this.$set(this.data, index, {
+            ...action,
+            loading: false,
+            inactive: false,
+          })
+        },
+      })
+    },
+  },
+}
+</script>
+
+<style scoped>
+.price {
+  display: flex;
+  align-items: baseline;
+  font-weight: 500;
+  font-size: 48px;
+  color: #FF823A;
+}
+  
+.price small {
+  margin-left: 10px;
+  font-size: 32px;
+  color: #858B9C;
+}
+</style>
+

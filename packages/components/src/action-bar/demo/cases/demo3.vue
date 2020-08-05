@@ -1,6 +1,6 @@
 <template>
   <div class="md-example-child md-example-child-action-bar md-example-child-3">
-    <md-action-bar :actions="data">
+    <md-action-bar :actions="data" @click="onBtnClick">
       <span class="price">
         &yen;128.00<small>起</small>
       </span>
@@ -8,8 +8,8 @@
   </div>
 </template>
 
-<script>
-import ActionBar from '../../index'
+<script>import ActionBar from '../../index'
+import Dialog from '../../../dialog'
 
 export default {
   name: 'action-bar-demo',
@@ -19,7 +19,7 @@ export default {
   height: 150,
   /* DELETE */
   components: {
-    'md-action-bar': ActionBar
+    'md-action-bar': ActionBar,
   },
   data() {
     return {
@@ -33,31 +33,33 @@ export default {
   },
   methods: {
     onBtnClick(event, action) {
-      // this.$set(action, 'loading', true)
-      // this.$set(action, 'inactive', true)
-      // Dialog.alert({
-      //   content: `${action.text}点击`,
-      //   onConfirm: () => {
-      //     this.$set(action, 'loading', false)
-      //     this.$set(action, 'inactive', false)
-      //   },
-      // })
+      this.$set(action, 'loading', true)
+      this.$set(action, 'inactive', true)
+      Dialog.alert({
+        content: `${action.text}点击`,
+        onConfirm: () => {
+          this.$set(action, 'loading', false)
+          this.$set(action, 'inactive', false)
+        },
+      })
     },
   },
 }
+</script>
 
-</script>
-
-<style lang="stylus" scoped>
-.price
-  display flex
-  align-items baseline
-  font-weight 500
-  font-size 48px
-  color #FF823A
-  small
-    margin-left 10px
-    font-size 32px
-    color #858B9C
+<style scoped>
+.price {
+  display: flex;
+  align-items: baseline;
+  font-weight: 500;
+  font-size: 48px;
+  color: #FF823A;
+}
+  
+.price small {
+  margin-left: 10px;
+  font-size: 32px;
+  color: #858B9C;
+}
 </style>
 

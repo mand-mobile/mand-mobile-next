@@ -21,10 +21,9 @@
   </div>
 </template>
 
-<script>
-import Field from 'mand-mobile/field'
-import CellItem from 'mand-mobile/cell-item'
-import Switch from 'mand-mobile/switch'
+<script>import Field from '../../../field'
+import CellItem from '../../../cell-item'
+import Switch from './../../switch'
 
 export default {
   name: 'cell-item-demo',
@@ -44,17 +43,19 @@ export default {
     }
   },
 }
+</script>
 
-</script>
-
-<style lang="stylus" scoped>
-.holder
-  display block
-  width 88px
-  height 88px
-  border-radius 44px
-  background-color #E6E6E6
-.cell-item-desc
-  font-size 24px
-  color #858B9C
+<style scoped>
+.holder {
+  display: block;
+  width: 88px;
+  height: 88px;
+  border-radius: 44px;
+  background-color: #E6E6E6;
+}
+  
+.cell-item-desc {
+  font-size: 24px;
+  color: #858B9C;
+}
 </style>

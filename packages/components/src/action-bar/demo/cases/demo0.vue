@@ -4,9 +4,8 @@
   </div>
 </template>
 
-<script>
-import ActionBar from '../../index'
-// import Toast from '../../../toast'
+<script>import ActionBar from '../../index'
+import Toast from '../../../toast'
 
 export default {
   name: 'action-bar-demo',
@@ -14,7 +13,7 @@ export default {
   height: 150,
   /* DELETE */
   components: {
-    'md-action-bar': ActionBar
+    'md-action-bar': ActionBar,
   },
   data() {
     return {
@@ -28,10 +27,8 @@ export default {
   },
   methods: {
     handleClick() {
-      console.log('click')
-      // Toast.succeed('Click')
+      Toast.succeed('Click')
     },
   },
 }
-
-</script>
+</script>
