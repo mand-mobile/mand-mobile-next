@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import ActionSheet from '../../action-sheet'
+import ActionSheet from '../../index'
 import Button from '../../../button'
-import Dialog from '../../../dialog/dialog'
+import Dialog from '../../../dialog'
 export default {
   name: 'action-sheet-demo',
   /* DELETE */
