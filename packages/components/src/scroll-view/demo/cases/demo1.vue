@@ -5,7 +5,6 @@
       ref="scrollView"
       :scrolling-y="false"
       :touch-angle="80"
-      :is-prevent="false"
     >
       <div class="scroll-view-list">
         <p
@@ -19,7 +18,7 @@
 </template>
 
 <script>
-import ScrollView from 'mand-mobile/scroll-view'
+import ScrollView from 'mand-mobile/lib/scroll-view'
 
 export default {
   name: 'scroll-view-demo-1',
@@ -35,22 +34,25 @@ export default {
 
 </script>
 
-<style lang="stylus" scoped>
-.md-example-child-scroll-view-1
-  .scroll-view-list
-    display flex
-    width 1000px
-    height 100px
-    background #FFF
-    .scroll-view-item
-      flex 1
-      text-align center
-      font-size 28px
-      font-family DINAlternate-Bold
-      border-right .5px solid #efefef
-      display flex
-      align-items center
-      justify-content center
-      &:nth-child(2n)
-        background #efefef
+<style>
+.md-example-child-scroll-view-1 {
+  background: #FFF;
+}
+.md-example-child-scroll-view-1 .scroll-view-list {
+  display: flex;
+  width: 1000px;
+  height: 100px;
+}
+.md-example-child-scroll-view-1 .scroll-view-list .scroll-view-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+  font-size: 28px;
+  border-right: .5px solid #EFEFEF;
+}
+.md-example-child-scroll-view-1 .scroll-view-list .scroll-view-item:nth-child(2n+1) {
+  background: #EFEFEF;
+}
 </style>
