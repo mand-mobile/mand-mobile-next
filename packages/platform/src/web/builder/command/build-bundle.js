@@ -7,7 +7,8 @@ const R = require('ramda')
 const fs = require('fs')
 
 // 加载rollup plugin
-const rplgNodeResolve = require('rollup-plugin-node-resolve')
+const {nodeResolve: rplgNodeResolve} = require('@rollup/plugin-node-resolve')
+const rplgAlias = require('@rollup/plugin-alias')
 const rplgVue = require('rollup-plugin-vue')
 const rplgStylus = require('rollup-plugin-stylus-compiler')
 const rplgPostcss = require('rollup-plugin-postcss')
@@ -24,16 +25,35 @@ const FORMAT_UMD_MODULE = 'umd'
 const translateToRollupConfig = ({webpackConfig, entry}) => {
   // const context = webpackConfig.context
 
-  const {resolve: {extensions}} = webpackConfig
+  let {resolve: {extensions}} = webpackConfig
+
+  /**
+   * @todo 1 - 从驱动器中获取platform变量
+   * @todo 2 - build-bundle需要在所有的vue-cli-plugin注册之后执行，并获取到全局的webpack配置后再读取相关的webpack配置
+   *  
+   */
+  extensions = extensions.map(item => `.web${item}`).concat(extensions)
+
+  console.info(extensions)
+
+  const customResolver = rplgNodeResolve({
+    extensions,
+  })
 
   const inputOptions = {
     /**
      * @todo 替换
      */
     input: entry,
-
+    external: ['vue'],
     plugins: [
+      rplgAlias({
+        // resolve: extensions,
+        entries: [{find: /^@mand-mobile\/platform\/lib\/(.*)/, replacement: '@mand-mobile/platform/lib/web/$1'}],
+        customResolver,
+      }),
       rplgNodeResolve({extensions}),
+
       rplgVue({
         preprocessStyles: true,
       }),
@@ -85,6 +105,8 @@ const generate = async ({inputOptions, outputOptions}) => {
 }
 
 module.exports = (webpackConfig, entry) => {
+  console.info(entry)
+
   const run = R.compose(generate, translateToRollupConfig)
   return run({webpackConfig, entry})
 }

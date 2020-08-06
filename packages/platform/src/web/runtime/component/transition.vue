@@ -6,10 +6,13 @@
   </transition>
 </template>
 
-<script>export default {
+<script>
+import '@mand-mobile/shared/lib/style/transition.styl'
+
+export default {
   name: 'md-transition-primitive',
 }
-</script>
+
+</script>
 <style lang="stylus">
-@import '~@mand-mobile/shared/lib/style/transition.styl'
 </style>
