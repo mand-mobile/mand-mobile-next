@@ -17,7 +17,7 @@ function createCodegenContext(ast) {
   return context
 }
 
-export function transformTpl(ast) {
+exports.transformTpl = function transformTpl(ast) {
   let code = ''
 
   ast.children

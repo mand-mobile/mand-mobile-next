@@ -1,6 +1,10 @@
+/* eslint-disable */
+const postcss = require('postcss')
+const stylus = require('stylus')
+
 const STYLE = 'style'
 
-export function concatcStyle(ast) {
+exports.concatcStyle = function concatcStyle(ast) {
   let code = ''
 
   ast.children

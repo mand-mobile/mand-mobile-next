@@ -10,7 +10,8 @@
     "serve:web": "cd packages/examples && npm run serve:web --",
     "serve:uni": "cd packages/examples && npm run serve:uni --",
     "pub": "npm run clean:lock && lerna publish --conventional-commits",
-    "pub:prerelease": "lerna publish --conventional-commits --cd-version=prerelease --preid=alpha --npm-tag=alpha"
+    "pub:prerelease": "lerna publish --conventional-commits --cd-version=prerelease --preid=alpha --npm-tag=alpha",
+    "build:uni-component": "cd packages/platform && npm run build:uni-component"
   },
   "dependencies": {
     "core-js": "^2.6.5",
