@@ -9,7 +9,7 @@
         &yen;30,000
       </md-detail-item>
       <md-detail-item title="收款账户">
-        <md-icon name="bank-zs" svg style="margin-right:10px;"></md-icon>招商银行(尾号xxxx)
+        <md-icon name="bank-zs" style="margin-right:10px;"></md-icon>招商银行(尾号xxxx)
       </md-detail-item>
       <md-detail-item title="借款期数" content="12期" />
       <md-detail-item title="正常还款总息">
@@ -34,8 +34,12 @@
 	</div>
 </template>
 
-<script>import '@examples/assets/images/bank-zs.svg'
-import {Bill, DetailItem, Icon, Tag} from 'mand-mobile'
+<script>// import '@examples/assets/images/bank-zs.svg'
+// import {Bill, DetailItem, Icon, Tag} from 'mand-mobile'
+import Bill from '../../index'
+import DetailItem from '../../../detail-item'
+import Icon from '../../../icon'
+import Tag from '../../../tag'
 
 export default {
   name: 'bill-demo',
@@ -44,49 +48,60 @@ export default {
   titleEnUS: 'Using slots',
   /* DELETE */
   components: {
-    [Bill.name]: Bill,
-    [DetailItem.name]: DetailItem,
-    [Icon.name]: Icon,
-    [Tag.name]: Tag,
+    'md-bill': Bill,
+    'md-detail-item': DetailItem,
+    'md-icon': Icon,
+    'md-tag': Tag,
   },
 }
 </script>
-
-<style lang="stylus">
-.md-example-child-bill-1
-  .md-bill
-    background-color #FFF
-    box-shadow 0 6px 24px rgba(17, 26, 52, .05)
-    &.md-water-mark
-      overflow visible
-    .md-bill-neck
-      &:before, &:after
-        content ''
-        position absolute
-        top 0
-        width 36px
-        height 36px
-        border-radius 18px
-        background-color #F3F4F5
-      &:before
-        left -46px
-      &:after
-        right -46px
-    .header-slot
-      padding 40px 0 20px 0
-      .title
-        color #111A34
-        font-size 60px
-        font-family Songti SC
-        line-height 1
-      .desc
-        margin-top 16px
-        color #858B9C
-        font-size 26px
-    .footer-slot
-      padding 32px 0
-      color #858B9C
-      font-size 22px
-      line-height 1.5
-      border-top solid 1px #E1E4EB
+<style>
+.md-example-child-bill-1 .md-bill {
+  background-color: #FFF;
+  box-shadow: 0 6px 24px rgba(17, 26, 52, .05);
+}
+.md-example-child-bill-1 .md-bill.md-water-mark {
+  overflow: visible;
+}
+.md-example-child-bill-1 .md-bill .md-bill-neck:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -46px;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #F3F4F5;
+}
+.md-example-child-bill-1 .md-bill .md-bill-neck:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -46px;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #F3F4F5;
+}
+.md-example-child-bill-1 .md-bill .header-slot {
+  padding: 40px 0 20px 0;
+}
+.md-example-child-bill-1 .md-bill .header-slot .title {
+  color: #111A34;
+  font-size: 60px;
+  font-family: Songti SC;
+  line-height: 1;
+}
+.md-example-child-bill-1 .md-bill .header-slot .desc {
+  margin-top: 16px;
+  color: #858B9C;
+  font-size: 26px;
+}
+.md-example-child-bill-1 .md-bill .footer-slot {
+  padding: 32px 0;
+  color: #858B9C;
+  font-size: 22px;
+  line-height: 1.5;
+  border-top: solid 1px #E1E4EB;
+}
 </style>

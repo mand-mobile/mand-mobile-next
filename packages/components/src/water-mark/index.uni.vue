@@ -1,14 +1,14 @@
 <template>
   <div class="md-water-mark">
-    <div class="water-mark-container">
+    <div class="md-water-mark_container">
       <slot></slot>
     </div>
     <div
-      class="water-mark-list"
+      class="md-water-mark_list"
       ref="mark"
     >
       <div
-        class="water-mark-list-wrapper"
+        class="md-water-mark_list_wrapper"
         :style="{
            opacity,
            transform: `rotate(${rotate}deg)`,
@@ -16,6 +16,7 @@
          }"
       > 
         <template v-if="content">
+          <!-- web的水印等构建解决就把原来的复制过来 -->
          <canvas canvas-id="myCanvas" type="2d" id="myCanvas"></canvas>
         </template>
         <template v-else>
@@ -28,11 +29,10 @@
   </div>
 </template>
 
-<script>
-import {getDpr} from '@mand-mobile/shared/lib/util'
+<script>import {Dom} from '@mand-mobile/platform/lib/runtime/module'
 
 const fontSize = 14
-const color = '#858B9C'
+// const color = '#858B9C'
 
 export default {
   name: 'md-water-mark',
@@ -72,31 +72,29 @@ export default {
 
   async mounted() {
     if (this.content) {
-      const res = await this.$MDDom().querySelector('#myCanvas').getNode()
-      console.log(res);
+      const $MDDom = Dom.bind(this)()
+      const res = await $MDDom.querySelector('#myCanvas').getNode()
+      // console.log(res);
       // uni h5端需要再查一次canvas, 因为uni把canvas编译成了 <uni-canvas><canvas/></uni-canvas>; 但如果是在web端使用, 不需要这句
       // const canvas = res.querySelector('canvas')
       const canvas = res
       const ctx = canvas.getContext('2d')
       this.ctx = ctx
 
-      this.$_initCanvas()
+      // this.$_initCanvas()
       this.$_computedSpacing()
       this.$_draw()
-  
-
-      
     }
   },
 
   methods: {
-    $_initCanvas() {
-      const {ctx, ratio, $refs} = this
-      const {mark} = $refs
-    },
+    // async $_initCanvas() {
+    //   const {ctx, ratio, $refs} = this
+    //   const {mark} = $refs
+    // },
 
     $_computedSpacing() {
-      const {spacing, ratio} = this
+      const {spacing} = this
 
       if (typeof spacing === 'number') {
         this.realSpacing = spacing
@@ -107,14 +105,14 @@ export default {
     },
 
     $_draw() {
-      const {content, ctx, realSpacing, rotate, ctxWidth, ctxHeight} = this
+      const {content, ctx, realSpacing, rotate} = this
       const _fontSize = fontSize
-      
-      const contentLength = content.length * _fontSize
-      const xCount = 10 //Math.ceil(ctxWidth * ratio / (contentLength + realSpacing))
-      const yCount = 10 //Math.ceil(ctxHeight * ratio / (_fontSize + realSpacing))
 
-      ctx.rotate(rotate * Math.PI/180)
+      const contentLength = content.length * _fontSize
+      const xCount = 10 //  Math.ceil(ctxWidth * ratio / (contentLength + realSpacing))
+      const yCount = 10 //  Math.ceil(ctxHeight * ratio / (_fontSize + realSpacing))
+
+      ctx.rotate(rotate * Math.PI / 180)
       ctx.font = `${_fontSize}px DIN Alternate, "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif`
       ctx.fillStyle = 'rgba(133,159,136, 0.1)'
       let ctxX = 0
@@ -128,22 +126,22 @@ export default {
         }
         ctxY += _fontSize + realSpacing
       }
+      console.log(ctx)
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-water-mark
   position relative
   overflow hidden
 
-.water-mark-container
+.md-water-mark_container
   position relative
   z-index 2
 
-.water-mark-list
+.md-water-mark_list
   clearfix()
   absolute-pos()
   position absolute
@@ -153,7 +151,7 @@ export default {
   justify-content center
   overflow hidden
 
-  .water-mark-canvas
+  .md-water-mark_list_wrapper_canvas
     position absolute
     top 0
     left 0
@@ -170,6 +168,6 @@ export default {
 
 .water-mark-item
   float left
-  font-size font-body-large
-  color color-text-caption
+  font-size md-font-body-large
+  color md-color-text-caption
 </style>

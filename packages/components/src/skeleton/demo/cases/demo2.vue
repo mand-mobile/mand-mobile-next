@@ -16,13 +16,14 @@
 </template>
 
 <script>
-import Skeleton from 'mand-mobile/skeleton'
-import Field from 'mand-mobile/field'
-import CellItem from 'mand-mobile/cell-item'
+import Skeleton from '../../index'
+import Field from '../../../field'
+import CellItem from '../../../cell-item'
 export default {
   name: 'skeleton-demo',
   /* DELETE */
-  title: '加载正文 <a href="javascript:window.startLoading()">开始加载</a>',
+  // title: '加载正文 <a href="javascript:window.startLoading()">开始加载</a>',
+  title: '加载正文',
   titleEnUS: 'Loading body <a href="javascript:window.startLoading()">Start loading</a>',
   describe: '3s后加载完成',
   describeEnUS: 'Load completed after 3s',
@@ -38,7 +39,7 @@ export default {
     'md-cell-item': CellItem,
   },
   mounted() {
-    window.startLoading = this.startLoading
+    // window.startLoading = this.startLoading
     this.startLoading()
   },
   methods: {
@@ -53,22 +54,25 @@ export default {
 
 </script>
 
-<style lang="stylus" scoped>
-.md-example-child-skeleton-2
-  margin 30px 0
-.skeleton-switch
-  margin-bottom 32px
-.skeleton-item
-  &:last-child
-    margin-bottom 0
-  margin-bottom 24px
-.md-cell-item
-  &.skeleton-item
-    margin-bottom 0
-.holder
-  display block
-  width 80px
-  height 80px
-  border-radius 50%
-  background-color #e6e6e6
+<style>
+.md-example-child-skeleton-2 {
+  margin: 30px 0;
+}
+.skeleton-switch {
+  margin-bottom: 32px;
+}
+.md-example-child-skeleton-2 .skeleton-item:last-child {
+  margin-bottom: 0;
+  margin-bottom: 24px;
+}
+.md-example-child-skeleton-2 .md-cell-item.skeleton-item {
+  margin-bottom: 0;
+}
+.md-example-child-skeleton-2 .holder {
+  display: block;
+  width: 80px;
+  height: 80px;
+  background-color: #e6e6e6;
+  border-radius: 50%;
+}
 </style>

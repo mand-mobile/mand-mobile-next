@@ -30,8 +30,8 @@
 
 <style lang="stylus">
 .md-scroll-view-more
-  padding v-gap-lg 0
-  font-size font-minor-large
+  padding md-v-gap-lg 0
+  font-size md-font-minor-large
   text-align center
-  color color-text-caption
+  color md-color-text-caption
 </style>

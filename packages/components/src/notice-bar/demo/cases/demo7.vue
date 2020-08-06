@@ -7,14 +7,8 @@
   </div>
 </template>
 
-<script>
-import Icon from 'mand-mobile/icon'
-// #ifdef H5
-import NoticeBar from 'mand-mobile/notice-bar'
-// #endif
-// #ifdef MP-WEIXIN
-import NoticeBar from "mand-mobile/notice-bar/index.uni"
-// #endif
+<script>import Icon from '../../../icon'
+import NoticeBar from '../../index'
 
 export default {
   name: 'notice-bar-demo',
@@ -28,5 +22,4 @@ export default {
     'md-icon': Icon,
   },
 }
-
-</script>
+</script>
