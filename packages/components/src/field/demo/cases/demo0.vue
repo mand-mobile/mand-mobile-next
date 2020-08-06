@@ -2,7 +2,7 @@
   <div class="md-example-child md-example-child-field md-example-child-field-0">
     <md-field title="区域标题" brief="区域描述性文本，可根据具体场景配置">
       <div class="action-container" slot="action" @click="onClick">
-        操作 <md-icon class="md-icon" name="rectangle"></md-icon>
+        操作 <md-icon name="rectangle"></md-icon>
       </div>
       <p slot="footer">区域页脚区域内容插槽</p>
       <md-field-item solid title="标题区域" placeholder="提示文本" />
@@ -19,13 +19,12 @@
       v-model="asyncDialog.open"
       :btns="asyncDialog.btns"
     >
-      <view class="text"> 点击了  </view>
+      <div class="text">点击了</div>
     </md-dialog>
   </div>
 </template>
 
-<script>
-import Dialog from '../../../dialog/dialog'
+<script>import Dialog from '../../../dialog/dialog'
 import Field from '../../index'
 import FieldItem from '../../item'
 import Icon from '../../../icon'
@@ -48,7 +47,7 @@ export default {
         open: false,
         btns: [
           {
-            text: '确定'
+            text: '确定',
           },
         ],
       },
@@ -57,32 +56,39 @@ export default {
 
   methods: {
     onClick() {
-      // console.log('点击了')
       this.asyncDialog.open = true
     },
   },
 }
+</script>
 
-</script>
+<style scoped>
+.md-example-child-field-0 {
+  text-align: left;
+}
+  
+.md-field-action {
+  height: 36px;
+  align-items: flex-end;
+}
+    
+.action-container {
+  display: flex;
+  align-items: center;
+}
+  
+.md-icon {
+  margin-left: 10px;
+  color: #C5CAD5;
+  font-size: 16px;
+  width: auto;
+  height: auto;
+  line-height: normal;
+}
 
-<style lang="stylus" scoped>
-.md-example-child-field-0
-  text-align left
-  .md-field-action
-    height 36px
-    align-items flex-end
-.action-container
-  display flex
-  align-items center
-  .md-icon
-    margin-left 10rpx
-    color #C5CAD5
-    font-size 16rpx
-    width auto
-    height auto
-    line-height normal
-.text
-  font-size 24rpx
-  text-align center
+.text {
+  font-size: 24px;
+  text-align: center;
+}
 </style>
 

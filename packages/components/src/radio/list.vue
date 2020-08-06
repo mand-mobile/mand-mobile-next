@@ -1,7 +1,7 @@
 <template>
   <div
     class="md-radio-list"
-    :class="{ 'is-align-center': alignCenter }"
+    :class="{ 'md-radio-list--is-align-center': alignCenter }"
   >
     <md-cell-item
       v-for="(item, index) in options"
@@ -9,7 +9,7 @@
       class="md-radio-item"
       :alignCenter="alignCenter"
       :class="{
-        'is-selected': selectedValue === item.value && !inputSelected,
+        'md-radio-item--is-selected': selectedValue === item.value && !inputSelected,
       }"
       :title="hasSlot ? '' : (item.text || item.label)"
       :brief="hasSlot ? '' : item.brief"
@@ -55,7 +55,7 @@
       ref="inputItem"
       class="md-radio-item"
       :class="{
-        'is-selected': inputSelected,
+        'md-radio-item--is-selected': inputSelected,
       }"
       :title="inputLabel"
       :placeholder="inputPlaceholder"
@@ -65,8 +65,7 @@
   </div>
 </template>
 
-<script>
-import Radio from './index'
+<script>import Radio from './index'
 import Field from '../field'
 import CellItem from '../cell-item'
 import InputItem from '../input-item'
@@ -78,10 +77,10 @@ export default {
   mixins: [radioMixin],
 
   components: {
-    "md-radio": Radio,
-    "md-field": Field,
-    "md-cell-item": CellItem,
-    "md-input-item": InputItem,
+    'md-radio': Radio,
+    'md-field': Field,
+    'md-cell-item': CellItem,
+    'md-input-item': InputItem,
   },
 
   props: {
@@ -202,8 +201,7 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-radio-item
@@ -212,13 +210,13 @@ export default {
     margin-bottom 0
 
 .md-radio-list
-  .md-cell-item-body.multilines .md-cell-item-title
+  .md-cell-item_body--multilines .md-cell-item_title
     font-weight font-weight-medium
-  &.is-align-center
-    .md-cell-item-content
+  &--is-align-center
+    .md-cell-item_content
       text-align center
-    .md-cell-left,
-    .md-cell-right
+    .md-cell-item_left,
+    .md-cell-item_right
       display none
 </style>
 

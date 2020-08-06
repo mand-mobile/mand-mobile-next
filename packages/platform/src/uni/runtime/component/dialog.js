@@ -1,6 +1,10 @@
-export default function dialogFactory(DialogOptions) {
+/* global uni */
+
+export default function dialogFactory() {
   const noop = function() {}
-  const Dialog = function({
+  function Dialog() {}
+
+  Dialog.create = ({
     content = '',
     title = '',
     showCancel = true,
@@ -9,7 +13,7 @@ export default function dialogFactory(DialogOptions) {
     onConfirm = noop,
     onFailed = noop,
     confirmColor = '#2f86f6',
-  }) {
+  }) => {
     uni.showModal({
       title,
       content,
@@ -35,7 +39,7 @@ export default function dialogFactory(DialogOptions) {
     onConfirm = noop,
     onFailed = noop,
   }) => {
-    return Dialog({
+    return Dialog.create({
       title,
       content,
       cancelText,
@@ -53,7 +57,7 @@ export default function dialogFactory(DialogOptions) {
     confirmText = '确认',
     onConfirm = noop,
   }) => {
-    return Dialog({
+    return Dialog.create({
       title,
       content,
       showCancel,
@@ -71,7 +75,7 @@ export default function dialogFactory(DialogOptions) {
     onConfirm = noop,
     onFailed = noop,
   }) => {
-    return Dialog({
+    return Dialog.create({
       title,
       content,
       cancelText,
@@ -89,7 +93,7 @@ export default function dialogFactory(DialogOptions) {
     onConfirm = noop,
     onFailed = noop,
   }) => {
-    return Dialog({
+    return Dialog.create({
       title,
       content,
       cancelText,
@@ -99,6 +103,5 @@ export default function dialogFactory(DialogOptions) {
     })
   }
 
-  // Dialog.component = DialogOptions
   return Dialog
 }

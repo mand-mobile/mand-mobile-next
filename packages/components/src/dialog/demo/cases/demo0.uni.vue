@@ -12,6 +12,7 @@
       :closable="true"
       v-model="basicDialog.open"
       :btns="basicDialog.btns"
+      @click="onBasicClick"
     >
       人生的刺，就在这里，留恋着不肯快走的，偏是你所不留恋的东西。
     </md-dialog>
@@ -21,6 +22,7 @@
       :closable="true"
       v-model="iconDialog.open"
       :btns="iconDialog.btns"
+      @click="onIconClick"
     >
       围在城里的人想逃出来，城外的人想冲进去，对婚姻也罢，职业也罢，人生的愿望大都如此。
     </md-dialog>
@@ -30,6 +32,7 @@
       :closable="false"
       v-model="warnDialog.open"
       :btns="warnDialog.btns"
+      @click="onWarnClick"
     >
       或是因为习惯了孤独，我们渴望被爱；又或是害怕爱而不得，我们最后仍然选择孤独。
     </md-dialog>
@@ -38,7 +41,7 @@
       :closable="false"
       v-model="asyncDialog.open"
       :btns="asyncDialog.btns"
-      @click="cc"
+      @click="onAsyncClick"
     >
       每个人都有属于自己的一片森林，也许我们 从来不曾去过，但它一直在那里，总会在那里。迷失的人迷失了，相逢的人会再相逢。
     </md-dialog>
@@ -49,6 +52,7 @@
       layout="column"
       v-model="actDialog.open"
       :btns="actDialog.btns"
+      @click="onActClick"
     >
       据说每个人需要一面镜子，可以常常自照，知道自己是个什么东西。不过，能自知的人根本不用照镜子；不自知的东西，照了镜子也没有用。
     </md-dialog>
@@ -121,6 +125,7 @@ export default {
             text: '开始搜索',
             icon: 'search',
             handler: this.onAsyncConfirm,
+            autoCloseDisabled: true,
           },
         ],
       },
@@ -154,7 +159,6 @@ export default {
     }
   },
   methods: {
-    cc() {},
     onBasicConfirm() {
       Toast.create({
         content: '你点击了确认',
@@ -176,18 +180,58 @@ export default {
     onActConfirm() {
       this.actDialog.open = false
     },
-    onAsyncConfirm(btn) {
-      this.$set(btn, 'loading', true)
-      this.$set(btn, 'text', '搜索中')
+    onAsyncConfirm(btn, index) {
+      const asyncBtns = this.asyncDialog.btns
+      const button = asyncBtns[index]
+      asyncBtns.splice(index, 1, {
+        ...button,
+        loading: true,
+        text: '搜索中',
+      })
+      this.$set(this.asyncDialog, 'btns', asyncBtns)
 
       setTimeout(() => {
         this.asyncDialog.open = false
-        this.$set(btn, 'loading', false)
-        this.$set(btn, 'text', '开始搜索')
+        asyncBtns.splice(index, 1, {
+          ...button,
+          loading: false,
+          text: '开始搜索',
+        })
+        this.$set(this.asyncDialog, 'btns', asyncBtns)
         Toast.create({
           content: '搜索成功',
         })
       }, 1500)
+    },
+    onBasicClick(btn, index) {
+      const btnClick = this.basicDialog.btns[index]
+      if (btnClick && typeof btnClick.handler === 'function') {
+        btnClick.handler(btn, index)
+      }
+    },
+    onIconClick(btn, index) {
+      const btnClick = this.iconDialog.btns[index]
+      if (btnClick && typeof btnClick.handler === 'function') {
+        btnClick.handler(btn, index)
+      }
+    },
+    onActClick(btn, index) {
+      const btnClick = this.actDialog.btns[index]
+      if (btnClick && typeof btnClick.handler === 'function') {
+        btnClick.handler(btn, index)
+      }
+    },
+    onWarnClick(btn, index) {
+      const btnClick = this.warnDialog.btns[index]
+      if (btnClick && typeof btnClick.handler === 'function') {
+        btnClick.handler(btn, index)
+      }
+    },
+    onAsyncClick(btn, index) {
+      const btnClick = this.asyncDialog.btns[index]
+      if (btnClick && typeof btnClick.handler === 'function') {
+        btnClick.handler(btn, index)
+      }
     },
   },
 }

@@ -10,14 +10,13 @@
   </md-check-base-box>
 </template>
 
-<script>
-import CheckBaseBox from '../check-base'
+<script>import CheckBaseBox from '../check-base'
 
 export default {
   name: 'md-radio-box',
 
   components: {
-    "md-check-base-box": CheckBaseBox,
+    'md-check-base-box': CheckBaseBox,
   },
 
   props: {
@@ -58,5 +57,4 @@ export default {
     },
   },
 }
-
-</script>
+</script>

@@ -10,8 +10,7 @@
   </div>
 </template>
 
-<script>
-import Field from '../../../field'
+<script>import Field from '../../../field'
 import CheckList from '../../list'
 
 export default {
@@ -37,10 +36,11 @@ export default {
     }
   },
 }
+</script>
 
-</script>
-
-<style lang="stylus" scoped>
-  .md-example-child
-    font-size 28px
+<style scoped>
+  .md-example-child {
+    font-size: 28px;
+  }
+    
 </style>

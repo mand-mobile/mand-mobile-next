@@ -5,8 +5,7 @@
   </div>
 </template>
 
-<script>
-import Radio from 'mand-mobile/radio'
+<script>import Radio from '../../index'
 
 export default {
   name: 'radio-demo',
@@ -23,5 +22,4 @@ export default {
     }
   },
 }
-
-</script>
+</script>

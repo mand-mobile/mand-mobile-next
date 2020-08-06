@@ -9,7 +9,7 @@ const pluginRootPath = path.resolve(__dirname, '../../../')
 export = (api: any) => (args: any) => {
 
   const platform =  args.platform
-  const command = require(`@mand-mobile/platform/lib/${platform}/builder/command/serve`)
+  const command = require(`@mand-mobile/platform/src/${platform}/builder/command/serve`)
   const vueCliService = require.resolve('@vue/cli-service/bin/vue-cli-service', {
     // 从当前执行环境下解析vueCli
     paths: [
