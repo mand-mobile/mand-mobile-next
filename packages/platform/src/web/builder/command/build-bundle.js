@@ -1,10 +1,10 @@
 const path = require('path')
-const cliExeRoot = process.cwd()
-const pluginPkgRoot = path.resolve(__dirname, '../../../')
+// const cliExeRoot = process.cwd()
+// const pluginPkgRoot = path.resolve(__dirname, '../../../')
 
 const rollup = require('rollup')
 const R = require('ramda')
-const fs = require('fs')
+// const fs = require('fs')
 
 // 加载rollup plugin
 const {nodeResolve: rplgNodeResolve} = require('@rollup/plugin-node-resolve')
@@ -22,9 +22,10 @@ const FORMAT_UMD_MODULE = 'umd'
  * 基于vue-cli所生成的webpack配置，转换为rollup需要的配置
  * @param webpackConfig 
  */
-const translateToRollupConfig = ({webpackConfig, entry}) => {
+const translateToRollupConfig = ({webpackConfig, entry, context}) => {
   // const context = webpackConfig.context
 
+  let {MAND_OUTPUT_DIR} = context
   let {resolve: {extensions}} = webpackConfig
 
   /**
@@ -33,8 +34,6 @@ const translateToRollupConfig = ({webpackConfig, entry}) => {
    *  
    */
   extensions = extensions.map(item => `.web${item}`).concat(extensions)
-
-  console.info(extensions)
 
   const customResolver = rplgNodeResolve({
     extensions,
@@ -60,7 +59,7 @@ const translateToRollupConfig = ({webpackConfig, entry}) => {
       rplgStylus(),
       rplgPostcss({
         config: false,
-        extract: path.join(webpackConfig.output.path, `mand-mobile.css`),
+        extract: path.resolve(MAND_OUTPUT_DIR, 'mand-mobile.css'),
       }),
 
       // rplgUglify(),
@@ -70,9 +69,9 @@ const translateToRollupConfig = ({webpackConfig, entry}) => {
 
   const outputOptions = R.map(
     moduleType => ({
-      file: path.join(webpackConfig.output.path, `mand-mobile.${moduleType}.js`),
+      file: path.resolve(MAND_OUTPUT_DIR, `mand-mobile.${moduleType}.js`),
       plugins: rplgBabel({
-        //生产环境，移除不必要的注释
+        // 生产环境，移除不必要的注释
         comments: false,
         // 保留rollup构建后原本的格式
         allowAllFormats: true,
@@ -104,9 +103,7 @@ const generate = async ({inputOptions, outputOptions}) => {
   }
 }
 
-module.exports = (webpackConfig, entry) => {
-  console.info(entry)
-
+module.exports = (webpackConfig, entry, context) => {
   const run = R.compose(generate, translateToRollupConfig)
-  return run({webpackConfig, entry})
+  return run({webpackConfig, entry, context})
 }
