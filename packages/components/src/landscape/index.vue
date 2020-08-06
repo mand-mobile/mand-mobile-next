@@ -1,22 +1,22 @@
 <template>
-  <div class="md-landscape" :class="{'is-full': fullScreen}">
+  <div class="md-landscape" :class="{'md-landscape--is-full': fullScreen}">
 		<md-popup
       v-model="isLandscapeShow"
       :mask-closable="maskClosable"
       prevent-scroll
-      prevent-scroll-exclude=".md-landscape-content"
+      prevent-scroll-exclude=".md-landscape_body_content"
       :has-mask="!fullScreen && hasMask"
       :is-full-screen="fullScreen"
       :transition="transition"
       @input="$emit('input', false)"
       @show="$emit('show')"
       @hide="$emit('hide')">
-      <div class="md-landscape-body" :class="{scroll}">
-        <div class="md-landscape-content">
+      <div class="md-landscape_body" :class="{scroll}">
+        <div class="md-landscape_body_content">
           <slot></slot>
         </div>
         <md-icon
-          class="md-landscape-close"
+          class="md-landscape_body_close"
           :class="{dark: !hasMask || fullScreen}"
           @click="$_close"
           :name="fullScreen ? 'clear' : 'close'"
@@ -91,42 +91,42 @@ export default {
 
 <style lang="stylus">
 .md-landscape
-  &.is-full
-    .md-landscape-body
+  &.md-landscape--is-full
+    .md-landscape_body
       width 100%
       height 100%
-      background landscape-fullscreen-bg
-    .md-landscape-content
+      background md-landscape-fullscreen-bg
+    .md-landscape_body_content
       width 100%
       height 100%
       overflow auto
       -webkit-overflow-scrolling touch
-    .md-landscape-close
+    .md-landscape_body_close
       position absolute
       right 25px
       top 25px
       margin auto
 
-  .md-popup, .md-popup-box
-    z-index landscape-zindex
+  .md-popup, .md-popup_box
+    z-index md-landscape-zindex
+  .md-landscape_body
+    .md-landscape_body_close
+      position relative
+      display block
+      width 50px
+      height 50px
+      line-height 50px
+      margin 50px auto 20px auto
+      font-size 50px
+      color md-color-text-base-inverse
+      text-align center
+      &.dark
+        color md-color-text-base
+        opacity 0.5
 
-  .md-icon.md-landscape-close
-    position relative
-    display block
-    margin 50px auto 20px auto
-    font-size 50px
-    width 50px
-    height 50px
-    line-height 50px
-    text-align center
-    color color-text-base-inverse
-    &.dark
-      color color-text-base
-      opacity 0.5
-
-.md-landscape-content
-  width landscape-width
-  font-size font-body-large
+.md-landscape_body_content
+  width md-landscape-width
+  font-size md-font-body-large
   overflow auto
   -webkit-overflow-scrolling touch
   box-sizing border-box
