@@ -2,12 +2,12 @@
   <div
     class="md-notice-bar"
     :class="[
-      round && 'md-notice-bar-round',
+      round && 'md-notice-bar--round',
       type
     ]"
     v-if="isShow"
   >
-    <div class="md-notice-bar-left" :class="[(!customLeft && !icon) && 'md-notice-bar-empty']">
+    <div class="md-notice-bar_left" :class="[(!customLeft && !icon) && 'md-notice-bar--empty']">
       <!-- custom first -->
       <template v-if="customLeft">
         <slot name="left"></slot>
@@ -17,17 +17,18 @@
       </template>
     </div>
     <div
-      class="md-notice-bar-content"
+      class="md-notice-bar_content"
       :class="[
-        multiRows && 'md-notice-bar-multi-content'
+        multiRows && 'md-notice-bar_content--multi'
       ]"
       ref="wrap"
     >
-      <div :class="[(overflow && scrollable) && 'md-notice-bar-content-animate']" ref="content">
+    <!-- 小程序不可用 -->
+      <div id="md-notice-bar_content_item" :class="[(overflow && scrollable) && 'md-notice-bar_content--animate']" ref="content">
         <slot></slot>
       </div>
     </div>
-    <div class="md-notice-bar-right">
+    <div class="md-notice-bar_right">
       <!-- custom first -->
       <template v-if="customRight">
         <slot name="right"></slot>
@@ -43,7 +44,7 @@
   </div>
 </template>
 
-<script>
+<script>import {Dom} from '@mand-mobile/platform/lib/runtime/module'
 import Icon from '../icon'
 export default {
   name: 'md-notice-bar',
@@ -138,13 +139,14 @@ export default {
       }
       this.$emit('close')
     },
-    $_checkOverflow() {
+    async $_checkOverflow() {
       if (!this.scrollable) {
         return
       }
 
-      const {wrap, content} = this.$refs
-
+      const $MDDOM = Dom.bind(this)()
+      const wrap = $MDDOM.querySelector('.md-notice-bar_content')
+      const content = $MDDOM.querySelector('#md-notice-bar_content_item')
       /* istanbul ignore if */
       if (!wrap || !content) {
         return
@@ -154,66 +156,61 @@ export default {
        * 计算 padding-left 对宽度的影响
        * 替换 clientWidth 为 getBoundingClientRect
        */
-      const paddingLeft =
-        window
-          .getComputedStyle(content, null)
-          .getPropertyValue('padding')
-          .split(' ')[3] || '0px'
+      const paddingLeft = content.getComputedStyle(['padding'])['padding'].split(' ')[3] || '0px'
+      const width = (await wrap.getBoundingClientRect()).width
       const left = +paddingLeft.match(/\d+/g)[0]
-
-      this.overflow = content.scrollWidth - left > Math.ceil(wrap.getBoundingClientRect().width)
+      this.overflow = (content.scrollWidth || 0) - left > Math.ceil(width)
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-notice-bar
-  display flex
-  z-index notice-bar-zindex
-  font-size notice-bar-font-size
-  min-height 64px
-  background-color notice-bar-fill
-  color notice-bar-color
   position relative
+  z-index md-notice-bar-zindex
+  display flex
+  min-height 64px
   padding-left 32px
+  color md-notice-bar-color
+  font-size md-notice-bar-font-size
+  background-color md-notice-bar-fill
   box-sizing border-box
-  &.md-notice-bar-round
-    border-radius notice-bar-border-radius
+  &.md-notice-bar--round
+    border-radius md-notice-bar-border-radius
   &.activity
-    background-color notice-bar-fill-activity
-    color notice-bar-color-activity
+    background-color md-notice-bar-fill-activity
+    color md-notice-bar-color-activity
   &.warning
-    background-color notice-bar-fill-warning
     color notice-bar-color-warning
+    background-color notice-bar-fill-warning
 
-.md-notice-bar-left,
-.md-notice-bar-right
+.md-notice-bar_left,
+.md-notice-bar_right
   display flex
   align-items center
 
-.md-notice-bar-left
+.md-notice-bar_left
   padding-right 12px
-.md-notice-bar-right
+.md-notice-bar_right
   padding-right 32px
-.md-notice-bar-empty
+.md-notice-bar--empty
   padding-right 0
 
-.md-notice-bar-content
+.md-notice-bar_content
   flex 1
-  margin auto
   width auto
   line-height 64px
+  margin auto
   white-space nowrap
   overflow hidden
-  &.md-notice-bar-multi-content
-    padding h-gap-md 0
-    line-height font-caption-large
+  &.md-notice-bar_content--multi
+    line-height md-font-caption-large
+    padding md-h-gap-md 0
     white-space normal
-  .md-notice-bar-content-animate
-    padding-left 100%
+  .md-notice-bar_content--animate
     display inline-block
+    padding-left 100%
     animation md-notice-bar-animation linear 16s infinite both
 
 @keyframes md-notice-bar-animation {

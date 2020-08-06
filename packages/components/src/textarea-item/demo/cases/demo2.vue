@@ -30,9 +30,8 @@
   </div>
 </template>
 
-<script>
-import TextareaItem from 'mand-mobile/textarea-item'
-import Field from 'mand-mobile/field'
+<script>import TextareaItem from '../../index'
+import Field from '../../../field'
 export default {
   name: 'tips-demo',
   /* DELETE */
@@ -49,13 +48,12 @@ export default {
     'md-field': Field,
   },
 }
-
-</script>
-<style lang="stylus" scoped>
-.md-example-child-textarea-2
-  .demo2-footer
-    display flex
-    justify-content space-between
-    color #999
-    font-size 24px
+</script>
+<style>
+.md-example-child-textarea-2 .demo2-footer{
+    display: flex;
+    justify-content: space-between;
+    color: #999;
+    font-size: 24px;
+}
 </style>
