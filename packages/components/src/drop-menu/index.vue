@@ -1,13 +1,13 @@
 <template>
   <div class="md-drop-menu">
-    <div class="md-drop-menu-bar">
+    <div class="md-drop-menu_bar">
       <template v-for="(item, index) in data">
         <div
-          class="bar-item"
+          class="md-drop-menu_bar_item"
           :class="{
-            active: index === activeMenuBarIndex,
-            selected: $_checkBarItemSelect(index),
-            disabled: item.disabled
+            'md-drop-menu_bar_item--active': index === activeMenuBarIndex,
+            'md-drop-menu_bar_item--selected': $_checkBarItemSelect(index),
+            'md-drop-menu_bar_item--disabled': item.disabled
           }"
           :key="index"
           @click="$_onBarItemClick(item, index)"
@@ -29,7 +29,7 @@
       @hide="$_onListHide"
       @before-hide="$_onListBeforeHide"
     >
-      <div class="md-drop-menu-list">
+      <div class="md-drop-menu_list">
 
         <md-radio-list
           v-model="selectedMenuListValue[activeMenuBarIndex]"
@@ -48,10 +48,9 @@
 </template>
 
 <script>
+import {traverse, compareObjects} from '@mand-mobile/shared/lib/util'
 import Popup from '../popup'
 import RadioList from '../radio/list'
-import {traverse, compareObjects} from '@mand-mobile/shared/lib/util'
-
 
 export default {
   name: 'md-drop-menu',
@@ -203,23 +202,23 @@ export default {
 <style lang="stylus">
 .md-drop-menu
   position absolute
-  z-index drop-menu-zindex
+  z-index md-drop-menu-zindex
   top 0
   left 0
   right 0
-  height drop-menu-height
+  height md-drop-menu-height
   box-sizing border-box
-  color color-text-minor
-  font-size drop-menu-font-size
-  font-weight drop-menu-font-weight  
-.md-drop-menu-bar
+  color md-color-text-minor
+  font-size md-drop-menu-font-size
+  font-weight md-drop-menu-font-weight  
+.md-drop-menu_bar
   position relative
-  z-index drop-menu-zindex
+  z-index md-drop-menu-zindex
   display flex
   height 100%
-  background drop-menu-bar-bg
-  hairline(bottom, drop-menu-bar-border-color)
-  .bar-item
+  background md-drop-menu-bar-bg
+  hairline(bottom, md-drop-menu-bar-border-color)
+  &_item
     display flex
     flex 1
     margin 2% 0
@@ -238,24 +237,24 @@ export default {
         margin-top -4px
         border-left solid 8px transparent
         border-right solid 8px transparent
-        border-top solid 9px color-border-element
+        border-top solid 9px md-color-border-element
         transition transform .3s ease-in-out-quint
-    &.active
-      color drop-menu-color
+    &--active
+      color md-drop-menu-color
       span:after
         transform rotate(180deg)
-        border-top-color drop-menu-color
-    &.selected
-      color drop-menu-color
-    &.disabled
-      opacity drop-menu-disabled-opacity
-.md-drop-menu-list
+        border-top-color md-drop-menu-color
+    &--selected
+      color md-drop-menu-color
+    &--disabled
+      opacity md-drop-menu-disabled-opacity
+.md-drop-menu_list
   width 100%
-  padding-top drop-menu-height
-  background drop-menu-list-bg
+  padding-top md-drop-menu-height
+  background md-drop-menu-list-bg
   box-sizing border-box
   .md-radio-item
-    font-weight font-weight-normal
-    &.is-selected .md-cell-item-title
-      color color-primary
+    font-weight md-font-weight-normal
+    &--is-selected .md-cell-item_title
+      color md-color-primary
 </style>
