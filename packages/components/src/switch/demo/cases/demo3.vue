@@ -8,8 +8,7 @@
   </div>
 </template>
 
-<script>
-import Switch from 'mand-mobile/switch'
+<script>import Switch from '../../index'
 
 export default {
   name: 'switch-demo',
@@ -27,9 +26,9 @@ export default {
   },
   methods: {
     handler(name, active) {
+      // eslint-disable-next-line no-console
       console.log(`Status of switch ${name} is ${active ? 'active' : 'inactive'}`)
     },
   },
 }
-
-</script>
+</script>

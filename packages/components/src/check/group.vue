@@ -4,8 +4,7 @@
   </div>
 </template>
 
-<script>
-import Check from './index'
+<script>import Check from './index'
 
 export default {
   name: 'md-check-group',
@@ -42,10 +41,14 @@ export default {
 
   methods: {
     register(child) {
-      child.name && (this.children[child.name] = child)
+      if (child.name) {
+        this.children[child.name] = child
+      }
     },
     unregister(child) {
-      child.name && delete this.children[child.name]
+      if (child.name) {
+        delete this.children[child.name]
+      }
     },
     check(name) {
       const index = this.value.indexOf(name)
@@ -88,6 +91,5 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 

@@ -2,8 +2,8 @@
   <div
     class="md-switch"
     :class="[
-      disabled ? 'disabled' : '',
-      value ? 'active' : '']"
+      disabled ? 'md-switch--disabled' : '',
+      value ? 'md-switch--active' : '']"
     @click="$_onChange($event)">
   </div>
 </template>
@@ -46,9 +46,9 @@
   width 80px
   height 48px
   border-radius 48px
-  background-color switch-fill-inverse
-  &.disabled
-    opacity switch-item-color-disabled
+  background-color md-switch-fill-inverse
+  &--disabled
+    opacity md-switch-item-color-disabled
   &::before, &::after
     content ""
     position absolute
@@ -59,18 +59,18 @@
     width 80px
     height 48px
     border-radius 24px
-    background-color switch-fill-inverse
+    background-color md-switch-fill-inverse
   &::after
     top 4px
     left 4px
     width 40px
     height 40px
-    background-color switch-handle-color
+    background-color md-switch-handle-color
     border-radius 50%
-  &.active
-    background-color switch-fill
-  &.active::before
-      transform scale(0)
-  &.active::after
-      transform translateX(32px)
+  &--active
+    background-color md-switch-fill
+  &--active::before
+    transform scale(0)
+  &--active::after
+    transform translateX(32px)
 </style>

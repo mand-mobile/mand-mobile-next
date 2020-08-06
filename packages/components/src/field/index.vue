@@ -1,19 +1,19 @@
 <template>
-  <fieldset class="md-field" :class="[{'is-plain': plain, 'is-disabled': disabled}]">
- <header class="md-field-header" v-if="title || brief || $slots.header || $slots.action">
-      <div class="md-field-heading">
-        <legend v-if="title" class="md-field-title" v-text="title"></legend>
-        <p v-if="brief" class="md-field-brief" v-text="brief"></p>
+  <fieldset class="md-field" :class="[{'md-field--is-plain': plain, 'md-field--is-disabled': disabled}]">
+    <header class="md-field_header" v-if="title || brief || $slots.header || $slots.action">
+      <div class="md-field_header_heading">
+        <legend v-if="title" class="md-field_header_title" v-text="title"></legend>
+        <p v-if="brief" class="md-field_header_brief" v-text="brief"></p>
         <slot name="header"></slot>
       </div>
-      <div class="md-field-action">
+      <div class="md-field_header_action">
         <slot name="action"></slot>
       </div>
     </header>
-    <div class="md-field-content">
+    <div class="md-field_content">
       <slot></slot>
     </div>
-    <footer class="md-field-footer" v-if="$slots.footer">
+    <footer class="md-field_footer" v-if="$slots.footer">
       <slot name="footer"></slot>
     </footer>
   </fieldset>
@@ -54,21 +54,21 @@
   padding md-field-padding-v md-field-padding-h
   border none
   background-color md-field-bg-color
-  &.is-plain
+  &--is-plain
     padding 0
     background-color transparent
 
-.md-field-header
+.md-field_header
   position relative
   display flex
   align-items center
   justify-content space-between
   margin-bottom md-field-header-gap
 
-.md-field-heading
+.md-field_header_heading
   flex 1 1 0%
 
-.md-field-action
+.md-field_header_action
   flex-shrink 0
   display inline-flex
   align-items center
@@ -78,28 +78,28 @@
   color md-field-action-color
   font-size md-field-action-font-size
 
-.md-field-title
+.md-field_header_title
   color md-field-title-color
   font-size md-field-title-font-size
   font-weight md-field-title-font-weight
   line-height 1
 
-.md-field-brief
+.md-field_header_brief
   margin-top md-v-gap-xs
   color md-field-brief-color
   font-size md-field-brief-font-size
   line-height 1.4
 
-.md-field-footer
+.md-field_footer
   margin-top md-field-footer-gap
 
 .md-field
   &:disabled,
-  &.is-disabled
-    .md-field-title,
-    .md-field-brief,
-    .md-field-action,
-    .md-field-content,
-    .md-field-footer
-      color md-color-text-disabled
+  &--is-disabled
+    .md-field_header_title,
+    .md-field_header_brief,
+    .md-field_header_action,
+    .md-field_content,
+    .md-field_footer
+      color color-text-disabled
 </style>

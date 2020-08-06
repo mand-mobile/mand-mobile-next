@@ -10,10 +10,9 @@
   </div>
 </template>
 
-<script>
-import Radio from 'mand-mobile/radio'
-import Field from 'mand-mobile/field'
-import FieldItem from 'mand-mobile/field/item'
+<script>import Radio from '../../index'
+import Field from '../../../field'
+import FieldItem from '../../../field/item'
 
 export default {
   name: 'radio-demo',
@@ -23,9 +22,9 @@ export default {
   align: 'left',
   /* DELETE */
   components: {
-    "md-field": Field,
-    "md-field-item": FieldItem,
-    "md-radio": Radio,
+    'md-field': Field,
+    'md-field-item': FieldItem,
+    'md-radio': Radio,
   },
   data() {
     return {
@@ -33,5 +32,4 @@ export default {
     }
   },
 }
-
-</script>
+</script>

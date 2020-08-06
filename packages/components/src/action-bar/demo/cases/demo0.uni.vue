@@ -1,6 +1,6 @@
 <template>
   <div class="md-example-child md-example-child-action-bar md-example-child-0">
-    <md-action-bar :actions="data"></md-action-bar>
+    <md-action-bar :actions="data" @click="onBtnClick"></md-action-bar>
   </div>
 </template>
 
@@ -28,6 +28,12 @@ export default {
   methods: {
     handleClick() {
       Toast.succeed('Click')
+    },
+    onBtnClick(event, action, index) {
+      const item = this.data[index]
+      if (item && item.onClick) {
+        item.onClick()
+      }
     },
   },
 }
