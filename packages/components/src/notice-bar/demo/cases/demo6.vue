@@ -10,7 +10,8 @@
   </div>
 </template>
 
-<script>import NoticeBar from '../../index'
+<script>
+import NoticeBar from 'mand-mobile/lib/notice-bar'
 
 export default {
   name: 'notice-bar-demo',
@@ -23,4 +24,5 @@ export default {
     'md-notice-bar': NoticeBar,
   },
 }
-</script>
+
+</script>

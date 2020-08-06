@@ -7,8 +7,9 @@
   </div>
 </template>
 
-<script>import Icon from '../../../icon'
-import NoticeBar from '../../index'
+<script>
+import Icon from 'mand-mobile/lib/icon'
+import NoticeBar from 'mand-mobile/lib/notice-bar'
 
 export default {
   name: 'notice-bar-demo',
@@ -22,4 +23,5 @@ export default {
     'md-icon': Icon,
   },
 }
-</script>
+
+</script>

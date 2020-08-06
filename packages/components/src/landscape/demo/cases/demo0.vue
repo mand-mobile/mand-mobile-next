@@ -68,9 +68,9 @@
 </template>
 
 <script>
-import Landscape from '../../index'
-import Button from '../../../button'
-import Toast from '../../../toast'
+import Landscape from 'mand-mobile/lib/landscape'
+import Button from 'mand-mobile/lib/button'
+import Toast from 'mand-mobile/lib/toast'
 
 export default {
   name: 'landscape-demo',
