@@ -17,12 +17,6 @@ module.exports = (args, api) => {
     `${exeRootPath}/${MAND_INPUT_DIR}/_mand-mobile`,
   ])
 
-  execa('ln', [
-    '-s',
-    `${exeRootPath}/node_modules/@mand-mobile/components`,
-    `${exeRootPath}/${MAND_INPUT_DIR}/_mand-mobile`,
-  ])
-
   execa('ln', ['-s', `${exeRootPath}/node_modules/@mand-mobile/platform`, `${exeRootPath}/${MAND_INPUT_DIR}/_platform`])
 
   execa('ln', ['-s', `${exeRootPath}/node_modules/@mand-mobile/shared`, `${exeRootPath}/${MAND_INPUT_DIR}/_shared`])
