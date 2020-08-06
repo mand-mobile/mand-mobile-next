@@ -41,12 +41,12 @@
 </template>
 
 <script>
+import {createProxyApiMixin} from '@mand-mobile/shared/lib/mixin/proxy'
+import {extend} from '@mand-mobile/shared/lib/util'
 import Popup from '../popup'
 import PopTitleBar from '../popup/title-bar'
 import PickerView from './picker-view'
-import {createProxyApiMixin} from '../_mixin/proxy'
 import pickerMixin from './mixins'
-import {extend} from '../_util'
 
 export default {
   name: 'md-picker',
@@ -60,9 +60,9 @@ export default {
         'getColumnIndex',
         'getColumnIndexs',
         'setColumnValues',
-      ]
-    }), 
-    pickerMixin
+      ],
+    }),
+    pickerMixin,
   ],
 
   components: {
@@ -172,7 +172,7 @@ export default {
       if (this.value) {
         this.isPickerShow = this.value
       }
-      
+
       // mark initial selectedIndexs as snapshoot
       setTimeout(() => {
         this.$_cacheSelectedIndex()
@@ -185,7 +185,7 @@ export default {
     $_onPickerConfirm() {
       const pickerColumn = this.getColumnContext()
       const columnValues = pickerColumn.getColumnValues()
-      const columnIndexs = pickerColumn.getColumnIndexs()
+      // const columnIndexs = pickerColumn.getColumnIndexs()
       const isScrolling = pickerColumn.wheels.some(wheel => {
         return wheel.scroller.pending
       })
@@ -245,5 +245,5 @@ export default {
 .md-picker
   width 100%
   .md-popup
-    z-index picker-zindex
+    z-index md-picker-zindex
 </style>
