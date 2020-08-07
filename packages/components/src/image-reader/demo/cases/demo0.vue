@@ -41,10 +41,10 @@
 </template>
 
 <script>
-import ImageReader from '../../'
-import Icon from '../../../icon'
-import Tag from '../../../tag'
-import Toast from '../../../toast'
+import ImageReader from 'mand-mobile/lib/image-reader'
+import Icon from 'mand-mobile/lib/icon'
+import Tag from 'mand-mobile/lib/tag'
+import Toast from 'mand-mobile/lib/toast'
 
 export default {
   name: 'image-reader-demo',

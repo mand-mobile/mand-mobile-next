@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import ActivityIndicator from '../../'
+import ActivityIndicator from 'mand-mobile/lib/activity-indicator'
 
 export default {
   name: 'activity-indicator-demo',

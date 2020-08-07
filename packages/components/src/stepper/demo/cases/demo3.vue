@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import Stepper from '../../index'
-import Field from '../../../field/index'
-import FieldItem from '../../../field/item'
+import Stepper from 'mand-mobile/lib/stepper'
+import Field from 'mand-mobile/lib/field/index'
+import FieldItem from '.mand-mobile/lib/field/item'
 
 export default {
   name: 'stepper-demo',

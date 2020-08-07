@@ -49,8 +49,8 @@
 
 <script>
 import {traverse, compareObjects} from '@mand-mobile/shared/lib/util'
-import Popup from '../popup'
-import RadioList from '../radio/list'
+import Popup from 'mand-mobile/lib/popup'
+import RadioList from 'mand-mobile/lib/radio/list'
 
 export default {
   name: 'md-drop-menu',

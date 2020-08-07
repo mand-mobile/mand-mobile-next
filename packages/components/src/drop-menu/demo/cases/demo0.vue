@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import DropMenu from '../../'
+import DropMenu from 'mand-mobile/lib/drop-menu'
 
 export default {
   name: 'drop-menu-demo',

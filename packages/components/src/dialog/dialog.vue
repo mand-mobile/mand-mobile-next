@@ -65,8 +65,8 @@
 </template>
 
 <script>
-import Popup from '../popup'
-import Icon from '../icon'
+import Popup from 'mand-mobile/lib/popup'
+import Icon from 'mand-mobile/lib/icon'
 // import ActivityIndicatorRolling from '../activity-indicator/roller'
 
 export default {

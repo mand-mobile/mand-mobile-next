@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Icon from '../icon'
+import Icon from 'mand-mobile/lib/icon'
 
 export default {
   name: 'md-activity-indicator-spinning',

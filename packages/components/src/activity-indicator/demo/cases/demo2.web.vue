@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import ActivityIndicator from '../../'
-import Button from '../../../button'
+import ActivityIndicator from 'mand-mobile/lib/activity-indicator'
+import Button from 'mand-mobile/lib/button'
 
 export default {
   name: 'activity-indicator-demo',

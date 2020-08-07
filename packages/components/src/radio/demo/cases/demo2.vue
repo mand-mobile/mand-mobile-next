@@ -23,8 +23,9 @@
   </div>
 </template>
 
-<script>import Field from '../../../field'
-import RadioList from '../../list'
+<script>
+import Field from 'mand-mobile/lib/field'
+import RadioList from 'mand-mobile/lib/radio/list'
 
 export default {
   name: 'radio-demo',
@@ -84,7 +85,8 @@ export default {
     }
   },
 }
-</script>
+
+</script>
 
 <style scoped>
   .radio-field {

@@ -4,8 +4,9 @@
   </div>
 </template>
 
-<script>import ActionBar from '../../index'
-import Toast from '../../../toast'
+<script>
+import ActionBar from 'mand-mobile/lib/action-bar'
+import Toast from 'mand-mobile/lib/toast'
 
 export default {
   name: 'action-bar-demo',
@@ -31,4 +32,5 @@ export default {
     },
   },
 }
-</script>
+
+</script>

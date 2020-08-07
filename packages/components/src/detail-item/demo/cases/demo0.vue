@@ -14,8 +14,9 @@
   </div>
 </template>
 
-<script>import Field from '../../../field'
-import DetailItem from '../../index'
+<script>
+import Field from 'mand-mobile/lib/field'
+import DetailItem from 'mand-mobile/lib/detail-item'
 
 export default {
   name: 'detail-item-demo',
@@ -24,4 +25,5 @@ export default {
     'md-detail-item': DetailItem,
   },
 }
-</script>
+
+</script>

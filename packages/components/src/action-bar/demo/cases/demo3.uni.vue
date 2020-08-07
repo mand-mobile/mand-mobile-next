@@ -8,8 +8,9 @@
   </div>
 </template>
 
-<script>import ActionBar from '../../index'
-import Dialog from '../../../dialog'
+<script>
+import ActionBar from 'mand-mobile/lib/action-bar'
+import Dialog from 'mand-mobile/lib/dialog'
 
 export default {
   name: 'action-bar-demo',
@@ -51,7 +52,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style scoped>
 .price {

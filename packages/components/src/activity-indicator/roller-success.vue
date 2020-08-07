@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import Roller from './roller'
+import Roller from 'mand-mobile/lib/activity-indicator/roller'
 
 export default {
   name: 'md-activity-indicator-rolling-success',
