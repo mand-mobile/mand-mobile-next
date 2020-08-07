@@ -1,5 +1,5 @@
 <template>
-  <div class="md-example-child md-example-child-tabs md-example-child-tab-bar-0">
+  <div class="md-example-child md-example-child-tab-bar md-example-child-tab-bar-0">
     <md-tab-bar
       v-model="current"
       :items="items"
@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import TabBar from 'mand-mobile/tab-bar'
+import TabBar from 'mand-mobile/lib/tab-bar'
 
 export default {
   name: 'tab-bar-demo',
