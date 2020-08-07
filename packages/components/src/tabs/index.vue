@@ -11,7 +11,7 @@
       :justify="justify"
       @change="$_handleTabClick"
     />
-    <div class="md-tabs-content">
+    <div class="md-tabs_content">
       <slot></slot>
     </div>
   </div>
@@ -42,7 +42,7 @@ export default {
       default: 80,
     },
     immediate: Boolean,
-    justify: String
+    justify: String,
   },
 
   data() {
@@ -123,7 +123,7 @@ export default {
 </script>
 
 <style lang="stylus">
-.md-tabs-content
+.md-tabs_content
   position relative
   width 100%
   overflow hidden
