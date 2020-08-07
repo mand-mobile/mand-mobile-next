@@ -4,11 +4,11 @@
   "description": "> TODO: description",
   "author": "lucker <guoyunlong@didichuxing.com>",
   "scripts": {
-    "build:lib": "run-p clean:* && sh ./scripts/build.sh web lib",
-    "build:lib-vw": "run-p clean:* && sh ./scripts/build.sh web lib-vw",
+    "build": "sh scripts/build-bundle.sh",
+    "build:lib": "run-p clean:* && sh scripts/build.sh web lib",
+    "build:lib-vw": "run-p clean:* && sh scripts/build.sh web lib-vw",
     "build:uni": "run-p clean:* && sh ./scripts/build.sh uni lib",
     "clean:workspace": "rm -fr .mand-mobile",
-    "build": "sh build/build-bundle.sh",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "main": "lib/mand-mobile.js",
