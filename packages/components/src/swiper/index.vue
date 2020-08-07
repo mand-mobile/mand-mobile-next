@@ -44,7 +44,8 @@
   </div>
 </template>
 
-<script>import {Dom} from '@mand-mobile/platform/lib/runtime/module'
+<script>
+import {Dom} from '@mand-mobile/platform/lib/runtime/module'
 import Scroller from '@mand-mobile/scroller'
 import {root, debounce} from '@mand-mobile/shared/lib/util'
 
@@ -814,7 +815,8 @@ export default {
     }, 50),
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-swiper_box
