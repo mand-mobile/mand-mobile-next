@@ -189,7 +189,7 @@ module.exports = api => {
     api.render(renderTarget, additionalData, ejsOptions)
   }
 
-  const generator = require(`@mand-mobile/platform/lib/${platform}/builder/generator`)
+  const generator = require(`@mand-mobile/platform/src/${platform}/builder/generator`)
 
   return generator(api)
 }
