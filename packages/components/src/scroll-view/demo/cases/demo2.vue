@@ -3,6 +3,7 @@
     <md-scroll-view
       ref="scrollView"
       :scrolling-x="false"
+      :styles="{height: '300px'}"
       @refreshing="$_onRefresh"
     >
       <md-scroll-view-refresh
@@ -24,8 +25,8 @@
 </template>
 
 <script>
-import ScrollView from 'mand-mobile/scroll-view'
-import ScrollViewRefresh from 'mand-mobile/scroll-view/refresh'
+import ScrollView from 'mand-mobile/lib/scroll-view'
+import ScrollViewRefresh from 'mand-mobile/lib/scroll-view/refresh'
 
 export default {
   name: 'scroll-view-demo-2',
@@ -56,17 +57,19 @@ export default {
 
 </script>
 
-<style lang="stylus">
-.md-example-child-scroll-view-2
-  .md-scroll-view
-    height 800px
-    background #FFF
-  .scroll-view-item
-    padding 30px 0
-    text-align center
-    font-size 28px
-    font-family DINAlternate-Bold
-    border-bottom .5px solid #efefef
-    &:nth-child(2n)
-      background #efefef
+<style>
+.md-example-child-scroll-view-2 {
+  background: #FFF;
+}
+.md-example-child-scroll-view-2 .md-scroll-view {
+  height: 600px;
+}
+.md-example-child-scroll-view-2 .scroll-view-item {
+  padding: 30px 0;
+  text-align: center;
+  font-size: 28px;
+}
+.md-example-child-scroll-view-2 .scroll-view-item:nth-child(2n+1) {
+  background: #EFEFEF;
+}
 </style>

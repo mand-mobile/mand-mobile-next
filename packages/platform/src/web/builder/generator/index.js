@@ -14,7 +14,12 @@ module.exports = api => {
    * 打包组件，构建入口
    */
   if (target === 'bundle') {
-    api.render('./template/web-bundle', {components})
+    // api.render('./template/web-bundle', {components})
+    api.$renderPartial(`${MAND_INPUT_DIR}`, './template/web-bundle/_mand-mobile', {components})
+    api.render({
+      [`${MAND_INPUT_DIR}/vue.config.js`]: path.resolve(__dirname, 'template/common/vue.config.js'),    
+    })
+    return 
   }
 
   /**

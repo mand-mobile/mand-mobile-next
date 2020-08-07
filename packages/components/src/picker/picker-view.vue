@@ -19,18 +19,12 @@
 </template>
 
 <script>
-import {createProxyApiMixin} from '../_mixin/proxy'
+import {createProxyApiMixin} from '@mand-mobile/shared/lib/mixin/proxy'
+import {compareObjects, cloneJSON, debounce, inBrowser} from '@mand-mobile/shared/lib/util'
+
 import PickerColumn from './picker-column'
 import pickerMixin from './mixins'
 import cascadePicker from './cascade'
-import {
-  traverse,
-  compareObjects,
-  cloneJSON,
-  extend,
-  debounce,
-  inBrowser
-} from '../_util'
 
 export default {
   name: 'md-picker-view',
@@ -44,10 +38,10 @@ export default {
         'getColumnIndex',
         'getColumnIndexs',
         'setColumnValues',
-        'setColumnIndex'
-      ]
-    }), 
-    pickerMixin
+        'setColumnIndex',
+      ],
+    }),
+    pickerMixin,
   ],
 
   components: {
@@ -63,7 +57,7 @@ export default {
     },
     cols: {
       type: Number,
-      default: 1
+      default: 1,
     },
     defaultValue: {
       type: Array,
@@ -92,7 +86,7 @@ export default {
   data() {
     return {
       columnData: null,
-      isDataOptimized: false
+      isDataOptimized: false,
     }
   },
 
@@ -127,9 +121,10 @@ export default {
     this.refresh = debounce(this.refresh, 10)
   },
   mounted() {
-    this.isImmediateInit && this.$nextTick(() => {
-      this.$refs.pickerColumn.refresh()
-    })
+    this.isImmediateInit &&
+      this.$nextTick(() => {
+        this.$refs.pickerColumn.refresh()
+      })
   },
 
   methods: {
@@ -139,15 +134,13 @@ export default {
       if (!this.isCascade) {
         return
       }
-      
+
       // data size needs to be optimized in miniapp to reduce the communication cost
       if (!this.isDataOptimized && !inBrowser) {
-        this.columnData = [this.$_optimizePickerData(
-          cloneJSON(this.data)[0]
-        )]
+        this.columnData = [this.$_optimizePickerData(cloneJSON(this.data)[0])]
         this.isDataOptimized = true
       }
-      
+
       // const defaultIndexOfFirstColumn = defaultIndex[0] || 0
       this.$nextTick(() => {
         cascadePicker(this.$refs.pickerColumn, {
@@ -180,7 +173,7 @@ export default {
                 _data = this.$_optimizePickerData(_data, _path)
               }
               return _data
-            }
+            },
           })
           // item = new Proxy(item, {
           //   get: (target, prop) => {
@@ -204,7 +197,7 @@ export default {
       let level = 0
       let data = this.data[0]
 
-      while(data && level < path.length) {
+      while (data && level < path.length) {
         const index = path[level]
         data = data[index] && data[index][childrenKey]
         level++
@@ -215,7 +208,7 @@ export default {
 
     $_onPickerConfirm() {
       const pickerColumn = this.$refs.pickerColumn
-      const columnValues = column.getColumnValues()
+      const columnValues = pickerColumn.getColumnValues()
       let isScrolling = false
 
       // TODO
@@ -247,7 +240,7 @@ export default {
           complete: () => {
             // reinitiate columns after the changing column
             pickerColumn.refresh(null, columnIndex + 1)
-          }
+          },
         })
       }
       /* istanbul ignore next */

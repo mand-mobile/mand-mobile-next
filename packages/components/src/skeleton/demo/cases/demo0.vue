@@ -5,8 +5,7 @@
   </div>
 </template>
 
-<script>
-import Skeleton from 'mand-mobile/skeleton'
+<script>import Skeleton from '../../index'
 export default {
   name: 'skeleton-demo',
   data() {
@@ -15,13 +14,13 @@ export default {
     }
   },
   components: {
-    'md-skeleton': Skeleton
+    'md-skeleton': Skeleton,
   },
 }
+</script>
 
-</script>
-
-<style lang="stylus" scoped>
-.md-example-child-skeleton-0
-  margin 30px 0
+<style>
+.md-example-child-skeleton-0 {
+  margin: 30px 0;
+}
 </style>

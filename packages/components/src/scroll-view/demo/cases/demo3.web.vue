@@ -3,14 +3,15 @@
     <md-scroll-view
       ref="scrollView"
       :scrolling-x="false"
+      :styles="{height: '300px'}"
       @end-reached="$_onEndReached"
     >
-      <div
-        v-for="i in list"
-        :key="i"
-        class="scroll-view-list"
-      >
-        <p class="scroll-view-item">{{i}}</p>
+      <div class="scroll-view-list">
+        <p
+          v-for="i in list"
+          :key="i"
+          class="scroll-view-item"
+        >{{i}}</p>
       </div>
       <md-scroll-view-more
         slot="more"
@@ -21,18 +22,18 @@
 </template>
 
 <script>
-import ScrollView from 'mand-mobile/scroll-view'
-import ScrollViewMore from 'mand-mobile/scroll-view/more'
+import ScrollView from 'mand-mobile/lib/scroll-view'
+import ScrollViewMore from 'mand-mobile/lib/scroll-view/more'
 
 export default {
   name: 'scroll-view-demo-3',
   components: {
     'md-scroll-view': ScrollView,
-    'md-scroll-view-more': ScrollViewMore
+    'md-scroll-view-more': ScrollViewMore,
   },
   data() {
     return {
-      list: 5,
+      list: 10,
       isFinished: false,
     }
   },
@@ -55,14 +56,18 @@ export default {
 
 </script>
 
-<style lang="stylus">
-.md-example-child-scroll-view-3
-  height 800px
-  background #FFF
-  .scroll-view-item
-    padding 30px 0
-    text-align center
-    font-size 32px
-    font-family DINAlternate-Bold
-    border-bottom .5px solid #efefef
+<style>
+.md-example-child-scroll-view-3 {
+  height: 600px;
+  background: #FFF;
+}
+.md-example-child-scroll-view-3 .scroll-view-item {
+  padding: 30px 0;
+  text-align: center;
+  font-size: 32px;
+  border-bottom: .5px solid #efefef;
+}
+.md-example-child-scroll-view-3 .scroll-view-item:nth-child(2n+1) {
+  background: #EFEFEF;
+}
 </style>

@@ -19,11 +19,10 @@
 </template>
 
 <script>
-import PickerView from 'mand-mobile/picker/picker-view'
-import Button from 'mand-mobile/button'
-// import {Picker, Dialog} from 'mand-mobile'
-import district from 'mand-mobile/picker/demo/data/district'
-import area from 'mand-mobile/picker/demo/data/area'
+import Button from 'mand-mobile/lib/button'
+import PickerView from 'mand-mobile/lib/picker/picker-view'
+import district from 'mand-mobile/lib/picker/demo/data/district'
+import area from 'mand-mobile/lib/picker/demo/data/area'
 
 export default {
   name: 'picker-demo',
@@ -39,7 +38,7 @@ export default {
       pickerDefaultIndex: [14, 4, 1],
       pickerDefaultValue: [],
       labelKey: 'name',
-      childrenKey: 'children'
+      childrenKey: 'children',
     }
   },
   mounted() {
@@ -64,13 +63,13 @@ export default {
       columnValues.forEach(item => {
         value += `${item ? item.name : ''}-`
       })
-      // console.log(`[Mand Mobile] Picker Initial Values: ${value.substr(0, value.length - 1)}`)
+      console.log(`[Mand Mobile] Picker Initial Values: ${value.substr(0, value.length - 1)}`)
     },
     onPickerChange(columnIndex, itemIndex, value) {
       if (value) {
         this.pickerValue = value.text
       }
-      // console.log(`[Mand Mobile] Picker getColumnValues: ${JSON.stringify(value)}`)
+      console.log(`[Mand Mobile] Picker getColumnValues: ${JSON.stringify(value)}`)
     },
     onChangeData() {
       this.pickerDefaultIndex = [0, 0, 0]
@@ -87,17 +86,19 @@ export default {
     },
     getColumnIndex(picker, index) {
       const value = this.$refs.picker.getColumnIndex(index)
+      console.log(`[Mand Mobile] Picker getColumnIndex: ${JSON.stringify(value)}`)
       // Dialog.alert({
       //   content: `<pre>${JSON.stringify(value)}</pre>`,
       // })
     },
   },
 }
+
 </script>
 
-<style lang="stylus">
-.md-example-child-picker-1
-  .picker
-    display block
-    margin-bottom 20px
+<style>
+.md-example-child-picker-1 .picker {
+  display: block;
+  margin-bottom: 20px;
+}
 </style>

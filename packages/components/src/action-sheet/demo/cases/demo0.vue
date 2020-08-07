@@ -15,7 +15,6 @@
 </template>
 
 <script>
-// import {ActionSheet, Button, Dialog} from 'mand-mobile'
 import ActionSheet from '../../action-sheet'
 import Button from '../../../button'
 import Dialog from '../../../dialog'
@@ -58,13 +57,11 @@ export default {
       Dialog.alert({
         content: `selected: ${JSON.stringify(item)}`,
       })
-      console.log('action-sheet selected:', JSON.stringify(item))
     },
     $_cancel() {
       Dialog.alert({
         content: 'cancel',
       })
-      console.log('action-sheet cancel')
     },
   },
 }

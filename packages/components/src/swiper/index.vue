@@ -13,32 +13,41 @@
   > -->
   <div
     class="md-swiper"
-    :class="{'md-swiper-vertical': isVertical, 'md-swiper-fade': !isSlide, 'disabled': !isInitial}"
-    @touchstart.prevent.stop="$_onDragStart"
-    @touchmove.prevent.stop="$_onDragMove"
-    @touchend.prevent.stop="$_onDragEnd"
-    @touchcancel.prevent.stop="$_onDragEnd"
+    :class="{'md-swiper--vertical': isVertical, 'md-swiper--fade': !isSlide, 'md-swiper--disabled': !isInitial}"
+    @touchstart="$_onDragStart"
+    @touchmove="$_onDragMove"
+    @touchend="$_onDragEnd"
+    @touchcancel="$_onDragEnd"
+    @mousedown="$_onDragStart"
+    @mousemove="$_onDragMove"
+    @mouseup="$_onDragEnd"
+    @mouseleave="$_onDragEnd"
   >
-    <div class="md-swiper-box">
-      <div class="md-swiper-container" :style="transformStyle">
-        <slot></slot>
+    <div class="md-swiper_box">
+      <div class="md-swiper_container" :style="transformStyle">
+        <slot/>
       </div>
     </div>
-    <div class="md-swiper-indicators" :class="{'disabled': !hasDots}" v-if="oItemCount > 1 && hasDots">
+    <div
+      v-if="oItemCount > 1 && hasDots"
+      class="md-swiper_indicators"
+      :class="{'md-swiper_indicators--disabled': !hasDots}"
+    >
       <template v-for="(item, index) in indicatorCount">
         <div
-          class="md-swiper-indicator"
+          class="md-swiper_indicator"
+          :class="{ 'md-swiper_indicator--active': index === realIndex }"
           :key="index"
-          :class="{ 'md-swiper-indicator-active': index === realIndex }"
-          ></div>
+        ></div>
       </template>
     </div>
   </div>
 </template>
 
 <script>
-import Scroller from 'mand-mobile/_scroller'
-import {root, warn, debounce} from 'mand-mobile/_util'
+import {Dom} from '@mand-mobile/platform/lib/runtime/module'
+import Scroller from '@mand-mobile/scroller'
+import {root, debounce} from '@mand-mobile/shared/lib/util'
 
 // scale of sliding distance & touch duration that triggers page turning
 const PAGING_SCALE = 0.5
@@ -131,7 +140,7 @@ export default {
       $swiper: null,
       transitionEndHandler: null,
       transformStyle: '',
-      point: null
+      point: null,
     }
   },
 
@@ -165,37 +174,22 @@ export default {
     },
     indicatorCount() {
       return Array(this.oItemCount).fill(1)
-    }
+    },
   },
 
   // LiftCircle Hook
-  /*
-  beforeCreate
-  created
-  beforeMount
-  */
   mounted() {
     this.$_resizeEnterBehavior()
   },
-  /*
-  beforeUpdate
-  updated
-  */
   activated() {
     this.$_resizeEnterBehavior()
   },
   deactivated() {
     this.$_resizeLeaveBehavior()
   },
-  /**
-   beforeDestroy
-   */
   destroyed() {
     this.$_resizeLeaveBehavior()
   },
-  /*
-  errorCaptured
-  */
 
   methods: {
     $_onDragStart(e) {
@@ -204,7 +198,7 @@ export default {
        * Otherwise the offset calculation will be abnormal
        */
       if (this.transitionEndHandler && !this.noDrag) {
-        // this.transitionEndHandler()
+        this.transitionEndHandler()
       }
 
       if (this.isPrevent) {
@@ -246,7 +240,7 @@ export default {
 
     // MARK: private methods
     $_resize() {
-      // 防止屏幕翻转时，容器的尺寸更改不及时导致异常
+      // prevent the abnormality caused by not changing the size of the container in time when the screen is flipped
       if (this.__resizeTimeout__) {
         clearTimeout(this.__resizeTimeout__)
       }
@@ -271,7 +265,7 @@ export default {
         HWCompositing: this.useNativeDriver,
         bounce: false,
         deceleration: 0.1,
-        probeType: 3
+        probeType: 3,
       })
       scroller.setDimensions(this.wrapperRect, this.contentRect)
 
@@ -371,11 +365,11 @@ export default {
         const to = children[toIndex]
         from.setTransform({
           opacity: 1 - Math.abs(opacity),
-          transition
+          transition,
         })
         to.setTransform({
           opacity: Math.abs(opacity),
-          transition
+          transition,
         })
         return
       }
@@ -390,11 +384,11 @@ export default {
       const to = children[this.toIndex]
       from.setTransform({
         opacity: 0,
-        transition
+        transition,
       })
       to.setTransform({
         opacity: 1,
-        transition
+        transition,
       })
 
       if (animate) {
@@ -424,8 +418,9 @@ export default {
     },
 
     async $_getDimension() {
-      const wrapper = this.$MDDom().querySelector('.md-swiper-box')
-      const content = this.$MDDom().querySelector('.md-swiper-container')
+      const $MDDom = Dom.bind(this)
+      const wrapper = $MDDom().querySelector('.md-swiper_box')
+      const content = $MDDom().querySelector('.md-swiper_container')
 
       this.$swiperBox = wrapper.element
       this.$swiper = content.element
@@ -443,7 +438,7 @@ export default {
 
       this.$_initState(children, startIndex)
       await this.$_getDimension()
-      
+
       if (this.isSlide) {
         this.$_backupItem(children)
         this.$_initScroller()
@@ -575,12 +570,12 @@ export default {
         this.$_opacity()
         return
       }
-      
+
       setTimeout(() => {
         const isFirstItem = this.isFirstItem && this.isLoopAble
         const isLastItem = this.isLastItem && this.isLoopAble
         const noDrag = this.noDrag
- 
+
         if ((isLastItem && towards === 'next') || (isFirstItem && towards === 'prev')) {
           this.noDrag = true
         }
@@ -607,7 +602,7 @@ export default {
 
           this.transitionEndHandler = null
         }
-        
+
         this.$_translate(-this.dimension * this.index, animate)
 
         // Recover first and last indicator
@@ -674,7 +669,7 @@ export default {
       }
     },
 
-    $_doOnTouchEnd(event) {
+    $_doOnTouchEnd() {
       if (this.noDrag) {
         return
       }
@@ -824,61 +819,55 @@ export default {
 </script>
 
 <style lang="stylus">
-.md-swiper-box
+.md-swiper_box
   overflow hidden
   will-change tranform
-.md-swiper, .md-swiper-box
+.md-swiper, .md-swiper_box
   width 100%
   height 100%
   position relative
-  &.disabled
+  &.md-swiper--disabled
     visibility hidden
-  // &.md-swiper-fade
-  //   .md-swiper-item
-  //     position absolute
-  //     opacity 0
-  //     top 0
-  //     left 0
-  &.md-swiper-vertical
-    .md-swiper-container
+  &.md-swiper--vertical
+    .md-swiper_container
       width 100%
       height auto
       box-orient vertical
       flex-direction column
-    .md-swiper-indicators
+    .md-swiper_indicators
       flex-direction column
       right 20px
       left auto
       bottom auto
       top 50%
       transform translate(0, -50%)
-      &.disabled
+      &.md-swiper_indicators--disabled
         visibility hidden
-      .md-swiper-indicator
+      .md-swiper_indicator
         width 4px
         height 16px
         margin 2.5px 0
 
-.md-swiper-container
+.md-swiper_container
   height 100%
   width auto
   position relative
   display flex
   box-sizing content-box
 
-.md-swiper-indicators
+.md-swiper_indicators
     position absolute
     bottom 20px
     left 50%
     display flex
     transform translateX(-50%)
 
-.md-swiper-indicator
+.md-swiper_indicator
   width 16px
   height 4px
   display inline-block
   background #ddd
   margin 0 3px
-  &.md-swiper-indicator-active
-    background swiper-indicator-fill
+  &.md-swiper_indicator--active
+    background md-swiper-indicator-fill
 </style>

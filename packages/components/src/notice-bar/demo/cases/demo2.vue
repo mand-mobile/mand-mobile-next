@@ -4,13 +4,7 @@
   </div>
 </template>
 
-<script>
-// #ifdef H5
-import NoticeBar from 'mand-mobile/notice-bar'
-// #endif
-// #ifdef MP-WEIXIN
-import NoticeBar from "mand-mobile/notice-bar/index.uni"
-// #endif
+<script>import NoticeBar from '../../index'
 
 export default {
   name: 'notice-bar-demo',
@@ -25,5 +19,4 @@ export default {
     'md-notice-bar': NoticeBar,
   },
 }
-
-</script>
+</script>
