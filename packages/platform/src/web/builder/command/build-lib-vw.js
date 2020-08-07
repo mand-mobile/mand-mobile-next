@@ -6,19 +6,17 @@ const fs = require('fs')
 const path = require('path')
 const {resultLog} = require('./utils')
 let env = {}
-let libDir = ''
-let libDirVW = ''
 
 function copyLib() {
   return new Promise((res, reject) => {
-    fs.stat(libDir, err => {
+    fs.stat(env.outputDir, err => {
       if (err) {
         reject(err)
       }
       res()
     })
   }).then(() => {
-    return copy(libDir, libDirVW)
+    return copy(env.outputDir, env.outputVWDir)
   })
 }
 
@@ -43,7 +41,7 @@ function compilePxToVw(filePath) {
 }
 
 function compilePxToVwAll() {
-  const fileGlob = `${libDirVW}/**/*.css`
+  const fileGlob = `${env.outputVWDir}/**/*.css`
   const cssFiles = glob.sync(fileGlob)
   return Promise.all(cssFiles.map(compilePxToVw)).catch(e => {
     console.info(e)
@@ -51,11 +49,10 @@ function compilePxToVwAll() {
 }
 
 module.exports = (webpackConfig, args, api) => {
-  const {exeRootPath, pluginRootPath, vueCliService, MAND_PLATFORM, MAND_INPUT_DIR} = api.mdContext || {}
+  const {exeRootPath, pluginRootPath, vueCliService, MAND_PLATFORM, MAND_OUTPUT_DIR} = api.mdContext || {}
   env.exeRootPath = exeRootPath
-  libDir = path.resolve(env.exeRootPath, '../components/lib')
-  libDirVW = path.resolve(env.exeRootPath, '../components/lib-vw')
-
+  env.outputDir = path.resolve(exeRootPath, MAND_OUTPUT_DIR)
+  env.outputVWDir = path.resolve(exeRootPath, MAND_OUTPUT_DIR, '../lib-vw')
   copyLib()
     .then(compilePxToVwAll)
     .then(() => {

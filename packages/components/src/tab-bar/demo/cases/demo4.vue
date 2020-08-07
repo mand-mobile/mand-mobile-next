@@ -1,5 +1,5 @@
 <template>
-  <div class="md-example-child md-example-child-tabs md-example-child-tab-bar-4">
+  <div class="md-example-child md-example-child-tab-bar md-example-child-tab-bar-4">
     <md-tab-bar
       v-model="current"
       :items="items"
@@ -8,10 +8,10 @@
       <template slot="item" slot-scope="{ item }">
         <div class="custom-item">
           <div class="icon">
-            <md-icon :name="item.icon" />
+            <md-icon :name="item.icon"/>
           </div>
           <div class="text">
-            <span v-text="item.label"></span>
+            <p v-text="item.label"></p>
           </div>
         </div>
       </template>
@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import TabBar from 'mand-mobile/tab-bar'
-import Icon from 'mand-mobile/icon'
+import TabBar from 'mand-mobile/lib/tab-bar'
+import Icon from 'mand-mobile/lib/icon'
 
 export default {
   name: 'tab-bar-demo',
@@ -39,16 +39,18 @@ export default {
 
 </script>
 
-<style lang="stylus">
-.md-example-child-tab-bar-4
-  .custom-item
-    display flex
-    flex-direction column
-    align-items center
-    justify-content center
-    height 100%
-    flex 1
-    .text
-      font-size 20px
+<style>
+.md-example-child-tab-bar-4 .custom-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+}
+
+.md-example-child-tab-bar-4 .custom-item .text {
+  font-size: 20px;
+}
 </style>
 

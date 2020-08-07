@@ -27,7 +27,9 @@
 </template>
 
 <script>
+import {Dom} from '@mand-mobile/platform/lib/runtime/module'
 import {flatStyleObject} from '@mand-mobile/shared/lib/util'
+
 export default {
   name: 'md-scroll-view-primitive',
 
@@ -106,11 +108,12 @@ export default {
     },
 
     async reflowScroller() {
-      this.wrapperRect = await this.$MDDom()
+      const $MDDom = Dom.bind(this)
+      this.wrapperRect = await $MDDom()
         .querySelector('.md-scroll-view')
         .getBoundingClientRect()
-      this.contentRect = await this.$MDDom()
-        .querySelector('.md-scroll-view-container')
+      this.contentRect = await $MDDom()
+        .querySelector('.md-scroll-view_container')
         .getBoundingClientRect()
     },
     getSizes() {

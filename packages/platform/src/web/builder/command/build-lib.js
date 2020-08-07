@@ -37,8 +37,8 @@ function move(inputDir, destDir) {
   })
 }
 
-function compileAndReplaceAllJsFile(dir) {
-  const fileGlob = `${dir}/**/*.js`
+function compileAndReplaceAllJsFile() {
+  const fileGlob = `${env.outputDir}/**/*.js`
   const jsFiles = glob.sync(fileGlob)
   return Promise.all(jsFiles.map((compileJsAndReplace)))
     .catch(e => {
@@ -66,8 +66,8 @@ function compileJsAndReplace(filePath){
    })
 }
 
-function compileAndReplaceAllVueFile(dir) {
-  const fileGlob = `${dir}/**/*.vue`
+function compileAndReplaceAllVueFile() {
+  const fileGlob = `${env.outputDir}/**/*.vue`
   const jsFiles = glob.sync(fileGlob)
   return Promise.all(jsFiles.map(compileVueAndReplace))
   .catch(e => {
@@ -155,13 +155,12 @@ function babelPluginInsertCssImportForVue ({ types: t }) {
   }
 }
 function compileVueStylus (content, cb, compiler, filePath) {
-  const libDir = path.resolve(env.exeRootPath, '../components/lib')
   stylus(content)
     .set('filename', filePath)
     .define('url', stylus.url())
-    .import(path.join(libDir, 'shared/style/mixin/util.styl'))
-    .import(path.join(libDir, 'shared/style/mixin/theme.components.styl'))
-    .import(path.join(libDir, 'shared/style/mixin/theme.basic.styl'))
+    .import(path.join(env.outputDir, 'shared/style/mixin/util.styl'))
+    .import(path.join(env.outputDir, 'shared/style/mixin/theme.components.styl'))
+    .import(path.join(env.outputDir, 'shared/style/mixin/theme.basic.styl'))
     // .import(path.join(libDir, '../../node_modules/nib/lib/nib/vendor'))
     // .import(path.join(libDir, '../../node_modules/nib/lib/nib/gradients'))
     .render(async (err, css) => {
@@ -183,9 +182,9 @@ function compileVueStylus (content, cb, compiler, filePath) {
 }
 
 function compileGlobalStylus() {
-  const libDir = path.resolve(env.exeRootPath, '../components/lib')
-  const filePath = path.resolve(libDir, 'shared/style/global.styl')
-  const targetPath = path.resolve(libDir, 'shared/style/global.css')
+
+  const filePath = path.resolve(env.outputDir, 'shared/style/global.styl')
+  const targetPath = path.resolve(env.outputDir, 'shared/style/global.css')
   const fileContent = fs.readFileSync(filePath, {
     encoding: 'utf8',
   })
@@ -196,15 +195,30 @@ function compileGlobalStylus() {
 }
 
 module.exports = (webpackConfig, args, api) => {
-  const {exeRootPath, pluginRootPath, vueCliService, MAND_PLATFORM, MAND_INPUT_DIR} = api.mdContext || {}
-  const componentsDir = path.resolve(exeRootPath, '../components/src')
-  const sharedDir = path.resolve(exeRootPath, '../shared/lib')
-  const libDir = path.resolve(exeRootPath, '../components/lib')
-  env.exeRootPath = exeRootPath
+  const {exeRootPath, pluginRootPath, vueCliService, MAND_PLATFORM, MAND_INPUT_DIR, MAND_OUTPUT_DIR} = api.mdContext || {}
+  const {execa, info, error} = api.mdUtils
 
-  return move(componentsDir, path.resolve(libDir, 'components'))
-    .then(() => move(sharedDir, path.resolve(libDir, 'shared')))
-    .then(() => Promise.all([compileAndReplaceAllJsFile(libDir),compileAndReplaceAllVueFile(libDir),compileGlobalStylus()]))
+  execa('ln', [
+    '-s',
+    `${exeRootPath}/node_modules/@mand-mobile/components`,
+    `${exeRootPath}/${MAND_INPUT_DIR}/_mand-mobile`,
+  ])
+
+  execa('ln', ['-s', `${exeRootPath}/node_modules/@mand-mobile/platform`, `${exeRootPath}/${MAND_INPUT_DIR}/_platform`])
+
+  execa('ln', ['-s', `${exeRootPath}/node_modules/@mand-mobile/shared`, `${exeRootPath}/${MAND_INPUT_DIR}/_shared`])
+
+  // const componentsDir = path.resolve(exeRootPath, '../components/src')
+  // const sharedDir = path.resolve(exeRootPath, '../shared/lib')
+  env.exeRootPath = exeRootPath
+  env.inputDir = path.resolve(exeRootPath, MAND_INPUT_DIR)
+  env.outputDir = path.resolve(exeRootPath, MAND_OUTPUT_DIR)
+  const componentsDir = path.resolve(env.inputDir, '_mand-mobile/src')
+  const sharedDir = path.resolve(env.inputDir, '_shared/lib')
+
+  return move(componentsDir, path.resolve(env.outputDir, 'components'))
+    .then(() => move(sharedDir, path.resolve(env.outputDir, 'shared')))
+    .then(() => Promise.all([compileAndReplaceAllJsFile(),compileAndReplaceAllVueFile(),compileGlobalStylus()]))
     .then(() => {
       resultLog('success', 'Build **Components** Complete!')
     })
