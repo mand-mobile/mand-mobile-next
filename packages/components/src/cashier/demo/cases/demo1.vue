@@ -38,7 +38,13 @@
 	</div>
 </template>
 
-<script>import {Button, Icon, Cashier, Toast, NoticeBar, ActivityIndicator} from 'mand-mobile'
+<script>
+import Button from 'mand-mobile/lib/button'
+import Cashier from 'mand-mobile/lib/cashier'
+import Toast from 'mand-mobile/lib/toast'
+import Icon from 'mand-mobile/lib/icon'
+import NoticeBar from 'mand-mobile/lib/notice-bar'
+import ActivityIndicator from 'mand-mobile/lib/activity-indicator'
 
 export default {
   name: 'cashier-demo',
@@ -48,11 +54,11 @@ export default {
   titleEnUS: 'Using slots and other configurations',
   /* DELETE */
   components: {
-    [Button.name]: Button,
-    [Cashier.name]: Cashier,
-    [Icon.name]: Icon,
-    [NoticeBar.name]: NoticeBar,
-    [ActivityIndicator.name]: ActivityIndicator,
+    'md-button': Button,
+    'md-cashier': Cashier,
+    'md-icon': Icon,
+    'md-notice-bar': NoticeBar,
+    'md-activity-indicator': ActivityIndicator,
   },
   data() {
     return {
@@ -182,7 +188,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-example-child-cashier

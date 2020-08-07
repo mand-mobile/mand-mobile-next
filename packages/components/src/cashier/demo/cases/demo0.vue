@@ -41,7 +41,15 @@
 	</div>
 </template>
 
-<script>import {Button, RadioList, Field, FieldItem, InputItem, Switch, Cashier, Toast} from 'mand-mobile'
+<script>
+import Button from 'mand-mobile/lib/button'
+import RadioList from 'mand-mobile/lib/radio/list'
+import Field from 'mand-mobile/lib/field'
+import FieldItem from 'mand-mobile/lib/field/item'
+import InputItem from 'mand-mobile/lib/input-item'
+import Switch from 'mand-mobile/lib/switch'
+import Cashier from 'mand-mobile/lib/cashier'
+import Toast from 'mand-mobile/lib/toast'
 
 export default {
   name: 'cashier-demo',
@@ -49,13 +57,13 @@ export default {
   height: 700,
   /* DELETE */
   components: {
-    [Button.name]: Button,
-    [RadioList.name]: RadioList,
-    [Field.name]: Field,
-    [FieldItem.name]: FieldItem,
-    [InputItem.name]: InputItem,
-    [Switch.name]: Switch,
-    [Cashier.name]: Cashier,
+    'md-button': Button,
+    'md-radio-list': RadioList,
+    'md-field': Field,
+    'md-field-item': FieldItem,
+    'md-input-item': InputItem,
+    'md-switch': Switch,
+    'md-cashier': Cashier,
   },
   data() {
     return {
@@ -183,7 +191,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-example-child-cashier

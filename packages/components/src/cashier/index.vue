@@ -13,17 +13,16 @@
       <md-popup-title-bar
         :title="title"
         :describe="describe"
-        :large-radius="largeRadius"
         only-close
         @cancel="$_onPopupCancel"
       ></md-popup-title-bar>
-      <div class="md-cashier-container">
+      <div class="md-cashier_container">
         <slot name="header" :scene="scene"></slot>
 
         <!-- Choose pay channel -->
         <div
           v-if="scene === 'choose'"
-          class="md-cashier-block md-cashier-choose"
+          class="md-cashier_container_block"
           :key="sceneKey">
           <md-cashier-channel
             ref="channel"
@@ -36,7 +35,7 @@
             :channels="channels"
             :channelLimit="channelLimit"
             :default-index="defaultIndex"
-            v-on="$listeners"
+            @click="$_clickHandler"
           >
             <slot name="channel"></slot>
             <template slot="button">
@@ -48,7 +47,7 @@
         <!-- Captcha -->
         <div
           v-else-if="scene === 'captcha'"
-          class="md-cashier-block md-cashier-captcha"
+          class="md-cashier_container_block md-cashier-captcha"
           :key="sceneKey">
           <md-captcha
             ref="captcha"
@@ -69,19 +68,19 @@
         <!-- Loaing, Success -->
         <div
           v-else-if="scene === 'loading' || scene === 'success'"
-          class="md-cashier-block"
+          class="md-cashier_container_block"
           :class="{
             'md-cashier-loading': scene === 'loading',
             'md-cashier-success': scene === 'success'
           }"
           :key="sceneKey">
-          <div class="md-cashier-block-icon">
+          <div class="md-cashier_container_block--icon">
             <md-activity-indicator-rolling-success
               ref="rolling"
               :is-success="scene === 'success'"
             ></md-activity-indicator-rolling-success>
           </div>
-          <div class="md-cashier-block-text">{{ scene === 'success' ? sceneOption.success.text : sceneOption.loading.text }}</div>
+          <div class="md-cashier_container_block--text">{{ scene === 'success' ? sceneOption.success.text : sceneOption.loading.text }}</div>
           <md-cashier-channel-button
             v-if="scene === 'success'"
             :actions="
@@ -97,12 +96,12 @@
         <!-- Fail -->
         <div
           v-else-if="scene === 'fail'"
-          class="md-cashier-block md-cashier-fail"
+          class="md-cashier_container_block md-cashier-fail"
           :key="sceneKey">
-          <div class="md-cashier-block-icon">
+          <div class="md-cashier_container_block--icon">
             <md-icon name="warn-color"></md-icon>
           </div>
-          <div class="md-cashier-block-text" v-text="sceneOption.fail.text"></div>
+          <div class="md-cashier_container_block--text" v-text="sceneOption.fail.text"></div>
           <md-cashier-channel-button
             :actions="
               sceneOption.fail.actions ||
@@ -117,7 +116,7 @@
         <!-- Custom -->
         <div
           v-else-if="scene === 'custom'"
-          class="md-cashier-block md-cashier-custom"
+          class="md-cashier_container_block md-cashier-custom"
           :key="sceneKey">
           <slot name="scene"></slot>
         </div>
@@ -129,16 +128,16 @@
 </template>
 
 <script>
-import Popup from '../popup'
-import PopupTitlebar from '../popup/title-bar'
-import popupMixin from '../popup/mixins'
-import popupTitleBarMixin from '../popup/mixins/title-bar'
-import Captcha from '../captcha'
-import Icon from '../icon'
-import RollerSuccess from '../activity-indicator/roller-success'
+import Popup from 'mand-mobile/lib/popup'
+import PopupTitlebar from 'mand-mobile/lib/popup/title-bar'
+import popupMixin from 'mand-mobile/lib/popup/mixins'
+import popupTitleBarMixin from 'mand-mobile/lib/popup/mixins/title-bar'
+import Captcha from 'mand-mobile/lib/captcha'
+import Icon from 'mand-mobile/lib/icon'
+import RollerSuccess from 'mand-mobile/lib/activity-indicator/roller-success'
 import {noop, extend} from '@mand-mobile/shared/lib/util'
-import Channel from './channel'
-import ChannelButton from './channel-button'
+import Channel from 'mand-mobile/lib/cashier/channel'
+import ChannelButton from 'mand-mobile/lib/cashier/channel-button'
 
 export default {
   name: 'md-cashier',
@@ -146,13 +145,13 @@ export default {
   mixins: [popupMixin, popupTitleBarMixin],
 
   components: {
-    [Popup.name]: Popup,
-    [PopupTitlebar.name]: PopupTitlebar,
-    [Captcha.name]: Captcha,
-    [Icon.name]: Icon,
-    [RollerSuccess.name]: RollerSuccess,
-    [Channel.name]: Channel,
-    [ChannelButton.name]: ChannelButton,
+    'md-popup': Popup,
+    'md-popup-title-bar': PopupTitlebar,
+    'md-captcha': Captcha,
+    'md-icon': Icon,
+    'md-roller-success': RollerSuccess,
+    'md-cashier-channel': Channel,
+    'md-cashier-channel-button': ChannelButton,
   },
 
   props: {
@@ -281,7 +280,9 @@ export default {
       this.isCashierShow = false
       this.$emit('cancel')
     },
-
+    $_clickHandler() {
+      this.emit('click')
+    },
     // MARK: public methods
     next(scene, option = {}) {
       if (this.sceneOption[scene]) {
@@ -300,21 +301,21 @@ export default {
   .md-popup-title-bar .md-popup-cancel
     .md-icon
       align-self flex-start
-      margin-left h-gap-lg
+      margin-left md-h-gap-lg
   .md-popup-box
-    background-color color-bg-inverse
-    border-radius popup-title-bar-radius popup-title-bar-radius 0 0
-  .md-cashier-container
+    background-color md-color-bg-inverse
+    border-radius md-popup-title-bar-radius md-popup-title-bar-radius 0 0
+  &_container
     block()
     position relative
-    background cashier-bg
+    background md-cashier-bg
     -webkit-touch-callout none
     -webkit-user-select none
     transition all .3s
     overflow hidden
-    .md-cashier-block
+    &_block
       clearfix()
-      .md-cashier-block-icon
+      &--icon
         position relative
         left 50%
         float left
@@ -325,14 +326,14 @@ export default {
         .md-activity-indicator-svg
           width 100px !important
           height 100px !important
-      .md-cashier-block-text
+      &--text
         block()
         margin-top 20px
         margin-bottom 180px
-        font-size font-minor-large
-        color color-text-minor
+        font-size md-font-minor-large
+        color md-color-text-minor
         text-align center
-      .md-cashier-block-btn
+      &--btn
         block()
         padding 0 40px 40px
         box-sizing border-box
@@ -344,7 +345,7 @@ export default {
         .md-captcha-content
           margin-top 44px
           margin-bottom 20px
-          color color-text-caption
+          color md-color-text-caption
         .md-codebox
           margin-bottom 26px
         .md-captcha-content,

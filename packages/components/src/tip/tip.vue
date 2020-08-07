@@ -24,7 +24,8 @@
   </div>
 </template>
 
-<script>import Icon from '../icon'
+<script>
+import Icon from 'mand-mobile/lib/icon'
 
 export default {
   name: 'md-tip',
@@ -70,7 +71,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 
 <style lang="stylus">

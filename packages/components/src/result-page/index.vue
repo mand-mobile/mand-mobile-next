@@ -25,7 +25,8 @@
   </div>
 </template>
 
-<script>import Button from '../button'
+<script>
+import Button from 'mand-mobile/lib/button'
 
 export default {
   name: 'md-result-page',
@@ -88,7 +89,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-result

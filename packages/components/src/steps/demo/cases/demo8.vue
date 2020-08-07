@@ -44,9 +44,9 @@
 </template>
 
 <script>
-import Steps from 'mand-mobile/steps'
-import Amount from 'mand-mobile/amount'
-import Icon from 'mand-mobile/icon'
+import Steps from '../../../steps'
+// import Amount from '../../../amount'
+import Icon from '../../../icon'
 
 export default {
   name: 'steps-demo',
@@ -56,7 +56,7 @@ export default {
   /* DELETE */
   components: {
     'md-steps': Steps,
-    'md-amount': Amount,
+    // 'md-amount': Amount,
     'md-icon': Icon,
   },
   data() {

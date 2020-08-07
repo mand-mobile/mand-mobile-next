@@ -6,7 +6,8 @@
   </div>
 </template>
 
-<script>import Tip from '../../index.js'
+<script>
+import Tip from '../../index.js'
 import Button from '../../../button/index'
 
 export default {
@@ -16,8 +17,9 @@ export default {
   titleEnUS: 'Right',
   /* DELETE */
   components: {
-    [Tip.name]: Tip,
-    [Button.name]: Button,
+    'md-tip': Tip,
+    'md-button': Button,
   },
 }
-</script>
+
+</script>

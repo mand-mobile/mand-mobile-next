@@ -47,9 +47,9 @@
 </template>
 
 <script>
-import Button from '../button'
-import Icon from '../icon'
-import ChannelItem from './channel-item'
+import Button from 'mand-mobile/lib/button'
+import Icon from 'mand-mobile/lib/icon'
+import ChannelItem from 'mand-mobile/lib/cashier/channel-item'
 
 export default {
   name: 'md-cashier-channel',
@@ -57,7 +57,7 @@ export default {
   components: {
     'md-button': Button,
     'md-icon': Icon,
-    'md-cashier-channel': ChannelItem,
+    'md-cashier-channel-item': ChannelItem,
   },
 
   props: [

@@ -35,7 +35,9 @@
   </div>
 </template>
 
-<script>import {Amount, Progress} from 'mand-mobile'
+<script>
+import Amount from '../../../amount'
+import Progress from '../../index'
 
 export default {
   name: 'progress-demo',
@@ -44,19 +46,23 @@ export default {
   titleEnUS: 'Other configurations',
   /* DELETE */
   components: {
-    [Amount.name]: Amount,
-    [Progress.name]: Progress,
+    'md-amount': Amount,
+    'md-progress': Progress,
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
-.md-example-child-progress
-  display flex
-  justify-content center
-  .md-progress
-    margin 0 10px
-  .progress-value
-    font-size 24px
-    font-family DINPro-Medium
+.md-example-child-progress {
+  display: flex;
+  justify-content: center;
+}
+.md-progress {
+  margin: 0 10px;
+}
+.progress-value {
+  font-size: 24px;
+  font-family: DINPro-Medium;
+}
 </style>

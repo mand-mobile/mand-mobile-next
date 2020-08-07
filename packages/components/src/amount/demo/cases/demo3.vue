@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Amount from 'mand-mobile/amount'
+import Amount from 'mand-mobile/lib/amount'
 
 export default {
   name: 'amount-demo',

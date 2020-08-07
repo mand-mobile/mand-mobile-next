@@ -41,6 +41,7 @@
 
 <script>
 import Icon from '../icon'
+
 export default {
   name: 'md-cashier-channel-item',
 

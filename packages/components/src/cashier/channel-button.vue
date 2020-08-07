@@ -16,6 +16,7 @@
 
 <script>
 import Button from '../button'
+
 export default {
   name: 'md-cashier-channel-button',
 
