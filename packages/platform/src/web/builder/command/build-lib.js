@@ -87,7 +87,7 @@ function compileVueAndReplace(filePath) {
     encoding: 'utf8',
   })
   const config = computedCompilerConfig(filePath)
-  console.log(JSON.stringify(config));
+  console.log('编译:' + filePath);
   compiler.applyConfig(config)
   let styleContent = ''
   const styleCb = res => {
@@ -143,7 +143,7 @@ function babelPluginInsertCssImportForVue ({ types: t }) {
     const filePathParse = path.parse(filePath)
     return `./style/${filePathParse.name}.css`
   }
-  const globalCssLiteral = '../../shared/style/global.css'
+  const globalCssLiteral = '../global.css'
   return {
     visitor: {
       Program(path, state) {
@@ -158,9 +158,9 @@ function compileVueStylus (content, cb, compiler, filePath) {
   stylus(content)
     .set('filename', filePath)
     .define('url', stylus.url())
-    .import(path.join(env.outputDir, 'shared/style/mixin/util.styl'))
-    .import(path.join(env.outputDir, 'shared/style/mixin/theme.components.styl'))
-    .import(path.join(env.outputDir, 'shared/style/mixin/theme.basic.styl'))
+    .import(path.join(env.sharedDir, 'style/mixin/util.styl'))
+    .import(path.join(env.sharedDir, 'style/mixin/theme.components.styl'))
+    .import(path.join(env.sharedDir, 'style/mixin/theme.basic.styl'))
     // .import(path.join(libDir, '../../node_modules/nib/lib/nib/vendor'))
     // .import(path.join(libDir, '../../node_modules/nib/lib/nib/gradients'))
     .render(async (err, css) => {
@@ -183,8 +183,8 @@ function compileVueStylus (content, cb, compiler, filePath) {
 
 function compileGlobalStylus() {
 
-  const filePath = path.resolve(env.outputDir, 'shared/style/global.styl')
-  const targetPath = path.resolve(env.outputDir, 'shared/style/global.css')
+  const filePath = path.resolve(env.sharedDir, 'style/global.styl')
+  const targetPath = path.resolve(env.outputDir, 'global.css')
   const fileContent = fs.readFileSync(filePath, {
     encoding: 'utf8',
   })
@@ -215,9 +215,9 @@ module.exports = (webpackConfig, args, api) => {
   env.outputDir = path.resolve(exeRootPath, MAND_OUTPUT_DIR)
   const componentsDir = path.resolve(env.inputDir, '_mand-mobile/src')
   const sharedDir = path.resolve(env.inputDir, '_shared/lib')
+  env.sharedDir = sharedDir
 
-  return move(componentsDir, path.resolve(env.outputDir, 'components'))
-    .then(() => move(sharedDir, path.resolve(env.outputDir, 'shared')))
+  return move(componentsDir, env.outputDir)
     .then(() => Promise.all([compileAndReplaceAllJsFile(),compileAndReplaceAllVueFile(),compileGlobalStylus()]))
     .then(() => {
       resultLog('success', 'Build **Components** Complete!')
