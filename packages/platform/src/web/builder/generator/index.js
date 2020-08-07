@@ -14,7 +14,12 @@ module.exports = api => {
    * 打包组件，构建入口
    */
   if (target === 'bundle') {
-    api.render('./template/web-bundle', {components})
+    // api.render('./template/web-bundle', {components})
+    api.$renderPartial(`${MAND_INPUT_DIR}`, './template/web-bundle/_mand-mobile', {components})
+    api.render({
+      [`${MAND_INPUT_DIR}/vue.config.js`]: path.resolve(__dirname, 'template/common/vue.config.js'),    
+    })
+    return 
   }
 
   /**
@@ -31,6 +36,31 @@ module.exports = api => {
     }, {component})
     return
   }
+
+
+  if (target === 'lib' ) {
+    // 添加依赖
+    api.extendPackage({
+      devDependencies: {
+        'vue-router': '^3.3.3',
+        'fastclick': '^1.0.6',
+      }
+    })
+    api.$renderPartial(`${MAND_INPUT_DIR}`, './template/web-preview-full/_mand-mobile', {
+      components,
+      category,
+    })
+    /**
+     * 渲染模板入口
+     */
+    components.forEach(function renderPage(component) {
+        api.render({
+            [`${MAND_INPUT_DIR}/pages/${component.dashedStyledName}.vue`]: api.utils.commonTemplateResolver('demo-group.vue'),
+            [`${MAND_INPUT_DIR}/vue.config.js`]: path.resolve(__dirname, 'template/common/vue.config.js'),
+        }, { component })
+    })
+  }
+  
 
   /**
    * 渲染全量示例

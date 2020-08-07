@@ -3,16 +3,31 @@
   "version": "3.0.0-alpha.0",
   "description": "> TODO: description",
   "author": "lucker <guoyunlong@didichuxing.com>",
-  "homepage": "",
-  "license": "ISC",
+  "scripts": {
+    "build": "echo \"nothing to build\"",
+    "build:lib": "run-p clean:* && sh ./scripts/build.sh web lib",
+    "build:lib-vw": "run-p clean:* && sh ./scripts/build.sh web lib-vw",
+    "clean:workspace": "rm -fr .mand-mobile",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
   "main": "lib/mand-mobile.js",
+  "files": ["lib"],
+  "dependencies": {
+    "@mand-mobile/components": "^0.0.1",
+    "@mand-mobile/platform": "^0.0.1",
+    "@mand-mobile/shared": "^0.0.1"
+  },
+  "devDependencies": {
+    "@mand-mobile/vue-cli-plugin-builder": "^0.0.1",
+    "@vue/cli-service": "^4.4.6",
+    "fastclick": "^1.0.6",
+    "npm-run-all": "^4.1.5",
+    "vue-router": "^3.3.3"
+  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"
   },
-  "files": ["lib"],
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "echo \"nothing to build\""
-  }
+  "homepage": "",
+  "license": "ISC"
 }

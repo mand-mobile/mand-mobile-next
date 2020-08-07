@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "@mand-mobile/platform": "^0.0.1",
+    "@mand-mobile/scroller": "^0.0.1",
+    "@mand-mobile/shared": "^0.0.1",
     "jest": "^26.0.1"
   }
 }

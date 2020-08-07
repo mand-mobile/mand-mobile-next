@@ -2,6 +2,7 @@
 node_modules
 dist
 lib
+lib-vw
 # 这部分目录需要vue cli的generator在每次构建时生成
 .mand-mobile
 # local env files

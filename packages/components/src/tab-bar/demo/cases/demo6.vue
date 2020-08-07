@@ -27,10 +27,9 @@
 </template>
 
 <script>
-import TabBar from 'mand-mobile/tab-bar'
-import Swiper from 'mand-mobile/swiper'
-import SwiperItem from 'mand-mobile/swiper/swiper-item'
-// import {TabBar, Swiper, SwiperItem} from 'mand-mobile'
+import TabBar from 'mand-mobile/lib/tab-bar'
+import Swiper from 'mand-mobile/lib/swiper'
+import SwiperItem from 'mand-mobile/lib/swiper/swiper-item'
 
 export default {
   name: 'tab-bar-demo',
@@ -70,4 +69,3 @@ export default {
   color: #666;
 }
 </style>
-

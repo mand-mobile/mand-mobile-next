@@ -15,7 +15,7 @@
     :more-loader-enable="hasMoreLoader"
     :styles="styles"
   >
-    <div class="scroll-view-header" v-if="$slots.header">
+    <div class="md-scroll-view_header" v-if="$slots.header">
       <slot name="header"></slot>
     </div>
     <template slot="refresh" slot-scope="{scrollY, isRefreshing, isRefreshActive}">
@@ -29,16 +29,15 @@
     <template slot="more" slot-scope="{isEndReaching}">
       <slot name="more" :is-end-reaching="isEndReaching"></slot>
     </template>
-    <div class="scroll-view-footer" v-if="$slots.footer">
+    <div class="md-scroll-view_footer" v-if="$slots.footer">
       <slot name="footer"></slot>
     </div>
   </md-scroll-view-primitive>
 </template>
 
 <script>
-import ScrollView from '@mand-mobile/platform/lib/runtime/component/scroll-view'
-
 import {createProxyApiMixin, createProxyEventsMixin} from '@mand-mobile/shared/lib/mixin/proxy'
+import ScrollView from './scroll-view'
 
 export default {
   name: 'md-scroll-view',
@@ -52,21 +51,16 @@ export default {
         'reflowScroller',
         'triggerRefresh',
         'finishRefresh',
-        'finishLoadMore'
-      ]
+        'finishLoadMore',
+      ],
     }),
     createProxyEventsMixin({
-      scrollView: [
-        'endReached',
-        'refreshActive',
-        'refreshing',
-        'scroll'
-      ]
-    })
+      scrollView: ['endReached', 'refreshActive', 'refreshing', 'scroll'],
+    }),
   ],
 
   components: {
-    'md-scroll-view-primitive': ScrollView
+    'md-scroll-view-primitive': ScrollView,
   },
 
   props: {
@@ -118,8 +112,8 @@ export default {
       default: true,
     },
     styles: {
-      type: Object
-    }
+      type: Object,
+    },
   },
 
   computed: {
@@ -128,14 +122,15 @@ export default {
     },
     hasMoreLoader() {
       return this.moreLoaderEnable || !!(this.$slots.more || this.$scopedSlots.more)
-    }
+    },
   },
 }
+
 </script>
 
 <style lang="stylus">
 .md-scroll-view
-  .scroll-view-header, .scroll-view-footer
+  .md-scroll-view_header, .md-scroll-view_footer
     position absolute
     left 0
     right 0

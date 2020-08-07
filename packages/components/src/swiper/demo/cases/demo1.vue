@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import Swiper from 'mand-mobile/swiper'
-import SwiperItem from 'mand-mobile/swiper/swiper-item'
-import simple from 'mand-mobile/swiper/demo/data/simple'
+import Swiper from '../../index'
+import SwiperItem from '../../swiper-item'
+import simple from '../../demo/data/simple'
 
 export default {
   name: 'swiper-demo',
@@ -36,33 +36,35 @@ export default {
     // setValue(id, value) {
     //   document.querySelector(id) && (document.querySelector(id).innerHTML = value)
     // },
-    beforeChange(from, to) {
-      // this.setValue('#valueSwiper5', from)
-      // this.setValue('#valueSwiper6', to)
-    },
-    afterChange(from, to) {
-      // this.setValue('#valueSwiper7', from)
-      // this.setValue('#valueSwiper8', to)
-    },
+    // beforeChange(from, to) {
+    // this.setValue('#valueSwiper5', from)
+    // this.setValue('#valueSwiper6', to)
+    // },
+    // afterChange(from, to) {
+    // this.setValue('#valueSwiper7', from)
+    // this.setValue('#valueSwiper8', to)
+    // },
   },
 }
 
 </script>
 
-<style lang="stylus">
-.md-example-child-swiper-1
-  height 250px
-  .banner-item
-    float left
-    width 100%
-    height 100%
-    line-height 250px
-    text-align center
-    font-size 28px
-    color #FFF
-    box-align center
-    align-items center
-    box-pack center
-    justify-content center
-    text-decoration-line none
+<style>
+.md-example-child-swiper-1 {
+  height: 250px;
+}
+.md-example-child-swiper-1 .banner-item {
+  float: left;
+  width: 100%;
+  height: 100%;
+  line-height: 250px;
+  text-align: center;
+  font-size: 28px;
+  color: #FFF;
+  box-align: center;
+  align-items: center;
+  box-pack: center;
+  justify-content: center;
+  text-decoration-line: none;
+}
 </style>
