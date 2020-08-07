@@ -194,6 +194,39 @@ function compileGlobalStylus() {
 
 }
 
+/**
+ * 将uni平台的代码清理干净
+ */
+function removeUni() {
+  const fileGlob = `${env.outputDir}/**/*.uni.vue`
+  const uniFiles = glob.sync(fileGlob)
+  const webFileGlob = `${env.outputDir}/**/*.web.vue`
+  const webFiles = glob.sync(webFileGlob)
+  // 删除.uni.vue
+  const deletePromises = uniFiles.map((filePath) => {
+    return fs.unlinkAsync(filePath).then(() => {
+      console.log('remove: ' + filePath)
+    })
+  })
+
+  // 替换.web.vue成 .vue
+  const replaceWebPromises = webFiles.map(filePath => {
+    const fileBaseName = path.basename(filePath, '.web.vue')
+    return fs.copyFileAsync(filePath, path.join(path.dirname(filePath), `${fileBaseName}.vue`))
+        .then(() => {
+          return fs.unlinkAsync(filePath).then(() => {
+            console.log('remove: ' + filePath)
+          })
+        })
+  })
+
+
+  return Promise.all(deletePromises.concat(replaceWebPromises))
+  .catch(e => {
+    throw e
+  })
+}
+
 module.exports = (webpackConfig, args, api) => {
   const {exeRootPath, pluginRootPath, vueCliService, MAND_PLATFORM, MAND_INPUT_DIR, MAND_OUTPUT_DIR} = api.mdContext || {}
   const {execa, info, error} = api.mdUtils
@@ -218,6 +251,7 @@ module.exports = (webpackConfig, args, api) => {
   env.sharedDir = sharedDir
 
   return move(componentsDir, env.outputDir)
+    .then(() => removeUni())
     .then(() => Promise.all([compileAndReplaceAllJsFile(),compileAndReplaceAllVueFile(),compileGlobalStylus()]))
     .then(() => {
       resultLog('success', 'Build **Components** Complete!')

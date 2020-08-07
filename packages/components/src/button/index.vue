@@ -28,13 +28,11 @@
 </template>
 
 <script>
-import ActivityIndicatorRolling from '../activity-indicator/roller'
 import Icon from '../icon'
 export default {
   name: 'md-button',
 
   components: {
-    ActivityIndicatorRolling,
     'md-icon': Icon,
   },
 
