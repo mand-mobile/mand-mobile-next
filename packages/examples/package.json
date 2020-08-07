@@ -14,8 +14,8 @@
       "run-p clean:* && VUE_CLI_SKIP_DIRTY_GIT_PROMPT=true vue invoke @mand-mobile/vue-cli-plugin-builder --platform web --target bundle && vue-cli-service md-build --platform=web --target=bundle .mand-mobile/main.js",
     "build:lib": "run-p clean:* && sh ./scripts/build.sh web lib",
     "build:lib-vw": "run-p clean:* && sh ./scripts/build.sh web lib-vw",
-    "clean:dist": "rm -fr dist",
     "clean:workspace": "rm -fr .mand-mobile",
+    "clean:dist": "rm -fr dist",
     "serve:uni": "run-p clean:* && sh ./scripts/preview.sh uni",
     "serve:web": "run-p clean:* && sh ./scripts/preview.sh web",
     "test": "echo \"Error: run tests from root\" && exit 1"
@@ -38,7 +38,8 @@
     "@vue/cli-service": "^4.4.6",
     "babel-preset-minify": "^0.5.1",
     "fastclick": "^1.0.6",
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "vue-router": "^3.3.3"
   },
   "browserslist": ["> 1%", "last 2 versions", "not dead"],
   "directories": {

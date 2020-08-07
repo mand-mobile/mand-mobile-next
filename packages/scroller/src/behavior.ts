@@ -257,7 +257,7 @@ export default class Behavior {
   }
 
   checkInBoundary() {
-    const position = this.adjustPosition(this.currentPos)
+    const position = Math.round(this.adjustPosition(this.currentPos))
     const inBoundary = position === this.getCurrentPos()
     return {
       position,

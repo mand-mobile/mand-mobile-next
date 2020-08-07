@@ -467,6 +467,16 @@
   resolved "https://registry.npmjs.org/@mand-mobile/platform/-/platform-0.0.1.tgz#619f2cd603f71a090858daf3da0aefd3a76c7ea6"
   integrity sha512-W1O28gNUnZzrDHa1vbZsXjRRSFY4CVw62hPkgM8eFR58N/nB0kPQgiu4Jt9sfbc/L2cjws6DzVslTfCHxapQAQ==
 
+"@mand-mobile/scroller@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-0.0.1.tgz#eb413cfa37ddf6d411fd54ebab3576b813cfe4ba"
+  integrity sha512-5R0p610/DpRkGjddpZ2bmuq0La/a7taqn813eOC+uD2PDNTr5Rx4RxWEAwropvBrWWz94Jv/xviQXGcTTAVfEQ==
+
+"@mand-mobile/shared@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.npmjs.org/@mand-mobile/shared/-/shared-0.0.1.tgz#de9b5d44bacd45e6c656ec5823b0aae01644a608"
+  integrity sha512-KyHspe36JXXUoh5SkSbO1P4Fl2E9amLgiGwbM9G9bUWIYzGfh18QoQiOVUgrwWFNjgN5Z+VXrVOJkGvQAmSVuA==
+
 "@sinonjs/commons@^1.7.0":
   version "1.8.0"
   resolved "https://registry.npmjs.org/@sinonjs/commons/-/commons-1.8.0.tgz#c8d68821a854c555bba172f3b06959a0039b236d"
