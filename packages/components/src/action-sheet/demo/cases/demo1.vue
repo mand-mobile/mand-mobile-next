@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import ActionSheet from '../../index'
-import Button from '../../../button'
-import Dialog from '../../../dialog'
+import ActionSheet from 'mand-mobile/lib/action-sheet'
+import Button from 'mand-mobile/lib/button'
+import Dialog from 'mand-mobile/lib/dialog'
 export default {
   name: 'action-sheet-demo',
   /* DELETE */

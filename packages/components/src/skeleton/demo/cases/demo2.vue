@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import Skeleton from '../../index'
-import Field from '../../../field'
-import CellItem from '../../../cell-item'
+import Skeleton from 'mand-mobile/lib/skeleton'
+import Field from 'mand-mobile/lib/field'
+import CellItem from 'mand-mobile/lib/cell-item'
 export default {
   name: 'skeleton-demo',
   /* DELETE */
