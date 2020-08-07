@@ -29,7 +29,8 @@
   </div>
 </template>
 
-<script>import {Dom} from '@mand-mobile/platform/lib/runtime/module'
+<script>
+import {Dom} from '@mand-mobile/platform/lib/runtime/module'
 
 const fontSize = 14
 // const color = '#858B9C'
@@ -130,44 +131,9 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
-.md-water-mark
-  position relative
-  overflow hidden
-
-.md-water-mark_container
-  position relative
-  z-index 2
-
-.md-water-mark_list
-  clearfix()
-  absolute-pos()
-  position absolute
-  filter grayscale(100%)
-  display flex
-  flex-direction column
-  justify-content center
-  overflow hidden
-
-  .md-water-mark_list_wrapper_canvas
-    position absolute
-    top 0
-    left 0
-    transform translate3d(-50%, -50%, 0)
-
-.water-mark-line
-  position relative
-  left 50%
-  float left
-  width 10000%
-  display flex
-  justify-content center
-  transform translateX(-50%)
-
-.water-mark-item
-  float left
-  font-size md-font-body-large
-  color md-color-text-caption
+@import 'common.styl'
 </style>

@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import Tabs from 'mand-mobile/tabs'
-import TabPane from 'mand-mobile/tabs/tab-pane'
+import Tabs from 'mand-mobile/lib/tabs'
+import TabPane from 'mand-mobile/lib/tabs/tab-pane'
 
 export default {
   name: 'tab-bar-demo',
@@ -34,16 +34,17 @@ export default {
 
 </script>
 
-<style lang="stylus">
-.md-example-child-tabs
-  background #FFF
-  .content
-    font-size 28px
-    padding 20px
-    line-height 1.5
-    box-sizing border-box
-  .md-tabs-content
-    min-height 200px
-    background #FFF
+<style>
+.md-example-child-tabs {
+  background: #FFF;
+}
+
+.md-example-child-tabs .content {
+  height: 300px;
+  padding: 32px;
+  font-size: 28px;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
 </style>
 

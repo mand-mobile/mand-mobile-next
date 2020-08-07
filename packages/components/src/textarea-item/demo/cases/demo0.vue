@@ -54,8 +54,8 @@
 </template>
 
 <script>
-import TextareaItem from '../../index'
-import Field from '../../../field'
+import TextareaItem from 'mand-mobile/lib/textarea-item'
+import Field from 'mand-mobile/lib/field'
 
 export default {
   name: 'tips-demo',
