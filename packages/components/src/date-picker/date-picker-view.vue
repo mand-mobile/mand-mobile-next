@@ -1,8 +1,9 @@
 <template>
-  <div class="md-date-picker-view" :class="[`md-date-picke-${type}`]">
+  <div class="md-date-picker-view" :class="[`md-date-picker--${type}`]">
     <md-picker-view
       ref="pickerView"
       class="md-date-picker"
+      label-key="text"
       :data="columnData"
       :cols="columnLength"
       :default-value="columnDataDefault"
@@ -17,14 +18,11 @@
 
 <script>
 import {createProxyApiMixin} from '@mand-mobile/shared/lib/mixin/proxy'
+import {transformDate, toArray, warn} from '@mand-mobile/shared/lib/util'
+
 import PickerView from '../picker/picker-view'
 import pickerMixin from '../picker/mixins'
 import datePickerMixin, {TYPE_FORMAT, TYPE_FORMAT_INVERSE, TYPE_METHODS} from './mixin'
-import {
-  transformDate,
-  toArray,
-  warn
-} from '@mand-mobile/shared/lib/util'
 
 export default {
   name: 'md-date-picker-view',
@@ -38,18 +36,18 @@ export default {
         'getColumnIndex',
         'getColumnIndexs',
         'setColumnValues',
-        'refresh'
-      ]
-    }), 
+        'refresh',
+      ],
+    }),
     pickerMixin,
-    datePickerMixin
+    datePickerMixin,
   ],
 
   components: {
-    'md-picker-view': PickerView
+    'md-picker-view': PickerView,
   },
 
-  data () {
+  data() {
     return {
       currentDateIns: new Date(),
       columnData: [],
@@ -60,58 +58,58 @@ export default {
   },
 
   computed: {
-    columnLength () {
+    columnLength() {
       return this.columnData.length || 1
     },
-    currentYear () {
+    currentYear() {
       return this.currentDateIns.getFullYear()
     },
-    currentMonth () {
+    currentMonth() {
       return this.currentDateIns.getMonth() + 1
     },
-    currentDate () {
+    currentDate() {
       return this.currentDateIns.getDate()
     },
-    currentHours () {
+    currentHours() {
       return this.currentDateIns.getHours()
     },
-    currentMinutes () {
+    currentMinutes() {
       return this.currentDateIns.getMinutes()
     },
-    defaultDateIns () {
+    defaultDateIns() {
       return transformDate(this.defaultDate)
     },
-    minDateIns () {
+    minDateIns() {
       return transformDate(this.minDate)
     },
-    maxDateIns () {
+    maxDateIns() {
       return transformDate(this.maxDate)
-    }
+    },
   },
 
   watch: {
-    defaultDate () {
+    defaultDate() {
       this.$_initPickerColumn()
     },
-    minDate () {
+    minDate() {
       this.$_initPickerColumn()
     },
-    maxDate () {
+    maxDate() {
       this.$_initPickerColumn()
-    }
+    },
   },
 
-  mounted () {
+  mounted() {
     this.$_initPicker()
   },
 
   methods: {
     // MARK: private methods
-    $_initPicker () {
+    $_initPicker() {
       // this.$refs.pickerView.inheritPickerApi(this)
       this.$_initPickerColumn()
     },
-    $_initPickerColumn () {
+    $_initPickerColumn() {
       this.$_resetPickerColumn()
       this.$_initColumnDataGenerator()
       this.$_initColumnData(0, this.columnDataDefault)
@@ -122,7 +120,7 @@ export default {
       this.columnDataDefault = []
       this.columnDataGenerator = []
     },
-    $_initColumnData (columnIndex, defaultDate = [], isSetColumn = true) {
+    $_initColumnData(columnIndex, defaultDate = [], isSetColumn = true) {
       const picker = this.$refs.pickerView
       const columnData = this.columnData
       const columnDataGenerator = this.columnDataGenerator
@@ -135,7 +133,7 @@ export default {
           if (defaultDate[j] && _generator) {
             columnDataGeneratorParams.push({
               type: _generator.type,
-              value: defaultDate[j]
+              value: defaultDate[j],
             })
             continue
           }
@@ -152,24 +150,24 @@ export default {
 
         // Generator colume data with columnDataGeneratorParams
         const curColumnData = generator ? generator.apply(this, columnDataGeneratorParams) : ''
-      
+
         // store column date
         this.$set(columnData, i, curColumnData)
 
         // set picker column data & refresh picker
         isSetColumn && picker.setColumnValues(i, curColumnData)
       }
-      
+
       isSetColumn && picker.refresh(null, columnIndex)
     },
-    $_initColumnDataGenerator () {
+    $_initColumnDataGenerator() {
       this.$_generateYearData.type = 'Year'
       this.$_generateMonthData.type = 'Month'
       this.$_generateDateData.type = 'Date'
       this.$_generateHourData.type = 'Hour'
       this.$_generateMinuteData.type = 'Minute'
-    
-      const defaultDate = this.$_getDefaultDate()     
+
+      const defaultDate = this.$_getDefaultDate()
       switch (this.type) {
         case 'date':
           this.$_initColumnDataGeneratorForDate(defaultDate)
@@ -186,37 +184,31 @@ export default {
           break
       }
     },
-    $_initColumnDataGeneratorForDate (defaultDate) {
+    $_initColumnDataGeneratorForDate(defaultDate) {
       this.columnDataGenerator = this.columnDataGenerator.concat([
         this.$_generateYearData,
         this.$_generateMonthData,
-        this.$_generateDateData
+        this.$_generateDateData,
       ])
 
-      this.columnDataDefault = defaultDate ? this.columnDataDefault.concat([
-        defaultDate.getFullYear(),
-        defaultDate.getMonth() + 1,
-        defaultDate.getDate()
-      ]) : []
+      this.columnDataDefault = defaultDate
+        ? this.columnDataDefault.concat([defaultDate.getFullYear(), defaultDate.getMonth() + 1, defaultDate.getDate()])
+        : []
     },
-    $_initColumnDataGeneratorForTime (defaultDate) {
-      this.columnDataGenerator = this.columnDataGenerator.concat([
-        this.$_generateHourData,
-        this.$_generateMinuteData
-      ])
-      this.columnDataDefault = defaultDate ? this.columnDataDefault.concat([
-        defaultDate.getHours(),
-        defaultDate.getMinutes()
-      ]) : []
+    $_initColumnDataGeneratorForTime(defaultDate) {
+      this.columnDataGenerator = this.columnDataGenerator.concat([this.$_generateHourData, this.$_generateMinuteData])
+      this.columnDataDefault = defaultDate
+        ? this.columnDataDefault.concat([defaultDate.getHours(), defaultDate.getMinutes()])
+        : []
     },
-    $_initColumnDataGeneratorForCustom (defaultDate) {
+    $_initColumnDataGeneratorForCustom(defaultDate) {
       this.customTypes.forEach(type => {
         type = TYPE_FORMAT[type] || type
         this.columnDataGenerator.push(this[`$_generate${type}Data`])
 
         if (defaultDate) {
           let value = defaultDate[TYPE_METHODS[type]]()
-          
+
           if (type === 'Month') {
             value += 1
           }
@@ -225,7 +217,7 @@ export default {
         }
       })
     },
-    $_getDefaultDate () {
+    $_getDefaultDate() {
       const defaultDate = this.defaultDateIns
       const minDate = this.minDateIns
       const maxDate = this.maxDateIns
@@ -244,20 +236,20 @@ export default {
 
       return defaultDate
     },
-    $_getGeneratorArguments (args) {
+    $_getGeneratorArguments(args) {
       const defaultArguments = {
         Year: this.currentYear,
         Month: this.currentMonth,
         Date: this.currentDate,
         Hour: this.currentHours,
-        Minute: this.currentMinutes
+        Minute: this.currentMinutes,
       }
       args.map(item => {
         item && (defaultArguments[item.type] = item.value)
       })
       return defaultArguments
     },
-    $_generateYearData () {
+    $_generateYearData() {
       const start = this.minDateIns ? this.minDateIns.getFullYear() : this.currentYear - 20
       const end = this.maxDateIns ? this.maxDateIns.getFullYear() : this.currentYear + 20
       /* istanbul ignore if */
@@ -267,7 +259,7 @@ export default {
       }
       return this.$_generateData(start, end, 'Year', this.unitText[0], 1)
     },
-    $_generateMonthData () {
+    $_generateMonthData() {
       const args = this.$_getGeneratorArguments(toArray(arguments))
       let start, end
 
@@ -284,9 +276,9 @@ export default {
       }
       return this.$_generateData(start, end, 'Month', this.unitText[1] || '', 1, arguments)
     },
-    $_generateDateData () {
+    $_generateDateData() {
       const args = this.$_getGeneratorArguments(toArray(arguments))
-      
+
       let start, end
 
       if (this.$_isDateTimeEqual(this.minDateIns, args.Year, args.Month)) {
@@ -303,9 +295,12 @@ export default {
 
       const dateData = this.$_generateData(start, end, 'Date', this.unitText[2] || '', 1, arguments)
 
-      if (this.$_isDateTimeEqual(this.currentDateIns, args.Year, args.Month) && 
-          this.currentDate >= start && this.currentDate <= end &&
-          this.todayText) {
+      if (
+        this.$_isDateTimeEqual(this.currentDateIns, args.Year, args.Month) &&
+        this.currentDate >= start &&
+        this.currentDate <= end &&
+        this.todayText
+      ) {
         const currentDateIndex = this.currentDate - start
         const currentDate = dateData[currentDateIndex].text
         dateData[currentDateIndex].text = this.todayText.replace('&', currentDate)
@@ -313,7 +308,7 @@ export default {
 
       return dateData
     },
-    $_generateHourData () {
+    $_generateHourData() {
       const args = this.$_getGeneratorArguments(toArray(arguments))
       let start, end
 
@@ -324,7 +319,7 @@ export default {
       }
 
       if (this.$_isDateTimeEqual(this.maxDateIns, args.Year, args.Month, args.Date)) {
-          end = this.maxDateIns.getHours()
+        end = this.maxDateIns.getHours()
       } else {
         end = 23
       }
@@ -338,10 +333,10 @@ export default {
         warn('MinDate Hour should be earlier than MaxDate')
         return
       }
-  
+
       return this.$_generateData(start, end, 'Hour', this.unitText[3] || '', 1, arguments)
     },
-    $_generateMinuteData () {
+    $_generateMinuteData() {
       const args = this.$_getGeneratorArguments(toArray(arguments))
       let start, end
 
@@ -352,14 +347,14 @@ export default {
       }
 
       if (this.$_isDateTimeEqual(this.maxDateIns, args.Year, args.Month, args.Date, args.Hour)) {
-          end = this.maxDateIns.getMinutes()
+        end = this.maxDateIns.getMinutes()
       } else {
         end = 59
       }
 
       return this.$_generateData(start, end, 'Minute', this.unitText[4] || '', this.minuteStep, arguments)
     },
-    $_generateData (from, to, type, unit, step = 1, args = []) {
+    $_generateData(from, to, type, unit, step = 1, args = []) {
       let count = from
       let text
       const data = []
@@ -368,17 +363,12 @@ export default {
       })
 
       while (count <= to) {
-        this.textRender 
-        && (text = this.textRender.apply(this, [
-            TYPE_FORMAT_INVERSE[type],
-            ...defaultArgs,
-            count
-           ]))
+        this.textRender && (text = this.textRender.apply(this, [TYPE_FORMAT_INVERSE[type], ...defaultArgs, count]))
         data.push({
           text: text || `${count}${unit}`,
           value: count,
           typeFormat: TYPE_FORMAT_INVERSE[type] || type,
-          type
+          type,
         })
         count += step
       }
@@ -391,7 +381,7 @@ export default {
      * @params Date
      * @params year, month, date ...
      */
-    $_isDateTimeEqual () {
+    $_isDateTimeEqual() {
       const methods = Object.keys(TYPE_METHODS).map(key => {
         return TYPE_METHODS[key]
       })
@@ -400,7 +390,8 @@ export default {
 
       let res = true
       if (!date) {
-        return res = false
+        res = false
+        return res
       }
 
       for (let i = 1; i < args.length; i++) {
@@ -418,7 +409,7 @@ export default {
     },
 
     // MARK: events handler
-    $_onPickerChange (columnIndex, itemIndex, value) {
+    $_onPickerChange(columnIndex, itemIndex, value) {
       this.$emit('change', columnIndex, itemIndex, value)
 
       if (columnIndex < this.columnData.length - 1) {
@@ -426,7 +417,7 @@ export default {
       }
     },
 
-    getFormatDate (format = 'yyyy-MM-dd hh:mm') {
+    getFormatDate(format = 'yyyy-MM-dd hh:mm') {
       const columnValues = this.$refs.pickerView.getColumnValues()
 
       columnValues.forEach(item => {
@@ -440,23 +431,16 @@ export default {
         if (value < 10) {
           value = '0' + value
         }
-        
+
         format = format.replace('HH', 'hh') // deal with HH as hh
         format = format.replace(item.type, value)
         format = format.replace(TYPE_FORMAT_INVERSE[item.type], value)
       })
 
       return format
-    }
-  }
+    },
+  },
 }
+
 </script>
 
-<style lang="stylus">
-.md-date-picker
-  .column-item
-    font-size date-picker-font-size !important
-    overflow visible !important
-  // &.datetime .column-item
-  //   font-size date-time-picker-font-size !important
-</style>
