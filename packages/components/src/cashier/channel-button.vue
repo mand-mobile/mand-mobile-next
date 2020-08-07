@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Button from '../button'
+import Button from 'mand-mobile/lib/button'
 
 export default {
   name: 'md-cashier-channel-button',
@@ -42,7 +42,7 @@ export default {
   display flex
   .md-button
     flex 1
-    margin-right h-gap-md
+    margin-right md-h-gap-md
     &:last-of-type
       margin 0
 </style>

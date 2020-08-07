@@ -1,13 +1,13 @@
 <template>
   <div class="md-cashier-channel">
-    <div class="choose-text">
-      <p class="choose-title" v-if="paymentTitle" v-html="paymentTitle"></p>
-      <p class="choose-number" v-if="paymentAmount" v-html="paymentAmount"></p>
-      <p class="choose-describe" v-if="paymentDescribe" v-html="paymentDescribe"></p>
+    <div class="md-cashier-channel--choose-text">
+      <p class="md-choose--title" v-if="paymentTitle" v-html="paymentTitle"></p>
+      <p class="md-choose--number" v-if="paymentAmount" v-html="paymentAmount"></p>
+      <p class="md-choose--describe" v-if="paymentDescribe" v-html="paymentDescribe"></p>
     </div>
-    <div class="choose-channel" :class="{active: isChannelActive}">
+    <div class="md-choose--channel" :class="{active: isChannelActive}">
       <slot></slot>
-      <div class="choose-channel-list" v-if="isChannelShow || isSingle">
+      <div class="md-choose--channel_list" v-if="isChannelShow || isSingle">
         <template v-for="(item, index) in channels">
           <md-cashier-channel-item
             :class="{default: index === defaultIndex}"
@@ -18,7 +18,7 @@
           />
         </template>
       </div>
-      <div class="choose-channel-list" v-else-if="channels[defaultIndex]">
+      <div class="md-choose--channel_list" v-else-if="channels[defaultIndex]">
         <md-cashier-channel-item
           class="default"
           :data="channels[defaultIndex]"
@@ -28,13 +28,13 @@
       </div>
       <div
         v-if="!isSingle"
-        class="choose-channel-more"
+        class="md-choose--channel--more"
         :class="{disabled: isChannelActive}"
         v-html="moreButtonText"
         @click="$_onChannelMoreClick"
       ></div>
     </div>
-    <div class="md-cashier-block-btn">
+    <div class="md-cashier_block_btn">
       <md-button
         class="md-cashier-pay-button"
         :type="payButtonDisabled ? 'disabled': 'primary'"
@@ -128,41 +128,41 @@ export default {
 
 <style lang="stylus">
 .md-cashier-channel
-  .choose-text
+  &--choose-text
     clearfix()
     position relative
     padding 65px 0 25px
     p
       block()
       text-align center
-      &.choose-title
-        font-size cashier-choose-title-font-size
-        color cashier-choose-title-color
-      &.choose-number
+      &.md-choose--title
+        font-size md-cashier-choose-title-font-size
+        color md-cashier-choose-title-color
+      &.md-choose--number
         margin-top 20px
-        font-size cashier-choose-amount-font-size
-        font-family font-family-number
-        color cashier-choose-amount-color
+        font-size md-cashier-choose-amount-font-size
+        font-family md-font-family-number
+        color md-cashier-choose-amount-color
         letter-spacing -2px
-      &.choose-describe
-        font-size cashier-choose-describe-font-size
-        color cashier-choose-describe-color
-  .choose-channel
+      &.md-choose--describe
+        font-size md-cashier-choose-describe-font-size
+        color md-cashier-choose-describe-color
+  .md-choose--channel
     clearfix()
     max-height 500px
     padding 40px 60px
     box-sizing border-box
     overflow auto
-    .choose-channel-list
+    &_list
       clearfix()
       // max-height 64px
       transition all .5s ease-in
       overflow hidden
       
-    .choose-channel-more
+    &--more
       margin-top 10px
-      font-size cashier-choose-more-font-size
-      color cashier-choose-more-color
+      font-size md-cashier-choose-more-font-size
+      color md-cashier-choose-more-color
       text-align center
       &:after
         content ""
@@ -173,12 +173,12 @@ export default {
         margin-left 10px
         border-left solid 8px transparent
         border-right solid 8px transparent
-        border-top solid 8px color-text-caption
+        border-top solid 8px md-color-text-caption
       &.disabled
         visibility hidden
     &.active
-      .choose-channel-list .choose-channel-item
+      .md-choose--channel_list .choose-channel-item
         display block
-      .choose-channel-list
+      .md-choose--channel_list
         max-height 1000px !important
 </style>

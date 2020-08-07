@@ -2,32 +2,32 @@
   <div
     class="md-steps"
     :class="{
-      'md-steps-vertical': direction == 'vertical',
-      'md-steps-horizontal': direction == 'horizontal',
-      'vertical-adaptive': direction == 'vertical' && verticalAdaptive,
-      'no-current': currentLength % 1 !== 0
+      'md-steps--vertical': direction == 'vertical',
+      'md-steps--horizontal': direction == 'horizontal',
+      'md-steps--adaptive': direction == 'vertical' && verticalAdaptive,
+      'md-steps--no-current': currentLength % 1 !== 0
     }"
   >
   
     <template v-for="(step, index) of steps" >
-      <div class="step-wrapper"
+      <div class="md-steps_wrapper"
         :key="`steps-${index}`"
-        :class="[index < currentLength ? 'reached' : '', index === currentLength ? 'current' : '']"
+        :class="[index < currentLength ? 'md-reached' : '', index === currentLength ? 'md-current' : '']"
       >
         <!-- Customize uniformly -->
         <!-- <div class="icon-wrapper" >
           <slot name="icon"></slot>
         </div> -->
         <!-- Customize uniformly -->
-        <div class="icon-wrapper">
+        <div class="md-steps--icon-wrapper">
           <template v-if="index < currentLength">
             <slot
               v-if="$scopedSlots.reached || $slots.reached"
               name="reached"
               :index="index"
             ></slot>
-            <div class="step-node-default">
-              <div class="step-node-default-icon" style="width: 6px;height: 6px;border-radius: 50%;"></div>
+            <div class="md-steps--node-default">
+              <div class="md-steps--node-default-icon" style="width: 6px;height: 6px;border-radius: 50%;"></div>
             </div>
           </template>
           <template v-else-if="index === currentLength">
@@ -44,28 +44,28 @@
               name="unreached"
               :index="index"
             ></slot> -->
-            <div class="step-node-default">
-              <div class="step-node-default-icon" style="width: 6px;height: 6px;border-radius: 50%;"></div>
+            <div class="md-steps--node-default">
+              <div class="md-steps--node-default-icon" style="width: 6px;height: 6px;border-radius: 50%;"></div>
             </div>
           </template>
         </div>
-        <div class="text-wrapper">
+        <div class="md-steps--text-wrapper">
           <template>
-            <div class="name">
+            <div class="md-name">
               {{step.name}}
             </div>
-            <div class="desc" v-if="step.text">
+            <div class="md-desc" v-if="step.text">
               {{step.text}}
             </div>
           </template>
         </div>      
       </div>
-      <div class="bar"
-        :class="[direction === 'horizontal' ? 'horizontal-bar' : 'vertical-bar']"
+      <div class="md-bar"
+        :class="[direction === 'horizontal' ? 'md-bar_horizontal' : 'md-bar_vertical']"
         :key="`bar-${index}`"
       >
         <i
-          class="bar-inner"
+          class="md-bar--inner"
           v-if="progress[index]"
           :style="{
             transform: `translate3d${barInnerTransform(index)}`,
@@ -195,8 +195,8 @@ export default {
         return
       }
       const dom = await this.$MDDom()
-      const iconWrappers = dom.querySelectorAll('.icon-wrapper')
-      const textWrappers = dom.querySelectorAll('.text-wrapper')
+      const iconWrappers = dom.querySelectorAll('.md-steps--icon-wrapper')
+      const textWrappers = dom.querySelectorAll('.md-steps--text-wrapper')
       const stepsSize = toArray(textWrappers).map((wrapper, index) => {
         let stepHeight = wrapper.clientHeight
         const iconHeight = iconWrappers[index].clientHeight
@@ -297,63 +297,63 @@ export default {
   justify-content space-around
   font-size 28px
 
-  &.md-steps-horizontal
+  &.md-steps--horizontal
     align-items center
     padding 40px 100px 100px
-    .step-wrapper
+    .md-steps_wrapper
       margin 0 4px
       justify-content center
       align-items center
       flex-direction column
-      &.reached
-        .text-wrapper .name
+      &.md-reached
+        .md-steps--text-wrapper .md-name
           color md-steps-text-color
-      &.current
-        .text-wrapper .name
+      &.md-current
+        .md-steps--text-wrapper .md-name
           color md-steps-color-active
-    .text-wrapper
+    .md-steps--text-wrapper
       top 100%
       padding-top md-steps-text-gap-horizontal
       text-align center
-      .name
+      .md-name
         color md-steps-desc-color
-      .desc
+      .md-desc
         margin-top 10px
         color md-steps-desc-color
-    &.no-current
-      .reached:last-of-type
+    &.md-steps--no-current
+      .md-reached:last-of-type
         display none !important
 
-  &.md-steps-vertical
+  &.md-steps--vertical
     align-items flex-start
     padding 40px
     flex-direction column
-    &.vertical-adaptive
+    &.md-steps--adaptive
       justify-content normal
       padding 40px 40px 8px
-      .bar.vertical-bar
+      .md-bar.md-bar_vertical
         flex 1
-    .step-wrapper
+    .md-steps_wrapper
       width 100%
       margin 4px 0
       align-items stretch
-      .icon-wrapper
+      .md-steps--icon-wrapper
         position relative
-        .step-node-default
+        .md-steps--node-default
           min-width md-steps-icon-size
           min-height md-steps-icon-size
-      .text-wrapper
+      .md-steps--text-wrapper
         left md-steps-icon-size
         padding-left md-steps-text-gap-vertical
-        .name, .desc
+        .md-name, .md-desc
           white-space normal
-        .name
+        .md-name
           color md-steps-text-color
-        .desc
+        .md-desc
           margin-top 18px
           color md-steps-desc-color
 
-  .icon-wrapper
+  .md-steps--icon-wrapper
     display flex
     justify-content center
     align-items center
@@ -366,15 +366,15 @@ export default {
     &:nth-child(2)
       display none
 
-    .step-node-default-icon
+    .md-steps--node-default-icon
       background md-steps-color
 
-  .step-wrapper
+  .md-steps_wrapper
     display flex
     position relative
     min-width md-steps-icon-size
     min-height md-steps-icon-size
-    .icon-wrapper
+    .md-steps--icon-wrapper
       min-width md-steps-icon-size
       min-height md-steps-icon-size
       .md-icon
@@ -382,27 +382,27 @@ export default {
         height md-steps-icon-size
         font-size md-steps-icon-size
         line-height md-steps-icon-size
-    .text-wrapper
+    .md-steps--text-wrapper
       position absolute
-      .name, .desc
+      .md-name, .md-desc
         white-space nowrap
-      .name
+      .md-name
         line-height md-steps-text-font-size
         font-size md-steps-text-font-size
-      .desc
+      .md-desc
         line-height md-steps-text-font-size
         font-size md-steps-desc-font-size
-    &.reached, &.current
-      .icon-wrapper
+    &.md-reached, &.md-current
+      .md-steps--icon-wrapper
         color md-steps-color-active
-        .step-node-default-icon
+        .md-steps--node-default-icon
           background md-steps-color-active
 
-  .bar
+  .md-bar
     position relative
     background-color md-steps-color
     overflow hidden
-    .bar-inner
+    .md-bar--inner
       z-index 10
       position absolute
       top 0
@@ -410,25 +410,25 @@ export default {
       display block
       content ''
       transition all linear 1s
-    &.horizontal-bar
+    &.md-bar_horizontal
       flex 1
       height md-steps-border-size
-      .bar-inner
+      .md-bar--inner
         width 100%
         height md-steps-border-size
         background-color md-steps-color-active
-    &.vertical-bar
+    &.md-bar_vertical
       left 16px
       width md-steps-border-size
       transform translateX(-50%)
       min-height 110px
-      .bar-inner
+      .md-bar--inner
         width md-steps-border-size
         height 100%
         background-color md-steps-color-active
     &:last-of-type
-      &.horizontal-bar
+      &.md-bar_horizontal
         display none
-      &.vertical-bar
+      &.md-bar_vertical
         visibility hidden
 </style>

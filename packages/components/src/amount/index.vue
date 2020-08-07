@@ -1,5 +1,5 @@
 <template>
-  <span class="md-amount" :class="{numerical: !isCapital}">
+  <span class="md-amount" :class="{'md-amount--numerical': !isCapital}">
     <template v-if="!isCapital">{{ formatValue | doPrecision(legalPrecision, isRoundUp) | doFormat(hasSeparator, separator) }}</template> <template v-else> {{ formatValue | doPrecision(4, isRoundUp) | doCapital }} </template>
   </span>
 </template>
@@ -140,6 +140,6 @@ export default {
 
 <style lang="stylus">
 .md-amount
-  &.numerical
-    font-family font-family-number
+  &.md-amount--numerical
+    font-family md-font-family-number
 </style>

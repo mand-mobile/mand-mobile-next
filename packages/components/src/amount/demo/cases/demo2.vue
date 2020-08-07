@@ -37,8 +37,9 @@ export default {
 
 </script>
 
-<style lang="stylus" scoped>
-.md-example-child-amount
-  text-align center
-  color #666
+<style>
+.md-example-child-amount {
+  text-align: center;
+  color: #666;
+}
 </style>

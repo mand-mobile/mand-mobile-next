@@ -1,11 +1,11 @@
 <template>
-  <div class="md-slider" :class="{'is-disabled': disabled}">
+  <div class="md-slider" :class="{'md-slider--is-disabled': disabled}">
     <template v-if="range">
       <div class="md-slider_bar" :style="barStyle"></div>
       <div class="md-slider_handle is-lower"
         :data-hint="format(values[0])"
         :class="{
-          'is-active': isDragging && !isDragingUpper
+          'md-slider--is-active': isDragging && !isDragingUpper
         }"
         :style="{'left': lowerHandlePosition + '%'}">
         <span
@@ -13,10 +13,10 @@
           @touchstart="$_startLowerDrag"
         ></span>
       </div>
-      <div class="md-slider_handle is-higher"
+      <div class="md-slider_handle md-slider--is-higher"
         :data-hint="format(values[1])"
         :class="{
-          'is-active': isDragging && isDragingUpper
+          'md-slider--is-active': isDragging && isDragingUpper
         }"
         :style="{'left': upperHandlePosition + '%'}">
         <span
@@ -30,7 +30,7 @@
       <div class="md-slider_handle"
         :data-hint="format(values[0])"
         :class="{
-          'is-active': isDragging
+          'md-slider--is-active': isDragging
         }"
         :style="{'left': lowerHandlePosition + '%'}">
         <span
@@ -42,7 +42,8 @@
   </div>
 </template>
 
-<script>export default {
+<script>
+export default {
   name: 'md-slider',
 
   props: {
@@ -246,7 +247,8 @@
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-slider
@@ -262,7 +264,7 @@
     height 4px
     border-radius 2px
     background-color md-slider-bg-base
-  &.is-disabled
+  &.md-slider--is-disabled
     .md-slider_bar
       opacity 0.35
     .md-slider_handle span
@@ -308,9 +310,9 @@
       opacity 1
       visibility visible
 
-    &.is-higher
+    &.md-slider--is-higher
       z-index 20
-    &.is-active span
+    &.md-slider--is-active span
       transform scale(1.3)
     span
       display block

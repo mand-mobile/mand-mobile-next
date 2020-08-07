@@ -27,12 +27,15 @@ export default {
 
 </script>
 
-<style lang="stylus" scoped>
-.md-example-child-amount
-  text-align center
-  color #666
-  p
-    font-size 50px
-    span.describe
-      font-size 18px
+<style>
+.md-example-child-amount {
+  text-align: center;
+  color: #666;
+}
+.md-example-child-amount p {
+  font-size: 50px;
+}
+.md-example-child-amount p span.describe {
+  font-size: 18px;
+}
 </style>

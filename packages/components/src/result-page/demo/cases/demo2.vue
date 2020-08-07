@@ -4,7 +4,8 @@
   </div>
 </template>
 
-<script>import ResultPage from '../../index'
+<script>
+import ResultPage from '../../index'
 import Toast from '../../../toast/index.js'
 
 export default {
@@ -47,9 +48,10 @@ export default {
     },
   },
 }
-</script>
 
-<style lang="stylus">
+</script>
+
+<style>
 .md-example-child-result-page-2 {
   background: #FFF;
 }

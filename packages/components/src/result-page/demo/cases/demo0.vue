@@ -6,7 +6,8 @@
   </div>
 </template>
 
-<script>import ResultPage from '../../index'
+<script>
+import ResultPage from '../../index'
 
 export default {
   name: 'result-page-demo',
@@ -17,10 +18,11 @@ export default {
     'md-result-page': ResultPage,
   },
 }
-</script>
+
+</script>
 
 <style>
-.md-example-child-result-page-0{
+.md-example-child-result-page-0 {
   background: #FFF;
 }
 </style>

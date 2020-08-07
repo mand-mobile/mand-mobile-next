@@ -47,7 +47,7 @@
         <!-- Captcha -->
         <div
           v-else-if="scene === 'captcha'"
-          class="md-cashier_container_block md-cashier-captcha"
+          class="md-cashier_container_block md-cashier_captcha"
           :key="sceneKey">
           <md-captcha
             ref="captcha"
@@ -96,7 +96,7 @@
         <!-- Fail -->
         <div
           v-else-if="scene === 'fail'"
-          class="md-cashier_container_block md-cashier-fail"
+          class="md-cashier_container_block md-cashier--fail"
           :key="sceneKey">
           <div class="md-cashier_container_block--icon">
             <md-icon name="warn-color"></md-icon>
@@ -116,7 +116,7 @@
         <!-- Custom -->
         <div
           v-else-if="scene === 'custom'"
-          class="md-cashier_container_block md-cashier-custom"
+          class="md-cashier_container_block md-cashier--custom"
           :key="sceneKey">
           <slot name="scene"></slot>
         </div>
@@ -339,7 +339,7 @@ export default {
         box-sizing border-box
       // &.md-cashier-choose
         
-      &.md-cashier-captcha
+      &.md-cashier_captcha
         .md-captcha
           block()
         .md-captcha-content
@@ -357,12 +357,12 @@ export default {
         .md-captcha-footer
           margin-bottom 44px
 
-      &.md-cashier-fail
-        .md-cashier-block-icon
+      &.md-cashier--fail
+        .md-cashier_block--icon
           position relative
           text-align center
           line-height 100px
-          .md-icon-warn-color
+          .md-icon--warn-color
             position relative
             z-index 2
             color #FFF6F1

@@ -191,25 +191,27 @@ export default {
 
 </script>
 
-<style lang="stylus">
-.md-example-child-cashier
-  .md-field
-    margin-bottom 30px
-  .custom-scene
-    min-height 300px
-    display flex
-    justify-content center
-    align-items center
-    font-size 32px
-  .cashier-loading
-    position absolute
-    top 0
-    left 0
-    right 0
-    bottom 0
-    background rgba(255, 255, 255, 0.95)
-    z-index 1400
-    display flex
-    align-items center
-    justify-content center
+<style>
+.md-example-child-cashier .md-field {
+  margin-bottom: 30px;
+}
+.md-example-child-cashier .custom-scene {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  font-size: 32px;
+}
+.md-example-child-cashier .cashier-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 1400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>
