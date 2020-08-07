@@ -1,7 +1,7 @@
 <template>
-  <div class="md-number-keyboard" :class="[{'in-view': isView}]">
+  <div class="md-number-keyboard" :class="[{'md-in-view': isView}]">
     <template v-if="isView">
-      <div class="md-number-keyboard-slot" v-if="$slots.default">
+      <div class="md-number-keyboard_slot" v-if="$slots.default">
         <slot></slot>
       </div>
       <md-number-keyboard-container
@@ -27,7 +27,7 @@
         @hide="$emit('hide')"
         :has-mask="false"
       >
-        <div class="md-number-keyboard-slot" v-if="$slots.default">
+        <div class="md-number-keyboard_slot" v-if="$slots.default">
           <slot></slot>
         </div>
         <md-number-keyboard-container

@@ -3,15 +3,15 @@
     class="md-input-item"
     :customContentClass="contentClassList"
     :class="[
-      isHighlight ? 'is-highlight' : '',
-      isTitleLatent ? 'is-title-latent' : '',
-      isInputActive ? 'is-active' : '',
-      isInputFocus ? 'is-focus' : '',
-      isInputError ? 'is-error' : '',
-      isInputBrief && !isInputError ? 'with-brief' : '',
-      isDisabled ? 'is-disabled': '',
-      isAmount ? 'is-amount': '',
-      clearable ? 'is-clear' : '',
+      isHighlight ? 'md-is-highlight' : '',
+      isTitleLatent ? 'md-is-title-latent' : '',
+      isInputActive ? 'md-is-active' : '',
+      isInputFocus ? 'md-is-focus' : '',
+      isInputError ? 'md-is-error' : '',
+      isInputBrief && !isInputError ? 'md-with-brief' : '',
+      isDisabled ? 'md-is-disabled': '',
+      isAmount ? 'md-is-amount': '',
+      clearable ? 'md-is-clear' : '',
       align,
       size
     ]"
@@ -28,7 +28,7 @@
     <div class="mask" v-if="readonly"/>
     <template v-if="!isVirtualKeyboard">
       <input
-        class="md-input-item-input"
+        class="md-input-item_input"
         :type="inputType"
         :name="name"
         v-model="inputBindValue"
@@ -47,18 +47,18 @@
     <!-- Fake Input -->
     <template v-else>
       <div
-        class="md-input-item-fake"
+        class="md-input-item_fake"
         :class="[
-          isInputFocus ? 'is-focus' : '',
-          !isInputEditing ? 'is-waiting' : '',
-          isDisabled ? 'disabled' : '',
-          readonly ? 'readonly' : '',
+          isInputFocus ? 'md-is-focus' : '',
+          !isInputEditing ? 'md-is-waiting' : '',
+          isDisabled ? 'md-disabled' : '',
+          readonly ? 'md-readonly' : '',
         ]"
         @click="$_onFakeInputClick"
       >
         <span v-text="inputValue"></span>
         <span
-          class="md-input-item-fake-placeholder"
+          class="md-input-item_fake-placeholder"
           v-if="inputValue === '' && inputPlaceholder !== ''"
           v-text="inputPlaceholder"></span>
       </div>
@@ -69,7 +69,7 @@
       <!--  CLEART BTN  -->
       <!-- ------------ -->
       <div
-        class="md-input-item-clear"
+        class="md-input-item_clear"
         v-if="clearable && !isDisabled && !readonly"
         v-show="!isInputEmpty && isInputFocus"
         @click="$_clearInput"
@@ -89,14 +89,14 @@
       <!-- -------------------- -->
       <div
         v-if="isInputError"
-        class="md-input-item-msg"
+        class="md-input-item_msg"
       >
         <p v-if="error !== ''" v-text="error"></p>
         <slot name="error" v-else></slot>
       </div>
       <div
         v-if="isInputBrief && !isInputError"
-        class="md-input-item-brief"
+        class="md-input-item_brief"
       >
         <p v-if="brief !== ''" v-text="brief"></p>
         <slot name="brief" v-else></slot>
@@ -108,7 +108,7 @@
         v-if="isVirtualKeyboard && !virtualKeyboardVm"
         v-model="isInputFocus"
         ref="number-keyboard"
-        custom-class="md-input-item-number-keyboard"
+        custom-class="md-input-item_number-keyboard"
         :data-id="`${name}-number-keyboard`"
         :ok-text="virtualKeyboardOkText"
         :disorder="virtualKeyboardDisorder"
@@ -338,17 +338,17 @@ export default {
         size,
       } = this
       return [
-        'input-item-wrapper',
-        isHighlight ? 'is-highlight' : '',
-        isTitleLatent ? 'is-title-latent' : '',
-        isInputActive ? 'is-active' : '',
-        isInputFocus ? 'is-focus' : '',
-        isInputError ? 'is-error' : '',
-        isInputBrief && !isInputError ? 'with-brief' : '',
-        isDisabled ? 'is-disabled' : '',
-        isAmount ? 'is-amount' : '',
-        clearable ? 'is-clear' : '',
-        hasChildrenSlot ? 'has-children' : '',
+        'md-input-item-wrapper',
+        isHighlight ? 'md-is-highlight' : '',
+        isTitleLatent ? 'md-is-title-latent' : '',
+        isInputActive ? 'md-is-active' : '',
+        isInputFocus ? 'md-is-focus' : '',
+        isInputError ? 'md-is-error' : '',
+        isInputBrief && !isInputError ? 'md-with-brief' : '',
+        isDisabled ? 'md-is-disabled' : '',
+        isAmount ? 'md-is-amount' : '',
+        clearable ? 'md-is-clear' : '',
+        hasChildrenSlot ? 'md-has-children' : '',
         align,
         size,
       ]
@@ -640,7 +640,7 @@ export default {
         this.$_onFakeInputClick()
       } else {
         if (document) {
-          this.$el.querySelector('.md-input-item-input').blur()
+          this.$el.querySelector('.md-input-item_input').blur()
         }
         setTimeout(() => {
           this.isInputFocus = true
@@ -652,7 +652,7 @@ export default {
         this.$_blurFakeInput()
       } else {
         if (document) {
-          this.$el.querySelector('.md-input-item-input').blur()
+          this.$el.querySelector('.md-input-item_input').blur()
         }
         this.isInputFocus = false
       }
@@ -666,18 +666,18 @@ export default {
 
 <style lang="stylus">
 .md-input-item
-  .md-field-item-content
+  .md-field-item_content
     padding-top 0
     padding-bottom 0
-  .md-field-item-control
+  .md-field-item_control
     display flex
     align-items center
-  .mask
+  .md-mask
     position absolute
     width 100%
     height 100%
     z-index 10
-.md-input-item-clear
+.md-input-item_clear
   padding 10px 0
   color md-input-item-icon
   .md-icon
@@ -685,8 +685,8 @@ export default {
     background md-color-bg-base
     border-radius md-radius-circle
 
-.md-input-item-input,
-.md-input-item-fake
+.md-input-item_input,
+.md-input-item_fake
   // display flex
   width 100%
   height md-input-item-height
@@ -703,7 +703,7 @@ export default {
   -webkit-tap-highlight-color transparent
   appearance none
 
-.md-input-item-input
+.md-input-item_input
   &:disabled, &[disabled]
     opacity 1
   &::-webkit-input-placeholder
@@ -712,7 +712,7 @@ export default {
   &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
     -webkit-appearance none
 
-.md-input-item-fake
+.md-input-item_fake
   line-height md-input-item-height
   word-ellipsis()
   cursor text
@@ -728,7 +728,7 @@ export default {
   &.is-waiting:after
     animation keyboard-cursor infinite 1s step-start
 
-.md-input-item-fake-placeholder
+.md-input-item_fake-placeholder
   position absolute
   top 0
   left 0
@@ -736,38 +736,38 @@ export default {
   color md-input-item-placeholder
   font-weight md-font-weight-normal
 
-.md-input-item-msg,
-.md-input-item-brief
+.md-input-item_msg,
+.md-input-item_brief
   word-break()
   &:not(:last-child)
     margin-bottom 10px
 
-.md-input-item-brief
+.md-input-item_brief
   font-size md-input-item-font-size-brief
   color md-input-item-color-brief
 
-.md-input-item-msg
+.md-input-item_msg
   font-size md-input-item-font-size-error
   color md-input-item-color-error
 
-.md-input-item
-  &.left
-    .md-input-item-input,
-    .md-input-item-fake
+.md-input_item
+  &.md-left
+    .md-input-item_input,
+    .md-input-item_fake
       text-align left
 
-  &.center
-    .md-input-item-input,
-    .md-input-item-fake
+  &.md-center
+    .md-input-item_input,
+    .md-input-item_fake
       text-align center
 
-  &.right
-    .md-input-item-input,
-    .md-input-item-fake
+  &.md-right
+    .md-input-item_input,
+    .md-input-item_fake
       text-align right
 
-  &.is-title-latent
-    .md-field-item-title
+  &.md-is-title-latent
+    .md-field-item_title
       position absolute
       top 50%
       left 0
@@ -778,67 +778,67 @@ export default {
       transition all .3s ease
       opacity 0
       will-change auto
-    .md-field-item-content
+    .md-field-item_content
       min-height 115px
-    .md-field-item-content,
-    .md-field-item-left,
-    .md-field-item-right,
+    .md-field-item_content,
+    .md-field-item_left,
+    .md-field-item_right,
     .md-input-item-input,
     .md-input-item-fake
       padding-top 20px
-    &.is-active
-      .md-field-item-title
+    &.md-is-active
+      .md-field-item_title
         opacity 1
         top 20px
         transform translate3d(0, 0, 0)
 
-  &.is-highlight
-    &.is-focus
-      >>> .md-field-item-content
+  &.md-is-highlight
+    &.md-is-focus
+      >>> .md-field-item_content
         hairline(bottom, md-input-item-color-highlight, 0, 4px)
 
-  &.is-disabled
-    .md-input-item-input,
-    .md-input-item-fake,
-    .md-input-item-fake-placeholder
+  &.md-is-disabled
+    .md-input-item_input,
+    .md-input-item_fake,
+    .md-input-item_fake-placeholder
       -webkit-text-fill-color md-input-item-color-disabled
       color md-input-item-color-disabled
 
-  &.is-amount
-    .md-input-item-input,
-    .md-input-item-fake
+  &.md-is-amount
+    .md-input-item_input,
+    .md-input-item_fake
       font-family md-font-family-number
-    &.large
-      .md-input-item-input,
-      .md-input-item-fake
+    &.md-large
+      .md-input-item_input,
+      .md-input-item_fake
         padding-top md-v-gap-xs
 
-  &.large
-    .md-input-item-input,
-    .md-input-item-fake
+  &.md-large
+    .md-input-item_input,
+    .md-input-item_fake
       padding-bottom 15px
       font-size md-input-item-font-size-large
-    .md-input-item-input::-webkit-input-placeholder
+    .md-input-item_input::-webkit-input-placeholder
         font-size 60px
         line-height 100px
 
-  &.is-error
-    >>> .md-field-item-content
+  &.md-is-error
+    >>> .md-field-item_content
       hairline(bottom, md-input-item-color-error, 0, 4px)
 
-  &.is-ios
-    .md-input-item-input::-webkit-input-placeholder
+  &.md-is-ios
+    .md-input-item_input::-webkit-input-placeholder
       position relative
       top 3px
       overflow visible
-    .md-input-item-fake::after
+    .md-input-item_fake::after
       border-right solid 6px #2C6CF5
       border-radius 2px
-  &.is-android
-    .md-input-item-fake::after
+  &.md-is-android
+    .md-input-item_fake::after
       border-right solid 4px md-color-text-base
-    .md-input-item-input,
-    .md-input-item-fake
+    .md-input-item_input,
+    .md-input-item_fake
       font-weight md-input-item-font-weight-android
 
 @-webkit-keyframes keyboard-cursor
