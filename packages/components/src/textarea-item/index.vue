@@ -1,7 +1,7 @@
 <template>
   <md-field-item
     class="md-textarea-item"
-    :class="[isDisabled ? 'is-disabled' : '', errorInfo ? 'is-error' : '']"
+    :class="[isDisabled ? 'md-textarea-item--is-disabled' : '', errorInfo ? 'md-textarea-item--is-error' : '']"
     :title="title"
     :solid="solid"
   >
@@ -169,7 +169,20 @@ export default {
     $_calcTextareaHeight(textarea = {}) {
       // 计算高宽放到textarea里面了, 并且没法获取实际高度, 并且没法获得ref
       // console.log(this.$refs);
-      
+      // Triggers the textarea to repaint
+      textarea.style.height = 'auto'
+
+      let scrollHeight = textarea.scrollHeight
+      // if textarea-item is not displayed, avoid height calculations
+      if (scrollHeight === 0) {
+        return
+      }
+
+      if (this.maxHeightInner && scrollHeight > this.maxHeightInner) {
+        scrollHeight = this.maxHeightInner
+      }
+
+      textarea.style.height = scrollHeight + 'px'
     },
     // public
     resizeTextarea() {
@@ -191,43 +204,42 @@ export default {
     },
   },
 }
+
 </script>
 <style lang="stylus">
-textarea 
-  height 4em
 .md-textarea-item
   &-msg
-    color textarea-item-color-error
-  .md-field-item-content
+    color md-textarea-item-color-error
+  .md-field-item_content
     align-items normal
-  &.is-disabled
+  &.md-textarea-item--is-disabled
     .md-textarea-item__textarea
       // -webkit-text-fill-color textarea-item-color-disabled
-      color textarea-item-color-disabled
-  .md-field-item-right
+      color md-textarea-item-color-disabled
+  .md-field-item_right
     align-items start
   &__clear
     padding 6px 0
-    color textarea-item-icon
+    color md-textarea-item-icon
     .md-icon
       display flex
   &__textarea
-    box-sizing border-box
     width 100%
-    font textarea-item-font-weight textarea-item-font-size font-family-normal
-    text-align left
-    line-height textarea-item-line-height
-    color textarea-item-color
+    line-height md-textarea-item-line-height
+    color md-textarea-item-color
+    font md-textarea-item-font-weight md-textarea-item-font-size md-font-family-normal
     background transparent
+    text-align left
     border none
     outline none
     resize none
     appearance none
+    box-sizing border-box
     -webkit-tap-highlight-color transparent
     &::-webkit-input-placeholder
-      color textarea-item-placeholder-color
-      font-weight textarea-item-placeholder-weight
-  &.is-error
-    .md-field-item-content
-      hairline(bottom, textarea-item-color-error, 0, 4px)
+      color md-textarea-item-placeholder-color
+      font-weight md-textarea-item-placeholder-weight
+  &.md-textarea-item--is-error
+    .md-field-item_content
+      hairline(bottom, md-textarea-item-color-error, 0, 4px)
 </style>

@@ -3,16 +3,16 @@
     <div
       v-if="avatar"
       :class="{
-        'md-skeleton-avatar': true,
-        'md-skeleton-avatar-large': avatarSize === 'lg',
-        'md-skeleton-avatar-small': avatarSize === 'sm',
+        'md-skeleton_avatar': true,
+        'md-skeleton_avatar--large': avatarSize === 'lg',
+        'md-skeleton_avatar--small': avatarSize === 'sm',
       }"
     ></div>
-    <div class="md-skeleton-content">
-      <h4 v-if="title" class="md-skeleton-title" :style="{ width: getTitleWidth() }" />
+    <div class="md-skeleton_content">
+      <h4 v-if="title" class="md-skeleton_title" :style="{ width: getTitleWidth() }" />
       <div
         v-for="(item, index) in rowArray"
-        class="md-skeleton-row"
+        class="md-skeleton_row"
         :style="{width: index + 1 === row ? '60%' : getRowWidth(index)}"
         :key="index"
       >
@@ -23,8 +23,7 @@
     <slot></slot>
   </div>
 </template>
-<script>
-const DEFUALT_TITLE_WIDTH = '40%'
+<script>const DEFUALT_TITLE_WIDTH = '40%'
 const DEFUALT_WIDTH = '100%'
 
 export default {
@@ -93,42 +92,41 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 placeHolder()
+  background linear-gradient(to right, #F3F3F6 8%, #F8FAFF 18%, #F3F3F6 33%)
+  background-size 1000px 104px
   animation-duration 2s
   animation-fill-mode forwards
   animation-iteration-count infinite
   animation-name placeHolderShimmer
   animation-timing-function linear
-  background linear-gradient(to right, #F3F3F6 8%, #F8FAFF 18%, #F3F3F6 33%)
-  background-size 1000px 104px
 
 .md-skeleton
-  box-sizing border-box
   display flex
-  .md-skeleton-avatar
+  box-sizing border-box
+  .md-skeleton_avatar
     width 80px
     height 80px
     margin-right 32px
     border-radius 50%
     placeHolder()
-    &.md-skeleton-avatar-large
+    &.md-skeleton_avatar--large
       width 96px
       height 96px
-    &.md-skeleton-avatar-small
+    &.md-skeleton_avatar--small
       width 64px
       height 64px
-  .md-skeleton-content
+  .md-skeleton_content
     flex 1
-  .md-skeleton-title, .md-skeleton-row
-    box-sizing border-box
+  .md-skeleton_title, .md-skeleton_row
     height 32px
     margin-bottom 24px
     border 0
     border-radius 0
+    box-sizing border-box
     placeHolder()
     &:last-child
       margin-bottom 0

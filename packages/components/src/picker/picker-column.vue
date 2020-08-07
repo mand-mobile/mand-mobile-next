@@ -1,31 +1,31 @@
 <template>
   <div
     class="md-picker-column"
-    :class="{'md-picker-column-super-multiple': columnLength >= 5}"
+    :class="{'md-multiple': columnLength >= 5}"
     :style="{
       height: `${style.indicatorHeight + 2 * style.maskerHeight}px`
     }"
   >
-    <div class="md-picker-column-container">
-      <div class="md-picker-column-masker top" :style="{ height: `${style.maskerHeight}px` }"></div>
-      <div class="md-picker-column-masker bottom" :style="{ height: `${style.maskerHeight}px` }"></div>
-      <!-- <div class="md-picker-column-list"> -->
+    <div class="md-picker-column_container">
+      <!-- <p style="position:absolute;top:0;">{{transformStyle[0]}}</p> -->
+      <div class="md-picker-column_masker md-picker-column_masker--top" :style="{ height: `${style.maskerHeight}px` }"></div>
+      <div class="md-picker-column_masker md-picker-column_masker--bottom" :style="{ height: `${style.maskerHeight}px` }"></div>
       <div
-        class="md-picker-column-list"
+        class="md-picker-column_list"
         :style="{visibility: isInitialed ? 'visible' : 'hidden'}"
       >
         <template v-for="(column, i) in columnValues">
-          <div class="md-picker-column-wrapper" :key="i">
+          <div class="md-picker-column_wrapper" :key="i">
             <ul
-              class="md-picker-column-wheel"
+              class="md-picker-column_wheel"
               :style="transformStyle[i] || ''"
             >
               <template v-for="(item, j) in column">
                 <li
-                  class="md-picker-column-item"
+                  class="md-picker-column_item"
                   :class="{
-                    active: j === activedIndexs[i],
-                    disabled: $_isColumnIndexInvalid(i, j)
+                    'md-active': j === activedIndexs[i],
+                    'md-disabled': $_isColumnIndexInvalid(i, j)
                   }"
                   :style="{
                     'height': `${style.indicatorHeight}px`,
@@ -41,19 +41,19 @@
         </template>
         <template v-if="columnLength">
           <template v-for="n in (columnLength - columnValues.length)">
-            <div class="md-picker-column-wrapper" :key="n">
+            <div class="md-picker-column_wrapper" :key="n">
               <ul
-                class="md-picker-column-wheel"
+                class="md-picker-column_wheel"
                 :style="transformStyle[n + columnValues.length - 1] || ''"
               ></ul>
             </div>
           </template>
         </template>
       </div>
-      <div class="md-picker-column-hooks">
+      <div class="md-picker-column_hooks">
         <template v-if="columnLength">
           <div
-            class="md-picker-column-hook"
+            class="md-picker-column_hooks_item"
             v-for="(item, k) in colsCount"
             :key="k"
             @touchstart.prevent.stop="$_onColumnTouchStart($event, k)"
@@ -73,10 +73,11 @@
 <script>
 // import Scroller from '../_util/scroller'
 // import {render} from '../_util/render'
+import Scroller from '@mand-mobile/scroller'
+import WheelScroller from '@mand-mobile/scroller/lib/wheel'
+import {Dom, Device} from '@mand-mobile/platform/lib/runtime/module'
+import {noop, traverse, inArray, inBrowser, extend, warn} from '@mand-mobile/shared/lib/util'
 import pickerMixin from './mixins'
-import Scroller from 'mand-mobile/_scroller'
-import WheelScroller from 'mand-mobile/_scroller/wheel'
-import {noop, getDpr, traverse, inArray, inBrowser, extend, warn} from '../_util'
 
 const API_LIST = [
   'getColumnContext',
@@ -156,7 +157,7 @@ export default {
 
   computed: {
     dpr() {
-      return inBrowser ? this.$MDDevice().device.pixelRatio : 1
+      return inBrowser ? Device().device.pixelRatio : 1
     },
     style() {
       return {
@@ -167,9 +168,10 @@ export default {
     columnLength() {
       return this.cols || 1
     },
-    colsCount() { // uniapp traverses from 0
+    colsCount() {
+      // uniapp traverses from 0
       return Array(this.columnLength).fill('')
-    }
+    },
   },
 
   watch: {
@@ -178,7 +180,7 @@ export default {
         this.columnValues = extend([], val)
       },
       deep: true,
-    }
+    },
   },
 
   created() {
@@ -214,12 +216,13 @@ export default {
 
     // initial scroller for column by index
     async $_initColumnScroller(index = 0) {
-      const wrapper = this.$MDDom().querySelectorAll('.md-picker-column-hook')[index]
-      const content = this.$MDDom().querySelectorAll('.md-picker-column-wheel')[index]
+      const $MDDom = Dom.bind(this)
+      const wrapper = $MDDom().querySelectorAll('.md-picker-column_hooks_item')[index]
+      const content = $MDDom().querySelectorAll('.md-picker-column_wheel')[index]
       const columnData = this.columnValues[index]
       const columnRect = await this.$_getColumnRect({wrapper, content}, index)
       const columnItemHeight = this.style.indicatorHeight
-      
+
       /* istanbul ignore if */
       if (!columnData || !columnRect) {
         return
@@ -230,14 +233,14 @@ export default {
 
       const scroller = new Scroller(wrapper.element, content.element, {
         swipeTime: 1500,
-        probeType: 3
+        probeType: 3,
       })
       scroller.setDimensions(columnRect.wrapper, columnRect.content)
-      
+
       const wheel = new WheelScroller(scroller, {
         items: columnData,
         // itemLength: columnData.length,
-        invalidIndex: this.invalidIndex[index]
+        invalidIndex: this.invalidIndex[index],
       })
 
       // wheel.scroller.on('translate', (point, styles) => {
@@ -250,7 +253,7 @@ export default {
           this.$_toggleColumnScroller(index, false)
         }
       })
-      wheel.scroller.on('scrollEnd', point => {
+      wheel.scroller.on('scrollEnd', () => {
         this.$_toggleColumnScroller(index, true)
         this.$_onColumnScrollEnd(index, wheel.getSelectedIndex())
       })
@@ -275,7 +278,7 @@ export default {
         }
         this.$set(this.columnRect, index, {
           wrapper: wrapperRect,
-          content: contentRect
+          content: contentRect,
         })
       }
 
@@ -331,13 +334,13 @@ export default {
       if (!data) {
         return
       }
-      
+
       traverse(data, (item, level, indexs) => {
         const columnIndex = indexs[0]
         const itemIndex = indexs[1]
         let itemDefaultIndex = defaultIndex[columnIndex]
         const itemDefaultValue = defaultValue[columnIndex]
-        
+
         /*
          * given a default itemIndex when both defaultIndex & defaultValue are undefined
          * avoid activieIndexs failing to initialize
@@ -345,7 +348,7 @@ export default {
         if (itemDefaultIndex === undefined && itemDefaultValue === undefined) {
           itemDefaultIndex = 0
         }
-        
+
         // get initial itemIndex of each columnIndex by defaultIndex or defaultValue
         if (
           (itemDefaultIndex !== undefined && itemIndex === itemDefaultIndex) ||
@@ -367,9 +370,9 @@ export default {
     $_resetScrollingPosition(columnIndex) {
       const wheel = this.$_getWheel(columnIndex)
       const columnValue = this.columnValues[columnIndex] || []
-      
+
       let cacheColumnSelectedIndex = this.selectedIndexs[columnIndex] || 0
-      
+
       if (!wheel) {
         return
       }
@@ -377,7 +380,7 @@ export default {
       if (cacheColumnSelectedIndex > columnValue.length - 1) {
         cacheColumnSelectedIndex = columnValue.length - 1
       }
-      
+
       wheel.wheelTo(cacheColumnSelectedIndex)
       this.$set(this.selectedIndexs, columnIndex, cacheColumnSelectedIndex)
     },
@@ -398,7 +401,9 @@ export default {
       const wheel = this.$_getWheel(index, 'touchstart')
 
       /* istanbul ignore if */
-      if (!wheel) return
+      if (!wheel) {
+        return
+      }
 
       this.isMouseDown = !!isMouse
       this.activedWheels[index] = true
@@ -424,7 +429,7 @@ export default {
       if (!wheel || (isMouse && !this.isMouseDown)) {
         return
       }
-      
+
       this.isMouseDown = !isMouse
 
       wheel && wheel.scroller.handleEnd(event)
@@ -447,7 +452,7 @@ export default {
       if (curActivedIndex !== activedIndex) {
         this.$set(this.activedIndexs, index, activedIndex)
         if (this.isVibrate && this.activedWheels[index]) {
-          this.$MDDevice().vibrate()
+          Device().vibrate()
         }
       }
     },
@@ -546,60 +551,61 @@ export default {
 .md-picker-column
   position relative
   width 100%
-  padding 0 picker-padding-h
-  background color-bg-inverse
+  padding 0 md-picker-padding-h
+  background md-color-bg-inverse
   box-sizing border-box
   transform translate3d(0, 0, 0)
-  &.md-picker-column-super-multiple
-    .md-picker-column-item
-      font-size picker-font-size-small !important
+  &.md-multiple
+    .md-picker-column_item
+      font-size md-picker-font-size-small !important
 
-.md-picker-column-container
+.md-picker-column_container
+  position relative
   height 100%
 
-.md-picker-column-masker
+.md-picker-column_masker
   position absolute !important
   z-index 2
-  left picker-padding-h
-  right picker-padding-h
+  left md-picker-padding-h
+  right md-picker-padding-h
   transform translate3d(0, 0, 0)
 
-  &.top
+  &--top
     top 0
     // background -webkit-gradient(linear,left bottom,left top,from(hsla(0, 0%,100%,.2)),to(hsla(0,0%,100%,1)))
     // hairline(bottom, picker-border-color, 0, 3px)
-    border-bottom solid 1px picker-border-color
-  &.bottom
+    border-bottom solid 1px md-picker-border-color
+  &--bottom
     bottom 0
     // bottom constant(safe-area-inset-bottom)
     // background -webkit-gradient(linear,left top,left bottom,from(hsla(0, 0%,100%,.2)),to(hsla(0,0%,100%,1)))
     // hairline(top, picker-border-color, 0, 3px)
-    border-top solid 1px picker-border-color
+    border-top solid 1px md-picker-border-color
 
-.md-picker-column-hooks
+.md-picker-column_hooks
   display flex
   position absolute
   z-index 3
   absolute-pos()
-  padding 0 picker-padding-h
+  padding 0 md-picker-padding-h
 
-.md-picker-column-hook
+.md-picker-column_hooks_item
   display flex
   flex 1
   height 100%
 
-.md-picker-column-list
+.md-picker-column_list
   display flex
   height 100%
   // padding 0 picker-padding-h
 
-.md-picker-column-wrapper
+.md-picker-column_wrapper
   position relative
   display flex
   flex 1
   clearfix()
   overflow hidden
-  .md-picker-column-wheel
+  .md-picker-column_wheel
     position absolute
     top 0
     left 0
@@ -607,19 +613,19 @@ export default {
     transform-origin left top
     box-sizing border-box
     transform translate3d(0, 0, 0)
-    .md-picker-column-item
+    .md-picker-column_item
       float left
       width 100%
-      padding 0 h-gap-md
+      padding 0 md-h-gap-md
       box-sizing border-box
-      color picker-color
-      font-size picker-font-size
+      color md-picker-color
+      font-size md-picker-font-size
       text-align center
       // white-space nowrap
       word-ellipsis()
-      &.active
-        color picker-color-active
-        font-weight picker-font-weight-active
-      &.disabled
-        opacity picker-disabled-opacity
+      &.md-active
+        color md-picker-color-active
+        font-weight md-picker-font-weight-active
+      &.md-disabled
+        opacity md-picker-disabled-opacity
 </style>

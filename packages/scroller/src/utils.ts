@@ -60,7 +60,8 @@ export const eventTypeMap: {
 
   mousedown: 2,
   mousemove: 2,
-  mouseup: 2
+  mouseup: 2,
+  mouseleave: 2
 }
 
 export interface MountedBScrollHTMLElement extends HTMLElement {

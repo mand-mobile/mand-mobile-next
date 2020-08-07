@@ -1,4 +1,4 @@
-import {extend, warn} from '../_util'
+import {extend, warn} from '@mand-mobile/shared/lib/util'
 
 const defaultOptions = {
   currentLevel: 0,
@@ -48,6 +48,6 @@ export default function(picker, options = {}) {
     activeIndex >= columnValues.length && (activeIndex = 0)
     values = columnValues[activeIndex] || []
   }
-  
+
   options.complete && options.complete()
 }

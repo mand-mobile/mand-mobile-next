@@ -18,7 +18,7 @@
     "build": "cp -r src lib"
   },
   "dependencies": {
-    "@mand-mobile/platform": "^0.0.1",
+    "@mand-mobile/shared": "0.0.1",
     "bluebird": "^3.7.2",
     "glob": "^7.1.6",
     "postcss-url": "^8.0.0",
@@ -38,7 +38,9 @@
     "@dcloudio/vue-cli-plugin-uni-optimize": "^2.0.0-26920200424005",
     "@dcloudio/webpack-uni-mp-loader": "^2.0.0-26920200424005",
     "@dcloudio/webpack-uni-pages-loader": "^2.0.0-26920200424005",
+    "@rollup/plugin-alias": "^3.1.1",
     "@rollup/plugin-babel": "^5.0.4",
+    "@rollup/plugin-node-resolve": "^8.4.0",
     "@vue/cli": "^4.4.6",
     "@vue/cli-plugin-babel": "^4.4.4",
     "@vue/cli-service": "^4.4.6",

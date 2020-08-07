@@ -20,8 +20,8 @@
 	</div>
 </template>
 
-<script>
-import WaterMark from 'mand-mobile/water-mark'
+<script>// import WaterMark from '../../index.web.vue'
+import WaterMark from '../../index'
 
 export default {
   name: 'water-mark-demo',
@@ -33,17 +33,18 @@ export default {
     'md-water-mark': WaterMark,
   },
 }
+</script>
 
-</script>
-
-<style lang="stylus">
-.md-example-child-water-mark-0
-  .text-container
-    padding 32px
-    background #FFF
-  .text
-    margin-bottom 20px
-    line-height 1.5
-    font-size 24px
-    text-indent 2em
+<style>
+.md-example-child-water-mark-0 .text-container{
+  display: block;
+  padding: 32px;
+  background: #FFF;
+}
+.md-example-child-water-mark-0 .text{
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-indent: 2em;
+}
 </style>
