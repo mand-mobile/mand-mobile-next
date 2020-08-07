@@ -1,9 +1,9 @@
 <template>
   <nav class="md-tab-bar">
-    <div class="md-tab-bar-inner">
+    <div class="md-tab-bar_inner">
       <template v-if="scrollable">
-        <div class="md-tab-bar-start" v-show="maskStartShown"></div>
-        <div class="md-tab-bar-end" v-show="maskEndShown"></div>
+        <div class="md-tab-bar_start" v-show="maskStartShown"></div>
+        <div class="md-tab-bar_end" v-show="maskEndShown"></div>
       </template>
       <md-scroll-view
         ref="scroller"
@@ -13,13 +13,16 @@
         :key="scrollerTmpKey"
         @scroll="$_onScroll"
       >
-         <div class="md-tab-bar-list" :style="{width: contentW + 'px'}" :class="[justify]">
+         <div class="md-tab-bar_list"
+          :class="[`md-${justify}`]"
+          :style="{width: contentW + 'px'}"
+        >
           <div
-            class="md-tab-bar-item"
+            class="md-tab-bar_item"
             :class="{
-              'is-active': currentName === item.name,
-              'is-disabled': !!item.disabled,
-              'divided': hasDivide
+              'md-active': currentName === item.name,
+              'md-disabled': !!item.disabled,
+              'md-divided': hasDivide
             }"
             v-for="(item, index) in items"
             :key="item.name"
@@ -35,9 +38,9 @@
           </div>
         </div>
         <div
-          class="md-tab-bar-ink"
+          class="md-tab-bar_ink"
           :class="{
-            'is-disabled': currentTab && currentTab.disabled
+            'md-disabled': currentTab && currentTab.disabled
           }"
           v-if="hasInk"
           :style="{
@@ -51,8 +54,9 @@
 </template>
 
 <script>
-import ScrollView from '../scroll-view'
+import {Dom} from '@mand-mobile/platform/lib/runtime/module'
 import {root, debounce} from '@mand-mobile/shared/lib/util'
+import ScrollView from '../scroll-view'
 
 export default {
   name: 'md-tab-bar',
@@ -177,22 +181,22 @@ export default {
     $_onScroll({scrollLeft}) /* istanbul ignore next */ {
       scrollLeft = Math.abs(scrollLeft)
 
-      if (scrollLeft > 0) {
+      if (scrollLeft > 0.5) {
         this.maskStartShown = true
       } else {
         this.maskStartShown = false
       }
-      
+
       const {wrapperW, contentW} = this.$refs.scroller.getSizes()
 
-      if (scrollLeft >= contentW - wrapperW) {
+      if (contentW - wrapperW - scrollLeft < 0.5) {
         this.maskEndShown = false
       } else {
         this.maskEndShown = true
       }
     },
     $_onClick(item, index) {
-      if (item.disabled || this.$refs.scroller.pending) {
+      if (item.disabled) {
         return
       }
       this.$emit('change', item, index, this.currentIndex)
@@ -219,20 +223,20 @@ export default {
         return
       }
 
+      const $MDDom = Dom.bind(this)
       const scroller = this.$refs.scroller
-      const wrapper = this.$MDDom().querySelector('.md-tab-bar-inner')
-      const items = this.$MDDom().querySelectorAll('.md-tab-bar-item')
-      
+      const wrapper = $MDDom().querySelector('.md-tab-bar_inner')
+      const items = $MDDom().querySelectorAll('.md-tab-bar_item')
+
       // if (force) {
       this.wrapperRect = await wrapper.getBoundingClientRect()
       // }
 
       const wrapperRect = this.wrapperRect || {}
-      this.wrapperW = wrapperRect.width
-      
+      this.wrapperW = +wrapperRect.width.toFixed(1)
+
       let contentWidth = 0
       let itemsRect = []
-
 
       for (let i = 0, len = this.items.length; i < len; i++) {
         const itemRect = await items[i].getBoundingClientRect()
@@ -240,7 +244,7 @@ export default {
         itemsRect.push(itemRect)
       }
 
-      this.contentW = contentWidth
+      this.contentW = +contentWidth.toFixed(1)
       scroller.reflowScroller()
       this.$nextTick(async () => {
         /* istanbul ignore next */
@@ -248,13 +252,13 @@ export default {
           return
         }
 
-        const target = items[this.currentIndex]
+        // const target = items[this.currentIndex]
         const targetRect = itemsRect[this.currentIndex]
         const scrollOffsets = scroller.getOffsets()
         const scrollLeft = Math.abs(scrollOffsets.left)
-        
+
         this.inkWidth = targetRect.width * this.inkLength / 100
-        this.inkPos = (targetRect.left - wrapperRect.left) + (targetRect.width - this.inkWidth) / 2 + scrollLeft
+        this.inkPos = targetRect.left - wrapperRect.left + (targetRect.width - this.inkWidth) / 2 + scrollLeft
 
         const hasPrevTarget = !(this.currentIndex - 1 < 0)
         const hasNextTarget = !(this.currentIndex + 1 > this.items.length - 1)
@@ -289,77 +293,77 @@ export default {
 <style lang="stylus">
 .md-tab-bar
   position relative
-  padding-left tab-offset
-  padding-right tab-offset
-  background-color tab-bg
+  padding-left md-tab-offset
+  padding-right md-tab-offset
+  background-color md-tab-bg
 
-.md-tab-bar-inner
+.md-tab-bar_inner
   position relative
   width 100%
   // line-height 0
 
-.md-tab-bar-list
+.md-tab-bar_list
   display flex
   justify-content space-between
   min-width 100%
-  &.flex-start
+  &.md-flex-start
     justify-content flex-start
-    .md-tab-bar-item
+    .md-tab-bar_item
       flex none
       margin 0 0
       padding 0 30px
-      font-size font-caption-normal
+      font-size md-font-caption-normal
 
-.md-tab-bar-item
+.md-tab-bar_item
   flex auto
   flex-shrink 0
   position relative
   display inline-flex
   align-items center
   justify-content center
-  color tab-text-color
-  font-size tab-font-size
-  font-weight tab-font-weight
-  min-height tab-height
-  padding 0 tab-item-gap
+  color md-tab-text-color
+  font-size md-tab-font-size
+  font-weight md-tab-font-weight
+  min-height md-tab-height
+  padding 0 md-tab-item-gap
   margin 0 auto
   box-sizing border-box
   -webkit-user-select none
   -webkit-tap-highlight-color transparent
-  &.is-active
-    color tab-active-color
-  &.is-disabled
-    color tab-disabled-color
-  &:last-of-type:after
+  &:last-of-type::after
     display none
-  &.divided:after
+  &.md-active
+    color md-tab-active-color
+  &.md-disabled
+    color md-tab-disabled-color
+  &.md-divided::after
     content: ""
     position absolute
     top 50%
     right 0
     width 1px
     height 50%
-    border-left solid 1px color-border-base
+    border-left solid 1px md-color-border-base
     transform translate(50%, -50%)
 
-.md-tab-bar-ink
+.md-tab-bar_ink
   position absolute
   bottom 0
   left 0
   display block
-  height tab-ink-height
-  background-color tab-active-color
+  height md-tab-ink-height
+  background-color md-tab-active-color
   transition all 300ms
-  &.is-disabled
-    background-color tab-disabled-color
+  &.md-disabled
+    background-color md-tab-disabled-color
 
-.md-tab-bar-start,
-.md-tab-bar-end
+.md-tab-bar_start,
+.md-tab-bar_end
   position absolute
   top 0
   left 0
   width 14px
-  height tab-height
+  height md-tab-height
   overflow hidden
   &::after
     content ''
@@ -368,15 +372,15 @@ export default {
     left -14px
     top 50%
     width 14px
-    if tab-height is a 'unit'
-      margin-top 0 - tab-height * 0.4
-      height tab-height * 0.8
+    if md-tab-height is a 'unit'
+      margin-top 0 - md-tab-height * 0.4
+      height md-tab-height * 0.8
     else
-      margin-top "calc(0 - %s * 0.4)" % tab-height
-      height "calc(%s * 0.8)" % tab-height
+      margin-top "calc(0 - %s * 0.4)" % md-tab-height
+      height "calc(%s * 0.8)" % md-tab-height
     border-radius 50%
-    box-shadow: -1px 0 12px 0 rgba(0,0,0,0.2)
-.md-tab-bar-end
+    box-shadow -1px 0 12px 0 rgba(0,0,0,0.2)
+.md-tab-bar_end
   left auto
   right 0
   transform rotate(180deg)
