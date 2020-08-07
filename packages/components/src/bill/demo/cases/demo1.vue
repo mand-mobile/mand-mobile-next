@@ -34,12 +34,12 @@
 	</div>
 </template>
 
-<script>// import '@examples/assets/images/bank-zs.svg'
-// import {Bill, DetailItem, Icon, Tag} from 'mand-mobile'
-import Bill from '../../index'
-import DetailItem from '../../../detail-item'
-import Icon from '../../../icon'
-import Tag from '../../../tag'
+<script>
+// import '@examples/assets/images/bank-zs.svg'
+import Bill from 'mand-mobile/lib/bill'
+import DetailItem from 'mand-mobile/lib/detail-item'
+import Icon from 'mand-mobile/lib/icon'
+import Tag from 'mand-mobile/lib/tag'
 
 export default {
   name: 'bill-demo',
@@ -54,7 +54,8 @@ export default {
     'md-tag': Tag,
   },
 }
-</script>
+
+</script>
 <style>
 .md-example-child-bill-1 .md-bill {
   background-color: #FFF;

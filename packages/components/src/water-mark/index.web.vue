@@ -49,7 +49,8 @@
   </div>
 </template>
 
-<script>import {getDpr} from '@mand-mobile/shared/lib/util'
+<script>
+import {getDpr} from '@mand-mobile/shared/lib/util'
 
 const fontSize = 14
 const color = '#858B9C'
@@ -159,44 +160,9 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
-.md-water-mark
-  position relative
-  overflow hidden
-
-.md-water-mark_container
-  position relative
-  z-index 2
-
-.md-water-mark_list
-  clearfix()
-  absolute-pos()
-  position absolute
-  filter grayscale(100%)
-  display flex
-  flex-direction column
-  justify-content center
-  overflow hidden
-
-  .md-water-mark_list_wrap_canvas
-    position absolute
-    top 0
-    left 0
-    transform translate3d(-50%, -50%, 0)
-
-.md-water-mark_list_wrap_line
-  position relative
-  left 50%
-  float left
-  width 10000%
-  display flex
-  justify-content center
-  transform translateX(-50%)
-
-.water-mark_list_wrap_line_item
-  float left
-  font-size font-body-large
-  color color-text-caption
+@import 'common.styl'
 </style>

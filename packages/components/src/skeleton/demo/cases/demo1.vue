@@ -5,7 +5,8 @@
   </div>
 </template>
 
-<script>import Skeleton from '../../index'
+<script>
+import Skeleton from 'mand-mobile/lib/skeleton'
 export default {
   name: 'skeleton-demo',
   /* DELETE */
@@ -21,7 +22,8 @@ export default {
     'md-skeleton': Skeleton,
   },
 }
-</script>
+
+</script>
 
 <style>
 .md-example-child-skeleton-1 {
