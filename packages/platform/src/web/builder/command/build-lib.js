@@ -56,6 +56,9 @@ function compileJsAndReplace(filePath){
            'browsers': ['iOS >= 8', 'Android >= 4']
          }
        }]
+     ],
+     plugins: [
+       [babelPluginReplacePlatformPath]
      ]
   })
    .then(({code}) => {
@@ -129,11 +132,28 @@ function computedCompilerConfig(filePath) {
       plugins: [
         [babelPluginInsertCssImportForVue, {
           filePath,
-        }]
+        }],
+        [babelPluginReplacePlatformPath]
       ]
     },
     customCompilers: {
       stylus: compileVueStylus
+    }
+  }
+}
+
+/**
+ * 
+ * 替换platform 为 platform/web
+ */
+function babelPluginReplacePlatformPath() {
+  return {
+    visitor: {
+      ImportDeclaration(path){
+        const source = path.node.source;
+        const value = source.value.replace(/@mand-mobile\/platform\/(?!web)/, '@mand-mobile/platform/web/')
+        source.value = value
+      }
     }
   }
 }
