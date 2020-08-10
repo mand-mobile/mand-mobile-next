@@ -15,7 +15,8 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
     "prebuild": "rm -fr lib || true",
-    "build": "cp -r src lib"
+    "build": "cp -r src lib",
+    "build:uni-component": "node lib/uni/builder/component-gen/index.js"
   },
   "dependencies": {
     "@mand-mobile/shared": "0.0.1",
@@ -44,6 +45,7 @@
     "@vue/cli": "^4.4.6",
     "@vue/cli-plugin-babel": "^4.4.4",
     "@vue/cli-service": "^4.4.6",
+    "@vue/compiler-core": "^3.0.0-rc.5",
     "@vue/compiler-sfc": "^3.0.0-beta.18",
     "jest": "^26.0.1",
     "postcss-pixel-to-viewport": "^1.0.2",

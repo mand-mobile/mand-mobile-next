@@ -22,7 +22,8 @@
         :disabled="readOnly"
         @focus="$_onFocus"
         @blur="$_onChange"
-        @input="$_onInput">
+        @input="$_onInput"
+      />
     </div>
     <div
       class="md-stepper_button md-stepper_button-add"
@@ -34,8 +35,7 @@
   </div>
 </template>
 
-<script>
-import {warn} from '@mand-mobile/shared/lib/util'
+<script>import {warn} from '@mand-mobile/shared/lib/util'
 function getDecimalNum(num) {
   try {
     return num.toString().split('.')[1].length
@@ -220,8 +220,7 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-stepper
