@@ -18,7 +18,7 @@ module.exports = api => {
     api.$renderPartial(`${MAND_INPUT_DIR}`, './template/web-bundle/_mand-mobile', {components})
     api.render({
       [`${MAND_INPUT_DIR}/vue.config.js`]: path.resolve(__dirname, 'template/common/vue.config.js'),
-      [`${MAND_INPUT_DIR}/postcss.config.js`]: path.resolve(__dirname, 'template/common/postcss.config.js'),
+      [`${MAND_INPUT_DIR}/postcss.config.js`]: api.utils.commonTemplateResolver('postcss.config.js'),
     })
     return 
   }
