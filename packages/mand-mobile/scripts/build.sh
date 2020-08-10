@@ -21,7 +21,7 @@ echo "build $buildTarget in $platform platform"
 export VUE_CLI_SKIP_DIRTY_GIT_PROMPT=true 
 
 if [ "$platform"x = "all"x ]; then
-  run-p "build:*"
+  run-s "build:*"
 else
   export MAND_INPUT_DIR=".mand-mobile/${platform}/$buildTarget"
   export MAND_OUTPUT_DIR="$platform/$buildTarget"

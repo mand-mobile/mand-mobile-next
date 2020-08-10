@@ -278,7 +278,6 @@ module.exports = (webpackConfig, args, api) => {
     })
     .catch(e => {
       // eslint-disable-next-line no-console
-      console.error(e)
       resultLog('error', 'Build **Components** Fail!')
     })
   

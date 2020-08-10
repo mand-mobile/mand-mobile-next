@@ -1,8 +1,8 @@
 {
   "lerna": "3.16.1",
   "packages": ["packages/*"],
-  "version": "independent",
   "npmClient": "yarn",
+  "version": "3.0.0",
   "command": {
     "publish": {
       "allowBranch": ["master", "release_*", "release"],
