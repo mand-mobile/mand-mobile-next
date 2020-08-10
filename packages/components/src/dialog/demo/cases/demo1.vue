@@ -7,8 +7,10 @@
   </div>
 </template>
 
-<script>import Dialog from '../../index'
-import Button from '../../../button'
+<script>
+import Dialog from 'mand-mobile/lib/dialog'
+import Button from 'mand-mobile/lib/button'
+
 export default {
   name: 'dialog-demo1',
   /* DELETE */
@@ -58,4 +60,5 @@ export default {
     },
   },
 }
-</script>
+
+</script>

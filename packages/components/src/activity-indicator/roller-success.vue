@@ -21,7 +21,7 @@
         v-if="isSuccess"
         viewBox="0 0 100 100"
         preserveAspectRatio="xMidYMid"
-        class="right"
+        class="md-activity-indicator-rolling-success_right"
         :style="{transform: `translate(-50%, -50%) scale(${size/70})`}"
       >
         <g>
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import Roller from './roller'
+import Roller from 'mand-mobile/lib/activity-indicator/roller'
 
 export default {
   name: 'md-activity-indicator-rolling-success',
@@ -119,7 +119,7 @@ export default {
 <style lang="stylus">
 .md-activity-indicator-rolling-success
   position relative
-  .right
+  &_right
     position absolute
     left 50%
     top 50%

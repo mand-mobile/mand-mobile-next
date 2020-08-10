@@ -2,30 +2,31 @@
 <div>
   <div
     class="md-stepper"
-    :class="{'disabled': disabled}"
+    :class="{'md-stepper--disabled': disabled}"
   >
     <div
-      class="md-stepper-button md-stepper-button-reduce"
-      :class="{'disabled': isMin}"
+      class="md-stepper_button md-stepper_button-reduce"
+      :class="{'md-stepper_button--disabled': isMin}"
       @click="$_reduce"
     >
     </div>
-    <div class="md-stepper-number">
-      <div class="md-stepper-number-back">{{currentNum}}</div>
+    <div class="md-stepper_number">
+      <div class="md-stepper_number_back">{{currentNum}}</div>
       <!-- 输入框不能绑定value,这样属性不生效,要v-model -->
       <input
-        class="md-stepper-number-input"
+        class="md-stepper_number_input"
         :type="inputType"
         :size="contentLength"
         v-model="currentNum"
         :readonly="readOnly"
+        :disabled="readOnly"
         @focus="$_onFocus"
         @blur="$_onChange"
         @input="$_onInput">
     </div>
     <div
-      class="md-stepper-button md-stepper-button-add"
-      :class="{'disabled': isMax}"
+      class="md-stepper_button md-stepper_button-add"
+      :class="{'md-stepper_button--disabled': isMax}"
       @click="$_add"
     >
     </div>
@@ -104,7 +105,7 @@ export default {
       isMax: false,
       isEditing: false,
       currentNum: 0,
-      inputType:'tel'
+      inputType: 'tel',
     }
   },
 
@@ -224,25 +225,25 @@ export default {
 
 <style lang="stylus">
 .md-stepper
-  color stepper-color
+  color md-stepper-color
   -webkit-font-smoothing antialiased
-  font-size stepper-font-size
-  height stepper-height
+  font-size md-stepper-font-size
+  height md-stepper-height
   display flex
-  &.disabled
-    .md-stepper-button
+  &--disabled
+    .md-stepper_button
       &:before,
       &:after
-        opacity stepper-disabled-opacity
+        opacity md-stepper-disabled-opacity
     input
-      opacity stepper-disabled-opacity
+      opacity md-stepper-disabled-opacity
 
-.md-stepper-button
+.md-stepper_button
   position relative
-  width stepper-width-button
-  height stepper-height
-  background-color stepper-fill
-  border-radius stepper-radius-button
+  width md-stepper-width-button
+  height md-stepper-height
+  background-color md-stepper-fill
+  border-radius md-stepper-radius-button
   &:after
     content ""
     position absolute
@@ -250,9 +251,9 @@ export default {
     height 2px
     top 50%
     left 50%
-    background stepper-color
+    background md-stepper-color
     transform translate(-50%, -50%)
-  &.md-stepper-button-add
+  &.md-stepper_button-add
     &:before
       content ""
       position absolute
@@ -260,37 +261,37 @@ export default {
       height 24px
       top 50%
       left 50%
-      background stepper-color
+      background md-stepper-color
       transform translate(-50%, -50%)
-  &.disabled
+  &--disabled
     &:before,
     &:after
-      opacity stepper-disabled-opacity
+      opacity md-stepper-disabled-opacity
 
-.md-stepper-number
+.md-stepper_number
   position relative
   margin 0 4px
-  min-width stepper-width-input
-  height stepper-height
+  min-width md-stepper-width-input
+  height md-stepper-height
   padding 0 4px
   text-align center
-  border-radius stepper-radius-input
-  background-color stepper-fill
-  &-back
+  border-radius md-stepper-radius-input
+  background-color md-stepper-fill
+  &_back
     color transparent
-  &-input
+  &_input
     position absolute
     left 0
     top 0
     bottom 0
     width 100%
-    height stepper-height
+    height md-stepper-height
     border none
     outline none
-    font-size stepper-input-font-size
-    line-height stepper-height
+    font-size md-stepper-input-font-size
+    line-height md-stepper-height
     background-color transparent
     box-sizing border-box
     text-align center
-    color stepper-color
+    color md-stepper-color
 </style>

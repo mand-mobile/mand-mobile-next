@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import Check from '../../index'
-import CheckGroup from '../../group'
-import Field from '../../../field'
+import Check from 'mand-mobile/lib/check'
+import Field from 'mand-mobile/lib/field'
+import CheckGroup from 'mand-mobile/lib/check/group'
 
 export default {
   name: 'check-demo',

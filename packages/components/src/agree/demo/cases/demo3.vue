@@ -11,7 +11,8 @@
 	</div>
 </template>
 
-<script>import Agree from '../../index'
+<script>
+import Agree from 'mand-mobile/lib/agree'
 
 export default {
   name: 'agree-demo',
@@ -41,4 +42,5 @@ export default {
     },
   },
 }
-</script>
+
+</script>

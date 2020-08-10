@@ -129,6 +129,7 @@
 </template>
 
 <script>
+import {noop, extend} from '@mand-mobile/shared/lib/util'
 import Popup from '../popup'
 import PopupTitlebar from '../popup/title-bar'
 import popupMixin from '../popup/mixins'
@@ -136,7 +137,6 @@ import popupTitleBarMixin from '../popup/mixins/title-bar'
 import Captcha from '../captcha'
 import Icon from '../icon'
 import RollerSuccess from '../activity-indicator/roller-success'
-import {noop, extend} from '@mand-mobile/shared/lib/util'
 import Channel from './channel'
 import ChannelButton from './channel-button'
 
@@ -322,7 +322,7 @@ export default {
         height 100px
         margin-top 75px
         transform translateX(-50%)
-        .md-activity-indicator-svg
+        .md-activity-indicator_svg
           width 100px !important
           height 100px !important
       .md-cashier-block-text

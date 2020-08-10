@@ -71,9 +71,10 @@
   </div>
 </template>
 
-<script>import Dialog from '../../dialog'
-import Button from '../../../button'
-import Toast from '../../../toast'
+<script>
+import Dialog from 'mand-mobile/lib/dialog'
+import Button from 'mand-mobile/lib/button'
+import Toast from 'mand-mobile/lib/toast'
 
 export default {
   name: 'dialog-demo0',
@@ -235,7 +236,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style>
 .dialog-banner img {
