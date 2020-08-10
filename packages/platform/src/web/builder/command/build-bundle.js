@@ -39,12 +39,11 @@ const translateToRollupConfig = ({webpackConfig, entry, context}) => {
     extensions,
   })
 
-  console.info(path.resolve(exeRootPath, MAND_INPUT_DIR, 'postcss.config.js'))
   const inputOptions = {
     /**
-     * @todo 替换
+     * @todo 替换 基于约定默认取main.js作为入口
      */
-    input: entry,
+    input: `${MAND_INPUT_DIR}/main.js`,
     external: ['vue'],
     plugins: [
       rplgAlias({
