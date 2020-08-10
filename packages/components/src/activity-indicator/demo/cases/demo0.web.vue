@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import ActivityIndicator from '../../../activity-indicator'
+import ActivityIndicator from '../../'
 
 export default {
   name: 'activity-indicator-demo',
@@ -28,17 +28,24 @@ export default {
 
 </script>
 
-<style lang="stylus">
-.md-example-child-md-activity-indicator-0
-  display flex
-  flex-direction column
-  align-items center
-  .md-activity-indicator
-    margin-bottom 30px
-    &.md-activity-indicator-css
-      .md-activity-indicator-svg
-        width 60px !important
-        height 60px !important
-      .md-activity-indicator-text
-        font-size 32px
+<style>
+.md-example-child-md-activity-indicator-0 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  
+.md-activity-indicator {
+  margin-bottom: 30px;
+}
+
+.md-example-child-md-activity-indicator-0 .md-activity-indicator-css .md-activity-indicator_svg {
+  width: 60px !important;
+  height: 60px !important;
+}
+      
+.md-example-child-md-activity-indicator-0 .md-activity-indicator-css .md-activity-indicator-text {
+  font-size: 32px;
+}
+        
 </style>

@@ -2,8 +2,8 @@
   <div
     class="md-selector"
     :class="{
-      'is-normal': !isCheck,
-      'is-check': isCheck
+      'md-selector--normal': !isCheck,
+      'md-selector--check': isCheck
     }"
   >
     <md-popup
@@ -20,12 +20,12 @@
         :title="title"
         :describe="describe"
         :ok-text="okText"
-        :cancel-text="cancelText"
-        :only-close="!isCheck && !isNeedConfirm && !cancelText"
+        :cancel-text="normalizedCancelText"
+        :only-close="!isCheck && !isNeedConfirm && !normalizedCancelText"
         @confirm="$_onSelectorConfirm"
         @cancel="$_onSelectorCancel"
       ></md-popup-title-bar>
-      <div class="md-selector-container">
+      <div class="md-selector_container">
         <md-scroll-view
           class="md-scroll-view"
           ref="scroll"
@@ -37,7 +37,7 @@
         >
           <slot name="header"></slot>
           <!-- audio-list with single select -->
-          <div class="md-selector-list">
+          <div class="md-selector_list">
             <template v-if="!multi">
               <md-radio-list
                 ref="radio"
@@ -136,10 +136,7 @@ export default {
       type: [Number, String],
       default: 'auto',
     },
-    cancelText: {
-      // default() {
-      //   return this.okText ? '取消' : ''
-      // },
+    normalized: {
       default: '',
     },
     iconPosition: {
@@ -219,6 +216,9 @@ export default {
     hasSlot() {
       return !!this.$scopedSlots.default
     },
+    normalizedCancelText() {
+      return this.cancelText || (this.okText ? '取消' : '')
+    },
   },
 
   watch: {
@@ -243,7 +243,7 @@ export default {
   methods: {
     // MARK: private methods
     $_setScroller() {
-      // this.$refs.scroll.reflowScroller()
+      this.$refs.scroll.reflowScroller()
     },
     // MARK: events handler
     $_onSelectorConfirm() {
@@ -299,11 +299,11 @@ export default {
 <style lang="stylus">
 .md-selector
   .md-popup
-    z-index selector-zindex
+    z-index md-selector-zindex
   // .md-popup-title-bar .md-popup-cancel
   //   .md-icon
   //     align-self flex-start
-  .md-selector-container
+  .md-selector_container
     background-color #FFF
   // .md-radio-item
   //   padding-left h-gap-sl
@@ -316,19 +316,20 @@ export default {
     //     color color-primary
     // &:active
     //   background-color color-bg-tap
-  .md-selector-list
-    padding 0 h-gap-sl
-  &.is-check
-    .md-radio-item.is-selected
-      .md-cell-item-title
+  .md-selector_list
+    padding 0 md-h-gap-sl
+  &.md-selector--check
+    .md-radio-item--selected
+      .md-cell-item_title
         color inherit
-  .md-check-item
-    padding-left h-gap-sl
-    padding-right h-gap-sl
+  // .md-check-item
+  //   padding-left md-h-gap-sl
+  //   padding-right md-h-gap-sl
 
 
-.md-selector-container
+.md-selector_container
   padding-bottom constant(safe-area-inset-bottom)
+  padding-bottom env(safe-area-inset-bottom)
   overflow hidden
 
 // .md-selector

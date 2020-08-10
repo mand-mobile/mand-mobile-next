@@ -40,16 +40,18 @@
 
 <script>
 import {createProxyApiMixin} from '@mand-mobile/shared/lib/mixin/proxy'
+
 import Popup from '../popup'
 import PopTitleBar from '../popup/title-bar'
-import DatePickerView from '../date-picker/date-picker-view'
 import pickerMixin from '../picker/mixins'
+
+import DatePickerView from './date-picker-view'
 import datePickerMixin from './mixin'
-import {
-  toObject,
-  toArray,
-  warn
-} from '@mand-mobile/shared/lib/util'
+// import {
+//   toObject,
+//   toArray,
+//   warn
+// } from '@mand-mobile/shared/lib/util'
 
 export default {
   name: 'md-date-picker',
@@ -64,20 +66,20 @@ export default {
         'getColumnIndexs',
         'getFormatDate',
         'setColumnValues',
-        'refresh'
-      ]
-    }), 
+        'refresh',
+      ],
+    }),
     pickerMixin,
-    datePickerMixin
+    datePickerMixin,
   ],
 
   components: {
     'md-popup': Popup,
     'md-popup-title-bar': PopTitleBar,
-    'md-date-picker-view': DatePickerView
+    'md-date-picker-view': DatePickerView,
   },
 
-  data () {
+  data() {
     return {
       isPickerShow: false,
       cacheSelectedDate: null,
@@ -85,24 +87,24 @@ export default {
   },
 
   watch: {
-    value (val) {
+    value(val) {
       this.isPickerShow = val
       val && this.$_initPicker()
     },
-    isPickerShow (val) {
+    isPickerShow(val) {
       if (!val) {
         this.$emit('input', val)
       }
     },
   },
 
-  mounted () {
-    this.$_initPicker()
-  },
+  // mounted () {
+  //   this.$_initPicker()
+  // },
 
   methods: {
     // MARK: private methods
-    $_initPicker () {
+    $_initPicker() {
       if (this.value) {
         this.isPickerShow = this.value
       }
@@ -122,7 +124,7 @@ export default {
     $_onPickerConfirm() {
       const pickerColumn = this.getColumnContext()
       const columnValues = pickerColumn.getColumnValues()
-      const columnIndexs = pickerColumn.getColumnIndexs()
+      // const columnIndexs = pickerColumn.getColumnIndexs()
       const isScrolling = pickerColumn.wheels.some(wheel => {
         return wheel.scroller.pending
       })
@@ -159,6 +161,7 @@ export default {
     $_onPickerShow() {
       this.$emit('show')
     },
-  }
+  },
 }
+
 </script>

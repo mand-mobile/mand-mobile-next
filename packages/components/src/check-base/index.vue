@@ -19,8 +19,9 @@
   </div>
 </template>
 
-<script>import Tag from '../tag'
-import Icon from '../icon'
+<script>
+import Tag from 'mand-mobile/lib/tag'
+import Icon from 'mand-mobile/lib/icon'
 export default {
   name: 'md-check-base-box',
 
@@ -44,7 +45,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-check-base-box

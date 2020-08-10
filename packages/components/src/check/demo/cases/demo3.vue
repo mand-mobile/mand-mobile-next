@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import CheckBox from '../../box'
-import CheckGroup from '../../group'
-import Field from '../../../field'
+import Field from 'mand-mobile/lib/field'
+import CheckBox from 'mand-mobile/lib/check/box'
+import CheckGroup from 'mand-mobile/lib/check/group'
 
 export default {
   name: 'check-demo',
@@ -31,7 +31,7 @@ export default {
     return {
       insurants: ['self'],
     }
-  }
+  },
 }
 
 </script>

@@ -27,10 +27,12 @@ export default {
 
 </script>
 
-<style lang="stylus">
-.md-example-child-captcha-1
-  height 650px
-  padding 30px 0
-  .md-number-keyboard
-    margin-top 30px
+<style>
+.md-example-child-captcha-1 {
+  height: 650px;
+  padding: 30px 0;
+}
+.md-number-keyboard {
+  margin-top: 30px;
+}
 </style>

@@ -10,9 +10,10 @@
   </div>
 </template>
 
-<script>import Radio from '../../index'
-import Field from '../../../field'
-import FieldItem from '../../../field/item'
+<script>
+import Radio from 'mand-mobile/lib/radio'
+import Field from 'mand-mobile/lib/field'
+import FieldItem from 'mand-mobile/lib/field/item'
 
 export default {
   name: 'radio-demo',
@@ -32,4 +33,5 @@ export default {
     }
   },
 }
-</script>
+
+</script>

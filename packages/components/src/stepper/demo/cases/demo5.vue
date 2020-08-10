@@ -9,10 +9,9 @@
 </template>
 
 <script>
-// import {Stepper, Field, FieldItem} from 'mand-mobile'
-import Stepper from '../../index'
-import Field from '../../../field/index'
-import FieldItem from '../../../field/item'
+import Stepper from 'mand-mobile/lib/stepper'
+import Field from 'mand-mobile/lib/field/index'
+import FieldItem from 'mand-mobile/lib/field/item'
 
 export default {
   name: 'stepper-demo',
@@ -21,12 +20,9 @@ export default {
   titleEnUS: 'Step is a decimal, 1.3',
   /* DELETE */
   components: {
-    // [Field.name]: Field,
-    // [FieldItem.name]: FieldItem,
-    // [Stepper.name]: Stepper,
-    'md-stepper':Stepper,
-    'md-field':Field,
-    'md-field-item':FieldItem
+    'md-stepper': Stepper,
+    'md-field': Field,
+    'md-field-item': FieldItem,
   },
 }
 
