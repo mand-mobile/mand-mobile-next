@@ -1,20 +1,21 @@
 <template>
   <div class="md-example-child md-example-child-scroll-view md-example-child-scroll-view-0">
-    <md-scroll-view
-      class="md-scroll-view"
-      ref="scrollView"
-      :styles="{height: '300px'}"
-      @scroll="$_onScroll"
-    >
-      <div
-        v-for="i in list"
-        class="scroll-view-item"
-        :key="i"
-        @click="$_onItemClick(i)"
+    <div class="container">
+      <md-scroll-view
+        class="md-scroll-view"
+        ref="scrollView"
+        :styles="{height: '300px'}"
+        @scroll="$_onScroll"
       >
-        {{i}}
-      </div>
-    </md-scroll-view>
+        <div
+          v-for="i in list"
+          class="scroll-view-item"
+          :key="i"
+          @click="$_onItemClick(i)"
+        >{{randomFace(5)}}</div>
+      </md-scroll-view>
+    </div>
+    <md-button class="md-button" type="primary" size="small" inline @click="addItems">新增</md-button>
   </div>
 </template>
 
@@ -23,6 +24,9 @@ import ScrollView from 'mand-mobile/lib/scroll-view'
 import ScrollViewRefresh from 'mand-mobile/lib/scroll-view/refresh'
 import ScrollViewMore from 'mand-mobile/lib/scroll-view/more'
 import Toast from 'mand-mobile/lib/toast'
+import Button from 'mand-mobile/lib/button'
+
+import randomFace from 'mand-mobile/lib/scroll-view/demo/data/faces'
 
 export default {
   name: 'scroll-view-demo-0',
@@ -30,10 +34,12 @@ export default {
     'md-scroll-view': ScrollView,
     'md-scroll-view-refresh': ScrollViewRefresh,
     'md-scroll-view-more': ScrollViewMore,
+    'md-button': Button,
   },
   data() {
     return {
       list: 20,
+      randomFace,
     }
   },
   mounted() {
@@ -59,16 +65,20 @@ export default {
 </script>
 
 <style>
-.md-example-child-scroll-view-0 {
+.md-example-child-scroll-view-0 .container {
   background: #FFF;
+}
+.md-example-child-scroll-view-0 .md-button {
+  margin-top: 20px;
 }
 .md-example-child-scroll-view-0 .md-scroll-view {
   height: 600px;
 }
 .md-example-child-scroll-view-0 .scroll-view-item {
-  padding: 30px 0;
+  padding: 20px 0;
   text-align: center;
-  font-size: 28px;
+  font-size: 42px;
+  letter-spacing: 5px;
 }
 .md-example-child-scroll-view-0 .scroll-view-item:nth-child(2n+1) {
   background: #EFEFEF;
