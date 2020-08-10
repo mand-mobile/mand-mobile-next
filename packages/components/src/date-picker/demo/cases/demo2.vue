@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import DatePicker from 'mand-mobile/date-picker/date-picker-view'
+import DatePicker from 'mand-mobile/lib/date-picker/date-picker-view'
 
 export default {
   name: 'date-picker-demo',

@@ -352,7 +352,8 @@ export default {
         // get initial itemIndex of each columnIndex by defaultIndex or defaultValue
         if (
           (itemDefaultIndex !== undefined && itemIndex === itemDefaultIndex) ||
-          (itemDefaultValue !== undefined && item[this.labelKey] === itemDefaultValue)
+          (itemDefaultValue !== undefined &&
+            (item.value === itemDefaultValue || item[this.labelKey] === itemDefaultValue))
         ) {
           fn(columnIndex, itemIndex)
           return 2
@@ -566,8 +567,8 @@ export default {
 .md-picker-column_masker
   position absolute !important
   z-index 2
-  left md-picker-padding-h
-  right md-picker-padding-h
+  left 0
+  right 0
   transform translate3d(0, 0, 0)
 
   &--top
@@ -587,7 +588,7 @@ export default {
   position absolute
   z-index 3
   absolute-pos()
-  padding 0 md-picker-padding-h
+  // padding 0 md-picker-padding-h
 
 .md-picker-column_hooks_item
   display flex
@@ -616,7 +617,7 @@ export default {
     .md-picker-column_item
       float left
       width 100%
-      padding 0 md-h-gap-md
+      padding 0 md-h-gap-sm
       box-sizing border-box
       color md-picker-color
       font-size md-picker-font-size
