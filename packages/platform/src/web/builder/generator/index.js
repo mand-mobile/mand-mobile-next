@@ -17,7 +17,8 @@ module.exports = api => {
     // api.render('./template/web-bundle', {components})
     api.$renderPartial(`${MAND_INPUT_DIR}`, './template/web-bundle/_mand-mobile', {components})
     api.render({
-      [`${MAND_INPUT_DIR}/vue.config.js`]: path.resolve(__dirname, 'template/common/vue.config.js'),    
+      [`${MAND_INPUT_DIR}/vue.config.js`]: path.resolve(__dirname, 'template/common/vue.config.js'),
+      [`${MAND_INPUT_DIR}/postcss.config.js`]: path.resolve(__dirname, 'template/common/postcss.config.js'),
     })
     return 
   }
@@ -27,9 +28,7 @@ module.exports = api => {
    */
   if (target === 'example' && componentName) {
     const component = components.find((component) => component.dashedStyledName === componentName)
-    if (!component){
-      return
-    }
+    if (!component) { return }
     // api.render('./template/web-preview-single-component/.mand-mobile', {component})
     api.$renderPartial(`${MAND_INPUT_DIR}`, './template/web-preview-single-component/_mand-mobile', {component})
     api.render({
