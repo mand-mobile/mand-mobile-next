@@ -1,11 +1,9 @@
 /* eslint-disable */
 // const postcss = require('postcss')
 const stylus = require('stylus')
-
 const STYLE = 'style'
-const IMPORT_PAHT = `${__dirname.split('platform')[0]}shared/src/style/mixin`
 
-exports.concatcStyle = function concatcStyle(ast, transformFlag = false) {
+exports.concatcStyle = function concatcStyle(ast, transformFlag = false, _shared) {
   let code = ''
 
   ast.children
@@ -16,10 +14,10 @@ exports.concatcStyle = function concatcStyle(ast, transformFlag = false) {
       if (transformFlag) {
         t.children.forEach(styl => {
           stylus(styl.loc.source)
-            .import(IMPORT_PAHT + '/theme.basic')
-            .import(IMPORT_PAHT + '/util')
-            // .import(IMPORT_PAHT + '/theme.variable')
-            .import(IMPORT_PAHT + '/theme.components')
+            .import(_shared + '/lib/style/mixin/theme.basic')
+            .import(_shared + '/lib/style/mixin/util')
+            // .import(_shared + '/theme.variable')
+            .import(_shared + '/lib/style/mixin/theme.components')
             .render((err, css) => {
               if (err) {
                 throw new Error(err)
