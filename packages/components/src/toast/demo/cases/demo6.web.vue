@@ -4,7 +4,8 @@
   </div>
 </template>
 
-<script>import Button from '../../../button'
+<script>
+import Button from '../../../button'
 import Toast from '../../../toast'
 
 export default {
@@ -21,4 +22,5 @@ export default {
     },
   },
 }
-</script>
+
+</script>
