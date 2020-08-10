@@ -1,5 +1,5 @@
 <script>
-import RadioBox from 'mand-mobile/lib/radio/box'
+import RadioBox from '../radio/box'
 export default RadioBox
 
 </script>

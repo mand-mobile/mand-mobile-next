@@ -28,7 +28,7 @@
 
 <script>
 import {isEmptyObject} from '@mand-mobile/shared/lib/util'
-import Button from 'mand-mobile/lib/button'
+import Button from '../button'
 
 export default {
   name: 'md-action-bar',

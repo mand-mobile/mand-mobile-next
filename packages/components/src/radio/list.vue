@@ -66,10 +66,10 @@
 </template>
 
 <script>
-import Radio from 'mand-mobile/lib/radio'
-import Field from 'mand-mobile/lib/field'
-import CellItem from 'mand-mobile/lib/cell-item'
-import InputItem from 'mand-mobile/lib/input-item'
+import Radio from '../radio'
+import Field from '../field'
+import CellItem from '../cell-item'
+import InputItem from '../input-item'
 import radioMixin from './mixins'
 
 export default {

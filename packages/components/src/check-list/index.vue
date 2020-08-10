@@ -1,5 +1,5 @@
 <script>
-import CheckList from 'mand-mobile/lib/check/list'
+import CheckList from '../check/list'
 export default CheckList
 
 </script> 

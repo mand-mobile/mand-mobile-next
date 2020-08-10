@@ -1,5 +1,5 @@
 <script>
-import FieldItem from 'mand-mobile/lib/field/item'
+import FieldItem from '../field/item'
 export default FieldItem
 
 </script>

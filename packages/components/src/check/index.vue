@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Icon from 'mand-mobile/lib/icon'
+import Icon from '../icon'
 import checkMixin from './mixin'
 
 export default {

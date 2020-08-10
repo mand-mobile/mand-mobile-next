@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import CarouselCircle from 'mand-mobile/lib/activity-indicator/carousel-circle'
+import CarouselCircle from '../activity-indicator/carousel-circle'
 
 export default {
   name: 'md-activity-indicator-carousel',
