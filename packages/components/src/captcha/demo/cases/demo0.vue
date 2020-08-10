@@ -66,7 +66,8 @@
 	</div>
 </template>
 
-<script>/* eslint-disable */
+<script>
+/* eslint-disable */
 import Button from '../../../button'
 import Toast from '../../../toast'
 import InputItem from '../../../input-item'
@@ -130,11 +131,14 @@ export default {
     },
   },
 }
-</script>
 
-<style lang="stylus">
-.md-example-child-captcha
-  padding 20px
-  .md-field
-    margin-bottom 40px
+</script>
+
+<style>
+.md-example-child-captcha {
+  padding: 20px;
+}
+.md-field {
+  margin-bottom: 40px;
+}
 </style>

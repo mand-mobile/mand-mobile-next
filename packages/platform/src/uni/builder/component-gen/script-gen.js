@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 const {transform} = require('@babel/core')
-const babelPlugin = require('./plugins/babel-transform-memberExpression.js')
+const compPlugin = require('./plugins/babel-transform-memberExpression')
+const platformPlugin = require('./plugins/babel-transform-platform')
 const SCRIPT = 'script'
 
 exports.transformJs = function transformJs(ast) {
@@ -15,7 +16,7 @@ exports.transformJs = function transformJs(ast) {
         code += `
           <script>
             ${transform(js.loc.source, {
-              plugins: [babelPlugin],
+              plugins: [compPlugin, platformPlugin],
             }).code}
           </script>
         `
