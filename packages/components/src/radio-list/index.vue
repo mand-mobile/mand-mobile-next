@@ -1,5 +1,5 @@
 <script>
-import RadioList from 'mand-mobile/lib/radio/list'
+import RadioList from '../radio/list'
 export default RadioList
 
 </script>

@@ -46,10 +46,10 @@
 </template>
 
 <script>
-import Roller from 'mand-mobile/lib/activity-indicator/roller'
+import Roller from '../activity-indicator/roller'
 // import RollerSuccess from './roller-success'
-import Spinner from 'mand-mobile/lib/activity-indicator/spinner'
-import Carousel from 'mand-mobile/lib/activity-indicator/carousel'
+import Spinner from '../activity-indicator/spinner'
+import Carousel from '../activity-indicator/carousel'
 
 export default {
   name: 'md-activity-indicator',

@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import Icon from 'mand-mobile/lib/icon'
+import Icon from '../icon'
 import radioMixin from './mixins'
 
 export default {

@@ -52,9 +52,9 @@
 </template>
 
 <script>
-import Check from 'mand-mobile/lib/check'
-import CellItem from 'mand-mobile/lib/cell-item'
-import CheckGroup from 'mand-mobile/lib/check/group'
+import Check from '../check'
+import CellItem from '../cell-item'
+import CheckGroup from '../check/group'
 import checkMixin from './mixin'
 
 export default {

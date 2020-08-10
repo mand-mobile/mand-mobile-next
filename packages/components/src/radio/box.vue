@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import CheckBaseBox from 'mand-mobile/lib/check-base'
+import CheckBaseBox from '../check-base'
 
 export default {
   name: 'md-radio-box',

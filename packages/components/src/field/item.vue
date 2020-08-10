@@ -33,7 +33,7 @@
 
 <script>
 import {isIOS, isAndroid} from '@mand-mobile/shared/lib/util/env'
-import Icon from 'mand-mobile/lib/icon'
+import Icon from '../icon'
 
 export default {
   name: 'md-field-item',
