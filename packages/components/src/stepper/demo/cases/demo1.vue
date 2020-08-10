@@ -11,7 +11,7 @@
 <script>
 import Stepper from 'mand-mobile/lib/stepper'
 import Field from 'mand-mobile/lib/field/index'
-import FieldItem from '.mand-mobile/lib/field/item'
+import FieldItem from 'mand-mobile/lib/field/item'
 
 export default {
   name: 'stepper-demo',

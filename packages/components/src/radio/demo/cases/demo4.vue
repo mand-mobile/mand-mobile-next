@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import RadioBox from '.mand-mobile/lib/radio/box'
+import RadioBox from 'mand-mobile/lib/radio/box'
 
 export default {
   name: 'radio-demo',
