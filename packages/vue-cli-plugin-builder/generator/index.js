@@ -138,8 +138,8 @@ function renderComponents({platform, target, done}) {
   copyfiles(
     [fileGlobs, target],
     {
-      // 从后向前取两级目录，/componets/src/*/a.vue保留到 */a.vue这两级
-      up: -2,
+      // 从后向前取两级目录，/componets/src/*/a.vue保留到 src/*/a.vue这两级
+      up: -3,
     },
     () => {
       const matcher = new RegExp(`\\.${platform}\\.(js|vue|ts)$`)
@@ -245,11 +245,6 @@ module.exports = api => {
 
   api.$renderComponents = renderComponents
 
-  // api.$createFilterComponents = function componentFilter(componet, ) {
-  //   const compoentFile =
-  // }
-
   const generator = require(`@mand-mobile/platform/src/${platform}/builder/generator`)
-
   return generator(api)
 }

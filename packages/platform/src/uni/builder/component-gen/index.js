@@ -2,7 +2,7 @@
 function buildUniComponents(api) {
   const prettier = require('prettier')
   const {parse} = require('@vue/compiler-dom')
-  const {existsSync, readFileSync, writeFile, mkdirSync, readdirSync} = require('fs')
+  const {existsSync, readFileSync, writeFile, mkdirSync, readdirSync, writeFileSync} = require('fs')
   const {resolve} = require('path')
   const {execSync} = require('child_process')
   const {transformJs} = require('./script-gen')
@@ -11,11 +11,11 @@ function buildUniComponents(api) {
   const {exeRootPath, MAND_PLATFORM, MAND_INPUT_DIR, MAND_OUTPUT_DIR, MAND_BUILD_TARGET} = api.mdContext || {}
   const {execa, info, error} = api.mdUtils
 
-  execa('ln', [
-    '-s',
-    `${exeRootPath}/node_modules/@mand-mobile/components`,
-    `${exeRootPath}/${MAND_INPUT_DIR}/_mand-mobile`,
-  ])
+  // execa('ln', [
+  //   '-s',
+  //   `${exeRootPath}/node_modules/@mand-mobile/components`,
+  //   `${exeRootPath}/${MAND_INPUT_DIR}/_mand-mobile`,
+  // ])
 
   execa('ln', ['-s', `${exeRootPath}/node_modules/@mand-mobile/platform`, `${exeRootPath}/${MAND_INPUT_DIR}/_platform`])
   execa('ln', ['-s', `${exeRootPath}/node_modules/@mand-mobile/shared`, `${exeRootPath}/${MAND_INPUT_DIR}/_shared`])
@@ -72,11 +72,7 @@ function buildUniComponents(api) {
     const srcPath = `${UNI_COMPONETN_BASE_PATH_LIB}/${name.split('/')[0]}`
 
     !existsSync(resolver(srcPath)) && mkdirSync(resolver(srcPath))
-    writeFile(resolver(`${UNI_COMPONETN_BASE_PATH_LIB}/${name}`), formateCode(template + script + style), {}, err => {
-      if (err) {
-        throw err
-      }
-    })
+    writeFileSync(resolver(`${UNI_COMPONETN_BASE_PATH_LIB}/${name}`), formateCode(template + script + style), {})
   }
 
   function formateCode(code) {
@@ -94,6 +90,10 @@ function buildUniComponents(api) {
 
   function findFile(path) {
     const dir = `${COMPONENT_BASE_PATH}/${path}`
+
+    // console.info(dir)
+    // process.exit(1)
+
     const files = readdirSync(dir)
     const ignores = ['demo', 'test', 'README.en-US.md', 'README.md', 'mixin', 'mixins', 'assets']
     return files.filter(f => !ignores.includes(f))

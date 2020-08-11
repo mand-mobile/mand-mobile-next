@@ -10,7 +10,7 @@
     "build:web-bundle": "sh scripts/build.sh web bundle",
     "build:web-lib": "sh scripts/build.sh web lib",
     "build:web-lib-vw": "sh scripts/build.sh web lib-vw",
-    "clean:workspace": "rm -fr .mand-mobile",
+    "clean:workspace": "rm -fr .mand-mobile && rm -fr web && rm -fr uni",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "main": "lib/mand-mobile.js",
@@ -19,6 +19,7 @@
     "@mand-mobile/components": "^0.0.1",
     "@mand-mobile/platform": "^0.0.1",
     "@mand-mobile/shared": "^0.0.1",
+    "@vue/cli": "^4.5.3",
     "find": "^0.3.0",
     "mv": "^2.1.1"
   },

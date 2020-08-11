@@ -57,6 +57,7 @@ module.exports = api => {
          * 渲染全量组件
          * 神特么要用具名函数`renderPage`，否则cli基于获取当前执行目录名的方法要报错
          */
+
     api.$renderPartial(
       `${MAND_INPUT_DIR}`,
       './template/uni-preview-full/_mand-mobile',
@@ -69,6 +70,11 @@ module.exports = api => {
       },
       {},
     )
+
+    api.$renderComponents({
+      target: `${MAND_INPUT_DIR}/_mand-mobile`,
+      platform: 'uni',
+    })
 
     /**
          * 渲染模板入口
@@ -104,6 +110,10 @@ module.exports = api => {
       {},
     )
 
+    api.$renderComponents({
+      target: `${MAND_INPUT_DIR}/_mand-mobile`,
+      platform: 'uni',
+    })
     /**
          * 渲染模板入口
          */
