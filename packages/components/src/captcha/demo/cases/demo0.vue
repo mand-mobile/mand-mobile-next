@@ -67,6 +67,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import Button from '../../../button'
 import Toast from '../../../toast'
 import InputItem from '../../../input-item'
@@ -114,7 +115,7 @@ export default {
             this.$refs.captcha.setError('验证码错误，请重新输入')
           } else {
             this.show = false
-            console.log( `你输入了${val}`)
+            console.log(`你输入了${val}`)
           }
         }
       }, 300)
@@ -133,9 +134,11 @@ export default {
 
 </script>
 
-<style lang="stylus">
-.md-example-child-captcha
-  padding 20px
-  .md-field
-    margin-bottom 40px
+<style>
+.md-example-child-captcha {
+  padding: 20px;
+}
+.md-field {
+  margin-bottom: 40px;
+}
 </style>

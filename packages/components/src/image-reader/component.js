@@ -3,5 +3,5 @@ export default {
   'text': '图片选择器',
   'category': 'basic',
   'description': '',
-  'author': 'xuxiaoyan'
+  'author': 'chengyanjing <chengyanjing@didiglobal.com>'
 }

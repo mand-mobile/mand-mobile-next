@@ -56,6 +56,9 @@ function compileJsAndReplace(filePath){
            'browsers': ['iOS >= 8', 'Android >= 4']
          }
        }]
+     ],
+     plugins: [
+       [babelPluginReplacePlatformPath]
      ]
   })
    .then(({code}) => {
@@ -87,7 +90,7 @@ function compileVueAndReplace(filePath) {
     encoding: 'utf8',
   })
   const config = computedCompilerConfig(filePath)
-  console.log(JSON.stringify(config));
+  console.log('编译:' + filePath);
   compiler.applyConfig(config)
   let styleContent = ''
   const styleCb = res => {
@@ -129,11 +132,28 @@ function computedCompilerConfig(filePath) {
       plugins: [
         [babelPluginInsertCssImportForVue, {
           filePath,
-        }]
+        }],
+        [babelPluginReplacePlatformPath]
       ]
     },
     customCompilers: {
       stylus: compileVueStylus
+    }
+  }
+}
+
+/**
+ * 
+ * 替换platform 为 platform/web
+ */
+function babelPluginReplacePlatformPath() {
+  return {
+    visitor: {
+      ImportDeclaration(path){
+        const source = path.node.source;
+        const value = source.value.replace(/@mand-mobile\/platform\/(?!web)/, '@mand-mobile/platform/web/')
+        source.value = value
+      }
     }
   }
 }
@@ -143,7 +163,7 @@ function babelPluginInsertCssImportForVue ({ types: t }) {
     const filePathParse = path.parse(filePath)
     return `./style/${filePathParse.name}.css`
   }
-  const globalCssLiteral = '../../shared/style/global.css'
+  const globalCssLiteral = '../global.css'
   return {
     visitor: {
       Program(path, state) {
@@ -158,9 +178,9 @@ function compileVueStylus (content, cb, compiler, filePath) {
   stylus(content)
     .set('filename', filePath)
     .define('url', stylus.url())
-    .import(path.join(env.outputDir, 'shared/style/mixin/util.styl'))
-    .import(path.join(env.outputDir, 'shared/style/mixin/theme.components.styl'))
-    .import(path.join(env.outputDir, 'shared/style/mixin/theme.basic.styl'))
+    .import(path.join(env.sharedDir, 'style/mixin/util.styl'))
+    .import(path.join(env.sharedDir, 'style/mixin/theme.components.styl'))
+    .import(path.join(env.sharedDir, 'style/mixin/theme.basic.styl'))
     // .import(path.join(libDir, '../../node_modules/nib/lib/nib/vendor'))
     // .import(path.join(libDir, '../../node_modules/nib/lib/nib/gradients'))
     .render(async (err, css) => {
@@ -183,8 +203,8 @@ function compileVueStylus (content, cb, compiler, filePath) {
 
 function compileGlobalStylus() {
 
-  const filePath = path.resolve(env.outputDir, 'shared/style/global.styl')
-  const targetPath = path.resolve(env.outputDir, 'shared/style/global.css')
+  const filePath = path.resolve(env.sharedDir, 'style/global.styl')
+  const targetPath = path.resolve(env.outputDir, 'global.css')
   const fileContent = fs.readFileSync(filePath, {
     encoding: 'utf8',
   })
@@ -192,6 +212,39 @@ function compileGlobalStylus() {
     fs.writeFileAsync(targetPath, cssContent)
   })
 
+}
+
+/**
+ * 将uni平台的代码清理干净
+ */
+function removeUni() {
+  const fileGlob = `${env.outputDir}/**/*.uni.vue`
+  const uniFiles = glob.sync(fileGlob)
+  const webFileGlob = `${env.outputDir}/**/*.web.vue`
+  const webFiles = glob.sync(webFileGlob)
+  // 删除.uni.vue
+  const deletePromises = uniFiles.map((filePath) => {
+    return fs.unlinkAsync(filePath).then(() => {
+      console.log('remove: ' + filePath)
+    })
+  })
+
+  // 替换.web.vue成 .vue
+  const replaceWebPromises = webFiles.map(filePath => {
+    const fileBaseName = path.basename(filePath, '.web.vue')
+    return fs.copyFileAsync(filePath, path.join(path.dirname(filePath), `${fileBaseName}.vue`))
+        .then(() => {
+          return fs.unlinkAsync(filePath).then(() => {
+            console.log('remove: ' + filePath)
+          })
+        })
+  })
+
+
+  return Promise.all(deletePromises.concat(replaceWebPromises))
+  .catch(e => {
+    throw e
+  })
 }
 
 module.exports = (webpackConfig, args, api) => {
@@ -215,9 +268,10 @@ module.exports = (webpackConfig, args, api) => {
   env.outputDir = path.resolve(exeRootPath, MAND_OUTPUT_DIR)
   const componentsDir = path.resolve(env.inputDir, '_mand-mobile/src')
   const sharedDir = path.resolve(env.inputDir, '_shared/lib')
+  env.sharedDir = sharedDir
 
-  return move(componentsDir, path.resolve(env.outputDir, 'components'))
-    .then(() => move(sharedDir, path.resolve(env.outputDir, 'shared')))
+  return move(componentsDir, env.outputDir)
+    .then(() => removeUni())
     .then(() => Promise.all([compileAndReplaceAllJsFile(),compileAndReplaceAllVueFile(),compileGlobalStylus()]))
     .then(() => {
       resultLog('success', 'Build **Components** Complete!')

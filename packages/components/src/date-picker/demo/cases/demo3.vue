@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import DatePicker from 'mand-mobile/date-picker'
-import Field from 'mand-mobile/field'
-import FieldItem from 'mand-mobile/field/item'
+import DatePicker from 'mand-mobile/lib/date-picker'
+import Field from 'mand-mobile/lib/field'
+import FieldItem from 'mand-mobile/lib/field/item'
 
 export default {
   name: 'date-picker-demo',

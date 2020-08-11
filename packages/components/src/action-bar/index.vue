@@ -26,8 +26,9 @@
   </div>
 </template>
 
-<script>import {isEmptyObject} from '@mand-mobile/shared/lib/util'
-import Button from '../button'
+<script>
+import {isEmptyObject} from '@mand-mobile/shared/lib/util'
+import Button from 'mand-mobile/lib/button'
 
 export default {
   name: 'md-action-bar',
@@ -62,7 +63,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-action-bar

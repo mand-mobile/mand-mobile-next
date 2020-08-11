@@ -10,8 +10,9 @@
   </div>
 </template>
 
-<script>import Field from '../../../field'
-import CheckList from '../../list'
+<script>
+import Field from 'mand-mobile/lib/field'
+import CheckList from 'mand-mobile/lib/check/list'
 
 export default {
   name: 'check-demo',
@@ -36,7 +37,8 @@ export default {
     }
   },
 }
-</script>
+
+</script>
 
 <style scoped>
   .md-example-child {

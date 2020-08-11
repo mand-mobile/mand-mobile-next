@@ -1,8 +1,7 @@
 <template>
   <div class="md-image-reader">
-    <!-- #ifdef H5 -->
     <input
-      class="md-image-reader-file"
+      class="md-image-reader_file"
       type="file"
       :key="inputTmpKey"
       :name="name"
@@ -11,20 +10,19 @@
       :multiple="isMultiple"
       @change="$_onFileChange"
     />
-    <!-- #endif -->
   </div>
 </template>
 
 <script>
+import {functionToUrl, randomId} from '@mand-mobile/shared/lib/util'
 import createImageReader from './image-reader'
-import { dataURItoBlob } from './image-dataurl'
-import { functionToUrl, randomId } from '@mand-mobile/shared/lib/util'
+import {dataURItoBlob} from './image-dataurl'
 
 const ERROR = {
   '100': 'browser does not support',
   '101': 'picture size is beyond the preset',
   '102': 'picture read failure',
-  '103': 'the number of pictures exceeds the limit'
+  '103': 'the number of pictures exceeds the limit',
 }
 
 export default {
@@ -35,36 +33,36 @@ export default {
       type: String,
       default() {
         return randomId('image-reader')
-      }
+      },
     },
     size: {
       type: [String, Number],
-      default: 0
+      default: 0,
     },
     mime: {
       type: Array,
       default() {
         /* istanbul ignore next */
         return []
-      }
+      },
     },
     isCameraOnly: {
       type: Boolean,
-      default: false
+      default: false,
     },
     isMultiple: {
       type: Boolean,
-      default: false
+      default: false,
     },
     amount: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
 
   data() {
     return {
-      inputTmpKey: Date.now() // trigger of refreshing input file
+      inputTmpKey: Date.now(), // trigger of refreshing input file
     }
   },
 
@@ -80,7 +78,7 @@ export default {
       } else {
         return 'image/*'
       }
-    }
+    },
   },
 
   methods: {
@@ -109,7 +107,7 @@ export default {
         worker.postMessage({
           files,
           size: size,
-          isWebWorker: true
+          isWebWorker: true,
         })
         // worker response
         worker.onmessage = evt => {
@@ -129,7 +127,7 @@ export default {
           files,
           size: size,
           isWebWorker: false,
-          complete: this.$_onReaderComplete
+          complete: this.$_onReaderComplete,
         })
       }
     },
@@ -145,14 +143,14 @@ export default {
       /* istanbul ignore next */
       if (fileElement.files && fileElement.files.length) {
         this.$_emitter('select', {
-          files: Array.prototype.slice.call(fileElement.files)
+          files: Array.prototype.slice.call(fileElement.files),
         })
 
         // error 超出每次上传最大张数
         if (this.amount && fileElement.files.length > this.amount) {
           this.$_emitter('error', {
             code: '103',
-            msg: ERROR['103']
+            msg: ERROR['103'],
           })
           this.$_cleaeFile()
           return
@@ -161,11 +159,11 @@ export default {
         this.$_readFile(fileElement)
       }
     },
-    $_onReaderComplete({ errorCode, dataUrl, file }) {
+    $_onReaderComplete({errorCode, dataUrl, file}) {
       if (errorCode) {
         this.$_emitter('error', {
           code: errorCode,
-          msg: ERROR[errorCode]
+          msg: ERROR[errorCode],
         })
         return
       }
@@ -173,32 +171,30 @@ export default {
       this.$_emitter('complete', {
         blob: dataURItoBlob(dataUrl),
         dataUrl: dataUrl,
-        file
+        file,
       })
       this.$_cleaeFile()
-    }
-  }
+    },
+  },
 }
+
 </script>
 
 <style lang="stylus">
-.md-image-reader {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  left: 0;
-  top: 0;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-.md-image-reader-file {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  left: 0;
-  top: 0;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
+.md-image-reader
+  position absolute
+  width 100%
+  height 100%
+  z-index 100
+  left 0
+  top 0
+  -webkit-tap-highlight-color rgba(0, 0, 0, 0)
+  &_file
+    position absolute
+    width 100%
+    height 100%
+    opacity 0
+    left 0
+    top 0
+    -webkit-tap-highlight-color rgba(0, 0, 0, 0)
 </style>

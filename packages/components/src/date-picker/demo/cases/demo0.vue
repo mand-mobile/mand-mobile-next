@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import DatePicker from 'mand-mobile/date-picker/date-picker-view'
+import DatePicker from 'mand-mobile/lib/date-picker/date-picker-view'
 
 export default {
   name: 'date-picker-demo',
@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     onDatePickerInitialed() {
-      // console.log(`[Mand Mobile] DatePicker getFormatDate: ${this.$refs.datePicker.getFormatDate('yyyy/MM/dd')}`)
+      console.log(`[Mand Mobile] DatePicker getFormatDate: ${this.$refs.datePicker.getFormatDate('yyyy/MM/dd')}`)
     },
   },
 }

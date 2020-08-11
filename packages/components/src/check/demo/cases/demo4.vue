@@ -16,10 +16,11 @@
 	</div>
 </template>
 
-<script>import Field from '../../../field'
-import CellItem from '../../../cell-item'
-import CheckList from '../../list'
-import Button from '../../../button'
+<script>
+import Field from 'mand-mobile/lib/field'
+import CellItem from 'mand-mobile/lib/cell-item'
+import Button from 'mand-mobile/lib/button'
+import CheckList from 'mand-mobile/lib/check/list'
 
 export default {
   name: 'check-demo',
@@ -54,7 +55,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style scoped>
 .md-example-child {
