@@ -5,20 +5,8 @@ const px2vw = require('postcss-pixel-to-viewport')
 const fs = require('fs')
 const path = require('path')
 const {resultLog} = require('./utils')
+const buildLib = require('./build-lib')
 let env = {}
-
-function copyLib() {
-  return new Promise((res, reject) => {
-    fs.stat(env.outputDir, err => {
-      if (err) {
-        reject(err)
-      }
-      res()
-    })
-  }).then(() => {
-    return copy(env.outputDir, env.outputVWDir)
-  })
-}
 
 function compilePxToVw(filePath) {
   const cssContent = fs.readFileSync(filePath, {
@@ -48,12 +36,24 @@ function compilePxToVwAll() {
   })
 }
 
+function checkLib(webpackConfig, args, api) {
+  return new Promise(res => {
+    fs.stat(env.outputDir, err => {
+      if (err) {
+        res(buildLib(webpackConfig, args, api))
+      }
+      res()
+    })
+  })
+}
+
 module.exports = (webpackConfig, args, api) => {
-  const {exeRootPath, pluginRootPath, vueCliService, MAND_PLATFORM, MAND_OUTPUT_DIR} = api.mdContext || {}
+  const {exeRootPath, MAND_OUTPUT_DIR} = api.mdContext || {}
   env.exeRootPath = exeRootPath
   env.outputDir = path.resolve(exeRootPath, MAND_OUTPUT_DIR)
   env.outputVWDir = path.resolve(exeRootPath, MAND_OUTPUT_DIR, '../lib-vw')
-  copyLib()
+  checkLib(webpackConfig, args, api)
+    .then(() => copy(env.outputDir, env.outputVWDir))
     .then(compilePxToVwAll)
     .then(() => {
       resultLog('success', 'Build **VM/VW** Complete!')
