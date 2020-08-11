@@ -142,30 +142,18 @@ function renderComponents({platform, target, done}) {
       up: -3,
     },
     () => {
-      const matcher = new RegExp(`\\.${platform}\\.(js|vue|ts)$`)
-      find.file(matcher, target, function(files) {
-        files.forEach(fileSpecificPlatform => {
-          const dir = path.dirname(fileSpecificPlatform)
-          const ext = path.extname(fileSpecificPlatform)
-
-          const basename = path.basename(fileSpecificPlatform, `.${platform}${ext}`)
-
-          const singleFilematcher = new RegExp(`${basename}(\\..*)?\\${ext}$`)
-
-          find.file(singleFilematcher, dir, files => {
-            files.forEach(file => {
-              if (file === fileSpecificPlatform) {
-                return
-              }
+      // const matcher = new RegExp(`\\.${platform}\\.(js|vue|ts)$`)
+      find.file(target, function(files) {
+        files.forEach(file => {
+          const reg = /(.*)(\..*)?\.(js|vue|ts)$/
+          const result = reg.exec(file)
+          if (result && result[2]) {
+            if (result[2] === platform) {
+              mv(file, `${result[1]}.${result[3]}`, {mkdirp: true}, err => {})
+            } else if (result[2] !== '') {
               rimraf.sync(file)
-            })
-
-            files.forEach(file => {
-              if (file === fileSpecificPlatform) {
-                mv(fileSpecificPlatform, `${dir}/${basename}${ext}`, {mkdirp: true}, function(err) {})
-              }
-            })
-          })
+            }
+          }
         })
       })
     },
