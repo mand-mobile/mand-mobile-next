@@ -11,7 +11,7 @@
           v-for="i in list"
           :key="i"
           class="scroll-view-item"
-        >{{i}}</p>
+        >{{randomFace(1)}}</p>
       </div>
     </md-scroll-view>
   </div>
@@ -19,6 +19,7 @@
 
 <script>
 import ScrollView from 'mand-mobile/lib/scroll-view'
+import randomFace from 'mand-mobile/lib/scroll-view/demo/data/faces'
 
 export default {
   name: 'scroll-view-demo-1',
@@ -28,6 +29,7 @@ export default {
   data() {
     return {
       list: 5,
+      randomFace,
     }
   },
 }
@@ -49,7 +51,7 @@ export default {
   justify-content: center;
   flex: 1;
   text-align: center;
-  font-size: 28px;
+  font-size: 42px;
   border-right: .5px solid #EFEFEF;
 }
 .md-example-child-scroll-view-1 .scroll-view-list .scroll-view-item:nth-child(2n+1) {

@@ -4,7 +4,7 @@
       <md-icon :name="data.icon" size="lg"></md-icon>
     </div>
     <div class="item-image" v-else-if="data.img">
-      <img :src="data.img">
+      <img :src="data.img" />
     </div>
     <div class="item-label">
       <p class="title">
@@ -39,8 +39,7 @@
   </div>
 </template>
 
-<script>
-import Icon from '../icon'
+<script>import Icon from '../icon'
 export default {
   name: 'md-cashier-channel-item',
 
@@ -62,8 +61,7 @@ export default {
     },
   },
 }
-
-</script>
+</script>
 
 <style lang="stylus">
 .md-cashier-channel-item

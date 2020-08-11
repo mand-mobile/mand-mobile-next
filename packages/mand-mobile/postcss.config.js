@@ -1,6 +1,6 @@
 
 // https://github.com/michael-ciniawsky/postcss-load-config
-const browserslist = require('./package.json').browserslist
+const browserslist = require('../platform/package.json').browserslist
 module.exports = () => {
   const plugins = {
     'postcss-url': {url: 'inline'},

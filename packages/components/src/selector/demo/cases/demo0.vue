@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import Selector from 'mand-mobile/selector'
-import Field from 'mand-mobile/field'
-import FieldItem from 'mand-mobile/field/item'
+import Selector from 'mand-mobile/lib/selector'
+import Field from 'mand-mobile/lib/field'
+import FieldItem from 'mand-mobile/lib/field/item'
 
 export default {
   name: 'selector-demo',
