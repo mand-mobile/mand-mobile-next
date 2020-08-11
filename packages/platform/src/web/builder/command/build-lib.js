@@ -251,11 +251,11 @@ module.exports = (webpackConfig, args, api) => {
   const {exeRootPath, pluginRootPath, vueCliService, MAND_PLATFORM, MAND_INPUT_DIR, MAND_OUTPUT_DIR} = api.mdContext || {}
   const {execa, info, error} = api.mdUtils
 
-  execa('ln', [
-    '-s',
-    `${exeRootPath}/node_modules/@mand-mobile/components`,
-    `${exeRootPath}/${MAND_INPUT_DIR}/_mand-mobile`,
-  ])
+  // execa('ln', [
+  //   '-s',
+  //   `${exeRootPath}/node_modules/@mand-mobile/components`,
+  //   `${exeRootPath}/${MAND_INPUT_DIR}/_mand-mobile`,
+  // ])
 
   execa('ln', ['-s', `${exeRootPath}/node_modules/@mand-mobile/platform`, `${exeRootPath}/${MAND_INPUT_DIR}/_platform`])
 

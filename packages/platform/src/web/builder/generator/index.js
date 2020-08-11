@@ -35,6 +35,7 @@ module.exports = api => {
       [`${MAND_INPUT_DIR}/demo-group.vue`]: api.utils.commonTemplateResolver('demo-group.vue'),
       [`${MAND_INPUT_DIR}/vue.config.js`]: path.resolve(__dirname, 'template/common/vue.config.js'),    
     }, {component})
+    
     return
   }
 
@@ -50,6 +51,11 @@ module.exports = api => {
     api.$renderPartial(`${MAND_INPUT_DIR}`, './template/web-preview-full/_mand-mobile', {
       components,
       category,
+    })
+
+    api.$renderComponents({
+      target: `${MAND_INPUT_DIR}/_mand-mobile`,
+      platform: 'web',
     })
     /**
      * 渲染模板入口

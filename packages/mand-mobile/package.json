@@ -18,7 +18,9 @@
   "dependencies": {
     "@mand-mobile/components": "^0.0.1",
     "@mand-mobile/platform": "^0.0.1",
-    "@mand-mobile/shared": "^0.0.1"
+    "@mand-mobile/shared": "^0.0.1",
+    "find": "^0.3.0",
+    "mv": "^2.1.1"
   },
   "devDependencies": {
     "@mand-mobile/vue-cli-plugin-builder": "^0.0.1",
