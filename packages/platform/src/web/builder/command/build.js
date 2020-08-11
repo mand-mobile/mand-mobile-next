@@ -15,6 +15,6 @@ module.exports = (args, api) => {
     // TODO 按 css, js, ts 抽取出相应的配置
     return buildLib(webpackConfig, args, api)
   } else if (MAND_BUILD_TARGET === 'lib-vw') {
-    return buildLibVW(webpackConfig, args, api)
+    return buildLib(webpackConfig, args, api)
   }
 }

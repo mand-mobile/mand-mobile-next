@@ -13,7 +13,9 @@
     "clean:workspace": "rm -fr .mand-mobile && rm -fr web && rm -fr uni",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "main": "lib/mand-mobile.js",
+  "main": "web/bundle/mand-mobile.umd.js",
+  "module": "web/bundle/mand-mobile.esm.js",
+  "style": "web/bundle/mand-mobile.css",
   "files": ["lib"],
   "dependencies": {
     "@mand-mobile/components": "^0.0.1",

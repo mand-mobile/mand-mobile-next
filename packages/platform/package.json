@@ -15,8 +15,8 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
     "prebuild": "rm -fr lib || true",
-    "build": "cp -r src lib",
-    "build:uni-component": "node lib/uni/builder/component-gen/index.js"
+    "build": "ln -s src lib",
+    "prepublish": "rm -fr lib && cp -r src lib"
   },
   "dependencies": {
     "@mand-mobile/shared": "0.0.1",

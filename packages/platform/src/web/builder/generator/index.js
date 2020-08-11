@@ -48,12 +48,12 @@ module.exports = api => {
 
   if (target === 'lib' || target === 'lib-vw' ) {
     // 添加依赖
-    api.extendPackage({
-      devDependencies: {
-        'vue-router': '^3.3.3',
-        'fastclick': '^1.0.6',
-      }
-    })
+    // api.extendPackage({
+    //   devDependencies: {
+    //     'vue-router': '^3.3.3',
+    //     'fastclick': '^1.0.6',
+    //   }
+    // })
     api.$renderPartial(`${MAND_INPUT_DIR}`, './template/web-preview-full/_mand-mobile', {
       components,
       category,
@@ -63,15 +63,7 @@ module.exports = api => {
       target: `${MAND_INPUT_DIR}/_mand-mobile`,
       platform: 'web',
     })
-    /**
-     * 渲染模板入口
-     */
-    components.forEach(function renderPage(component) {
-        api.render({
-            [`${MAND_INPUT_DIR}/pages/${component.dashedStyledName}.vue`]: api.utils.commonTemplateResolver('demo-group.vue'),
-            [`${MAND_INPUT_DIR}/vue.config.js`]: path.resolve(__dirname, 'template/common/vue.config.js'),
-        }, { component })
-    })
+
   }
   
 
