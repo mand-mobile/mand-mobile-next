@@ -18,6 +18,7 @@
     "clean:dist": "rm -fr dist",
     "clean:workspace": "rm -fr .mand-mobile",
     "serve:uni": "run-p clean:* && sh ./scripts/preview.sh uni",
+    "build:uni-src": "sh ./scripts/build.sh uni src",
     "serve:web": "run-p clean:* && sh ./scripts/preview.sh web",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
