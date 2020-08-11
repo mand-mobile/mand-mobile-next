@@ -4,11 +4,11 @@
       <template v-if="!$slots.default">
         <md-icon
           v-if="icon"
-          class="md-tip_content--icon"
+          class="md-tip_content_icon"
           :name="icon"
           :svg="iconSvg"
         />
-        <div class="md-tip_content--text" v-text="content"></div>
+        <div class="md-tip_content_text" v-text="content"></div>
       </template>
       <template v-else>
         <slot></slot>
@@ -90,10 +90,10 @@ export default {
     font-size md-tip-font-size
     line-height 1.2
     z-index 2
-    &--icon
+    &_icon
       float left
       margin-right 14px
-    &--text
+    &_text
       float left
       margin-top 2px
 

@@ -16,9 +16,11 @@
   </div>
 </template>
 
-<script>import Field from '../../../field'
-import CellItem from '../../../cell-item'
-import Switch from './../../switch'
+<script>
+import Switch from 'mand-mobile/lib/switch'
+import Field from 'mand-mobile/lib/field'
+import CellItem from 'mand-mobile/lib/cell-item'
+
 export default {
   name: 'cell-item-demo',
   /* DELETE */
@@ -37,7 +39,8 @@ export default {
     }
   },
 }
-</script>
+
+</script>
 
 <style scoped>
 .holder {

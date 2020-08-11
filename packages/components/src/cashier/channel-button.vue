@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Button from 'mand-mobile/lib/button'
+import Button from '../button'
 
 export default {
   name: 'md-cashier-channel-button',

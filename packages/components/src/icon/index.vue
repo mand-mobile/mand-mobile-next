@@ -1,6 +1,6 @@
 <template>
   <svg
-    v-if="svg || isInnerSvg"
+    v-if="!ismp && (svg || isInnerSvg)"
     class="md-icon icon-svg"
     :class="[`md-icon-${name}`, size]"
     :style="{fill: color}"
@@ -17,7 +17,8 @@
   ></i>
 </template>
 
-<script>import {ismp} from '@mand-mobile/shared/lib/util'
+<script>
+import {ismp} from '@mand-mobile/shared/lib/util'
 import loadSprite from './load-spirte'
 import defaultSvg from './default-svg-list'
 
@@ -43,6 +44,12 @@ export default {
     },
   },
 
+  data() {
+    return {
+      ismp,
+    }
+  },
+
   mounted() {
     if (!ismp) {
       loadSprite()
@@ -55,7 +62,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-icon

@@ -19,15 +19,15 @@
           <slot name="icon"></slot>
         </div> -->
         <!-- Customize uniformly -->
-        <div class="md-steps--icon-wrapper">
+        <div class="md-steps_icon_wrapper">
           <template v-if="index < currentLength">
             <slot
               v-if="$scopedSlots.reached || $slots.reached"
               name="reached"
               :index="index"
             ></slot>
-            <div class="md-steps--node-default">
-              <div class="md-steps--node-default-icon" style="width: 6px;height: 6px;border-radius: 50%;"></div>
+            <div class="md-steps_node--default">
+              <div class="md-steps_node--default_icon" style="width: 6px;height: 6px;border-radius: 50%;"></div>
             </div>
           </template>
           <template v-else-if="index === currentLength">
@@ -44,8 +44,8 @@
               name="unreached"
               :index="index"
             ></slot> -->
-            <div class="md-steps--node-default">
-              <div class="md-steps--node-default-icon" style="width: 6px;height: 6px;border-radius: 50%;"></div>
+            <div class="md-steps_node--default">
+              <div class="md-steps_node--default_icon" style="width: 6px;height: 6px;border-radius: 50%;"></div>
             </div>
           </template>
         </div>
@@ -65,7 +65,7 @@
         :key="`bar-${index}`"
       >
         <i
-          class="md-bar--inner"
+          class="md-bar_inner"
           v-if="progress[index]"
           :style="{
             transform: `translate3d${barInnerTransform(index)}`,
@@ -195,7 +195,7 @@ export default {
         return
       }
       const dom = await this.$MDDom()
-      const iconWrappers = dom.querySelectorAll('.md-steps--icon-wrapper')
+      const iconWrappers = dom.querySelectorAll('.md-steps_icon_wrapper')
       const textWrappers = dom.querySelectorAll('.md-steps--text-wrapper')
       const stepsSize = toArray(textWrappers).map((wrapper, index) => {
         let stepHeight = wrapper.clientHeight
@@ -337,9 +337,9 @@ export default {
       width 100%
       margin 4px 0
       align-items stretch
-      .md-steps--icon-wrapper
+      .md-steps_icon_wrapper
         position relative
-        .md-steps--node-default
+        .md-steps_node--default
           min-width md-steps-icon-size
           min-height md-steps-icon-size
       .md-steps--text-wrapper
@@ -353,7 +353,7 @@ export default {
           margin-top 18px
           color md-steps-desc-color
 
-  .md-steps--icon-wrapper
+  .md-steps_icon_wrapper
     display flex
     justify-content center
     align-items center
@@ -366,7 +366,7 @@ export default {
     &:nth-child(2)
       display none
 
-    .md-steps--node-default-icon
+    .md-steps_node--default_icon
       background md-steps-color
 
   .md-steps_wrapper
@@ -374,7 +374,7 @@ export default {
     position relative
     min-width md-steps-icon-size
     min-height md-steps-icon-size
-    .md-steps--icon-wrapper
+    .md-steps_icon_wrapper
       min-width md-steps-icon-size
       min-height md-steps-icon-size
       .md-icon
@@ -393,16 +393,16 @@ export default {
         line-height md-steps-text-font-size
         font-size md-steps-desc-font-size
     &.md-reached, &.md-current
-      .md-steps--icon-wrapper
+      .md-steps_icon_wrapper
         color md-steps-color-active
-        .md-steps--node-default-icon
+        .md-steps_node--default_icon
           background md-steps-color-active
 
   .md-bar
     position relative
     background-color md-steps-color
     overflow hidden
-    .md-bar--inner
+    .md-bar_inner
       z-index 10
       position absolute
       top 0
@@ -413,7 +413,7 @@ export default {
     &.md-bar_horizontal
       flex 1
       height md-steps-border-size
-      .md-bar--inner
+      .md-bar_inner
         width 100%
         height md-steps-border-size
         background-color md-steps-color-active
@@ -422,7 +422,7 @@ export default {
       width md-steps-border-size
       transform translateX(-50%)
       min-height 110px
-      .md-bar--inner
+      .md-bar_inner
         width md-steps-border-size
         height 100%
         background-color md-steps-color-active

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import ResultPage from '../../index'
+import ResultPage from 'mand-mobile/lib/result-page'
 
 export default {
   name: 'result-page-demo',

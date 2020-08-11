@@ -4,8 +4,8 @@
     :class="type"
   >
     <div
-      class="indicator-container"
-      :class="{vertical}"
+      class="md-activity-indicator_container"
+      :class="{'md-vertical' : vertical}"
     >
       <div class="indicator-loading">
         <template v-if="type === 'roller'">
@@ -37,7 +37,7 @@
       <div
         v-if="$slots.default"
         :style="{fontSize: `${textSize}px`, color: textColor}"
-        class="md-activity-indicator-text indicator-text"
+        class="md-activity-indicator_text"
       >
         <slot></slot>
       </div>
@@ -46,10 +46,10 @@
 </template>
 
 <script>
-import Roller from './roller'
+import Roller from 'mand-mobile/lib/activity-indicator/roller'
 // import RollerSuccess from './roller-success'
-import Spinner from './spinner'
-import Carousel from './carousel'
+import Spinner from 'mand-mobile/lib/activity-indicator/spinner'
+import Carousel from 'mand-mobile/lib/activity-indicator/carousel'
 
 export default {
   name: 'md-activity-indicator',
@@ -76,11 +76,11 @@ export default {
     color: {
       type: String,
       default() {
-        // if (this.type === 'spinner') {
-        //   return 'dark'
-        // } else {
+        if (this.type === 'spinner') {
+          return 'dark'
+        } else {
           return '#2F86F6'
-        // }
+        }
       },
     },
     textColor: {
@@ -101,16 +101,16 @@ export default {
 
 <style lang="stylus">
 .md-activity-indicator
-  .indicator-container
+  &_container
     display flex
     flex-direction row
     align-items center
-    .indicator-text
-      margin 0 0 0 15px
-      color color-text-minor
-    &.vertical
-      flex-direction column
-      justify-content center
-      .indicator-text
-        margin 15px 0 0 0
+  &_text
+    margin 0 0 0 15px
+    color color-text-minor
+  .md-vertical
+    flex-direction column
+    justify-content center
+    .md-activity-indicator_text
+      margin 15px 0 0 0
 </style>

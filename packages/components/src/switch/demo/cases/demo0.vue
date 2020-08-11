@@ -7,7 +7,8 @@
   </div>
 </template>
 
-<script>import Switch from '../../index'
+<script>
+import Switch from 'mand-mobile/lib/switch'
 
 export default {
   name: 'switch-demo',
@@ -30,4 +31,5 @@ export default {
     },
   },
 }
-</script>
+
+</script>

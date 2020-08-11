@@ -1,7 +1,7 @@
 <template>
-  <div class="md-number-keyboard" :class="[{'in-view': isView}]">
+  <div class="md-number-keyboard" :class="[{'md-in-view': isView}]">
     <template v-if="isView">
-      <div class="md-number-keyboard-slot" v-if="$slots.default">
+      <div class="md-number-keyboard_slot" v-if="$slots.default">
         <slot></slot>
       </div>
       <md-number-keyboard-container
@@ -27,7 +27,7 @@
         @hide="$emit('hide')"
         :has-mask="false"
       >
-        <div class="md-number-keyboard-slot" v-if="$slots.default">
+        <div class="md-number-keyboard_slot" v-if="$slots.default">
           <slot></slot>
         </div>
         <md-number-keyboard-container
@@ -49,7 +49,8 @@
   </div>
 </template>
 
-<script>import Popup from '../popup'
+<script>
+import Popup from '../popup'
 import Keyborad from './board'
 
 export default {
@@ -143,13 +144,14 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-number-keyboard
   .md-popup
     z-index md-number-keyboard-zindex
-  .md-popup-box
+  .md-popup_box
     padding-top 1px
     background-color md-color-bg-base
     padding-bottom constant(safe-area-inset-bottom)

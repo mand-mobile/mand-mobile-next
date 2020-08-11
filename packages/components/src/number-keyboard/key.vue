@@ -17,7 +17,8 @@
   </li> -->
 </template>
 
-<script>export default {
+<script>
+export default {
   name: 'md-number-key',
 
   props: {
@@ -63,19 +64,20 @@
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 // 注： uni-app 中组件嵌套时，在父组件覆盖子组件的样式时，可能导致高度没有被撑开，元素无法点击
-.keyboard-number-item
+.keyboard-number_item
   height md-number-keyboard-key-height
-.keyboard-operate-item
+.keyboard-operate_item
   position relative
   // float left
   width 100%
   background md-number-keyboard-key-bg
   transition background .3s
-  &.delete
+  &.md-delete
     flex 1
     display flex
     align-items center
@@ -85,7 +87,7 @@
     background-size 42px
     &:active
       background-color md-number-keyboard-key-bg-tap
-  &.confirm
+  &.md-confirm
     padding-top 5px
     color md-number-keyboard-key-confirm-color
     font-size md-font-caption-large
@@ -97,7 +99,7 @@
     justify-content center
     &:active
       background-color md-number-keyboard-key-confirm-bg-tap
-.slidedown
+.md-slidedown
   height md-number-keyboard-key-height
   background md-number-keyboard-key-bg url(assets/images/keyboard-hide.png) center no-repeat
   background-size 54px

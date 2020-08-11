@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import CheckBox from '../../box'
-import Field from '../../../field'
+import Field from 'mand-mobile/lib/field'
+import CheckBox from 'mand-mobile/lib/check/box'
 
 export default {
   name: 'check-demo',

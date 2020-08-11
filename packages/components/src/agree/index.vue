@@ -21,7 +21,8 @@
   </div>
 </template>
 
-<script>import Icon from '../icon'
+<script>
+import Icon from 'mand-mobile/lib/icon'
 
 export default {
   name: 'md-agree',
@@ -60,7 +61,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus" scoped>
 .md-agree

@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import Roller from 'mand-mobile/lib/activity-indicator/roller'
 import {noop, inBrowser} from '@mand-mobile/shared/lib/util'
 import Animator from '@mand-mobile/scroller/lib/animator'
+import Roller from '../activity-indicator/roller'
 
 export default {
   name: 'md-progress',

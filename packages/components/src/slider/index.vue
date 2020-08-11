@@ -2,7 +2,7 @@
   <div class="md-slider" :class="{'md-slider--is-disabled': disabled}">
     <template v-if="range">
       <div class="md-slider_bar" :style="barStyle"></div>
-      <div class="md-slider_handle is-lower"
+      <div class="md-slider_handle md-slider--is-lower"
         :data-hint="format(values[0])"
         :class="{
           'md-slider--is-active': isDragging && !isDragingUpper

@@ -1,5 +1,5 @@
 <script>
-import CheckGroup from '../check/group'
+import CheckGroup from 'mand-mobile/lib/check/group'
 export default CheckGroup
 
 </script>

@@ -10,7 +10,8 @@
   </md-check-base-box>
 </template>
 
-<script>import CheckBaseBox from '../check-base'
+<script>
+import CheckBaseBox from 'mand-mobile/lib/check-base'
 
 export default {
   name: 'md-radio-box',
@@ -57,4 +58,5 @@ export default {
     },
   },
 }
-</script>
+
+</script>

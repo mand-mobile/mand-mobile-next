@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import ResultPage from '../../index'
-import Toast from '../../../toast/index.js'
+import ResultPage from 'mand-mobile/lib/result-page'
+import Toast from 'mand-mobile/lib/toast'
 
 export default {
   name: 'result-page-demo',

@@ -65,10 +65,11 @@
   </div>
 </template>
 
-<script>import Radio from './index'
-import Field from '../field'
-import CellItem from '../cell-item'
-import InputItem from '../input-item'
+<script>
+import Radio from 'mand-mobile/lib/radio'
+import Field from 'mand-mobile/lib/field'
+import CellItem from 'mand-mobile/lib/cell-item'
+import InputItem from 'mand-mobile/lib/input-item'
 import radioMixin from './mixins'
 
 export default {
@@ -201,7 +202,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-radio-item

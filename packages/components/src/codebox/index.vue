@@ -2,10 +2,10 @@
   <div class="md-codebox-wrapper">
     <div
       class="md-codebox"
-      :class="{
-        'is-disabled': disabled,
-        'is-justify': justify
-      }"
+      :class="[
+        disabled ? 'md-is-disabled' : '',
+        justify ? 'md-is-justify': '',
+      ]"
       @click="focus"
     >
       <template v-if="maxlength > 0">
@@ -13,21 +13,21 @@
           v-for="(item, index) in innerNumMap"
           :key="index"
           :class="[
-            'md-codebox-box',
+            'md-codebox_box',
             item.isActive ? 'is-active' : '',
             item.isFilled ? 'is-filled' : '',
           ]"
         >
           <template v-if="item.showVal">
             <template v-if="mask">
-              <i class="md-codebox-dot"></i>
+              <i class="md-codebox_dot"></i>
             </template>
             <template v-else>
               {{item.showVal}}
             </template>
           </template>
           <template v-if="item.isActive">
-            <i class="md-codebox-blink"></i>
+            <i class="md-codebox_blink"></i>
           </template>
         </span>
       </template>
@@ -39,7 +39,7 @@
           :value="code"
           readonly
           disabled
-          :class="['md-codebox-holder', focused && 'is-active']"
+          :class="['md-codebox_holder', focused && 'md-is-active']"
         />
         <input
           v-else
@@ -48,7 +48,7 @@
           :value="code"
           readonly
           disabled
-          :class="['md-codebox-holder', focused && 'is-active']"
+          :class="['md-codebox_holder', focused && 'md-is-active']"
         />
       </template>
     </div>
@@ -62,13 +62,13 @@
         @input="$_onInputChange"
         @blur="blur"
         ref="input"
-        class="md-codebox-input"
+        class="md-codebox_input"
       />
     </form>
     <md-number-keyboard
       v-if="!system"
       ref="keyboard"
-      class="md-codebox-keyboard"
+      class="md-codebox_keyboard"
       :type="maxlength > 0 ? 'simple' : 'professional'"
       :okText="okText"
       :disorder="disorder"
@@ -81,7 +81,8 @@
   </div>
 </template>
 
-<script>import {inBrowser} from '@mand-mobile/shared/lib/util/env'
+<script>
+import {inBrowser} from '@mand-mobile/shared/lib/util/env'
 import NumberKeyboard from '../number-keyboard'
 
 export default {
@@ -270,11 +271,12 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-codebox-wrapper
-  .md-codebox-input
+  .md-codebox_input
     position absolute
     // border-bottom 1px solid red
     left -9999px
@@ -285,11 +287,11 @@ export default {
   display flex
   flex-wrap nowrap
   justify-content center
-  &.is-justify
-    .md-codebox-box
+  &.md-is-justify
+    .md-codebox_box
       flex 1 1 0%
 
-.md-codebox-box
+.md-codebox_box
   position relative
   flex 0 1 md-codebox-width
   width md-codebox-width
@@ -314,10 +316,10 @@ export default {
     margin-left 0
   &:last-child
     margin-right 0
-  &.is-active, &.is-filled
+  &.md-is-active, &.md-is-filled
     border-color md-codebox-border-active-color
 
-.md-codebox-blink
+.md-codebox_blink
   display block
   if tab-height is a 'unit'
     height (md-codebox-height * 0.8)
@@ -327,14 +329,14 @@ export default {
   background-color md-codebox-blink-color
   animation md-codebox-flash steps(2) 1s infinite
 
-.md-codebox-dot
+.md-codebox_dot
   display block
   height 10px
   width 10px
   border-radius 5px
   background-color md-codebox-dot-color
 
-.md-codebox-holder
+.md-codebox_holder
   pointer-events none
   height md-codebox-height
   line-height md-codebox-height
@@ -359,18 +361,18 @@ export default {
     opacity 1
     color md-codebox-color
     border-color md-codebox-border-color
-  &.is-active
+  &.md-is-active
     border-color md-codebox-border-active-color
 
-.md-codebox.is-disabled
-  .md-codebox-box
+.md-codebox.md-is-disabled
+  .md-codebox_box
     color md-codebox-disabled-color
     border-color md-codebox-disabled-color
-  .md-codebox-blink
+  .md-codebox_blink
     display none
-  .md-codebox-dot
+  .md-codebox_dot
     background-color md-codebox-disabled-color
-  .md-codebox-holder
+  .md-codebox_holder
     color md-codebox-disabled-color
     border-color md-codebox-disabled-color
 

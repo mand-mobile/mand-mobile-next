@@ -8,9 +8,10 @@
   </div>
 </template>
 
-<script>import Field from '../../../field'
-import CellItem from '../../../cell-item'
-// import Dialog from 'mand-mobile/dialog'
+<script>
+import Dialog from 'mand-mobile/lib/dialog'
+import Field from 'mand-mobile/lib/field'
+import CellItem from 'mand-mobile/lib/cell-item'
 
 export default {
   name: 'cell-item-demo',
@@ -28,12 +29,11 @@ export default {
 
   methods: {
     onClick() {
-      // Dialog.alert({
-      //   content: '点击了',
-      // })
-      // eslint-disable-next-line no-console
-      console.log('点击了')
+      Dialog.alert({
+        content: '点击了',
+      })
     },
   },
 }
-</script>
+
+</script>

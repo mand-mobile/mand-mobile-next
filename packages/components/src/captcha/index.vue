@@ -1,9 +1,9 @@
 <template>
   <div class="md-captcha" v-show="isView || value || visible">
     <template v-if="isView">
-      <div class="md-captcha-content">
-        <h2 class="md-captcha-title" v-if="title" v-text="title"></h2>
-        <div class="md-captcha-message">
+      <div class="md-captcha_content">
+        <h2 class="md-captcha_title" v-if="title" v-text="title"></h2>
+        <div class="md-captcha_message">
           <slot></slot>
         </div>
       </div>
@@ -19,11 +19,11 @@
         :justify="true"
         :autofocus="false"
       >
-        <footer class="md-captcha-footer">
-          <div class="md-captcha-error" v-if="errorMsg" v-text="errorMsg"></div>
-          <div class="md-captcha-brief" v-else v-text="brief"></div>
+        <footer class="md-captcha_footer">
+          <div class="md-captcha_error" v-if="errorMsg" v-text="errorMsg"></div>
+          <div class="md-captcha_brief" v-else v-text="brief"></div>
           <span
-            class="md-captcha-btn"
+            class="md-captcha_btn"
             v-if="count"
             v-text="countBtnText"
             :disabled="this.isCounting"
@@ -42,9 +42,9 @@
         @show="$_onShow"
         @hide="$_onHide"
       >
-        <div class="md-captcha-content">
-          <h2 class="md-captcha-title" v-if="title" v-text="title"></h2>
-          <div class="md-captcha-message">
+        <div class="md-captcha_content">
+          <h2 class="md-captcha_title" v-if="title" v-text="title"></h2>
+          <div class="md-captcha_message">
             <slot></slot>
           </div>
         </div>
@@ -60,11 +60,11 @@
           :autofocus="false"
           @submit="$_onSubmit"
         >
-          <footer class="md-captcha-footer">
-            <div class="md-captcha-error" v-if="errorMsg" v-text="errorMsg"></div>
-            <div class="md-captcha-brief" v-else v-text="brief"></div>
+          <footer class="md-captcha_footer">
+            <div class="md-captcha_error" v-if="errorMsg" v-text="errorMsg"></div>
+            <div class="md-captcha_brief" v-else v-text="brief"></div>
             <span
-              class="md-captcha-btn"
+              class="md-captcha_btn"
               v-if="count"
               v-text="countBtnText"
               :disabled="this.isCounting"
@@ -77,7 +77,8 @@
   </div>
 </template>
 
-<script>import Dialog from '../dialog/dialog'
+<script>
+import Dialog from '../dialog/dialog'
 import Codebox from '../codebox'
 import Button from '../button'
 // import {mdDocument} from '@mand-mobile/shared/lib/util'
@@ -200,7 +201,9 @@ export default {
     },
     $_onHide() {
       this.visible = false
-      this.$refs.codebox && this.$refs.codebox.blur()
+      if (this.$refs.codebox) {
+        this.$refs.codebox.blur()
+      }
       this.$emit('hide')
     },
     $_onSubmit(code) {
@@ -213,7 +216,9 @@ export default {
       this.$emit('send', this.countdown)
     },
     $_emitSend() {
-      this.autoSend && this.$_onResend()
+      if (this.autoSend) {
+        this.$_onResend()
+      }
     },
     // MARK: public methods
     countdown() {
@@ -248,35 +253,36 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-captcha
   .md-dialog
     .md-popup
       z-index md-captcha-zindex
-    .md-dialog-body
+    .md-dialog_body
       padding 60px 60px 30px 60px
-    .md-dialog-content
+    .md-dialog_content
       margin-bottom md-number-keyboard-height
   .md-codebox
     margin-bottom 28px
 
-.md-captcha-content
+.md-captcha_content
   font-size md-captcha-font-size
   color md-captcha-color
   text-align center
   line-height 1.2
   margin-bottom 50px
 
-.md-captcha-title
+.md-captcha_title
   color md-captcha-title-color
   font-size md-captcha-title-font-size
   font-weight normal
   line-height 1.15
   margin 0 0 16px 0
 
-.md-captcha-footer
+.md-captcha_footer
   margin 28px 0
   display flex
   font-size md-captcha-footer-font-size
@@ -284,14 +290,14 @@ export default {
   align-items center
   overflow hidden
 
-.md-captcha-error, .md-captcha-brief
+.md-captcha_error, .md-captcha_brief
   flex 1 1 0%
-.md-captcha-error
+.md-captcha_error
   color md-captcha-error-color
-.md-captcha-brief
+.md-captcha_brief
   color md-captcha-brief-color
 
-.md-captcha-btn
+.md-captcha_btn
   display inline-block
   color md-captcha-btn-color
   font-size md-captcha-footer-font-size

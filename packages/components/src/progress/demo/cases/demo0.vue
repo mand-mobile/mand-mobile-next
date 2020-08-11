@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import Progress from '../../index'
+import Progress from 'mand-mobile/lib/index'
 
 export default {
   name: 'progress-demo',

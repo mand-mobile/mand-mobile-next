@@ -9,7 +9,8 @@
   </div>
 </template>
 
-<script>import ResultPage from '../../index'
+<script>
+import ResultPage from 'mand-mobile/lib/result-page'
 
 export default {
   name: 'result-page-demo',
@@ -21,4 +22,5 @@ export default {
     'md-result-page': ResultPage,
   },
 }
-</script>
+
+</script>

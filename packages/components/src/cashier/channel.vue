@@ -1,13 +1,13 @@
 <template>
   <div class="md-cashier-channel">
-    <div class="md-cashier-channel--choose-text">
+    <div class="md-cashier-channel_choose_text">
       <p class="md-choose--title" v-if="paymentTitle" v-html="paymentTitle"></p>
       <p class="md-choose--number" v-if="paymentAmount" v-html="paymentAmount"></p>
       <p class="md-choose--describe" v-if="paymentDescribe" v-html="paymentDescribe"></p>
     </div>
-    <div class="md-choose--channel" :class="{active: isChannelActive}">
+    <div class="md-choose_channel" :class="{active: isChannelActive}">
       <slot></slot>
-      <div class="md-choose--channel_list" v-if="isChannelShow || isSingle">
+      <div class="md-choose_channel_list" v-if="isChannelShow || isSingle">
         <template v-for="(item, index) in channels">
           <md-cashier-channel-item
             :class="{default: index === defaultIndex}"
@@ -18,7 +18,7 @@
           />
         </template>
       </div>
-      <div class="md-choose--channel_list" v-else-if="channels[defaultIndex]">
+      <div class="md-choose_channel_list" v-else-if="channels[defaultIndex]">
         <md-cashier-channel-item
           class="default"
           :data="channels[defaultIndex]"
@@ -28,7 +28,7 @@
       </div>
       <div
         v-if="!isSingle"
-        class="md-choose--channel--more"
+        class="md-choose_channel--more"
         :class="{disabled: isChannelActive}"
         v-html="moreButtonText"
         @click="$_onChannelMoreClick"
@@ -47,9 +47,9 @@
 </template>
 
 <script>
-import Button from 'mand-mobile/lib/button'
-import Icon from 'mand-mobile/lib/icon'
-import ChannelItem from 'mand-mobile/lib/cashier/channel-item'
+import Button from '../button'
+import Icon from '../icon'
+import ChannelItem from './channel-item'
 
 export default {
   name: 'md-cashier-channel',
@@ -128,7 +128,7 @@ export default {
 
 <style lang="stylus">
 .md-cashier-channel
-  &--choose-text
+  &_choose_text
     clearfix()
     position relative
     padding 65px 0 25px
@@ -147,7 +147,7 @@ export default {
       &.md-choose--describe
         font-size md-cashier-choose-describe-font-size
         color md-cashier-choose-describe-color
-  .md-choose--channel
+  .md-choose_channel
     clearfix()
     max-height 500px
     padding 40px 60px
@@ -177,8 +177,8 @@ export default {
       &.disabled
         visibility hidden
     &.active
-      .md-choose--channel_list .choose-channel-item
+      .md-choose_channel_list .choose-channel-item
         display block
-      .md-choose--channel_list
+      .md-choose_channel_list
         max-height 1000px !important
 </style>

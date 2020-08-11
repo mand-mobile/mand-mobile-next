@@ -36,8 +36,8 @@
 </template>
 
 <script>
-import Amount from '../../../amount'
-import Progress from '../../index'
+import Amount from 'mand-mobile/lib/amount'
+import Progress from 'mand-mobile/lib/index'
 
 export default {
   name: 'progress-demo',

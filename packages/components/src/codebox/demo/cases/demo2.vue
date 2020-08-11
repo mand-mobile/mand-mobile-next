@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Codebox from '../../index'
+import Codebox from 'mand-mobile/lib/codebox'
 
 export default {
   name: 'codebox-demo',

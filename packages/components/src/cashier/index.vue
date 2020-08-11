@@ -74,7 +74,7 @@
             'md-cashier-success': scene === 'success'
           }"
           :key="sceneKey">
-          <div class="md-cashier_container_block--icon">
+          <div class="md-cashier_container_block_icon">
             <md-activity-indicator-rolling-success
               ref="rolling"
               :is-success="scene === 'success'"
@@ -98,7 +98,7 @@
           v-else-if="scene === 'fail'"
           class="md-cashier_container_block md-cashier--fail"
           :key="sceneKey">
-          <div class="md-cashier_container_block--icon">
+          <div class="md-cashier_container_block_icon">
             <md-icon name="warn-color"></md-icon>
           </div>
           <div class="md-cashier_container_block--text" v-text="sceneOption.fail.text"></div>
@@ -128,16 +128,16 @@
 </template>
 
 <script>
-import Popup from 'mand-mobile/lib/popup'
-import PopupTitlebar from 'mand-mobile/lib/popup/title-bar'
-import popupMixin from 'mand-mobile/lib/popup/mixins'
-import popupTitleBarMixin from 'mand-mobile/lib/popup/mixins/title-bar'
-import Captcha from 'mand-mobile/lib/captcha'
-import Icon from 'mand-mobile/lib/icon'
-import RollerSuccess from 'mand-mobile/lib/activity-indicator/roller-success'
 import {noop, extend} from '@mand-mobile/shared/lib/util'
-import Channel from 'mand-mobile/lib/cashier/channel'
-import ChannelButton from 'mand-mobile/lib/cashier/channel-button'
+import Popup from '../popup'
+import PopupTitlebar from '../popup/title-bar'
+import popupMixin from '../popup/mixins'
+import popupTitleBarMixin from '../popup/mixins/title-bar'
+import Captcha from '../captcha'
+import Icon from '../icon'
+import RollerSuccess from '../activity-indicator/roller-success'
+import Channel from './channel'
+import ChannelButton from './channel-button'
 
 export default {
   name: 'md-cashier',
@@ -315,7 +315,7 @@ export default {
     overflow hidden
     &_block
       clearfix()
-      &--icon
+      &_icon
         position relative
         left 50%
         float left
@@ -323,7 +323,7 @@ export default {
         height 100px
         margin-top 75px
         transform translateX(-50%)
-        .md-activity-indicator-svg
+        .md-activity-indicator_svg
           width 100px !important
           height 100px !important
       &--text
@@ -358,7 +358,7 @@ export default {
           margin-bottom 44px
 
       &.md-cashier--fail
-        .md-cashier_block--icon
+        .md-cashier_block_icon
           position relative
           text-align center
           line-height 100px

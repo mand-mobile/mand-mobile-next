@@ -40,9 +40,9 @@
 </template>
 
 <script>
-import Selector from 'mand-mobile/selector'
-import Field from 'mand-mobile/field'
-import FieldItem from 'mand-mobile/field/item'
+import Selector from 'mand-mobile/lib/selector'
+import Field from 'mand-mobile/lib/field'
+import FieldItem from 'mand-mobile/lib/field/item'
 
 export default {
   name: 'selector-demo',
@@ -92,44 +92,51 @@ export default {
 
 </script>
 
-<style lang="stylus">
-.md-example-child-selector-1
-  .selector-header, .selector-footer
-    padding 15px 40px
-    font-size 16px
-    color #ccc
-  .selector-item-body
-    display flex
-    align-items center
-    &.selected
-      .selector-item-content
-        color #2f86f6
-    &.disabled
-      opacity .3
-    .selector-item-left
-      flex-shrink 0
-      margin-right 32px
-      .holder
-        display block
-        width 88px
-        height 88px
-        border-radius 44px
-        background-color #e6e6e6
-        font-size 32px
-        font-weight 500
-        color #2f86f6
-        text-align center
-        line-height 88px
-    .selector-item-content
-      flex 1
-      color #111a34
-      font-size 32px
-      line-height 1.2
-      .selector-item-title
-        line-height 1.2
-      .selector-item-brief
-        color #858b9c
-        font-size 24px
-        line-height 1.4
-        margin-top 8px
+<style>
+.md-example-child-selector-1 .selector-header, .md-example-child-selector-1 .selector-footer {
+  padding: 15px 40px;
+  font-size: 16px;
+  color: #ccc;
+}
+.md-example-child-selector-1 .selector-item-body {
+  display: flex;
+  align-items: center;
+}
+.md-example-child-selector-1 .selector-item-body.selected .selector-item-content {
+  color: #2f86f6;
+}
+.md-example-child-selector-1 .selector-item-body.selected {
+  opacity: .3;
+}
+.md-example-child-selector-1 .selector-item-body .selector-item-left {
+  flex-shrink: 0;
+  margin-right: 32px;
+}
+.md-example-child-selector-1 .selector-item-body .selector-item-left .holder {
+  display: block;
+  width: 88px;
+  height: 88px;
+  font-size: 32px;
+  font-weight: 500;
+  color: #2f86f6;
+  text-align: center;
+  line-height: 88px;
+  border-radius: 44px;
+  background-color: #e6e6e6;
+}
+.md-example-child-selector-1 .selector-item-body .selector-item-content {
+  flex: 1;
+  color: #111a34;
+  font-size: 32px;
+  line-height: 1.2;
+}
+.md-example-child-selector-1 .selector-item-body .selector-item-content .selector-item-title {
+  line-height: 1.2;
+}
+.md-example-child-selector-1 .selector-item-body .selector-item-content .selector-item-brief {
+  margin-top: 8px;
+  color: #858b9c;
+  font-size: 24px;
+  line-height: 1.4;
+}
 </style>

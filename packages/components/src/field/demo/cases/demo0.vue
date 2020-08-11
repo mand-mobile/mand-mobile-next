@@ -24,10 +24,11 @@
   </div>
 </template>
 
-<script>import Dialog from '../../../dialog/dialog'
-import Field from '../../index'
-import FieldItem from '../../item'
-import Icon from '../../../icon'
+<script>
+import Dialog from 'mand-mobile/lib/dialog/dialog'
+import Field from 'mand-mobile/lib/field'
+import FieldItem from 'mand-mobile/lib/field/item'
+import Icon from 'mand-mobile/lib/icon'
 
 export default {
   name: 'field-demo0',
@@ -60,7 +61,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style scoped>
 .md-example-child-field-0 {

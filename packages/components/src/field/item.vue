@@ -31,8 +31,9 @@
   </div>
 </template>
 
-<script>import {isIOS, isAndroid} from '@mand-mobile/shared/lib/util/env'
-import Icon from '../icon'
+<script>
+import {isIOS, isAndroid} from '@mand-mobile/shared/lib/util/env'
+import Icon from 'mand-mobile/lib/icon'
 
 export default {
   name: 'md-field-item',
@@ -114,7 +115,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-field-item

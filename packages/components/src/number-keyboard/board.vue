@@ -1,9 +1,9 @@
 <template>
   <div class="md-number-keyboard-container" :class="type">
     <div class="keyboard-number">
-      <ul class="keyboard-number-list">
+      <ul class="keyboard-number_list">
         <md-number-key
-          class="keyboard-number-item"
+          class="keyboard-number_item"
           v-for="(n, index) in keyNumberListNumber"
           :key="index"
           :value="n"
@@ -11,51 +11,51 @@
         ></md-number-key>
         <template v-if="type === 'professional'">
           <md-number-key
-            class="keyboard-number-item"
+            class="keyboard-number_item"
             v-if="!hideDot"
             :value="dotText"
             @press="$_onNumberKeyClick"
           ></md-number-key>
           <md-number-key
-            class="keyboard-number-item"
-            :class="[{'large-item': hideDot}]"
+            class="keyboard-number_item"
+            :class="[{'md-large-item': hideDot}]"
             :value="keyNumberList[9]"
             @press="$_onNumberKeyClick"
           ></md-number-key>
-          <li class="keyboard-number-item" v-if="isView"></li>
+          <li class="keyboard-number_item" v-if="isView"></li>
           <md-number-key
             v-else
-            custom-class="keyboard-number-item slidedown"
-            class="keyboard-number-item slidedown"
+            custom-class="keyboard-number_item md-slidedown"
+            class="keyboard-number_item md-slidedown"
             no-touch
             no-prevent
             @press="$_onSlideDoneClick"
           ></md-number-key>
         </template>
         <template v-else>
-          <li class="keyboard-number-item no-bg"></li>
+          <li class="keyboard-number_item md-no-bg"></li>
           <md-number-key
-            custom-class="keyboard-number-item"
-            class="keyboard-number-item"
+            custom-class="keyboard-number_item"
+            class="keyboard-number_item"
             :value="keyNumberList[9]"
             @press="$_onNumberKeyClick"
           ></md-number-key>
           <md-number-key
-            custom-class="keyboard-number-item no-bg delete"
-            class="keyboard-number-item no-bg delete"
+            custom-class="keyboard-number_item md-no-bg md-delete"
+            class="keyboard-number_item md-no-bg md-delete"
             @press="$_onDeleteClick"
           ></md-number-key>
         </template>
       </ul>
     </div>
     <div class="keyboard-operate" v-if="type === 'professional'">
-      <ul class="keyboard-operate-list">
+      <ul class="keyboard-operate_list">
         <md-number-key
-          custom-class="keyboard-operate-item delete"
+          custom-class="keyboard-operate_item md-delete"
           @press="$_onDeleteClick"
         ></md-number-key>
         <md-number-key
-          custom-class="keyboard-operate-item confirm"
+          custom-class="keyboard-operate_item md-confirm"
           :value="okText"
           no-touch
           no-prevent
@@ -66,7 +66,8 @@
   </div>
 </template>
 
-<script>// import { noop } from '@mand-mobile/shared/lib/util'
+<script>
+// import { noop } from '@mand-mobile/shared/lib/util'
 import Key from './key'
 
 export default {
@@ -150,7 +151,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-number-keyboard-container
@@ -163,8 +165,8 @@ export default {
   hairline(top, md-number-keyboard-key-border-color)
   &.simple
     .keyboard-number
-      .keyboard-number-list
-        .keyboard-number-item
+      .keyboard-number_list
+        .keyboard-number_item
           &:nth-of-type(3n)
             remove-hairline(right)
   .keyboard-number, .keyboard-operate
@@ -172,12 +174,12 @@ export default {
   .keyboard-number
     flex 3
     background md-number-keyboard-bg
-    .keyboard-number-list
+    .keyboard-number_list
       // float left
       width 100%
       display flex
       flex-wrap wrap
-      .keyboard-number-item
+      .keyboard-number_item
         position relative
         // float left
         width 33.3%
@@ -195,41 +197,41 @@ export default {
         transition background .3s
         background md-number-keyboard-key-bg
         box-sizing border-box
-        &.no-bg
+        &.md-no-bg
           background transparent
         &:nth-of-type(-n+3)
           remove-hairline(top)
         &:nth-of-type(3n)
           width 33.4%
-        &.delete
+        &.md-delete
           background url(assets/images/keyboard-del.png) center no-repeat
           background-size 46px
-        &.slidedown
+        &.md-slidedown
           background md-number-keyboard-key-bg url(assets/images/keyboard-hide.png) center no-repeat
           background-size 54px
-        &.large-item
+        &.md-large-item
           width 66.7%
           flex 1 1 66.7%
-        &:active, &.active
+        &:active, &.md-active
           background-color md-number-keyboard-key-bg-tap
         &:before, &:after
           pointer-events none
   .keyboard-operate
     flex 1
-    .keyboard-operate-list
+    .keyboard-operate_list
       position relative
       // float left
       width 100%
       height 100%
       display flex
       flex-direction column
-      .keyboard-operate-item
+      .keyboard-operate_item
         position relative
         // float left
         width 100%
         background md-number-keyboard-key-bg
         transition background .3s
-        &.delete
+        &.md-delete
           flex 1
           display flex
           align-items center
@@ -239,7 +241,7 @@ export default {
           background-size 42px
           &:active
             background-color md-number-keyboard-key-bg-tap
-        &.confirm
+        &.md-confirm
           padding-top 5px
           color md-number-keyboard-key-confirm-color
           font-size md-font-caption-large

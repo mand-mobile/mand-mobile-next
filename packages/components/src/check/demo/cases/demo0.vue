@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import Check from '../../index'
-import Field from '../../../field'
+import Check from 'mand-mobile/lib/check'
+import Field from 'mand-mobile/lib/field'
 export default {
   name: 'check-demo',
   /* DELETE */

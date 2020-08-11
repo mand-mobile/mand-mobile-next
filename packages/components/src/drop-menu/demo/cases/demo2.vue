@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import DropMenu from 'mand-mobile/drop-menu'
+import DropMenu from 'mand-mobile/lib/drop-menu'
 
 export default {
   name: 'drop-menu-demo',
@@ -76,7 +76,32 @@ export default {
 }
 
 </script>
-<style lang="stylus">
-.md-example-child-drop-menu-2
-  height 600px
+<style>
+.md-example-child-drop-menu {
+  position: relative;
+  height: 400px;
+  background: #F9FAFB;
+  overflow: hidden;
+}
+      
+.md-example-child-drop-menu .md-drop-menu {
+  position: absolute;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+
+.md-example-child-drop-menu .md-drop-menu .md-drop-menu_bar {
+  height: 110px;
+}
+
+.md-example-child-drop-menu .md-popup {
+  position: absolute;
+}
+      
+.md-example-child-drop-menu .content {
+  font-size: 26px;
+  text-align: center;
+  line-height: 400px;
+}    
 </style>
