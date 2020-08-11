@@ -3,9 +3,15 @@ const path = require('path')
 const fs = require('fs')
 const globby = require('globby')
 const anymatch = require('anymatch')
+
+const rimraf = require('rimraf')
+
+const find = require('find')
+const mv = require('mv')
+
+const copyfiles = require('copyfiles')
 const {exec} = require('child_process')
 const log = target => {
-  console.info(target, 'debug log')
   return target
 }
 
@@ -118,6 +124,54 @@ function resolveComponents({platform: PLATFORM}) {
   )
 }
 
+function renderComponents({platform, target, done}) {
+  const fileFilter = () => {}
+
+  const moduleName = '@mand-mobile/components'
+  const join = root => path.join(root, 'src')
+  const inputPath = R.compose(join, path.dirname, require.resolve)(moduleName)
+
+  const fileGlobs = `/${inputPath}/*/*.*`
+
+  const noop = () => {}
+
+  copyfiles(
+    [fileGlobs, target],
+    {
+      // 从后向前取两级目录，/componets/src/*/a.vue保留到 */a.vue这两级
+      up: -2,
+    },
+    () => {
+      const matcher = new RegExp(`\\.${platform}\\.(js|vue|ts)$`)
+      find.file(matcher, target, function(files) {
+        files.forEach(fileSpecificPlatform => {
+          const dir = path.dirname(fileSpecificPlatform)
+          const ext = path.extname(fileSpecificPlatform)
+
+          const basename = path.basename(fileSpecificPlatform, `.${platform}${ext}`)
+
+          const singleFilematcher = new RegExp(`${basename}(\\..*)?\\${ext}$`)
+
+          find.file(singleFilematcher, dir, files => {
+            files.forEach(file => {
+              if (file === fileSpecificPlatform) {
+                return
+              }
+              rimraf.sync(file)
+            })
+
+            files.forEach(file => {
+              if (file === fileSpecificPlatform) {
+                mv(fileSpecificPlatform, `${dir}/${basename}${ext}`, {mkdirp: true}, function(err) {})
+              }
+            })
+          })
+        })
+      })
+    },
+  )
+}
+
 const resolveCategory = components => {
   const category = [
     {name: 'Basic', category: 'basic', text: '基础组件'},
@@ -188,6 +242,12 @@ module.exports = api => {
 
     api.render(renderTarget, additionalData, ejsOptions)
   }
+
+  api.$renderComponents = renderComponents
+
+  // api.$createFilterComponents = function componentFilter(componet, ) {
+  //   const compoentFile =
+  // }
 
   const generator = require(`@mand-mobile/platform/src/${platform}/builder/generator`)
 

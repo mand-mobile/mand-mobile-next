@@ -27,5 +27,5 @@ else
   export MAND_OUTPUT_DIR="$platform/$buildTarget"
 
   npx vue invoke @mand-mobile/vue-cli-plugin-builder --platform $platform --target $buildTarget
-  VUE_CLI_SERVICE_CONFIG_PATH=".mand-mobile/${plat}/vue.config.js" npx vue-cli-service md-build --platform=$platform --target=$buildTarget
+  # VUE_CLI_SERVICE_CONFIG_PATH=".mand-mobile/${plat}/vue.config.js" npx vue-cli-service md-build --platform=$platform --target=$buildTarget
 fi
