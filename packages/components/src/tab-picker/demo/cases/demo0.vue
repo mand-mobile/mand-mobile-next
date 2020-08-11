@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import Field from 'mand-mobile/field'
-import FieldItem from 'mand-mobile/field/item'
-import TabPicker from 'mand-mobile/tab-picker'
-import data from 'mand-mobile/tab-picker/demo/data'
+import Field from 'mand-mobile/lib/field'
+import FieldItem from 'mand-mobile/lib/field/item'
+import TabPicker from 'mand-mobile/lib/tab-picker'
+import data from 'mand-mobile/lib/tab-picker/demo/data'
 
 export default {
   name: 'tab-bar-demo',
