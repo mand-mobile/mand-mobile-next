@@ -5,7 +5,7 @@
   "description": "mand-mobile主工程",
   "author": {
     "name": "lucker",
-    "email": "guoyunlong@didichuxing.com"
+    "email": "byterotate@gmail.com"
   },
   "scripts": {
     "serve": "run-p clean:* && sh ./scripts/preview.sh all",

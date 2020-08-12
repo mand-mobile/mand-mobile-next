@@ -2,7 +2,7 @@
   "name": "@mand-mobile/scroller",
   "version": "0.0.1",
   "description": "> TODO: description",
-  "author": "lucker <guoyunlong@didichuxing.com>",
+  "author": "lucker <byterotate@gmail.com>",
   "homepage": "",
   "license": "ISC",
   "main": "lib/index.js",
@@ -14,9 +14,7 @@
     "lib": "lib",
     "test": "__tests__"
   },
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "dependencies": {
     "@mand-mobile/shared": "^0.0.1",
     "@types/jest": "^26.0.4",

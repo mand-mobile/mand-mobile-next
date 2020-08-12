@@ -3,5 +3,5 @@ export default {
   'text': '标签',
   'category': 'basic',
   'description': '小标签',
-  'author': 'guoyunlong <guoyunlong@didichuxing.com>'
+  'author': 'guoyunlong <byterotate@gmail.com>'
 }

@@ -1,8 +1,8 @@
 {
-  "name": "mand-mobile",
+  "name": "mand-mobile-next",
   "version": "3.0.0-alpha.0",
   "description": "> TODO: description",
-  "author": "lucker <guoyunlong@didichuxing.com>",
+  "author": "lucker <byterotate@gmail.com>",
   "scripts": {
     "build": "run-p clean:* && sh scripts/build.sh all",
     "build:uni": "sh ./scripts/build.sh uni lib",
