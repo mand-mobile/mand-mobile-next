@@ -1357,10 +1357,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@mand-mobile/shared@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/@mand-mobile/shared/-/shared-0.0.1.tgz#de9b5d44bacd45e6c656ec5823b0aae01644a608"
-  integrity sha512-KyHspe36JXXUoh5SkSbO1P4Fl2E9amLgiGwbM9G9bUWIYzGfh18QoQiOVUgrwWFNjgN5Z+VXrVOJkGvQAmSVuA==
+"@mand-mobile/shared@^3.0.1-alpha.3":
+  version "3.0.1-alpha.3"
+  resolved "https://registry.npmjs.org/@mand-mobile/shared/-/shared-3.0.1-alpha.3.tgz#9f48e3186eacd74173ba59a01d0575a8959fc84d"
+  integrity sha512-vr31qVQPxh14+pNdlIwxSrTw0Z7b9s7Hstl3IEa5t3+O9lyxo0K+woQ/zQzQryGZANX3DUto2ldXfYZwMrWEFg==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
