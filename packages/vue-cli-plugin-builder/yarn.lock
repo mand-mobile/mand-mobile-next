@@ -1433,31 +1433,15 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@mand-mobile/components@^3.0.1-alpha.3":
-  version "3.0.1-alpha.3"
-  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-3.0.1-alpha.3.tgz#30c07bf4c647b5e04945567be89bc058d1ce7601"
-  integrity sha512-u7Ek8Ld1mam1dIYUvp5n9XB92wJKd6T60bo1bCBAZnh9AxocReZqfVAuMnb2+KPOnWl78rQ+UVFW2tgsARMhdQ==
+"@mand-mobile/components@^3.0.1-alpha.4":
+  version "3.0.1-alpha.4"
+  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-3.0.1-alpha.4.tgz#ea9eb44d2654f34ccbe6a3065490bc3abcf75633"
+  integrity sha512-dgFqGJ6Y9BMkW0/h1DxPwE6bnz8dKoZlrsUc7KrYRcmbgr8GUD/um5+rRIm3bCNJoPwUuqxv+kjZnxMgwNv1aQ==
   dependencies:
-    "@mand-mobile/platform" "^3.0.1-alpha.3"
+    "@mand-mobile/platform" "^3.0.1-alpha.4"
     "@mand-mobile/scroller" "^3.0.1-alpha.3"
     "@mand-mobile/shared" "^3.0.1-alpha.3"
     jest "^26.0.1"
-
-"@mand-mobile/platform@^3.0.1-alpha.3":
-  version "3.0.1-alpha.3"
-  resolved "https://registry.npmjs.org/@mand-mobile/platform/-/platform-3.0.1-alpha.3.tgz#57cf8b7bdf7c059eada2d59e95b2cbc3838b2b7b"
-  integrity sha512-8DaNLboICev+zXhtWgNLlH3HOn25Na+jTVxZoqKoa6IOiR7r8sLU4BjEaHcMMTur1nU4k6go8zJ3fqTvWAU5Vg==
-  dependencies:
-    "@mand-mobile/shared" "^3.0.1-alpha.3"
-    bluebird "^3.7.2"
-    glob "^7.1.6"
-    nib "^1.1.2"
-    postcss-load-config "^2.1.0"
-    postcss-pxtorem "^5.1.1"
-    postcss-url "^8.0.0"
-    recursive-copy "^2.0.10"
-    rollup-plugin-css-only "^2.1.0"
-    vue "^2.6.11"
 
 "@mand-mobile/platform@^3.0.1-alpha.4":
   version "3.0.1-alpha.4"
