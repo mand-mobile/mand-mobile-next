@@ -15,7 +15,7 @@
   },
   "main": "web/bundle/mand-mobile.umd.js",
   "module": "web/bundle/mand-mobile.esm.js",
-  "files": ["lib"],
+  "files": ["uni", "web", "package.json"],
   "dependencies": {
     "@mand-mobile/components": "^3.0.1-alpha.3",
     "@mand-mobile/platform": "^3.0.1-alpha.3",
