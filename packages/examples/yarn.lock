@@ -1557,6 +1557,22 @@
     rollup-plugin-css-only "^2.1.0"
     vue "^2.6.11"
 
+"@mand-mobile/platform@^3.0.1-alpha.4":
+  version "3.0.1-alpha.4"
+  resolved "https://registry.npmjs.org/@mand-mobile/platform/-/platform-3.0.1-alpha.4.tgz#81580399e23965247e803a080565298b08535324"
+  integrity sha512-55XFsbCarQw1gypO4hgnrA/Rqxi3KcMZGQdf4nl6KtOog5idUSXdU96OBZGIkT9gH+1jMFcS+lKsPWJOaeEM1g==
+  dependencies:
+    "@mand-mobile/shared" "^3.0.1-alpha.3"
+    bluebird "^3.7.2"
+    glob "^7.1.6"
+    nib "^1.1.2"
+    postcss-load-config "^2.1.0"
+    postcss-pxtorem "^5.1.1"
+    postcss-url "^8.0.0"
+    recursive-copy "^2.0.10"
+    rollup-plugin-css-only "^2.1.0"
+    vue "^2.6.11"
+
 "@mand-mobile/scroller@^3.0.1-alpha.3":
   version "3.0.1-alpha.3"
   resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-3.0.1-alpha.3.tgz#94acd980e06cf0f1bc0bd01e76b9c14c7cc39916"

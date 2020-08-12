@@ -643,10 +643,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@mand-mobile/platform@^3.0.1-alpha.3":
-  version "3.0.1-alpha.3"
-  resolved "https://registry.npmjs.org/@mand-mobile/platform/-/platform-3.0.1-alpha.3.tgz#57cf8b7bdf7c059eada2d59e95b2cbc3838b2b7b"
-  integrity sha512-8DaNLboICev+zXhtWgNLlH3HOn25Na+jTVxZoqKoa6IOiR7r8sLU4BjEaHcMMTur1nU4k6go8zJ3fqTvWAU5Vg==
+"@mand-mobile/platform@^3.0.1-alpha.4":
+  version "3.0.1-alpha.4"
+  resolved "https://registry.npmjs.org/@mand-mobile/platform/-/platform-3.0.1-alpha.4.tgz#81580399e23965247e803a080565298b08535324"
+  integrity sha512-55XFsbCarQw1gypO4hgnrA/Rqxi3KcMZGQdf4nl6KtOog5idUSXdU96OBZGIkT9gH+1jMFcS+lKsPWJOaeEM1g==
   dependencies:
     "@mand-mobile/shared" "^3.0.1-alpha.3"
     bluebird "^3.7.2"
