@@ -4,6 +4,7 @@
   "description": "> TODO: description",
   "author": "lucker <byterotate@gmail.com>",
   "scripts": {
+    "prepublish": "npm run build",
     "build": "run-p clean:* && sh scripts/build.sh all",
     "build:uni": "sh ./scripts/build.sh uni lib",
     "build:uni-src": "sh ./scripts/build.sh uni src",
