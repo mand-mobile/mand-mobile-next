@@ -25,7 +25,7 @@
   "main": "lib/mand-mobile.js",
   "files": ["lib"],
   "dependencies": {
-    "@mand-mobile/components": "^3.0.1-alpha.3",
+    "@mand-mobile/components": "^3.0.1-alpha.4",
     "@mand-mobile/platform": "^3.0.1-alpha.4",
     "@mand-mobile/shared": "^3.0.1-alpha.3",
     "fastclick": "^1.0.6",
