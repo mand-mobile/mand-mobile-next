@@ -13,10 +13,12 @@
   },
   "files": ["bin", "lib", "dist", "generator"],
   "scripts": {
+    "prebuild": "rm -fr dist",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "test": "jest --coverage --passWithNoTests",
-    "test:watch": "jest --watch --collectCoverage=false"
+    "test:watch": "jest --watch --collectCoverage=false",
+    "prepublishOnly": "npm run build"
   },
   "jest": {
     "transform": {

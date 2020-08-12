@@ -1,6 +1,6 @@
 {
   "name": "@mand-mobile/platform",
-  "version": "3.0.1-alpha.3",
+  "version": "3.0.1-alpha.4",
   "description": "mand-mobile runtime cross platform plugins",
   "keywords": ["mfe"],
   "author": "lucker <byterotate@gmail.com>",
@@ -11,7 +11,7 @@
     "lib": "lib",
     "test": "__tests__"
   },
-  "files": ["lib"],
+  "files": ["lib", "src"],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
     "prebuild": "rm -fr lib || true",
