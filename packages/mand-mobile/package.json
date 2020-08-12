@@ -19,7 +19,7 @@
   "files": ["uni", "web", "package.json"],
   "dependencies": {
     "@mand-mobile/components": "^3.0.1-alpha.3",
-    "@mand-mobile/platform": "^3.0.1-alpha.3",
+    "@mand-mobile/platform": "^3.0.1-alpha.4",
     "@mand-mobile/shared": "^3.0.1-alpha.3",
     "@vue/cli": "^4.5.3",
     "find": "^0.3.0",
