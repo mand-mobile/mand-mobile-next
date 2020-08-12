@@ -1,22 +1,22 @@
 <template>
   <div class="md-scroll-view-refresh">
-    <!-- <md-activity-indicator-rolling
+    <md-activity-indicator-rolling
       :process="!isRefreshing ? process : undefined"
       :width="10"
       :color="rollerColor"
-    ></md-activity-indicator-rolling> -->
+    ></md-activity-indicator-rolling>
     <p class="refresh-tip">{{ refreshTip }}</p>
   </div>
 </template>
 
 <script>
-// import Roller from '../activity-indicator/roller'
+import Roller from '../activity-indicator/roller'
 
 export default {
   name: 'md-scroll-view-refresh',
 
   components: {
-    // [Roller.name]: Roller,
+    'md-activity-indicator-rolling': Roller,
   },
 
   props: {
