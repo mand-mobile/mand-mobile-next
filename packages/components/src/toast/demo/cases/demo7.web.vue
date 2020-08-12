@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import Button from '../../../button'
-import Toast from '../../../toast'
-import ActivityIndicator from '../../../activity-indicator'
+import Button from 'mand-mobile/lib/button'
+import Toast from 'mand-mobile/lib/toast'
+import ActivityIndicator from 'mand-mobile/lib/activity-indicator'
 
 export default {
   name: 'toast-demo',
