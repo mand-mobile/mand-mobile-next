@@ -18,15 +18,15 @@
     <div class="md-scroll-view_header" v-if="$slots.header">
       <slot name="header"></slot>
     </div>
-    <template slot="refresh" slot-scope="{scrollY, isRefreshing, isRefreshActive}">
+    <template v-slot:refresh="{scrollTop, isRefreshing, isRefreshActive}">
       <slot name="refresh"
-        :scroll-top="scrollY"
+        :scroll-top="scrollTop"
         :is-refreshing="isRefreshing"
         :is-refresh-active="isRefreshActive"
       ></slot>
     </template>
     <slot></slot>
-    <template slot="more" slot-scope="{isEndReaching}">
+    <template v-slot:more="{isEndReaching}">
       <slot name="more" :is-end-reaching="isEndReaching"></slot>
     </template>
     <div class="md-scroll-view_footer" v-if="$slots.footer">
