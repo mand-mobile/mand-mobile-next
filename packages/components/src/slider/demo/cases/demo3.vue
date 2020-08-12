@@ -4,7 +4,8 @@
 	</div>
 </template>
 
-<script>import Slider from '../../index'
+<script>
+import Slider from 'mand-mobile/lib/slider'
 
 export default {
   name: 'slider-demo',
@@ -21,5 +22,6 @@ export default {
     }
   },
 }
-</script>
+
+</script>
 

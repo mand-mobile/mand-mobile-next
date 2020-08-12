@@ -3,8 +3,8 @@
     <div
       class="md-codebox"
       :class="[
-        disabled ? 'md-is-disabled' : '',
-        justify ? 'md-is-justify': '',
+        disabled ? 'md-disabled' : '',
+        justify ? 'md-justify': '',
       ]"
       @click="focus"
     >
@@ -39,7 +39,7 @@
           :value="code"
           readonly
           disabled
-          :class="['md-codebox_holder', focused && 'md-is-active']"
+          :class="['md-codebox_holder', focused && 'md-active']"
         />
         <input
           v-else
@@ -48,7 +48,7 @@
           :value="code"
           readonly
           disabled
-          :class="['md-codebox_holder', focused && 'md-is-active']"
+          :class="['md-codebox_holder', focused && 'md-active']"
         />
       </template>
     </div>
@@ -287,7 +287,7 @@ export default {
   display flex
   flex-wrap nowrap
   justify-content center
-  &.md-is-justify
+  &.md-justify
     .md-codebox_box
       flex 1 1 0%
 
@@ -316,7 +316,7 @@ export default {
     margin-left 0
   &:last-child
     margin-right 0
-  &.md-is-active, &.md-is-filled
+  &.md-active, &.md-is-filled
     border-color md-codebox-border-active-color
 
 .md-codebox_blink
@@ -361,10 +361,10 @@ export default {
     opacity 1
     color md-codebox-color
     border-color md-codebox-border-color
-  &.md-is-active
+  &.md-active
     border-color md-codebox-border-active-color
 
-.md-codebox.md-is-disabled
+.md-codebox.md-disabled
   .md-codebox_box
     color md-codebox-disabled-color
     border-color md-codebox-disabled-color

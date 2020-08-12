@@ -80,7 +80,7 @@
               :is-success="scene === 'success'"
             ></md-activity-indicator-rolling-success>
           </div>
-          <div class="md-cashier_container_block--text">{{ scene === 'success' ? sceneOption.success.text : sceneOption.loading.text }}</div>
+          <div class="md-cashier_container_block_text">{{ scene === 'success' ? sceneOption.success.text : sceneOption.loading.text }}</div>
           <md-cashier-channel-button
             v-if="scene === 'success'"
             :actions="
@@ -101,7 +101,7 @@
           <div class="md-cashier_container_block_icon">
             <md-icon name="warn-color"></md-icon>
           </div>
-          <div class="md-cashier_container_block--text" v-text="sceneOption.fail.text"></div>
+          <div class="md-cashier_container_block_text" v-text="sceneOption.fail.text"></div>
           <md-cashier-channel-button
             :actions="
               sceneOption.fail.actions ||
@@ -326,7 +326,7 @@ export default {
         .md-activity-indicator_svg
           width 100px !important
           height 100px !important
-      &--text
+      &_text
         block()
         margin-top 20px
         margin-bottom 180px

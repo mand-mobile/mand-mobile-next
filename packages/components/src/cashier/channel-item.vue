@@ -11,7 +11,7 @@
         <span v-html="data.text || data"></span>
         <span
           v-if="data.action"
-          class="md-cashier-channel-item_label_title--active"
+          class="md-active"
           v-html="data.action.text"
           @click.stop="data.action.handler"
         ></span>
@@ -88,7 +88,7 @@ export default {
     &_title
       font-size md-cashier-choose-channel-title-font-size
       color md-cashier-choose-channel-title-color
-      &--active
+      .md-active
         padding-left md-h-gap-sm
         font-size md-cashier-choose-channel-title-action-font-size
         color md-cashier-choose-channel-title-action-color

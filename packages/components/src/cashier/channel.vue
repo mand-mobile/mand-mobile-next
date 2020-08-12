@@ -1,13 +1,13 @@
 <template>
   <div class="md-cashier-channel">
-    <div class="md-cashier-channel_choose_text">
-      <p class="md-choose--title" v-if="paymentTitle" v-html="paymentTitle"></p>
-      <p class="md-choose--number" v-if="paymentAmount" v-html="paymentAmount"></p>
-      <p class="md-choose--describe" v-if="paymentDescribe" v-html="paymentDescribe"></p>
+    <div class="md-cashier-channel_text">
+      <p class="md-cashier-channel_text_title" v-if="paymentTitle" v-html="paymentTitle"></p>
+      <p class="md-cashier-channel_text_number" v-if="paymentAmount" v-html="paymentAmount"></p>
+      <p class="md-cashier-channel_text_describe" v-if="paymentDescribe" v-html="paymentDescribe"></p>
     </div>
-    <div class="md-choose_channel" :class="{active: isChannelActive}">
+    <div class="md-cashier-channel_channel" :class="{active: isChannelActive}">
       <slot></slot>
-      <div class="md-choose_channel_list" v-if="isChannelShow || isSingle">
+      <div class="md-cashier-channel_channel_list" v-if="isChannelShow || isSingle">
         <template v-for="(item, index) in channels">
           <md-cashier-channel-item
             :class="{default: index === defaultIndex}"
@@ -18,7 +18,7 @@
           />
         </template>
       </div>
-      <div class="md-choose_channel_list" v-else-if="channels[defaultIndex]">
+      <div class="md-cashier-channel_channel_list" v-else-if="channels[defaultIndex]">
         <md-cashier-channel-item
           class="default"
           :data="channels[defaultIndex]"
@@ -28,13 +28,13 @@
       </div>
       <div
         v-if="!isSingle"
-        class="md-choose_channel--more"
+        class="md-more"
         :class="{disabled: isChannelActive}"
         v-html="moreButtonText"
         @click="$_onChannelMoreClick"
       ></div>
     </div>
-    <div class="md-cashier_block_btn">
+    <div class="md-cashier-channel_block-btn">
       <md-button
         class="md-cashier-pay-button"
         :type="payButtonDisabled ? 'disabled': 'primary'"
@@ -128,26 +128,26 @@ export default {
 
 <style lang="stylus">
 .md-cashier-channel
-  &_choose_text
+  &_text
     clearfix()
     position relative
     padding 65px 0 25px
     p
       block()
       text-align center
-      &.md-choose--title
+      &.md-cashier-channel_text_title
         font-size md-cashier-choose-title-font-size
         color md-cashier-choose-title-color
-      &.md-choose--number
+      &.md-cashier-channel_text_number
         margin-top 20px
         font-size md-cashier-choose-amount-font-size
         font-family md-font-family-number
         color md-cashier-choose-amount-color
         letter-spacing -2px
-      &.md-choose--describe
+      &.md-cashier-channel_text_describe
         font-size md-cashier-choose-describe-font-size
         color md-cashier-choose-describe-color
-  .md-choose_channel
+  .md-cashier-channel_channel
     clearfix()
     max-height 500px
     padding 40px 60px
@@ -159,7 +159,7 @@ export default {
       transition all .5s ease-in
       overflow hidden
       
-    &--more
+    .md-more
       margin-top 10px
       font-size md-cashier-choose-more-font-size
       color md-cashier-choose-more-color
