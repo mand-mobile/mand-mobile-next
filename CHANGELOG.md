@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1-alpha.4](https://github.com/mand-mobile/mand-mobile-next/compare/v3.0.1-alpha.3...v3.0.1-alpha.4) (2020-08-12)
+
+
+### Bug Fixes
+
+* **mand-mobile--next:** add whitelist files in package.json ([be899cf](https://github.com/mand-mobile/mand-mobile-next/commit/be899cf0b2b7dfff80660b1e2b1e9b8d42a37283))
+
+
+
+
+
 ## 3.0.1-alpha.3 (2020-08-12)
 
 
