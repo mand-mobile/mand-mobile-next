@@ -1,6 +1,6 @@
 {
   "name": "@mand-mobile/platform",
-  "version": "0.0.1",
+  "version": "3.0.1-alpha.0",
   "description": "mand-mobile runtime cross platform plugins",
   "keywords": ["mfe"],
   "author": "lucker <byterotate@gmail.com>",
@@ -19,12 +19,12 @@
     "prepublish": "rm -fr lib && cp -r src lib"
   },
   "dependencies": {
-    "@mand-mobile/shared": "0.0.1",
+    "@mand-mobile/shared": "^3.0.1-alpha.0",
     "bluebird": "^3.7.2",
     "glob": "^7.1.6",
+    "nib": "^1.1.2",
     "postcss-load-config": "^2.1.0",
     "postcss-pxtorem": "^5.1.1",
-    "nib": "^1.1.2",
     "postcss-url": "^8.0.0",
     "recursive-copy": "^2.0.10",
     "rollup-plugin-css-only": "^2.1.0",
