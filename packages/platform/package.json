@@ -1,6 +1,6 @@
 {
   "name": "@mand-mobile/platform",
-  "version": "3.0.1-alpha.0",
+  "version": "3.0.1-alpha.1",
   "description": "mand-mobile runtime cross platform plugins",
   "keywords": ["mfe"],
   "author": "lucker <byterotate@gmail.com>",
@@ -19,7 +19,7 @@
     "prepublish": "rm -fr lib && cp -r src lib"
   },
   "dependencies": {
-    "@mand-mobile/shared": "^3.0.1-alpha.0",
+    "@mand-mobile/shared": "^3.0.1-alpha.1",
     "bluebird": "^3.7.2",
     "glob": "^7.1.6",
     "nib": "^1.1.2",
