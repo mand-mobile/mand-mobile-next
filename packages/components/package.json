@@ -1,6 +1,6 @@
 {
   "name": "@mand-mobile/components",
-  "version": "3.0.1-alpha.2",
+  "version": "3.0.1-alpha.3",
   "description": "mand-mobile source code",
   "keywords": ["mfe"],
   "author": "lucker <byterotate@gmail.com>",
@@ -17,9 +17,9 @@
     "build": "echo \"build nothing\""
   },
   "dependencies": {
-    "@mand-mobile/platform": "^3.0.1-alpha.2",
-    "@mand-mobile/scroller": "^3.0.1-alpha.2",
-    "@mand-mobile/shared": "^3.0.1-alpha.2",
+    "@mand-mobile/platform": "^3.0.1-alpha.3",
+    "@mand-mobile/scroller": "^3.0.1-alpha.3",
+    "@mand-mobile/shared": "^3.0.1-alpha.3",
     "jest": "^26.0.1"
   }
 }

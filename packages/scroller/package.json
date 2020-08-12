@@ -1,6 +1,6 @@
 {
   "name": "@mand-mobile/scroller",
-  "version": "3.0.1-alpha.2",
+  "version": "3.0.1-alpha.3",
   "description": "> TODO: description",
   "author": "lucker <byterotate@gmail.com>",
   "homepage": "",
@@ -16,7 +16,7 @@
   },
   "files": ["lib"],
   "dependencies": {
-    "@mand-mobile/shared": "^3.0.1-alpha.2",
+    "@mand-mobile/shared": "^3.0.1-alpha.3",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0"
   }
