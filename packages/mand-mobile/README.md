@@ -46,7 +46,11 @@ export default {
 
 ### Uni
 
+
+
 以button为例
+
+:warning: uni会基于vue的模板语法自己实现loader， 不支持以注册组件的时候通过 [Component.name]: Components方式注册组件，开发者需要指定在当前组件下引入的组件名称
 ```js
 <template>
   <div class="md-example-child md-example-child-button md-example-child-button-0">
