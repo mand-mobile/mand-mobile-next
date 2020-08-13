@@ -25,3 +25,9 @@ exports.transformJs = function transformJs(ast) {
 
   return code
 }
+
+exports.genJs = function genJs(code) {
+  return transform(code, {
+    plugins: [platformPlugin],
+  }).code
+}

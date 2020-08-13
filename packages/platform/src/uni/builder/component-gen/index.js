@@ -5,7 +5,7 @@ function buildUniComponents(api) {
   const {existsSync, readFileSync, writeFile, mkdirSync, readdirSync, writeFileSync} = require('fs')
   const {resolve} = require('path')
   const {execSync} = require('child_process')
-  const {transformJs} = require('./script-gen')
+  const {transformJs, genJs} = require('./script-gen')
   const {concatcStyle} = require('./style-gen')
   const {transformTpl} = require('./template-gen')
   const {exeRootPath, MAND_PLATFORM, MAND_INPUT_DIR, MAND_OUTPUT_DIR, MAND_BUILD_TARGET} = api.mdContext || {}
@@ -124,8 +124,25 @@ function buildUniComponents(api) {
         }
       })
       .forEach(f => {
-        if (f.includes('.vue')) {
+        if (f.endsWith('.vue')) {
           genUniComponet(compilerCode(readVueFile(`${arg}/${f}`)), `${arg}/${f}`)
+        } else if (f.endsWith('.js')) {
+          function transformJS() {
+            const codeString = readFileSync(`${COMPONENT_BASE_PATH}/${arg}/${f}`, {
+              encoding: 'utf-8',
+            })
+            return prettier.format(genJs(codeString), {
+              parser: 'babel',
+              semi: false,
+              singleQuote: true,
+              trailingComma: 'es5',
+              arrowParens: 'always',
+              printWidth: 60,
+              tabWidth: 2,
+              trailingComma: 'es5',
+            })
+          }
+          writeFileSync(`${UNI_COMPONETN_BASE_PATH_LIB}/${arg}/${f}`, transformJS())
         } else {
           execSync(
             `
