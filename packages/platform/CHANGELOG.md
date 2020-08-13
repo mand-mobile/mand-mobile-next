@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1-alpha.5](https://github.com/mand-mobile/mand-mobile-next/compare/v3.0.1-alpha.4...v3.0.1-alpha.5) (2020-08-13)
+
+
+### Features
+
+* update tip、result-page、slider ([#8](https://github.com/mand-mobile/mand-mobile-next/issues/8)) ([9ae8d95](https://github.com/mand-mobile/mand-mobile-next/commit/9ae8d957cc55605ec927d719b3574456f1bef230))
+
+
+
+
+
 ## 3.0.1-alpha.3 (2020-08-12)
 
 

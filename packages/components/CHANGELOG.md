@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1-alpha.5](https://github.com/mand-mobile/mand-mobile-next/compare/v3.0.1-alpha.4...v3.0.1-alpha.5) (2020-08-13)
+
+
+### Bug Fixes
+
+* **cashier:** close img tag ([35b6edd](https://github.com/mand-mobile/mand-mobile-next/commit/35b6edd3223942146519f020c383fef38a0a482a))
+* **components:** fix invalid component import ways for ruler,steps,tip ([e2c2f6f](https://github.com/mand-mobile/mand-mobile-next/commit/e2c2f6f20be8a8ba149cac6e564af1a6c7d4a68e))
+
+
+### Features
+
+* update tip、result-page、slider ([#8](https://github.com/mand-mobile/mand-mobile-next/issues/8)) ([9ae8d95](https://github.com/mand-mobile/mand-mobile-next/commit/9ae8d957cc55605ec927d719b3574456f1bef230))
+
+
+
+
+
 ## 3.0.1-alpha.3 (2020-08-12)
 
 
