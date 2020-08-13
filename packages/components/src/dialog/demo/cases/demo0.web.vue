@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import Dialog from 'mand-mobile/lib/dialog'
+import Dialog from 'mand-mobile/lib/dialog/dialog'
 import Button from 'mand-mobile/lib/button'
 import Toast from 'mand-mobile/lib/toast'
 
