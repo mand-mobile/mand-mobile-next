@@ -4,7 +4,7 @@
       <md-icon :name="data.icon" size="lg"></md-icon>
     </div>
     <div class="md-cashier-channel-item_image" v-else-if="data.img">
-      <img :src="data.img">
+      <img :src="data.img"/>
     </div>
     <div class="md-cashier-channel-item_label">
       <p class="md-cashier-channel-item_label_title">
