@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import ActionSheet from 'mand-mobile/lib/action-sheet'
+import ActionSheet from 'mand-mobile/lib/action-sheet/action-sheet'
 import Button from 'mand-mobile/lib/button'
 import Dialog from 'mand-mobile/lib/dialog'
 
