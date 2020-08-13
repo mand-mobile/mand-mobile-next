@@ -17,7 +17,8 @@
   </li> -->
 </template>
 
-<script>export default {
+<script>
+export default {
   name: 'md-number-key',
 
   props: {
@@ -63,7 +64,8 @@
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 // 注： uni-app 中组件嵌套时，在父组件覆盖子组件的样式时，可能导致高度没有被撑开，元素无法点击

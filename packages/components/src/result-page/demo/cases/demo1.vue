@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import ResultPage from 'mand-mobile/result-page'
+import ResultPage from 'mand-mobile/lib/result-page'
 
 export default {
   name: 'result-page-demo',
@@ -17,13 +17,14 @@ export default {
   titleEnUS: 'Network anomaly',
   /* DELETE */
   components: {
-  'md-result-page': ResultPage,
+    'md-result-page': ResultPage,
   },
 }
 
 </script>
 
-<style lang="stylus">
-.md-example-child-result-page-1
-  background #FFF
+<style>
+.md-example-child-result-page-1 {
+  background: #FFF;
+}
 </style>

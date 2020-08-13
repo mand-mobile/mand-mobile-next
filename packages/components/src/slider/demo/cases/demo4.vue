@@ -5,12 +5,7 @@
 </template>
 
 <script>
-// #ifdef H5
-import Slider from "mand-mobile/slider";
-// #endif
-// #ifdef MP-WEIXIN
-import Slider from "mand-mobile/slider/index.uni";
-// #endif
+import Slider from 'mand-mobile/lib/slider'
 
 export default {
   name: 'slider-demo',

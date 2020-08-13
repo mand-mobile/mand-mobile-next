@@ -7,8 +7,8 @@
 
 <script>
 import {noop, inBrowser} from '@mand-mobile/shared/lib/util'
-import Animate from '@mand-mobile/shared/lib/util/animate'
-import {formatValueByGapStep} from '@mand-mobile/shared/lib/util/formate-value'
+import Animator from '@mand-mobile/scroller/lib/animator'
+import {formatValueByGapStep} from '@mand-mobile/shared/lib/util'
 import numberCapital from './number-capital'
 
 export default {
@@ -131,7 +131,8 @@ export default {
 
       /* istanbul ignore next  */
       const verify = id => id
-      Animate.start(step, verify, noop, this.duration)
+      const animator = new Animator()
+      animator.start(step, verify, noop, this.duration)
     },
   },
 }
@@ -140,6 +141,6 @@ export default {
 
 <style lang="stylus">
 .md-amount
-  &.numerical
-    font-family font-family-number
+  &.md-amount--numerical
+    font-family md-font-family-number
 </style>

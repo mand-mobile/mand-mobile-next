@@ -117,7 +117,8 @@
   </md-field-item>
 </template>
 
-<script>import {
+<script>
+import {
   noop,
   randomId,
   debounce,
@@ -662,7 +663,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-input-item

@@ -5,28 +5,28 @@
     @touchmove="$_onDrag"
     @mouseup="$_onUp"
     @touchend="$_onUp"
-    :class="{ 'is-disabled': disabled }"
+    :class="{ 'md-slider--is-disabled': disabled }"
   >
     <template v-if="range">
       <div
-        class="md-slider-bar"
+        class="md-slider_bar"
         :style="{ width: barStyle.width, left: barStyle.left }"
       ></div>
       <div
-        class="md-slider-handle is-lower"
+        class="md-slider_handle md-slider--is-lower"
         :data-hint="format(values[0])"
         :class="{
-          'is-active': isDragging && !isDragingUpper,
+          'md-slider--is-active': isDragging && !isDragingUpper,
         }"
         :style="{ left: lowerHandlePosition + '%' }"
       >
         <div @mousedown="$_startLowerDrag" @touchstart="$_startLowerDrag"></div>
       </div>
       <div
-        class="md-slider-handle is-higher"
+        class="md-slider_handle md-slider--is-higher"
         :data-hint="format(values[1])"
         :class="{
-          'is-active': isDragging && isDragingUpper,
+          'md-slider--is-active': isDragging && isDragingUpper,
         }"
         :style="{ left: upperHandlePosition + '%' }"
       >
@@ -34,12 +34,12 @@
       </div>
     </template>
     <template v-else>
-      <div class="md-slider-bar" :style="{ width: barStyle.width }"></div>
+      <div class="md-slider_bar" :style="{ width: barStyle.width }"></div>
       <div
-        class="md-slider-handle"
+        class="md-slider_handle"
         :data-hint="format(values[0])"
         :class="{
-          'is-active': isDragging,
+          'md-slider--is-active': isDragging,
         }"
         :style="{ left: lowerHandlePosition + '%' }"
       >
@@ -76,7 +76,7 @@ export default {
     format: {
       type: Function,
       default(val) {
-        return (val) => val;
+        return val => val
       },
     },
     disabled: {
@@ -93,168 +93,162 @@ export default {
       startDragMousePos: 0,
       startVal: 0,
       wrapWidth: uni.getSystemInfoSync().windowWidth,
-    };
+    }
   },
   async mounted() {
-    const { width } = await this.$MDDom()
-      .querySelector(".md-slider")
-      .getBoundingClientRect();
-    this.wrapWidth = width;
+    const {width} = await this.$MDDom()
+      .querySelector('.md-slider')
+      .getBoundingClientRect()
+    this.wrapWidth = width
   },
   watch: {
     value: {
       immediate: true,
       handler(val) {
         if (
-          (Array.isArray(val) &&
-            (val[0] !== this.values[0] || val[1] !== this.values[1])) ||
+          (Array.isArray(val) && (val[0] !== this.values[0] || val[1] !== this.values[1])) ||
           val !== this.values[0]
         ) {
-          this.$_updateValue(val);
+          this.$_updateValue(val)
         }
       },
     },
     disabled(newVal) {
       if (!newVal) {
-        this.$_stopDrag();
+        this.$_stopDrag()
       }
     },
   },
 
   computed: {
     lowerHandlePosition() {
-      return ((this.values[0] - this.min) / (this.max - this.min)) * 100;
+      return (this.values[0] - this.min) / (this.max - this.min) * 100
     },
     upperHandlePosition() {
-      return ((this.values[1] - this.min) / (this.max - this.min)) * 100;
+      return (this.values[1] - this.min) / (this.max - this.min) * 100
     },
     barStyle() {
-      const { range, values, min, max, lowerHandlePosition } = this;
+      const {range, values, min, max, lowerHandlePosition} = this
       if (range) {
         return {
-          width: ((values[1] - values[0]) / (max - min)) * 100 + "%",
-          left: lowerHandlePosition + "%",
-        };
+          width: (values[1] - values[0]) / (max - min) * 100 + '%',
+          left: lowerHandlePosition + '%',
+        }
       } else {
         return {
-          width: ((values[0] - min) / (max - min)) * 100 + "%",
-        };
+          width: (values[0] - min) / (max - min) * 100 + '%',
+        }
       }
     },
   },
 
   methods: {
     $_updateValue(newVal) {
-      let newValues = [];
+      let newValues = []
 
       if (Array.isArray(newVal)) {
-        newValues = [newVal[0], newVal[1]];
+        newValues = [newVal[0], newVal[1]]
       } else {
-        newValues[0] = newVal;
+        newValues[0] = newVal
       }
 
-      if (typeof newValues[0] !== "number") {
-        newValues[0] = this.values[0];
+      if (typeof newValues[0] !== 'number') {
+        newValues[0] = this.values[0]
       } else {
-        newValues[0] =
-          Math.round((newValues[0] - this.min) / this.step) * this.step +
-          this.min;
+        newValues[0] = Math.round((newValues[0] - this.min) / this.step) * this.step + this.min
       }
 
-      if (typeof newValues[1] !== "number") {
-        newValues[1] = this.values[1];
+      if (typeof newValues[1] !== 'number') {
+        newValues[1] = this.values[1]
       } else {
-        newValues[1] =
-          Math.round((newValues[1] - this.min) / this.step) * this.step +
-          this.min;
+        newValues[1] = Math.round((newValues[1] - this.min) / this.step) * this.step + this.min
       }
 
       // value boundary adjust
       if (newValues[0] < this.min) {
-        newValues[0] = this.min;
+        newValues[0] = this.min
       }
       if (newValues[1] > this.max) {
-        newValues[1] = this.max;
+        newValues[1] = this.max
       }
       if (newValues[0] > newValues[1]) {
         if (newValues[0] === this.values[0]) {
-          newValues[1] = newValues[0];
+          newValues[1] = newValues[0]
         } else {
-          newValues[0] = newValues[1];
+          newValues[0] = newValues[1]
         }
       }
 
       if (this.values[0] === newValues[0] && this.values[1] === newValues[1]) {
-        return;
+        return
       }
 
-      this.values = newValues;
+      this.values = newValues
 
       if (this.range) {
-        this.$emit("input", this.values);
+        this.$emit('input', this.values)
       } else {
-        this.$emit("input", this.values[0]);
+        this.$emit('input', this.values[0])
       }
     },
     $_startLowerDrag(e) {
       if (this.disabled) {
-        return;
+        return
       }
-      e.preventDefault();
-      e.stopPropagation();
-      e = e.changedTouches ? e.changedTouches[0] : e;
-      this.startDragMousePos = e.pageX;
-      this.startVal = this.values[0];
-      this.isDragingUpper = false;
-      this.isDragging = true;
+      e.preventDefault()
+      e.stopPropagation()
+      e = e.changedTouches ? e.changedTouches[0] : e
+      this.startDragMousePos = e.pageX
+      this.startVal = this.values[0]
+      this.isDragingUpper = false
+      this.isDragging = true
     },
     $_startUpperDrag(e) {
       if (this.disabled) {
-        return;
+        return
       }
-      e.preventDefault();
-      e.stopPropagation();
-      e = e.changedTouches ? e.changedTouches[0] : e;
-      this.startDragMousePos = e.pageX;
-      this.startVal = this.values[1];
-      this.isDragingUpper = true;
-      this.isDragging = true;
+      e.preventDefault()
+      e.stopPropagation()
+      e = e.changedTouches ? e.changedTouches[0] : e
+      this.startDragMousePos = e.pageX
+      this.startVal = this.values[1]
+      this.isDragingUpper = true
+      this.isDragging = true
     },
     $_onDrag(e) {
       if (this.disabled) {
-        return;
+        return
       }
-      e.preventDefault();
-      e.stopPropagation();
+      e.preventDefault()
+      e.stopPropagation()
       if (!this.isDragging) {
-        return;
+        return
       }
-      e = e.changedTouches ? e.changedTouches[0] : e;
+      e = e.changedTouches ? e.changedTouches[0] : e
       global.requestAnimationFrame(() => {
-        let diff =
-          ((e.pageX - this.startDragMousePos) / this.wrapWidth) *
-          (this.max - this.min);
-        let nextVal = this.startVal + diff;
+        let diff = (e.pageX - this.startDragMousePos) / this.wrapWidth * (this.max - this.min)
+        let nextVal = this.startVal + diff
         if (this.isDragging) {
           if (this.isDragingUpper) {
-            this.$_updateValue([null, nextVal]);
+            this.$_updateValue([null, nextVal])
           } else {
-            this.$_updateValue([nextVal, null]);
+            this.$_updateValue([nextVal, null])
           }
         }
-      });
+      })
     },
     $_onUp(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      this.$_stopDrag();
+      e.preventDefault()
+      e.stopPropagation()
+      this.$_stopDrag()
     },
     $_stopDrag() {
-      this.isDragging = false;
-      this.isDragingUpper = false;
+      this.isDragging = false
+      this.isDragingUpper = false
     },
   },
-};
+}
+
 </script>
 
 <style lang="stylus">
@@ -270,23 +264,23 @@ export default {
     right 0
     height 4px
     border-radius 2px
-    background-color slider-bg-base
-  &.is-disabled
-    .md-slider-bar
+    background-color md-slider-bg-base
+  &.md-slider--is-disabled
+    .md-slider_bar
       opacity 0.35
-    .md-slider-handle div
+    .md-slider_handle div
       cursor: not-allowed
 
-.md-slider-bar
+.md-slider_bar
   position absolute
   left 0
   top 28px
   height 4px
-  background-color slider-bg-tap
+  background-color md-slider-bg-tap
   border-radius 2px
   z-index 5
 
-.md-slider-handle
+.md-slider_handle
   position absolute
   top 10px
   left 0
@@ -295,17 +289,17 @@ export default {
   overflow visible
   &::after
     content attr(data-hint)
-    color tip-color
+    color md-tip-color
     position absolute
     pointer-events none
     opacity 0
     visibility hidden
     z-index 15
-    font-size font-minor-normal
+    font-size md-font-minor-normal
     line-height 1.25
     padding 8px 16px
-    border-radius radius-normal
-    background-color tip-fill
+    border-radius md-radius-normal
+    background-color md-tip-fill
     white-space nowrap
     left 50%
     bottom 100%
@@ -317,16 +311,16 @@ export default {
     opacity 1
     visibility visible
 
-  &.is-higher
+  &.md-slider--is-higher
     z-index 20
-  &.is-active div
+  &.md-slider--is-active div
     transform scale(1.3)
   div
     display block
     cursor pointer
     width 40px
     height 40px
-    background-color slider-handle-bg
+    background-color md-slider-handle-bg
     border-radius 50%
     box-shadow 0 1px 2px rgba(0, 0, 0, 0.2)
     transition transform 200ms

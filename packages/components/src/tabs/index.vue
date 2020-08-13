@@ -4,11 +4,12 @@
       ref="tabBar"
       :items="menus"
       :value="currentName"
-      :has-ink="hasInk"
-      :has-divide="hasDivide"
-      :ink-length="inkLength"
-      :immediate="immediate"
-      :justify="justify"
+      :has-ink="tabBarCoecre.hasInk"
+      :has-divide="tabBarCoecre.hasDivide"
+      :ink-length="tabBarCoecre.inkLength"
+      :immediate="tabBarCoecre.immediate"
+      :justify="tabBarCoecre.justify"
+      :inner-border="tabBarCoecre.innerBorder"
       @change="$_handleTabClick"
     />
     <div class="md-tabs_content">
@@ -18,6 +19,7 @@
 </template>
 
 <script>
+import {extend} from '@mand-mobile/shared/lib/util'
 import TabBar from '../tab-bar'
 
 export default {
@@ -29,20 +31,7 @@ export default {
 
   props: {
     value: String,
-    hasInk: {
-      type: Boolean,
-      default: true,
-    },
-    hasDivide: {
-      type: Boolean,
-      default: false,
-    },
-    inkLength: {
-      type: Number,
-      default: 80,
-    },
-    immediate: Boolean,
-    justify: String,
+    tabBar: Object,
   },
 
   data() {
@@ -79,6 +68,17 @@ export default {
         }
       }
       return 0
+    },
+    tabBarCoecre() {
+      return extend(
+        {},
+        {
+          hasInk: true,
+          hasDivide: false,
+          inkLength: 80,
+        },
+        this.tabBar,
+      )
     },
   },
 

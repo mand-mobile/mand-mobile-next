@@ -1,5 +1,5 @@
 <template>
-  <nav class="md-tab-bar">
+  <nav class="md-tab-bar" :class="{'md-tab-bar--inner-border': innerBorder}">
     <div class="md-tab-bar_inner">
       <template v-if="scrollable">
         <div class="md-tab-bar_start" v-show="maskStartShown"></div>
@@ -93,6 +93,10 @@ export default {
     justify: {
       type: String,
       default: 'space-between',
+    },
+    innerBorder: {
+      type: Boolean,
+      default: false,
     },
   },
 
@@ -296,6 +300,11 @@ export default {
   padding-left md-tab-offset
   padding-right md-tab-offset
   background-color md-tab-bg
+  hairline(bottom, md-color-border-base)
+  &.md-tab-bar--inner-border
+    remove-hairline(bottom)
+    .md-tab-bar_inner
+      hairline(bottom, md-color-border-base)
 
 .md-tab-bar_inner
   position relative

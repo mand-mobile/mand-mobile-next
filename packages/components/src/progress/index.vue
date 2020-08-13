@@ -15,18 +15,19 @@
       <slot name="defs"></slot>
     </template>
   </md-activity-indicator-rolling>
+  
 </template>
 
 <script>
-import Roller from '../activity-indicator/roller'
 import {noop, inBrowser} from '@mand-mobile/shared/lib/util'
-import Animate from '@mand-mobile/shared/lib/util/animate'
+import Animator from '@mand-mobile/scroller/lib/animator'
+import Roller from '../activity-indicator/roller'
 
 export default {
   name: 'md-progress',
 
   components: {
-    [Roller.name]: Roller,
+    'md-activity-indicator-rolling': Roller,
   },
 
   props: {
@@ -109,7 +110,8 @@ export default {
 
       const verify = id => id
       /* istanbul ignore next  */
-      Animate.start(step, verify, noop, this.duration)
+      const animator = new Animator()
+      animator.start(step, verify, noop, this.duration)
     },
   },
 }

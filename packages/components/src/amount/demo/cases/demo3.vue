@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Amount from 'mand-mobile/amount'
+import Amount from 'mand-mobile/lib/amount'
 
 export default {
   name: 'amount-demo',
@@ -23,9 +23,10 @@ export default {
 
 </script>
 
-<style lang="stylus" scoped>
-.md-example-child-amount
-  text-align center
-  font-size 32px
-  color #666
+<style>
+.md-example-child-amount {
+  text-align: center;
+  font-size: 32px;
+  color: #666;
+}
 </style>
