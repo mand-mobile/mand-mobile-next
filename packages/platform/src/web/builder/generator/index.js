@@ -27,7 +27,9 @@ module.exports = api => {
    */
   if (target === 'example' && componentName) {
     const component = components.find((component) => component.dashedStyledName === componentName)
-    if (!component) return
+    if (!component){
+      return
+    }
     // api.render('./template/web-preview-single-component/.mand-mobile', {component})
     api.$renderPartial(`${MAND_INPUT_DIR}`, './template/web-preview-single-component/_mand-mobile', {component})
     api.render({
@@ -38,7 +40,7 @@ module.exports = api => {
   }
 
 
-  if (target === 'lib' ) {
+  if (target === 'lib' || target === 'lib-vw' ) {
     // 添加依赖
     api.extendPackage({
       devDependencies: {

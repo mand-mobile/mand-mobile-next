@@ -17,15 +17,19 @@
       >
         <md-icon name="close" size="lg" slot="cancel" />
       </md-popup-title-bar>
-      <div class="md-tab-picker-content">
+      <div class="md-tab-picker_content">
         <md-tabs
           ref="tabs"
           v-model="currentTab"
           :key="tabsTmpKey"
-          :inkLength="100"
-          justify="flex-start"
+          :ink-length="100"
+          :tab-bar="{
+            justify: 'flex-start',
+            inkLength: 100,
+            innerBorder: true
+          }"
         >
-          <div class="md-tab-picker-pane-wrapper">
+          <div class="md-tab-picker_pane-wrapper">
             <md-scroll-view
               ref="scrollView"
               :scrolling-x="false"
@@ -38,7 +42,7 @@
                 :name="pane.name"
                 :label="pane.label"
               >
-                <div class="md-tab-picker-pane" @touchstart="$_onActivePane(index)">
+                <div class="md-tab-picker_pane" @touchstart="$_onActivePane(index)">
                   <md-radio-list
                     :value="pane.value"
                     :options="pane.options"
@@ -64,6 +68,7 @@
 </template>
 
 <script>
+import {extend} from '@mand-mobile/shared/lib/util'
 import Popup from '../popup'
 import PopupTitlebar from '../popup/title-bar'
 import popupMixin from '../popup/mixins'
@@ -73,7 +78,6 @@ import Tabs from '../tabs'
 import TabPane from '../tabs/tab-pane'
 import RadioList from '../radio/list'
 import ScrollView from '../scroll-view'
-import {extend} from '@mand-mobile/shared/lib/util'
 
 export default {
   name: 'md-tab-picker',
@@ -130,7 +134,7 @@ export default {
       currentTab: '',
       oldCurrentTab: '',
       tabsTmpKey: Date.now(),
-      isInitialed: false
+      isInitialed: false,
     }
   },
 
@@ -162,7 +166,7 @@ export default {
           target = null
         }
         panes.push(pane)
-        
+
         if (!this.isInitialed) {
           this.currentTab = pane.name
           this.isInitialed = true
@@ -227,7 +231,6 @@ export default {
           option: this.panes[index],
         })
 
-        console.log(value, index, this.panes.length - 1, nextPane)
         /* istanbul ignore else */
         if (nextPane) {
           this.currentTab = nextPane.name
@@ -268,23 +271,25 @@ export default {
 <style lang="stylus">
 .md-tab-picker
   .md-popup
-    z-index tab-picker-zindex
+    z-index md-tab-picker-zindex
   /deep/.md-tab-bar
     position relative
-    margin-left tab-picker-h-gap
-    margin-right tab-picker-h-gap
+    margin-left md-tab-picker-h-gap
+    margin-right md-tab-picker-h-gap
     padding-left 0
     padding-right 0
-    background-color tab-picker-bg
-    hairline(bottom, color-border-base)
+    background-color md-tab-picker-bg
+    hairline(bottom, md-color-border-base)
   /deep/.md-popup-cancel
     width 90px !important
-.md-tab-picker-content
-  background-color tab-picker-bg
-// .md-tab-picker-pane-wrapper
-//   border-top solid 1px color-border-base
-.md-tab-picker-pane
-  padding-left tab-picker-h-gap
-  padding-right tab-picker-h-gap
+.md-tab-picker_content
+  background-color md-tab-picker-bg
+.md-tab-picker_pane-wrapper
+  padding-bottom constant(safe-area-inset-bottom)
+  padding-bottom env(safe-area-inset-bottom)
+  // border-top solid 1px color-border-base
+.md-tab-picker_pane
+  padding-left md-tab-picker-h-gap
+  padding-right md-tab-picker-h-gap
   box-sizing border-box
 </style>
