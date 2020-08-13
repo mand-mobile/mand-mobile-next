@@ -1,4 +1,4 @@
-# Mand Mobile Next ![mand-mobile](https://img.shields.io/npm/v/mand-mobile/next.svg)
+# Mand Mobile Next ![mand-mobile](https://img.shields.io/npm/v/mand-mobile-next.svg)
 
 🐡 v3.0, A mobile UI toolkit compatible with multiple platforms, based on Vue DSL, designed for financial scenarios.
 
@@ -14,8 +14,8 @@
 
 - [x] Perfect engineering, construct a monorepo
 - [ ] Abstract serve & build process for multiple platforms
-- [ ] Upgraded visual specification to **3.0**
-- [ ] Improve code specifications
+- [x] Upgraded visual specification to **3.0**
+- [x] Improve code specifications
 - [ ] Improve components testing
 - [ ] Improve documentations
 - [ ] Support internationalization
