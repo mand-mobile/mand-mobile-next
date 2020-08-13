@@ -13,18 +13,15 @@
   </div>
 </template>
 
-<script>import Button from '../../../button'
-import Toast from '../../../toast'
-import ActivityIndicator from '../../../activity-indicator'
+<script>
+import Button from 'mand-mobile/lib/button'
+import Toast from 'mand-mobile/lib/toast'
+import ActivityIndicator from 'mand-mobile/lib/activity-indicator'
 
 export default {
   name: 'toast-demo',
-  /* DELETE */
-  title: '定制Toast',
-  titleEnUS: 'Customize toast',
-  /* DELETE */
   components: {
-    'md-toast': Toast.component,
+    'md-toast': Toast,
     'md-button': Button,
     'md-activity-indicator': ActivityIndicator,
   },
@@ -45,4 +42,5 @@ export default {
     },
   },
 }
-</script>
+
+</script>
