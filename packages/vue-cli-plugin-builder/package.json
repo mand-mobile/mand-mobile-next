@@ -1,9 +1,9 @@
 {
   "name": "@mand-mobile/vue-cli-plugin-builder",
-  "version": "0.0.1",
+  "version": "3.0.1-alpha.5",
   "description": "mand-mobile 构建层封装",
   "keywords": ["mand-mobile", "buildtime"],
-  "author": "lucker <guoyunlong@didichuxing.com>",
+  "author": "lucker <byterotate@gmail.com>",
   "homepage": "",
   "license": "ISC",
   "main": "dist/index.js",
@@ -11,12 +11,14 @@
     "lib": "lib",
     "test": "__tests__"
   },
-  "files": ["bin", "lib"],
+  "files": ["bin", "lib", "dist", "generator"],
   "scripts": {
+    "prebuild": "rm -fr dist",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "test": "jest --coverage --passWithNoTests",
-    "test:watch": "jest --watch --collectCoverage=false"
+    "test:watch": "jest --watch --collectCoverage=false",
+    "prepublishOnly": "npm run build"
   },
   "jest": {
     "transform": {
@@ -28,9 +30,9 @@
   },
   "dependencies": {
     "@babel/preset-env": "^7.10.3",
-    "@mand-mobile/components": "^0.0.1",
-    "@mand-mobile/platform": "^0.0.1",
-    "@mand-mobile/shared": "^0.0.1",
+    "@mand-mobile/components": "^3.0.1-alpha.5",
+    "@mand-mobile/platform": "^3.0.1-alpha.5",
+    "@mand-mobile/shared": "^3.0.1-alpha.3",
     "@rollup/plugin-babel": "^5.0.4",
     "@vue/cli": "^4.4.4",
     "@vue/cli-plugin-babel": "^4.4.4",
@@ -44,13 +46,17 @@
     "babel-loader": "^8.1.0",
     "babel-preset-minify": "^0.5.1",
     "babelrc-rollup": "^3.0.0",
+    "copyfiles": "^2.3.0",
+    "find": "^0.3.0",
     "jest": "^26.0.1",
+    "mv": "^2.1.1",
     "postcss": "^7.0.32",
     "postcss-comment": "^2.0.0",
     "postcss-loader": "^3.0.0",
     "postcss-pxtorem": "^5.1.1",
     "postcss-url": "^8.0.0",
     "ramda": "^0.27.0",
+    "rimraf": "^3.0.2",
     "rollup": "^2.18.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",

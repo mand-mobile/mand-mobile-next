@@ -10,11 +10,11 @@ const R = require('ramda')
 const {nodeResolve: rplgNodeResolve} = require('@rollup/plugin-node-resolve')
 const rplgAlias = require('@rollup/plugin-alias')
 const rplgVue = require('rollup-plugin-vue')
-const rplgStylus = require('rollup-plugin-stylus-compiler')
+const rplgStylus = require('./rollup-plugin-stylus-compiler')
 const rplgPostcss = require('rollup-plugin-postcss')
 const {getBabelOutputPlugin: rplgBabel} = require('@rollup/plugin-babel')
 const rplgFilesize = require('rollup-plugin-filesize')
-
+const mixins = require('./stylus-mixin')
 const FORMAT_ES_MODULE = 'esm'
 const FORMAT_UMD_MODULE = 'umd'
 
@@ -25,7 +25,7 @@ const FORMAT_UMD_MODULE = 'umd'
 const translateToRollupConfig = ({webpackConfig, entry, context}) => {
   // const context = webpackConfig.context
 
-  let {MAND_OUTPUT_DIR} = context
+  let {MAND_OUTPUT_DIR, MAND_INPUT_DIR, exeRootPath} = context
   let {resolve: {extensions}} = webpackConfig
 
   /**
@@ -41,9 +41,9 @@ const translateToRollupConfig = ({webpackConfig, entry, context}) => {
 
   const inputOptions = {
     /**
-     * @todo 替换
+     * @todo 替换 基于约定默认取main.js作为入口
      */
-    input: entry,
+    input: `${MAND_INPUT_DIR}/main.js`,
     external: ['vue'],
     plugins: [
       rplgAlias({
@@ -53,12 +53,16 @@ const translateToRollupConfig = ({webpackConfig, entry, context}) => {
       }),
       rplgNodeResolve({extensions}),
 
-      rplgVue({
-        preprocessStyles: true,
+      rplgStylus({
+        use: [mixins],
       }),
-      rplgStylus(),
+      rplgVue({
+        preprocessStyles: false,
+      }),
       rplgPostcss({
-        config: false,
+        config: {
+          path: path.resolve(exeRootPath, MAND_INPUT_DIR, 'postcss.config.js'),
+        },
         extract: path.resolve(MAND_OUTPUT_DIR, 'mand-mobile.css'),
       }),
 

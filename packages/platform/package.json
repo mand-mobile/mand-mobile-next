@@ -1,9 +1,9 @@
 {
   "name": "@mand-mobile/platform",
-  "version": "0.0.1",
+  "version": "3.0.1-alpha.5",
   "description": "mand-mobile runtime cross platform plugins",
   "keywords": ["mfe"],
-  "author": "lucker <guoyunlong@didichuxing.com>",
+  "author": "lucker <byterotate@gmail.com>",
   "homepage": "",
   "license": "ISC",
   "main": "lib",
@@ -11,22 +11,24 @@
     "lib": "lib",
     "test": "__tests__"
   },
-  "files": ["lib"],
+  "files": ["lib", "src"],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
     "prebuild": "rm -fr lib || true",
-    "build": "cp -r src lib",
-    "build:uni-component": "node lib/uni/builder/component-gen/index.js"
+    "build": "ln -s src lib",
+    "prepublish": "rm -fr lib && cp -r src lib"
   },
   "dependencies": {
-    "@mand-mobile/shared": "0.0.1",
-    "@mand-mobile/scroller": "0.0.1",
+    "@mand-mobile/scroller": "^3.0.1-alpha.5",
+    "@mand-mobile/shared": "^3.0.1-alpha.3",
     "bluebird": "^3.7.2",
     "glob": "^7.1.6",
+    "nib": "^1.1.2",
     "postcss-load-config": "^2.1.0",
     "postcss-pxtorem": "^5.1.1",
     "postcss-url": "^8.0.0",
     "recursive-copy": "^2.0.10",
+    "rollup-plugin-css-only": "^2.1.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -63,7 +65,7 @@
     "rollup-plugin-stylus-compiler": "^1.0.1",
     "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-uglify": "^6.0.4",
-    "rollup-plugin-vue": "^6.0.0-beta.6",
+    "rollup-plugin-vue": "^6.0.0-beta.8",
     "style-resources-loader": "^1.3.3",
     "stylus": "^0.54.8",
     "stylus-loader": "^3.0.2",

@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Scroller from '@mand-mobile/shared/lib/util/scroller'
+import Scroller from '@mand-mobile/scroller'
 import {throttle, noop} from '@mand-mobile/shared/lib/util'
 
 export default {

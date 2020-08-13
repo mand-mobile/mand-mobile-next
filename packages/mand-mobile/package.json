@@ -1,25 +1,32 @@
 {
-  "name": "mand-mobile",
-  "version": "3.0.0-alpha.0",
+  "name": "mand-mobile-next",
+  "version": "3.0.1-alpha.5",
   "description": "> TODO: description",
-  "author": "lucker <guoyunlong@didichuxing.com>",
+  "author": "lucker <byterotate@gmail.com>",
   "scripts": {
-    "build": "echo \"nothing to build\"",
-    "build:lib": "run-p clean:* && sh ./scripts/build.sh web lib",
-    "build:lib-vw": "run-p clean:* && sh ./scripts/build.sh web lib-vw",
-    "build:uni": "run-p clean:* && sh ./scripts/build.sh uni lib",
-    "clean:workspace": "rm -fr .mand-mobile",
+    "build": "run-p clean:* && sh scripts/build.sh all",
+    "build:uni": "sh ./scripts/build.sh uni lib",
+    "build:uni-src": "sh ./scripts/build.sh uni src",
+    "build:web-bundle": "sh scripts/build.sh web bundle",
+    "build:web-lib": "sh scripts/build.sh web lib",
+    "build:web-lib-vw": "sh scripts/build.sh web lib-vw",
+    "clean:workspace": "rm -fr .mand-mobile && rm -fr web && rm -fr uni",
+    "prepublish": "npm run build",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "main": "lib/mand-mobile.js",
-  "files": ["lib"],
+  "main": "web/bundle/mand-mobile.umd.js",
+  "module": "web/bundle/mand-mobile.esm.js",
+  "files": ["uni", "web", "package.json"],
   "dependencies": {
-    "@mand-mobile/components": "^0.0.1",
-    "@mand-mobile/platform": "^0.0.1",
-    "@mand-mobile/shared": "^0.0.1"
+    "@mand-mobile/components": "^3.0.1-alpha.5",
+    "@mand-mobile/platform": "^3.0.1-alpha.5",
+    "@mand-mobile/shared": "^3.0.1-alpha.3",
+    "@vue/cli": "^4.5.3",
+    "find": "^0.3.0",
+    "mv": "^2.1.1"
   },
   "devDependencies": {
-    "@mand-mobile/vue-cli-plugin-builder": "^0.0.1",
+    "@mand-mobile/vue-cli-plugin-builder": "^3.0.1-alpha.5",
     "@vue/cli-service": "^4.4.6",
     "fastclick": "^1.0.6",
     "npm-run-all": "^4.1.5",
@@ -30,5 +37,6 @@
     "test": "__tests__"
   },
   "homepage": "",
-  "license": "ISC"
+  "license": "ISC",
+  "style": "web/bundle/mand-mobile.css"
 }

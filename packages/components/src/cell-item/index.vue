@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import Icon from 'mand-mobile/lib/icon'
+import Icon from '../icon'
 
 export default {
   name: 'md-cell-item',

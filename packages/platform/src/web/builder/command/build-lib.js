@@ -5,7 +5,6 @@ const fs = bluebird.promisifyAll(require('fs'))
 const path = require('path')
 const copy = require('recursive-copy')
 const compiler = require('zp-vueify').compiler
-const findPostcssConfig = require('postcss-load-config')
 const postcss = require('postcss')
 const stylus = require('stylus')
 const { resultLog } = require('./utils')
@@ -18,9 +17,9 @@ let env = {}
 function move(inputDir, destDir) {
   return new Promise((resolve, reject) => {
     copy(inputDir, destDir, {
-    // copy(inputDir+'/button', destDir + '/button', {
+      // copy(inputDir+'/button', destDir + '/button', {
       overwrite: true,
-      filter: function(item) {
+      filter: function (item) {
         if (/demo|test/.test(item)) {
           return false
         }
@@ -28,12 +27,13 @@ function move(inputDir, destDir) {
           return false
         }
         return true
-      }}, function (err, result) {
-        if (err) {
-          reject(err)
-        }
-        resolve(result)
-      })
+      }
+    }, function (err, result) {
+      if (err) {
+        reject(err)
+      }
+      resolve(result)
+    })
   })
 }
 
@@ -46,36 +46,36 @@ function compileAndReplaceAllJsFile() {
     })
 }
 
-function compileJsAndReplace(filePath){
+function compileJsAndReplace(filePath) {
   babel.transformFileAsync(filePath, {
-     babelrc: false,
-     presets: [
-       ['@babel/env', {
-         'modules': 'umd',
-         'targets': {
-           'browsers': ['iOS >= 8', 'Android >= 4']
-         }
-       }]
-     ],
-     plugins: [
-       [babelPluginReplacePlatformPath]
-     ]
+    babelrc: false,
+    presets: [
+      ['@babel/env', {
+        'modules': 'umd',
+        'targets': {
+          'browsers': ['iOS >= 8', 'Android >= 4']
+        }
+      }]
+    ],
+    plugins: [
+      [babelPluginReplacePlatformPath]
+    ]
   })
-   .then(({code}) => {
-     return fs.writeFileAsync(filePath, code)
-   })
-   .catch(error => {
-     throw error
-   })
+    .then(({ code }) => {
+      return fs.writeFileAsync(filePath, code)
+    })
+    .catch(error => {
+      throw error
+    })
 }
 
 function compileAndReplaceAllVueFile() {
   const fileGlob = `${env.outputDir}/**/*.vue`
   const jsFiles = glob.sync(fileGlob)
   return Promise.all(jsFiles.map(compileVueAndReplace))
-  .catch(e => {
-    throw e
-  })
+    .catch(e => {
+      throw e
+    })
 }
 
 function compileVueAndReplace(filePath) {
@@ -106,11 +106,11 @@ function compileVueAndReplace(filePath) {
       }
       compiler.removeListener('style', styleCb)
       fs.writeFileAsync(jsFilePath, result)
-      .then(() => fs.writeFileAsync(cssFilePath, styleContent))
-      .then(() => {
-        fs.unlinkAsync(filePath)
-        resolve()
-      })
+        .then(() => fs.writeFileAsync(cssFilePath, styleContent))
+        .then(() => {
+          fs.unlinkAsync(filePath)
+          resolve()
+        })
     })
   })
 }
@@ -120,7 +120,7 @@ function computedCompilerConfig(filePath) {
     extractCSS: true,
     babel: {
       presets: [
-        ['@babel/env', 
+        ['@babel/env',
           {
             'modules': 'umd',
             'targets': {
@@ -149,7 +149,7 @@ function computedCompilerConfig(filePath) {
 function babelPluginReplacePlatformPath() {
   return {
     visitor: {
-      ImportDeclaration(path){
+      ImportDeclaration(path) {
         const source = path.node.source;
         const value = source.value.replace(/@mand-mobile\/platform\/(?!web)/, '@mand-mobile/platform/web/')
         source.value = value
@@ -158,7 +158,7 @@ function babelPluginReplacePlatformPath() {
   }
 }
 
-function babelPluginInsertCssImportForVue ({ types: t }) {
+function babelPluginInsertCssImportForVue({ types: t }) {
   function computedSameDirCssPosition(filePath) {
     const filePathParse = path.parse(filePath)
     return `./style/${filePathParse.name}.css`
@@ -168,13 +168,13 @@ function babelPluginInsertCssImportForVue ({ types: t }) {
     visitor: {
       Program(path, state) {
         const importLiteral = computedSameDirCssPosition(state.opts.filePath)
-        path.unshiftContainer('body', t.ImportDeclaration([],t.StringLiteral(importLiteral)))
-        path.unshiftContainer('body', t.ImportDeclaration([],t.StringLiteral(globalCssLiteral)))
+        path.unshiftContainer('body', t.ImportDeclaration([], t.StringLiteral(importLiteral)))
+        path.unshiftContainer('body', t.ImportDeclaration([], t.StringLiteral(globalCssLiteral)))
       }
     }
   }
 }
-function compileVueStylus (content, cb, compiler, filePath) {
+function compileVueStylus(content, cb, compiler, filePath) {
   stylus(content)
     .set('filename', filePath)
     .define('url', stylus.url())
@@ -187,10 +187,26 @@ function compileVueStylus (content, cb, compiler, filePath) {
       if (err) {
         throw err
       }
-      const {plugins} = await findPostcssConfig({
-        env: process.env.NODE_ENV
-      })
 
+      const plugins = [
+        require('postcss-url')({ url: 'inline' }),
+        require('cssnano')({
+          preset: ['default', {
+            zindex: false,
+            mergeIdents: false,
+            discardUnused: false,
+            autoprefixer: false,
+            reduceIdents: false,
+          }]
+        }),]
+        
+      // hack 这里写死了lib-vw的特殊处理,重构时需要替换掉
+      if (process.env.MAND_BUILD_TARGET === 'lib-vw') {
+        plugins.push(require('postcss-pixel-to-viewport')({
+          viewportUnit: 'vw',
+          minPixelValue: 2,
+        }))
+      }
       postcss(plugins)
         .process(css, {
           from: undefined
@@ -233,29 +249,33 @@ function removeUni() {
   const replaceWebPromises = webFiles.map(filePath => {
     const fileBaseName = path.basename(filePath, '.web.vue')
     return fs.copyFileAsync(filePath, path.join(path.dirname(filePath), `${fileBaseName}.vue`))
-        .then(() => {
-          return fs.unlinkAsync(filePath).then(() => {
-            console.log('remove: ' + filePath)
-          })
+      .then(() => {
+        return fs.unlinkAsync(filePath).then(() => {
+          console.log('remove: ' + filePath)
         })
+      })
   })
 
 
   return Promise.all(deletePromises.concat(replaceWebPromises))
-  .catch(e => {
-    throw e
-  })
+    .catch(e => {
+      throw e
+    })
 }
 
 module.exports = (webpackConfig, args, api) => {
-  const {exeRootPath, pluginRootPath, vueCliService, MAND_PLATFORM, MAND_INPUT_DIR, MAND_OUTPUT_DIR} = api.mdContext || {}
-  const {execa, info, error} = api.mdUtils
+  const { exeRootPath, pluginRootPath, vueCliService, MAND_BUILD_TARGET, MAND_PLATFORM, MAND_INPUT_DIR, MAND_OUTPUT_DIR } = api.mdContext || {}
+  const { execa, info, error } = api.mdUtils
 
-  execa('ln', [
-    '-s',
-    `${exeRootPath}/node_modules/@mand-mobile/components`,
-    `${exeRootPath}/${MAND_INPUT_DIR}/_mand-mobile`,
-  ])
+
+  // hack 用于暂时性处理 lib-vw参数s透传
+  process.env.MAND_BUILD_TARGET = MAND_BUILD_TARGET
+
+  // execa('ln', [
+  //   '-s',
+  //   `${exeRootPath}/node_modules/@mand-mobile/components`,
+  //   `${exeRootPath}/${MAND_INPUT_DIR}/_mand-mobile`,
+  // ])
 
   execa('ln', ['-s', `${exeRootPath}/node_modules/@mand-mobile/platform`, `${exeRootPath}/${MAND_INPUT_DIR}/_platform`])
 
@@ -272,14 +292,17 @@ module.exports = (webpackConfig, args, api) => {
 
   return move(componentsDir, env.outputDir)
     .then(() => removeUni())
-    .then(() => Promise.all([compileAndReplaceAllJsFile(),compileAndReplaceAllVueFile(),compileGlobalStylus()]))
+    .then(() => Promise.all([
+      compileAndReplaceAllJsFile(), 
+      compileAndReplaceAllVueFile(), 
+      compileGlobalStylus()
+    ]))
     .then(() => {
-      resultLog('success', 'Build **Components** Complete!')
+      resultLog('success', `Build **${MAND_BUILD_TARGET}** Complete!`)
     })
     .catch(e => {
       // eslint-disable-next-line no-console
-      console.error(e)
-      resultLog('error', 'Build **Components** Fail!')
+      resultLog('error', `Build **${MAND_BUILD_TARGET}** Fail!`)
     })
-  
+
 }

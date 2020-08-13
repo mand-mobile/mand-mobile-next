@@ -1,6 +1,7 @@
 <template>
-  <span class="md-amount" :class="{'md-amount--numerical': !isCapital}">
-    <template v-if="!isCapital">{{ formatValue | doPrecision(legalPrecision, isRoundUp) | doFormat(hasSeparator, separator) }}</template> <template v-else> {{ formatValue | doPrecision(4, isRoundUp) | doCapital }} </template>
+  <span class="md-amount" :class="{numerical: !isCapital}">
+    <div v-if="!isCapital">{{ formatValue | doPrecision(legalPrecision, isRoundUp) | doFormat(hasSeparator, separator) }}</div> 
+    <div v-else> {{ formatValue | doPrecision(4, isRoundUp) | doCapital }} </div>
   </span>
 </template>
 

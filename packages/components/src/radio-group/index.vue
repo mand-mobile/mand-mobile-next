@@ -1,5 +1,5 @@
 <script>
-import RadioGroup from 'mand-mobile/lib/radio/group'
+import RadioGroup from '../radio/group'
 export default RadioGroup
 
 </script>

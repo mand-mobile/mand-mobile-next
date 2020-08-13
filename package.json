@@ -5,12 +5,13 @@
   "scripts": {
     "cz": "npx git-cz",
     "prebootstrap": "lerna clean",
-    "bootstrap": "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn && lerna exec --no-bail PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn  && lerna exec --bail=false npm run build && lerna link",
+    "bootstrap": "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn && lerna exec --no-bail PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install -- --ignore-scripts && npm run build",
+    "build": "lerna link  && lerna exec --bail=false npm run build",
     "serve": "cd packages/examples && npm run serve --",
     "serve:web": "cd packages/examples && npm run serve:web --",
     "serve:uni": "cd packages/examples && npm run serve:uni --",
-    "pub": "npm run clean:lock && lerna publish --conventional-commits",
-    "pub:prerelease": "lerna publish --conventional-commits --cd-version=prerelease --preid=alpha --npm-tag=alpha",
+    "pub": "npm run bootstrap && lerna publish --conventional-commits",
+    "pub:prerelease": "npm run bootstrap &&  lerna publish --conventional-commits --cd-version=prerelease --preid=alpha --npm-tag=alpha",
     "build:uni-component": "cd packages/platform && npm run build:uni-component"
   },
   "dependencies": {

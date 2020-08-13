@@ -78,8 +78,8 @@
 </template>
 
 <script>
-import Icon from 'mand-mobile/lib/icon'
-import {toArray, mdDocument} from '@mand-mobile/shared/lib/util'
+import {toArray} from '@mand-mobile/shared/lib/util'
+import Icon from '../icon'
 
 export default {
   name: 'md-steps',

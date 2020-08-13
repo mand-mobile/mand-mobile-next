@@ -2,20 +2,20 @@
 function buildUniComponents(api) {
   const prettier = require('prettier')
   const {parse} = require('@vue/compiler-dom')
-  const {existsSync, readFileSync, writeFile, mkdirSync, readdirSync} = require('fs')
+  const {existsSync, readFileSync, writeFile, mkdirSync, readdirSync, writeFileSync} = require('fs')
   const {resolve} = require('path')
   const {execSync} = require('child_process')
   const {transformJs} = require('./script-gen')
   const {concatcStyle} = require('./style-gen')
   const {transformTpl} = require('./template-gen')
-  const {exeRootPath, MAND_PLATFORM, MAND_INPUT_DIR, MAND_OUTPUT_DIR} = api.mdContext || {}
+  const {exeRootPath, MAND_PLATFORM, MAND_INPUT_DIR, MAND_OUTPUT_DIR, MAND_BUILD_TARGET} = api.mdContext || {}
   const {execa, info, error} = api.mdUtils
 
-  execa('ln', [
-    '-s',
-    `${exeRootPath}/node_modules/@mand-mobile/components`,
-    `${exeRootPath}/${MAND_INPUT_DIR}/_mand-mobile`,
-  ])
+  // execa('ln', [
+  //   '-s',
+  //   `${exeRootPath}/node_modules/@mand-mobile/components`,
+  //   `${exeRootPath}/${MAND_INPUT_DIR}/_mand-mobile`,
+  // ])
 
   execa('ln', ['-s', `${exeRootPath}/node_modules/@mand-mobile/platform`, `${exeRootPath}/${MAND_INPUT_DIR}/_platform`])
   execa('ln', ['-s', `${exeRootPath}/node_modules/@mand-mobile/shared`, `${exeRootPath}/${MAND_INPUT_DIR}/_shared`])
@@ -28,14 +28,14 @@ function buildUniComponents(api) {
   const resolver = p => resolve(p)
 
   function mdkirUni() {
-    execSync(
-      `
-        rm -rf ${UNI_COMPONETN_BASE}
-      `,
-    )
-    mkdirSync(UNI_COMPONETN_BASE)
-    mkdirSync(UNI_COMPONETN_BASE_PATH_SRC)
-    mkdirSync(UNI_COMPONETN_BASE_PATH_LIB)
+    // execSync(
+    //   `
+    //     rm -rf ${UNI_COMPONETN_BASE}
+    //   `,
+    // )
+    !existsSync(UNI_COMPONETN_BASE) && mkdirSync(UNI_COMPONETN_BASE)
+    // !existsSync(UNI_COMPONETN_BASE_PATH_SRC) && mkdirSync(UNI_COMPONETN_BASE_PATH_SRC)
+    !existsSync(UNI_COMPONETN_BASE_PATH_LIB) && mkdirSync(UNI_COMPONETN_BASE_PATH_LIB)
   }
 
   function readVueFile(path) {
@@ -56,11 +56,7 @@ function buildUniComponents(api) {
     let style = ''
     let script = ''
 
-    style = concatcStyle(
-      ast,
-      UNI_COMPONETN_BASE_PATH_SRC === UNI_COMPONETN_BASE_PATH_LIB,
-      `${exeRootPath}/${MAND_INPUT_DIR}/_shared`,
-    )
+    style = concatcStyle(ast, MAND_BUILD_TARGET === 'lib', `${exeRootPath}/${MAND_INPUT_DIR}/_shared`)
     script = transformJs(ast)
     template = transformTpl(ast)
 
@@ -73,14 +69,10 @@ function buildUniComponents(api) {
 
   function genUniComponet({template, script, style}, path) {
     const name = path
-    const srcPath = `${UNI_COMPONETN_BASE_PATH_SRC}/${name.split('/')[0]}`
+    const srcPath = `${UNI_COMPONETN_BASE_PATH_LIB}/${name.split('/')[0]}`
 
     !existsSync(resolver(srcPath)) && mkdirSync(resolver(srcPath))
-    writeFile(resolver(`${UNI_COMPONETN_BASE_PATH_SRC}/${name}`), formateCode(template + script + style), {}, err => {
-      if (err) {
-        throw err
-      }
-    })
+    writeFileSync(resolver(`${UNI_COMPONETN_BASE_PATH_LIB}/${name}`), formateCode(template + script + style), {})
   }
 
   function formateCode(code) {
@@ -98,6 +90,10 @@ function buildUniComponents(api) {
 
   function findFile(path) {
     const dir = `${COMPONENT_BASE_PATH}/${path}`
+
+    // console.info(dir)
+    // process.exit(1)
+
     const files = readdirSync(dir)
     const ignores = ['demo', 'test', 'README.en-US.md', 'README.md', 'mixin', 'mixins', 'assets']
     return files.filter(f => !ignores.includes(f))
@@ -128,19 +124,19 @@ function buildUniComponents(api) {
         }
       })
       .forEach(f => {
-        if (f.includes('.vue') && !f.includes('uni')) {
+        if (f.includes('.vue')) {
           genUniComponet(compilerCode(readVueFile(`${arg}/${f}`)), `${arg}/${f}`)
         } else {
           execSync(
             `
-            cp ${COMPONENT_BASE_PATH}/${arg}/${f} ${UNI_COMPONETN_BASE_PATH_SRC}/${arg}
+            cp ${COMPONENT_BASE_PATH}/${arg}/${f} ${UNI_COMPONETN_BASE_PATH_LIB}/${arg}
           `,
           )
           ;['mixin', 'mixins', 'assets'].forEach(dir => {
             existsSync(`${COMPONENT_BASE_PATH}/${arg}/${dir}`) &&
               execSync(
                 `
-                cp -r ${COMPONENT_BASE_PATH}/${arg}/${dir} ${UNI_COMPONETN_BASE_PATH_SRC}/${arg}
+                cp -r ${COMPONENT_BASE_PATH}/${arg}/${dir} ${UNI_COMPONETN_BASE_PATH_LIB}/${arg}
               `,
               )
           })
@@ -160,13 +156,7 @@ function buildUniComponents(api) {
   }
 
   start()
-  info('====== build src 执行完毕 ======')
-
-  i = 0
-  UNI_COMPONETN_BASE_PATH_SRC = UNI_COMPONETN_BASE_PATH_LIB
-
-  start()
-  info('====== build lib 执行完毕 ======')
+  info(`====== build ${MAND_BUILD_TARGET} 执行完毕 ======`)
 }
 
 module.exports = buildUniComponents

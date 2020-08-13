@@ -1,9 +1,9 @@
 {
   "name": "@mand-mobile/components",
-  "version": "0.0.1",
+  "version": "3.0.1-alpha.5",
   "description": "mand-mobile source code",
   "keywords": ["mfe"],
-  "author": "lucker <guoyunlong@didichuxing.com>",
+  "author": "lucker <byterotate@gmail.com>",
   "homepage": "",
   "license": "ISC",
   "main": "index.js",
@@ -11,15 +11,15 @@
     "lib": "lib",
     "test": "__tests__"
   },
-  "files": ["lib"],
+  "files": ["src"],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
     "build": "echo \"build nothing\""
   },
   "dependencies": {
-    "@mand-mobile/platform": "^0.0.1",
-    "@mand-mobile/scroller": "^0.0.1",
-    "@mand-mobile/shared": "^0.0.1",
+    "@mand-mobile/platform": "^3.0.1-alpha.5",
+    "@mand-mobile/scroller": "^3.0.1-alpha.5",
+    "@mand-mobile/shared": "^3.0.1-alpha.3",
     "jest": "^26.0.1"
   }
 }

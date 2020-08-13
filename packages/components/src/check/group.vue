@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Check from 'mand-mobile/lib/check'
+import Check from '../check'
 
 export default {
   name: 'md-check-group',
