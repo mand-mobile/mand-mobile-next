@@ -14,7 +14,11 @@
   </div>
 </template>
 
-<script>import {Tip, Button, Toast} from 'mand-mobile'
+<script>
+import Tip from '../../index.js'
+import Button from '../../../button/index'
+import Toast from '../../../toast/index.js'
+
 export default {
   name: 'tips-demo',
   /* DELETE */
@@ -22,41 +26,44 @@ export default {
   titleEnUS: 'Other configurations',
   /* DELETE */
   components: {
-    [Tip.name]: Tip,
-    [Button.name]: Button,
+    'md-tip': Tip,
+    'md-button': Button,
+    'md-toast': Toast,
   },
   methods: {
     onShow(name) {
-      Toast({
-        content: `显示了${name}`,
-      })
+      // Toast.create.info({
+      //   content: `显示了${name}`,
+      // })
+      Toast.succeed(`显示了${name}`)
     },
     onHide(name) {
-      Toast({
-        content: `隐藏了${name}`,
-      })
+      Toast.succeed(`隐藏了${name}`)
     },
   },
 }
-</script>
 
-<style lang="stylus">
-.md-tip-4
-  .md-tip-bg
-    background-color #FFEBDF
-    &:after
-      border-width 10px 11px 0 11px
-      border-color #FFEBDF transparent transparent transparent
-  .md-tip-content
-    padding-left 80px
-    color #C37447
-    .md-icon-security
-      position absolute
-      left 32px
-      width 64px !important
-      height 64px !important
-  .md-tip-bg
-    box-shadow none
-    opacity 1
+</script>
+
+<style>
+.md-tip-4 .md-tip-bg {
+  background-color: #FFEBDF;
+  box-shadow: none;
+  opacity: 1;
+}
+.md-tip-4 .md-tip-bg:after {
+  border-width: 10px 11px 0 11px;
+  border-color: #FFEBDF transparent transparent transparent;
+}
+.md-tip-4 .md-tip-content {
+  padding-left: 80px;
+  color: #C37447;
+}
+.md-tip-4 .md-tip-content .md-icon-security {
+  position: absolute;
+  left: 32px;
+  width: 64px !important;
+  height: 64px !important;
+}
 </style>
 

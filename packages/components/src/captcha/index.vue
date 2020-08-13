@@ -77,7 +77,8 @@
   </div>
 </template>
 
-<script>import Dialog from '../dialog/dialog'
+<script>
+import Dialog from '../dialog/dialog'
 import Codebox from '../codebox'
 import Button from '../button'
 // import {mdDocument} from '@mand-mobile/shared/lib/util'
@@ -252,7 +253,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-captcha

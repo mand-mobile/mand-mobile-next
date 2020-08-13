@@ -1,6 +1,7 @@
 import Vue from 'vue'
+import {randomId} from '@mand-mobile/shared/lib/util/data'
 import TipOptions from './tip'
-import {randomId} from '@mand-mobile/shared/lib/util'
+
 const Tip = Vue.extend(TipOptions)
 
 export default {

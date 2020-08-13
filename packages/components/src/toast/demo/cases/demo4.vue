@@ -4,8 +4,9 @@
   </div>
 </template>
 
-<script>import Button from '../../../button'
-import Toast from '../../../toast'
+<script>
+import Button from 'mand-mobile/lib/button'
+import Toast from 'mand-mobile/lib/toast'
 
 export default {
   name: 'toast-demo',
@@ -24,4 +25,5 @@ export default {
     },
   },
 }
-</script>
+
+</script>

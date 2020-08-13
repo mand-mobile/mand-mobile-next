@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import ResultPage from 'mand-mobile/result-page'
+import ResultPage from 'mand-mobile/lib/result-page'
 
 export default {
   name: 'result-page-demo',
@@ -19,7 +19,6 @@ export default {
   titleEnUS: 'Custom pattern',
   /* DELETE */
   components: {
-
     'md-result-page': ResultPage,
   },
 }

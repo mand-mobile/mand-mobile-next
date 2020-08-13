@@ -38,7 +38,13 @@
 	</div>
 </template>
 
-<script>import {Button, Icon, Cashier, Toast, NoticeBar, ActivityIndicator} from 'mand-mobile'
+<script>
+import Button from 'mand-mobile/lib/button'
+import Cashier from 'mand-mobile/lib/cashier'
+import Toast from 'mand-mobile/lib/toast'
+import Icon from 'mand-mobile/lib/icon'
+import NoticeBar from 'mand-mobile/lib/notice-bar'
+import ActivityIndicator from 'mand-mobile/lib/activity-indicator'
 
 export default {
   name: 'cashier-demo',
@@ -48,11 +54,11 @@ export default {
   titleEnUS: 'Using slots and other configurations',
   /* DELETE */
   components: {
-    [Button.name]: Button,
-    [Cashier.name]: Cashier,
-    [Icon.name]: Icon,
-    [NoticeBar.name]: NoticeBar,
-    [ActivityIndicator.name]: ActivityIndicator,
+    'md-button': Button,
+    'md-cashier': Cashier,
+    'md-icon': Icon,
+    'md-notice-bar': NoticeBar,
+    'md-activity-indicator': ActivityIndicator,
   },
   data() {
     return {
@@ -182,27 +188,30 @@ export default {
     },
   },
 }
-</script>
 
-<style lang="stylus">
-.md-example-child-cashier
-  .md-field
-    margin-bottom 30px
-  .custom-scene
-    min-height 300px
-    display flex
-    justify-content center
-    align-items center
-    font-size 32px
-  .cashier-loading
-    position absolute
-    top 0
-    left 0
-    right 0
-    bottom 0
-    background rgba(255, 255, 255, 0.95)
-    z-index 1400
-    display flex
-    align-items center
-    justify-content center
+</script>
+
+<style>
+.md-example-child-cashier .md-field {
+  margin-bottom: 30px;
+}
+.md-example-child-cashier .custom-scene {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  font-size: 32px;
+}
+.md-example-child-cashier .cashier-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 1400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>
