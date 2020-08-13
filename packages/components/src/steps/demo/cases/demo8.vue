@@ -44,9 +44,9 @@
 </template>
 
 <script>
-import Steps from 'mand-mobile/steps'
-import Amount from 'mand-mobile/amount'
-import Icon from 'mand-mobile/icon'
+import Steps from '../../../steps'
+// import Amount from '../../../amount'
+import Icon from '../../../icon'
 
 export default {
   name: 'steps-demo',
@@ -56,7 +56,7 @@ export default {
   /* DELETE */
   components: {
     'md-steps': Steps,
-    'md-amount': Amount,
+    // 'md-amount': Amount,
     'md-icon': Icon,
   },
   data() {
@@ -86,24 +86,28 @@ export default {
 
 </script>
 
-<style lang="stylus">
-.md-example-child-steps-8
-  .custom-content
-    .name
-      font-size 28px
-      color #858B9C
-      &.active
-        font-size 40px
-        color #111A34
-    .amount
-      margin-top 20px
-      color #111A34
-      .md-amount
-        margin-right 5px
-        font-size 80px
-    .desc
-      line-height 40px !important
-      span
-        color #FF8325
+<style>
+.md-example-child-steps-8 .custom-content .name {
+  font-size: 28px;
+  color: #858B9C
+}
+.md-example-child-steps-8 .custom-content .name.active {
+  font-size: 40px;
+  color: #111A34;
+}
+.md-example-child-steps-8 .custom-content .amount {
+  margin-top: 20px;
+  color: #111A34;
+}
+.md-example-child-steps-8 .custom-content .amount .md-amount {
+  margin-right: 5px;
+  font-size: 80px;
+}
+.md-example-child-steps-8 .custom-content .desc {
+  line-height: 40px !important;
+}
+.md-example-child-steps-8 .custom-content .desc span {
+  color: #FF8325;
+}
 </style>
 

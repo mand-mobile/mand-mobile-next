@@ -17,7 +17,8 @@
   ></i>
 </template>
 
-<script>import {ismp} from '@mand-mobile/shared/lib/util'
+<script>
+import {ismp} from '@mand-mobile/shared/lib/util'
 import loadSprite from './load-spirte'
 import defaultSvg from './default-svg-list'
 
@@ -61,7 +62,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-icon

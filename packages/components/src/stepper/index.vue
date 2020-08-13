@@ -35,7 +35,8 @@
   </div>
 </template>
 
-<script>import {warn} from '@mand-mobile/shared/lib/util'
+<script>
+import {warn} from '@mand-mobile/shared/lib/util'
 function getDecimalNum(num) {
   try {
     return num.toString().split('.')[1].length
@@ -220,7 +221,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-stepper

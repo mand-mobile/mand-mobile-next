@@ -66,7 +66,8 @@
   </div>
 </template>
 
-<script>// import { noop } from '@mand-mobile/shared/lib/util'
+<script>
+// import { noop } from '@mand-mobile/shared/lib/util'
 import Key from './key'
 
 export default {
@@ -150,7 +151,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-number-keyboard-container

@@ -118,7 +118,7 @@ describe('Cashier - Operation', () => {
       expect(!!wrapper.find('.md-cashier-loading')).toBeTruthy()
       expect(
         wrapper
-          .find('.md-cashier-block-text')
+          .find('.md-cashier_container_block--text')
           .text()
           .trim(),
       ).toEqual('123')
@@ -141,7 +141,7 @@ describe('Cashier - Operation', () => {
       expect(!!wrapper.find('.md-cashier-success')).toBeTruthy()
       expect(
         wrapper
-          .find('.md-cashier-block-text')
+          .find('.md-cashier_container_block--text')
           .text()
           .trim(),
       ).toEqual('123')
@@ -164,7 +164,7 @@ describe('Cashier - Operation', () => {
       expect(!!wrapper.find('.md-cashier-fail')).toBeTruthy()
       expect(
         wrapper
-          .find('.md-cashier-block-text')
+          .find('.md-cashier_container_block--text')
           .text()
           .trim(),
       ).toEqual('123')

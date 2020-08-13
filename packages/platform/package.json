@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@mand-mobile/shared": "0.0.1",
+    "@mand-mobile/scroller": "0.0.1",
     "bluebird": "^3.7.2",
     "glob": "^7.1.6",
     "postcss-load-config": "^2.1.0",

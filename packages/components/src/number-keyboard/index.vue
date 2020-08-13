@@ -49,7 +49,8 @@
   </div>
 </template>
 
-<script>import Popup from '../popup'
+<script>
+import Popup from '../popup'
 import Keyborad from './board'
 
 export default {
@@ -143,7 +144,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-number-keyboard

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import ResultPage from 'mand-mobile/result-page'
+import ResultPage from 'mand-mobile/lib/result-page'
 
 export default {
   name: 'result-page-demo',
@@ -21,7 +21,8 @@ export default {
 
 </script>
 
-<style lang="stylus">
-.md-example-child-result-page-0
-  background #FFF
+<style>
+.md-example-child-result-page-0 {
+  background: #FFF;
+}
 </style>

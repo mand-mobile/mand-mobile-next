@@ -24,23 +24,29 @@
   </div>
 </template>
 
-<script>import {Progress} from 'mand-mobile'
+<script>
+import Progress from 'mand-mobile/lib/index'
 
 export default {
   name: 'progress-demo',
   components: {
-    [Progress.name]: Progress,
+    'md-progress': Progress,
   },
 }
-</script>
 
-<style lang="stylus">
-.md-example-child-progress
-  display flex
-  justify-content center
-  .md-progress
-    margin 0 10px
-  .progress-value
-    font-size 24px
-    font-family DINPro-Medium
+</script>
+
+<style>
+.md-example-child-progress {
+  display: flex;
+  justify-content: center;
+}
+.md-progress {
+  margin: 0 10px;
+}
+
+.progress-value {
+  font-size: 24px;
+  font-family: DINPro-Medium;
+}
 </style>
