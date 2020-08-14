@@ -1302,21 +1302,22 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@mand-mobile/components@^3.0.1-alpha.3", "@mand-mobile/components@^3.0.1-alpha.4":
-  version "3.0.1-alpha.4"
-  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-3.0.1-alpha.4.tgz#ea9eb44d2654f34ccbe6a3065490bc3abcf75633"
-  integrity sha512-dgFqGJ6Y9BMkW0/h1DxPwE6bnz8dKoZlrsUc7KrYRcmbgr8GUD/um5+rRIm3bCNJoPwUuqxv+kjZnxMgwNv1aQ==
+"@mand-mobile/components@^3.0.1-alpha.5":
+  version "3.0.1-alpha.5"
+  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-3.0.1-alpha.5.tgz#c59f370f4b325b042bc20314240630a4afb1bcac"
+  integrity sha512-VJHbcRvE2SLYbzkq5rwin35bDZG9dAlCkYq+y4I2LeZqLTJcweopOZuApQ+IFev0zdH2gTe6Ubh7SIgGPsBnXA==
   dependencies:
-    "@mand-mobile/platform" "^3.0.1-alpha.4"
-    "@mand-mobile/scroller" "^3.0.1-alpha.3"
+    "@mand-mobile/platform" "^3.0.1-alpha.5"
+    "@mand-mobile/scroller" "^3.0.1-alpha.5"
     "@mand-mobile/shared" "^3.0.1-alpha.3"
     jest "^26.0.1"
 
-"@mand-mobile/platform@^3.0.1-alpha.3", "@mand-mobile/platform@^3.0.1-alpha.4":
-  version "3.0.1-alpha.4"
-  resolved "https://registry.npmjs.org/@mand-mobile/platform/-/platform-3.0.1-alpha.4.tgz#81580399e23965247e803a080565298b08535324"
-  integrity sha512-55XFsbCarQw1gypO4hgnrA/Rqxi3KcMZGQdf4nl6KtOog5idUSXdU96OBZGIkT9gH+1jMFcS+lKsPWJOaeEM1g==
+"@mand-mobile/platform@^3.0.1-alpha.5":
+  version "3.0.1-alpha.5"
+  resolved "https://registry.npmjs.org/@mand-mobile/platform/-/platform-3.0.1-alpha.5.tgz#156c844f1f02369da7340444b979797b3b6d2a67"
+  integrity sha512-9hRz4UrqqLS8ZKDvyYMAyvb9U6wjXssR/qZbSqIamkXks16ZY7QKlSrs3Naxs1OEpAWkRYJBn88LWlOsvpy9WQ==
   dependencies:
+    "@mand-mobile/scroller" "^3.0.1-alpha.5"
     "@mand-mobile/shared" "^3.0.1-alpha.3"
     bluebird "^3.7.2"
     glob "^7.1.6"
@@ -1328,10 +1329,10 @@
     rollup-plugin-css-only "^2.1.0"
     vue "^2.6.11"
 
-"@mand-mobile/scroller@^3.0.1-alpha.3":
-  version "3.0.1-alpha.3"
-  resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-3.0.1-alpha.3.tgz#94acd980e06cf0f1bc0bd01e76b9c14c7cc39916"
-  integrity sha512-g3P0vS2oSC1nm5nNF974RM5vavxiUCfOQrMjZ0M7drVrdn1s+b7aU0GpvmpbHpnWYH9yt3e9UQNeVqB+ux4gLg==
+"@mand-mobile/scroller@^3.0.1-alpha.5":
+  version "3.0.1-alpha.5"
+  resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-3.0.1-alpha.5.tgz#681b336b4afcd5d6c41370e96b302eb5da5087ac"
+  integrity sha512-2c4LZOQobXtLO3xHny4fHGc+RXAQv7msRL7xjkTxL45dTN+bbDvlS4xnIMuD7dWe2sUPylTrf+ee7HuoZtTgvQ==
   dependencies:
     "@mand-mobile/shared" "^3.0.1-alpha.3"
     "@types/jest" "^26.0.4"
@@ -1342,14 +1343,14 @@
   resolved "https://registry.npmjs.org/@mand-mobile/shared/-/shared-3.0.1-alpha.3.tgz#9f48e3186eacd74173ba59a01d0575a8959fc84d"
   integrity sha512-vr31qVQPxh14+pNdlIwxSrTw0Z7b9s7Hstl3IEa5t3+O9lyxo0K+woQ/zQzQryGZANX3DUto2ldXfYZwMrWEFg==
 
-"@mand-mobile/vue-cli-plugin-builder@^3.0.1-alpha.4":
-  version "3.0.1-alpha.4"
-  resolved "https://registry.npmjs.org/@mand-mobile/vue-cli-plugin-builder/-/vue-cli-plugin-builder-3.0.1-alpha.4.tgz#38ec1b462e1a3bb01d58e8df8a3619c61ec38d7b"
-  integrity sha512-lrdCfsH8UPonbKGcC9dEJCivYrDC0yFdMJiSldsaAyfcuHtCY8aNIAiofpIbqAKZBe39vH9iF5rFLvCepoZu1g==
+"@mand-mobile/vue-cli-plugin-builder@^3.0.1-alpha.5":
+  version "3.0.1-alpha.5"
+  resolved "https://registry.npmjs.org/@mand-mobile/vue-cli-plugin-builder/-/vue-cli-plugin-builder-3.0.1-alpha.5.tgz#fba2b8cb7d8b4a4cbff2344872d00be9dcb53161"
+  integrity sha512-wDkOYGJwgqLlZjl4L5jNd83ZLLs9mUEU06uIThAT0NJbZ3F35oIOchv9mRrXPh052FYVG7F1ab/zHjJys7UTWg==
   dependencies:
     "@babel/preset-env" "^7.10.3"
-    "@mand-mobile/components" "^3.0.1-alpha.3"
-    "@mand-mobile/platform" "^3.0.1-alpha.3"
+    "@mand-mobile/components" "^3.0.1-alpha.5"
+    "@mand-mobile/platform" "^3.0.1-alpha.5"
     "@mand-mobile/shared" "^3.0.1-alpha.3"
     "@rollup/plugin-babel" "^5.0.4"
     "@vue/cli" "^4.4.4"
