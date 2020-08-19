@@ -1,4 +1,4 @@
-componentName=$1
+componentName=$1 
 
 if [ $componentName ]; then
   jest --no-cache --runInBand --verbose --silent src/$componentName/test/*.spec.js
