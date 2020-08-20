@@ -36,7 +36,7 @@ $ npm run pub
 $ npm run test:components <button-name>
 
 # 升级对应测试用例的snapshot, 以button为例
-$ cd packages/components && npx jest src/button/test/demo.spec.js
+$ cd packages/components && npx jest --updateSnapshot src/button/test/demo.spec.js
 ```
 
 :tipping_hand_man:默认在`packages/examples/dist/development/mp-weixin`目录下进行uni组件的调试和预览
