@@ -23,13 +23,20 @@ $ npm run bootstrap
 $ npm run bootstrap
 
 # 调试工程， 可在最后输入组件名称用于调试单个组件
-$ npm run serve [button-name]
+$ npm run serve <button-name>
 
 # 发布预发(非稳定)包
 $ npm run pub:prerelease
 
 # 发布正式包
 $ npm run pub
+
+
+# 测试组件,可在最后输入组件名称用于调试单个组件
+$ npm run test:components <button-name>
+
+# 升级对应测试用例的snapshot, 以button为例
+$ cd packages/components && npx jest src/button/test/demo.spec.js
 ```
 
 :tipping_hand_man:默认在`packages/examples/dist/development/mp-weixin`目录下进行uni组件的调试和预览
