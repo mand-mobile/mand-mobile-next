@@ -4,8 +4,27 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "SRPC_DEBUG=true npx jest --coverage index.spec.ts",
+    "test:watch":
+      "npx jest --coverage  --watch --collectCoverage=false --runInBand --detectOpenHandles",
+    "build:watch": "tsc --watch"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^26.0.10",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.2.0",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "@types/stylus": "^0.48.33",
+    "@types/tapable": "^1.0.6",
+    "@vue/cli": "^4.5.4",
+    "@vue/cli-service": "^4.5.4",
+    "ejs": "^3.1.5",
+    "execa": "^4.0.3",
+    "stylus": "^0.54.8",
+    "tapable": "^1.1.3"
+  }
 }
