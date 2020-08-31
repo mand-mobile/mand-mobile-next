@@ -13,6 +13,6 @@
     "outDir": "lib",
     "lib": ["ES2015", "DOM"]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "test/**/*"],
   "exclude": ["node_modules"]
 }

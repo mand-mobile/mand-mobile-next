@@ -9,6 +9,14 @@
       "npx jest --coverage  --watch --collectCoverage=false --runInBand --detectOpenHandles",
     "build:watch": "tsc --watch"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testMatch": ["**/(*.)+(test|spec).ts"],
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -18,12 +26,18 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
+    "@types/find": "^0.2.1",
+    "@types/fs-extra": "^9.0.1",
+    "@types/ramda": "^0.27.14",
     "@types/stylus": "^0.48.33",
     "@types/tapable": "^1.0.6",
     "@vue/cli": "^4.5.4",
     "@vue/cli-service": "^4.5.4",
     "ejs": "^3.1.5",
     "execa": "^4.0.3",
+    "find": "^0.3.0",
+    "fs-extra": "^9.0.1",
+    "ramda": "^0.27.1",
     "stylus": "^0.54.8",
     "tapable": "^1.1.3"
   }
