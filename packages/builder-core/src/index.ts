@@ -6,9 +6,13 @@ import * as find from 'find'
 import * as path from 'path'
 import * as fs from 'fs-extra'
 
-const stylus = require('stylus')
+const Service = require('@vue/cli-service')
 const execa = require('execa')
-const {runGenerator} = require('@vue/cli/lib/invoke')
+const merge = require('webpack-merge')
+const Config = require('webpack-chain')
+
+/** =========================================Vue Service Segment========================================================== */
+
 
 
 /** =========================================Constant Utils Segment========================================================== */
@@ -16,11 +20,10 @@ const {runGenerator} = require('@vue/cli/lib/invoke')
 const WORKSPACE_DIRECTORY = process.cwd()
 
 
-
-/** =========================================Common Utils Segment========================================================== */
+/** =========================================Renderer Utils Segment========================================================== */
 
 /**
- * 
+ * 超时机制封装
  * @param timeout 超时时间
  */
 const timeout = (timeout: number = 500) => new Promise((resolve, reject) => {
@@ -32,9 +35,9 @@ const timeout = (timeout: number = 500) => new Promise((resolve, reject) => {
  * @param sourceDir 
  * @param targetDir 
  */
-export function linkDir(sourceDir, targetDir) {
-  execa('ln', [
-    '-s',
+export function linkDir(sourceDir, targetDir): Promise<void> {
+  return execa('ln', [
+    '-sfn',
     sourceDir,
     targetDir,
   ])
@@ -52,7 +55,6 @@ export function compileFile(filename: string, data: any, opt?): Promise<{content
 
   const options = R.mergeRight({timeout: 500, root: '/'}, opt)
 
-  console.info(filename, options.root)
   const filepath = path.relative(options.root, filename)
   // 存在相对路径，标识root目录不是文件的父目录, 抛出错误
   if (filepath.startsWith('..')) {
@@ -98,7 +100,7 @@ export async function exportFile(renderInfo: {content: string, ctx: {filepath: s
 }
 
 
-export async function renderFile(filename, data,opt?:{sourceRoot?, distRoot?}) {
+export async function renderFile(filename, data, opt?:{sourceRoot?, distRoot?}) {
 
   const {sourceRoot, distRoot, ...compileOptions} = opt
 
@@ -114,12 +116,12 @@ export async function renderFile(filename, data,opt?:{sourceRoot?, distRoot?}) {
 
 
 /**
- * 
+ * 基于模板渲染文件夹
  * @param sourceRoot 
  * @param data 
  * @param options 
  */
-export async function renderDir(sourceRoot, data?, opt?): Promise<unknown[]> {
+export async function renderDir(sourceRoot, data?, opt?: {distRoot: string}): Promise<unknown[]> {
 
   const options = R.mergeRight({
     distRoot: WORKSPACE_DIRECTORY
@@ -137,40 +139,12 @@ export async function renderDir(sourceRoot, data?, opt?): Promise<unknown[]> {
   return Promise.all(R.map(renderer)(files))
 }
 
-/**
- * 批量渲
- */
 
-/** =========================================渲染模板 Segment========================================================== */
+/** =========================================Resolver Utils Segment========================================================== */
 
-export class TemplateGenerator {
-  
-  private options:{
-    templatePath?: string,
-    renderPath?: string,
-    variables?: any,
-  }
 
-  private generator: any
-  private ctx: string
-  private plugin: any
-  constructor(options = {}, ctx: string = process.cwd()) {
-    this.ctx = ctx
-    this.options = options
-    this.plugin = {
-      id: 'builder-core-builtin',
-      apply: (api) => {
-        console.info(`generator call called`, api)
-      },
-      options: {
-        registry: false,
-      }
-    }
-  }
-  
-  public async generate() {
-    return runGenerator(this.ctx, [this.plugin])
-  }
+export async function platformResolver() {
+
 }
 
 
@@ -178,61 +152,137 @@ export class TemplateGenerator {
 
 export class BuilderContainer {
 
-  private config: any = {
-    stylus,
+  private config: {
+    outputRoot?: string
+  } = {}
+  constructor(cfg?: any) {
+    this.config = R.mergeRight(this.config, cfg)
   }
 
-  constructor(cfg: {
-    template: TemplateGenerator,
-    stylus?: any,
-  }) {
-    this.config = Object.assign({}, this.config, cfg)
+  public setConfig(config) {
+    this.config = R.mergeRight(this.config, config)
   }
 
-  public hooks: {[hookName: string]: tapable.Hook} = {
+  public hooks = {
+
+    addTemplates: new tapable.SyncHook(['templates']),
+    addLinks: new tapable.SyncHook(['linkpaths']),
+
     chainWebpack: new tapable.SyncHook(['chain']),
     extendsBabelConfig: new tapable.SyncHook(['babelConfig']),
     extendsPostcssConfig: new tapable.SyncHook(['postcssConfig']),
     extendsStylus: new tapable.SyncHook(['stylus']),
-    extendsPathMappings: new tapable.SyncHook(['linkCmd'])
-  }
+    extendsPathMappings: new tapable.SyncHook(['linkCmd']),
 
-  private containerRef: string
-  private cwd: string
-  private template: any
+    setBuildCmd: new tapable.SyncBailHook(['buildCmd']),
+    setServeCmd: new tapable.SyncBailHook(['serveCmd']),
+  }
 
   /**
    * 通过模板创建构建容器
    */
-  public create() {
+  public async create(): Promise<void> {
 
-    this.config.template.renderer()
+    const templates: Array<[{
+      template,
+      renderer,
+    }, {[prop: string]: any}]> = [] 
 
-    this.hooks.extendsPathMappings.call(execa)
+    type source = string
+    type target = string
+    const linkpaths: Array<[source, target]> = []
+
+    this.hooks.addTemplates.call(templates)
+    this.hooks.addLinks.call(linkpaths)
+
+    await Promise.all(R.map(([{template, renderer}, data = {}]) => {
+      const distRoot: string = path.resolve(this.config.outputRoot, renderer)
+
+      console.info(template, data, {distRoot})
+      return renderDir(template, data, {distRoot})
+    })(templates))
+
+    await Promise.all(R.map(({source, target}) => {
+      const distTarget: string = path.resolve(this.config.outputRoot, target)
+      return linkDir(source, distTarget)
+    })(linkpaths))
+    
+    return 
+  }
+
+
+  /**
+   * temp 用于调试build方法，后边会抽象到钩子内
+   * @param stylus 
+   * @param babelConfig 
+   * @param postcssConfig 
+   */
+  private async _build(stylus, babelConfig, postcssConfig) {
+
+    const service = new Service(this.config.outputRoot)
+
+
+    //@todo set mode process.env.VUE_CLI_MODE
+    service.init()
+
+    service.webpackChainFns.push((chain) => {
+      this.hooks.chainWebpack.call(chain)
+    })
+
+
+    service.webpackChainFns.push((chain) => {
+      const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+
+
+      // 针对不同类型的stylus样式进行扩展传入的loader options
+
+      R.forEach(type => chain.module.rule('stylus').oneOf(type).use('stylus-loader').tap(R.mergeLeft(stylus)))(types)
+
+
+      // 设置用户需要的postcss options
+      // @todo 需要放置plugins被多次合并覆盖
+      R.forEach(type => chain.module.rule('postcss').oneOf(type).use('postcss-loader').tap(R.mergeLeft(postcssConfig)))(types)
+      
+      // 扩展babel配置
+      // @todo 需要放置plugins被多次合并覆盖
+      chain.module.rule('js').use('babel-loader').tap(R.mergeLeft(babelConfig))
+    })
+
+    // service.webpackRawConfigFns.push((webpackConfig) => {
+    //   return merge(webpackConfig, chainWebpack.toConfig())
+    // })
+    return service.run('build', {}, []).catch(err => {
+
+      console.error(err, 'error occured')
+
+      // process.exit(1)
+    })
   }
 
   /**
    * 构建资源产物
    */
   public build() {
+
+    // 清空stylus上下文，保证每一次构建都是全新的stylus
+    // delete require.cache['stylus']
+    const stylus = {}
     const babelConfig = {}
     const postcssConfig = {}
+
     // @fixme 需要对stylus的重复配置做清空动作
-    const stylus = this.config.stylus
     this.hooks.extendsStylus.call(stylus)
     this.hooks.extendsBabelConfig.call(babelConfig)
     this.hooks.extendsPostcssConfig.call(postcssConfig)
+  
+    return this._build(stylus, babelConfig, postcssConfig)
   }
 
 
   /**
    * 开启调试
    */
-  public serve() {
-
-
-  }
-
+  public serve() {}
 
   /**
    * 对构建产物和构建容易进行清理
