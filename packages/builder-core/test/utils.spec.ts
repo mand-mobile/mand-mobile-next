@@ -6,7 +6,7 @@ import { readFile } from 'fs-extra'
 /**
  * 基于EJS语法编译字符串
  */
-it('should render a file and return a compiled string', async () => {
+it.skip('should render a file and return a compiled string', async () => {
 
   let source = path.resolve(__dirname, '__fixtures__/render-template/test.html')
   const result = await compileFile(source, {user: {name: 'lisi'}}, {})
@@ -18,7 +18,7 @@ it('should render a file and return a compiled string', async () => {
 /**
  * 导出文件
  */
-it ('should export a file with right directory', async () => {
+it.skip ('should export a file with right directory', async () => {
   let sourceRoot = path.resolve(__dirname, '__fixtures__/render-template')
   let source = path.resolve(sourceRoot, 'test.html')
   const result = await compileFile(source, {user: {name: 'lisi'}}, {root: sourceRoot})
@@ -31,7 +31,7 @@ it ('should export a file with right directory', async () => {
 /**
  * 
  */
-it('should render a directory and preserve original structure', async () => {
+it.skip('should render a directory and preserve original structure', async () => {
 
   let sourceDir = path.resolve(__dirname, '__fixtures__/render-template')
 
