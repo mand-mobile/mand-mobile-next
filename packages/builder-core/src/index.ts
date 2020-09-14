@@ -90,7 +90,7 @@ export function compileFile(filename: string, data: any, opt?): Promise<{content
  * @param options 
  * @param options.root
  */
-export async function exportFile(renderInfo: {content: string, ctx: {filepath: string}}, opt: {root: string, renderAs}): Promise<string> {
+export async function exportFile(renderInfo: {content: string, ctx: {filepath: string}}, opt: {root: string, renderAs?: string}): Promise<string> {
 
   const options = R.mergeRight({root: WORKSPACE_DIRECTORY}, opt)
 
@@ -122,7 +122,7 @@ export async function renderFile(filename, data, opt?:{sourceRoot?, distRoot?, r
  * @param data 
  * @param options 
  */
-export async function renderDir(sourceRoot, data?, opt?: {distRoot: string}): Promise<unknown[]> {
+export async function renderDir(sourceRoot, data?, opt?: {distRoot: string}): Promise<any> {
 
   const options = R.mergeRight({
     distRoot: WORKSPACE_DIRECTORY
@@ -238,16 +238,16 @@ export class BuilderContainer {
     this.hooks.addLinks.call(linkpaths)
 
 
-       // 如果插件实现了命令，则优先调用
+    // 如果插件实现了命令，则优先调用
     if (this.internalCommand.create) {
       return this.internalCommand.create({templates, linkpaths}, this) 
     }
 
     await Promise.all(R.map(([{template, renderer}, data = {}]) => {
-      const distRoot: string = path.resolve(this.config.outputRoot, renderer)
-      if (fs.statSync(template).isFile) {
-        return renderFile(template, data, {sourceRoot: '/', distRoot: distRoot, renderAs: renderer})
+      if (fs.statSync(template).isFile()) {
+        return renderFile(template, data, {sourceRoot: '/', distRoot: this.config.outputRoot, renderAs: renderer})
       } else {
+        const distRoot: string = path.resolve(this.config.outputRoot, renderer)
         return renderDir(template, data, {distRoot})
       }
     })(templates))

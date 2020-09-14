@@ -1,8 +1,7 @@
-import { BuilderContainer } from './index';
+import { BuilderContainer } from '../index';
 import * as path from 'path'
-import * as tapable from 'tapable'
-import * as R from 'ramda'
-import { resolveComponents, resolveCategory, chainExtendsHandler } from './helper'
+
+import { resolveComponents, resolveCategory, chainExtendsHandler } from '../helper'
 const Service = require('@vue/cli-service')
 
 const resolver = (moduleName, suffix) => path.join(path.dirname(require.resolve(moduleName)), suffix)
