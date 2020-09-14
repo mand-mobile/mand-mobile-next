@@ -1,6 +1,6 @@
 import * as  path from 'path'
 import { BuilderContainer } from "../src/index";
-import { VueCliBuilderPlugins } from "../src/builder-plugin-vue-cli";
+import { VueCliBuilderPlugins } from "../src/builtin-plugins/plugin-vuecli-core";
 
 
 /**
@@ -35,8 +35,6 @@ it('should create a builder container and create soft link directories', async (
   await builder.create()
   
 })
-
-
 
 
 
