@@ -90,26 +90,27 @@ export function compileFile(filename: string, data: any, opt?): Promise<{content
  * @param options 
  * @param options.root
  */
-export async function exportFile(renderInfo: {content: string, ctx: {filepath: string}}, opt: {root: string}): Promise<string> {
+export async function exportFile(renderInfo: {content: string, ctx: {filepath: string}}, opt: {root: string, renderAs}): Promise<string> {
 
   const options = R.mergeRight({root: WORKSPACE_DIRECTORY}, opt)
 
-  const dist = path.resolve(options.root, renderInfo.ctx.filepath)
+  const dist = path.resolve(options.root, opt.renderAs || renderInfo.ctx.filepath)
 
   return fs.outputFile(dist, renderInfo.content, {encoding: 'utf8'}).then(() => dist)
 }
 
 
-export async function renderFile(filename, data, opt?:{sourceRoot?, distRoot?}) {
+export async function renderFile(filename, data, opt?:{sourceRoot?, distRoot?, renderAs?}) {
 
-  const {sourceRoot, distRoot, ...compileOptions} = opt
+  const {sourceRoot, distRoot, renderAs, ...compileOptions} = opt
 
   const compiler = R.curry(compileFile)(R.__, data, {
     root: sourceRoot, 
     ...compileOptions,
   })
 
-  const dister = R.curry(exportFile)(R.__, {root: distRoot})
+  const dister = R.curry(exportFile)(R.__, {root: distRoot, renderAs})
+
 
   return R.composeP(dister, compiler)(filename)
 }
@@ -150,36 +151,77 @@ export async function platformResolver() {
 
 /** =========================================构造容器 Segment========================================================== */
 
+export interface IMandPlugins {
+
+  apply(container: BuilderContainer): void
+
+  // 如果插件内实现了以下三个方法，则不执行BuilderContainer本身的 create, serve, build方法，改为使用插件实现的相关的方法，
+  // BuilderContainer 的config.plugins是一个数组，则后边的plugins.create|serve|build方法会覆盖前面的.
+  create?: (config, container: BuilderContainer) => Promise<void>
+  serve?: (config, container: BuilderContainer) => Promise<void>
+  build?: (config, container: BuilderContainer) => Promise<void>
+
+}
+
 export class BuilderContainer {
 
-  private config: {
+  private _config: {
     outputRoot?: string
   } = {}
-  constructor(cfg?: any) {
-    this.config = R.mergeRight(this.config, cfg)
+
+  get config(): any {
+    return this._config
   }
 
-  public setConfig(config) {
-    this.config = R.mergeRight(this.config, config)
-  }
 
   public hooks = {
 
     addTemplates: new tapable.SyncHook(['templates']),
     addLinks: new tapable.SyncHook(['linkpaths']),
 
-    chainWebpack: new tapable.SyncHook(['chain']),
     extendsBabelConfig: new tapable.SyncHook(['babelConfig']),
     extendsPostcssConfig: new tapable.SyncHook(['postcssConfig']),
     extendsStylus: new tapable.SyncHook(['stylus']),
     extendsPathMappings: new tapable.SyncHook(['linkCmd']),
 
-    setBuildCmd: new tapable.SyncBailHook(['buildCmd']),
-    setServeCmd: new tapable.SyncBailHook(['serveCmd']),
+    setBuildTasks: new tapable.AsyncParallelHook(['configures']),
+    setServeTasks: new tapable.AsyncParallelHook(['configures']),
+  }
+
+  private internalCommand: {
+    create?: (config: any, container) => void
+    build?: (config: any, container) => void
+    serve?: (config: any, container) => void
+  } = {}
+
+  constructor(cfg: any = {
+    outputRoot: '',
+    plugins:  []
+  }) {
+    this._config = R.mergeRight(this.config, cfg)
+
+    const plugins = cfg.plugins || []
+
+    R.forEach(([plugin, pluginOptions = {}]) => {
+
+      if (plugin instanceof Function) {
+        plugin = new plugin(pluginOptions)
+      }
+
+      // 为构建容器注册插件
+      plugin.apply(this)
+
+      // plugins里最后一个实现了相关方法的plugin会生效
+      plugin.create && (this.internalCommand.create = plugin.create.bind(plugin))
+      plugin.build && (this.internalCommand.build = plugin.build.bind(plugin))
+      plugin.serve && (this.internalCommand.serve = plugin.serve.bind(plugin))
+
+    })(plugins)
+
   }
 
   /**
-   * 通过模板创建构建容器
+   * 
    */
   public async create(): Promise<void> {
 
@@ -195,11 +237,19 @@ export class BuilderContainer {
     this.hooks.addTemplates.call(templates)
     this.hooks.addLinks.call(linkpaths)
 
+
+       // 如果插件实现了命令，则优先调用
+    if (this.internalCommand.create) {
+      return this.internalCommand.create({templates, linkpaths}, this) 
+    }
+
     await Promise.all(R.map(([{template, renderer}, data = {}]) => {
       const distRoot: string = path.resolve(this.config.outputRoot, renderer)
-
-      console.info(template, data, {distRoot})
-      return renderDir(template, data, {distRoot})
+      if (fs.statSync(template).isFile) {
+        return renderFile(template, data, {sourceRoot: '/', distRoot: distRoot, renderAs: renderer})
+      } else {
+        return renderDir(template, data, {distRoot})
+      }
     })(templates))
 
     await Promise.all(R.map(({source, target}) => {
@@ -210,79 +260,49 @@ export class BuilderContainer {
     return 
   }
 
-
-  /**
-   * temp 用于调试build方法，后边会抽象到钩子内
-   * @param stylus 
-   * @param babelConfig 
-   * @param postcssConfig 
-   */
-  private async _build(stylus, babelConfig, postcssConfig) {
-
-    const service = new Service(this.config.outputRoot)
-
-
-    //@todo set mode process.env.VUE_CLI_MODE
-    service.init()
-
-    service.webpackChainFns.push((chain) => {
-      this.hooks.chainWebpack.call(chain)
-    })
-
-
-    service.webpackChainFns.push((chain) => {
-      const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-
-
-      // 针对不同类型的stylus样式进行扩展传入的loader options
-
-      R.forEach(type => chain.module.rule('stylus').oneOf(type).use('stylus-loader').tap(R.mergeLeft(stylus)))(types)
-
-
-      // 设置用户需要的postcss options
-      // @todo 需要放置plugins被多次合并覆盖
-      R.forEach(type => chain.module.rule('postcss').oneOf(type).use('postcss-loader').tap(R.mergeLeft(postcssConfig)))(types)
-      
-      // 扩展babel配置
-      // @todo 需要放置plugins被多次合并覆盖
-      chain.module.rule('js').use('babel-loader').tap(R.mergeLeft(babelConfig))
-    })
-
-    // service.webpackRawConfigFns.push((webpackConfig) => {
-    //   return merge(webpackConfig, chainWebpack.toConfig())
-    // })
-    return service.run('build', {}, []).catch(err => {
-
-      console.error(err, 'error occured')
-
-      // process.exit(1)
-    })
-  }
-
   /**
    * 构建资源产物
    */
-  public build() {
+  public async build() {
 
     // 清空stylus上下文，保证每一次构建都是全新的stylus
     // delete require.cache['stylus']
-    const stylus = {}
+    const stylusConfig = {}
     const babelConfig = {}
     const postcssConfig = {}
 
     // @fixme 需要对stylus的重复配置做清空动作
-    this.hooks.extendsStylus.call(stylus)
+    this.hooks.extendsStylus.call(stylusConfig)
     this.hooks.extendsBabelConfig.call(babelConfig)
     this.hooks.extendsPostcssConfig.call(postcssConfig)
-  
-    return this._build(stylus, babelConfig, postcssConfig)
+    
+    // 如果插件实现了命令，则优先调用
+    if (this.internalCommand.build) {
+      return this.internalCommand.build({babelConfig, postcssConfig, stylusConfig}, this) 
+    }
+    return this.hooks.setBuildTasks.promise({babelConfig, postcssConfig, stylusConfig})
   }
 
 
   /**
    * 开启调试
    */
-  public serve() {}
+  public async serve() {
+    const stylusConfig = {}
+    const babelConfig = {}
+    const postcssConfig = {}
+
+    // @fixme 需要对stylus的重复配置做清空动作
+    this.hooks.extendsStylus.call(stylusConfig)
+    this.hooks.extendsBabelConfig.call(babelConfig)
+    this.hooks.extendsPostcssConfig.call(postcssConfig)
+
+    // 如果插件实现了命令，则优先调用
+    if (this.internalCommand.serve) {
+      return this.internalCommand.serve({babelConfig, postcssConfig, stylusConfig}, this) 
+    }
+    return this.hooks.setServeTasks.promise({babelConfig, postcssConfig, stylusConfig})
+  }
 
   /**
    * 对构建产物和构建容易进行清理
