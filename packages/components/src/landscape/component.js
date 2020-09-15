@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'landscape',
   'text': '压屏',
   'category': 'business',

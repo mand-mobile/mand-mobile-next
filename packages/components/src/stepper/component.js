@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'stepper',
   'text': '步进器',
   'category': 'basic',

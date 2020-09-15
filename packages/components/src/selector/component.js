@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'selector',
   'text': '列表选择器',
   'category': 'feedback',

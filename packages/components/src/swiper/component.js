@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'swiper',
   'text': '轮播',
   'category': 'basic',

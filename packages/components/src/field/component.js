@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'field',
   'text': '组合列表',
   'category': 'form',

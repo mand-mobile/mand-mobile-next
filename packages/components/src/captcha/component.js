@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'captcha',
   'text': '验证码窗口',
   'category': 'business',

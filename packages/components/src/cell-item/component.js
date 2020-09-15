@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'cell-item',
   'text': '列表单元',
   'category': 'basic',

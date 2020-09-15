@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'toast',
   'text': '提示',
   'category': 'feedback',

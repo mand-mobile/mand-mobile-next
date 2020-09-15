@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'check',
   'text': '复选项',
   'category': 'form',

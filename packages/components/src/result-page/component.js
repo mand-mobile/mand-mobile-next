@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'result-page',
   'text': '结果页',
   'category': 'business',

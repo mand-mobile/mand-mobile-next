@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'textarea-item',
   'text': '文本输入框',
   'category': 'form',

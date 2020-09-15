@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'transition',
   'text': '动画',
   'category': 'feedback',

@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'switch',
   'text': '滑动开关',
   'category': 'basic',

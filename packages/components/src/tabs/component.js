@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'tabs',
   'text': '标签页',
   'category': 'basic',
