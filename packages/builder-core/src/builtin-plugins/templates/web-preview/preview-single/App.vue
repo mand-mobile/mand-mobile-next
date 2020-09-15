@@ -12,7 +12,7 @@ import './assets/responsive'
 export default {
   name: 'app',
   components: {
-    demo: () => import(`./demo-group`),
+    demo: () => import(`./pages/demo-group`),
   },
 }
 

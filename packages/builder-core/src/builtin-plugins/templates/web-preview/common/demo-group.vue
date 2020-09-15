@@ -18,7 +18,7 @@
 // @example import Demo1 from './cases/demo1'
 // prettier-ignore
 <% for (let demoIndex = 0; demoIndex < component.demoCases.length; demoIndex++) {%>
-import Demo<%- demoIndex %> from 'mand-mobile/src/<%- component.dashedStyledName %>/demo/cases/<%- component.demoCases[demoIndex] %>'
+import Demo<%- demoIndex %> from '../mand-mobile/<%- component.dashedStyledName %>/demo/cases/<%- component.demoCases[demoIndex] %>'
 <% } %>
 
 export default {

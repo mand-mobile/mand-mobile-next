@@ -12,6 +12,27 @@ const mv = require('mv')
 const copyfiles = require('copyfiles')
 const {exec} = require('child_process')
 
+/** -----------------------------------------utils --------------------------------------------------------- */
+
+export const packagesResolver = R.curry((componentName, suffix) => path.join(path.dirname(require.resolve(componentName)), suffix))
+
+
+/** -----------------------------------------Component Helpers --------------------------------------------------------- */
+
+
+interface IComponents {
+  path: string,
+
+  name: string,
+  dashedStyledName: string,
+  camelCaseStyledName: string,
+  text: string,
+  
+  category: string,
+  description: string,
+  author: string,
+}
+
 /**
  * 
  * @param Options
@@ -19,7 +40,8 @@ const {exec} = require('child_process')
  * @param Options.componentSOurce [web|uni]
  *  
  */
-export function resolveComponents({platform: PLATFORM, componentSource}) {
+
+export function resolveComponents({platform: PLATFORM, componentSource}): Array<IComponents> {
 
   const isDirectory = filepath => {
     return fs.statSync(filepath).isDirectory()
@@ -30,7 +52,6 @@ export function resolveComponents({platform: PLATFORM, componentSource}) {
       return p1.toUpperCase()
     })
   }
-
   const componentNameMapper = item =>
     Object.assign(item, {
       path: `/${item.name}`,
@@ -115,12 +136,10 @@ export function resolveComponents({platform: PLATFORM, componentSource}) {
         name: componentName,
       }
     }
-    const result = Object.assign({}, componentMeta, {
-      demoCases: computedDemos(dir),
-    })
+    const result = R.mergeRight(componentMeta, {demoCases: computedDemos(dir)})
     return result
   }
-  return R.compose(R.map(componentNameMapper), R.map(loadComponent), lsComponentsDirectories)(componentSource)
+  return R.compose(R.map(R.compose(componentNameMapper)), R.map(loadComponent), lsComponentsDirectories)(componentSource)
 }
 
 export function renderComponents({platform, target, done}) {

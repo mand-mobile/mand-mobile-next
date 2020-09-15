@@ -59,32 +59,36 @@ it('should exec builder container in dist container', async () => {
 }, 10000)
 
 
-it.only('should exec builder container in dist container', async () => {
+it('should exec build command in muti-component mode', async () => {
   const builder = new BuilderContainer({outputRoot: path.resolve(__dirname, '__temp__/web-preview'), plugins: [
     [VueCliBuilderPlugins, {}],
   ]})
 
-
   await builder.create()
-  // await builder.build()
+  await builder.build()
 
-}, 10000)
+}, 100000)
 
-
-it('should serve builder container', async () => {
-  const builder = new BuilderContainer({outputRoot: path.resolve(__dirname, '__temp__/vue'), plugins: [
-    [VueCliBuilderPlugins, {}],
+it('should exec build command in single mode', async () => {
+  const builder = new BuilderContainer({outputRoot: path.resolve(__dirname, '__temp__/web-preview-single'), plugins: [
+    [VueCliBuilderPlugins, {single: true, componentName: 'button'}],
   ]})
 
-  /**
-   * 调通流程，拆解到业务逻辑内
-   */
-  builder.hooks.addTemplates.tap('builder-unit-testcases', templates => {
-    templates.push([{
-      template: path.resolve(__dirname, '__fixtures__/vue-template-project'),
-      renderer: '.',
-    }, {user: {name: 'lisi'}}])
-  })
   await builder.create()
-  await builder.serve()
-}, 100000)
+  await builder.build()
+})
+
+
+// 验证serve命令是否调通，业务代码验证可用
+it.skip('should exec serve command in single mode', async () => {
+
+  const builder = new BuilderContainer({outputRoot: path.resolve(__dirname, '__temp__/web-preview-single-serve'), plugins: [
+    [VueCliBuilderPlugins, {single: true, componentName: 'button'}],
+  ]})
+
+  await builder.create()
+  await new Promise((resolve, reject) => {
+    builder.serve()
+    setTimeout(resolve,  1000000)
+  })
+}, 2000000)
