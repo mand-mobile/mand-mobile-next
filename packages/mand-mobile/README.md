@@ -59,7 +59,7 @@ export default {
 </template>
 
 <script>
-import Button from 'mand-mobile/lib/uni/button'
+import Button from 'mand-mobile/uni/lib/button'
 
 export default {
   name: 'button-demo',
