@@ -1,0 +1,17 @@
+{
+	"name": "",
+	"appid": "",
+	"description": "",
+	"versionName": "1.0.0",
+	"versionCode": "100",
+	"transformPx": true,
+
+	
+	"mp-weixin": {
+		"appid": "",
+		"setting": {
+			"urlCheck": false
+		},
+		"usingComponents": true
+	}
+}
