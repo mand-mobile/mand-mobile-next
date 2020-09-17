@@ -12,7 +12,7 @@
     "serve:uni": "cd packages/examples && npm run serve:uni --",
     "test:components": "cd packages/components && npm run test",
     "pub": "npm run bootstrap && lerna publish --conventional-commits",
-    "pub:prerelease": "npm run bootstrap &&  lerna publish --conventional-commits --cd-version=prerelease --preid=alpha --npm-tag=alpha",
+    "pub:prerelease": "npm run bootstrap &&  lerna publish --conventional-commits --cd-version=prerelease --preid=alpha --npm-tag=latest",
     "build:uni-component": "cd packages/platform && npm run build:uni-component"
   },
   "dependencies": {
