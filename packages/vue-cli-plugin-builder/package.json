@@ -48,6 +48,7 @@
     "babelrc-rollup": "^3.0.0",
     "copyfiles": "^2.3.0",
     "find": "^0.3.0",
+    "fs-extra": "^9.0.1",
     "jest": "^26.0.1",
     "mv": "^2.1.1",
     "postcss": "^7.0.32",
