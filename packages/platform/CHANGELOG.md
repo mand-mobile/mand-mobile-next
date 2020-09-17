@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1-alpha.7](https://github.com/mand-mobile/mand-mobile-next/compare/v3.0.1-alpha.6...v3.0.1-alpha.7) (2020-09-17)
+
+
+### Bug Fixes
+
+* **platform:** build uni component forgot add mixins dir ([e75940a](https://github.com/mand-mobile/mand-mobile-next/commit/e75940a50735deb3daec6ee4f76c32672ac61cec))
+
+
+
+
+
 ## [3.0.1-alpha.6](https://github.com/mand-mobile/mand-mobile-next/compare/v3.0.1-alpha.5...v3.0.1-alpha.6) (2020-08-14)
 
 **Note:** Version bump only for package @mand-mobile/platform
