@@ -16,7 +16,7 @@
   },
   "files": ["lib"],
   "dependencies": {
-    "@mand-mobile/shared": "^3.0.1-alpha.3",
+    "@mand-mobile/shared": "^3.0.1-alpha.9",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0"
   }
