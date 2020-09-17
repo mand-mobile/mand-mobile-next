@@ -143,6 +143,12 @@ function buildUniComponents(api) {
             })
           }
           writeFileSync(`${UNI_COMPONETN_BASE_PATH_LIB}/${arg}/${f}`, transformJS())
+        } else {
+          execSync(
+            `
+            cp ${COMPONENT_BASE_PATH}/${arg}/${f} ${UNI_COMPONETN_BASE_PATH_LIB}/${arg}
+          `,
+          )
         }
         // copy dir
         ;['mixin', 'mixins', 'assets'].forEach(dir => {
