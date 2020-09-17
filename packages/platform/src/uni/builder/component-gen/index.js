@@ -144,11 +144,7 @@ function buildUniComponents(api) {
           }
           writeFileSync(`${UNI_COMPONETN_BASE_PATH_LIB}/${arg}/${f}`, transformJS())
         }
-        execSync(
-          `
-          cp ${COMPONENT_BASE_PATH}/${arg}/${f} ${UNI_COMPONETN_BASE_PATH_LIB}/${arg}
-        `,
-        )
+        // copy dir
         ;['mixin', 'mixins', 'assets'].forEach(dir => {
           existsSync(`${COMPONENT_BASE_PATH}/${arg}/${dir}`) &&
             execSync(
