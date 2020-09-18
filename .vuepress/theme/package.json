@@ -1,0 +1,20 @@
+{
+  "name": "@vuepress/theme-mand-mobile",
+  "version": "1.0.0",
+  "description": "Theme for mand mobile doc site",
+  "keywords": [
+    "documentation",
+    "generator",
+    "vue",
+    "vuepress",
+    "mand-mobile"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "ant-design-vue": "^1.6.5"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.13.0"
+  }
+}

@@ -1,0 +1,135 @@
+@font-face
+  font-family "source-code-pro-special"
+  font-style normal
+  font-weight normal
+  src url(http://img-hxy021.didistatic.com/static/manhattan_fe/do1_Tf31E1Eb66YYynBMRI1y) format("truetype")
+
+html
+  -webkit-text-size-adjust unset
+  -ms-text-size-adjust unset
+
+// demo
+.md-doc-demo-wrapper
+  p
+    margin unset
+  // all unset
+
+// markdown
+.content__default >
+  table
+    display inline-table
+    width 100%
+    margin-bottom 2em
+    font-size .8em
+    line-height 1.5em
+    // background-color #fafafa
+    tr
+      border none
+      &:nth-child(2n+1)
+        background-color #fafcfd
+    th, td
+      padding 1.5em 1em
+      box-sizing border-box
+      sup.version-before, sup.version-after, .md-doc-platform-tag
+        position absolute
+        top 0.5em
+        right 0
+      .md-doc-platform-tag.small
+        .md-doc-platform-tag_item
+          height 2.2em
+          line-height 1
+          padding .1em .8em
+          font-size .6em
+
+    th
+      text-align left
+      white-space nowrap
+      color #666
+      font-weight 400
+      background #f0f0f0
+      border none
+      &:first-child
+        border-radius 6px 0 0 0
+      &:last-child
+        border-radius 0 6px 0 0
+    td
+      position relative
+      // padding 1.5em
+      // font-size 13px
+      line-height 2
+      border none
+      // border-bottom .5px solid #ebebeb
+      &:first-of-type
+        // font-size 1.1em
+        font-weight 500
+        // font-family DINAlternate-Bold,AvenirNext-Medium,Microsoft Yahei,Lato,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Verdana,Tahoma,sans-serif
+      &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4)
+        width 15%
+      // &:nth-of-type(3), &:nth-of-type(4)
+      //   width 10%
+    
+  ul, li, p
+    margin-top 8px
+    img
+      max-width 100%
+      margin-top 1em
+
+  img
+    max-width 100%
+    margin-top 1em
+      
+  h2
+    margin-top 1.5em
+    border none
+  h3, h4
+    margin-top 1em
+
+div[class*="language-"]
+  margin-bottom 2em
+  background-color #2b3a42
+div[class*="language-"] pre, div[class*="language-"] pre[class*="language-"]
+  code
+    font-size .9em
+    font-family "source-code-pro-special"
+    // color #a5cee1
+    // text-shadow 0 1px 0 rgba(23, 31, 35, 0.5)
+
+:not(pre) >code
+  margin 0 3px
+  padding 2px 5px
+  color #666f83
+  font-size .8em
+  font-weight 400
+  // font-family "source-code-pro-special"
+  background-color #f2f4f5
+  border-radius 3px
+  border 1px solid #ebebeb
+
+sup.version-before, sup.version-after
+  display inline-flex
+  align-items center
+  height 2em
+  line-height 1
+  padding .1em .8em
+  font-size .6em
+  font-style normal
+  font-weight 400
+  font-family DINAlternate-Bold,AvenirNext-Medium,Microsoft Yahei,Lato,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Verdana,Tahoma,sans-serif
+  // color #fff
+  border-radius 20px
+  border-style solid
+  border-width 1px
+  box-sizing border-box
+
+sup.version-after
+  border-color #2f86f6
+  color #2f86f6
+
+sup.version-before
+  border-color #f56c6c
+  color #f56c6c
+
+@media (max-width: 1000px)
+  .content__default >
+    table
+      display block
