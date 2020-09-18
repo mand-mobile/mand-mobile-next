@@ -149,15 +149,16 @@ function buildUniComponents(api) {
             cp ${COMPONENT_BASE_PATH}/${arg}/${f} ${UNI_COMPONETN_BASE_PATH_LIB}/${arg}
           `,
           )
-          ;['mixin', 'mixins', 'assets'].forEach(dir => {
-            existsSync(`${COMPONENT_BASE_PATH}/${arg}/${dir}`) &&
-              execSync(
-                `
-                cp -r ${COMPONENT_BASE_PATH}/${arg}/${dir} ${UNI_COMPONETN_BASE_PATH_LIB}/${arg}
-              `,
-              )
-          })
         }
+        // copy dir
+        ;['mixin', 'mixins', 'assets'].forEach(dir => {
+          existsSync(`${COMPONENT_BASE_PATH}/${arg}/${dir}`) &&
+            execSync(
+              `
+              cp -r ${COMPONENT_BASE_PATH}/${arg}/${dir} ${UNI_COMPONETN_BASE_PATH_LIB}/${arg}
+            `,
+            )
+        })
       })
   }
   // 创建文件夹

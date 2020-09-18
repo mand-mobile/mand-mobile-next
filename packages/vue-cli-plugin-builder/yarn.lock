@@ -1433,20 +1433,20 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@mand-mobile/components@^3.0.1-alpha.5":
-  version "3.0.1-alpha.5"
-  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-3.0.1-alpha.5.tgz#c59f370f4b325b042bc20314240630a4afb1bcac"
-  integrity sha512-VJHbcRvE2SLYbzkq5rwin35bDZG9dAlCkYq+y4I2LeZqLTJcweopOZuApQ+IFev0zdH2gTe6Ubh7SIgGPsBnXA==
+"@mand-mobile/components@^3.0.1-alpha.6":
+  version "3.0.1-alpha.6"
+  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-3.0.1-alpha.6.tgz#8d3c01e8ead2cb479b83bfd92a69a30b9f1c3886"
+  integrity sha512-xlDTIpkxGq5wmwmI9VO4Gcqdz/xzKIQvtLtk0wJxtolO6mxoQhLiK9lHmPPyG9vigY7htkAAuno2fsSCAfeggA==
   dependencies:
-    "@mand-mobile/platform" "^3.0.1-alpha.5"
+    "@mand-mobile/platform" "^3.0.1-alpha.6"
     "@mand-mobile/scroller" "^3.0.1-alpha.5"
     "@mand-mobile/shared" "^3.0.1-alpha.3"
     jest "^26.0.1"
 
-"@mand-mobile/platform@^3.0.1-alpha.5":
-  version "3.0.1-alpha.5"
-  resolved "https://registry.npmjs.org/@mand-mobile/platform/-/platform-3.0.1-alpha.5.tgz#156c844f1f02369da7340444b979797b3b6d2a67"
-  integrity sha512-9hRz4UrqqLS8ZKDvyYMAyvb9U6wjXssR/qZbSqIamkXks16ZY7QKlSrs3Naxs1OEpAWkRYJBn88LWlOsvpy9WQ==
+"@mand-mobile/platform@^3.0.1-alpha.6":
+  version "3.0.1-alpha.6"
+  resolved "https://registry.npmjs.org/@mand-mobile/platform/-/platform-3.0.1-alpha.6.tgz#8aaef1b1050abd4796b75f7aae374890bb22401b"
+  integrity sha512-OzJ5curE+MkyxizzQ64BIGJ+FdSIRHIxSvawuMulrJfCiPb81YOP7lYWl8SYixhHtMl6v/lpR/vvXNpALEWSTg==
   dependencies:
     "@mand-mobile/scroller" "^3.0.1-alpha.5"
     "@mand-mobile/shared" "^3.0.1-alpha.3"

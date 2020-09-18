@@ -1531,20 +1531,20 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@mand-mobile/components@^3.0.1-alpha.5":
-  version "3.0.1-alpha.5"
-  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-3.0.1-alpha.5.tgz#c59f370f4b325b042bc20314240630a4afb1bcac"
-  integrity sha512-VJHbcRvE2SLYbzkq5rwin35bDZG9dAlCkYq+y4I2LeZqLTJcweopOZuApQ+IFev0zdH2gTe6Ubh7SIgGPsBnXA==
+"@mand-mobile/components@^3.0.1-alpha.6":
+  version "3.0.1-alpha.6"
+  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-3.0.1-alpha.6.tgz#8d3c01e8ead2cb479b83bfd92a69a30b9f1c3886"
+  integrity sha512-xlDTIpkxGq5wmwmI9VO4Gcqdz/xzKIQvtLtk0wJxtolO6mxoQhLiK9lHmPPyG9vigY7htkAAuno2fsSCAfeggA==
   dependencies:
-    "@mand-mobile/platform" "^3.0.1-alpha.5"
+    "@mand-mobile/platform" "^3.0.1-alpha.6"
     "@mand-mobile/scroller" "^3.0.1-alpha.5"
     "@mand-mobile/shared" "^3.0.1-alpha.3"
     jest "^26.0.1"
 
-"@mand-mobile/platform@^3.0.1-alpha.5":
-  version "3.0.1-alpha.5"
-  resolved "https://registry.npmjs.org/@mand-mobile/platform/-/platform-3.0.1-alpha.5.tgz#156c844f1f02369da7340444b979797b3b6d2a67"
-  integrity sha512-9hRz4UrqqLS8ZKDvyYMAyvb9U6wjXssR/qZbSqIamkXks16ZY7QKlSrs3Naxs1OEpAWkRYJBn88LWlOsvpy9WQ==
+"@mand-mobile/platform@^3.0.1-alpha.6":
+  version "3.0.1-alpha.6"
+  resolved "https://registry.npmjs.org/@mand-mobile/platform/-/platform-3.0.1-alpha.6.tgz#8aaef1b1050abd4796b75f7aae374890bb22401b"
+  integrity sha512-OzJ5curE+MkyxizzQ64BIGJ+FdSIRHIxSvawuMulrJfCiPb81YOP7lYWl8SYixhHtMl6v/lpR/vvXNpALEWSTg==
   dependencies:
     "@mand-mobile/scroller" "^3.0.1-alpha.5"
     "@mand-mobile/shared" "^3.0.1-alpha.3"
@@ -1572,14 +1572,14 @@
   resolved "https://registry.npmjs.org/@mand-mobile/shared/-/shared-3.0.1-alpha.3.tgz#9f48e3186eacd74173ba59a01d0575a8959fc84d"
   integrity sha512-vr31qVQPxh14+pNdlIwxSrTw0Z7b9s7Hstl3IEa5t3+O9lyxo0K+woQ/zQzQryGZANX3DUto2ldXfYZwMrWEFg==
 
-"@mand-mobile/vue-cli-plugin-builder@^3.0.1-alpha.5":
-  version "3.0.1-alpha.5"
-  resolved "https://registry.npmjs.org/@mand-mobile/vue-cli-plugin-builder/-/vue-cli-plugin-builder-3.0.1-alpha.5.tgz#fba2b8cb7d8b4a4cbff2344872d00be9dcb53161"
-  integrity sha512-wDkOYGJwgqLlZjl4L5jNd83ZLLs9mUEU06uIThAT0NJbZ3F35oIOchv9mRrXPh052FYVG7F1ab/zHjJys7UTWg==
+"@mand-mobile/vue-cli-plugin-builder@^3.0.1-alpha.6":
+  version "3.0.1-alpha.6"
+  resolved "https://registry.npmjs.org/@mand-mobile/vue-cli-plugin-builder/-/vue-cli-plugin-builder-3.0.1-alpha.6.tgz#192b3e17fbf39dff742a83e67be06777711cd579"
+  integrity sha512-rRJBqwZM03P6nDzgCk4MbFffwy+9hFzVIslGGbe25+/u1ABuLn5FXRXPHCljj/MVnJ9iKnqjd5isoMMcQ0uglQ==
   dependencies:
     "@babel/preset-env" "^7.10.3"
-    "@mand-mobile/components" "^3.0.1-alpha.5"
-    "@mand-mobile/platform" "^3.0.1-alpha.5"
+    "@mand-mobile/components" "^3.0.1-alpha.6"
+    "@mand-mobile/platform" "^3.0.1-alpha.6"
     "@mand-mobile/shared" "^3.0.1-alpha.3"
     "@rollup/plugin-babel" "^5.0.4"
     "@vue/cli" "^4.4.4"
