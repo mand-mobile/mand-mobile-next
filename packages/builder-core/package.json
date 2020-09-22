@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test":
-      "SRPC_DEBUG=true npx jest --coverage test/plugin-vuecli-uni.spec.ts",
-    "test:watch":
-      "npx jest --coverage  --watch --collectCoverage=false --runInBand --detectOpenHandles",
+    "test": "SRPC_DEBUG=true npx jest --coverage test/plugin-rollup-core.spec.ts",
+    "test:watch": "npx jest --coverage  --watch --collectCoverage=false --runInBand --detectOpenHandles",
     "build:watch": "tsc --watch"
   },
   "jest": {
@@ -15,8 +13,17 @@
       "^.+\\.ts?$": "ts-jest"
     },
     "testEnvironment": "node",
-    "testMatch": ["**/(*.)+(test|spec).ts"],
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+    "testMatch": [
+      "**/(*.)+(test|spec).ts"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "author": "",
   "license": "ISC",
@@ -35,12 +42,28 @@
     "@dcloudio/webpack-uni-pages-loader": "^2.0.0-26920200424005",
     "@mand-mobile/components": "^3.0.1-alpha.9",
     "@mand-mobile/platform": "^3.0.1-alpha.9",
+    "@rollup/plugin-alias": "^3.1.1",
+    "@rollup/plugin-babel": "^5.0.4",
+    "@rollup/plugin-node-resolve": "^8.4.0",
     "@types/jest": "^26.0.10",
     "@vue/cli-plugin-babel": "^4.4.4",
     "@vue/cli-plugin-unit-jest": "^4.5.4",
+    "@vue/compiler-sfc": "^3.0.0",
     "fastclick": "^1.0.6",
     "jest": "^26.4.2",
     "postcss-comment": "^2.0.0",
+    "rollup": "^2.18.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-css-only": "^2.1.0",
+    "rollup-plugin-filesize": "^9.0.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^3.1.2",
+    "rollup-plugin-progress": "^1.1.2",
+    "rollup-plugin-stylus-compiler": "^1.0.1",
+    "rollup-plugin-typescript": "^1.0.1",
+    "rollup-plugin-uglify": "^6.0.4",
+    "rollup-plugin-vue": "^6.0.0-beta.8",
     "ts-jest": "^26.2.0",
     "typescript": "^4.0.2",
     "vue-router": "^3.4.3"

@@ -1109,7 +1109,7 @@
     pirates "^4.0.0"
     source-map-support "^0.5.16"
 
-"@babel/runtime@^7.11.0", "@babel/runtime@^7.5.4", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.3", "@babel/runtime@^7.11.0", "@babel/runtime@^7.5.4", "@babel/runtime@^7.8.4":
   version "7.11.2"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@babel/runtime/download/@babel/runtime-7.11.2.tgz#f549c13c754cc40b87644b9fa9f09a6a95fe0736"
   integrity sha1-9UnBPHVMxAuHZEufqfCaapX+BzY=
@@ -1697,22 +1697,31 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@mand-mobile/components@^3.0.1-alpha.4":
-  version "3.0.1-alpha.4"
-  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@mand-mobile/components/download/@mand-mobile/components-3.0.1-alpha.4.tgz#ea9eb44d2654f34ccbe6a3065490bc3abcf75633"
-  integrity sha1-6p60TSZU80zL5qMGVJC8Orz3VjM=
+"@mand-mobile/components@^3.0.1-alpha.9":
+  version "3.0.1-alpha.9"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@mand-mobile/components/download/@mand-mobile/components-3.0.1-alpha.9.tgz#c11857212fa06da28bd65cabaf638b0edbaa8b49"
+  integrity sha1-wRhXIS+gbaKL1lyrr2OLDtuqi0k=
   dependencies:
-    "@mand-mobile/platform" "^3.0.1-alpha.4"
-    "@mand-mobile/scroller" "^3.0.1-alpha.3"
-    "@mand-mobile/shared" "^3.0.1-alpha.3"
+    "@mand-mobile/platform" "^3.0.1-alpha.9"
+    "@mand-mobile/scroller" "^3.0.1-alpha.9"
+    "@mand-mobile/shared" "^3.0.1-alpha.9"
+    "@vue/test-utils" "^1.0.4"
+    babel-plugin-import "^1.13.0"
     jest "^26.0.1"
+    jest-canvas-mock "^2.0.0-beta.1"
+    jest-serializer-vue "^2.0.2"
+    jest-svg-sprite-loader "^1.0.1"
+    jest-transform-stub "^1.0.0"
+    vue-jest "2.x"
+    vue-server-renderer "^2.6.11"
 
-"@mand-mobile/platform@^3.0.1-alpha.4":
-  version "3.0.1-alpha.4"
-  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@mand-mobile/platform/download/@mand-mobile/platform-3.0.1-alpha.4.tgz#81580399e23965247e803a080565298b08535324"
-  integrity sha1-gVgDmeI5ZSR+gDoIBWUpiwhTUyQ=
+"@mand-mobile/platform@^3.0.1-alpha.9":
+  version "3.0.1-alpha.9"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@mand-mobile/platform/download/@mand-mobile/platform-3.0.1-alpha.9.tgz#d9a7b7822e2f138cbc3f7214c6fa2be6e98af891"
+  integrity sha1-2ae3gi4vE4y8P3IUxvor5umK+JE=
   dependencies:
-    "@mand-mobile/shared" "^3.0.1-alpha.3"
+    "@mand-mobile/scroller" "^3.0.1-alpha.9"
+    "@mand-mobile/shared" "^3.0.1-alpha.9"
     bluebird "^3.7.2"
     glob "^7.1.6"
     nib "^1.1.2"
@@ -1723,19 +1732,19 @@
     rollup-plugin-css-only "^2.1.0"
     vue "^2.6.11"
 
-"@mand-mobile/scroller@^3.0.1-alpha.3":
-  version "3.0.1-alpha.5"
-  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@mand-mobile/scroller/download/@mand-mobile/scroller-3.0.1-alpha.5.tgz#681b336b4afcd5d6c41370e96b302eb5da5087ac"
-  integrity sha1-aBsza0r81dbEE3DpazAutdpQh6w=
+"@mand-mobile/scroller@^3.0.1-alpha.9":
+  version "3.0.1-alpha.9"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@mand-mobile/scroller/download/@mand-mobile/scroller-3.0.1-alpha.9.tgz#46d9c8897af755a197f9fc04f7cfbb568a0c4114"
+  integrity sha1-RtnIiXr3VaGX+fwE98+7VooMQRQ=
   dependencies:
-    "@mand-mobile/shared" "^3.0.1-alpha.3"
+    "@mand-mobile/shared" "^3.0.1-alpha.9"
     "@types/jest" "^26.0.4"
     jest "^26.1.0"
 
-"@mand-mobile/shared@^3.0.1-alpha.3":
-  version "3.0.1-alpha.3"
-  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@mand-mobile/shared/download/@mand-mobile/shared-3.0.1-alpha.3.tgz#9f48e3186eacd74173ba59a01d0575a8959fc84d"
-  integrity sha1-n0jjGG6s10FzulmgHQV1qJWfyE0=
+"@mand-mobile/shared@^3.0.1-alpha.9":
+  version "3.0.1-alpha.9"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@mand-mobile/shared/download/@mand-mobile/shared-3.0.1-alpha.9.tgz#6d9797da0a0199a6d9d3b9c149941ad0ef8f8e04"
+  integrity sha1-bZeX2goBmabZ07nBSZQa0O+PjgQ=
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -1770,6 +1779,60 @@
   dependencies:
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
+
+"@npmcli/ci-detect@^1.0.0":
+  version "1.3.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@npmcli/ci-detect/download/@npmcli/ci-detect-1.3.0.tgz#6c1d2c625fb6ef1b9dea85ad0a5afcbef85ef22a"
+  integrity sha1-bB0sYl+27xud6oWtClr8vvhe8io=
+
+"@npmcli/git@^2.0.1":
+  version "2.0.4"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@npmcli/git/download/@npmcli/git-2.0.4.tgz#725f5e32864f3849420e84baf130e426a707cbb7"
+  integrity sha1-cl9eMoZPOElCDoS68TDkJqcHy7c=
+  dependencies:
+    "@npmcli/promise-spawn" "^1.1.0"
+    lru-cache "^6.0.0"
+    mkdirp "^1.0.3"
+    npm-pick-manifest "^6.0.0"
+    promise-inflight "^1.0.1"
+    promise-retry "^1.1.1"
+    semver "^7.3.2"
+    unique-filename "^1.1.1"
+    which "^2.0.2"
+
+"@npmcli/installed-package-contents@^1.0.5":
+  version "1.0.5"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@npmcli/installed-package-contents/download/@npmcli/installed-package-contents-1.0.5.tgz#cc78565e55d9f14d46acf46a96f70934e516fa3d"
+  integrity sha1-zHhWXlXZ8U1GrPRqlvcJNOUW+j0=
+  dependencies:
+    npm-bundled "^1.1.1"
+    npm-normalize-package-bin "^1.0.1"
+    read-package-json-fast "^1.1.1"
+    readdir-scoped-modules "^1.1.0"
+
+"@npmcli/move-file@^1.0.1":
+  version "1.0.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@npmcli/move-file/download/@npmcli/move-file-1.0.1.tgz#de103070dac0f48ce49cf6693c23af59c0f70464"
+  integrity sha1-3hAwcNrA9IzknPZpPCOvWcD3BGQ=
+  dependencies:
+    mkdirp "^1.0.4"
+
+"@npmcli/promise-spawn@^1.1.0", "@npmcli/promise-spawn@^1.2.0":
+  version "1.2.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@npmcli/promise-spawn/download/@npmcli/promise-spawn-1.2.0.tgz#167d70b926f771c8bd8b9183bfc8b5aec29d7e45"
+  integrity sha1-Fn1wuSb3cci9i5GDv8i1rsKdfkU=
+  dependencies:
+    infer-owner "^1.0.4"
+
+"@npmcli/run-script@^1.3.0":
+  version "1.5.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@npmcli/run-script/download/@npmcli/run-script-1.5.0.tgz#9ae63392a51adddfd7ce5956e530925bfd5487c6"
+  integrity sha1-muYzkqUa3d/XzllW5TCSW/1Uh8Y=
+  dependencies:
+    "@npmcli/promise-spawn" "^1.2.0"
+    infer-owner "^1.0.4"
+    node-gyp "^6.1.0"
+    read-package-json-fast "^1.1.3"
 
 "@oclif/color@^0.x":
   version "0.1.2"
@@ -2000,7 +2063,35 @@
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@protobufjs/utf8/download/@protobufjs/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@rollup/pluginutils@^3.0.0":
+"@rollup/plugin-alias@^3.1.1":
+  version "3.1.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@rollup/plugin-alias/download/@rollup/plugin-alias-3.1.1.tgz#bb96cf37fefeb0a953a6566c284855c7d1cd290c"
+  integrity sha1-u5bPN/7+sKlTplZsKEhVx9HNKQw=
+  dependencies:
+    slash "^3.0.0"
+
+"@rollup/plugin-babel@^5.0.4":
+  version "5.2.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@rollup/plugin-babel/download/@rollup/plugin-babel-5.2.1.tgz#20fc8f8864dc0eaa1c5578408459606808f72924"
+  integrity sha1-IPyPiGTcDqocVXhAhFlgaAj3KSQ=
+  dependencies:
+    "@babel/helper-module-imports" "^7.10.4"
+    "@rollup/pluginutils" "^3.1.0"
+
+"@rollup/plugin-node-resolve@^8.4.0":
+  version "8.4.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@rollup/plugin-node-resolve/download/@rollup/plugin-node-resolve-8.4.0.tgz#261d79a680e9dc3d86761c14462f24126ba83575"
+  integrity sha1-Jh15poDp3D2GdhwURi8kEmuoNXU=
+  dependencies:
+    "@rollup/pluginutils" "^3.1.0"
+    "@types/resolve" "1.17.1"
+    builtin-modules "^3.1.0"
+    deep-freeze "^0.0.1"
+    deepmerge "^4.2.2"
+    is-module "^1.0.0"
+    resolve "^1.17.0"
+
+"@rollup/pluginutils@^3.0.0", "@rollup/pluginutils@^3.1.0":
   version "3.1.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@rollup/pluginutils/download/@rollup/pluginutils-3.1.0.tgz#706b4524ee6dc8b103b3c995533e5ad680c02b9b"
   integrity sha1-cGtFJO5tyLEDs8mVUz5a1oDAK5s=
@@ -2048,6 +2139,11 @@
   version "1.0.2"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@soda/get-current-script/download/@soda/get-current-script-1.0.2.tgz#a53515db25d8038374381b73af20bb4f2e508d87"
   integrity sha1-pTUV2yXYA4N0OBtzryC7Ty5QjYc=
+
+"@tootallnate/once@1":
+  version "1.1.2"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@tootallnate/once/download/@tootallnate/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
+  integrity sha1-zLkURTYBeaBOf+av94wA/8Hur4I=
 
 "@types/accepts@*", "@types/accepts@^1.3.5":
   version "1.3.5"
@@ -2148,6 +2244,11 @@
   version "2.7.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@types/ejs/download/@types/ejs-2.7.0.tgz#bc84e083eae38f64a287a6dab9012bbe1d96e295"
   integrity sha1-vITgg+rjj2Sih6bauQErvh2W4pU=
+
+"@types/estree@*":
+  version "0.0.45"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@types/estree/download/@types/estree-0.0.45.tgz#e9387572998e5ecdac221950dab3e8c3b16af884"
+  integrity sha1-6Th1cpmOXs2sIhlQ2rPow7Fq+IQ=
 
 "@types/estree@0.0.39":
   version "0.0.39"
@@ -2421,6 +2522,20 @@
   version "1.2.3"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@types/range-parser/download/@types/range-parser-1.2.3.tgz#7ee330ba7caafb98090bece86a5ee44115904c2c"
   integrity sha1-fuMwunyq+5gJC+zoal7kQRWQTCw=
+
+"@types/resolve@0.0.8":
+  version "0.0.8"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@types/resolve/download/@types/resolve-0.0.8.tgz#f26074d238e02659e323ce1a13d041eee280e194"
+  integrity sha1-8mB00jjgJlnjI84aE9BB7uKA4ZQ=
+  dependencies:
+    "@types/node" "*"
+
+"@types/resolve@1.17.1":
+  version "1.17.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@types/resolve/download/@types/resolve-1.17.1.tgz#3afd6ad8967c77e4376c598a82ddd58f46ec45d6"
+  integrity sha1-Ov1q2JZ8d+Q3bFmKgt3Vj0bsRdY=
+  dependencies:
+    "@types/node" "*"
 
 "@types/serve-static@*":
   version "1.13.5"
@@ -2875,6 +2990,17 @@
     vue-codemod "^0.0.4"
     yaml-front-matter "^3.4.1"
 
+"@vue/compiler-core@3.0.0":
+  version "3.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@vue/compiler-core/download/@vue/compiler-core-3.0.0.tgz#25e4f079cf6c39f83bad23700f814c619105a0f2"
+  integrity sha1-JeTwec9sOfg7rSNwD4FMYZEFoPI=
+  dependencies:
+    "@babel/parser" "^7.11.5"
+    "@babel/types" "^7.11.5"
+    "@vue/shared" "3.0.0"
+    estree-walker "^2.0.1"
+    source-map "^0.6.1"
+
 "@vue/compiler-core@3.0.0-rc.8":
   version "3.0.0-rc.8"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@vue/compiler-core/download/@vue/compiler-core-3.0.0-rc.8.tgz#c8a630b440d03a1790d34b3c5a7b3c86caa8a84e"
@@ -2886,6 +3012,14 @@
     estree-walker "^2.0.1"
     source-map "^0.6.1"
 
+"@vue/compiler-dom@3.0.0":
+  version "3.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@vue/compiler-dom/download/@vue/compiler-dom-3.0.0.tgz#4cbb48fcf1f852daef2babcf9953b681ac463526"
+  integrity sha1-TLtI/PH4UtrvK6vPmVO2gaxGNSY=
+  dependencies:
+    "@vue/compiler-core" "3.0.0"
+    "@vue/shared" "3.0.0"
+
 "@vue/compiler-dom@3.0.0-rc.8":
   version "3.0.0-rc.8"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@vue/compiler-dom/download/@vue/compiler-dom-3.0.0-rc.8.tgz#a4fd66356e1dbe7bf3f3e41f6034e682b7c22b3d"
@@ -2893,6 +3027,28 @@
   dependencies:
     "@vue/compiler-core" "3.0.0-rc.8"
     "@vue/shared" "3.0.0-rc.8"
+
+"@vue/compiler-sfc@^3.0.0":
+  version "3.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@vue/compiler-sfc/download/@vue/compiler-sfc-3.0.0.tgz#efa38037984bd64aae315828aa5c1248c6eadca9"
+  integrity sha1-76OAN5hL1kquMVgoqlwSSMbq3Kk=
+  dependencies:
+    "@babel/parser" "^7.11.5"
+    "@babel/types" "^7.11.5"
+    "@vue/compiler-core" "3.0.0"
+    "@vue/compiler-dom" "3.0.0"
+    "@vue/compiler-ssr" "3.0.0"
+    "@vue/shared" "3.0.0"
+    consolidate "^0.16.0"
+    estree-walker "^2.0.1"
+    hash-sum "^2.0.0"
+    lru-cache "^5.1.1"
+    magic-string "^0.25.7"
+    merge-source-map "^1.1.0"
+    postcss "^7.0.32"
+    postcss-modules "^3.2.2"
+    postcss-selector-parser "^6.0.2"
+    source-map "^0.6.1"
 
 "@vue/compiler-sfc@^3.0.0-beta.15":
   version "3.0.0-rc.8"
@@ -2915,6 +3071,14 @@
     postcss-modules "^3.1.0"
     postcss-selector-parser "^6.0.2"
     source-map "^0.6.1"
+
+"@vue/compiler-ssr@3.0.0":
+  version "3.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@vue/compiler-ssr/download/@vue/compiler-ssr-3.0.0.tgz#d717abcd23a89fb38d1497228633a21bcf9a0e28"
+  integrity sha1-1xerzSOon7ONFJcihjOiG8+aDig=
+  dependencies:
+    "@vue/compiler-dom" "3.0.0"
+    "@vue/shared" "3.0.0"
 
 "@vue/compiler-ssr@3.0.0-rc.8":
   version "3.0.0-rc.8"
@@ -2969,6 +3133,11 @@
     "@vue/shared" "3.0.0-rc.8"
     csstype "^2.6.8"
 
+"@vue/shared@3.0.0":
+  version "3.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@vue/shared/download/@vue/shared-3.0.0.tgz#ec089236629ecc0f10346b92f101ff4339169f1a"
+  integrity sha1-7AiSNmKezA8QNGuS8QH/QzkWnxo=
+
 "@vue/shared@3.0.0-rc.8":
   version "3.0.0-rc.8"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@vue/shared/download/@vue/shared-3.0.0-rc.8.tgz#d6b80e14c202c37d9f1953965a1517eab46c1d3b"
@@ -2978,6 +3147,15 @@
   version "1.0.5"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@vue/test-utils/download/@vue/test-utils-1.0.5.tgz#676e1f986bb93ddc869d9c6cf1c820183d64d92f"
   integrity sha1-Z24fmGu5PdyGnZxs8cggGD1k2S8=
+  dependencies:
+    dom-event-types "^1.0.0"
+    lodash "^4.17.15"
+    pretty "^2.0.0"
+
+"@vue/test-utils@^1.0.4":
+  version "1.1.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@vue/test-utils/download/@vue/test-utils-1.1.0.tgz#76305e73a786c921ede1352849614e26c7113f94"
+  integrity sha1-djBec6eGySHt4TUoSWFOJscRP5Q=
   dependencies:
     dom-event-types "^1.0.0"
     lodash "^4.17.15"
@@ -3221,6 +3399,22 @@ address@^1.1.2:
   version "1.1.2"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/address/download/address-1.1.2.tgz#bf1116c9c758c51b7a933d296b72c221ed9428b6"
   integrity sha1-vxEWycdYxRt6kz0pa3LCIe2UKLY=
+
+agent-base@6:
+  version "6.0.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/agent-base/download/agent-base-6.0.1.tgz#808007e4e5867decb0ab6ab2f928fbdb5a596db4"
+  integrity sha1-gIAH5OWGfeywq2qy+Sj721pZbbQ=
+  dependencies:
+    debug "4"
+
+agentkeepalive@^4.1.0:
+  version "4.1.3"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/agentkeepalive/download/agentkeepalive-4.1.3.tgz#360a09d743a1f4fde749f9ba07caa6575d08259a"
+  integrity sha1-NgoJ10Oh9P3nSfm6B8qmV10IJZo=
+  dependencies:
+    debug "^4.1.0"
+    depd "^1.1.2"
+    humanize-ms "^1.2.1"
 
 aggregate-error@^3.0.0:
   version "3.1.0"
@@ -3770,7 +3964,7 @@ apollo@^2.20.0:
     tty "1.0.1"
     vscode-uri "1.0.6"
 
-aproba@^1.1.1:
+aproba@^1.0.3, aproba@^1.1.1:
   version "1.2.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/aproba/download/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
   integrity sha1-aALmJk79GMeQobDVF/DyYnvyyUo=
@@ -3786,6 +3980,14 @@ archive-type@^4.0.0:
   integrity sha1-+S5yIzBW38aWlHJ0nCZ72wRrHXA=
   dependencies:
     file-type "^4.2.0"
+
+are-we-there-yet@~1.1.2:
+  version "1.1.5"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/are-we-there-yet/download/are-we-there-yet-1.1.5.tgz#4b35c2944f062a8bfcda66410760350fe9ddfc21"
+  integrity sha1-SzXClE8GKov82mZBB2A1D+nd/CE=
+  dependencies:
+    delegates "^1.0.0"
+    readable-stream "^2.0.6"
 
 arg@^4.1.0:
   version "4.1.3"
@@ -3866,7 +4068,7 @@ arrify@^2.0.1:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/arrify/download/arrify-2.0.1.tgz#c9655e9331e0abcd588d2a7cad7e9956f66701fa"
   integrity sha1-yWVekzHgq81YjSp8rX6ZVvZnAfo=
 
-asap@~2.0.3:
+asap@^2.0.0, asap@~2.0.3:
   version "2.0.6"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/asap/download/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
   integrity sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
@@ -4072,6 +4274,14 @@ babel-plugin-dynamic-import-node@^2.3.3:
   integrity sha1-hP2hnJduxcbe/vV/lCez3vZuF6M=
   dependencies:
     object.assign "^4.1.0"
+
+babel-plugin-import@^1.13.0:
+  version "1.13.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/babel-plugin-import/download/babel-plugin-import-1.13.0.tgz#c532fd533df9db53b47d4d4db3676090fc5c07a5"
+  integrity sha1-xTL9Uz3521O0fU1Ns2dgkPxcB6U=
+  dependencies:
+    "@babel/helper-module-imports" "^7.0.0"
+    "@babel/runtime" "^7.0.0"
 
 babel-plugin-istanbul@^5.1.0:
   version "5.2.0"
@@ -4362,7 +4572,7 @@ boxen@^1.2.1:
     term-size "^1.2.0"
     widest-line "^2.0.0"
 
-boxen@^4.1.0:
+boxen@^4.1.0, boxen@^4.2.0:
   version "4.2.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/boxen/download/boxen-4.2.0.tgz#e411b62357d6d6d36587c8ac3d5d974daa070e64"
   integrity sha1-5BG2I1fW1tNlh8isPV2XTaoHDmQ=
@@ -4411,6 +4621,13 @@ brorand@^1.0.1:
   version "1.1.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/brorand/download/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
   integrity sha1-EsJe/kCkXjwyPrhnWgoM5XsiNx8=
+
+brotli-size@4.0.0:
+  version "4.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/brotli-size/download/brotli-size-4.0.0.tgz#a05ee3faad3c0e700a2f2da826ba6b4d76e69e5e"
+  integrity sha1-oF7j+q08DnAKLy2oJrprTXbmnl4=
+  dependencies:
+    duplexer "0.1.1"
 
 browser-process-hrtime@^1.0.0:
   version "1.0.0"
@@ -4574,6 +4791,11 @@ builtin-modules@^1.1.1:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/builtin-modules/download/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
   integrity sha1-Jw8HbFpywC9bZaR9+Uxf46J4iS8=
 
+builtin-modules@^3.1.0:
+  version "3.1.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/builtin-modules/download/builtin-modules-3.1.0.tgz#aad97c15131eb76b65b50ef208e7584cd76a7484"
+  integrity sha1-qtl8FRMet2tltQ7yCOdYTNdqdIQ=
+
 builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/builtin-status-codes/download/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
@@ -4649,6 +4871,29 @@ cacache@^13.0.1:
     promise-inflight "^1.0.1"
     rimraf "^2.7.1"
     ssri "^7.0.0"
+    unique-filename "^1.1.1"
+
+cacache@^15.0.0, cacache@^15.0.5:
+  version "15.0.5"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/cacache/download/cacache-15.0.5.tgz#69162833da29170d6732334643c60e005f5f17d0"
+  integrity sha1-aRYoM9opFw1nMjNGQ8YOAF9fF9A=
+  dependencies:
+    "@npmcli/move-file" "^1.0.1"
+    chownr "^2.0.0"
+    fs-minipass "^2.0.0"
+    glob "^7.1.4"
+    infer-owner "^1.0.4"
+    lru-cache "^6.0.0"
+    minipass "^3.1.1"
+    minipass-collect "^1.0.2"
+    minipass-flush "^1.0.5"
+    minipass-pipeline "^1.2.2"
+    mkdirp "^1.0.3"
+    p-map "^4.0.0"
+    promise-inflight "^1.0.1"
+    rimraf "^3.0.2"
+    ssri "^8.0.0"
+    tar "^6.0.2"
     unique-filename "^1.1.1"
 
 cache-base@^1.0.1:
@@ -4927,6 +5172,11 @@ chownr@^1.1.1, chownr@^1.1.2:
   version "1.1.4"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/chownr/download/chownr-1.1.4.tgz#6fc9d7b42d32a583596337666e7d08084da2cc6b"
   integrity sha1-b8nXtC0ypYNZYzdmbn0ICE2izGs=
+
+chownr@^2.0.0:
+  version "2.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/chownr/download/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
+  integrity sha1-Fb++U9LqtM9w8YqM1o6+Wzyx3s4=
 
 chrome-trace-event@^1.0.2:
   version "1.0.2"
@@ -5251,6 +5501,11 @@ color-convert@^2.0.1:
   dependencies:
     color-name "~1.1.4"
 
+color-convert@~0.5.0:
+  version "0.5.3"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/color-convert/download/color-convert-0.5.3.tgz#bdb6c69ce660fadffe0b0007cc447e1b9f7282bd"
+  integrity sha1-vbbGnOZg+t/+CwAHzER+G59ygr0=
+
 color-name@1.1.3:
   version "1.1.3"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/color-name/download/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
@@ -5282,7 +5537,7 @@ colorette@^1.2.1:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/colorette/download/colorette-1.2.1.tgz#4d0b921325c14faf92633086a536db6e89564b1b"
   integrity sha1-TQuSEyXBT6+SYzCGpTbbbolWSxs=
 
-colors@^1.1.2:
+colors@^1.1.2, colors@^1.4.0:
   version "1.4.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/colors/download/colors-1.4.0.tgz#c50491479d4c1bdaed2c9ced32cf7c7dc2360f78"
   integrity sha1-xQSRR51MG9rtLJztMs98fcI2D3g=
@@ -5369,6 +5624,13 @@ concat-stream@^1.5.0:
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
 
+concat-with-sourcemaps@^1.1.0:
+  version "1.1.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/concat-with-sourcemaps/download/concat-with-sourcemaps-1.1.0.tgz#d4ea93f05ae25790951b99e7b3b09e3908a4082e"
+  integrity sha1-1OqT8FriV5CVG5nns7CeOQikCC4=
+  dependencies:
+    source-map "^0.6.1"
+
 condense-newlines@^0.2.1:
   version "0.2.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/condense-newlines/download/condense-newlines-0.2.1.tgz#3de985553139475d32502c83b02f60684d24c55f"
@@ -5408,12 +5670,24 @@ console-browserify@^1.1.0:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/console-browserify/download/console-browserify-1.2.0.tgz#67063cef57ceb6cf4993a2ab3a55840ae8c49336"
   integrity sha1-ZwY871fOts9Jk6KrOlWECujEkzY=
 
+console-control-strings@^1.0.0, console-control-strings@~1.1.0:
+  version "1.1.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/console-control-strings/download/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
+  integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
+
 consolidate@^0.15.1:
   version "0.15.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/consolidate/download/consolidate-0.15.1.tgz#21ab043235c71a07d45d9aad98593b0dba56bab7"
   integrity sha1-IasEMjXHGgfUXZqtmFk7DbpWurc=
   dependencies:
     bluebird "^3.1.1"
+
+consolidate@^0.16.0:
+  version "0.16.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/consolidate/download/consolidate-0.16.0.tgz#a11864768930f2f19431660a65906668f5fbdc16"
+  integrity sha1-oRhkdokw8vGUMWYKZZBmaPX73BY=
+  dependencies:
+    bluebird "^3.7.2"
 
 constant-case@^3.0.3:
   version "3.0.3"
@@ -5674,6 +5948,18 @@ css-loader@^3.5.3:
     schema-utils "^2.7.0"
     semver "^6.3.0"
 
+css-modules-loader-core@^1.1.0:
+  version "1.1.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/css-modules-loader-core/download/css-modules-loader-core-1.1.0.tgz#5908668294a1becd261ae0a4ce21b0b551f21d16"
+  integrity sha1-WQhmgpShvs0mGuCkziGwtVHyHRY=
+  dependencies:
+    icss-replace-symbols "1.1.0"
+    postcss "6.0.1"
+    postcss-modules-extract-imports "1.1.0"
+    postcss-modules-local-by-default "1.2.0"
+    postcss-modules-scope "1.1.0"
+    postcss-modules-values "1.3.0"
+
 css-parse@1.7.x:
   version "1.7.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/css-parse/download/css-parse-1.7.0.tgz#321f6cf73782a6ff751111390fc05e2c657d8c9b"
@@ -5710,6 +5996,14 @@ css-select@^2.0.0:
     css-what "^3.2.1"
     domutils "^1.7.0"
     nth-check "^1.0.2"
+
+css-selector-tokenizer@^0.7.0:
+  version "0.7.3"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/css-selector-tokenizer/download/css-selector-tokenizer-0.7.3.tgz#735f26186e67c749aaf275783405cf0661fae8f1"
+  integrity sha1-c18mGG5nx0mq8nV4NAXPBmH66PE=
+  dependencies:
+    cssesc "^3.0.0"
+    fastparse "^1.1.2"
 
 css-tree@1.0.0-alpha.37:
   version "1.0.0-alpha.37"
@@ -5761,6 +6055,11 @@ cssfilter@0.0.10:
   version "0.0.10"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/cssfilter/download/cssfilter-0.0.10.tgz#c6d2672632a2e5c83e013e6864a42ce8defd20ae"
   integrity sha1-xtJnJjKi5cg+AT5oZKQs6N79IK4=
+
+cssfontparser@^1.2.1:
+  version "1.2.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/cssfontparser/download/cssfontparser-1.2.1.tgz#f4022fc8f9700c68029d542084afbaf425a3f3e3"
+  integrity sha1-9AIvyPlwDGgCnVQghK+69CWj8+M=
 
 cssnano-preset-default@^4.0.0, cssnano-preset-default@^4.0.7:
   version "4.0.7"
@@ -5946,6 +6245,13 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.8:
   dependencies:
     ms "2.0.0"
 
+debug@4:
+  version "4.2.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/debug/download/debug-4.2.0.tgz#7f150f93920e94c58f5574c2fd01a3110effe7f1"
+  integrity sha1-fxUPk5IOlMWPVXTC/QGjEQ7/5/E=
+  dependencies:
+    ms "2.1.2"
+
 debug@^3.1.1, debug@^3.2.5, debug@^3.2.6:
   version "3.2.6"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/debug/download/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
@@ -5959,6 +6265,11 @@ debug@~3.1.0:
   integrity sha1-W7WgZyYotkFJVmuhaBnmFRjGcmE=
   dependencies:
     ms "2.0.0"
+
+debuglog@^1.0.1:
+  version "1.0.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/debuglog/download/debuglog-1.0.1.tgz#aa24ffb9ac3df9a2351837cfb2d279360cd78492"
+  integrity sha1-qiT/uaw9+aI1GDfPstJ5NgzXhJI=
 
 decamelize@^1.2.0:
   version "1.2.0"
@@ -6051,6 +6362,11 @@ deep-extend@^0.6.0:
   version "0.6.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/deep-extend/download/deep-extend-0.6.0.tgz#c4fa7c95404a17a9c3e8ca7e1537312b736330ac"
   integrity sha1-xPp8lUBKF6nD6Mp+FTcxK3NjMKw=
+
+deep-freeze@^0.0.1:
+  version "0.0.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/deep-freeze/download/deep-freeze-0.0.1.tgz#3a0b0005de18672819dfd38cd31f91179c893e84"
+  integrity sha1-OgsABd4YZygZ39OM0x+RF5yJPoQ=
 
 deep-is@~0.1.3:
   version "0.1.3"
@@ -6154,7 +6470,12 @@ delegate@^3.1.2:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/delegate/download/delegate-3.2.0.tgz#b66b71c3158522e8ab5744f720d8ca0c2af59166"
   integrity sha1-tmtxwxWFIuirV0T3INjKDCr1kWY=
 
-depd@~1.1.2:
+delegates@^1.0.0:
+  version "1.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/delegates/download/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
+  integrity sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o=
+
+depd@^1.1.2, depd@~1.1.2:
   version "1.1.2"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/depd/download/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
@@ -6191,6 +6512,14 @@ detect-node@^2.0.4:
   version "2.0.4"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/detect-node/download/detect-node-2.0.4.tgz#014ee8f8f669c5c58023da64b8179c083a28c46c"
   integrity sha1-AU7o+PZpxcWAI9pkuBecCDooxGw=
+
+dezalgo@^1.0.0:
+  version "1.0.3"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/dezalgo/download/dezalgo-1.0.3.tgz#7f742de066fc748bc8db820569dddce49bf0d456"
+  integrity sha1-f3Qt4Gb8dIvI24IFad3c5Jvw1FY=
+  dependencies:
+    asap "^2.0.0"
+    wrappy "1"
 
 dicer@0.3.0:
   version "0.3.0"
@@ -6398,6 +6727,11 @@ duplexer3@^0.1.4:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/duplexer3/download/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
   integrity sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=
 
+duplexer@0.1.1:
+  version "0.1.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/duplexer/download/duplexer-0.1.1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
+  integrity sha1-rOb/gIwc5mtX0ev5eXessCM0z8E=
+
 duplexer@^0.1.1:
   version "0.1.2"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/duplexer/download/duplexer-0.1.2.tgz#3abe43aef3835f8ae077d136ddce0f276b0400e6"
@@ -6511,6 +6845,13 @@ encodeurl@~1.0.2:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/encodeurl/download/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
   integrity sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
 
+encoding@^0.1.12:
+  version "0.1.13"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/encoding/download/encoding-0.1.13.tgz#56574afdd791f54a8e9b2785c0582a2d26210fa9"
+  integrity sha1-VldK/deR9UqOmyeFwFgqLSYhD6k=
+  dependencies:
+    iconv-lite "^0.6.2"
+
 end-of-stream@^1.0.0, end-of-stream@^1.1.0:
   version "1.4.4"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/end-of-stream/download/end-of-stream-1.4.4.tgz#5ae64a5f45057baf3626ec14da0ca5e4b2431eb0"
@@ -6545,6 +6886,11 @@ env-ci@3.2.2:
     execa "^1.0.0"
     java-properties "^1.0.0"
 
+env-paths@^2.2.0:
+  version "2.2.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/env-paths/download/env-paths-2.2.0.tgz#cdca557dc009152917d6166e2febe1f039685e43"
+  integrity sha1-zcpVfcAJFSkX1hZuL+vh8DloXkM=
+
 envinfo@^6.0.1:
   version "6.0.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/envinfo/download/envinfo-6.0.1.tgz#dec51f2dd38fb4a1fb5bf568488c06ad1e7e08a7"
@@ -6554,6 +6900,11 @@ envinfo@^7.5.1:
   version "7.7.3"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/envinfo/download/envinfo-7.7.3.tgz#4b2d8622e3e7366afb8091b23ed95569ea0208cc"
   integrity sha1-Sy2GIuPnNmr7gJGyPtlVaeoCCMw=
+
+err-code@^1.0.0:
+  version "1.1.2"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/err-code/download/err-code-1.1.2.tgz#06e0116d3028f6aef4806849eb0ea6a748ae6960"
+  integrity sha1-BuARbTAo9q70gGhJ6w6mp0iuaWA=
 
 errno@^0.1.2, errno@^0.1.3, errno@~0.1.7:
   version "0.1.7"
@@ -6669,6 +7020,11 @@ estraverse@^4.1.0, estraverse@^4.1.1, estraverse@^4.2.0:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/estraverse/download/estraverse-4.3.0.tgz#398ad3f3c5a24948be7725e83d11a7de28cdbd1d"
   integrity sha1-OYrT88WiSUi+dyXoPRGn3ijNvR0=
 
+estree-walker@^0.6.1:
+  version "0.6.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/estree-walker/download/estree-walker-0.6.1.tgz#53049143f40c6eb918b23671d1fe3219f3a1b362"
+  integrity sha1-UwSRQ/QMbrkYsjZx0f4yGfOhs2I=
+
 estree-walker@^1.0.1:
   version "1.0.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/estree-walker/download/estree-walker-1.0.1.tgz#31bc5d612c96b704106b477e6dd5d8aa138cb700"
@@ -6703,6 +7059,11 @@ eventemitter3@^4.0.0:
   version "4.0.5"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/eventemitter3/download/eventemitter3-4.0.5.tgz#51d81e4f1ccc8311a04f0c20121ea824377ea6d9"
   integrity sha1-UdgeTxzMgxGgTwwgEh6oJDd+ptk=
+
+eventemitter3@^4.0.4:
+  version "4.0.7"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/eventemitter3/download/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
+  integrity sha1-Lem2j2Uo1WRO9cWVJqG0oHMGFp8=
 
 events@^3.0.0:
   version "3.2.0"
@@ -7043,6 +7404,11 @@ fastclick@^1.0.6:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/fastclick/download/fastclick-1.0.6.tgz#161625b27b1a5806405936bda9a2c1926d06be6a"
   integrity sha1-FhYlsnsaWAZAWTa9qaLBkm0Gvmo=
 
+fastparse@^1.1.2:
+  version "1.1.2"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/fastparse/download/fastparse-1.1.2.tgz#91728c5a5942eced8531283c79441ee4122c35a9"
+  integrity sha1-kXKMWllC7O2FMSg8eUQe5BIsNak=
+
 fastq@^1.6.0:
   version "1.8.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/fastq/download/fastq-1.8.0.tgz#550e1f9f59bbc65fe185cb6a9b4d95357107f481"
@@ -7168,6 +7534,11 @@ filesize@^3.6.1:
   version "3.6.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/filesize/download/filesize-3.6.1.tgz#090bb3ee01b6f801a8a8be99d31710b3422bb317"
   integrity sha1-CQuz7gG2+AGoqL6Z0xcQs0Irsxc=
+
+filesize@^6.1.0:
+  version "6.1.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/filesize/download/filesize-6.1.0.tgz#e81bdaa780e2451d714d71c0d7a4f3238d37ad00"
+  integrity sha1-6Bvap4DiRR1xTXHA16TzI403rQA=
 
 fill-range@^4.0.0:
   version "4.0.0"
@@ -7387,7 +7758,14 @@ fs-extra@^9.0.0, fs-extra@^9.0.1:
     jsonfile "^6.0.1"
     universalify "^1.0.0"
 
-fs-minipass@^2.0.0:
+fs-minipass@^1.2.5:
+  version "1.2.7"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/fs-minipass/download/fs-minipass-1.2.7.tgz#ccff8570841e7fe4265693da88936c55aed7f7c7"
+  integrity sha1-zP+FcIQef+QmVpPaiJNsVa7X98c=
+  dependencies:
+    minipass "^2.6.0"
+
+fs-minipass@^2.0.0, fs-minipass@^2.1.0:
   version "2.1.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/fs-minipass/download/fs-minipass-2.1.0.tgz#7f5036fdbf12c63c169190cbe4199c852271f9fb"
   integrity sha1-f1A2/b8SxjwWkZDL5BmchSJx+fs=
@@ -7431,6 +7809,20 @@ function-bind@^1.1.1:
   version "1.1.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/function-bind/download/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
   integrity sha1-pWiZ0+o8m6uHS7l3O3xe3pL0iV0=
+
+gauge@~2.7.3:
+  version "2.7.4"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/gauge/download/gauge-2.7.4.tgz#2c03405c7538c39d7eb37b317022e325fb018bf7"
+  integrity sha1-LANAXHU4w51+s3sxcCLjJfsBi/c=
+  dependencies:
+    aproba "^1.0.3"
+    console-control-strings "^1.0.0"
+    has-unicode "^2.0.0"
+    object-assign "^4.1.0"
+    signal-exit "^3.0.0"
+    string-width "^1.0.1"
+    strip-ansi "^3.0.1"
+    wide-align "^1.1.0"
 
 gaze@1.1.3:
   version "1.1.3"
@@ -7868,7 +8260,7 @@ growly@^1.3.0:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/growly/download/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
-gzip-size@^5.0.0:
+gzip-size@^5.0.0, gzip-size@^5.1.1:
   version "5.1.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/gzip-size/download/gzip-size-5.1.1.tgz#cb9bee692f87c0612b232840a873904e4c135274"
   integrity sha1-y5vuaS+HwGErIyhAqHOQTkwTUnQ=
@@ -7901,6 +8293,11 @@ has-ansi@^2.0.0:
   dependencies:
     ansi-regex "^2.0.0"
 
+has-flag@^1.0.0:
+  version "1.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/has-flag/download/has-flag-1.0.0.tgz#9d9e793165ce017a00f00418c43f942a7b1d11fa"
+  integrity sha1-nZ55MWXOAXoA8AQYxD+UKnsdEfo=
+
 has-flag@^2.0.0:
   version "2.0.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/has-flag/download/has-flag-2.0.0.tgz#e8207af1cc7b30d446cc70b734b5e8be18f88d51"
@@ -7932,6 +8329,11 @@ has-to-string-tag-x@^1.2.0:
   integrity sha1-oEWrOD17SyASoAFIqwql8pAETU0=
   dependencies:
     has-symbol-support-x "^1.4.1"
+
+has-unicode@^2.0.0:
+  version "2.0.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/has-unicode/download/has-unicode-2.0.1.tgz#e0e6fe6a28cf51138855e086d1691e771de2a8b9"
+  integrity sha1-4Ob+aijPUROIVeCG0Wkedx3iqLk=
 
 has-value@^0.3.1:
   version "0.3.1"
@@ -8047,6 +8449,13 @@ hosted-git-info@^2.1.4:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/hosted-git-info/download/hosted-git-info-2.8.8.tgz#7539bd4bc1e0e0a895815a2e0262420b12858488"
   integrity sha1-dTm9S8Hg4KiVgVouAmJCCxKFhIg=
 
+hosted-git-info@^3.0.2:
+  version "3.0.5"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/hosted-git-info/download/hosted-git-info-3.0.5.tgz#bea87905ef7317442e8df3087faa3c842397df03"
+  integrity sha1-vqh5Be9zF0QujfMIf6o8hCOX3wM=
+  dependencies:
+    lru-cache "^6.0.0"
+
 hpack.js@^2.1.6:
   version "2.1.6"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/hpack.js/download/hpack.js-2.1.6.tgz#87774c0949e513f42e84575b3c45681fade2a0b2"
@@ -8149,6 +8558,11 @@ http-cache-semantics@3.8.1:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/http-cache-semantics/download/http-cache-semantics-3.8.1.tgz#39b0e16add9b605bf0a9ef3d9daaf4843b4cacd2"
   integrity sha1-ObDhat2bYFvwqe89nar0hDtMrNI=
 
+http-cache-semantics@^4.0.4:
+  version "4.1.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/http-cache-semantics/download/http-cache-semantics-4.1.0.tgz#49e91c5cbf36c9b94bcfcd71c23d5249ec74e390"
+  integrity sha1-SekcXL82yblLz81xwj1SSex045A=
+
 http-call@^5.2.2:
   version "5.3.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/http-call/download/http-call-5.3.0.tgz#4ded815b13f423de176eb0942d69c43b25b148db"
@@ -8214,6 +8628,15 @@ http-parser-js@>=0.5.1:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/http-parser-js/download/http-parser-js-0.5.2.tgz#da2e31d237b393aae72ace43882dd7e270a8ff77"
   integrity sha1-2i4x0jezk6rnKs5DiC3X4nCo/3c=
 
+http-proxy-agent@^4.0.1:
+  version "4.0.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/http-proxy-agent/download/http-proxy-agent-4.0.1.tgz#8a8c8ef7f5932ccf953c296ca8291b95aa74aa3a"
+  integrity sha1-ioyO9/WTLM+VPClsqCkblap0qjo=
+  dependencies:
+    "@tootallnate/once" "1"
+    agent-base "6"
+    debug "4"
+
 http-proxy-middleware@0.19.1:
   version "0.19.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/http-proxy-middleware/download/http-proxy-middleware-0.19.1.tgz#183c7dc4aa1479150306498c210cdaf96080a43a"
@@ -8247,10 +8670,25 @@ https-browserify@^1.0.0:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/https-browserify/download/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
 
+https-proxy-agent@^5.0.0:
+  version "5.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/https-proxy-agent/download/https-proxy-agent-5.0.0.tgz#e2a90542abb68a762e0a0850f6c9edadfd8506b2"
+  integrity sha1-4qkFQqu2inYuCghQ9sntrf2FBrI=
+  dependencies:
+    agent-base "6"
+    debug "4"
+
 human-signals@^1.1.1:
   version "1.1.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/human-signals/download/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
   integrity sha1-xbHNFPUK6uCatsWf5jujOV/k36M=
+
+humanize-ms@^1.2.1:
+  version "1.2.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/humanize-ms/download/humanize-ms-1.2.1.tgz#c46e3159a293f6b896da29316d8b6fe8bb79bbed"
+  integrity sha1-xG4xWaKT9riW2ikxbYtv6Lt5u+0=
+  dependencies:
+    ms "^2.0.0"
 
 hyperlinker@^1.0.0:
   version "1.0.0"
@@ -8264,7 +8702,14 @@ iconv-lite@0.4.24, iconv-lite@^0.4.24:
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
-icss-replace-symbols@^1.1.0:
+iconv-lite@^0.6.2:
+  version "0.6.2"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/iconv-lite/download/iconv-lite-0.6.2.tgz#ce13d1875b0c3a674bd6a04b7f76b01b1b6ded01"
+  integrity sha1-zhPRh1sMOmdL1qBLf3awGxtt7QE=
+  dependencies:
+    safer-buffer ">= 2.1.2 < 3.0.0"
+
+icss-replace-symbols@1.1.0, icss-replace-symbols@^1.1.0:
   version "1.1.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/icss-replace-symbols/download/icss-replace-symbols-1.1.0.tgz#06ea6f83679a7749e386cfe1fe812ae5db223ded"
   integrity sha1-Bupvg2ead0njhs/h/oEq5dsiPe0=
@@ -8291,6 +8736,13 @@ ignore-by-default@^1.0.1:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/ignore-by-default/download/ignore-by-default-1.0.1.tgz#48ca6d72f6c6a3af00a9ad4ae6876be3889e2b09"
   integrity sha1-SMptcvbGo68Aqa1K5odr44ieKwk=
 
+ignore-walk@^3.0.3:
+  version "3.0.3"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/ignore-walk/download/ignore-walk-3.0.3.tgz#017e2447184bfeade7c238e4aefdd1e8f95b1e37"
+  integrity sha1-AX4kRxhL/q3nwjjkrv3R6PlbHjc=
+  dependencies:
+    minimatch "^3.0.4"
+
 ignore@^3.3.5:
   version "3.3.10"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/ignore/download/ignore-3.3.10.tgz#0a97fb876986e8081c631160f8f9f389157f0043"
@@ -8313,6 +8765,13 @@ import-cwd@^2.0.0:
   dependencies:
     import-from "^2.1.0"
 
+import-cwd@^3.0.0:
+  version "3.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/import-cwd/download/import-cwd-3.0.0.tgz#20845547718015126ea9b3676b7592fb8bd4cf92"
+  integrity sha1-IIRVR3GAFRJuqbNna3WS+4vUz5I=
+  dependencies:
+    import-from "^3.0.0"
+
 import-fresh@^2.0.0:
   version "2.0.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/import-fresh/download/import-fresh-2.0.0.tgz#d81355c15612d386c61f9ddd3922d4304822a546"
@@ -8327,6 +8786,13 @@ import-from@^2.1.0:
   integrity sha1-M1238qev/VOqpHHUuAId7ja387E=
   dependencies:
     resolve-from "^3.0.0"
+
+import-from@^3.0.0:
+  version "3.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/import-from/download/import-from-3.0.0.tgz#055cfec38cd5a27d8057ca51376d7d3bf0891966"
+  integrity sha1-BVz+w4zVon2AV8pRN219O/CJGWY=
+  dependencies:
+    resolve-from "^5.0.0"
 
 import-global@^0.1.0:
   version "0.1.0"
@@ -8685,6 +9151,16 @@ is-installed-globally@^0.1.0:
     global-dirs "^0.1.0"
     is-path-inside "^1.0.0"
 
+is-lambda@^1.0.1:
+  version "1.0.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/is-lambda/download/is-lambda-1.0.1.tgz#3d9877899e6a53efc0160504cde15f82e6f061d5"
+  integrity sha1-PZh3iZ5qU+/AFgUEzeFfgubwYdU=
+
+is-module@^1.0.0:
+  version "1.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/is-module/download/is-module-1.0.0.tgz#3258fb69f78c14d5b815d664336b4cffb6441591"
+  integrity sha1-Mlj7afeMFNW4FdZkM2tM/7ZEFZE=
+
 is-natural-number@^4.0.1:
   version "4.0.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/is-natural-number/download/is-natural-number-4.0.1.tgz#ab9d76e1db4ced51e35de0c72ebecf09f734cde8"
@@ -8798,6 +9274,13 @@ is-redirect@^1.0.0:
   version "1.0.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/is-redirect/download/is-redirect-1.0.0.tgz#1d03dded53bd8db0f30c26e4f95d36fc7c87dc24"
   integrity sha1-HQPd7VO9jbDzDCbk+V02/HyH3CQ=
+
+is-reference@^1.1.2:
+  version "1.2.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/is-reference/download/is-reference-1.2.1.tgz#8b2dac0b371f4bc994fdeaba9eb542d03002d0b7"
+  integrity sha1-iy2sCzcfS8mU/eq6nrVC0DAC0Lc=
+  dependencies:
+    "@types/estree" "*"
 
 is-regex@^1.0.4, is-regex@^1.1.0:
   version "1.1.1"
@@ -9034,6 +9517,14 @@ javascript-stringify@^2.0.1:
   version "2.0.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/javascript-stringify/download/javascript-stringify-2.0.1.tgz#6ef358035310e35d667c675ed63d3eb7c1aa19e5"
   integrity sha1-bvNYA1MQ411mfGde1j0+t8GqGeU=
+
+jest-canvas-mock@^2.0.0-beta.1:
+  version "2.2.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/jest-canvas-mock/download/jest-canvas-mock-2.2.0.tgz#45fbc58589c6ce9df50dc90bd8adce747cbdada7"
+  integrity sha1-RfvFhYnGzp31DckL2K3OdHy9rac=
+  dependencies:
+    cssfontparser "^1.2.1"
+    parse-color "^1.0.0"
 
 jest-changed-files@^24.9.0:
   version "24.9.0"
@@ -9674,6 +10165,16 @@ jest-snapshot@^26.4.2:
     pretty-format "^26.4.2"
     semver "^7.3.2"
 
+jest-svg-sprite-loader@^1.0.1:
+  version "1.0.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/jest-svg-sprite-loader/download/jest-svg-sprite-loader-1.0.1.tgz#55e6b6cfe7ea419954e9ea2b39c9b324acf7a554"
+  integrity sha1-Vea2z+fqQZlU6eorOcmzJKz3pVQ=
+
+jest-transform-stub@^1.0.0:
+  version "1.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/jest-transform-stub/download/jest-transform-stub-1.0.0.tgz#e4e941454f31a8bbc4db96b31f46a08b294372b1"
+  integrity sha1-5OlBRU8xqLvE25azH0agiylDcrE=
+
 jest-transform-stub@^2.0.0:
   version "2.0.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/jest-transform-stub/download/jest-transform-stub-2.0.0.tgz#19018b0851f7568972147a5d60074b55f0225a7d"
@@ -9772,7 +10273,7 @@ jest-watcher@^26.3.0:
     jest-util "^26.3.0"
     string-length "^4.0.1"
 
-jest-worker@^24.6.0, jest-worker@^24.9.0:
+jest-worker@^24.0.0, jest-worker@^24.6.0, jest-worker@^24.9.0:
   version "24.9.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/jest-worker/download/jest-worker-24.9.0.tgz#5dbfdb5b2d322e98567898238a9697bcce67b3e5"
   integrity sha1-Xb/bWy0yLphWeJgjipaXvM5ns+U=
@@ -10061,6 +10562,11 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
+jsonparse@^1.3.1:
+  version "1.3.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/jsonparse/download/jsonparse-1.3.1.tgz#3f4dae4a91fac315f71062f8521cc239f1366280"
+  integrity sha1-P02uSpH6wxX3EGL4UhzCOfE2YoA=
+
 jsprim@^1.2.2:
   version "1.4.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/jsprim/download/jsprim-1.4.1.tgz#313e66bc1e5cc06e438bc1b7499c2e5c56acb6a2"
@@ -10338,7 +10844,7 @@ lodash.sortby@^4.7.0:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/lodash.sortby/download/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
-lodash.template@^4.4.0:
+lodash.template@^4.4.0, lodash.template@^4.5.0:
   version "4.5.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/lodash.template/download/lodash.template-4.5.0.tgz#f976195cf3f347d0d5f52483569fe8031ccce8ab"
   integrity sha1-+XYZXPPzR9DV9SSDVp/oAxzM6Ks=
@@ -10461,7 +10967,14 @@ lru-cache@^5.0.0, lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
-magic-string@^0.25.7:
+lru-cache@^6.0.0:
+  version "6.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/lru-cache/download/lru-cache-6.0.0.tgz#6d6fe6570ebd96aaf90fcad1dafa3b2566db3a94"
+  integrity sha1-bW/mVw69lqr5D8rR2vo7JWbbOpQ=
+  dependencies:
+    yallist "^4.0.0"
+
+magic-string@^0.25.2, magic-string@^0.25.7:
   version "0.25.7"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/magic-string/download/magic-string-0.25.7.tgz#3f497d6fd34c669c6798dcb821f2ef31f5445051"
   integrity sha1-P0l9b9NMZpxnmNy4IfLvMfVEUFE=
@@ -10494,6 +11007,27 @@ make-error@1.x, make-error@^1, make-error@^1.1.1:
   version "1.3.6"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/make-error/download/make-error-1.3.6.tgz#2eb2e37ea9b67c4891f684a1394799af484cf7a2"
   integrity sha1-LrLjfqm2fEiR9oShOUeZr0hM96I=
+
+make-fetch-happen@^8.0.9:
+  version "8.0.9"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/make-fetch-happen/download/make-fetch-happen-8.0.9.tgz#2179178be1593cacd04fa7a420b19ac6415f9380"
+  integrity sha1-IXkXi+FZPKzQT6ekILGaxkFfk4A=
+  dependencies:
+    agentkeepalive "^4.1.0"
+    cacache "^15.0.0"
+    http-cache-semantics "^4.0.4"
+    http-proxy-agent "^4.0.1"
+    https-proxy-agent "^5.0.0"
+    is-lambda "^1.0.1"
+    lru-cache "^6.0.0"
+    minipass "^3.1.3"
+    minipass-collect "^1.0.2"
+    minipass-fetch "^1.3.0"
+    minipass-flush "^1.0.5"
+    minipass-pipeline "^1.2.2"
+    promise-retry "^1.1.1"
+    socks-proxy-agent "^5.0.0"
+    ssri "^8.0.0"
 
 makeerror@1.0.x:
   version "1.0.11"
@@ -10712,11 +11246,30 @@ minipass-collect@^1.0.2:
   dependencies:
     minipass "^3.0.0"
 
+minipass-fetch@^1.3.0:
+  version "1.3.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/minipass-fetch/download/minipass-fetch-1.3.1.tgz#6d09556764474119ed79e270bc98b9c76d12c8e2"
+  integrity sha1-bQlVZ2RHQRnteeJwvJi5x20SyOI=
+  dependencies:
+    minipass "^3.1.0"
+    minipass-sized "^1.0.3"
+    minizlib "^2.0.0"
+  optionalDependencies:
+    encoding "^0.1.12"
+
 minipass-flush@^1.0.5:
   version "1.0.5"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/minipass-flush/download/minipass-flush-1.0.5.tgz#82e7135d7e89a50ffe64610a787953c4c4cbb373"
   integrity sha1-gucTXX6JpQ/+ZGEKeHlTxMTLs3M=
   dependencies:
+    minipass "^3.0.0"
+
+minipass-json-stream@^1.0.1:
+  version "1.0.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/minipass-json-stream/download/minipass-json-stream-1.0.1.tgz#7edbb92588fbfc2ff1db2fc10397acb7b6b44aa7"
+  integrity sha1-ftu5JYj7/C/x2y/BA5est7a0Sqc=
+  dependencies:
+    jsonparse "^1.3.1"
     minipass "^3.0.0"
 
 minipass-pipeline@^1.2.2:
@@ -10726,11 +11279,41 @@ minipass-pipeline@^1.2.2:
   dependencies:
     minipass "^3.0.0"
 
-minipass@^3.0.0, minipass@^3.1.1:
+minipass-sized@^1.0.3:
+  version "1.0.3"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/minipass-sized/download/minipass-sized-1.0.3.tgz#70ee5a7c5052070afacfbc22977ea79def353b70"
+  integrity sha1-cO5afFBSBwr6z7wil36nne81O3A=
+  dependencies:
+    minipass "^3.0.0"
+
+minipass@^2.6.0, minipass@^2.8.6, minipass@^2.9.0:
+  version "2.9.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/minipass/download/minipass-2.9.0.tgz#e713762e7d3e32fed803115cf93e04bca9fcc9a6"
+  integrity sha1-5xN2Ln0+Mv7YAxFc+T4EvKn8yaY=
+  dependencies:
+    safe-buffer "^5.1.2"
+    yallist "^3.0.0"
+
+minipass@^3.0.0, minipass@^3.1.0, minipass@^3.1.1, minipass@^3.1.3:
   version "3.1.3"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/minipass/download/minipass-3.1.3.tgz#7d42ff1f39635482e15f9cdb53184deebd5815fd"
   integrity sha1-fUL/HzljVILhX5zbUxhN7r1YFf0=
   dependencies:
+    yallist "^4.0.0"
+
+minizlib@^1.2.1:
+  version "1.3.3"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/minizlib/download/minizlib-1.3.3.tgz#2290de96818a34c29551c8a8d301216bd65a861d"
+  integrity sha1-IpDeloGKNMKVUcio0wEha9Zahh0=
+  dependencies:
+    minipass "^2.9.0"
+
+minizlib@^2.0.0, minizlib@^2.1.1:
+  version "2.1.2"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/minizlib/download/minizlib-2.1.2.tgz#e90d3466ba209b932451508a11ce3d3632145931"
+  integrity sha1-6Q00Zrogm5MkUVCKEc49NjIUWTE=
+  dependencies:
+    minipass "^3.0.0"
     yallist "^4.0.0"
 
 mississippi@^3.0.0:
@@ -10764,7 +11347,7 @@ mkdirp@0.5.5, mkdirp@0.5.x, mkdirp@0.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@^0.
   dependencies:
     minimist "^1.2.5"
 
-mkdirp@1.x, mkdirp@^1.0.4, mkdirp@~1.0.4:
+mkdirp@1.x, mkdirp@^1.0.3, mkdirp@^1.0.4, mkdirp@~1.0.4:
   version "1.0.4"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/mkdirp/download/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha1-PrXtYmInVteaXw4qIh3+utdcL34=
@@ -10801,7 +11384,7 @@ ms@2.1.1:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/ms/download/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
   integrity sha1-MKWGTrPrsKZvLr5tcnrwagnYbgo=
 
-ms@^2.1.1:
+ms@2.1.2, ms@^2.0.0, ms@^2.1.1:
   version "2.1.2"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/ms/download/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha1-0J0fNXtEP0kzgqjrPM0YOHKuYAk=
@@ -10975,6 +11558,23 @@ node-forge@0.9.0:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/node-forge/download/node-forge-0.9.0.tgz#d624050edbb44874adca12bb9a52ec63cb782579"
   integrity sha1-1iQFDtu0SHStyhK7mlLsY8t4JXk=
 
+node-gyp@^6.1.0:
+  version "6.1.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/node-gyp/download/node-gyp-6.1.0.tgz#64e31c61a4695ad304c1d5b82cf6b7c79cc79f3f"
+  integrity sha1-ZOMcYaRpWtMEwdW4LPa3x5zHnz8=
+  dependencies:
+    env-paths "^2.2.0"
+    glob "^7.1.4"
+    graceful-fs "^4.2.2"
+    mkdirp "^0.5.1"
+    nopt "^4.0.1"
+    npmlog "^4.1.2"
+    request "^2.88.0"
+    rimraf "^2.6.3"
+    semver "^5.7.1"
+    tar "^4.4.12"
+    which "^1.3.1"
+
 node-int64@^0.4.0:
   version "0.4.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/node-int64/download/node-int64-0.4.0.tgz#87a9065cdb355d3182d8f94ce11188b825c68a3b"
@@ -11086,6 +11686,14 @@ noms@0.0.0:
     inherits "^2.0.1"
     readable-stream "~1.0.31"
 
+nopt@^4.0.1:
+  version "4.0.3"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/nopt/download/nopt-4.0.3.tgz#a375cad9d02fd921278d954c2254d5aa57e15e48"
+  integrity sha1-o3XK2dAv2SEnjZVMIlTVqlfhXkg=
+  dependencies:
+    abbrev "1"
+    osenv "^0.1.4"
+
 nopt@^5.0.0:
   version "5.0.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/nopt/download/nopt-5.0.0.tgz#530942bb58a512fccafe53fe210f13a25355dc88"
@@ -11156,6 +11764,13 @@ normalize-url@^3.0.0, normalize-url@^3.3.0:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/normalize-url/download/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
   integrity sha1-suHE3E98bVd0PfczpPWXjRhlBVk=
 
+npm-bundled@^1.1.1:
+  version "1.1.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/npm-bundled/download/npm-bundled-1.1.1.tgz#1edd570865a94cdb1bc8220775e29466c9fb234b"
+  integrity sha1-Ht1XCGWpTNsbyCIHdeKUZsn7I0s=
+  dependencies:
+    npm-normalize-package-bin "^1.0.1"
+
 npm-conf@^1.1.0:
   version "1.1.3"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/npm-conf/download/npm-conf-1.1.3.tgz#256cc47bd0e218c259c4e9550bf413bc2192aff9"
@@ -11163,6 +11778,60 @@ npm-conf@^1.1.0:
   dependencies:
     config-chain "^1.1.11"
     pify "^3.0.0"
+
+npm-install-checks@^4.0.0:
+  version "4.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/npm-install-checks/download/npm-install-checks-4.0.0.tgz#a37facc763a2fde0497ef2c6d0ac7c3fbe00d7b4"
+  integrity sha1-o3+sx2Oi/eBJfvLG0Kx8P74A17Q=
+  dependencies:
+    semver "^7.1.1"
+
+npm-normalize-package-bin@^1.0.1:
+  version "1.0.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/npm-normalize-package-bin/download/npm-normalize-package-bin-1.0.1.tgz#6e79a41f23fd235c0623218228da7d9c23b8f6e2"
+  integrity sha1-bnmkHyP9I1wGIyGCKNp9nCO49uI=
+
+npm-package-arg@^8.0.0, npm-package-arg@^8.0.1:
+  version "8.0.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/npm-package-arg/download/npm-package-arg-8.0.1.tgz#9d76f8d7667b2373ffda60bb801a27ef71e3e270"
+  integrity sha1-nXb412Z7I3P/2mC7gBon73Hj4nA=
+  dependencies:
+    hosted-git-info "^3.0.2"
+    semver "^7.0.0"
+    validate-npm-package-name "^3.0.0"
+
+npm-packlist@^2.1.0:
+  version "2.1.2"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/npm-packlist/download/npm-packlist-2.1.2.tgz#a3045b52aefc37e7a5e86a55e6ca8cb1e909e25a"
+  integrity sha1-owRbUq78N+el6GpV5sqMsekJ4lo=
+  dependencies:
+    glob "^7.1.6"
+    ignore-walk "^3.0.3"
+    npm-bundled "^1.1.1"
+    npm-normalize-package-bin "^1.0.1"
+
+npm-pick-manifest@^6.0.0:
+  version "6.1.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/npm-pick-manifest/download/npm-pick-manifest-6.1.0.tgz#2befed87b0fce956790f62d32afb56d7539c022a"
+  integrity sha1-K+/th7D86VZ5D2LTKvtW11OcAio=
+  dependencies:
+    npm-install-checks "^4.0.0"
+    npm-package-arg "^8.0.0"
+    semver "^7.0.0"
+
+npm-registry-fetch@^8.1.3:
+  version "8.1.4"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/npm-registry-fetch/download/npm-registry-fetch-8.1.4.tgz#438cc8f042f6c5309e9a91ad5ccb80d7f6ed47de"
+  integrity sha1-Q4zI8EL2xTCempGtXMuA1/btR94=
+  dependencies:
+    "@npmcli/ci-detect" "^1.0.0"
+    lru-cache "^6.0.0"
+    make-fetch-happen "^8.0.9"
+    minipass "^3.1.3"
+    minipass-fetch "^1.3.0"
+    minipass-json-stream "^1.0.1"
+    minizlib "^2.0.0"
+    npm-package-arg "^8.0.0"
 
 npm-run-path@^2.0.0:
   version "2.0.2"
@@ -11184,6 +11853,16 @@ npm-run-path@^4.0.0:
   integrity sha1-t+zR5e1T2o43pV4cImnguX7XSOo=
   dependencies:
     path-key "^3.0.0"
+
+npmlog@^4.1.2:
+  version "4.1.2"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/npmlog/download/npmlog-4.1.2.tgz#08a7f2a8bf734604779a9efa4ad5cc717abb954b"
+  integrity sha1-CKfyqL9zRgR3mp76StXMcXq7lUs=
+  dependencies:
+    are-we-there-yet "~1.1.2"
+    console-control-strings "~1.1.0"
+    gauge "~2.7.3"
+    set-blocking "~2.0.0"
 
 nth-check@^1.0.2, nth-check@~1.0.1:
   version "1.0.2"
@@ -11396,10 +12075,23 @@ os-browserify@^0.3.0:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/os-browserify/download/os-browserify-0.3.0.tgz#854373c7f5c2315914fc9bfc6bd8238fdda1ec27"
   integrity sha1-hUNzx/XCMVkU/Jv8a9gjj92h7Cc=
 
-os-tmpdir@~1.0.2:
+os-homedir@^1.0.0:
+  version "1.0.2"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/os-homedir/download/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
+  integrity sha1-/7xJiDNuDoM94MFox+8VISGqf7M=
+
+os-tmpdir@^1.0.0, os-tmpdir@~1.0.2:
   version "1.0.2"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/os-tmpdir/download/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
   integrity sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=
+
+osenv@^0.1.4:
+  version "0.1.5"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/osenv/download/osenv-0.1.5.tgz#85cdfafaeb28e8677f416e287592b5f3f49ea410"
+  integrity sha1-hc36+uso6Gd/QW4odZK18/SepBA=
+  dependencies:
+    os-homedir "^1.0.0"
+    os-tmpdir "^1.0.0"
 
 p-cancelable@^0.4.0:
   version "0.4.1"
@@ -11473,6 +12165,21 @@ p-map@^3.0.0:
   dependencies:
     aggregate-error "^3.0.0"
 
+p-map@^4.0.0:
+  version "4.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/p-map/download/p-map-4.0.0.tgz#bb2f95a5eda2ec168ec9274e06a747c3e2904d2b"
+  integrity sha1-uy+Vpe2i7BaOySdOBqdHw+KQTSs=
+  dependencies:
+    aggregate-error "^3.0.0"
+
+p-queue@^6.3.0:
+  version "6.6.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/p-queue/download/p-queue-6.6.1.tgz#578891ada028a61371ec2692b26614d1b7d2b10a"
+  integrity sha1-V4iRraAophNx7CaSsmYU0bfSsQo=
+  dependencies:
+    eventemitter3 "^4.0.4"
+    p-timeout "^3.1.0"
+
 p-reduce@^1.0.0:
   version "1.0.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/p-reduce/download/p-reduce-1.0.0.tgz#18c2b0dd936a4690a529f8231f58a0fdb6a47dfa"
@@ -11492,6 +12199,13 @@ p-timeout@^2.0.1:
   dependencies:
     p-finally "^1.0.0"
 
+p-timeout@^3.1.0:
+  version "3.2.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/p-timeout/download/p-timeout-3.2.0.tgz#c7e17abc971d2a7962ef83626b35d635acf23dfe"
+  integrity sha1-x+F6vJcdKnli74NiazXWNazyPf4=
+  dependencies:
+    p-finally "^1.0.0"
+
 p-try@^2.0.0:
   version "2.2.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/p-try/download/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"
@@ -11506,6 +12220,31 @@ package-json@^4.0.0:
     registry-auth-token "^3.0.1"
     registry-url "^3.0.3"
     semver "^5.1.0"
+
+pacote@^11.1.10:
+  version "11.1.11"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/pacote/download/pacote-11.1.11.tgz#84f435f4f16c9159c7e1bc05c3e167675843c8ca"
+  integrity sha1-hPQ19PFskVnH4bwFw+FnZ1hDyMo=
+  dependencies:
+    "@npmcli/git" "^2.0.1"
+    "@npmcli/installed-package-contents" "^1.0.5"
+    "@npmcli/promise-spawn" "^1.2.0"
+    "@npmcli/run-script" "^1.3.0"
+    cacache "^15.0.5"
+    chownr "^2.0.0"
+    fs-minipass "^2.1.0"
+    infer-owner "^1.0.4"
+    minipass "^3.1.3"
+    mkdirp "^1.0.3"
+    npm-package-arg "^8.0.1"
+    npm-packlist "^2.1.0"
+    npm-pick-manifest "^6.0.0"
+    npm-registry-fetch "^8.1.3"
+    promise-retry "^1.1.1"
+    read-package-json-fast "^1.1.3"
+    rimraf "^3.0.2"
+    ssri "^8.0.0"
+    tar "^6.0.1"
 
 pako@~1.0.5:
   version "1.0.11"
@@ -11546,6 +12285,13 @@ parse-asn1@^5.0.0, parse-asn1@^5.1.5:
     evp_bytestokey "^1.0.0"
     pbkdf2 "^3.0.3"
     safe-buffer "^5.1.1"
+
+parse-color@^1.0.0:
+  version "1.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/parse-color/download/parse-color-1.0.0.tgz#7b748b95a83f03f16a94f535e52d7f3d94658619"
+  integrity sha1-e3SLlag/A/FqlPU15S1/PZRlhhk=
+  dependencies:
+    color-convert "~0.5.0"
 
 parse-git-config@^2.0.2:
   version "2.0.3"
@@ -11762,6 +12508,11 @@ pify@^4.0.1:
   version "4.0.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/pify/download/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha1-SyzSXFDVmHNcUCkiJP2MbfQeMjE=
+
+pify@^5.0.0:
+  version "5.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/pify/download/pify-5.0.0.tgz#1f5eca3f5e87ebec28cc6d54a0e4aaf00acc127f"
+  integrity sha1-H17KP16H6+wozG1UoOSq8ArMEn8=
 
 pinkie-promise@^2.0.0:
   version "2.0.1"
@@ -11982,12 +12733,27 @@ postcss-minify-selectors@^4.0.2:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
+postcss-modules-extract-imports@1.1.0:
+  version "1.1.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/postcss-modules-extract-imports/download/postcss-modules-extract-imports-1.1.0.tgz#b614c9720be6816eaee35fb3a5faa1dba6a05ddb"
+  integrity sha1-thTJcgvmgW6u41+zpfqh26agXds=
+  dependencies:
+    postcss "^6.0.1"
+
 postcss-modules-extract-imports@^2.0.0:
   version "2.0.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/postcss-modules-extract-imports/download/postcss-modules-extract-imports-2.0.0.tgz#818719a1ae1da325f9832446b01136eeb493cd7e"
   integrity sha1-gYcZoa4doyX5gyRGsBE27rSTzX4=
   dependencies:
     postcss "^7.0.5"
+
+postcss-modules-local-by-default@1.2.0:
+  version "1.2.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/postcss-modules-local-by-default/download/postcss-modules-local-by-default-1.2.0.tgz#f7d80c398c5a393fa7964466bd19500a7d61c069"
+  integrity sha1-99gMOYxaOT+nlkRmvRlQCn1hwGk=
+  dependencies:
+    css-selector-tokenizer "^0.7.0"
+    postcss "^6.0.1"
 
 postcss-modules-local-by-default@^3.0.2:
   version "3.0.3"
@@ -11999,6 +12765,14 @@ postcss-modules-local-by-default@^3.0.2:
     postcss-selector-parser "^6.0.2"
     postcss-value-parser "^4.1.0"
 
+postcss-modules-scope@1.1.0:
+  version "1.1.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/postcss-modules-scope/download/postcss-modules-scope-1.1.0.tgz#d6ea64994c79f97b62a72b426fbe6056a194bb90"
+  integrity sha1-1upkmUx5+XtipytCb75gVqGUu5A=
+  dependencies:
+    css-selector-tokenizer "^0.7.0"
+    postcss "^6.0.1"
+
 postcss-modules-scope@^2.2.0:
   version "2.2.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/postcss-modules-scope/download/postcss-modules-scope-2.2.0.tgz#385cae013cc7743f5a7d7602d1073a89eaae62ee"
@@ -12006,6 +12780,14 @@ postcss-modules-scope@^2.2.0:
   dependencies:
     postcss "^7.0.6"
     postcss-selector-parser "^6.0.0"
+
+postcss-modules-values@1.3.0:
+  version "1.3.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/postcss-modules-values/download/postcss-modules-values-1.3.0.tgz#ecffa9d7e192518389f42ad0e83f72aec456ea20"
+  integrity sha1-7P+p1+GSUYOJ9CrQ6D9yrsRW6iA=
+  dependencies:
+    icss-replace-symbols "^1.1.0"
+    postcss "^6.0.1"
 
 postcss-modules-values@^3.0.0:
   version "3.0.0"
@@ -12015,7 +12797,18 @@ postcss-modules-values@^3.0.0:
     icss-utils "^4.0.0"
     postcss "^7.0.6"
 
-postcss-modules@^3.1.0:
+postcss-modules@^2.0.0:
+  version "2.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/postcss-modules/download/postcss-modules-2.0.0.tgz#473d0d7326651d8408585c2a154115d5cb36cce0"
+  integrity sha1-Rz0NcyZlHYQIWFwqFUEV1cs2zOA=
+  dependencies:
+    css-modules-loader-core "^1.1.0"
+    generic-names "^2.0.1"
+    lodash.camelcase "^4.3.0"
+    postcss "^7.0.1"
+    string-hash "^1.1.1"
+
+postcss-modules@^3.1.0, postcss-modules@^3.2.2:
   version "3.2.2"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/postcss-modules/download/postcss-modules-3.2.2.tgz#ee390de0f9f18e761e1778dfb9be26685c02c51f"
   integrity sha1-7jkN4PnxjnYeF3jfub4maFwCxR8=
@@ -12221,7 +13014,16 @@ postcss-value-parser@^4.0.2, postcss-value-parser@^4.1.0:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/postcss-value-parser/download/postcss-value-parser-4.1.0.tgz#443f6a20ced6481a2bda4fa8532a6e55d789a2cb"
   integrity sha1-RD9qIM7WSBor2k+oUypuVdeJoss=
 
-postcss@^6.0.0:
+postcss@6.0.1:
+  version "6.0.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/postcss/download/postcss-6.0.1.tgz#000dbd1f8eef217aa368b9a212c5fc40b2a8f3f2"
+  integrity sha1-AA29H47vIXqjaLmiEsX8QLKo8/I=
+  dependencies:
+    chalk "^1.1.3"
+    source-map "^0.5.6"
+    supports-color "^3.2.3"
+
+postcss@^6.0.0, postcss@^6.0.1:
   version "6.0.23"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/postcss/download/postcss-6.0.23.tgz#61c82cc328ac60e677645f979054eb98bc0e3324"
   integrity sha1-YcgswyisYOZ3ZF+XkFTrmLwOMyQ=
@@ -12348,6 +13150,19 @@ promise-inflight@^1.0.1:
   version "1.0.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/promise-inflight/download/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
+
+promise-retry@^1.1.1:
+  version "1.1.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/promise-retry/download/promise-retry-1.1.1.tgz#6739e968e3051da20ce6497fb2b50f6911df3d6d"
+  integrity sha1-ZznpaOMFHaIM5kl/srUPaRHfPW0=
+  dependencies:
+    err-code "^1.0.0"
+    retry "^0.10.0"
+
+promise.series@^0.2.0:
+  version "0.2.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/promise.series/download/promise.series-0.2.0.tgz#2cc7ebe959fc3a6619c04ab4dbdc9e452d864bbd"
+  integrity sha1-LMfr6Vn8OmYZwEq029yeRS2GS70=
 
 promise@^7.0.1:
   version "7.3.1"
@@ -12566,6 +13381,14 @@ read-cache@^1.0.0:
   dependencies:
     pify "^2.3.0"
 
+read-package-json-fast@^1.1.1, read-package-json-fast@^1.1.3:
+  version "1.2.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/read-package-json-fast/download/read-package-json-fast-1.2.1.tgz#e8518d6f37c99eb3afc26704c5cbb50d7ead82dd"
+  integrity sha1-6FGNbzfJnrOvwmcExcu1DX6tgt0=
+  dependencies:
+    json-parse-even-better-errors "^2.3.0"
+    npm-normalize-package-bin "^1.0.1"
+
 read-pkg-up@^4.0.0:
   version "4.0.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/read-pkg-up/download/read-pkg-up-4.0.0.tgz#1b221c6088ba7799601c808f91161c66e58f8978"
@@ -12602,7 +13425,7 @@ read-pkg@^5.1.1, read-pkg@^5.2.0:
     parse-json "^5.0.0"
     type-fest "^0.6.0"
 
-"readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.0, readable-stream@^2.3.3, readable-stream@^2.3.5, readable-stream@^2.3.6, readable-stream@~2.3.6:
+"readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.0, readable-stream@^2.3.3, readable-stream@^2.3.5, readable-stream@^2.3.6, readable-stream@~2.3.6:
   version "2.3.7"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/readable-stream/download/readable-stream-2.3.7.tgz#1eca1cf711aef814c04f62252a36a62f6cb23b57"
   integrity sha1-Hsoc9xGu+BTAT2IlKjamL2yyO1c=
@@ -12633,6 +13456,16 @@ readable-stream@~1.0.31:
     inherits "~2.0.1"
     isarray "0.0.1"
     string_decoder "~0.10.x"
+
+readdir-scoped-modules@^1.1.0:
+  version "1.1.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/readdir-scoped-modules/download/readdir-scoped-modules-1.1.0.tgz#8d45407b4f870a0dcaebc0e28670d18e74514309"
+  integrity sha1-jUVAe0+HCg3K68DihnDRjnRRQwk=
+  dependencies:
+    debuglog "^1.0.1"
+    dezalgo "^1.0.0"
+    graceful-fs "^4.1.2"
+    once "^1.3.0"
 
 readdirp@^2.2.1:
   version "2.2.1"
@@ -12942,7 +13775,7 @@ resolve@1.1.7:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/resolve/download/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
   integrity sha1-IDEU2CrSxe2ejgQRs5ModeiJ6Xs=
 
-resolve@1.x, resolve@^1.1.6, resolve@^1.1.7, resolve@^1.10.0, resolve@^1.17.0, resolve@^1.3.2, resolve@^1.8.1:
+resolve@1.x, resolve@^1.1.6, resolve@^1.1.7, resolve@^1.10.0, resolve@^1.11.0, resolve@^1.11.1, resolve@^1.16.1, resolve@^1.17.0, resolve@^1.2.0, resolve@^1.3.2, resolve@^1.8.1:
   version "1.17.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/resolve/download/resolve-1.17.0.tgz#b25941b54968231cc2d1bb76a79cb7f2c0bf8444"
   integrity sha1-sllBtUloIxzC0bt2p5y38sC/hEQ=
@@ -12982,6 +13815,11 @@ retry@0.12.0, retry@^0.12.0:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/retry/download/retry-0.12.0.tgz#1b42a6266a21f07421d1b0b54b7dc167b01c013b"
   integrity sha1-G0KmJmoh8HQh0bC1S33BZ7AcATs=
 
+retry@^0.10.0:
+  version "0.10.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/retry/download/retry-0.10.1.tgz#e76388d217992c252750241d3d3956fed98d8ff4"
+  integrity sha1-52OI0heZLCUnUCQdPTlW/tmNj/Q=
+
 reusify@^1.0.4:
   version "1.0.4"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/reusify/download/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
@@ -13004,7 +13842,7 @@ rimraf@^2.2.8, rimraf@^2.5.4, rimraf@^2.6.3, rimraf@^2.7.1:
   dependencies:
     glob "^7.1.3"
 
-rimraf@^3.0.0:
+rimraf@^3.0.0, rimraf@^3.0.2:
   version "3.0.2"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/rimraf/download/rimraf-3.0.2.tgz#f1a5402ba6220ad52cc1282bac1ae3aa49fd061a"
   integrity sha1-8aVAK6YiCtUswSgrrBrjqkn9Bho=
@@ -13033,6 +13871,25 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
+rollup-plugin-babel@^4.4.0:
+  version "4.4.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/rollup-plugin-babel/download/rollup-plugin-babel-4.4.0.tgz#d15bd259466a9d1accbdb2fe2fff17c52d030acb"
+  integrity sha1-0VvSWUZqnRrMvbL+L/8XxS0DCss=
+  dependencies:
+    "@babel/helper-module-imports" "^7.0.0"
+    rollup-pluginutils "^2.8.1"
+
+rollup-plugin-commonjs@^10.1.0:
+  version "10.1.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/rollup-plugin-commonjs/download/rollup-plugin-commonjs-10.1.0.tgz#417af3b54503878e084d127adf4d1caf8beb86fb"
+  integrity sha1-QXrztUUDh44ITRJ6300cr4vrhvs=
+  dependencies:
+    estree-walker "^0.6.1"
+    is-reference "^1.1.2"
+    magic-string "^0.25.2"
+    resolve "^1.11.0"
+    rollup-pluginutils "^2.8.1"
+
 rollup-plugin-css-only@^2.1.0:
   version "2.1.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/rollup-plugin-css-only/download/rollup-plugin-css-only-2.1.0.tgz#b9e8505eb01c5257b5eab65bd51eec9050bed9a3"
@@ -13040,6 +13897,107 @@ rollup-plugin-css-only@^2.1.0:
   dependencies:
     "@rollup/pluginutils" "^3.0.0"
     fs-extra "^9.0.0"
+
+rollup-plugin-filesize@^9.0.1:
+  version "9.0.2"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/rollup-plugin-filesize/download/rollup-plugin-filesize-9.0.2.tgz#1470bb93d40dd0c2a5381cae58b8b7106f13d185"
+  integrity sha1-FHC7k9QN0MKlOByuWLi3EG8T0YU=
+  dependencies:
+    "@babel/runtime" "^7.10.3"
+    boxen "^4.2.0"
+    brotli-size "4.0.0"
+    colors "^1.4.0"
+    filesize "^6.1.0"
+    gzip-size "^5.1.1"
+    pacote "^11.1.10"
+    terser "^4.8.0"
+
+rollup-plugin-node-resolve@^5.2.0:
+  version "5.2.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/rollup-plugin-node-resolve/download/rollup-plugin-node-resolve-5.2.0.tgz#730f93d10ed202473b1fb54a5997a7db8c6d8523"
+  integrity sha1-cw+T0Q7SAkc7H7VKWZen24xthSM=
+  dependencies:
+    "@types/resolve" "0.0.8"
+    builtin-modules "^3.1.0"
+    is-module "^1.0.0"
+    resolve "^1.11.1"
+    rollup-pluginutils "^2.8.1"
+
+rollup-plugin-postcss@^3.1.2:
+  version "3.1.8"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/rollup-plugin-postcss/download/rollup-plugin-postcss-3.1.8.tgz#d1bcaf8eb0fcb0936e3684c22dd8628d13a82fd1"
+  integrity sha1-0byvjrD8sJNuNoTCLdhijROoL9E=
+  dependencies:
+    chalk "^4.0.0"
+    concat-with-sourcemaps "^1.1.0"
+    cssnano "^4.1.10"
+    import-cwd "^3.0.0"
+    p-queue "^6.3.0"
+    pify "^5.0.0"
+    postcss "^7.0.27"
+    postcss-load-config "^2.1.0"
+    postcss-modules "^2.0.0"
+    promise.series "^0.2.0"
+    resolve "^1.16.1"
+    rollup-pluginutils "^2.8.2"
+    safe-identifier "^0.4.1"
+    style-inject "^0.3.0"
+
+rollup-plugin-progress@^1.1.2:
+  version "1.1.2"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/rollup-plugin-progress/download/rollup-plugin-progress-1.1.2.tgz#5c1dfe7c50f654906bc34d167d5512ee1a4b72d5"
+  integrity sha1-XB3+fFD2VJBrw00WfVUS7hpLctU=
+  dependencies:
+    chalk "^2.4.2"
+
+rollup-plugin-stylus-compiler@^1.0.1:
+  version "1.0.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/rollup-plugin-stylus-compiler/download/rollup-plugin-stylus-compiler-1.0.1.tgz#9b5200451177c7aa24ed6b84bb57412b2731273d"
+  integrity sha1-m1IARRF3x6ok7WuEu1dBKycxJz0=
+  dependencies:
+    rollup-pluginutils "^2.4.1"
+    stylus "^0.54.5"
+
+rollup-plugin-typescript@^1.0.1:
+  version "1.0.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/rollup-plugin-typescript/download/rollup-plugin-typescript-1.0.1.tgz#86565033b714c3d1f3aba510aad3dc519f7091e9"
+  integrity sha1-hlZQM7cUw9Hzq6UQqtPcUZ9wkek=
+  dependencies:
+    resolve "^1.10.0"
+    rollup-pluginutils "^2.5.0"
+
+rollup-plugin-uglify@^6.0.4:
+  version "6.0.4"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/rollup-plugin-uglify/download/rollup-plugin-uglify-6.0.4.tgz#65a0959d91586627f1e46a7db966fd504ec6c4e6"
+  integrity sha1-ZaCVnZFYZifx5Gp9uWb9UE7GxOY=
+  dependencies:
+    "@babel/code-frame" "^7.0.0"
+    jest-worker "^24.0.0"
+    serialize-javascript "^2.1.2"
+    uglify-js "^3.4.9"
+
+rollup-plugin-vue@^6.0.0-beta.8:
+  version "6.0.0-beta.10"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/rollup-plugin-vue/download/rollup-plugin-vue-6.0.0-beta.10.tgz#66d9b9a8dd2d085267d1cc398ea0113360879ac1"
+  integrity sha1-Ztm5qN0tCFJn0cw5jqARM2CHmsE=
+  dependencies:
+    debug "^4.1.1"
+    hash-sum "^2.0.0"
+    rollup-pluginutils "^2.8.2"
+
+rollup-pluginutils@^2.4.1, rollup-pluginutils@^2.5.0, rollup-pluginutils@^2.8.1, rollup-pluginutils@^2.8.2:
+  version "2.8.2"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/rollup-pluginutils/download/rollup-pluginutils-2.8.2.tgz#72f2af0748b592364dbd3389e600e5a9444a351e"
+  integrity sha1-cvKvB0i1kjZNvTOJ5gDlqURKNR4=
+  dependencies:
+    estree-walker "^0.6.1"
+
+rollup@^2.18.0:
+  version "2.28.1"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/rollup/download/rollup-2.28.1.tgz#ceedca3cdb013c2fa8f22f958a29c203368159ea"
+  integrity sha1-zu3KPNsBPC+o8i+ViinCAzaBWeo=
+  optionalDependencies:
+    fsevents "~2.1.2"
 
 rss-parser@^3.8.0:
   version "3.9.0"
@@ -13093,6 +14051,11 @@ safe-buffer@>=5.1.0, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1,
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/safe-buffer/download/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
   integrity sha1-Hq+fqb2x/dTsdfWPnNtOa3gn7sY=
 
+safe-identifier@^0.4.1:
+  version "0.4.2"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/safe-identifier/download/safe-identifier-0.4.2.tgz#cf6bfca31c2897c588092d1750d30ef501d59fcb"
+  integrity sha1-z2v8oxwol8WICS0XUNMO9QHVn8s=
+
 safe-regex@^1.1.0:
   version "1.1.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/safe-regex/download/safe-regex-1.1.0.tgz#40a3669f3b077d1e943d44629e157dd48023bf2e"
@@ -13100,7 +14063,7 @@ safe-regex@^1.1.0:
   dependencies:
     ret "~0.1.10"
 
-"safer-buffer@>= 2.1.2 < 3", safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@^2.1.2, safer-buffer@~2.1.0:
+"safer-buffer@>= 2.1.2 < 3", "safer-buffer@>= 2.1.2 < 3.0.0", safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@^2.1.2, safer-buffer@~2.1.0:
   version "2.1.2"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/safer-buffer/download/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=
@@ -13217,7 +14180,7 @@ semver@7.0.0:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/semver/download/semver-7.0.0.tgz#5f3ca35761e47e05b206c6daff2cf814f0316b8e"
   integrity sha1-XzyjV2HkfgWyBsba/yz4FPAxa44=
 
-semver@7.x, semver@^7.3.2:
+semver@7.x, semver@^7.0.0, semver@^7.1.1, semver@^7.3.2:
   version "7.3.2"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/semver/download/semver-7.3.2.tgz#604962b052b81ed0786aae84389ffba70ffd3938"
   integrity sha1-YElisFK4HtB4aq6EOJ/7pw/9OTg=
@@ -13260,6 +14223,13 @@ serialize-javascript@^2.1.2:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/serialize-javascript/download/serialize-javascript-2.1.2.tgz#ecec53b0e0317bdc95ef76ab7074b7384785fa61"
   integrity sha1-7OxTsOAxe9yV73arcHS3OEeF+mE=
 
+serialize-javascript@^3.1.0:
+  version "3.1.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/serialize-javascript/download/serialize-javascript-3.1.0.tgz#8bf3a9170712664ef2561b44b691eafe399214ea"
+  integrity sha1-i/OpFwcSZk7yVhtEtpHq/jmSFOo=
+  dependencies:
+    randombytes "^2.1.0"
+
 serialize-javascript@^4.0.0:
   version "4.0.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/serialize-javascript/download/serialize-javascript-4.0.0.tgz#b525e1238489a5ecfc42afacc3fe99e666f4b1aa"
@@ -13290,7 +14260,7 @@ serve-static@1.14.1:
     parseurl "~1.3.3"
     send "0.17.1"
 
-set-blocking@^2.0.0:
+set-blocking@^2.0.0, set-blocking@~2.0.0:
   version "2.0.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/set-blocking/download/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
   integrity sha1-BF+XgtARrppoA93TgrJDkrPYkPc=
@@ -13441,6 +14411,11 @@ slice-ansi@^2.1.0:
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
 
+smart-buffer@^4.1.0:
+  version "4.1.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/smart-buffer/download/smart-buffer-4.1.0.tgz#91605c25d91652f4661ea69ccf45f1b331ca21ba"
+  integrity sha1-kWBcJdkWUvRmHqacz0XxszHKIbo=
+
 snake-case@^3.0.3:
   version "3.0.3"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/snake-case/download/snake-case-3.0.3.tgz#c598b822ab443fcbb145ae8a82c5e43526d5bbee"
@@ -13500,6 +14475,23 @@ sockjs@0.3.20:
     uuid "^3.4.0"
     websocket-driver "0.6.5"
 
+socks-proxy-agent@^5.0.0:
+  version "5.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/socks-proxy-agent/download/socks-proxy-agent-5.0.0.tgz#7c0f364e7b1cf4a7a437e71253bed72e9004be60"
+  integrity sha1-fA82Tnsc9KekN+cSU77XLpAEvmA=
+  dependencies:
+    agent-base "6"
+    debug "4"
+    socks "^2.3.3"
+
+socks@^2.3.3:
+  version "2.4.4"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/socks/download/socks-2.4.4.tgz#f1a3382e7814ae28c97bb82a38bc1ac24b21cca2"
+  integrity sha1-8aM4LngUrijJe7gqOLwawkshzKI=
+  dependencies:
+    ip "^1.1.5"
+    smart-buffer "^4.1.0"
+
 sort-keys-length@^1.0.0:
   version "1.0.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/sort-keys-length/download/sort-keys-length-1.0.1.tgz#9cb6f4f4e9e48155a6aa0671edd336ff1479a188"
@@ -13556,6 +14548,11 @@ source-map@0.1.x:
   integrity sha1-wkvBRspRfBRx9drL4lcbK3+eM0Y=
   dependencies:
     amdefine ">=0.0.4"
+
+source-map@0.5.6:
+  version "0.5.6"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/source-map/download/source-map-0.5.6.tgz#75ce38f52bf0733c5a7f0c118d81334a2bb5f412"
+  integrity sha1-dc449SvwczxafwwRjYEzSiu19BI=
 
 source-map@^0.5.0, source-map@^0.5.6:
   version "0.5.7"
@@ -13673,6 +14670,13 @@ ssri@^7.0.0, ssri@^7.1.0:
   integrity sha1-ksJBv23oI2W1x/tL126XVSLhKU0=
   dependencies:
     figgy-pudding "^3.5.1"
+    minipass "^3.1.1"
+
+ssri@^8.0.0:
+  version "8.0.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/ssri/download/ssri-8.0.0.tgz#79ca74e21f8ceaeddfcb4b90143c458b8d988808"
+  integrity sha1-ecp04h+M6u3fy0uQFDxFi42YiAg=
+  dependencies:
     minipass "^3.1.1"
 
 stable@^0.1.8:
@@ -13814,7 +14818,7 @@ string-width@^1.0.1:
     is-fullwidth-code-point "^1.0.0"
     strip-ansi "^3.0.0"
 
-string-width@^2.0.0, string-width@^2.1.1:
+"string-width@^1.0.2 || 2", string-width@^2.0.0, string-width@^2.1.1:
   version "2.1.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/string-width/download/string-width-2.1.1.tgz#ab93f27a8dc13d28cac815c462143a6d9012ae9e"
   integrity sha1-q5Pyeo3BPSjKyBXEYhQ6bZASrp4=
@@ -13947,6 +14951,11 @@ strip-outer@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.2"
 
+style-inject@^0.3.0:
+  version "0.3.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/style-inject/download/style-inject-0.3.0.tgz#d21c477affec91811cc82355832a700d22bf8dd3"
+  integrity sha1-0hxHev/skYEcyCNVgypwDSK/jdM=
+
 stylehacks@^4.0.0:
   version "4.0.3"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/stylehacks/download/stylehacks-4.0.3.tgz#6718fcaf4d1e07d8a1318690881e8d96726a71d5"
@@ -13977,7 +14986,7 @@ stylus@0.54.5:
     sax "0.5.x"
     source-map "0.1.x"
 
-stylus@^0.54.8:
+stylus@^0.54.5, stylus@^0.54.8:
   version "0.54.8"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/stylus/download/stylus-0.54.8.tgz#3da3e65966bc567a7b044bfe0eece653e099d147"
   integrity sha1-PaPmWWa8Vnp7BEv+DuzmU+CZ0Uc=
@@ -14006,6 +15015,13 @@ supports-color@^2.0.0:
   version "2.0.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/supports-color/download/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
   integrity sha1-U10EXOa2Nj+kARcIRimZXp3zJMc=
+
+supports-color@^3.2.3:
+  version "3.2.3"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/supports-color/download/supports-color-3.2.3.tgz#65ac0504b3954171d8a64946b2ae3cbb8a5f54f6"
+  integrity sha1-ZawFBLOVQXHYpklGsq48u4pfVPY=
+  dependencies:
+    has-flag "^1.0.0"
 
 supports-color@^5.0.0, supports-color@^5.3.0, supports-color@^5.4.0, supports-color@^5.5.0:
   version "5.5.0"
@@ -14106,6 +15122,31 @@ tar-stream@^1.5.2:
     to-buffer "^1.1.1"
     xtend "^4.0.0"
 
+tar@^4.4.12:
+  version "4.4.13"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/tar/download/tar-4.4.13.tgz#43b364bc52888d555298637b10d60790254ab525"
+  integrity sha1-Q7NkvFKIjVVSmGN7ENYHkCVKtSU=
+  dependencies:
+    chownr "^1.1.1"
+    fs-minipass "^1.2.5"
+    minipass "^2.8.6"
+    minizlib "^1.2.1"
+    mkdirp "^0.5.0"
+    safe-buffer "^5.1.2"
+    yallist "^3.0.3"
+
+tar@^6.0.1, tar@^6.0.2:
+  version "6.0.5"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/tar/download/tar-6.0.5.tgz#bde815086e10b39f1dcd298e89d596e1535e200f"
+  integrity sha1-vegVCG4Qs58dzSmOidWW4VNeIA8=
+  dependencies:
+    chownr "^2.0.0"
+    fs-minipass "^2.0.0"
+    minipass "^3.0.0"
+    minizlib "^2.1.1"
+    mkdirp "^1.0.3"
+    yallist "^4.0.0"
+
 taskkill@^3.0.0:
   version "3.1.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/taskkill/download/taskkill-3.1.0.tgz#28001339feb23bfae3f447902c4b4abcdd057680"
@@ -14180,7 +15221,7 @@ terser-webpack-plugin@^2.3.6:
     terser "^4.6.12"
     webpack-sources "^1.4.3"
 
-terser@^4.1.2, terser@^4.6.12:
+terser@^4.1.2, terser@^4.6.12, terser@^4.8.0:
   version "4.8.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/terser/download/terser-4.8.0.tgz#63056343d7c70bb29f3af665865a46fe03a0df17"
   integrity sha1-YwVjQ9fHC7KfOvZlhlpG/gOg3xc=
@@ -14627,6 +15668,11 @@ uglify-js@3.4.x:
     commander "~2.19.0"
     source-map "~0.6.1"
 
+uglify-js@^3.4.9:
+  version "3.10.4"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/uglify-js/download/uglify-js-3.10.4.tgz#dd680f5687bc0d7a93b14a3482d16db6eba2bfbb"
+  integrity sha1-3WgPVoe8DXqTsUo0gtFttuuiv7s=
+
 unbzip2-stream@^1.0.9:
   version "1.4.3"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/unbzip2-stream/download/unbzip2-stream-1.4.3.tgz#b0da04c4371311df771cdc215e87f2130991ace7"
@@ -15048,6 +16094,22 @@ vue-hot-reload-api@^2.3.0:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/vue-hot-reload-api/download/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha1-UylVzB6yCKPZkLOp+acFdGV+CPI=
 
+vue-jest@2.x:
+  version "2.6.0"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/vue-jest/download/vue-jest-2.6.0.tgz#23dc99a4dce0bb59fea3946e1317b234968cf12a"
+  integrity sha1-I9yZpNzgu1n+o5RuExeyNJaM8So=
+  dependencies:
+    babel-plugin-transform-es2015-modules-commonjs "^6.26.0"
+    chalk "^2.1.0"
+    extract-from-css "^0.4.4"
+    find-babel-config "^1.1.0"
+    js-beautify "^1.6.14"
+    node-cache "^4.1.1"
+    object-assign "^4.1.1"
+    source-map "^0.5.6"
+    tsconfig "^7.0.0"
+    vue-template-es2015-compiler "^1.6.0"
+
 vue-jest@^3.0.5:
   version "3.0.6"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/vue-jest/download/vue-jest-3.0.6.tgz#27f79d75dcddbe6b3d8327ca1450a107b9cd6f38"
@@ -15092,6 +16154,20 @@ vue-router@^3.4.3:
   version "3.4.3"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/vue-router/download/vue-router-3.4.3.tgz#fa93768616ee338aa174f160ac965167fa572ffa"
   integrity sha1-+pN2hhbuM4qhdPFgrJZRZ/pXL/o=
+
+vue-server-renderer@^2.6.11:
+  version "2.6.12"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/vue-server-renderer/download/vue-server-renderer-2.6.12.tgz#a8cb9c49439ef205293cb41c35d0d2b0541653a5"
+  integrity sha1-qMucSUOe8gUpPLQcNdDSsFQWU6U=
+  dependencies:
+    chalk "^1.1.3"
+    hash-sum "^1.0.2"
+    he "^1.1.0"
+    lodash.template "^4.5.0"
+    lodash.uniq "^4.5.0"
+    resolve "^1.2.0"
+    serialize-javascript "^3.1.0"
+    source-map "0.5.6"
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
@@ -15434,6 +16510,13 @@ which@^2.0.1, which@^2.0.2:
   dependencies:
     isexe "^2.0.0"
 
+wide-align@^1.1.0:
+  version "1.1.3"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/wide-align/download/wide-align-1.1.3.tgz#ae074e6bdc0c14a431e804e624549c633b000457"
+  integrity sha1-rgdOa9wMFKQx6ATmJFScYzsABFc=
+  dependencies:
+    string-width "^1.0.2 || 2"
+
 widest-line@^2.0.0, widest-line@^2.0.1:
   version "2.0.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/widest-line/download/widest-line-2.0.1.tgz#7438764730ec7ef4381ce4df82fb98a53142a3fc"
@@ -15645,7 +16728,7 @@ yallist@^2.1.2:
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/yallist/download/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
   integrity sha1-HBH5IY8HYImkfdUS+TxmmaaoHVI=
 
-yallist@^3.0.2:
+yallist@^3.0.0, yallist@^3.0.2, yallist@^3.0.3:
   version "3.1.1"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/yallist/download/yallist-3.1.1.tgz#dbb7daf9bfd8bac9ab45ebf602b8cbad0d5d08fd"
   integrity sha1-27fa+b/YusmrRev2ArjLrQ1dCP0=

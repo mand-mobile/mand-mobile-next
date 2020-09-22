@@ -7,7 +7,7 @@ const Service = require('@vue/cli-service')
 
 
 
-export class VueCliBuilderUniPlugins {
+export class VueCliBuilderUniPlugin {
 
   constructor(private readonly options: any = {}) { }
 

@@ -6,7 +6,7 @@ import { resolveComponents, resolveCategory, chainExtendsHandler, packagesResolv
 
 const Service = require('@vue/cli-service')
 
-export class VueCliBuilderPlugins {
+export class VueCliBuilderPlugin {
 
   constructor(private readonly options: any = {}) { }
 

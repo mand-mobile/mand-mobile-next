@@ -1,4 +1,4 @@
-import { VueCliBuilderUniPlugins } from './../src/builtin-plugins/plugin-vuecli-uni';
+import { VueCliBuilderUniPlugin } from './../src/builtin-plugins/plugin-vuecli-uni';
 import * as  path from 'path'
 import { BuilderContainer } from "../src/index"
 // import { VueCliBuilderPlugins } from "../src/builtin-plugins/plugin-vuecli-core"
@@ -8,7 +8,7 @@ import { BuilderContainer } from "../src/index"
 it('should exec build command in muti-component mode', async () => {
   const builder = new BuilderContainer({outputRoot: path.resolve(__dirname, '__temp__/uni-preview'), plugins: [
     // [VueCliBuilderPlugins, {}],
-    [VueCliBuilderUniPlugins, {}]
+    [VueCliBuilderUniPlugin, {}]
   ]})
 
   await builder.create()
@@ -20,7 +20,7 @@ it('should exec build command in muti-component mode', async () => {
 it('should exec build command in single mode', async () => {
   const builder = new BuilderContainer({outputRoot: path.resolve(__dirname, '__temp__/uni-preview-single'), plugins: [
     // [VueCliBuilderPlugins, {single: true, componentName: 'button'}],
-    [VueCliBuilderUniPlugins, {single: true, componentName: 'button'}],
+    [VueCliBuilderUniPlugin, {single: true, componentName: 'button'}],
   ]})
 
   await builder.create()
@@ -36,7 +36,7 @@ it.only('should exec serve command in single mode', async () => {
 
   const builder = new BuilderContainer({outputRoot: path.resolve(__dirname, '__temp__/uni-preview-single-serve'), plugins: [
     // [VueCliBuilderPlugins, {single: true, componentName: 'button'}],
-    [VueCliBuilderUniPlugins, {single: true, componentName: 'button'}]
+    [VueCliBuilderUniPlugin, {single: true, componentName: 'button'}]
   ]})
 
   await builder.create()

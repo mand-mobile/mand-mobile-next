@@ -1,6 +1,6 @@
 import * as  path from 'path'
 import { BuilderContainer } from "../src/index";
-import { VueCliBuilderPlugins } from "../src/builtin-plugins/plugin-vuecli-core";
+import { VueCliBuilderPlugin } from "../src/builtin-plugins/plugin-vuecli-core";
 
 
 /**
@@ -40,7 +40,7 @@ it('should create a builder container and create soft link directories', async (
 
 it('should exec builder container in dist container', async () => {
   const builder = new BuilderContainer({outputRoot: path.resolve(__dirname, '__temp__/vue'), plugins: [
-    [VueCliBuilderPlugins, {}],
+    [VueCliBuilderPlugin, {}],
   ]})
 
   /**
@@ -61,7 +61,7 @@ it('should exec builder container in dist container', async () => {
 
 it('should exec build command in muti-component mode', async () => {
   const builder = new BuilderContainer({outputRoot: path.resolve(__dirname, '__temp__/web-preview'), plugins: [
-    [VueCliBuilderPlugins, {}],
+    [VueCliBuilderPlugin, {}],
   ]})
 
   await builder.create()
@@ -71,7 +71,7 @@ it('should exec build command in muti-component mode', async () => {
 
 it.only('should exec build command in single mode', async () => {
   const builder = new BuilderContainer({outputRoot: path.resolve(__dirname, '__temp__/web-preview-single'), plugins: [
-    [VueCliBuilderPlugins, {single: true, componentName: 'button'}],
+    [VueCliBuilderPlugin, {single: true, componentName: 'button'}],
   ]})
 
   await builder.create()
@@ -83,7 +83,7 @@ it.only('should exec build command in single mode', async () => {
 it('should exec serve command in single mode', async () => {
 
   const builder = new BuilderContainer({outputRoot: path.resolve(__dirname, '__temp__/web-preview-single-serve'), plugins: [
-    [VueCliBuilderPlugins, {single: true, componentName: 'button'}],
+    [VueCliBuilderPlugin, {single: true, componentName: 'button'}],
   ]})
 
   await builder.create()

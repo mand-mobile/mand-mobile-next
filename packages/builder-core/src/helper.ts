@@ -142,38 +142,25 @@ export function resolveComponents({platform: PLATFORM, componentSource}): Array<
   return R.compose(R.map(R.compose(componentNameMapper)), R.map(loadComponent), lsComponentsDirectories)(componentSource)
 }
 
-export function renderComponents({platform, target, done}) {
-  const moduleName = '@mand-mobile/components'
-  const join = root => path.join(root, 'src')
-  const inputPath = R.compose(join, path.dirname, require.resolve)(moduleName)
-  const fileGlobs = `/${inputPath}/*/*.*`
 
-  copyfiles(
-    [fileGlobs, target],
-    {
-      // 从后向前取两级目录，/componets/src/*/a.vue保留到 src/*/a.vue这两级
-      up: -3,
-    },
-    () => {
-      // const matcher = new RegExp(`\\.${platform}\\.(js|vue|ts)$`)
-      find.file(/\.(js|vue|ts)$/, target, function(files) {
-        files.forEach(file => {
-          const dirname = path.dirname(file)
-          const basename = path.basename(file)
+export function componentRewrite({platform, target, done}) {
 
-          const result = basename.split('.')
+  find.file(/\.(js|vue|ts)$/, target, function(files) {
+    files.forEach(file => {
+      const dirname = path.dirname(file)
+      const basename = path.basename(file)
 
-          if (result.length === 3 && result[1]) {
-            if (result[1] === platform) {
-              mv(file, `${dirname}/${result[0]}.${result[2]}`, {mkdirp: true}, err => {})
-            } else if (result[1] !== '') {
-              rimraf.sync(file)
-            }
-          }
-        })
-      })
-    },
-  )
+      const result = basename.split('.')
+
+      if (result.length === 3 && result[1]) {
+        if (result[1] === platform) {
+          mv(file, `${dirname}/${result[0]}.${result[2]}`, {mkdirp: true}, err => {})
+        } else if (result[1] !== '') {
+          rimraf.sync(file)
+        }
+      }
+    })
+  })
 }
 
 export const resolveCategory = components => {

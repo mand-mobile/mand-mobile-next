@@ -185,6 +185,9 @@ export class BuilderContainer {
     addTemplates: new tapable.SyncHook(['templates']),
     addLinks: new tapable.SyncHook(['linkpaths']),
 
+    // 当容器创建完成之后执行相关操作
+    afterContainerCreated: new tapable.SyncHook([]),
+
     extendsBabelConfig: new tapable.SyncHook(['babelConfig']),
     extendsPostcssConfig: new tapable.SyncHook(['postcssConfig']),
     extendsStylus: new tapable.SyncHook(['stylus']),
@@ -264,6 +267,10 @@ export class BuilderContainer {
       return linkDir(source, distTarget)
     })(linkpaths))
     
+
+    // 容器创建成功后进行对于容器文件进行二次加工
+    this.hooks.afterContainerCreated.call()
+
     return 
   }
 
