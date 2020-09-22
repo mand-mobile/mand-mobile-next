@@ -163,13 +163,19 @@ export interface IMandPlugins {
 
 }
 
+export interface IContainerConfig {
+  outputRoot?: string,
+  artifactRoot?: string,
+  plugins?: any[]
+}
+
 export class BuilderContainer {
 
   private _config: {
     outputRoot?: string
   } = {}
 
-  get config(): any {
+  get config(): IContainerConfig {
     return this._config
   }
 
@@ -196,6 +202,7 @@ export class BuilderContainer {
 
   constructor(cfg: any = {
     outputRoot: '',
+    artifactRoot: '',
     plugins:  []
   }) {
     this._config = R.mergeRight(this.config, cfg)

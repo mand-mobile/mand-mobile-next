@@ -6,15 +6,13 @@ import { resolveComponents, resolveCategory, chainExtendsHandler, packagesResolv
 
 const Service = require('@vue/cli-service')
 
-const resolver = (moduleName, suffix) => path.join(path.dirname(require.resolve(moduleName)), suffix)
-
 export class VueCliBuilderPlugins {
 
   constructor(private readonly options: any = {}) { }
 
   public apply(container: BuilderContainer) {
 
-    const components = resolveComponents({platform: 'web', componentSource: resolver('@mand-mobile/components', 'src')})
+    const components = resolveComponents({platform: 'web', componentSource: packagesResolver('@mand-mobile/components', 'src')})
     const category = resolveCategory(components)
 
     // 创建模板容器
@@ -87,9 +85,9 @@ export class VueCliBuilderPlugins {
     // 设置编译内容
     container.hooks.extendsStylus.tap('vueCliBuilder', options => {
       const result = [
-        resolver('@mand-mobile/shared', 'lib/style/mixin/theme.basic.styl'),
-        resolver('@mand-mobile/shared', 'lib/style/mixin/theme.components.styl'),
-        resolver('@mand-mobile/shared', 'lib/style/mixin/util.styl'),
+        packagesResolver('@mand-mobile/shared', 'lib/style/mixin/theme.basic.styl'),
+        packagesResolver('@mand-mobile/shared', 'lib/style/mixin/theme.components.styl'),
+        packagesResolver('@mand-mobile/shared', 'lib/style/mixin/util.styl'),
       ]
       options.import = (options.import || [])
       options.import.push(...result)
@@ -114,7 +112,7 @@ export class VueCliBuilderPlugins {
     })
   }
 
-  public async build(builderContext, container): Promise<void> {
+  public async build(builderContext, container: BuilderContainer): Promise<void> {
     const { babelConfig, postcssConfig, stylusConfig } = builderContext
 
     const service = new Service(container.config.outputRoot)

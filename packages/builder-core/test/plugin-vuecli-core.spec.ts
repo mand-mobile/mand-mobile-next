@@ -69,7 +69,7 @@ it('should exec build command in muti-component mode', async () => {
 
 }, 100000)
 
-it('should exec build command in single mode', async () => {
+it.only('should exec build command in single mode', async () => {
   const builder = new BuilderContainer({outputRoot: path.resolve(__dirname, '__temp__/web-preview-single'), plugins: [
     [VueCliBuilderPlugins, {single: true, componentName: 'button'}],
   ]})
@@ -80,7 +80,7 @@ it('should exec build command in single mode', async () => {
 
 
 // 验证serve命令是否调通，业务代码验证可用
-it.skip('should exec serve command in single mode', async () => {
+it('should exec serve command in single mode', async () => {
 
   const builder = new BuilderContainer({outputRoot: path.resolve(__dirname, '__temp__/web-preview-single-serve'), plugins: [
     [VueCliBuilderPlugins, {single: true, componentName: 'button'}],

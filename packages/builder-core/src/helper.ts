@@ -48,7 +48,7 @@ export function resolveComponents({platform: PLATFORM, componentSource}): Array<
   }
 
   const toUpperName = str => {
-    return str.replace(/^\w/, match => match.toUpperCase()).replace(/-(\w)/g, (match, p1) => {
+    return str && str.replace(/^\w/, match => match.toUpperCase()).replace(/-(\w)/g, (match, p1) => {
       return p1.toUpperCase()
     })
   }
