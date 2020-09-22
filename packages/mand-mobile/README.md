@@ -26,7 +26,7 @@ or
 </template>
 
 <script>
-import Button from 'mand-mobile/lib/web/button'
+import Button from 'mand-mobile/web/lib/button'
 
 export default {
   name: 'button-demo',
@@ -59,7 +59,7 @@ export default {
 </template>
 
 <script>
-import Button from 'mand-mobile/lib/uni/button'
+import Button from 'mand-mobile/uni/lib/button'
 
 export default {
   name: 'button-demo',

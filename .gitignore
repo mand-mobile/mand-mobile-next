@@ -26,3 +26,5 @@ lerna-debug.log*
 *.sw?
 packages/builder-core/coverage
 packages/builder-core/test/__temp__/
+packages/components/test/coverage
+
