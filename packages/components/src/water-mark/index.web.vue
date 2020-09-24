@@ -51,7 +51,7 @@
 
 <script>
 import {getDpr} from '@mand-mobile/shared/lib/util'
-
+import './common.styl'
 const fontSize = 14
 const color = '#858B9C'
 
@@ -163,6 +163,3 @@ export default {
 
 </script>
 
-<style lang="stylus">
-@import 'common.styl'
-</style>
