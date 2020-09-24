@@ -5,10 +5,8 @@ import R from 'ramda'
 import { BuilderContainer } from '../index'
 import { packagesResolver } from '../helper'
 const find = require('find')
-
 const stylus = require('stylus')
 const { transform } = require('@babel/core')
-const prettier = require('prettier')
 const compPlugin = require('../babel-plugins/babel-transform-memberExpression')
 const platformPlugin = require('../babel-plugins/babel-transform-platform')
 const { compiler } = require('zp-vueify')
@@ -25,23 +23,6 @@ function babelPluginInsertCssImportForVue({ types: t }) {
     }
   }
 }
-// function computedCompilerConfig(filePath) {
-//   return {
-//     extractCSS: true,
-//     babel: {
-//       presets: [
-//         ['@babel/env',
-//           {
-//             'modules': 'umd',
-//             'targets': {
-//               'browsers': ['iOS >= 8', 'Android >= 4']
-//             }
-//           }
-//         ],
-//       ],
-//     },
-//   }
-// }
 export class VueifySFCBuilderPlugin {
 
   constructor(private readonly options = { transformTo: false, platform: 'web' }) { }
@@ -59,14 +40,6 @@ export class VueifySFCBuilderPlugin {
       options.imports.push(...result)
     })
 
-    container.hooks.extendsBabelConfig.tap('vueCliBuilder', babelConfig => R.mergeRight(babelConfig, {
-      presets: [...(babelConfig.presets || []), ['@babel/env', {
-        modules: 'umd',
-        targets: {
-          browsers: ['iOS >= 8', 'Android >= 4'],
-        }
-      }]]
-    }))
 
     // 纯用于复制一份组件库文件到目标容器文件夹下
     container.hooks.addTemplates.tap('vueCliBuilder', template => {
@@ -108,7 +81,6 @@ export class VueifySFCBuilderPlugin {
     const componentRoot = path.resolve(container.config.outputRoot, '_mand-mobile')
     const distRoot = container.config.artifactRoot
 
-
     const filepipe = ({ from, to }: {from: string, to: string}, transpile: (source: Buffer, context: any) => Promise<Buffer>) => {
 
       const _emitFiles = {}
@@ -143,20 +115,10 @@ export class VueifySFCBuilderPlugin {
         },
         builder: () => {
           // 这是个hack用于绕过ramda的一个类型推导错误bug， 参数未被真实使用
-          R.composeP(op.writer, t, op.reader)(void 0)
+          return R.composeP(op.writer, t, op.reader)(void 0)
         }
       }
       return op
-    }
-
-    const promiseWarp = (fn) => {
-      return (...params) => {
-        const result = fn.apply(null, params)
-        if (result instanceof Promise) {
-          return result
-        }
-        return Promise.resolve(result)
-      }
     }
 
     // 基于文件名生成编译策略
@@ -166,7 +128,7 @@ export class VueifySFCBuilderPlugin {
           extractCSS: true,
           babel: {
             ...babelConfig,
-            plugins: R.append([babelPluginInsertCssImportForVue, {filePath: filename}], babelConfig.plugins)
+            plugins: R.append([babelPluginInsertCssImportForVue, {filePath: filename}], (babelConfig.plugins || []))
           },
           customCompilers: {
             stylus: (content, cb, _compiler, _filePath) => {
@@ -186,45 +148,43 @@ export class VueifySFCBuilderPlugin {
         return new Promise((resolve, reject) => {
           compiler.compile(code, filename, (err, result) => {
             if (err) {
-              reject(err)
+              return reject(err)
             }
             compiler.removeListener('style', styleCb)
-            if (styleContent) console.info(styleContent, 'styleContent')
             context.emitFile(`${path.basename(filename)}.css`, Buffer.from(styleContent, 'utf8'))
             resolve(result)
           })
         }).catch(e => {
           console.error(e)
+          return ''
         })
       }
-      const _strategyJS = (code) => {
-        return transform(code, babelConfig).code
+      const strategyJS = (code) => {
+        return Promise.resolve(transform(code, babelConfig).code)
       }
-      const strategyJS = promiseWarp(_strategyJS)
 
-      const _bufferToStr = (buf: Buffer) => {
+      const bufferToStr = (buf: Buffer) => {
         assert.strictEqual(buf instanceof Buffer, true, 'params must be Buffer')
-        return buf.toString('utf8')
+        return Promise.resolve(buf.toString('utf8'))
       }
-      const bufferToStr = promiseWarp(_bufferToStr)
 
-      const _strToBuffer = str => {
+      const strToBuffer = str => {
         assert.strictEqual(typeof str === 'string', true, 'params must be string')
-        return Buffer.from(str, 'utf8')
+        return Promise.resolve(Buffer.from(str, 'utf8'))
       }
-      const strToBuffer = promiseWarp(_strToBuffer)
 
       const strategyTable = {
         '.vue': (code, context) => R.composeP(
                                                 strToBuffer, 
                                                 // formater('vue'), 
-                                                R.curry(strategyVue)(R.__, context), bufferToStr)(code),
+                                                (code) => strategyVue(code, context), 
+                                                bufferToStr)(code),
         '.js': (code, _) => R.composeP(
                                         strToBuffer, 
                                         // formater('babel'), 
                                         strategyJS, 
                                         bufferToStr)(code),
-        'default': promiseWarp(buf => buf),
+        'default': (buf) => Promise.resolve(buf),
       }
 
       const ext = path.extname(filename)
@@ -232,19 +192,19 @@ export class VueifySFCBuilderPlugin {
     }
 
     const files = find.fileSync(componentRoot)
-    const compileAndDist = R.forEach((file: string) => {
+    const compileAndDist = R.map((file: string) => {
       const reg = new RegExp(`^${componentRoot}\/.*(test|demo)\/.*$`)
       if (reg.test(file)) return
 
       const transpile = transpileGetter(file)
       const distfilePath = path.relative(componentRoot, file)
 
-      filepipe({
+      return filepipe({
         from: file,
         to: path.join(distRoot, distfilePath).replace(/\.vue$/, '.js')
       }, transpile).builder()
     })
-    compileAndDist(files)
+    Promise.all(compileAndDist(files))
     return Promise.resolve()
   }
 
