@@ -16,7 +16,7 @@ const FORMAT_UMD_MODULE = 'umd'
  * 基于vue-cli所生成的webpack配置，转换为rollup需要的配置
  * @param webpackConfig 
  */
-export const rollupConfigBuilder = ({builderContext, entry, outputRoot = 'dist'}) => {
+export const rollupConfigBuilder = ({builderContext, entry, artifactRoot = 'dist'}) => {
   // const context = webpackConfig.context
 
   const {babelConfig, stylusConfig, postcssConfig} = builderContext
@@ -47,9 +47,10 @@ export const rollupConfigBuilder = ({builderContext, entry, outputRoot = 'dist'}
       rplgVue({
         preprocessStyles: false,
       }),
+      // @todo 排查是否是因为jest环境导致不能正常提取css的问题
       rplgPostcss({
         ...postcssConfig,
-        extract: path.resolve(outputRoot, 'mand-mobile.css'),
+        // extract: path.resolve(artifactRoot, 'mand-mobile.css'),
       }),
       // rplgUglify(),
       rplgFilesize(),
@@ -58,7 +59,7 @@ export const rollupConfigBuilder = ({builderContext, entry, outputRoot = 'dist'}
 
   const outputOptions = R.map(
     moduleType => ({
-      file: path.resolve(outputRoot, `mand-mobile.${moduleType}.js`),
+      file: path.resolve(artifactRoot, `mand-mobile.${moduleType}.js`),
       plugins: rplgBabel({
         ...babelConfig,
         // 生产环境，移除不必要的注释

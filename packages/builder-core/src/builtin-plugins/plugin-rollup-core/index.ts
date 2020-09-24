@@ -1,10 +1,9 @@
 import * as path from 'path'
 import * as R from 'ramda'
 
-import { BuilderContainer } from '../index';
-import { resolveComponents, resolveCategory, chainExtendsHandler, packagesResolver } from '../helper'
+import { BuilderContainer } from '../../index';
+import { resolveComponents, resolveCategory, packagesResolver } from '../../helper'
 import { rollupConfigBuilder } from './rollup-config-builder';
-
 
 const rollup = require('rollup')
 
@@ -19,18 +18,18 @@ export class RollupBuilderPlugin {
 
 
     container.hooks.addTemplates.tap('vueCliBuilder', template => {
-      template.push([{template: path.resolve(__dirname, '../templates/web-bundle/main.js', renderer: 'main.js')}, {components}])
+      template.push([{template: path.resolve(__dirname, '../templates/web-bundle/main.js'), renderer: 'main.js'}, {components}])
     })
 
     // 纯用于复制一份组件库文件到目标容器文件夹下
     container.hooks.addTemplates.tap('vueCliBuilder', template => {
-      template.push([{template: packagesResolver('@mand-mobile/component', 'src'), renderer: '_mand-mobile'}, {}])
+      template.push([{template: packagesResolver('@mand-mobile/components', 'src'), renderer: '_mand-mobile'}, {}])
     })
 
 
     // 指定vue-cli 需要的package.json目录，防止被其余插件影响
     container.hooks.addTemplates.tap('vueCliBuilder', template => {
-      template.push([{template: path.resolve(__dirname, 'templates/web-preview/common/package.json'), renderer: 'package.json'}])
+      template.push([{template: path.resolve(__dirname, '../templates/web-preview/common/package.json'), renderer: 'package.json'}])
     })
 
     // 为容器启动添加 node_modules依赖 
@@ -82,13 +81,13 @@ export class RollupBuilderPlugin {
   }
 
   public async build(builderContext, container: BuilderContainer): Promise<void> {
-    const { babelConfig, postcssConfig, stylusConfig } = builderContext
 
     const {inputOptions, outputOptions} = rollupConfigBuilder({
       builderContext, 
       entry: path.resolve(container.config.outputRoot, 'main.js'), 
-      outputRoot: container.config.artifactRoot})
-
+      artifactRoot: container.config.artifactRoot
+    })
+    
 
     const bundle = await rollup.rollup(inputOptions)
     await Promise.all(R.map(option => bundle.write(option), outputOptions))
