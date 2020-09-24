@@ -1,24 +1,18 @@
-import R from 'ramda'
-import * as path from 'path'
 import * as assert from 'assert'
+import * as path from 'path'
+import fs from 'fs-extra'
+import R from 'ramda'
 
-import { BuilderContainer } from '../../index';
+import { BuilderContainer } from '../../index'
 import { packagesResolver } from '../../helper'
-import fs from 'fs-extra';
-import { file } from 'find';
 
-
-const anymatch = require('anymatch')
 const find = require('find')
-const rimraf = require('rimraf')
-const mv = require('mv')
 const {parse} = require('@vue/compiler-dom')
 const stylus = require('stylus')
 const prettier = require('prettier')
 const { transform } = require('@babel/core')
-const compPlugin = require('./lib/plugins/babel-transform-memberExpression')
-const platformPlugin = require('./lib/plugins/babel-transform-platform')
-
+const compPlugin = require('../../babel-plugins/babel-transform-memberExpression')
+const platformPlugin = require('../../babel-plugins/babel-transform-platform')
 
 interface IStyleOptions {
   stylusConfig?,
@@ -168,7 +162,7 @@ const templateCompiler = (ast, options = {}) => {
 
 export class VueSFCBuilderPlugin {
 
-  constructor(private readonly options: any = {transformTo: false}) { }
+  constructor(private readonly options = {transformTo: false, platform: 'web'}) { }
 
   public apply(container: BuilderContainer) {
 
@@ -207,13 +201,14 @@ export class VueSFCBuilderPlugin {
       babelConfig.plugins = babelConfig.plugins || []
       babelConfig.plugins.push(
         compPlugin,
-        platformPlugin,
+        [platformPlugin, {platform: this.options.platform}],
       )
     })
 
   }
 
   public async build(builderContext, container: BuilderContainer): Promise<unknown> {
+    //@fixme 
     const { babelConfig, postcssConfig, stylusConfig } = builderContext
     const componentRoot = path.resolve(container.config.outputRoot, '_mand-mobile')
     const distRoot = container.config.artifactRoot

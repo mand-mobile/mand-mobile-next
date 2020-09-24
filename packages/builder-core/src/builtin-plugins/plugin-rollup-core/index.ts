@@ -57,8 +57,8 @@ export class RollupBuilderPlugin {
         packagesResolver('@mand-mobile/shared', 'lib/style/mixin/theme.components.styl'),
         packagesResolver('@mand-mobile/shared', 'lib/style/mixin/util.styl'),
       ]
-      options.import = (options.import || [])
-      options.import.push(...result)
+      options.imports = (options.imports || [])
+      options.imports.push(...result)
     })
 
     container.hooks.extendsBabelConfig.tap('vueCliBuilder', babelConfig => {})
