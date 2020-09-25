@@ -9,8 +9,6 @@ const rimraf = require('rimraf')
 const find = require('find')
 const mv = require('mv')
 
-const copyfiles = require('copyfiles')
-const {exec} = require('child_process')
 
 /** -----------------------------------------utils --------------------------------------------------------- */
 
@@ -18,7 +16,6 @@ export const packagesResolver = R.curry((componentName, suffix) => path.join(pat
 
 
 /** -----------------------------------------Component Helpers --------------------------------------------------------- */
-
 
 interface IComponents {
   path: string,

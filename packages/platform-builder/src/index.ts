@@ -6,13 +6,9 @@ import * as find from 'find'
 import * as path from 'path'
 import * as fs from 'fs-extra'
 
-const Service = require('@vue/cli-service')
 const execa = require('execa')
-const merge = require('webpack-merge')
-const Config = require('webpack-chain')
 
 /** =========================================Vue Service Segment========================================================== */
-
 
 
 /** =========================================Constant Utils Segment========================================================== */
@@ -141,14 +137,6 @@ export async function renderDir(sourceRoot, data?, opt?: {distRoot: string}): Pr
 }
 
 
-/** =========================================Resolver Utils Segment========================================================== */
-
-
-export async function platformResolver() {
-
-}
-
-
 /** =========================================构造容器 Segment========================================================== */
 
 export interface IMandPlugins {
@@ -188,13 +176,14 @@ export class BuilderContainer {
     // 当容器创建完成之后执行相关操作
     afterContainerCreated: new tapable.SyncHook([]),
 
+  
     extendsBabelConfig: new tapable.SyncHook(['babelConfig']),
     extendsPostcssConfig: new tapable.SyncHook(['postcssConfig']),
     extendsStylus: new tapable.SyncHook(['stylus']),
-    extendsPathMappings: new tapable.SyncHook(['linkCmd']),
 
     setBuildTasks: new tapable.AsyncParallelHook(['configures']),
     setServeTasks: new tapable.AsyncParallelHook(['configures']),
+
   }
 
   private internalCommand: {
@@ -206,9 +195,10 @@ export class BuilderContainer {
   constructor(cfg: any = {
     outputRoot: '',
     artifactRoot: '',
-    plugins:  []
+    plugins:  [],
+    autoClean: false,
   }) {
-    this._config = R.mergeRight(this.config, cfg)
+    this._config = R.mergeRight(this._config, cfg)
 
     const plugins = cfg.plugins || []
 
@@ -319,23 +309,18 @@ export class BuilderContainer {
   }
 
   /**
-   * 对构建产物和构建容易进行清理
+   * 清理构建容器
    */
-  public clean() {}
+  public destory() {
+    fs.removeSync(this.config.outputRoot)
+    return this
+  }
   
+  /**
+   * 删除构建产物
+   */
+  public clean() {
+    fs.removeSync(this.config.artifactRoot)
+    return this
+  }
 }
-
-/** =========================================驱动类 Segment========================================================== */
-
-
-/**
-* 提供给vue-cli使用的调度器,需要有以下责任
-* - 提供container缓存
-*/
-abstract class BuilderDevice {
-  run(env, args) {
-  	// const container = containerFactory()
-    // if (cache && openCache === true) { // container.exec('balabala')
-    // }
-  }  
-} 
