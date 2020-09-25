@@ -4,7 +4,7 @@
   "description": "> TODO: description",
   "author": "lucker <byterotate@gmail.com>",
   "scripts": {
-    "build": "run-p clean:* && sh scripts/build.sh all",
+    "build": "echo \"Nothing wait for build\" && exit 0",
     "build:uni": "sh ./scripts/build.sh uni lib",
     "build:uni-src": "sh ./scripts/build.sh uni src",
     "build:web-bundle": "sh scripts/build.sh web bundle",

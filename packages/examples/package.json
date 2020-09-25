@@ -9,7 +9,7 @@
   },
   "scripts": {
     "serve": "run-p clean:* && sh ./scripts/preview.sh all",
-    "build": "echo \"todo for build\"",
+    "build": "echo \"Nothing wait for build\" && exit 0",
     "build:bundle":
       "run-p clean:* && VUE_CLI_SKIP_DIRTY_GIT_PROMPT=true vue invoke @mand-mobile/vue-cli-plugin-builder --platform web --target bundle && vue-cli-service md-build --platform=web --target=bundle .mand-mobile/main.js",
     "build:lib": "run-p clean:* && sh ./scripts/build.sh web lib",
