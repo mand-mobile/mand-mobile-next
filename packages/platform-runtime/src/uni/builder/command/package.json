@@ -1,9 +1,0 @@
-{
-  "devDependencies": {
-    "@dcloudio/vue-cli-plugin-hbuilderx": "^2.0.0-27920200527001",
-    "@dcloudio/vue-cli-plugin-uni": "^2.0.0-26920200424005",
-    "@dcloudio/vue-cli-plugin-uni-optimize": "^2.0.0-26920200424005",
-    "@vue/cli-plugin-babel": "^4.4.4",
-    "@vue": "2.6.1"
-  }
-}
