@@ -1,5 +1,5 @@
 {
-  "name": "@mand-mobile/builder-core",
+  "name": "@mand-mobile/platform-builder",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
@@ -20,7 +20,7 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "@dcloudio/uni-cli-shared": "^2.0.0-26920200424005",
     "@dcloudio/uni-h5": "^2.0.0-26920200424005",
     "@dcloudio/uni-helper-json": "*",
@@ -61,20 +61,15 @@
     "ts-jest": "^26.2.0",
     "typescript": "^4.0.2",
     "vue-router": "^3.4.3",
-    "zp-vueify": "^9.4.2"
-  },
-  "dependencies": {
+    "zp-vueify": "^9.4.2",
     "@types/find": "^0.2.1",
     "@types/fs-extra": "^9.0.1",
-    "@types/jest": "^24.0.19",
     "@types/ramda": "^0.27.14",
     "@types/stylus": "^0.48.33",
     "@types/tapable": "^1.0.6",
     "@vue/cli": "^4.5.4",
-    "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-router": "~4.4.0",
     "@vue/cli-plugin-typescript": "~4.4.0",
-    "@vue/cli-plugin-unit-jest": "~4.4.0",
     "@vue/cli-plugin-vuex": "~4.4.0",
     "@vue/cli-service": "^4.5.4",
     "@vue/test-utils": "^1.0.3",
@@ -89,7 +84,6 @@
     "stylus": "^0.54.8",
     "stylus-loader": "^3.0.2",
     "tapable": "^1.1.3",
-    "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.44.1",
     "webpack-chain": "^6.5.1",
