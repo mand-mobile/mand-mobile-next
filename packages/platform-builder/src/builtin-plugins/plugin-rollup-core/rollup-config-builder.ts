@@ -37,7 +37,7 @@ export const rollupConfigBuilder = ({builderContext, entry, artifactRoot = 'dist
     external: ['vue'],
     plugins: [
       rplgAlias({
-        entries: [{find: /^@mand-mobile\/platform\/lib\/(.*)/, replacement: '@mand-mobile/platform/lib/web/$1'}],
+        entries: [{find: /^@mand-mobile\/platform-runtime\/lib\/(.*)/, replacement: '@mand-mobile/platform-runtime/lib/web/$1'}],
         customResolver,
       }),
       rplgNodeResolve({extensions}),

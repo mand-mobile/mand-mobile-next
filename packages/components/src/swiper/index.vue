@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import {Dom} from '@mand-mobile/platform/lib/runtime/module'
+import {Dom} from '@mand-mobile/platform-runtime/lib/module'
 import Scroller from '@mand-mobile/scroller'
 import {root, debounce} from '@mand-mobile/shared/lib/util'
 

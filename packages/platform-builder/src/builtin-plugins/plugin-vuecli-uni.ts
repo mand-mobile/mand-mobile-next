@@ -91,7 +91,7 @@ export class VueCliBuilderUniPlugin {
 
     container.hooks.addLinks.tap('vueCliBuilder', linkpaths => {
       linkpaths.push({
-        source: packagesResolver('@mand-mobile/platform', 'lib'),
+        source: packagesResolver('@mand-mobile/platform-runtime', 'lib'),
         target: '_platform',
       })
     })
@@ -158,7 +158,7 @@ export class VueCliBuilderUniPlugin {
         chain.resolve.symlinks(false)
 
         chain.resolve.alias
-                        .set('@mand-mobile/platform/lib', path.join(container.config.outputRoot, '_platform/uni'))
+                        .set('@mand-mobile/platform-runtime/lib', path.join(container.config.outputRoot, '_platform/uni'))
                         .set('mand-mobile/lib', path.join(container.config.outputRoot, 'mand-mobile'))
                         .end()
 
@@ -198,7 +198,7 @@ export class VueCliBuilderUniPlugin {
         chain.resolve.symlinks(false)
 
         chain.resolve.alias
-                        .set('@mand-mobile/platform/lib', path.join(container.config.outputRoot, '_platform/uni'))
+                        .set('@mand-mobile/platform-runtime/lib', path.join(container.config.outputRoot, '_platform/uni'))
                         .set('mand-mobile/lib', path.join(container.config.outputRoot, 'mand-mobile'))
                         .end()
 

@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import {Dom} from '@mand-mobile/platform/lib/runtime/module'
+import {Dom} from '@mand-mobile/platform-runtime/lib/module'
 import {flatStyleObject} from '@mand-mobile/shared/lib/util'
 
 export default {

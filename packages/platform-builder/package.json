@@ -20,6 +20,10 @@
   },
   "author": "",
   "license": "ISC",
+  "peerDependencies": {
+    "@mand-mobile/components": "^3.0.1-alpha.9",
+    "@mand-mobile/platform-runtime": "^3.0.1-alpha.9"
+  },
   "dependencies": {
     "@dcloudio/uni-cli-shared": "^2.0.0-26920200424005",
     "@dcloudio/uni-h5": "^2.0.0-26920200424005",
@@ -33,8 +37,6 @@
     "@dcloudio/vue-cli-plugin-uni-optimize": "^2.0.0-26920200424005",
     "@dcloudio/webpack-uni-mp-loader": "^2.0.0-26920200424005",
     "@dcloudio/webpack-uni-pages-loader": "^2.0.0-26920200424005",
-    "@mand-mobile/components": "^3.0.1-alpha.9",
-    "@mand-mobile/platform": "^3.0.1-alpha.9",
     "@rollup/plugin-alias": "^3.1.1",
     "@rollup/plugin-babel": "^5.0.4",
     "@rollup/plugin-node-resolve": "^8.4.0",

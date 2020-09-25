@@ -35,8 +35,9 @@
   </div>
 </template>
 
-<script>import {camelize, inBrowser, ismp} from '@mand-mobile/shared/lib/util'
-import {Dom} from '@mand-mobile/platform/lib/runtime/module'
+<script>
+import {camelize, inBrowser, ismp} from '@mand-mobile/shared/lib/util'
+import {Dom} from '@mand-mobile/platform-runtime/lib/module'
 export default {
   name: 'md-tag',
   props: {
@@ -140,7 +141,8 @@ export default {
     })
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-tag

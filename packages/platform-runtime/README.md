@@ -29,7 +29,7 @@ Runtime shims and compiletime plugins for smoothing out differences between plat
 #### Usage
 
 ```javascript
-import TransitionPrimitive from '@mand-mobile/platform/lib/runtime/component/transition'
+import TransitionPrimitive from '@mand-mobile/platform-runtime/lib/component/transition'
 ```
 
 #### Props
@@ -53,7 +53,7 @@ import TransitionPrimitive from '@mand-mobile/platform/lib/runtime/component/tra
 #### Usage
 
 ```javascript
-import ScrollViewPrimitive from '@mand-mobile/platform/lib/runtime/component/scroll-view'
+import ScrollViewPrimitive from '@mand-mobile/platform-runtime/lib/component/scroll-view'
 ```
 
 #### Props
@@ -86,7 +86,7 @@ import ScrollViewPrimitive from '@mand-mobile/platform/lib/runtime/component/scr
 #### Usage
 
 ```javascript
-import toastFactory from '@mand-mobile/platform/lib/runtime/component/toast'
+import toastFactory from '@mand-mobile/platform-runtime/lib/component/toast'
 ```
 
 #### Methods
@@ -98,7 +98,7 @@ import toastFactory from '@mand-mobile/platform/lib/runtime/component/toast'
 #### Usage
 
 ```javascript
-import dialogFactory from '@mand-mobile/platform/lib/runtime/component/dialog'
+import dialogFactory from '@mand-mobile/platform-runtime/lib/component/dialog'
 ```
 
 #### Methods
@@ -110,7 +110,7 @@ import dialogFactory from '@mand-mobile/platform/lib/runtime/component/dialog'
 #### Usage
 
 ```javascript
-import actionSheetFactory from '@mand-mobile/platform/lib/runtime/component/action-sheet'
+import actionSheetFactory from '@mand-mobile/platform-runtime/lib/component/action-sheet'
 ```
 
 #### Methods
@@ -125,7 +125,7 @@ import actionSheetFactory from '@mand-mobile/platform/lib/runtime/component/acti
 #### Usage
 
 ```javascript
-import {Dom} from '@mand-mobile/platform/lib/runtime/module'
+import {Dom} from '@mand-mobile/platform-runtime/lib/module'
 
 const $MDDom = Dom.bind(this) // scoped selector like refs
 $MDDom().querySelector('xxxx').getScrollOffset()
@@ -245,7 +245,7 @@ export default {
 #### Usage
 
 ```javascript
-import {Device} from '@mand-mobile/platform/lib/runtime/module'
+import {Device} from '@mand-mobile/platform-runtime/lib/module'
 
 const device = Device()
 device.vibrate()
