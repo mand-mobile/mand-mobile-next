@@ -1,15 +1,22 @@
+const path = require('path')
+const {create} = require('./__helper__/create')
+
 jest.setTimeout(80000)
 
-const {create} = require('./__helper__/create')
+let project: any
+
+beforeAll(async () => {
+
+  project = await create('mand-mobile', {})
+
+})  
+
+afterAll(async () => {
+  await project.destory()
+})
 
 test('should run registerd command success', async () => {
  
-  const plugins = {
-    '@vue/cli-plugin-babel': {},
-  }
-  
-  const project = await create('mand-mobile', {plugins})
-
   await project.write('src/main.js', `
   const x = function () {
     setTimeout(
@@ -19,8 +26,10 @@ test('should run registerd command success', async () => {
   }
   x(1, 2)
   `)
-
   await project.run('vue-cli-service md-install')
 
   expect(1).toBe(1)
 })
+
+
+test

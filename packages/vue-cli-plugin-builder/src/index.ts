@@ -2,7 +2,7 @@ import R from 'ramda'
 import * as path from 'path'
 // import WebpackChain from 'webpack-chain/types'
 
-import {} from '@mand-mobile/platform-builder'
+// import {} from '@mand-mobile/platform-builder'
 
 
 const commands = ['md-preview', 'md-install']
