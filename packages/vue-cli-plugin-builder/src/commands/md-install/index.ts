@@ -9,6 +9,8 @@ export = (api: any) => async (args: any) => {
   const config = api.resolveWebpackConfig()
   
 
+  console.info(`md install was called!`)
+
   return 
 
 }

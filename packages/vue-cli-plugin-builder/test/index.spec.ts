@@ -20,7 +20,7 @@ test('should run registerd command success', async () => {
   x(1, 2)
   `)
 
-  await project.run('vue-cli-service md-build')
+  await project.run('vue-cli-service md-install')
 
   expect(1).toBe(1)
 })
