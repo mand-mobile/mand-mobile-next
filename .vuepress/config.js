@@ -36,6 +36,9 @@ module.exports = {
   ],
   themeConfig: {
     logo: 'https://manhattan.didistatic.com/static/manhattan/mand/docs/mand-logo-black.svg',
+    demoConfig: {
+      shadowMode: false
+    },
     locales: {
       '/': {
         nav: [
@@ -85,14 +88,14 @@ module.exports = {
   patterns: [
     // '**/*.vue',
      '**/*.md',
-    // '**/packages/**/button/**/*.md',
+    // '**/packages/**/action-bar/**/*.md',
     '!**/packages/examples/**',
+    '!**/packages/mand-mobile/**',
     '!**/node_modules/**',
     '!**/.mand-mobile/**',
-    // '!**/test/**/*.spec.js',
-    // '**/packages/components/src/button/*.md',
-    // '!./packages/**/*.md',
-    // './packages/components/**/*.md',
+    '!**/lib/**',
+    '!**/lib-vw/**',
+    '!**/dist/**'
   ],
   markdown: {
     toc: { includeLevel: [2, 3, 4] }
@@ -114,14 +117,21 @@ module.exports = {
   ],
   stylus: {
     import: [
-      resolve('./theme/styles/mand-mobile.styl')
+      resolve('../packages/shared/src/style/mixin/util'),
+      resolve('../packages/shared/src/style/mixin/theme.components'),
+      resolve('../packages/shared/src/style/mixin/theme.basic'),
+      // resolve('../packages/shared/src/style/global.styl'),
+      // resolve('./theme/styles/mand-mobile')
     ]
   },
-  configureWebpack: config => {
-    config.resolve.alias['mand-mobile/lib'] = resolve('../packages/components/src')
-    config.resolve.alias['@mand-mobile/platform/lib'] = resolve('../packages/platform/src/web')
-    config.resolve.alias['@mand-mobile'] = resolve('../packages')
+  chainWebpack: (config, isServer) => {
+    config.resolve.alias
+      .set('mand-mobile/lib', resolve('../packages/components/src'))
+      .set('@mand-mobile/platform/lib', resolve('../packages/platform/src/web'))
+      .set('@mand-mobile', resolve('../packages'))
 
-    config.resolve.extensions = ['.web.js', '.web.vue', '.js', '.vue', '.json']
+    config.resolve.extensions
+      .prepend('.web.js')
+      .prepend('.web.vue')
   }
 }
