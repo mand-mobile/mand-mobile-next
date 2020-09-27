@@ -28,3 +28,4 @@ packages/builder-core/coverage
 packages/builder-core/test/__temp__/
 packages/components/test/coverage
 
+packages/vue-cli-plugin-builder/coverage
