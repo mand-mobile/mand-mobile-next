@@ -29,3 +29,9 @@ packages/builder-core/test/__temp__/
 packages/components/test/coverage
 
 packages/vue-cli-plugin-builder/coverage
+packages/vue-cli-plugin-builder/coverage/clover.xml
+packages/vue-cli-plugin-builder/coverage/coverage-final.json
+packages/vue-cli-plugin-builder/coverage/lcov.info
+packages/vue-cli-plugin-builder/coverage/lcov-report/create.ts.html
+packages/vue-cli-plugin-builder/coverage/lcov-report/createTestProject.js.html
+packages/vue-cli-plugin-builder/coverage/lcov-report/index.html
