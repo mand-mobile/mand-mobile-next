@@ -30,9 +30,9 @@ export default {
     },
   },
   mounted () {
-    console.log(this.$route)
-    console.log(this.$page)
-    console.log(this.$site)
+    // console.log(this.$route)
+    // console.log(this.$page)
+    // console.log(this.$site)
   }
 }
 </script>

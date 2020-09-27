@@ -14,12 +14,13 @@
       </section>
     </header>
     <div class="md-doc-demo_content">
-      <div v-if="dynamicComponent" class="md-doc-demo_content_case" :style="{height: getMetaInfo('height') ? `${getMetaInfo('height')}px` : 'auto'}">
-        <ClientOnly>
+      <div class="md-doc-demo_content_case" :style="{height: getMetaInfo('height') ? `${getMetaInfo('height')}px` : 'auto'}">
+        <ClientOnly v-if="dynamicComponent">
           <component :is="dynamicComponent" :style="{ zoom }"/>
         </ClientOnly>
+        <a-skeleton v-else active :title="false" />
       </div>
-      <a-skeleton v-else active :title="false" />
+      
     </div>
     <div class="md-doc-demo_code">
       <ul class="md-doc-demo_code_tab">
@@ -53,6 +54,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import Icon from 'ant-design-vue/lib/icon'
 import Tooltip from 'ant-design-vue/lib/tooltip'
 import Skeleton from 'ant-design-vue/lib/skeleton'
@@ -84,29 +86,46 @@ export default {
       const info = this.metaInfo[this.$lang]
       return info || this.metaInfo
     },
+    shadowMode () {
+      return this.$site.themeConfig.demoConfig.shadowMode
+    },
   },
   mounted () {
     if (this.path) {
+      /* webpackInclude: /demo\/cases(.*)\/(.*)\.vue/ */
+      /* webpackMode: "eager" */
+      // `mand-mobile/lib/${this.path}`
       import(
         /* webpackInclude: /demo\/cases(.*)\/(.*)\.vue/ */
         `mand-mobile/lib/${this.path}`
       ).then(module => {
-        this.dynamicComponent = module.default
+        this.resize(zoom => {
+          if (this.shadowMode) {
+            this.renderShadowDemo(module.default)
+            this.renderShadowDemoStyle({ zoom })
+          } else {
+            this.dynamicComponent = module.default
+          }
+        })
+        // console.log(module)
         this.metaInfo = Object.assign({}, this.metaInfo, module.metaInfo)
-        this.resize()
       }).catch(err => {
         console.log(err)
       })
     }
 
-    window.addEventListener('resize', this.resize.bind(this))
+    // window.addEventListener('resize', () => {
+    //   this.resize.call(this, zoom => {
+    //     this.renderDemoStyle({ zoom })
+    //   })
+    // })
   },
   methods: {
-    resize () {
+    resize (fn) {
       this.$nextTick(() => {
         const content = this.$el.querySelector('.md-doc-demo_content_case')
-        if (content) {
-          this.zoom = content.clientWidth / 750
+        if (content && fn.call) {
+          fn.call(this, this.zoom = content.clientWidth / 750)
         }
       })
     },
@@ -115,6 +134,36 @@ export default {
     },
     getMetaInfo (prop) {
       return this.demoInfo[prop] || this.metaInfo[prop]
+    },
+    renderShadowDemo (MyComponent = {}) {
+      const treeHead = this.$el.querySelector('.md-doc-demo_content_case')
+      const holder = document.createElement('div')
+      const style = document.createElement( 'style' )
+      const shadowRoot = treeHead.attachShadow({mode: 'open'})
+
+      style.type = 'text/css'
+      style.id = 'zoomStyle'
+
+      shadowRoot.appendChild(style)
+      shadowRoot.appendChild(holder)
+
+      const app = new Vue({
+        el: holder,
+        shadowRoot,
+        render: h => h(MyComponent, {})
+      }).$mount()
+
+      this.shadowRoot = shadowRoot
+    },
+    renderShadowDemoStyle (styles) {
+      if (!this.shadowMode || !this.shadowRoot) {
+        return
+      }
+      const styleConent = Object.keys(styles).reduce((pre, cur) => {
+        return pre += `${cur}:${styles[cur]};`
+      }, '')
+      
+      this.shadowRoot.querySelector('#zoomStyle').textContent = `.md-example-child { ${styleConent} }`
     }
   }
 }
@@ -149,7 +198,7 @@ export default {
   .md-doc-demo_content
     .md-doc-demo_content_case
       max-width 450px
-      margin 0 auto
+      margin 1.5em auto
       /deep/.md-example-child
         padding 1.5em
         zoom .6

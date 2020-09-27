@@ -68,7 +68,7 @@ export default {
     .suggestions
       top 3.2em
       border-color #E2E4EA
-      z-index 2
+      z-index 3
       .suggestion
         font-size .9em
 @media (max-width: 1500px)
