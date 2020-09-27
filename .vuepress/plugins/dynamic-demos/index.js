@@ -173,6 +173,94 @@ function demos (md, options = {}) {
   md.block.ruler.before('fence', 'demos', parser)
 }
 
-module.exports = {
-  extendMarkdown: demos
+// module.exports = {
+//   extendMarkdown: demos
+// }
+module.exports = (options, context) => {
+  options.extendMarkdown = demos
+  
+  options.chainWebpack = (config, isServer) => {
+    const {
+      siteConfig,
+      cacheDirectory,
+      cacheIdentifier,
+    } = context
+
+    function createVueRule (shadowTarget) {
+      const baseRule = config.module.rule('vue').test(/\.vue$/)
+      const shadowRule = config.module.rule('vue-shadow').test(/packages(.*)\/(.*)\.vue$/)
+      const baseOptions = {
+        compilerOptions: {
+          preserveWhitespace: true
+        },
+        cacheDirectory,
+        cacheIdentifier: cacheIdentifier + `isServer:${isServer}`
+      }
+
+      baseRule.uses.clear()
+
+      baseRule
+        .exclude.add(path.resolve(__dirname, '../../../packages')).end()
+          .use('vue-loader')
+          .loader('vue-loader')
+          .options(baseOptions)
+          .end()
+      shadowRule
+        // .include.add(shadowTarget).end()
+          .use('vue-loader')
+          .loader('vue-loader')
+          .options({
+            shadowMode: true,
+            ...baseOptions
+          })
+    }
+
+    function createShadowCSSRule (lang, test, loader, options) {
+      const baseRule = config.module.rule(lang).test(test).sideEffects(true)
+      // const baseRule = config.module.rule(lang).test(test)
+      // baseRule.uses.clear()
+      const shadowRule = baseRule.oneOf('shadow').before('normal')
+        .include
+          .add(path.resolve(__dirname, '../../../packages'))
+          .end()
+        .exclude
+          .add(path.resolve(__dirname, '../../../packages/components/src/dialog'))
+          .add(path.resolve(__dirname, '../../../packages/components/src/toast'))
+          // .add(path.resolve(__dirname, '../../../packages/shared'))
+          .end()
+
+      shadowRule
+        .use('vue-style-loader')
+        .loader('vue-style-loader')
+        .options({
+          shadowMode: true
+        })
+
+      shadowRule.use('css-loader')
+        .loader('css-loader')
+        .options({
+          localIdentName: `[local]_[hash:base64:8]`,
+          importLoaders: 1,
+          exportOnlyLocals: isServer
+        })
+
+      shadowRule.use('postcss-loader').loader('postcss-loader').options(Object.assign({
+          plugins: [require('autoprefixer')],
+        }, siteConfig.postcss))
+
+      if (loader) {
+        shadowRule.use(loader).loader(loader).options(options)
+      }
+    }
+
+    if (siteConfig.themeConfig.demoConfig.shadowMode) {
+      createVueRule()
+      createShadowCSSRule('css', /\.css$/)
+      createShadowCSSRule('stylus', /\.styl(us)?$/, 'stylus-loader', Object.assign({
+        preferPathResolver: 'webpack'
+      }, siteConfig.stylus))
+    }
+  }
+
+  return options
 }

@@ -18,10 +18,7 @@ exports.addPages = function (name, options, ctx) {
 
   const pageFiles = sort(globby.sync([
     `**/*.${name}.md`,
-    '!.vuepress',
-    '!node_modules',
-    '!**/node_modules/**',
-    '!**/.mand-mobile/**',
+    ...options.patterns
   ], { cwd: ctx.sourceDir }))
 
   pageFiles.map(relative => {
