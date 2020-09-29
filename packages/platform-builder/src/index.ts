@@ -154,15 +154,19 @@ export interface IMandPlugins {
 export interface IContainerConfig {
   outputRoot?: string,
   artifactRoot?: string,
-  plugins?: any[]
+  plugins?: any[],
+  context?: any,
+  autoClean?: boolean,
 }
 
 export class BuilderContainer {
 
   private _config: {
-    outputRoot?: string
-  } = {}
+    outputRoot?: string,
+    autoClean?: boolean,
+  } = {autoClean: false}
 
+  public context = {}
   get config(): IContainerConfig {
     return this._config
   }
@@ -170,12 +174,14 @@ export class BuilderContainer {
 
   public hooks = {
 
+    setContext: new tapable.SyncHook(['context']),
+    setAliasMapper: new tapable.SyncHook(['aliasMapper']),
+
     addTemplates: new tapable.SyncHook(['templates']),
     addLinks: new tapable.SyncHook(['linkpaths']),
 
     // 当容器创建完成之后执行相关操作
     afterContainerCreated: new tapable.SyncHook([]),
-
   
     extendsBabelConfig: new tapable.SyncHook(['babelConfig']),
     extendsPostcssConfig: new tapable.SyncHook(['postcssConfig']),
@@ -192,7 +198,7 @@ export class BuilderContainer {
     serve?: (config: any, container) => void
   } = {}
 
-  constructor(cfg: any = {
+  constructor(cfg: IContainerConfig = {
     outputRoot: '',
     artifactRoot: '',
     plugins:  [],
@@ -202,6 +208,7 @@ export class BuilderContainer {
 
     const plugins = cfg.plugins || []
 
+    // 注册构建命令
     R.forEach(([plugin, pluginOptions = {}]) => {
 
       if (plugin instanceof Function) {
@@ -217,7 +224,6 @@ export class BuilderContainer {
       plugin.serve && (this.internalCommand.serve = plugin.serve.bind(plugin))
 
     })(plugins)
-
   }
 
   /**
@@ -225,14 +231,18 @@ export class BuilderContainer {
    */
   public async create(): Promise<void> {
 
+    this.hooks.setContext.call(this.context)
+
     const templates: Array<[{
       template,
       renderer,
     }, {[prop: string]: any}]> = [] 
 
+
     type source = string
     type target = string
     const linkpaths: Array<[source, target]> = []
+
 
     this.hooks.addTemplates.call(templates)
     this.hooks.addLinks.call(linkpaths)
@@ -271,9 +281,19 @@ export class BuilderContainer {
 
     // 清空stylus上下文，保证每一次构建都是全新的stylus
     // delete require.cache['stylus']
-    const stylusConfig = {}
-    const babelConfig = {}
-    const postcssConfig = {}
+    const stylusConfig = {
+      plugins: []
+    }
+    const babelConfig = {
+      plugins: []
+    }
+    const postcssConfig = {
+      plugins: []
+    }
+
+    // [from, to]
+    const aliasMapper = new Set<[string, string]>()
+    this.hooks.setAliasMapper.call(aliasMapper)
 
     // @fixme 需要对stylus的重复配置做清空动作
     this.hooks.extendsStylus.call(stylusConfig)
@@ -282,9 +302,9 @@ export class BuilderContainer {
     
     // 如果插件实现了命令，则优先调用
     if (this.internalCommand.build) {
-      return this.internalCommand.build({babelConfig, postcssConfig, stylusConfig}, this) 
+      return this.internalCommand.build({babelConfig, postcssConfig, stylusConfig, aliasMapper}, this) 
     }
-    return this.hooks.setBuildTasks.promise({babelConfig, postcssConfig, stylusConfig})
+    return this.hooks.setBuildTasks.promise({babelConfig, postcssConfig, stylusConfig, aliasMapper})
   }
 
 
@@ -292,10 +312,20 @@ export class BuilderContainer {
    * 开启调试
    */
   public async serve() {
-    const stylusConfig = {}
-    const babelConfig = {}
-    const postcssConfig = {}
 
+    
+    const stylusConfig = {
+      plugins: []
+    }
+    const babelConfig = {
+      plugins: []
+    }
+    const postcssConfig = {
+      plugins: []
+    }
+    const aliasMapper = new Set<[string, string]>()
+
+    this.hooks.setAliasMapper.call(aliasMapper)
     // @fixme 需要对stylus的重复配置做清空动作
     this.hooks.extendsStylus.call(stylusConfig)
     this.hooks.extendsBabelConfig.call(babelConfig)
@@ -303,9 +333,9 @@ export class BuilderContainer {
 
     // 如果插件实现了命令，则优先调用
     if (this.internalCommand.serve) {
-      return this.internalCommand.serve({babelConfig, postcssConfig, stylusConfig}, this) 
+      return this.internalCommand.serve({babelConfig, postcssConfig, stylusConfig, aliasMapper}, this) 
     }
-    return this.hooks.setServeTasks.promise({babelConfig, postcssConfig, stylusConfig})
+    return this.hooks.setServeTasks.promise({babelConfig, postcssConfig, stylusConfig, aliasMapper})
   }
 
   /**

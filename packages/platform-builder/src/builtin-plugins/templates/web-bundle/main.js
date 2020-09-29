@@ -4,7 +4,7 @@ import '@mand-mobile/shared/lib/style/global.styl'
 
 // example: import Button from '@mand-mobile/components/src/button'
 <% components.forEach((component) => { %>
- import <%- component.camelCaseStyledName %> from './_mand-mobile/<%- component.dashedStyledName %>'
+ import <%- component.camelCaseStyledName %> from './mand-mobile/<%- component.dashedStyledName %>'
 <% }) %>
 
 

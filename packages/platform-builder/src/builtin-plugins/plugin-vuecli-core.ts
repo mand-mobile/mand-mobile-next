@@ -3,34 +3,30 @@ import * as R from 'ramda'
 
 import { BuilderContainer } from '../index';
 import { resolveComponents, resolveCategory, chainExtendsHandler, packagesResolver } from '../helper'
+import { PlatformSetupPlugin } from '.';
 
 const Service = require('@vue/cli-service')
 
 export class VueCliBuilderPlugin {
-
+  public static  NS = 'vue-cli-builder-plugin'
   constructor(private readonly options: any = {}) { }
 
   public apply(container: BuilderContainer) {
 
-    const components = resolveComponents({platform: 'web', componentSource: packagesResolver('@mand-mobile/components', 'src')})
-    const category = resolveCategory(components)
-
     // 创建模板容器
     // 构建模板,单组件模式
     if (this.options.single) {
-      const component = R.find((item) => item.name === this.options.componentName, components)
-
-      if (!component) {
-        throw new Error(`[vueCliBuilder] cannot find target component in single component mode`)
-      }
-      container.hooks.addTemplates.tap('vueCliBuilder', templates => {
+      container.hooks.addTemplates.tap(VueCliBuilderPlugin.NS, templates => {
+        const category = container.context[PlatformSetupPlugin.NS].category
         templates.push([{
           template: path.resolve(__dirname, 'templates/web-preview/preview-single'),
           renderer: '.',
         }, {category: category}])
       })
 
-      container.hooks.addTemplates.tap('vueCliBuilder', templates => {
+      container.hooks.addTemplates.tap(VueCliBuilderPlugin.NS, templates => {
+        const components: any[] = container.context[PlatformSetupPlugin.NS].components
+        const component = R.find((item) => item.name === this.options.componentName, components)
         templates.push([{
           template: path.resolve(__dirname, 'templates/web-preview/common/demo-group.vue'),
           renderer: `pages/demo-group.vue`
@@ -41,7 +37,9 @@ export class VueCliBuilderPlugin {
     // 构建模板，多组件模式  
     } else {
       // 渲染容器
-      container.hooks.addTemplates.tap('vueCliBuilder', templates => {
+      container.hooks.addTemplates.tap(VueCliBuilderPlugin.NS, templates => {
+        const components: any[] = container.context[PlatformSetupPlugin.NS].components
+        const category = container.context[PlatformSetupPlugin.NS].category
         templates.push([{
           template: path.resolve(__dirname, 'templates/web-preview/preview-batch'),
           renderer: '.',
@@ -49,71 +47,40 @@ export class VueCliBuilderPlugin {
       })
 
       // 渲染组件demo入口
-      R.forEach(component =>  {
-        container.hooks.addTemplates.tap('vueCliBuilder', templates => {
+      container.hooks.addTemplates.tap(VueCliBuilderPlugin.NS, templates => {
+        const components: any[] = container.context[PlatformSetupPlugin.NS].components
+        R.forEach(component => {
           templates.push([{
             template: path.resolve(__dirname, 'templates/web-preview/common/demo-group.vue'),
             renderer: `pages/${component.name}.vue`
           }, {component}])
-        })
-      }, components)
+        }, components)
+      })
     }
 
     // 指定vue-cli 需要的package.json目录，防止被其余插件影响
-    container.hooks.addTemplates.tap('vueCliBuilder', template => {
+    container.hooks.addTemplates.tap(VueCliBuilderPlugin.NS, template => {
       template.push([{template: path.resolve(__dirname, 'templates/web-preview/common/package.json'), renderer: 'package.json'}])
     })
 
     // 为容器启动添加 node_modules依赖 
     // @Fixme 替换相对路径
-    container.hooks.addLinks.tap('vueCliBuilder', linkpaths => {
+    container.hooks.addLinks.tap(VueCliBuilderPlugin.NS, linkpaths => {
       linkpaths.push({
         source: path.resolve(__dirname, '../../node_modules'),
         target: 'node_modules',
       })
     })
 
-    // 添加源码到组件文件夹下
-    container.hooks.addLinks.tap('vueCliBuilder', linkpaths => {
-      linkpaths.push({
-        source: packagesResolver('@mand-mobile/components', 'src'),
-        target: 'mand-mobile'
-      })
-    })
-
-
-    // 设置编译内容
-    container.hooks.extendsStylus.tap('vueCliBuilder', options => {
-      const result = [
-        packagesResolver('@mand-mobile/shared', 'lib/style/mixin/theme.basic.styl'),
-        packagesResolver('@mand-mobile/shared', 'lib/style/mixin/theme.components.styl'),
-        packagesResolver('@mand-mobile/shared', 'lib/style/mixin/util.styl'),
-      ]
-      options.imports = (options.imports || [])
-      options.imports.push(...result)
-    })
-
-    container.hooks.extendsBabelConfig.tap('vueCliBuilder', babelConfig => {})
-
-    container.hooks.extendsPostcssConfig.tap('vueCliBuilder', postcssConfig => {
+    container.hooks.extendsPostcssConfig.tap(VueCliBuilderPlugin.NS, postcssConfig => {
       postcssConfig.plugins = [...(postcssConfig.plugins || []),
-        require('postcss-url')({url: 'inline'}),
-        require('cssnano')({
-          preset: ['default', {
-            zindex: false,
-            mergeIdents: false,
-            discardUnused: false,
-            autoprefixer: false,
-            reduceIdents: false,
-          }]
-        }),
         require('postcss-pxtorem')({rootValue: 100, minPixelValue: 2}),
       ]
     })
   }
 
   public async build(builderContext, container: BuilderContainer): Promise<void> {
-    const { babelConfig, postcssConfig, stylusConfig } = builderContext
+    const { babelConfig, postcssConfig, stylusConfig, aliasMapper } = builderContext
 
     const service = new Service(container.config.outputRoot)
 
@@ -130,7 +97,10 @@ export class VueCliBuilderPlugin {
 
         chain.resolve.symlinks(false)
 
-        chain.resolve.alias.set('mand-mobile/lib', path.join(container.config.outputRoot, 'mand-mobile')).end()
+        aliasMapper.forEach(([from , to]) => {
+          chain.resolve.alias.set(from, to).end()
+        })
+        // chain.resolve.alias.set('mand-mobile/lib', path.join(container.config.outputRoot, 'mand-mobile')).end()
 
         // 扩展.web.[ext]后缀，并提升优先级
         const extFiletypes = Array.from(chain.resolve.extensions.store)
@@ -143,7 +113,7 @@ export class VueCliBuilderPlugin {
 
 
   public async serve(builderContext, container) {
-    const { babelConfig, postcssConfig, stylusConfig } = builderContext
+    const { babelConfig, postcssConfig, stylusConfig, aliasMapper } = builderContext
 
     const service = new Service(container.config.outputRoot)
       //@todo set mode process.env.VUE_CLI_MODE
@@ -156,7 +126,9 @@ export class VueCliBuilderPlugin {
 
         chain.resolve.symlinks(false)
       
-        chain.resolve.alias.set('mand-mobile/lib', path.join(container.config.outputRoot, 'mand-mobile')).end()
+        aliasMapper.forEach(([from , to]) => {
+          chain.resolve.alias.set(from, to).end()
+        })
 
         // 扩展.web.[ext]后缀，并提升优先级
         const extFiletypes = Array.from(chain.resolve.extensions.store)

@@ -19,7 +19,7 @@ const FORMAT_UMD_MODULE = 'umd'
 export const rollupConfigBuilder = ({builderContext, entry, artifactRoot = 'dist'}) => {
   // const context = webpackConfig.context
 
-  const {babelConfig, stylusConfig, postcssConfig} = builderContext
+  const {babelConfig, stylusConfig, postcssConfig, aliasMapper} = builderContext
 
   let extensions =  ['.vue', '.js' , '.json', '.ts']
 
@@ -27,6 +27,12 @@ export const rollupConfigBuilder = ({builderContext, entry, artifactRoot = 'dist
 
   const customResolver = rplgNodeResolve({
     extensions,
+  })
+
+
+  let entries = {}
+  aliasMapper.forEach(([from, to]) => {
+    entries[from] = to
   })
 
   const inputOptions = {
@@ -37,7 +43,7 @@ export const rollupConfigBuilder = ({builderContext, entry, artifactRoot = 'dist
     external: ['vue'],
     plugins: [
       rplgAlias({
-        entries: [{find: /^@mand-mobile\/platform-runtime\/lib\/(.*)/, replacement: '@mand-mobile/platform-runtime/lib/web/$1'}],
+        entries,
         customResolver,
       }),
       rplgNodeResolve({extensions}),

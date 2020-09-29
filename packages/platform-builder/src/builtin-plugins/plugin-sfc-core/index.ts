@@ -2,17 +2,13 @@ import * as assert from 'assert'
 import * as path from 'path'
 import fs from 'fs-extra'
 import R from 'ramda'
-
 import { BuilderContainer } from '../../index'
-import { packagesResolver } from '../../helper'
-
 const find = require('find')
 const {parse} = require('@vue/compiler-dom')
 const stylus = require('stylus')
 const prettier = require('prettier')
 const { transform } = require('@babel/core')
 const compPlugin = require('../../babel-plugins/babel-transform-memberExpression')
-const platformPlugin = require('../../babel-plugins/babel-transform-platform')
 
 interface IStyleOptions {
   stylusConfig?,
@@ -33,11 +29,11 @@ const styleCompiler = (ast, options: IStyleOptions = {}) => {
   .forEach(t => {
     if (transformTo === 'css') {
       t.children.forEach(styl => {
-        stylus(styl.loc.source)
-        .render((err, css) => {
+        stylus
+        .render(styl.loc.source, stylusConfig, (err, css) => {
           if (err) throw err
           code += `<style>${css}</style>`
-        }, stylusConfig)
+        })
       })
     }
     if (!transformTo) {
@@ -157,54 +153,17 @@ const templateCompiler = (ast, options = {}) => {
   return code
 }
 
-
-
-
 export class VueSFCBuilderPlugin {
 
   constructor(private readonly options = {transformTo: false, platform: 'web'}) { }
 
   public apply(container: BuilderContainer) {
-
-    // const components = resolveComponents({platform: 'web', componentSource: packagesResolver('@mand-mobile/components', 'src')})
-
-
-    // 纯用于复制一份组件库文件到目标容器文件夹下
-    container.hooks.addTemplates.tap('vueCliBuilder', template => {
-      template.push([{ template: packagesResolver('@mand-mobile/components', 'src'), renderer: '_mand-mobile' }, {}])
-    })
-
-
-    // 移除掉和本平台无关的模板文件
-    container.hooks.afterContainerCreated.tap('vueCliBuilder', () => {
-      const componetRoot = path.resolve(container.config.outputRoot, '_mand-mobile')
-      const platform = this.options.platform || 'web'
-      const files = find.fileSync(/\.(js|vue|ts)$/, componetRoot)
-
-      R.forEach((file: string) => {
-        const dirname = path.dirname(file)
-          const basename = path.basename(file)
-          const result = basename.split('.')
-          if (result.length === 3 && result[1]) {
-            if (result[1] === platform) {
-              fs.moveSync(file, `${dirname}/${result[0]}.${result[2]}`, { overwrite: true })
-            } else if (result[1] !== '') {
-              fs.removeSync(file)
-            }
-          }
-      }, files)
-
-
-    })
-
     container.hooks.extendsBabelConfig.tap('vueCliBuilder', (babelConfig) => {
       babelConfig.plugins = babelConfig.plugins || []
       babelConfig.plugins.push(
         compPlugin,
-        [platformPlugin, {platform: this.options.platform}],
       )
     })
-
   }
 
   public async build(builderContext, container: BuilderContainer): Promise<unknown> {
@@ -212,8 +171,6 @@ export class VueSFCBuilderPlugin {
     const { babelConfig, postcssConfig, stylusConfig } = builderContext
     const componentRoot = path.resolve(container.config.outputRoot, '_mand-mobile')
     const distRoot = container.config.artifactRoot
-
-    // const readFile = 
 
     const filepipe = ({from, to}, transpile: (source: Buffer) => Buffer) => {
       const op = {
@@ -273,7 +230,6 @@ export class VueSFCBuilderPlugin {
 
     const files = find.fileSync(componentRoot)
     const compileAndDist = R.forEach((file: string) => {
-
         const reg = new RegExp(`^${componentRoot}\/.*(test|demo)\/.*$`)
         if ( reg.test(file)) return 
         const distfilePath = path.relative(componentRoot, file)

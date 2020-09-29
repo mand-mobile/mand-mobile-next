@@ -8,7 +8,6 @@ const find = require('find')
 const stylus = require('stylus')
 const { transform } = require('@babel/core')
 const compPlugin = require('../babel-plugins/babel-transform-memberExpression')
-const platformPlugin = require('../babel-plugins/babel-transform-platform')
 const { compiler } = require('zp-vueify')
 
 function babelPluginInsertCssImportForVue({ types: t }) {
@@ -24,59 +23,22 @@ function babelPluginInsertCssImportForVue({ types: t }) {
   }
 }
 export class VueifySFCBuilderPlugin {
-
+  public static NS = 'vueify-sfc-builder-plugin'
   constructor(private readonly options = { transformTo: false, platform: 'web' }) { }
 
   public apply(container: BuilderContainer) {
 
-    // 设置全局样式变量
-    container.hooks.extendsStylus.tap('vueCliBuilder', options => {
-      const result = [
-        packagesResolver('@mand-mobile/shared', 'lib/style/mixin/theme.basic.styl'),
-        packagesResolver('@mand-mobile/shared', 'lib/style/mixin/theme.components.styl'),
-        packagesResolver('@mand-mobile/shared', 'lib/style/mixin/util.styl'),
-      ]
-      options.imports = (options.imports || [])
-      options.imports.push(...result)
-    })
-
-
-    // 纯用于复制一份组件库文件到目标容器文件夹下
-    container.hooks.addTemplates.tap('vueCliBuilder', template => {
-      template.push([{ template: packagesResolver('@mand-mobile/components', 'src'), renderer: '_mand-mobile' }, {}])
-    })
-
-    // 移除掉和本平台无关的模板文件
-    container.hooks.afterContainerCreated.tap('vueCliBuilder', () => {
-      const componetRoot = path.resolve(container.config.outputRoot, '_mand-mobile')
-      const platform = this.options.platform || 'web'
-      const files = find.fileSync(/\.(js|vue|ts)$/, componetRoot)
-      R.forEach((file: string) => {
-        const dirname = path.dirname(file)
-        const basename = path.basename(file)
-        const result = basename.split('.')
-        if (result.length === 3 && result[1]) {
-          if (result[1] === platform) {
-            fs.moveSync(file, `${dirname}/${result[0]}.${result[2]}`, { overwrite: true })
-          } else if (result[1] !== '') {
-            fs.removeSync(file)
-          }
-        }
-      }, files)
-    })
-
-    container.hooks.extendsBabelConfig.tap('vueCliBuilder', (babelConfig) => {
+    container.hooks.extendsBabelConfig.tap(VueifySFCBuilderPlugin.NS, (babelConfig) => {
       babelConfig.plugins = babelConfig.plugins || []
       babelConfig.plugins.push(
         compPlugin,
-        [platformPlugin, { platform: this.options.platform }],
       )
     })
 
   }
 
   public async build(builderContext, container: BuilderContainer): Promise<unknown> {
-    //@fixme 
+    //@fixme 针对postcss配置进行编译
     const { babelConfig, postcssConfig, stylusConfig } = builderContext
     const componentRoot = path.resolve(container.config.outputRoot, '_mand-mobile')
     const distRoot = container.config.artifactRoot
