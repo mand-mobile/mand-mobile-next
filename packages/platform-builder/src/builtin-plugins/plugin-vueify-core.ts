@@ -4,6 +4,7 @@ import fs from 'fs-extra'
 import R from 'ramda'
 import { BuilderContainer } from '../index'
 import { packagesResolver } from '../helper'
+import { ComponentsSourceSetupPlugin } from '.'
 const find = require('find')
 const stylus = require('stylus')
 const { transform } = require('@babel/core')
@@ -40,7 +41,9 @@ export class VueifySFCBuilderPlugin {
   public async build(builderContext, container: BuilderContainer): Promise<unknown> {
     //@fixme 针对postcss配置进行编译
     const { babelConfig, postcssConfig, stylusConfig } = builderContext
-    const componentRoot = path.resolve(container.config.outputRoot, '_mand-mobile')
+
+    // @fixme 提取compoentRoot到插件上下文中
+    const componentRoot = container.context[ComponentsSourceSetupPlugin.NS].componentRoot
     const distRoot = container.config.artifactRoot
 
     const filepipe = ({ from, to }: {from: string, to: string}, transpile: (source: Buffer, context: any) => Promise<Buffer>) => {

@@ -71,12 +71,14 @@ export class PlatformSetupPlugin {
 
       // 处理组件
       container.hooks.afterContainerCreated.tap(PlatformSetupPlugin.NS, () => {
-        const componetRoot = fs.statSync(this.componentSource)
-        if (this.removePlatformExt && !componetRoot.isSymbolicLink()) {
+
+        const compoentRoot = container.context[ComponentsSourceSetupPlugin.NS].componentRoot
+        const fst = fs.statSync(compoentRoot)
+        if (this.removePlatformExt && !fst.isSymbolicLink()) {
           const platform = this.platform || 'web'
-          const files = find.fileSync(/\.(js|vue|ts)$/, this.componentSource)
+          const files = find.fileSync(/\.(js|vue|ts)$/, compoentRoot)
           const filehandler = R.forEach((file: string) => {
-            if (anymatch(`${this.componentSource}/**/demo/**`, file)) {
+            if (anymatch(`${compoentRoot}/**/demo/**`, file)) {
               return
             }
             const dirname = path.dirname(file)
@@ -109,6 +111,12 @@ export class ComponentsSourceSetupPlugin {
     this.nameAs = nameAs
   }
   apply(container: BuilderContainer) {
+
+    container.hooks.setContext.tap(ComponentsSourceSetupPlugin.NS, (context) => {
+      context[ComponentsSourceSetupPlugin.NS] = {
+        componentRoot: path.resolve(container.config.outputRoot, this.nameAs)
+      }
+    })
     // 纯用于复制一份组件库文件到目标容器文件夹下
     if (!this.watched) {
       container.hooks.addTemplates.tap(ComponentsSourceSetupPlugin.NS, template => {
