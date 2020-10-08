@@ -3,6 +3,7 @@ import * as path from 'path'
 import fs from 'fs-extra'
 import R from 'ramda'
 import { BuilderContainer } from '../../index'
+import {ComponentsSourceSetupPlugin} from '../index'
 const find = require('find')
 const {parse} = require('@vue/compiler-dom')
 const stylus = require('stylus')
@@ -169,9 +170,9 @@ export class VueSFCBuilderPlugin {
   public async build(builderContext, container: BuilderContainer): Promise<unknown> {
     //@fixme 
     const { babelConfig, postcssConfig, stylusConfig } = builderContext
-    const componentRoot = path.resolve(container.config.outputRoot, '_mand-mobile')
+    const componentRoot = container.context[ComponentsSourceSetupPlugin.NS].componentRoot
     const distRoot = container.config.artifactRoot
-
+    ComponentsSourceSetupPlugin
     const filepipe = ({from, to}, transpile: (source: Buffer) => Buffer) => {
       const op = {
         reader(): Buffer {

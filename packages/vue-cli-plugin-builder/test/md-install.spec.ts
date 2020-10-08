@@ -4,7 +4,6 @@ const TEST_TIMEOUT = 800000
 
 jest.setTimeout(TEST_TIMEOUT)
 
-
 const sleepFactory = (timeout: number) => () => new Promise((res, rej) => setTimeout(res, timeout))
 
 const sleep = sleepFactory(TEST_TIMEOUT / 2)
@@ -19,7 +18,7 @@ afterAll(async () => {
   // await project.destory()
 })
 
-describe.only('md-install test suites', () => {
+describe('md-install test suites', () => {
   // @fixme 应该允许用户传入 --theme 用于自定义主题
   // @fixme 应该允许用户传入 --components-source 用于二次构建需要的bundle|lib|component
   // @fixme --target 可用枚举值为 bundle|lib|sfc
@@ -31,7 +30,7 @@ describe.only('md-install test suites', () => {
     await sleep()
   })
 
-  it.only('should build vueify lib in web platform', async () => {
+  it('should build vueify lib in web platform', async () => {
     await project.run('vue-cli-service md-install --platform web --target lib --output=web/lib')
     await sleep()
   })
@@ -62,22 +61,25 @@ describe.only('md-install test suites', () => {
   })
 })
 
-
-describe('md-preview test suites', () => {
+describe.only('md-preview test suites', () => {
 
   // @fixme 如果传入了 --output 可以产出examples包, 如果NODE_ENV为production的话可以产出生产环境的包
   // @fixme 应该允许用户传入 --components-source，用于开发和调试通过 md-install 生成的组件代码
   // @fixme 允许用户传入--watch 参数，用于支持 componentSource变更之后自动重新构建
-  it('should preview components in web platform', async () => {
-    await project.run('vue-cli-service md-preview --platform web, ')
+  it.only('should preview components in web platform', async () => {
+    console.info('exec this cases')
+    await project.run('vue-cli-service md-preview --platform web')
+    await sleep()
   })
 
   it('should preview components in uni platform', async () => {
     await project.run('vue-cli-service md-preview --platform uni')
+    await sleep()
   })
 
   it('should preview components in web platform with watch and component-source options', async() => {
     await project.run('vue-cli-service md-preview --platform uni --watch')
+    await sleep()
   })
 
 })

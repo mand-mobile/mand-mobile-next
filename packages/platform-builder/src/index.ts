@@ -8,13 +8,9 @@ import * as fs from 'fs-extra'
 
 const execa = require('execa')
 
-/** =========================================Vue Service Segment========================================================== */
-
-
 /** =========================================Constant Utils Segment========================================================== */
 
 const WORKSPACE_DIRECTORY = process.cwd()
-
 
 /** =========================================Renderer Utils Segment========================================================== */
 
@@ -312,7 +308,6 @@ export class BuilderContainer {
    * 开启调试
    */
   public async serve() {
-
     
     const stylusConfig = {
       plugins: []

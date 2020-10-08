@@ -36,12 +36,16 @@ export = (api: any) => async (args: any) => {
   }])
 
   const c = new BuilderContainer({
-    outputRoot: path.resolve(process.cwd(), '__temp__'),
+
+    // 暂时使用一个唯一的时间戳用于创建临时文件
+    outputRoot: path.resolve(process.cwd(), `__temp__/${+(new Date())}`),
     artifactRoot: path.resolve(process.cwd(), args.output),
     plugins,
   })
   await c.create()
   await c.build()
-  return c.destory()
+
+  // 调试期间，暂不销毁构建容器
+  // return c.destory()
 
 }

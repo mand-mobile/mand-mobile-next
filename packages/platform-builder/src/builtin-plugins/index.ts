@@ -66,6 +66,7 @@ export class PlatformSetupPlugin {
       // 传入平台相关代码
       container.hooks.setAliasMapper.tap(ComponentsSourceSetupPlugin.NS, (aliasSet: Set<[string, string]>) => {
         aliasSet.add(['@mand-mobile/platform-runtime/lib', path.resolve(container.config.outputRoot, `${this.nameAs}/${this.platform}`)])
+        // aliasSet.add(['@mand-mobile/platform-runtime/lib', path.resolve(container.config.outputRoot, `${this.nameAs}`)])
       })
 
 
@@ -134,6 +135,7 @@ export class ComponentsSourceSetupPlugin {
 
     container.hooks.setAliasMapper.tap(ComponentsSourceSetupPlugin.NS, (aliasSet: Set<[string, string]>) => {
       aliasSet.add(['mand-mobile/lib', path.resolve(container.config.outputRoot, this.nameAs)])
+      aliasSet.add(['mand-mobile', path.resolve(container.config.outputRoot, this.nameAs)])
     })
   }
 }

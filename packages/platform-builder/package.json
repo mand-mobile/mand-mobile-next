@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
-    "test": "SRPC_DEBUG=true npx jest --coverage test/plugin-vueify-core.spec.ts",
-    "test:watch": "npx jest --coverage  --watch --collectCoverage=false --runInBand --detectOpenHandles",
+    "test":
+      "SRPC_DEBUG=true npx jest --coverage test/plugin-vueify-core.spec.ts",
+    "test:watch":
+      "npx jest --coverage  --watch --collectCoverage=false --runInBand --detectOpenHandles",
     "prebuild": "rm -fr lib",
-    "build": "tsc && cp -r src/builtin-plugins/templates lib/builtin-plugins/templates",
+    "build":
+      "tsc && cp -r src/builtin-plugins/templates lib/builtin-plugins/templates",
     "build:watch": "chokidar \"src/**/*\" -c \"npm run build\""
   },
   "jest": {
@@ -14,17 +17,8 @@
       "^.+\\.ts?$": "ts-jest"
     },
     "testEnvironment": "node",
-    "testMatch": [
-      "**/(*.)+(test|spec).ts"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
+    "testMatch": ["**/(*.)+(test|spec).ts"],
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
   },
   "author": "",
   "license": "ISC",
@@ -66,6 +60,7 @@
     "@vue/compiler-core": "^3.0.0-rc.5",
     "@vue/compiler-sfc": "^3.0.0-beta.18",
     "@vue/test-utils": "^1.0.3",
+    "babel-plugin-import": "^1.13.0",
     "child_process": "^1.0.2",
     "copyfiles": "^2.3.0",
     "ejs": "^3.1.5",
