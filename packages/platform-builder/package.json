@@ -70,6 +70,7 @@
     "fs-extra": "^9.0.1",
     "mv": "^2.1.1",
     "postcss-comment": "^2.0.0",
+    "postcss-plugin-px2rem": "^0.8.1",
     "ramda": "^0.27.1",
     "rollup": "^2.28.1",
     "rollup-plugin-babel": "^4.4.0",
