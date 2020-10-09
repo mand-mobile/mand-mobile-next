@@ -13,9 +13,7 @@
 
 
 <script>
-
-import Button from '@mand-mobil/components/src/button/demo'
-import Icon from '@mand-mobil/components/src/icon/demo'
+import {Button, Icon} from 'mand-mobile'
 // import CheckBox from 'mand-mobile';
 
 export default {
@@ -26,16 +24,13 @@ export default {
   },
   data() {
     return {
-      title: 'Hello'
+      title: 'Hello',
     }
   },
-  onLoad() {
-
-  },
-  methods: {
-
-  }
+  onLoad() {},
+  methods: {},
 }
+
 </script>
 
 <style>

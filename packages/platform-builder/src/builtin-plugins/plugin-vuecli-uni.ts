@@ -117,10 +117,6 @@ export class VueCliBuilderUniPlugin {
           chain.resolve.alias.set(from, to).end()
         })
 
-        // chain.resolve.alias
-        //                 .set('@mand-mobile/platform-runtime/lib', path.join(container.config.outputRoot, '_platform/uni'))
-        //                 .set('mand-mobile/lib', path.join(container.config.outputRoot, 'mand-mobile'))
-        //                 .end()
 
         // 扩展.uni.[ext]后缀，并提升优先级
         const extFiletypes = Array.from(chain.resolve.extensions.store)
@@ -129,7 +125,7 @@ export class VueCliBuilderUniPlugin {
       })
 
     service.init()
-    return service.run('build', {}, []).catch(err => { console.error(err, 'error occured') })
+    return service.run('build', { watch: this.options.watched }, []).catch(err => { console.error(err, 'error occured') })
   }
 
 
@@ -161,11 +157,6 @@ export class VueCliBuilderUniPlugin {
           chain.resolve.alias.set(from, to).end()
         })
 
-        chain.resolve.alias
-          .set('@mand-mobile/platform-runtime/lib', path.join(container.config.outputRoot, '_platform/uni'))
-          .set('mand-mobile/lib', path.join(container.config.outputRoot, 'mand-mobile'))
-          .end()
-
         // 扩展.uni.[ext]后缀，并提升优先级
         const extFiletypes = Array.from(chain.resolve.extensions.store)
         extFiletypes.forEach(ext => chain.resolve.extensions.prepend(`.uni${ext}`))
@@ -173,7 +164,7 @@ export class VueCliBuilderUniPlugin {
       })
 
     service.init()
-    return service.run('build', { watch: true }, []).catch(err => { console.error(err, 'error occured') })
+    return service.run('build', { watch: this.options.watched }, []).catch(err => { console.error(err, 'error occured') })
   }
 }
 

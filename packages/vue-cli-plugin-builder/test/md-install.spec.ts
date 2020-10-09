@@ -66,14 +66,40 @@ describe.only('md-preview test suites', () => {
   // @fixme 如果传入了 --output 可以产出examples包, 如果NODE_ENV为production的话可以产出生产环境的包
   // @fixme 应该允许用户传入 --components-source，用于开发和调试通过 md-install 生成的组件代码
   // @fixme 允许用户传入--watch 参数，用于支持 componentSource变更之后自动重新构建
-  it.only('should preview components in web platform', async () => {
-    console.info('exec this cases')
+  it('should preview components in web platform', async () => {
     await project.run('vue-cli-service md-preview --platform web')
     await sleep()
   })
 
+  it('should preview components in web platform in watch mode', async () => {
+    await project.run('vue-cli-service md-preview --platform web --watch')
+    await sleep()
+  })
+
+  it('should preview specific component in web platform, such as button', async () => {
+    await project.run('vue-cli-service md-preview --platform web --single --component-name button')
+    await sleep()
+  })
+
+
   it('should preview components in uni platform', async () => {
-    await project.run('vue-cli-service md-preview --platform uni')
+    await project.run('vue-cli-service md-preview --platform uni --output dist/dev/mp')
+    await sleep()
+  })
+
+  it('should preview specific component in web platform, such as button', async () => {
+    await project.run('vue-cli-service md-preview --platform uni --output dist/dev/mp --single --component-name button')
+    await sleep()
+  })
+
+  it.only('should preview specific component in web platform in watch mode ', async () => {
+    await project.run('vue-cli-service md-preview --platform uni --output dist/dev/mp --single --component-name button --watch')
+    await sleep()
+  })
+
+  it(
+    'should preview specific component in web platform, such as picker', async () => {
+    await project.run('vue-cli-service md-preview --platform uni --output dist/dev/mp --single --component-name picker')
     await sleep()
   })
 

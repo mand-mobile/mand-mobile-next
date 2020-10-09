@@ -17,19 +17,32 @@ export = (api: any) => async (args: any) => {
   plugins.push([ThemeSetupPlugin, themeOptions])
   
   plugins.push([ComponentsSourceSetupPlugin, {
-    namedAs: 'mand-mobile'
+    namedAs: 'mand-mobile',
+    watched: args.watch,
   }])
   
   if (args.platform) {
-    plugins.push([PlatformSetupPlugin, {platform: args.platform, removePlatformExt: ['lib', 'sfc'].includes(args.target)}])
+    plugins.push([PlatformSetupPlugin, {
+      platform: args.platform, 
+      removePlatformExt: ['lib', 'sfc'].includes(args.target),
+      watched: args.watch,
+    }])
     if (args.platform === 'uni') {
       assert.strictEqual(typeof args.output === 'string', true, 'output must be a dist path')
-      plugins.push([VueCliBuilderUniPlugin, {}])
+      plugins.push([VueCliBuilderUniPlugin, {
+        single: args.single,
+        watched: args.watch,
+        componentName: args['component-name'],
+      }])
     }
 
     if (args.platform === 'web') {
       args.output = args.output || ''
-      plugins.push([VueCliBuilderPlugin, {}])
+      plugins.push([VueCliBuilderPlugin, {
+        single: args.single,
+        watched: args.watch,
+        componentName: args['component-name'],
+      }])
     }
   }
   const c = new BuilderContainer({

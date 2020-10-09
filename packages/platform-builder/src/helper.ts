@@ -206,10 +206,9 @@ export const chainExtendsHandler = ({stylusConfig, postcssConfig, babelConfig}) 
   // R.forEach(type => chain.module.rule('postcss').oneOf(type).use('postcss-loader').tap(R.mergeLeft(postcssConfig)))(types)
   
   R.forEach(type => chain.module.rule('postcss').oneOf(type).use('postcss-loader').tap((opt) => {
+    opt.plugins = opt.plugins || []
     opt.plugins.push(...postcssConfig.plugins)
     return opt
   }))(types)
 
-  // 扩展babel配置
-  chain.module.rule('js').use('babel-loader').tap(R.mergeLeft(babelConfig))
 }

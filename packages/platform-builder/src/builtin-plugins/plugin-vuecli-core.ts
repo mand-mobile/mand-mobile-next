@@ -29,6 +29,7 @@ export class VueCliBuilderPlugin {
 
       container.hooks.addTemplates.tap(VueCliBuilderPlugin.NS, templates => {
         const components: any[] = container.context[PlatformSetupPlugin.NS].components
+
         const component = R.find((item) => item.name === this.options.componentName, components)
         templates.push([{
           template: path.resolve(__dirname, 'templates/web-preview/common/demo-group.vue'),
@@ -131,6 +132,12 @@ export class VueCliBuilderPlugin {
     service.webpackChainFns
       .push(chain => {
         chain.entry('app').clear().add('./main.js').end()
+
+        chain.module.rule('js').use('babel-loader').tap((opt: any = {}) => {
+          opt.plugins = opt.plugins || []
+          opt.plugins.push(...babelConfig.plugins)
+          return opt
+        })
 
         chain.resolve.symlinks(false)
 
