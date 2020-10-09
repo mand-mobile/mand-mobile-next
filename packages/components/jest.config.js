@@ -21,8 +21,8 @@ module.exports = {
   },
   modulePaths: ['<rootDir>/components', '<rootDir>/node_modules'],
   moduleNameMapper: {
-    '@mand-mobile/platform/lib(.*)': '@mand-mobile/platform/lib/web/$1',
-    'mand-mobile/src(.*)': '<rootDir>/src/$1',
+    // '@mand-mobile/platform/lib(.*)': '@mand-mobile/platform/lib/web/$1',
+    // 'mand-mobile/src(.*)': '<rootDir>/src/$1',
   },
   snapshotSerializers: ['jest-serializer-vue'],
   collectCoverage: true,

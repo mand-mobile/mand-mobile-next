@@ -15,10 +15,7 @@
 </template>
 
 <script>
-import Tip from '../../index.js'
-import Button from '../../../button/index'
-import Toast from '../../../toast/index.js'
-
+import {Tip, Button, Toast} from 'mand-mobile'
 export default {
   name: 'tips-demo',
   /* DELETE */

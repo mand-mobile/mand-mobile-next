@@ -24,10 +24,7 @@
 </template>
 
 <script>
-import Toast from '../../../toast/index'
-import InputItem from '../../index'
-import Field from '../../../field/index'
-import Icon from '../../../icon/index'
+import {Toast, InputItem, Field, Icon} from 'mand-mobile'
 
 export default {
   name: 'input-item-demo',
