@@ -74,17 +74,17 @@ block()
   .md-cg-title
     block()
     margin 20px 0
-    font-size font-heading-large
-    font-weight font-weight-normal
-    color color-text-minor
+    font-size md-font-heading-large
+    font-weight md-font-weight-normal
+    color md-color-text-minor
     span
-      color color-text-base
+      color md-color-text-base
   .md-cg-subtitle
     block()
     margin-bottom 30px
-    font-size font-body-normal
+    font-size md-font-body-normal
     font-weight 300
-    color color-text-minor
+    color md-color-text-minor
   .md-cg-logo
     position fixed
     top -.3rem
@@ -101,7 +101,7 @@ block()
     z-index 3
     height 120px
     margin-bottom 20px
-    border-radius border-width-base
+    border-radius md-border-width-base
     transform translate(0, 0)
     &.active
       height auto
@@ -111,22 +111,22 @@ block()
       z-index 2
       block()
       height 120px
-      padding 0 h-gap-lg
+      padding 0 md-h-gap-lg
       line-height 120px
-      font-size font-heading-normal
+      font-size md-font-heading-normal
       font-family DINAlternate-Bold
       // font-weight font-weight-medium
-      color color-text-base
+      color md-color-text-base
       box-sizing border-box
       box-shadow 0 2px 4px rgba(0, 0, 0, .08)
-      background color-bg-base
+      background md-color-bg-base
       overflow hidden
       span
-        font-size font-body-large
-        color color-text-minor
+        font-size md-font-body-large
+        color md-color-text-minor
       .md-icon
         position absolute
-        right h-gap-lg
+        right md-h-gap-lg
         top 50%
         transform translateY(-50%)
         transition transform .3s ease-in-out-quint
@@ -139,7 +139,7 @@ block()
         top 0
         width 4px
         height 100%
-        border-radius border-width-base
+        border-radius md-border-width-base
         // display none
     &:nth-of-type(1) .cg-category-title:before
       background #5E83DD
@@ -157,7 +157,7 @@ block()
       box-shadow 0 2px 4px rgba(0, 0, 0, .08)
       .cg-category-item
         block()
-        padding 0 h-gap-lg
+        padding 0 md-h-gap-lg
         box-sizing border-box
         -webkit-tap-highlight-color transparent
         .cg-category-item-inner
@@ -165,9 +165,9 @@ block()
           block()
           height 100px
           line-height 100px
-          font-size font-body-normal
+          font-size md-font-body-normal
           font-family DINAlternate-Bold
-          color color-text-minor
+          color md-color-text-minor
           hairline(bottom, color-border-base)
           .md-icon
             position absolute
@@ -177,7 +177,7 @@ block()
             transform translateY(-50%)
           &.close
             text-align center
-            color color-text-link
+            color md-color-text-link
             &:before
               display none
 
@@ -188,9 +188,9 @@ block()
     bottom 20px
     width 100%
     text-align center
-    font-size font-minor-normal
+    font-size md-font-minor-normal
     font-weight 300
-    color color-text-caption
+    color md-color-text-caption
 
 .slide-fade-enter-active
   transition all .3s ease

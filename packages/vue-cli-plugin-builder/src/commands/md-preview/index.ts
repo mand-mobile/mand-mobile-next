@@ -7,26 +7,9 @@ export = (api: any) => async (args: any) => {
 
   // const config = api.resolveWebpackConfig()
 
-  console.info('md-preview was called')
-
   const plugins = []
   
-  if (args.platform) {
-    plugins.push([PlatformSetupPlugin, {platform: args.platform, removePlatformExt: ['lib', 'sfc'].includes(args.target)}])
-
-    if (args.platform === 'uni') {
-
-      assert.strictEqual(typeof args.output === 'string', true, 'output must be a dist path')
-
-      plugins.push([VueCliBuilderUniPlugin, {}])
-    }
-
-    if (args.platform === 'web') {
-      args.output = args.output || ''
-      plugins.push([VueCliBuilderPlugin, {}])
-    }
-  }
-
+  
   let themeOptions: any = {}
   if (!args.theme) {
     themeOptions.theme = args.theme
@@ -36,7 +19,19 @@ export = (api: any) => async (args: any) => {
   plugins.push([ComponentsSourceSetupPlugin, {
     namedAs: 'mand-mobile'
   }])
+  
+  if (args.platform) {
+    plugins.push([PlatformSetupPlugin, {platform: args.platform, removePlatformExt: ['lib', 'sfc'].includes(args.target)}])
+    if (args.platform === 'uni') {
+      assert.strictEqual(typeof args.output === 'string', true, 'output must be a dist path')
+      plugins.push([VueCliBuilderUniPlugin, {}])
+    }
 
+    if (args.platform === 'web') {
+      args.output = args.output || ''
+      plugins.push([VueCliBuilderPlugin, {}])
+    }
+  }
   const c = new BuilderContainer({
     outputRoot: path.resolve(process.cwd(), `__temp__/${+(new Date)}`),
     artifactRoot: path.resolve(process.cwd(), args.output),

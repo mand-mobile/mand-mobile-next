@@ -1,15 +1,16 @@
 <script>
-	export default {
-		onLaunch: function() {
-			console.log('App Launch')
-		},
-		onShow: function() {
-			console.log('App Show')
-		},
-		onHide: function() {
-			console.log('App Hide')
-		}
-	}
+export default {
+  onLaunch: function() {
+    console.log('App Launch')
+  },
+  onShow: function() {
+    console.log('App Show')
+  },
+  onHide: function() {
+    console.log('App Hide')
+  },
+}
+
 </script>
 
 <style lang='stylus'>
@@ -29,29 +30,29 @@ page>.content
   .md-example-section
     clearfix()
     margin-bottom 30px
-    color color-text-base
+    color md-color-text-base
     .md-example-title
       // block()
-      font-size font-body-normal
-      font-weight font-weight-medium
+      font-size md-font-body-normal
+      font-weight md-font-weight-medium
       padding 16px 24px
       text-align left
       a
         margin-right 5px
-        background color-primary
+        background md-color-primary
         color #fff
         padding 5px 10px
-        border-radius radius-normal
-        font-size font-minor-large
+        border-radius md-radius-normal
+        font-size md-font-minor-large
         font-weight 300
         line-height 28px
         text-decoration none
     .md-example-describe
       block()
       margin-top 15px
-      font-size font-minor-large
+      font-size md-font-minor-large
       font-weight 300
-      color color-text-minor
+      color md-color-text-minor
     .md-example-content
       block()
       position relative

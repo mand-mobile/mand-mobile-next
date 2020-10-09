@@ -203,7 +203,12 @@ export const chainExtendsHandler = ({stylusConfig, postcssConfig, babelConfig}) 
 
   // 设置用户需要的postcss options
   // @todo 需要放置plugins被多次合并覆盖
-  R.forEach(type => chain.module.rule('postcss').oneOf(type).use('postcss-loader').tap(R.mergeLeft(postcssConfig)))(types)
+  // R.forEach(type => chain.module.rule('postcss').oneOf(type).use('postcss-loader').tap(R.mergeLeft(postcssConfig)))(types)
+  
+  R.forEach(type => chain.module.rule('postcss').oneOf(type).use('postcss-loader').tap((opt) => {
+    opt.plugins.push(...postcssConfig.plugins)
+    return opt
+  }))(types)
 
   // 扩展babel配置
   chain.module.rule('js').use('babel-loader').tap(R.mergeLeft(babelConfig))

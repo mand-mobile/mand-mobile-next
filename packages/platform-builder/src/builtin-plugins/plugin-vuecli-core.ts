@@ -7,6 +7,7 @@ import { PlatformSetupPlugin } from '.';
 import babelPluginImport from 'babel-plugin-import'
 
 const Service = require('@vue/cli-service')
+const px2rem = require('postcss-plugin-px2rem')
 
 export class VueCliBuilderPlugin {
   public static NS = 'vue-cli-builder-plugin'
@@ -75,20 +76,10 @@ export class VueCliBuilderPlugin {
     })
 
     container.hooks.extendsPostcssConfig.tap(VueCliBuilderPlugin.NS, postcssConfig => {
-      postcssConfig.plugins = [...(postcssConfig.plugins || []),
-      require('postcss-pxtorem')({ rootValue: 100, minPixelValue: 2 }),
+      postcssConfig.plugins = [
+        ...(postcssConfig.plugins || []),
+        px2rem({ rootValue: 100, minPixelValue: 2, replace: false }),
       ]
-    })
-
-    // 为demo中的mand-mobile单独配置解析规则
-    container.hooks.extendsBabelConfig.tap(VueCliBuilderPlugin.NS, babelConfig => {
-      // fixme 这里应该被抽象为一个新的插件，用于对demo文件进行特殊处理，以及对于demo配置特殊的解析规则etc...
-      // @todo 重构需求，针对demo进行特殊的提取和配置
-      babelConfig.plugins.unshift([babelPluginImport, {
-        "libraryName": "mand-mobile",
-        "style": false,   // or 'css'
-        "libraryDirectory": "."
-      }])
     })
   }
 
@@ -132,16 +123,16 @@ export class VueCliBuilderPlugin {
     const service = new Service(container.config.outputRoot)
     //@todo set mode process.env.VUE_CLI_MODE
 
+
     service.init()
     service.webpackChainFns
       .push(chainExtendsHandler({ babelConfig, postcssConfig, stylusConfig }))
+
     service.webpackChainFns
       .push(chain => {
         chain.entry('app').clear().add('./main.js').end()
 
         chain.resolve.symlinks(false)
-
-        console.info(aliasMapper, 'aliasMapper')
 
         aliasMapper.forEach(([from, to]) => {
           chain.resolve.alias.set(from, to).end()

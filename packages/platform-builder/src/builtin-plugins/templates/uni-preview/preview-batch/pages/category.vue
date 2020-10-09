@@ -1,4 +1,4 @@
-<template>
+md-<template>
   <div class="md-cg">
     <h1 class="md-cg-title">Mand Mobile Uni</h1>
     <h1 class="md-cg-subtitle">面向金融场景的跨平台端Vue组件库</h1>
@@ -58,9 +58,9 @@ export default {
       this.$set(this.components, index, category)
     },
     goToComponent(path) {
-      console.log(path);
+      console.log(path)
       uni.navigateTo({
-        url: path
+        url: path,
       })
     },
   },
@@ -78,17 +78,17 @@ block()
   .md-cg-title
     block()
     margin 20px 0
-    font-size font-heading-large
-    font-weight font-weight-normal
-    color color-text-minor
+    font-size md-font-heading-large
+    font-weight md-font-weight-normal
+    color md-color-text-minor
     span
-      color color-text-base
+      color md-color-text-base
   .md-cg-subtitle
     block()
     margin-bottom 30px
-    font-size font-body-normal
+    font-size md-font-body-normal
     font-weight 300
-    color color-text-minor
+    color md-color-text-minor
   .md-cg-logo
     position fixed
     top -30px
@@ -107,7 +107,7 @@ block()
     z-index 3
     height 120px
     margin-bottom 20px
-    border-radius border-width-base
+    border-radius md-border-width-base
     transform translate(0, 0)
     &.active
       height auto
@@ -117,22 +117,22 @@ block()
       z-index 2
       block()
       height 120px
-      padding 0 h-gap-lg
+      padding 0 md-h-gap-lg
       line-height 120px
-      font-size font-heading-normal
+      font-size md-font-heading-normal
       font-family DINAlternate-Bold
       // font-weight font-weight-medium
-      color color-text-base
+      color md-color-text-base
       box-sizing border-box
       box-shadow 0 2px 4px rgba(0, 0, 0, .08)
-      background color-bg-base
+      background md-color-bg-base
       overflow hidden
       span
-        font-size font-body-large
-        color color-text-minor
+        font-size md-font-body-large
+        color md-color-text-minor
       .md-icon
         position absolute
-        right h-gap-lg
+        right md-h-gap-lg
         top 50%
         transform translateY(-50%)
         transition transform .3s ease-in-out-quint
@@ -145,7 +145,7 @@ block()
         top 0
         width 4px
         height 100%
-        border-radius border-width-base
+        border-radius md-border-width-base
         // display none
     .title-1:before
       background #5E83DD
@@ -163,7 +163,7 @@ block()
       box-shadow 0 2px 4px rgba(0, 0, 0, .08)
       .cg-category-item
         block()
-        padding 0 h-gap-lg
+        padding 0 md-h-gap-lg
         box-sizing border-box
         -webkit-tap-highlight-color transparent
         .cg-category-item-inner
@@ -194,9 +194,9 @@ block()
     bottom 20px
     width 100%
     text-align center
-    font-size font-minor-normal
+    font-size md-font-minor-normal
     font-weight 300
-    color color-text-caption
+    color md-color-text-caption
 
 .slide-fade-enter-active
   transition all .3s ease

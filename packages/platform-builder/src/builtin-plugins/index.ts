@@ -11,6 +11,8 @@ export { VueCliBuilderUniPlugin } from './plugin-vuecli-uni'
 export { RollupBuilderPlugin } from './plugin-rollup-core'
 export { VueSFCBuilderPlugin } from './plugin-sfc-core'
 export { VueifySFCBuilderPlugin } from './plugin-vueify-core'
+
+const babelPluginImport = require('babel-plugin-import').default
 const babelTransformPlatform = require('../babel-plugins/babel-transform-platform')
 const validSet = new Set(['web', 'uni'])
 /**
@@ -38,7 +40,9 @@ export class PlatformSetupPlugin {
       // @Todo 实现setOptions API 用于设置上下文，提供给插件做能力检测
       // container.config.context.PLATFORM = this.platform
       container.hooks.extendsBabelConfig.tap(PlatformSetupPlugin.NS, (babelConfig) => {
-        babelConfig.plugins = (babelConfig.plugins || []).concat([[babelTransformPlatform, { platform: this.platform }]])
+        babelConfig.plugins = (babelConfig.plugins || []).concat([
+          [babelTransformPlatform, { platform: this.platform }],
+        ])
       })
 
       container.hooks.setContext.tap(ComponentsSourceSetupPlugin.NS, context => {
@@ -65,6 +69,7 @@ export class PlatformSetupPlugin {
 
       // 传入平台相关代码
       container.hooks.setAliasMapper.tap(ComponentsSourceSetupPlugin.NS, (aliasSet: Set<[string, string]>) => {
+        aliasSet.add([`@mand-mobile/platform-runtime/lib/${this.platform}`, path.resolve(container.config.outputRoot, `${this.nameAs}/${this.platform}`)])
         aliasSet.add(['@mand-mobile/platform-runtime/lib', path.resolve(container.config.outputRoot, `${this.nameAs}/${this.platform}`)])
         // aliasSet.add(['@mand-mobile/platform-runtime/lib', path.resolve(container.config.outputRoot, `${this.nameAs}`)])
       })
@@ -113,6 +118,23 @@ export class ComponentsSourceSetupPlugin {
   }
   apply(container: BuilderContainer) {
 
+
+    container.hooks.extendsBabelConfig.tap(PlatformSetupPlugin.NS, (babelConfig) => {
+      babelConfig.plugins = (babelConfig.plugins || []).concat([
+        [babelPluginImport, {
+          libraryName: 'mand-mobile',
+          style: false,
+          libraryDirectory: '',
+        }]
+      ])
+    })
+    
+    container.hooks.setAliasMapper.tap(ComponentsSourceSetupPlugin.NS, (aliasSet: Set<[string, string]>) => {
+      aliasSet.add(['mand-mobile/lib', path.resolve(container.config.outputRoot, this.nameAs)])
+      aliasSet.add(['mand-mobile', path.resolve(container.config.outputRoot, this.nameAs)])
+    })
+
+
     container.hooks.setContext.tap(ComponentsSourceSetupPlugin.NS, (context) => {
       context[ComponentsSourceSetupPlugin.NS] = {
         componentRoot: path.resolve(container.config.outputRoot, this.nameAs)
@@ -133,10 +155,6 @@ export class ComponentsSourceSetupPlugin {
       })
     }
 
-    container.hooks.setAliasMapper.tap(ComponentsSourceSetupPlugin.NS, (aliasSet: Set<[string, string]>) => {
-      aliasSet.add(['mand-mobile/lib', path.resolve(container.config.outputRoot, this.nameAs)])
-      aliasSet.add(['mand-mobile', path.resolve(container.config.outputRoot, this.nameAs)])
-    })
   }
 }
 

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Icon from '@mand-mobile/components/src/icon' 
+import Icon from '@mand-mobile/components/src/icon'
 
 import './assets/responsive'
 export default {
@@ -63,7 +63,7 @@ block()
   -webkit-overflow-scrolling touch
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-  background color-primary-background
+  background md-color-primary-background
   .md-nav
     position relative
     display flex
@@ -75,18 +75,18 @@ block()
       &.home
         top 10px
         .md-icon
-          color color-text-base
+          color md-color-text-base
       &.name
-        margin-left h-gap-lg
-        font-size font-heading-large
-        font-weight font-weight-medium
-        color color-text-base
+        margin-left md-h-gap-lg
+        font-size md-font-heading-large
+        font-weight md-font-weight-medium
+        color md-color-text-base
       &.name-zh
         top 9px
-        margin-left h-gap-sm
-        font-size font-body-large
-        font-weight font-weight-normal
-        color color-text-minor
+        margin-left md-h-gap-sm
+        font-size md-font-body-large
+        font-weight md-font-weight-normal
+        color md-color-text-minor
 
   .md-example-wrapper
     position relative
@@ -97,27 +97,27 @@ block()
       .md-example-section
         clearfix()
         margin-bottom 30px
-        color color-text-base
+        color md-color-text-base
         .md-example-title
           block()
-          font-size font-body-normal
-          font-weight font-weight-medium
+          font-size md-font-body-normal
+          font-weight md-font-weight-medium
           a
             margin-right 5px
-            background color-primary
+            background md-color-primary
             color #fff
             padding 5px 10px
-            border-radius radius-normal
-            font-size font-minor-large
+            border-radius md-radius-normal
+            font-size md-font-minor-large
             font-weight 300
             line-height 28px
             text-decoration none
         .md-example-describe
           block()
           margin-top 15px
-          font-size font-minor-large
+          font-size md-font-minor-large
           font-weight 300
-          color color-text-minor
+          color md-color-text-minor
         .md-example-content
           block()
           position relative
@@ -130,9 +130,9 @@ block()
   box-sizing border-box
   white-space pre-wrap
   word-wrap break-word
-  font-size font-minor-normal
-  background color-primary-background
-  border-radius radius-normal
+  font-size md-font-minor-normal
+  background md-color-primary-background
+  border-radius md-radius-normal
 @media screen and (min-width: 749px)
   .mand
     margin-left -360px
