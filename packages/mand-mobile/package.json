@@ -4,6 +4,7 @@
   "description": "> TODO: description",
   "author": "lucker <byterotate@gmail.com>",
   "scripts": {
+    "prebuild": "npm run clean:workspace",
     "build": "run-s build:*",
     "build:uni-lib":
       "vue-cli-service md-install --platform uni --target sfc --transformCss --output=uni/lib",
@@ -14,10 +15,10 @@
     "build:web-lib":
       "vue-cli-service md-install --platform web --target lib --output=web/lib",
     "build:web-src":
-      "vue-cli-service md-install --platform web --target lib --output=web/src",
+      "vue-cli-service md-install --platform web --target sfc --output=web/src",
     "build:web-lib-vw":
       "vue-cli-service md-install --platform web --target lib  --unit=vw --output=web/lib-vw",
-    "clean:workspace": "rm -fr .mand-mobile && rm -fr web && rm -fr uni",
+    "clean:workspace": "rm -fr web && rm -fr uni",
     "prepublish": "npm run build",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },

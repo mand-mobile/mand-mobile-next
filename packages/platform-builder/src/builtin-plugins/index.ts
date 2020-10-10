@@ -222,7 +222,8 @@ export class ThemeSetupPlugin {
             autoprefixer: false,
             reduceIdents: false,
           }]
-        }),])
+        }),
+      ])
       if (this.options.unit === 'vw') {
         postcssConfig.plugins.push(px2vw({
           viewportWidth: 750,

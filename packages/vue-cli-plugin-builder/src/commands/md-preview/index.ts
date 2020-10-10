@@ -1,6 +1,6 @@
 import * as path from 'path'
 import * as assert from 'assert'
-import { BuilderContainer } from '@mand-mobile/platform-builder/lib'
+import { BuilderContainer } from '@mand-mobile/platform-builder'
 import { PlatformSetupPlugin, VueCliBuilderUniPlugin, VueCliBuilderPlugin, ThemeSetupPlugin, ComponentsSourceSetupPlugin } from '@mand-mobile/platform-builder/lib/builtin-plugins'
 import * as R from 'ramda'
 export = (api: any) => async (args: any) => {

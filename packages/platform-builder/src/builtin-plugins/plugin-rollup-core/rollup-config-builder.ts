@@ -51,12 +51,14 @@ export const rollupConfigBuilder = ({builderContext, entry, artifactRoot = 'dist
         stylusConfig,
       }),
       rplgVue({
-        preprocessStyles: false,
+        css: false,
       }),
       // @todo 排查是否是因为jest环境导致不能正常提取css的问题
       rplgPostcss({
-        ...postcssConfig,
-        // extract: path.resolve(artifactRoot, 'mand-mobile.css'),
+        // plugins: postcssConfig.plugins,
+        // plugins: postcssConfig.plugins,
+        config: false,
+        extract: path.resolve(artifactRoot, 'mand-mobile.css'),
       }),
       // rplgUglify(),
       rplgFilesize(),
