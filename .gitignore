@@ -16,6 +16,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+__temp__
 # Editor directories and files
 .idea
 .vscode

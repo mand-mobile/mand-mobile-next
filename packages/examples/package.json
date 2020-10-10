@@ -8,7 +8,8 @@
     "email": "byterotate@gmail.com"
   },
   "scripts": {
-    "serve": "run-p \"serve:* -- --single=${1} --component-name=${2}\" --",
+    "serve": "run-p serve:*",
+    "serve-single": "run-p \"serve:* -- --single --component-name {1}\" --",
     "build": "echo \"Nothing wait for build\" && exit 0",
     "clean:dist": "rm -fr dist",
     "clean:workspace": "rm -fr .mand-mobile",

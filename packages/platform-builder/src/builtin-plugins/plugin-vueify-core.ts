@@ -11,6 +11,8 @@ const { transform } = require('@babel/core')
 const compPlugin = require('../babel-plugins/babel-transform-memberExpression')
 const { compiler } = require('zp-vueify')
 
+const postcss = require('postcss')
+
 function babelPluginInsertCssImportForVue({ types: t }) {
   const globalCssLiteral = '@mand-mobile/shared/lib/style/global.styl'
   return {
@@ -116,8 +118,13 @@ export class VueifySFCBuilderPlugin {
               return reject(err)
             }
             compiler.removeListener('style', styleCb)
-            context.emitFile(`${path.basename(filename)}.css`, Buffer.from(styleContent, 'utf8'))
-            resolve(result)
+            postcss(postcssConfig.plugins).process(styleContent, {from: undefined}).then((compileResult) => {
+              context.emitFile(`${path.basename(filename)}.css`, Buffer.from(compileResult.css, 'utf8'))
+              resolve(result)
+            })
+            // context.emitFile(`${path.basename(filename)}.css`, Buffer.from(styleContent, 'utf8'))
+            // resolve(result)
+
           })
         }).catch(e => {
           console.error(e)

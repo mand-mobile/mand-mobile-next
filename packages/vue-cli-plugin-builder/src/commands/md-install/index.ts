@@ -1,5 +1,6 @@
 import * as path from 'path'
 import * as assert from 'assert'
+import * as R from 'ramda'
 import { BuilderContainer } from '@mand-mobile/platform-builder/lib'
 import { PlatformSetupPlugin, RollupBuilderPlugin, ThemeSetupPlugin, VueifySFCBuilderPlugin, VueSFCBuilderPlugin, ComponentsSourceSetupPlugin } from '@mand-mobile/platform-builder/lib/builtin-plugins'
 
@@ -29,6 +30,9 @@ export = (api: any) => async (args: any) => {
   if (!args.theme) {
     themeOptions.theme = args.theme
   }
+  if (args.unit) {
+    themeOptions.unit = args.unit
+  }
   plugins.push([ThemeSetupPlugin, themeOptions])
   
   plugins.push([ComponentsSourceSetupPlugin, {
@@ -36,16 +40,13 @@ export = (api: any) => async (args: any) => {
   }])
 
   const c = new BuilderContainer({
-
-    // 暂时使用一个唯一的时间戳用于创建临时文件
-    outputRoot: path.resolve(process.cwd(), `__temp__/${+(new Date())}`),
+    // 暂时使用一个唯一的时间戳用于创建临时文件，防并发使用随机数前缀
+    outputRoot: path.resolve(process.cwd(), `__temp__/${R.compose((item) => item.toString(), Math.floor, (num) => num * 100, Math.random)()}-${+(new Date())}`),
     artifactRoot: path.resolve(process.cwd(), args.output),
     plugins,
   })
   await c.create()
   await c.build()
-
-  // 调试期间，暂不销毁构建容器
-  return c.destory()
+  c.destory()
 
 }

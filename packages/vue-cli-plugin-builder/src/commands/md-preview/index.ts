@@ -2,7 +2,7 @@ import * as path from 'path'
 import * as assert from 'assert'
 import { BuilderContainer } from '@mand-mobile/platform-builder/lib'
 import { PlatformSetupPlugin, VueCliBuilderUniPlugin, VueCliBuilderPlugin, ThemeSetupPlugin, ComponentsSourceSetupPlugin } from '@mand-mobile/platform-builder/lib/builtin-plugins'
-
+import * as R from 'ramda'
 export = (api: any) => async (args: any) => {
 
   // const config = api.resolveWebpackConfig()
@@ -46,12 +46,17 @@ export = (api: any) => async (args: any) => {
     }
   }
   const c = new BuilderContainer({
-    outputRoot: path.resolve(process.cwd(), `__temp__/${+(new Date)}`),
+    // 暂时使用一个唯一的时间戳用于创建临时文件，防并发使用随机数前缀
+    outputRoot: path.resolve(process.cwd(), `__temp__/${R.compose((item) => item.toString(), Math.floor, (num) => num * 100, Math.random)()}-${+(new Date())}`),
     artifactRoot: path.resolve(process.cwd(), args.output),
     plugins,
   })
   await c.create()
   await c.serve()
-  return c.destory()
+
+  process.on('exit', async () => {
+    // 进程退出前自动清理构建产物
+    return c.destory()
+  })
   
 }

@@ -12,16 +12,24 @@ export { RollupBuilderPlugin } from './plugin-rollup-core'
 export { VueSFCBuilderPlugin } from './plugin-sfc-core'
 export { VueifySFCBuilderPlugin } from './plugin-vueify-core'
 
+const px2vw = require('postcss-pixel-to-viewport')
 const babelPluginImport = require('babel-plugin-import').default
 const babelTransformPlatform = require('../babel-plugins/babel-transform-platform')
 const validSet = new Set(['web', 'uni'])
 /**
  * 设置环境变量
  */
+
+const scrollerNameAs = '_scroller'
+const sharedNameAs = '_shared'
 export class PlatformSetupPlugin {
   private platform
   public static NS = 'platform-setup-plugin'
   private componentSource
+
+  private scrollerSource
+  private sharedSource
+
   private removePlatformExt
   private watched
   private platformSource = ''
@@ -32,6 +40,9 @@ export class PlatformSetupPlugin {
     this.removePlatformExt = removePlatformExt
     this.platformSource = platformSource || packagesResolver('@mand-mobile/platform-runtime', 'lib')
     this.componentSource = componentSource || packagesResolver('@mand-mobile/components', 'src')
+
+    this.scrollerSource = packagesResolver('@mand-mobile/scroller', '.')
+    this.sharedSource = packagesResolver('@mand-mobile/shared',  '.')
 
     this.watched = watched
   }
@@ -56,6 +67,10 @@ export class PlatformSetupPlugin {
       if (!this.watched) {
         container.hooks.addTemplates.tap(ComponentsSourceSetupPlugin.NS, template => {
           template.push([{ template: this.platformSource, renderer: this.nameAs }, {}])
+
+          // 设置shared, scroller
+          template.push([{ template: this.scrollerSource, renderer: scrollerNameAs}, {}])
+          template.push([{ template: this.sharedSource, renderer: sharedNameAs }, {}])
         })
         // 非watched场景使用软链接方式注入到项目目录下
       } else {
@@ -64,6 +79,17 @@ export class PlatformSetupPlugin {
             source: this.platformSource,
             target: this.nameAs
           })
+
+          // 设置shared, scroller
+          linkpaths.push(...[
+            {
+              source: this.sharedSource,
+              target: sharedNameAs,
+            }, {
+              source: this.scrollerSource,
+              target: scrollerNameAs,
+            }
+          ])
         })
       }
 
@@ -71,6 +97,10 @@ export class PlatformSetupPlugin {
       container.hooks.setAliasMapper.tap(ComponentsSourceSetupPlugin.NS, (aliasSet: Set<[string, string]>) => {
         aliasSet.add([`@mand-mobile/platform-runtime/lib/${this.platform}`, path.resolve(container.config.outputRoot, `${this.nameAs}/${this.platform}`)])
         aliasSet.add(['@mand-mobile/platform-runtime/lib', path.resolve(container.config.outputRoot, `${this.nameAs}/${this.platform}`)])
+
+        // 设置shared, scroller
+        aliasSet.add(['@mand-mobile/shared', path.resolve(container.config.outputRoot, sharedNameAs)])
+        aliasSet.add(['@mand-mobile/scroller', path.resolve(container.config.outputRoot, scrollerNameAs)])
         // aliasSet.add(['@mand-mobile/platform-runtime/lib', path.resolve(container.config.outputRoot, `${this.nameAs}`)])
       })
 
@@ -158,14 +188,15 @@ export class ComponentsSourceSetupPlugin {
   }
 }
 
-
 /**
  * 为简化逻辑，将postcss通用配置和stylus共用逻辑放到同一个插件内
  */
 export class ThemeSetupPlugin {
   private NS = 'theme-setup-plugin'
   private stylusImports
-  constructor({ themeSource }) {
+  constructor(private readonly options: {themeSource?: string, unit?: 'vw'} = {}) {
+
+    let themeSource = options.themeSource
     if (!themeSource) {
       themeSource = packagesResolver('@mand-mobile/shared', 'lib/style/mixin/theme.basic.styl')
     }
@@ -192,6 +223,13 @@ export class ThemeSetupPlugin {
             reduceIdents: false,
           }]
         }),])
+      if (this.options.unit === 'vw') {
+        postcssConfig.plugins.push(px2vw({
+          viewportWidth: 750,
+          viewportUnit: 'vw',
+          minPixelValue: 2,
+        }))
+      }
     })
   }
 }
