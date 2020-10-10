@@ -4,12 +4,17 @@
   "description": "> TODO: description",
   "author": "lucker <byterotate@gmail.com>",
   "scripts": {
-    "build": "echo \"Nothing wait for build\" && exit 0",
-    "build:uni": "sh ./scripts/build.sh uni lib",
-    "build:uni-src": "sh ./scripts/build.sh uni src",
-    "build:web-bundle": "sh scripts/build.sh web bundle",
-    "build:web-lib": "sh scripts/build.sh web lib",
-    "build:web-lib-vw": "sh scripts/build.sh web lib-vw",
+    "build": "run-s build:*",
+    "build:uni-lib":
+      "vue-cli-service md-install --platform uni --target sfc --transformCss --output=uni/lib",
+    "build:uni-src":
+      "vue-cli-service md-install --platform uni --target sfc --output=uni/src",
+    "build:web-bundle":
+      "vue-cli-service md-install --platform web --target bundle --output=web/bundle",
+    "build:web-lib":
+      "vue-cli-service md-install --platform web --target lib --output=web/lib",
+    "build:web-lib-vw":
+      "vue-cli-service md-install --platform web --target lib --output=web/lib-vw",
     "clean:workspace": "rm -fr .mand-mobile && rm -fr web && rm -fr uni",
     "prepublish": "npm run build",
     "test": "echo \"Error: run tests from root\" && exit 1"
@@ -21,13 +26,13 @@
     "@mand-mobile/components": "^3.0.1-alpha.9",
     "@mand-mobile/platform": "^3.0.1-alpha.9",
     "@mand-mobile/shared": "^3.0.1-alpha.9",
-    "@vue/cli": "^4.5.3",
+    "@vue/cli": "^4.5.7",
     "find": "^0.3.0",
     "mv": "^2.1.1"
   },
   "devDependencies": {
     "@mand-mobile/vue-cli-plugin-builder": "^3.0.1-alpha.9",
-    "@vue/cli-service": "^4.4.6",
+    "@vue/cli-service": "^4.5.7",
     "fastclick": "^1.0.6",
     "npm-run-all": "^4.1.5",
     "vue-router": "^3.3.3"

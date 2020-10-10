@@ -52,6 +52,6 @@ export = (api: any) => async (args: any) => {
   })
   await c.create()
   await c.serve()
-  // return c.destory()
+  return c.destory()
   
 }

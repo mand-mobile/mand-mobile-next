@@ -14,7 +14,8 @@
   </div>
 </template>
 
-<script>import {Ruler} from 'mand-mobile'
+<script>
+import {Ruler} from 'mand-mobile'
 
 export default {
   name: 'ruler-demo-1',
@@ -34,7 +35,8 @@ export default {
     }
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus" scoped>
   .md-example-child-single-component

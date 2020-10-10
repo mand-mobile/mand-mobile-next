@@ -1,6 +1,6 @@
 
 // https://github.com/michael-ciniawsky/postcss-load-config
-const browserslist = require('../platform/package.json').browserslist
+// const browserslist = require('../platform/package.json').browserslist
 module.exports = () => {
   const plugins = {
     'postcss-url': {url: 'inline'},
@@ -13,7 +13,7 @@ module.exports = () => {
         reduceIdents: false,
       }]
     },
-    'autoprefixer': { overrideBrowserslist: browserslist }
+    // 'autoprefixer': { overrideBrowserslist: browserslist }
   }
 
   if (process.env.NODE_ENV !== 'production' || process.env.BUILD_TYPE === 'example') {

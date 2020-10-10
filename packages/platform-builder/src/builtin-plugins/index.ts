@@ -178,7 +178,6 @@ export class ThemeSetupPlugin {
   apply(container: BuilderContainer) {
     container.hooks.extendsStylus.tap(this.NS, (stylusOptions) => {
       stylusOptions.imports = R.concat(this.stylusImports, (stylusOptions.imports || []))
-      console.log(`set StylusOptions succeed, now options is ${stylusOptions}`)
     })
 
     container.hooks.extendsPostcssConfig.tap(this.NS, (postcssConfig) => {

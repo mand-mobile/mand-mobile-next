@@ -46,6 +46,6 @@ export = (api: any) => async (args: any) => {
   await c.build()
 
   // 调试期间，暂不销毁构建容器
-  // return c.destory()
+  return c.destory()
 
 }
