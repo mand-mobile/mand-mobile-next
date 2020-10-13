@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'tab-picker',
   'text': '底部多级联动选择器',
   'category': 'feedback',

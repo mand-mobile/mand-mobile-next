@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'steps',
   'text': '步骤条',
   'category': 'basic',

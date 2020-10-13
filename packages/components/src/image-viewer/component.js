@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'image-viewer',
   'text': '图片查看器',
   'category': 'basic',

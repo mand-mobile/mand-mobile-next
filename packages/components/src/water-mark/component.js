@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   "name": "water-mark",
   "text": "水印",
   "category": "business",

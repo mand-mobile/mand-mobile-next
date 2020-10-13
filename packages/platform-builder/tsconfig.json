@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "listFiles": true,
+    "module": "commonjs",
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "allowJs": true,
+    "preserveConstEnums": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "types": ["node", "jest"],
+    "outDir": "lib",
+    "declaration": true,
+    "rootDir": "src",
+    "lib": ["ES2015", "DOM"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "src/builtin-plugins/templates"]
+}

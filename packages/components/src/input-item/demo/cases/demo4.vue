@@ -39,12 +39,9 @@
   </div>
 </template>
 
-<script>import '../assets/bank-zs.svg'
-import InputItem from '../../index.vue'
-import Field from '../../../field/index.vue'
-import NumberKeyboard from '../../../number-keyboard/index.vue'
-import Icon from '../../../icon/index.vue'
-import Toast from '../../../toast/index.js'
+<script>
+import {InputItem, Field, Icon, NumberKeyboard, Toast} from 'mand-mobile'
+import '../assets/bank-zs.svg'
 
 export default {
   name: 'input-item-demo',
@@ -113,7 +110,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-example-child-input-item-4

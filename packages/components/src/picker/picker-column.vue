@@ -75,7 +75,7 @@
 // import {render} from '../_util/render'
 import Scroller from '@mand-mobile/scroller'
 import WheelScroller from '@mand-mobile/scroller/lib/wheel'
-import {Dom, Device} from '@mand-mobile/platform/lib/runtime/module'
+import {Dom, Device} from '@mand-mobile/platform-runtime/lib/module'
 import {noop, traverse, inArray, inBrowser, extend, warn} from '@mand-mobile/shared/lib/util'
 import pickerMixin from './mixins'
 

@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'tab-bar',
   'text': '标签菜单',
   'category': 'basic',

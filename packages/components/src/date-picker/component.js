@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   "name": "date-picker",
   "text": "日期选择器",
   "category": "feedback",

@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'detail-item',
   'text': '清单项目',
   'category': 'basic',

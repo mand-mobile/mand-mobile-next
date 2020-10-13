@@ -44,7 +44,8 @@
   </div>
 </template>
 
-<script>import {Dom} from '@mand-mobile/platform/lib/runtime/module'
+<script>
+import {Dom} from '@mand-mobile/platform-runtime/lib/module'
 import Icon from '../icon'
 export default {
   name: 'md-notice-bar',
@@ -163,7 +164,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-notice-bar

@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'notice-bar',
   'text': '通告栏',
   'category': 'basic',

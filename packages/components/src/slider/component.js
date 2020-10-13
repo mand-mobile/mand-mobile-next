@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'slider',
   'text': '滑块',
   'category': 'form',

@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'radio',
   'text': '单选框',
   'category': 'form',

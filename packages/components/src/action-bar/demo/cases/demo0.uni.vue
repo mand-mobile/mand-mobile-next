@@ -5,8 +5,7 @@
 </template>
 
 <script>
-import ActionBar from 'mand-mobile/lib/action-bar'
-import Toast from 'mand-mobile/lib/toast'
+import {ActionBar, Toast} from 'mand-mobile'
 
 export default {
   name: 'action-bar-demo',

@@ -23,10 +23,8 @@
   </div>
 </template>
 
-<script>import Toast from '../../../toast/index.js'
-import InputItem from '../../index.vue'
-import Field from '../../../field/index.vue'
-import Icon from '../../../icon/index.vue'
+<script>
+import {Toast, InputItem, Field, Icon} from 'mand-mobile'
 
 export default {
   name: 'input-item-demo',
@@ -61,7 +59,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-example-child-input-item-3

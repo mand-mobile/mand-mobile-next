@@ -15,7 +15,8 @@
   </md-transition-primitive>
 </template>
 
-<script>import Transition from '@mand-mobile/platform/lib/runtime/component/transition'
+<script>
+import Transition from '@mand-mobile/platform-runtime/lib/component/transition'
 import {camelize} from '@mand-mobile/shared/lib/util'
 
 export default {
@@ -35,4 +36,5 @@ export default {
     },
   },
 }
-</script>
+
+</script>

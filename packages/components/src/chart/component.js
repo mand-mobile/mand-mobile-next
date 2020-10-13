@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'chart',
   'text': '折线图表',
   'category': 'business',

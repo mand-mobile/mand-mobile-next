@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   "name": "bill",
   "text": "票据",
   "category": "business",

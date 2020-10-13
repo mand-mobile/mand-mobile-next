@@ -30,8 +30,8 @@
 </template>
 
 <script>
-import {Dom} from '@mand-mobile/platform/lib/runtime/module'
-
+import {Dom} from '@mand-mobile/platform-runtime/lib/module'
+import './common.styl'
 const fontSize = 14
 // const color = '#858B9C'
 
@@ -134,6 +134,3 @@ export default {
 
 </script>
 
-<style lang="stylus">
-@import 'common.styl'
-</style>

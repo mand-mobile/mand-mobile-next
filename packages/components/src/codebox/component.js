@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'codebox',
   'text': '验证码输入框',
   'category': 'business',

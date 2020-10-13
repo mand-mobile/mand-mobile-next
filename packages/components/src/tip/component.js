@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'name': 'tip',
   'text': '轻提示',
   'category': 'feedback',
