@@ -254,9 +254,9 @@ export default {
 
     async $_initScroller() {
       if (this.isVertical) {
-        this.contentRect.height = this.contentRect.height * this.rItemCount
+        this.contentRect.height = this.dimension * this.rItemCount
       } else {
-        this.contentRect.width = this.contentRect.width * this.rItemCount
+        this.contentRect.width = this.dimension * this.rItemCount
       }
 
       const scroller = new Scroller(this.$swiperBox, this.$swiper, {
