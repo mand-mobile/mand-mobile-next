@@ -1,6 +1,6 @@
 <template>
   <div class="md-doc-demo">
-    <header class="md-doc-demo_header">
+    <header class="md-doc-demo_header" v-if="!getMetaInfo('hideHeader')">
       <section class="md-doc-demo_header_main">
         <p class="md-doc-demo_header_title" v-if="getMetaInfo('title')" v-html="getMetaInfo('title')"></p>
         <p class="md-doc-demo_header_desc" v-if="getMetaInfo('describe')" v-html="getMetaInfo('describe')"></p>
@@ -22,7 +22,7 @@
       </div>
       
     </div>
-    <div class="md-doc-demo_code">
+    <div class="md-doc-demo_code" v-if="!getMetaInfo('hideCode')">
       <ul class="md-doc-demo_code_tab">
         <!-- <li class="md-doc-demo_code_tab_btn">
           <a href="javascript:void(0)">
@@ -239,7 +239,7 @@ export default {
         margin 0
         padding 1em
         // font-size .9em
-        line-height 1.3
+        line-height 1.5
         code
           font-size .8em
 </style>
