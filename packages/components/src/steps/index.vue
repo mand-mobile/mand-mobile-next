@@ -21,14 +21,11 @@
         <!-- Customize uniformly -->
         <div class="md-steps_icon_wrapper">
           <template v-if="index < currentLength">
-            <slot
-              v-if="$scopedSlots.reached || $slots.reached"
-              name="reached"
-              :index="index"
-            ></slot>
-            <div class="md-steps_node--default">
-              <div class="md-steps_node--default_icon" style="width: 6px;height: 6px;border-radius: 50%;"></div>
-            </div>
+            <slot name="reached" :index="index">
+              <div class="md-steps_node--default">
+                <div class="md-steps_node--default_icon" style="width: 6px;height: 6px;border-radius: 50%;"></div>
+              </div>
+            </slot>
           </template>
           <template v-else-if="index === currentLength">
             <!-- <slot
