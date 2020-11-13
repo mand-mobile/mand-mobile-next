@@ -1,7 +1,7 @@
 module.exports = {
-  'name': 'cashier',
-  'text': '收银台',
+  'name': 'amount',
+  'text': '金融数字',
   'category': 'business',
   'description': '',
-  'author': 'xuxiaoyan'
+  'author': ''
 }
