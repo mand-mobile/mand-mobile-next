@@ -5,7 +5,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/bill
 
 电子账单或票据
 
-### 引入
+## 引入
 
 ```javascript
 import { Bill } from 'mand-mobile'
@@ -14,29 +14,34 @@ Vue.component(Bill.name, Bill)
 ```
 
 ### 代码演示
-<!-- DEMO -->
+<MDDemoWrapper>
+<!-- left wrapper -->
+{{{ @/packages/components/src/bill/demo/cases/demo0.vue
+<!-- right wrapper -->
+}}} @/packages/components/src/bill/demo/cases/demo1.vue
+</MDDemoWrapper>
 
 ### API
 
-#### Bill Props
+### Bill Props
 |属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------ |------|
-|name|票据抬头|String|-|-|
-|no|票据编号|String|-|-|
-|water-mark|水印内容|String|-|复杂内容使用`scoped slot`|
+|name|票据抬头|String| | |
+|no|票据编号|String| | |
+|water-mark|水印内容|String| |复杂内容使用`scoped slot`|
 
-#### Bill Slots
+### Bill Slots
 
-##### default
+#### default
 默认内容插槽
 
-##### header
+#### header
 头部内容插槽
 
-##### footer
+#### footer
 底部内容插槽
 
-##### watermask
+#### watermask
 水印内容scoped插槽
 
 ```html

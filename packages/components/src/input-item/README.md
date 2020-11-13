@@ -5,7 +5,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/input-item
 
 单行文本输入框，支持特殊场景文本格式化
 
-### 引入
+## 引入
 
 ```javascript
 import { InputItem } from 'mand-mobile'
@@ -13,25 +13,37 @@ import { InputItem } from 'mand-mobile'
 Vue.component(InputItem.name, InputItem)
 ```
 
-### 使用指南
+## 使用指南
 
-`input-item`的<b>表单校验</b>可使用第三方工具，如[vee-validate](https://baianat.github.io/vee-validate/)，使用示例可参考<a href="javascript:jumpAnchor('表单校验')">表单校验</a>
+:::tip
+表单校验可使用第三方工具，如[vee-validate](https://baianat.github.io/vee-validate/)，使用示例可参考[表单校验](#表单校验)
+:::
 
-
-### 代码演示
+## 代码演示
 <!-- DEMO -->
+<MDDemoWrapper>
+<!-- left wrapper -->
+{{{ @/packages/components/src/input-item/demo/cases/demo0.vue
+{{{ @/packages/components/src/input-item/demo/cases/demo2.vue
+{{{ @/packages/components/src/input-item/demo/cases/demo4.vue
+<!-- right wrapper -->
 
-### API
+}}} @/packages/components/src/input-item/demo/cases/demo1.vue
+}}} @/packages/components/src/input-item/demo/cases/demo3.vue
+}}} @/packages/components/src/input-item/demo/cases/demo5.vue
+</MDDemoWrapper>
 
-#### InputItem Props
+## API
+
+### InputItem Props
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |type|表单类型，特殊类型自带文本格式化|String|`text`|`text(文本)`,`bankCard(银行卡号)`,`phone(手机号)`,<br/>`money(金额)`,`digit(数字)`,`password(密码)`,<br/>以及其他的标准`Html Input`类型|
-|preview-type <sup class="version-after">2.5.0+</sup>|表单预览类型|String|-|一般用于初始化时的特殊表单值（如带掩码的*身份证号，手机号*）预览，第一次触发编辑操作如点击退格键及其他字符键点击时，先**清空预填值并将表单类型切换至`type`**|
+|preview-type|表单预览类型|String|-|一般用于初始化时的特殊表单值（如带掩码的*身份证号，手机号*）预览，第一次触发编辑操作如点击退格键及其他字符键点击时，先**清空预填值并将表单类型切换至`type`**|
 |name|表单名称|String|-|事件入参之一，可用于区分表单组件|
 |v-model|表单值|String|-|-|
 |title|表单左侧标题|String|-|可直接使用`slot left`代替|
-|solid <sup class="version-after">2.2.1+</sup>|是否固定标题宽度，超出会自动换行|Boolean|`true`|-|
+|solid|是否固定标题宽度，超出会自动换行|Boolean|`true`|-|
 |placeholder|表单占位符|String|-|-|
 |brief|表单描述|String|-|-|
 |maxlength|表单最大字符数|String/Number|-|`phone`类型固定为11|
@@ -51,51 +63,51 @@ Vue.component(InputItem.name, InputItem)
 |virtual-keyboard-ok-text|金融数字键盘确认键文案|String|`确定`|-|
 |virtual-keyboard-vm|金融数字键盘`ref`名称|String|-|一般用于自定义键盘|
 
-#### InputItem Slots
+### InputItem Slots
 
-#### left
+### left
 左侧插槽，一般用于放置图标等
 
-#### right
+### right
 右侧插槽，一般用于放置图标等
 
-#### brief
+### brief
 表单描述插槽，一般用于描述内容较复杂，用`Props`中`brief`无法满足的情况，需用`v-if`控制（不推荐）
 
-#### error
+### error
 表单错误插槽，一般用于错误内容较复杂，用`Props`中`error`无法满足的情况，需用`v-if`控制，参考示例中的`错误提示`（不推荐）
 
-#### InputItem Methods
+### InputItem Methods
 
-##### focus()
+#### focus()
 表单获得焦点
 
-##### blur()
+#### blur()
 表单失去焦点
 
-##### getValue()
+#### getValue()
 获取表单值
 
-#### InputItem Events
+### InputItem Events
 
-##### @focus(name)
+#### @focus(name)
 表单获得焦点事件
 
-##### @blur(name)
+#### @blur(name)
 表单失去焦点事件
 
-##### @change(name, value)
+#### @change(name, value)
 表单值变化事件
 
-##### @confirm(name, value)
+#### @confirm(name, value)
 表单值确认事件， 仅使用金融数字键盘或组件在`form`元素内时有效
 
-##### @keyup(name, event)
+#### @keyup(name, event)
 表单按键按下事件，仅`is-virtual-keyboard`为`false`时触发
 
-##### @keydown(name, event)
+#### @keydown(name, event)
 表单按键释放事件，仅`is-virtual-keyboard`为`false`时触发
 
-### 表单校验
+## 表单校验
 
 <iframe src="https://codesandbox.io/embed/5z344nk79x?autoresize=1&fontsize=12&module=%2Fsrc%2FApp.vue" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
