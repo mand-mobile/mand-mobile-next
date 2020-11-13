@@ -1,6 +1,6 @@
 <template>
   <div class="md-doc-footer">
-    <div class="md-doc-footer_content">滴滴金融泛前端&nbsp;&copy;&nbsp;MFE</div>
+    <div class="md-doc-footer_content">滴滴金融泛前端&nbsp;❤&nbsp;MFE</div>
     <div class="md-doc-footer_ext">
       
     </div>
@@ -24,12 +24,13 @@ export default {
   position relative
   display flex
   justify-content center
-  height 300px
+  height 150px
   // padding-top 70px
   padding-left 16.666%
+  padding-right 10em
   // border-top solid 1px #E2E4EA
   box-sizing border-box
-  background-color #111A34
+  background-color #2f495e
   overflow hidden
   &_content
     position relative
@@ -38,6 +39,7 @@ export default {
     align-items center
     // margin-left 5px
     font-family "yegenyou"
+    font-weight bold
     color #FFF
   &_ext
     position absolute
@@ -66,7 +68,7 @@ export default {
         
 @media (max-width: 750px)
   .md-doc-footer
-    align-items end
+    align-items center
     height 100px
     // padding-top 40px
     &_ext

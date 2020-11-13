@@ -67,10 +67,11 @@ export default {
       display none
       content ""
       position absolute
-      bottom 0
+      bottom 6px
       left 50%
-      width 1em
-      height 3px
-      margin-left -.5em
+      width 1.6em
+      height 4px
+      margin-left -.8em
       background #2F86F6
+      border-radius 3px
 </style>

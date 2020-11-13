@@ -62,6 +62,8 @@ import Skeleton from 'ant-design-vue/lib/skeleton'
 import 'ant-design-vue/lib/tooltip/style/index.css'
 import 'ant-design-vue/lib/skeleton/style/index.css'
 
+import {setScale} from '../util'
+
 export default {
   name: 'md-demo',
   props: ['path'],
@@ -100,6 +102,9 @@ export default {
         `mand-mobile/lib/${this.path}`
       ).then(module => {
         this.resize(zoom => {
+          if (document.documentElement.clientWidth > 750) {
+            setScale(.5)
+          }
           if (this.shadowMode) {
             this.renderShadowDemo(module.default)
             this.renderShadowDemoStyle({ zoom })
@@ -182,6 +187,7 @@ export default {
     display flex
     align-items center
     padding .8em
+    // border-top solid 4px #2f86f6
     border-bottom solid 1px #E2E4EA
     p
       margin 0
@@ -197,11 +203,13 @@ export default {
 
   .md-doc-demo_content
     .md-doc-demo_content_case
-      max-width 450px
+      position relative
+      max-width 480px
       margin 1.5em auto
+      font-size 24px
       /deep/.md-example-child
         padding 1.5em
-        zoom .6
+        // zoom .6
       &:after
         content ""
         display table

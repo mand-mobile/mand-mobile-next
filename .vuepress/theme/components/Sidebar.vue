@@ -1,6 +1,7 @@
 <template>
   <a-affix :offset-top="0">
     <aside class="md-doc-sidebar">
+      <div class="md-doc-sidebar_version">VERSION<span>{{version}}</span></div>
       <ul class="md-doc-sidebar_list" role="menu">
         <template v-for="(item0, index0) in sidebarItems">
           <SidebarItem
@@ -42,6 +43,11 @@ export default {
   components: {
     SidebarItem,
     [Affix.name]: Affix
+  },
+  computed: {
+    version () {
+      return this.$themeConfig.version
+    }
   }
 }
 </script>
@@ -49,12 +55,25 @@ export default {
 <style lang="stylus" scoped>
 .md-doc-sidebar
   height 100vh
-  margin-top 1em
-  padding 0 1.5em
-  border-right 1px solid #e8e8e8
+  // margin-top 1em
+  padding 0 1.5em 2em
+  // border-right 1px solid #e8e8e8
   background #FFF
   box-sizing border-box
   overflow auto
+  &_version
+    height 2.4em
+    line-height 2.4em
+    margin-bottom 10px
+    padding 0 16px
+    border solid 1px rgba(47, 134, 246, .15)
+    border-radius 1.2em
+    font-size .8em
+    font-family DINAlternate-Bold, AvenirNext-Medium, Microsoft Yahei, Lato, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Verdana, Tahoma, sans-serif
+    background-color rgba(47, 134, 246, .03)
+    span
+      margin-left .5em
+      color #2f86f6
   &_list
     margin 0
     padding 0

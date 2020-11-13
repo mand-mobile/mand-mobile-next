@@ -30,15 +30,18 @@ export default {
 .md-doc-sidebar_item
   list-style none
   border-radius 2.6em
+  font-family DINAlternate, AvenirNext-Medium, Microsoft Yahei, Lato, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Verdana, Tahoma, sans-serif
   &_link
     display block
     transition all .3s
     &:hover
-      transform translateX(2px)
+      // transform translate3d(2px, 0, 0)
       /deep/.md-doc-sidebar_item_text
         color #2f86f6
   &_category
     font-weight bold
+    font-size 1.2em
+    font-family DINAlternate-Bold, AvenirNext-Medium, Microsoft Yahei, Lato, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Verdana, Tahoma, sans-serif
   &.grouped
     >.md-doc-sidebar_item_link
       color #2f86f6
