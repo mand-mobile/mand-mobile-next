@@ -1,4 +1,5 @@
 const path = require('path')
+const packageInfo = require('../packages/mand-mobile/package.json')
 const resolve = file => path.resolve(__dirname, file)
 
 const componentsSidebarConfig = [
@@ -32,13 +33,15 @@ module.exports = {
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover' }],
     ['meta', { name: 'format-detection', content: 'telephone=no,email=no' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-touch-fullscreen', content: 'yes' }]
+    ['meta', { name: 'apple-touch-fullscreen', content: 'yes' }],
   ],
   themeConfig: {
+    version: packageInfo.version,
     logo: 'https://manhattan.didistatic.com/static/manhattan/mand/docs/mand-logo-black.svg',
     demoConfig: {
       shadowMode: false
     },
+    searchPlaceholder: '搜索',
     locales: {
       '/': {
         nav: [
@@ -59,7 +62,7 @@ module.exports = {
             }, 
             ...componentsSidebarConfig
           ],
-        }
+        },
       },
       '/en-US/': {
         nav: [
@@ -80,7 +83,7 @@ module.exports = {
             }, 
             ...componentsSidebarConfig
           ],
-        }
+        },
       }
     }
     // sidebarDepth: 2
