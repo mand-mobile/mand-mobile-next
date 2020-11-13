@@ -1,5 +1,5 @@
 <template>
-  <div class="md-example-child md-example-child-md-activity-indicator md-example-child-md-activity-indicator-1">
+  <div class="md-example-child md-example-child-activity-indicator md-example-child-activity-indicator-1">
     <md-activity-indicator
       type="spinner"
       :size="30"
@@ -21,43 +21,47 @@
 import ActivityIndicator from 'mand-mobile/lib/activity-indicator'
 
 export default {
-  name: 'activity-indicator-demo',
-  title: 'Spinner',
   components: {
     'md-activity-indicator': ActivityIndicator,
   },
 }
+// #region ignore
+export const metaInfo = {
+  title: 'Spinner',
+  platform: 'web',
+}
+// #endregion ignore
 
 </script>
 
-<style>
-.md-example-child-md-activity-indicator-1 {
+<style scoped>
+.md-example-child-activity-indicator-1 {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
   
-.md-activity-indicator {
+.md-example-child-activity-indicator-1 .md-activity-indicator {
   margin-bottom: 30px;
 }
   
-.md-example-child-md-activity-indicator-1 .activity-indicator-container {
+.md-example-child-activity-indicator-1 .activity-indicator-container {
   margin-bottom: 30px;
   padding: 15px 20px;
-  background: rgba(0, 0, 0, .7);
-  border-radius: 4px;
+  background: rgba(62, 75, 93, .8);
+  border-radius: 12px;
 }
   
-.md-example-child-md-activity-indicator-1 .md-activity-indicator-css {
+.md-example-child-activity-indicator-1 .md-activity-indicator-css {
   margin-bottom: 0;
 }
   
-.md-example-child-md-activity-indicator-1 .md-activity-indicator-css .md-activity-indicator_svg {
+.md-example-child-activity-indicator-1 .md-activity-indicator-css .md-activity-indicator_svg {
   width: 40px !important;
   height: 40px !important;
 }
     
-.md-example-child-md-activity-indicator-1 .md-activity-indicator-css .md-activity-indicator-text {
+.md-example-child-activity-indicator-1 .md-activity-indicator-css .md-activity-indicator-text {
   font-size: 28px !important;
 }  
 </style>

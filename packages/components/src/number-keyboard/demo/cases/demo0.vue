@@ -27,15 +27,11 @@
   </div>
 </template>
 
-<script>import Button from '../../../button'
-import NumberKeyboard from '../../index'
+<script>
+import Button from 'mand-mobile/lib/button'
+import NumberKeyboard from 'mand-mobile/lib/number-keyboard'
 
 export default {
-  name: 'number-keyboard-demo',
-  /* DELETE */
-  describe: '有确认键和小数点，一般用于价格或金额输入',
-  describeEnUS: 'With confirmation key and decimal point, generally used for price or amount input',
-  /* DELETE */
   components: {
     'md-button': Button,
     'md-number-keyboard': NumberKeyboard,
@@ -51,10 +47,10 @@ export default {
       return this.isKeyBoardShow[0] ? '收起键盘' : '唤起键盘，有小数点'
     },
     buttonText1() {
-      return this.isKeyBoardShow[1] ? '收起键盘' : '唤起键盘，有小数点'
+      return this.isKeyBoardShow[1] ? '收起键盘' : '唤起键盘，无小数点'
     },
     buttonText2() {
-      return this.isKeyBoardShow[2] ? '收起键盘' : '唤起键盘，有小数点'
+      return this.isKeyBoardShow[2] ? '收起键盘' : '唤起键盘，替换键值'
     },
   },
   methods: {
@@ -83,7 +79,18 @@ export default {
     },
   },
 }
-</script>
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    describe: '有确认键和小数点，一般用于价格或金额输入',
+  },
+  'en-US': {
+    describe: 'With confirmation key and decimal point, generally used for price or amount input',
+  },
+}
+// #endregion ignore
+
+</script>
 
 <style lang="stylus">
 .md-example-child

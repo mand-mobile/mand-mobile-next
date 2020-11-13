@@ -13,11 +13,6 @@ import Field from 'mand-mobile/lib/field'
 import CheckBox from 'mand-mobile/lib/check/box'
 
 export default {
-  name: 'check-demo',
-  /* DELETE */
-  title: '复选框',
-  titleEnUS: 'Check box',
-  /* DELETE */
   components: {
     'md-check-box': CheckBox,
     'md-field': Field,
@@ -28,5 +23,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '复选框',
+  },
+  'en-US': {
+    title: 'Check box',
+  },
+}
+// #endregion ignore
 
 </script>

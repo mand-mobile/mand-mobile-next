@@ -15,18 +15,11 @@
 </template>
 
 <script>
-import {Ruler} from 'mand-mobile'
+import Ruler from 'mand-mobile/lib/ruler'
 
 export default {
-  name: 'ruler-demo-1',
-  /* DELETE */
-  title: '最大1800，最小1200',
-  titleEnUS: 'Max 1800, Min 1200',
-  message: '请在移动设备中扫码预览',
-  messageEnUS: 'Please scan QR code and preview on mobile device',
-  /* DELETE */
   components: {
-    [Ruler.name]: Ruler,
+    'md-ruler': Ruler,
   },
   data() {
     return {
@@ -35,12 +28,24 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '最大1800，最小1200',
+    describe: '请在移动设备中扫码预览',
+  },
+  'en-US': {
+    title: 'Max 1800, Min 1200',
+    describe: 'Please scan QR code and preview on mobile device',
+  },
+}
+// #endregion ignore
 
 </script>
 
-<style lang="stylus" scoped>
-  .md-example-child-single-component
-    .container
-      margin 0 auto
-      width 640px
+<style scoped>
+.md-example-child-single-component .container {
+  width: 640px;
+  margin: 0 auto;
+}
 </style>

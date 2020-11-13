@@ -5,15 +5,9 @@
 </template>
 
 <script>
-import Steps from '../../index'
+import Steps from 'mand-mobile/lib/steps'
 
 export default {
-  name: 'steps-demo',
-  /* DELETE */
-  title: '进度非整数',
-  titleEnUS: 'Non-integer progress',
-  height: 150,
-  /* DELETE */
   components: {
     'md-steps': Steps,
   },
@@ -36,5 +30,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '进度非整数',
+  },
+  'en-US': {
+    title: 'Non-integer progress',
+  },
+}
+// #endregion ignore
 
 </script>

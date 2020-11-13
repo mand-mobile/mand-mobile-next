@@ -14,7 +14,7 @@
       @initialed="onPickerInitialed"
       @change="onPickerChange"
     ></md-picker-view>
-    <md-button type="primary" size="small" inline @click="onChangeData">切换数据</md-button>
+    <md-button type="primary" size="small" inline @click="setColumnData">切换数据</md-button>
   </div>
 </template>
 
@@ -25,7 +25,6 @@ import district from 'mand-mobile/lib/picker/demo/data/district'
 import area from 'mand-mobile/lib/picker/demo/data/area'
 
 export default {
-  name: 'picker-demo',
   components: {
     'md-picker-view': PickerView,
     'md-button': Button,
@@ -40,21 +39,6 @@ export default {
       labelKey: 'name',
       childrenKey: 'children',
     }
-  },
-  mounted() {
-    // window.PickerTrigger3 = () => {
-    //   this.getColumnValue('picker', 0)
-    // }
-    // window.PickerTrigger4 = () => {
-    //   this.getColumnIndex('picker', 0)
-    // }
-    // window.PickerTrigger5 = () => {
-    //   this.pickerDefaultIndex = []
-    //   this.pickerDefaultValue = ['110000', '110100', '110101']
-    //   setTimeout(() => {
-    //     this.$refs.picker.refresh()
-    //   }, 0)
-    // }
   },
   methods: {
     onPickerInitialed() {
@@ -71,28 +55,26 @@ export default {
       }
       console.log(`[Mand Mobile] Picker getColumnValues: ${JSON.stringify(value)}`)
     },
-    onChangeData() {
+    setColumnData() {
       this.pickerDefaultIndex = [0, 0, 0]
       this.pickerData = district
       this.labelKey = 'label'
       this.childrenKey = 'data'
     },
-    getColumnValue(picker, index) {
-      const value = this.$refs.picker.getColumnValue(index)
-      delete value.children
-      // Dialog.alert({
-      //   content: JSON.stringify(value),
-      // })
-    },
-    getColumnIndex(picker, index) {
-      const value = this.$refs.picker.getColumnIndex(index)
-      console.log(`[Mand Mobile] Picker getColumnIndex: ${JSON.stringify(value)}`)
-      // Dialog.alert({
-      //   content: `<pre>${JSON.stringify(value)}</pre>`,
-      // })
-    },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '联动数据',
+    describe: '默认选中[14, 4, 1]项',
+  },
+  'en-US': {
+    title: 'Cascade',
+    describe: '"[14, 4, 1]" item selected by default',
+  },
+}
+// #endregion ignore
 
 </script>
 

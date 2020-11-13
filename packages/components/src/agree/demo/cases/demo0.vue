@@ -15,12 +15,6 @@
 import Agree from 'mand-mobile/lib/agree'
 
 export default {
-  name: 'agree-demo',
-  /* DELETE */
-  title: '选中状态',
-  titleEnUS: 'Selected state',
-  height: 120,
-  /* DELETE */
   components: {
     'md-agree': Agree,
   },
@@ -42,5 +36,16 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '选中状态',
+  },
+  'en-US': {
+    title: 'Selected',
+  },
+  height: 120,
+}
+// #endregion ignore
 
 </script>

@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Icon  from '../../../icon'
+import Icon from '../../../icon'
 
 export default {
   name: 'icon-demo',
@@ -89,11 +89,22 @@ export default {
     }
   },
   methods: {
-    size(i) {
+    size() {
       return 'lg'
-    }
+    },
   },
 }
+// #region ignore
+export const metaInfo = {
+  hideCode: true,
+  'zh-CN': {
+    title: '字体图标',
+  },
+  'en-US': {
+    title: 'Icon Font',
+  },
+}
+// #endregion ignore
 
 </script>
 

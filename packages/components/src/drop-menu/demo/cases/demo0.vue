@@ -40,30 +40,31 @@ export default {
 }
 
 </script>
-<style scoped>
-.md-example-child-drop-menu {
+
+<style>
+.md-example-child-drop-menu-0 {
   position: relative;
   height: 400px;
   background: #F9FAFB;
   overflow: hidden;
 }
       
-.md-example-child-drop-menu .md-drop-menu {
+.md-example-child-drop-menu-0 .md-drop-menu {
   position: absolute;
   float: left;
   width: 100%;
   height: 100%;
 }
 
-.md-example-child-drop-menu .md-drop-menu .md-drop-menu_bar {
+.md-example-child-drop-menu-0 .md-drop-menu .md-drop-menu_bar {
   height: 110px;
 }
 
-.md-example-child-drop-menu .md-popup {
+.md-example-child-drop-menu-0 .md-popup {
   position: absolute;
 }
       
-.md-example-child-drop-menu .content {
+.md-example-child-drop-menu-0 .content {
   font-size: 26px;
   text-align: center;
   line-height: 400px;

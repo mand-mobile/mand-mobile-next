@@ -12,11 +12,6 @@
 import Codebox from 'mand-mobile/lib/codebox'
 
 export default {
-  name: 'codebox-demo',
-  /* DELETE */
-  title: '掩码遮蔽',
-  titleEnUS: 'Character mask',
-  /* DELETE */
   components: {
     'md-codebox': Codebox,
   },
@@ -26,5 +21,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '掩码遮蔽',
+  },
+  'en-US': {
+    title: 'Character mask',
+  },
+}
+// #endregion ignore
 
 </script>

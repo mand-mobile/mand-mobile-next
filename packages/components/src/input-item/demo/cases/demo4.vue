@@ -40,7 +40,11 @@
 </template>
 
 <script>
-import {InputItem, Field, Icon, NumberKeyboard, Toast} from 'mand-mobile'
+import Toast from 'mand-mobile/lib/toast'
+import InputItem from 'mand-mobile/lib/input-item'
+import Field from 'mand-mobile/lib/field'
+import Icon from 'mand-mobile/lib/icon'
+import NumberKeyboard from 'mand-mobile/lib/number-keyboard'
 import '../assets/bank-zs.svg'
 
 export default {
@@ -110,6 +114,16 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '表单控件',
+  },
+  'en-US': {
+    title: 'Input with controls',
+  },
+}
+// #endregion ignore
 
 </script>
 

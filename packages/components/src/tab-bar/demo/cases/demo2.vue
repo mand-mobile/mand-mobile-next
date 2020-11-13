@@ -3,7 +3,6 @@
     <md-tab-bar
       v-model="current"
       :items="items"
-      :maxLength="5"
     />
   </div>
 </template>
@@ -11,7 +10,6 @@
 <script>
 import TabBar from 'mand-mobile/lib/tab-bar'
 export default {
-  name: 'tab-bar-demo',
   components: {
     'md-tab-bar': TabBar,
   },
@@ -31,5 +29,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '可滚动',
+  },
+  'en-US': {
+    title: 'Scrollable',
+  },
+}
+// #endregion ignore
 
 </script>

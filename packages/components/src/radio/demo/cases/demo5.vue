@@ -14,12 +14,6 @@ import RadioBox from 'mand-mobile/lib/radio/box'
 import RadioGroup from 'mand-mobile/lib/radio/group'
 
 export default {
-  name: 'radio-demo',
-  /* DELETE */
-  title: '单选框组',
-  titleEnUS: 'Radio box group',
-  align: 'left',
-  /* DELETE */
   components: {
     'md-radio-box': RadioBox,
     'md-radio-group': RadioGroup,
@@ -30,5 +24,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '单选框组',
+  },
+  'en-US': {
+    title: 'Radio box group',
+  },
+}
+// #endregion ignore
 
 </script>

@@ -48,6 +48,16 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '操作按钮',
+  },
+  'en-US': {
+    title: 'Action buttons',
+  },
+}
+// #endregion ignore
 
 </script>
 

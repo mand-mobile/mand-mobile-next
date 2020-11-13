@@ -28,7 +28,6 @@ import Picker from 'mand-mobile/lib/picker'
 import district from 'mand-mobile/lib/picker/demo/data/district'
 
 export default {
-  name: 'picker-demo',
   components: {
     'md-picker': Picker,
     'md-field': Field,
@@ -56,5 +55,15 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '弹出展示',
+  },
+  'en-US': {
+    title: 'Display in Popup',
+  },
+}
+// #endregion ignore
 
 </script>

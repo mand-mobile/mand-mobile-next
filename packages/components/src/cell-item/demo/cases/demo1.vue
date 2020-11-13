@@ -22,12 +22,6 @@ import Field from 'mand-mobile/lib/field'
 import CellItem from 'mand-mobile/lib/cell-item'
 
 export default {
-  name: 'cell-item-demo',
-  /* DELETE */
-  title: '单行列表',
-  titleEnUS: 'Simple List',
-  align: 'left',
-  /* DELETE */
   components: {
     'md-field': Field,
     'md-cell-item': CellItem,
@@ -39,6 +33,16 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '单行列表',
+  },
+  'en-US': {
+    title: 'Simple List',
+  },
+}
+// #endregion ignore
 
 </script>
 

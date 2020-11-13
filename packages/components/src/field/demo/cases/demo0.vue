@@ -31,8 +31,6 @@ import FieldItem from 'mand-mobile/lib/field/item'
 import Icon from 'mand-mobile/lib/icon'
 
 export default {
-  name: 'field-demo0',
-
   components: {
     'md-field': Field,
     'md-field-item': FieldItem,

@@ -1,6 +1,6 @@
 <template>
   <div class="md-example-child md-example-child-popup md-example-child-popup-1">
-    <md-button class="md-button" @click="showPopUp('align')">标题居左</md-button>
+    <md-button class="md-button" inline size="small" @click="showPopUp('align')">标题居左</md-button>
     <md-popup
       class="inner-popup"
       v-model="isPopupShow.align"
@@ -20,7 +20,7 @@
       </div>
     </md-popup>
 
-    <md-button class="md-button" @click="showPopUp('top')">无遮罩层</md-button>
+    <md-button class="md-button" inline size="small" @click="showPopUp('top')">无遮罩层</md-button>
     <md-popup
       v-model="isPopupShow.top"
       :hasMask="false"
@@ -38,13 +38,13 @@
   </div>
 </template>
 
-<script>import Popup from '../../index'
-import PopupTitleBar from '../../title-bar'
-import Button from '../../../button'
-import Icon from '../../../icon'
+<script>
+import Popup from 'mand-mobile/lib/popup'
+import PopupTitleBar from 'mand-mobile/lib/popup/title-bar'
+import Button from 'mand-mobile/lib/button'
+import Icon from 'mand-mobile/lib/icon'
 
 export default {
-  name: 'popup-demo',
   components: {
     'md-popup': Popup,
     'md-popup-title-bar': PopupTitleBar,
@@ -66,18 +66,24 @@ export default {
     },
   },
 }
-</script>
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '其它配置',
+  },
+  'en-US': {
+    title: 'Other configurations',
+  },
+}
+// #endregion ignore
+
+</script>
 
 <style>
 .md-example-child-popup-1 {
   position: relative;
   float: left;
   width: 100%;
-}
-.md-example-child-popup-1 .md-button {
-  display: block;
-  height: 100px;
-  margin-bottom: 20px;
 }
 .md-example-child-popup-1 .md-popup-title-bar .md-popup-cancel .md-icon {
   align-self: flex-start;
@@ -105,7 +111,7 @@ export default {
   width: 100%;
   height: 75px;
   line-height: 75px;
-  background: #4a4c5b;
+  background: #2f86f6;
   color: #FFF;
 }
 .md-example-child-popup-1 .md-example-popup-top .md-icon {

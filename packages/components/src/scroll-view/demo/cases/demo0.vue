@@ -15,7 +15,7 @@
         >{{randomFace(5)}}</div>
       </md-scroll-view>
     </div>
-    <md-button class="md-button" type="primary" size="small" inline @click="addItems">新增</md-button>
+    <md-button class="md-button" size="small" inline @click="addItems">新增</md-button>
   </div>
 </template>
 
@@ -41,11 +41,6 @@ export default {
       list: 20,
       randomFace,
     }
-  },
-  mounted() {
-    // window.ScrollViewTrigger0 = () => {
-    //   this.addItems()
-    // }
   },
   methods: {
     $_onItemClick(i) {

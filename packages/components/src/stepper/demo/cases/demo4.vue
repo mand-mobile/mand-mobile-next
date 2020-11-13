@@ -14,16 +14,21 @@ import Field from 'mand-mobile/lib/field/index'
 import FieldItem from 'mand-mobile/lib/field/item'
 
 export default {
-  name: 'stepper-demo',
-  /* DELETE */
-  title: '最小值4大于默认值',
-  titleEnUS: 'Minimum is 4 which is greater than default',
-  /* DELETE */
   components: {
     'md-stepper': Stepper,
     'md-field': Field,
     'md-field-item': FieldItem,
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '最小值4大于默认值',
+  },
+  'en-US': {
+    title: 'Minimum is 4 which is greater than default',
+  },
+}
+// #endregion ignore
 
 </script>

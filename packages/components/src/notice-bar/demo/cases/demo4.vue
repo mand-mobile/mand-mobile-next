@@ -22,16 +22,20 @@
 import NoticeBar from 'mand-mobile/lib/notice-bar'
 
 export default {
-  name: 'notice-bar-demo',
-  /* DELETE */
-  title: '样式',
-  titleEnUS: 'Theme',
-  background: '#fff',
-  /* DELETE */
   components: {
     'md-notice-bar': NoticeBar,
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '样式',
+  },
+  'en-US': {
+    title: 'Theme',
+  },
+}
+// #endregion ignore
 
 </script>
 

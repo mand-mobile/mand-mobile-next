@@ -24,11 +24,6 @@
 import TextareaItem from 'mand-mobile/lib/textarea-item'
 import Field from 'mand-mobile/lib/field'
 export default {
-  name: 'tips-demo',
-  /* DELETE */
-  title: '错误提示',
-  titleEnUS: 'Error tips',
-  /* DELETE */
   data() {
     return {
       value: '申请理赔xxx',
@@ -59,5 +54,15 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '错误提示',
+  },
+  'en-US': {
+    title: 'Error tips',
+  },
+}
+// #endregion ignore
 
 </script>

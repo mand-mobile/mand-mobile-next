@@ -1,6 +1,11 @@
 <template>
   <div class="md-example-child md-example-child-toast">
-    <md-button @click="showTextToast">纯文字</md-button>
+    <md-button inline size="small" @click="showTextToast">纯文字</md-button>
+    <md-button inline size="small" @click="showSucceedToast">成功</md-button>
+    <md-button inline size="small" @click="showFailedToast">失败</md-button>
+    <md-button inline size="small" @click="showLoadingToast">载入</md-button>
+    <md-button inline size="small" @click="showMultiToast">连续调用</md-button>
+    <md-button inline size="small" @click="showLoginTextToast">长文字</md-button>
   </div>
 </template>
 
@@ -16,6 +21,30 @@ export default {
   methods: {
     showTextToast() {
       Toast.info('一段文字')
+    },
+    showSucceedToast() {
+      Toast.succeed('操作成功')
+    },
+    showFailedToast() {
+      Toast.failed('操作失败')
+    },
+    showLoadingToast() {
+      Toast.loading('加载中...')
+      setTimeout(() => {
+        Toast.hide()
+      }, 3000)
+    },
+    showMultiToast() {
+      Toast.loading('载入中')
+      setTimeout(() => {
+        Toast.hide()
+        setTimeout(() => {
+          Toast.failed('载入失败')
+        }, 10)
+      }, 500)
+    },
+    showLoginTextToast() {
+      Toast.succeed('所有文案部分字数最多展示15个字')
     },
   },
 }

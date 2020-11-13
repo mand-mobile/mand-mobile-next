@@ -12,17 +12,10 @@
 </template>
 
 <script>
-import Button from '../../../button'
-import NumberKeyboard from '../../index'
+import Button from 'mand-mobile/lib/button'
+import NumberKeyboard from 'mand-mobile/lib/number-keyboard'
 
 export default {
-  name: 'number-keyboard-demo',
-  /* DELETE */
-  title: '简单类型',
-  titleEnUS: 'Simple type',
-  describe: '无确认键和小数点，一般用于密码或验证码输入',
-  describeEnUS: 'No confirmation key and decimal point, generally used for password or verification code input',
-  /* DELETE */
   components: {
     'md-button': Button,
     'md-number-keyboard': NumberKeyboard,
@@ -45,6 +38,18 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '简单类型',
+    describe: '无确认键和小数点，一般用于密码或验证码输入',
+  },
+  'en-US': {
+    title: 'Simple type',
+    describe: 'No confirmation key and decimal point, generally used for password or verification code input',
+  },
+}
+// #endregion ignore
 
 </script>
 

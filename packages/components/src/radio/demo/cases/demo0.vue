@@ -9,11 +9,6 @@
 import Radio from 'mand-mobile/lib/radio'
 
 export default {
-  name: 'radio-demo',
-  /* DELETE */
-  title: '普通单选项',
-  titleEnUS: 'Normal radio',
-  /* DELETE */
   components: {
     'md-radio': Radio,
   },

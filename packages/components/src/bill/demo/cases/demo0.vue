@@ -8,9 +8,7 @@
       <md-detail-item title="借款金额">
         &yen;30,000
       </md-detail-item>
-      <md-detail-item title="收款账户">
-        <md-icon name="bank-zs"  style="margin-right:10px;"></md-icon>招商银行(尾号xxxx)
-      </md-detail-item>
+      <md-detail-item title="收款账户">招商银行(尾号xxxx)</md-detail-item>
       <md-detail-item title="借款期数" content="12期" />
       <md-detail-item title="正常还款总息">
         &yen;140.50
@@ -30,18 +28,14 @@
 </template>
 
 <script>
-// import '@examples/assets/images/bank-zs.svg'
 import Bill from 'mand-mobile/lib/bill'
 import DetailItem from 'mand-mobile/lib/detail-item'
-import Icon from 'mand-mobile/lib/icon'
 import Tag from 'mand-mobile/lib/tag'
 
 export default {
-  name: 'bill-demo',
   components: {
     'md-bill': Bill,
     'md-detail-item': DetailItem,
-    'md-icon': Icon,
     'md-tag': Tag,
   },
 }

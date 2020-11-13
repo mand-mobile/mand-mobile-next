@@ -1,23 +1,13 @@
 <template>
   <div class="md-example-child md-example-child-steps md-example-child-steps-5">
-    <md-steps
-      :steps="steps"
-      :current="currentStep"
-    >
-    </md-steps>
+    <md-steps :steps="steps" :current="currentStep"></md-steps>
   </div>
 </template>
 
 <script>
-import Steps from '../../index'
+import Steps from 'mand-mobile/lib/steps'
 
 export default {
-  name: 'steps-demo',
-  /* DELETE */
-  title: '利用current类增加自定义样式',
-  titleEnUS: 'Add custom styles through by class named "current"',
-  height: 150,
-  /* DELETE */
   components: {
     'md-steps': Steps,
   },
@@ -41,6 +31,16 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '利用current类增加自定义样式',
+  },
+  'en-US': {
+    title: 'Add custom styles through by class named "current"',
+  },
+}
+// #endregion ignore
 
 </script>
 

@@ -9,12 +9,6 @@
 import DropMenu from 'mand-mobile/lib/drop-menu'
 
 export default {
-  name: 'drop-menu-demo',
-  /* DELETE */
-  title: '初始下拉菜单',
-  titleEnUS: 'Drop-down menu with initial selection',
-  height: 500,
-  /* DELETE */
   components: {
     'md-drop-menu': DropMenu,
   },
@@ -72,32 +66,43 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  height: 500,
+  'zh-CN': {
+    title: '初始下拉菜单',
+  },
+  'en-US': {
+    title: 'Drop-down menu with initial selection',
+  },
+}
+// #endregion ignore
 
 </script>
 <style>
-.md-example-child-drop-menu {
+.md-example-child-drop-menu-1 {
   position: relative;
   height: 400px;
   background: #F9FAFB;
   overflow: hidden;
 }
       
-.md-example-child-drop-menu .md-drop-menu {
+.md-example-child-drop-menu-1 .md-drop-menu {
   position: absolute;
   float: left;
   width: 100%;
   height: 100%;
 }
 
-.md-example-child-drop-menu .md-drop-menu .md-drop-menu_bar {
+.md-example-child-drop-menu-1 .md-drop-menu .md-drop-menu_bar {
   height: 110px;
 }
 
-.md-example-child-drop-menu .md-popup {
+.md-example-child-drop-menu-1 .md-popup {
   position: absolute;
 }
       
-.md-example-child-drop-menu .content {
+.md-example-child-drop-menu-1 .content {
   font-size: 26px;
   text-align: center;
   line-height: 400px;
