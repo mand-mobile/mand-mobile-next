@@ -39,7 +39,7 @@ Picture selection completed, while reading hasn't been started yet，only suppor
 |Parameters | Description | Type| Note|
 |-----|-----|-----|-----|
 |name|identifier|String|-|
-|files|image file objects set|Array<File>|-|
+|files|image file objects set|Array\<File\>|-|
 
 ##### @complete(name, { dataUrl, blob, file })
 Picture reading completed

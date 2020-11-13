@@ -5,7 +5,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/icon
 
 IconFont、SVG 图标
 
-### 引入
+## 引入
 
 ```javascript
 import { Icon } from 'mand-mobile'
@@ -13,26 +13,37 @@ import { Icon } from 'mand-mobile'
 Vue.component(Icon.name, Icon)
 ```
 
-### 使用指南
+## 使用指南
 
-自定义svg图标和引入本地字体文件，请参考<a href="javascript:jumpAnchor('附录')">附录</a>。
+自定义svg图标和引入本地字体文件，请参考<a href="javascript:jumpAnchor('附录')">附录</a>
 
-### 代码演示
+## 代码演示
 <!-- DEMO -->
+<MDDemoWrapper single>
+<!-- left wrapper -->
+{{{ @/packages/components/src/icon/demo/cases/demo0.vue
+</MDDemoWrapper>
 
-### API
+<MDDemoWrapper>
+{{{ @/packages/components/src/icon/demo/cases/demo1.vue
+}}} @/packages/components/src/icon/demo/cases/demo2.vue
+{{{ @/packages/components/src/icon/demo/cases/demo3.vue
+</MDDemoWrapper>
+
+## API
 
 #### Icon Props
 |属性 | 说明 | 类型 | 默认值| 备注|
 |----|-----|------|------|------|
-|name|图标名称|String|-|-|
+|name|图标名称|String| | |
 |size|图标大小|String|`md`|`xs`, `sm`, `md`, `lg`|
-|color|图标颜色|String|`currentColor`|-|
-|svg|使用svg图标|Boolean|`false`|-|
+|color|图标颜色|String|当前字体颜色||
+|svg <MDPlatformTag web/>|使用svg图标|Boolean|`false`| |
 
-### 附录
+## 附录
 
-#### 自定义svg图标
+### 自定义svg图标
+<MDPlatformTag web/>
 
 自定义svg图标需使用<a href="https://github.com/kisenka/svg-sprite-loader" target="_blank">svg-sprite-loader</a>，svg文件名即图标名称
 
@@ -73,9 +84,10 @@ module.exports = {
 </template>
 
 <script>
+import { Icon } from 'mand-mobile'
+
 import 'src/my-project-svg-folder/hello.svg'
 import 'src/my-project-svg-folder/world.svg'
-import { Icon } from 'mand-mobile'
 
 export default {
   name: 'icon-demo',
@@ -86,7 +98,7 @@ export default {
 </script>
 ```
 
-#### 引入本地字体文件
+### 引入本地字体文件
 
 > 注意：webpack配置[url-loader](https://github.com/webpack-contrib/url-loader)需要包含mand-mobile 
 
@@ -103,6 +115,6 @@ export default {
 
 * 自定义主题时重置stylus变量
 
-```
+```stylus
 icon-font-family = url("./iconfont.woff") format("woff"), url("./iconfont.ttf") format("truetype")
 ```

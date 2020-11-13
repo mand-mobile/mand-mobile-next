@@ -5,7 +5,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/swiper
 
 走马灯，用于一组图片或卡片轮播
 
-### 引入
+## 引入
 
 ```javascript
 import { Swiper, SwiperItem } from 'mand-mobile'
@@ -14,12 +14,19 @@ Vue.component(Swiper.name, Swiper)
 Vue.component(SwiperItem.name, SwiperItem)
 ```
 
-### 代码演示
+## 代码演示
 <!-- DEMO -->
+<!-- DEMO -->
+<MDDemoWrapper>
+{{{ @/packages/components/src/swiper/demo/cases/demo0.vue
+}}} @/packages/components/src/swiper/demo/cases/demo1.vue
+{{{ @/packages/components/src/swiper/demo/cases/demo2.vue
+}}} @/packages/components/src/swiper/demo/cases/demo3.vue
+</MDDemoWrapper>
 
-### API
+## API
 
-#### Swiper Props
+### Swiper Props
 
 |属性|说明|类型|默认值|可选值/备注|
 |---|---|---|---|---|
@@ -33,9 +40,9 @@ Vue.component(SwiperItem.name, SwiperItem)
 |dragable|禁用触摸滑动|Boolean|`true`|-|
 |use-native-driver|开启3D加速|Boolean|`true`|-|
 
-#### Swiper Methods
+### Swiper Methods
 
-##### play(autoplay)
+#### play(autoplay)
 打开自动切换
 
 |参数|说明|类型|默认值|可选值|
@@ -46,28 +53,28 @@ Vue.component(SwiperItem.name, SwiperItem)
 vm.$refs.swiper.play(5000)
 ```
 
-##### stop()
+#### stop()
 停止自动切换
 
 ```js
 vm.$refs.swiper.stop()
 ```
 
-##### prev()
+#### prev()
 前一个item
 
 ```js
 vm.$refs.swiper.prev()
 ```
 
-##### next()
+#### next()
 后一个item
 
 ```js
 vm.$refs.swiper.next()
 ```
 
-##### goto(index)
+#### goto(index)
 切换到某一个index
 
 |参数|说明|类型|默认值|可选值|
@@ -78,7 +85,7 @@ vm.$refs.swiper.next()
 vm.$refs.swiper.goto(2)
 ```
 
-##### getIndex()
+#### getIndex()
 获取当前显示的index
 
 |参数|说明|类型|
@@ -89,8 +96,8 @@ vm.$refs.swiper.goto(2)
 var index = vm.$refs.swiper.getIndex()
 ```
 
-#### Swiper Events
-##### @beforeChange(from, to)
+### Swiper Events
+#### @beforeChange(from, to)
 轮播器将要切换前的事件
 
 |参数 | 说明 | 类型 |
@@ -98,7 +105,7 @@ var index = vm.$refs.swiper.getIndex()
 | from     | 轮播器当前展示的索引值 | Number          |
 | to     | 轮播器下一屏展示的索引值 | Number          |
 
-##### @afterChange(from, to)
+#### @afterChange(from, to)
 轮播器切换完成时的事件
 
 |参数 | 说明 | 类型 |

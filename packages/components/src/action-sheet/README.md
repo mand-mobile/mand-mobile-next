@@ -5,7 +5,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/action-sheet
 
 用于提供场景相关的多个操作动作
 
-### 引入
+## 引入
 
 ```javascript
 import { ActionSheet } from 'mand-mobile'
@@ -15,43 +15,54 @@ Vue.component(ActionSheet.name, ActionSheet)
 this.$actionsheet.create({ /* ... */ }) // 全量引入
 ```
 
-### 代码演示
+## 代码演示
 <!-- DEMO -->
+<MDDemoWrapper>
+<!-- left wrapper -->
+{{{ @/packages/components/src/action-sheet/demo/cases/demo0.vue
+<!-- right wrapper -->
+}}} @/packages/components/src/action-sheet/demo/cases/demo1.web.vue
+</MDDemoWrapper>
 
-### API
+## API
 
-#### ActionSheet Props
+### ActionSheet Props
 |属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------|------|
-|v-model|面板是否可见|Boolean| `false`|-|
+|value|面板是否可见|Boolean| `false`|-|
 |title|面板标题|String|-|-|
 |options|面板选项| Array<{text, value}>| `[]`|-|
 |default-index|默认选中项| Boolean| `0`|-|
 |invalid-index|禁用选择项索引 |Number|`-1`|-|
 |cancel-text|取消按钮文案 |String |-|-|
-|large-radius <sup class="version-after">2.4.0+</sup>|大圆角模式|Boolean|`false`|-|
 
-#### ActionSheet Events
+### ActionSheet Events
 
-##### @selected(item)
+#### @selected(item)
 选择事件
 
 |属性 | 说明 | 类型 |
 |----|-----|------|
 |item| 选中项的值 | Object: {text, value} |
 
-##### @cancel()
+#### @cancel()
 取消选择事件
 
-##### @show()
+#### @show()
 面板展示事件
 
-##### @hide()
+#### @hide()
 面板隐藏事件
 
-#### ActionSheet Static Methods
+---
 
-##### create(props)
+### ActionSheet Static Methods
+
+::: tip
+Uniapp内会调用内置[ActionSheet组件](https://uniapp.dcloud.io/api/ui/prompt?id=showactionsheet)
+:::
+
+#### create(props)
 静态方法创建操作菜单, 返回ActionSheet实例。可以通过控制实例的`value`属性来控制显示或隐藏操作菜单。
 
 |属性 | 说明 | 类型 | 默认值 | 备注 |
@@ -68,8 +79,8 @@ this.$actionsheet.create({ /* ... */ }) // 全量引入
 |onCancel|取消选择回调|Function|-|-|
 |onSelected|选择回调|Function(item: {text, value})|-|-|
 
-##### closeAll()
+#### closeAll()
 关闭所有全局操作菜单
 
-##### destroyAll()
+#### destroyAll()
 关闭并销毁所有全局操作菜单

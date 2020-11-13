@@ -1,4 +1,7 @@
-# `@mand-mobile/platform`
+---
+title: Platform
+name: platform
+---
 
 Runtime shims and compiletime plugins for smoothing out differences between platforms.
 

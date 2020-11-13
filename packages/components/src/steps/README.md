@@ -5,7 +5,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/steps
 
 用于引导用户按照流程完成任务的导航条，显示当前所在步骤
 
-### 引入
+## 引入
 
 ```javascript
 import { Steps } from 'mand-mobile'
@@ -13,26 +13,37 @@ import { Steps } from 'mand-mobile'
 Vue.component(Steps.name, Steps)
 ```
 
-### 代码演示
+## 代码演示
 <!-- DEMO -->
+<MDDemoWrapper>
+{{{ @/packages/components/src/steps/demo/cases/demo0.vue
+}}} @/packages/components/src/steps/demo/cases/demo1.vue
+{{{ @/packages/components/src/steps/demo/cases/demo2.vue
+{{{ @/packages/components/src/steps/demo/cases/demo3.vue
+{{{ @/packages/components/src/steps/demo/cases/demo4.vue
+{{{ @/packages/components/src/steps/demo/cases/demo5.vue
+{{{ @/packages/components/src/steps/demo/cases/demo6.vue
+}}} @/packages/components/src/steps/demo/cases/demo7.vue
+}}} @/packages/components/src/steps/demo/cases/demo8.vue
+</MDDemoWrapper>
 
-### API
+## API
 
-#### Steps Props
+### Steps Props
 | 属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------|------|
-|steps|步骤信息数组|Array<{name, text}>|-|-|
+|steps|步骤信息数组|Array\<{name, text}\>| | |
 |current|当前步骤/进度|Number|`0`| 支持小数 |
 |direction|展示方向|String|`horizontal`|`horizontal`, `vertical`|
-|transition|进度变化动效|Boolean|`false`|-|
+|transition|进度变化动效|Boolean|`false`| |
 |vertical-adaptive|步骤高度自适应|Boolean|`false`|仅用于`vertical`, **如果设置为`true`则根据容器高度自适应，需设置`.mfe-steps`高度**|
 
 
-#### Steps Slots
+### Steps Slots
 
 #### icon
 
-统一自定义所有步骤图标，支持`scoped slot`如下所示：<sup class="version-after">2.2.1+</sup>
+统一自定义所有步骤图标，支持`scoped slot`如下所示：
 
 ```html
 <template slot="reached" slot-scope="{ index, currentIndex }">
@@ -60,7 +71,7 @@ Vue.component(Steps.name, Steps)
 
 #### unreached
 
-未完成步骤图标插槽，用于自定义未完成步骤图标，支持`scoped slot`用法同`reached` <sup class="version-after">2.2.1+</sup>
+未完成步骤图标插槽，用于自定义未完成步骤图标，支持`scoped slot`用法同`reached`
 
 #### content
 
