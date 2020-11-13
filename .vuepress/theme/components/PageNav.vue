@@ -51,7 +51,7 @@ function find (page, items, offset) {
 
 <style lang="stylus">
 .md-doc-nav
-  // padding 20px 64px
+  padding 2em 0
   box-sizing border-box
   a
     text-decoration none

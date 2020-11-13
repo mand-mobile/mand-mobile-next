@@ -62,8 +62,8 @@ export default {
       return this.$page.title
     },
     platforms () {
-      const platform = this.$page.meta.platform
-      return Array.isArray(platform) ? platform : [platform || '']
+      const platform = this.$page.meta.platform || (this.$page.meta.category ? ['web', 'uni'] : '')
+      return Array.isArray(platform) ? platform : [platform]
     }
   }
 }
@@ -78,7 +78,9 @@ export default {
     z-index 2
   &_content
     position relative
-    padding 1em 14em 0 5em
+    max-width 1800px
+    margin 0 auto
+    padding 0 14em 0 5em
     overflow hidden
     &_header
       display flex
@@ -101,12 +103,14 @@ export default {
 
 @media (max-width: 1500px)
   .md-doc-layout_content
-    padding 1em 14em 0 5em
-@media (max-width: 1000px)
-  .md-doc-layout_sidebar, .md-doc-layout_content_toc
+    padding 1em 5em 0 5em
+  .md-doc-layout_content_toc
     display none
+@media (max-width: 1000px)
   .md-doc-layout_content
     padding 1em 1.5em 0 1.5em
+  .md-doc-layout_sidebar
+    display none
 @media (max-width: 750px)
   .md-doc-layout_content_main
     font-size .9em

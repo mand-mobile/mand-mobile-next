@@ -68,10 +68,13 @@ export default {
   &_item
     display flex
     align-items center
-    border solid 1px #2f86f6
+    // border solid 1px #2f86f6
     border-radius 2em
+    background-color #2f86f6
+    font-family DINAlternate-Bold,AvenirNext-Medium,Microsoft Yahei,Lato,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Verdana,Tahoma,sans-serif
     font-style normal
-    color #2f86f6
+    font-weight 400
+    color #fff
     &:not(:last-child)
       margin-right 5px
   &.large .md-doc-platform-tag_item

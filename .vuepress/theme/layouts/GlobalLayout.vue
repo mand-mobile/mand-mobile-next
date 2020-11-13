@@ -30,6 +30,9 @@ export default {
     },
   },
   mounted () {
+    // if (document.documentElement.clientWidth > 750) {
+    //   setScale(0.5)
+    // }
     // console.log(this.$route)
     // console.log(this.$page)
     // console.log(this.$site)

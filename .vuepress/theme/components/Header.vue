@@ -36,7 +36,8 @@ export default {
   // z-index 2
   display flex
   height 4em
-  border-bottom 1px solid #f0f1f2
+  margin-bottom 2em
+  // border-bottom 1px solid #f0f1f2
   &_aside
     display flex
     align-items center
@@ -48,7 +49,7 @@ export default {
       display inline-block
       margin-right .8em
       width auto
-      height 2.2em
+      height 1.8em
       transition all .3s
     &_title
       display inline-flex
@@ -57,7 +58,7 @@ export default {
       height 100%
       margin 0
       color #333
-      font-size 1.2em
+      font-size 1.4em
       font-family DINAlternate-Bold,AvenirNext-Medium,Microsoft Yahei,Lato,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Verdana,Tahoma,sans-serif
   /deep/.search-box
     display flex
