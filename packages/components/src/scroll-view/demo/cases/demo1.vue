@@ -33,6 +33,17 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '横向滚动',
+  },
+  'en-US': {
+    title: 'Horizontal scrolling',
+  },
+  describe: 'isPrevent false, touchAngle 80',
+}
+// #endregion ignore
 
 </script>
 

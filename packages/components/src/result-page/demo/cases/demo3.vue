@@ -13,14 +13,19 @@
 import ResultPage from 'mand-mobile/lib/result-page'
 
 export default {
-  name: 'result-page-demo',
-  /* DELETE */
-  title: '自定义图案',
-  titleEnUS: 'Custom pattern',
-  /* DELETE */
   components: {
     'md-result-page': ResultPage,
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '自定义图案',
+  },
+  'en-US': {
+    title: 'Custom pattern',
+  },
+}
+// #endregion ignore
 
 </script>

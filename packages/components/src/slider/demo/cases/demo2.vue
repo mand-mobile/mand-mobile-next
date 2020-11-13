@@ -8,11 +8,6 @@
 import Slider from 'mand-mobile/lib/slider'
 
 export default {
-  name: 'slider-demo',
-  /* DELETE */
-  title: '格式化',
-  titleEnUS: 'Format',
-  /* DELETE */
   components: {
     'md-slider': Slider,
   },
@@ -27,5 +22,15 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '格式化',
+  },
+  'en-US': {
+    title: 'Formatting',
+  },
+}
+// #endregion ignore
 
 </script>

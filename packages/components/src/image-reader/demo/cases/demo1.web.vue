@@ -48,12 +48,6 @@ import Toast from 'mand-mobile/lib/toast'
 import imageProcessor from '../../image-processor'
 
 export default {
-  name: 'image-reader-demo',
-  /* DELETE */
-  title: '图片选择并轴向修正，压缩处理',
-  titleEnUS: 'Picture selection and axial correction, compression processing',
-  describe: 'width: 200&nbsp;&nbsp;height: 200&nbsp;&nbsp;quality: 0.1',
-  /* DELETE */
   components: {
     'md-icon': Icon,
     'md-tag': Tag,
@@ -103,6 +97,17 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  describe: 'width: 200&nbsp;&nbsp;height: 200&nbsp;&nbsp;quality: 0.1',
+  'zh-CN': {
+    title: '图片选择并轴向修正，压缩处理',
+  },
+  'en-US': {
+    title: 'Picture selection and axial correction, compression processing',
+  },
+}
+// #endregion ignore
 
 </script>
 

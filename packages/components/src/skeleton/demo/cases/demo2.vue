@@ -12,6 +12,7 @@
         </md-cell-item>
       </md-skeleton>
     </md-field>
+    <md-button type="primary" size="small" inline @click="startLoading">开始加载</md-button>
   </div>
 </template>
 
@@ -19,15 +20,9 @@
 import Skeleton from 'mand-mobile/lib/skeleton'
 import Field from 'mand-mobile/lib/field'
 import CellItem from 'mand-mobile/lib/cell-item'
+import Button from 'mand-mobile/lib/button'
+
 export default {
-  name: 'skeleton-demo',
-  /* DELETE */
-  // title: '加载正文 <a href="javascript:window.startLoading()">开始加载</a>',
-  title: '加载正文',
-  titleEnUS: 'Loading body <a href="javascript:window.startLoading()">Start loading</a>',
-  describe: '3s后加载完成',
-  describeEnUS: 'Load completed after 3s',
-  /* DELETE */
   data() {
     return {
       loading: true,
@@ -37,9 +32,9 @@ export default {
     'md-skeleton': Skeleton,
     'md-field': Field,
     'md-cell-item': CellItem,
+    'md-button': Button,
   },
   mounted() {
-    // window.startLoading = this.startLoading
     this.startLoading()
   },
   methods: {
@@ -51,6 +46,18 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '加载正文',
+    describe: '3s后加载完成',
+  },
+  'en-US': {
+    title: 'Loading body',
+    describe: 'Load completed after 3s',
+  },
+}
+// #endregion ignore
 
 </script>
 

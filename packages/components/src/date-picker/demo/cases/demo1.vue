@@ -12,7 +12,6 @@
 import DatePicker from 'mand-mobile/lib/date-picker/date-picker-view'
 
 export default {
-  name: 'date-picker-demo',
   components: {
     'md-date-picker-view': DatePicker,
   },
@@ -22,5 +21,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '时间选择',
+  },
+  'en-US': {
+    title: 'Time selection',
+  },
+}
+// #endregion ignore
 
 </script>

@@ -30,7 +30,6 @@ import Field from 'mand-mobile/lib/field'
 import FieldItem from 'mand-mobile/lib/field/item'
 
 export default {
-  name: 'date-picker-demo',
   components: {
     'md-date-picker': DatePicker,
     'md-field': Field,
@@ -67,5 +66,15 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '自定义类型和选项文本',
+  },
+  'en-US': {
+    title: 'Custom type and option text',
+  },
+}
+// #endregion ignore
 
 </script>

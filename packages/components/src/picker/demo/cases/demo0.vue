@@ -1,6 +1,7 @@
 <template>
   <div class="md-example-child md-example-child-picker md-example-child-picker-0">
     <md-picker-view
+      class="picker"
       ref="picker"
       :data="pickerData"
       :default-index="[1]"
@@ -9,40 +10,27 @@
       @initialed="onPickerInitialed"
       @change="onPickerConfirm"
     ></md-picker-view>
+    <md-button type="primary" size="small" inline @click="getColumnValues('picker')">获取选中数据</md-button>
+    <md-button type="primary" size="small" inline @click="getColumnIndexs('picker')">获取选中索引</md-button>
   </div>
 </template>
 
 <script>
 import PickerView from 'mand-mobile/lib/picker/picker-view'
+import Button from 'mand-mobile/lib/button'
+import Dialog from 'mand-mobile/lib/dialog'
 import simple from 'mand-mobile/lib/picker/demo/data/simple'
 
 export default {
-  name: 'picker-demo',
   components: {
     'md-picker-view': PickerView,
+    'md-button': Button,
   },
   data() {
     return {
       pickerData: simple,
-      pickerDataNew: [
-        {
-          text: 'Hello World',
-          value: 9999,
-        },
-      ],
       pickerValue: '',
     }
-  },
-  mounted() {
-    // window.PickerTrigger0 = () => {
-    //   this.getColumnValues('picker')
-    // }
-    // window.PickerTrigger1 = () => {
-    //   this.getColumnIndexs('picker')
-    // }
-    // window.PickerTrigger2 = () => {
-    //   this.setColumnValues('picker')
-    // }
   },
   methods: {
     onPickerInitialed() {
@@ -56,24 +44,36 @@ export default {
     },
     getColumnValues(picker) {
       const value = this.$refs[picker].getColumnValues()
-      console.log(`[Mand Mobile]: ${JSON.stringify(value)}`)
-      // Dialog.alert({
-      //   content: `<pre>${JSON.stringify(value)}</pre>`,
-      // })
+      Dialog.alert({
+        content: `<pre>${JSON.stringify(value)}</pre>`,
+      })
     },
     getColumnIndexs(picker) {
       const value = this.$refs[picker].getColumnIndexs()
-      console.log(`[Mand Mobile]: ${JSON.stringify(value)}`)
-      // Dialog.alert({
-      //   content: `<pre>${JSON.stringify(value)}</pre>`,
-      // })
-    },
-    setColumnValues(picker) {
-      this.$refs[picker].setColumnValues(0, this.pickerDataNew, vm => {
-        vm.refresh(null, 0)
+      Dialog.alert({
+        content: `<pre>${JSON.stringify(value)}</pre>`,
       })
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '单列数据',
+    describe: '禁用2-4项',
+  },
+  'en-US': {
+    title: 'Single column',
+    describe: 'Disable 2-4 items',
+  },
+}
+// #endregion ignore
 
 </script>
+
+<style>
+.md-example-child-picker-0 .picker {
+  display: block;
+  margin-bottom: 20px;
+}
+</style>

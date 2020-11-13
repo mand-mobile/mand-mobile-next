@@ -23,24 +23,25 @@
   </div>
 </template>
 
-<script>import InputItem from '../../index.vue'
-import Field from '../../../field/index.vue'
+<script>
+import InputItem from 'mand-mobile/lib/input-item'
+import Field from 'mand-mobile/lib/field'
 
 export default {
-  name: 'input-item-demo',
-  /* DELETE */
-  title: '标题浮动输入框',
-  titleEnUS: 'Floating title input',
-  /* DELETE */
   components: {
     'md-input-item': InputItem,
     'md-field': Field,
   },
 }
-</script>
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '标题浮动输入框',
+  },
+  'en-US': {
+    title: 'Floating title',
+  },
+}
+// #endregion ignore
 
-<style lang="stylus">
-.md-example-child-input-item-1
-  .md-field
-    padding-bottom 40px
-</style>
+</script>

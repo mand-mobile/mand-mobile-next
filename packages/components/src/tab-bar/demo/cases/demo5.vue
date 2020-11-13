@@ -11,10 +11,8 @@
 <script>
 import TabBar from 'mand-mobile/lib/tab-bar'
 import Toast from 'mand-mobile/lib/toast'
-// import {TabBar, Toast} from 'mand-mobile'
 
 export default {
-  name: 'tab-bar-demo',
   components: {
     'md-tab-bar': TabBar,
   },
@@ -30,5 +28,15 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '监听事件',
+  },
+  'en-US': {
+    title: 'Evetns',
+  },
+}
+// #endregion ignore
 
 </script>

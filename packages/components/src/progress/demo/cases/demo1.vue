@@ -36,19 +36,26 @@
 </template>
 
 <script>
-import {Amount, Progress} from 'mand-mobile'
+import Amount from 'mand-mobile/lib/amount'
+import Progress from 'mand-mobile/lib/progress'
 
 export default {
-  name: 'progress-demo',
-  /* DELETE */
-  title: '其他配置',
-  titleEnUS: 'Other configurations',
-  /* DELETE */
   components: {
     'md-amount': Amount,
     'md-progress': Progress,
   },
 }
+// #region ignore
+export const metaInfo = {
+  platform: 'web',
+  'zh-CN': {
+    title: '其他配置',
+  },
+  'en-US': {
+    title: 'Other configurations',
+  },
+}
+// #endregion ignore
 
 </script>
 

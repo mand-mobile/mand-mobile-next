@@ -28,14 +28,11 @@
 </template>
 
 <script>
-import {InputItem, Field, Toast} from 'mand-mobile'
+import Toast from 'mand-mobile/lib/toast'
+import InputItem from 'mand-mobile/lib/input-item'
+import Field from 'mand-mobile/lib/field'
 
 export default {
-  name: 'input-item-demo',
-  /* DELETE */
-  title: '错误提示',
-  titleEnUS: 'Input with error message',
-  /* DELETE */
   components: {
     'md-input-item': InputItem,
     'md-field': Field,
@@ -55,12 +52,20 @@ export default {
       }
     },
     bankCardTip() {
-      Toast.info({
-        content: '以6222开头',
-      })
+      Toast.info('以6222开头')
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '错误提示',
+  },
+  'en-US': {
+    title: 'Error message',
+  },
+}
+// #endregion ignore
 
 </script>
 

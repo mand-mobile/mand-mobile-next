@@ -16,19 +16,23 @@
 </template>
 
 <script>
-import Icon  from '../../../icon'
+import Icon from '../../../icon'
 
 export default {
-  name: 'icon-demo',
-  /* DELETE */
-  title: 'svg图标',
-  titleEnUS: 'Svg Icon',
-  align: 'center',
-  background: '#fff',
-  /* DELETE */
   components: {
     'md-icon': Icon,
   },
 }
+// #region ignore
+export const metaInfo = {
+  platform: 'web',
+  'zh-CN': {
+    title: 'SVG图标',
+  },
+  'en-US': {
+    title: 'Svg Icon',
+  },
+}
+// #endregion ignore
 
 </script>

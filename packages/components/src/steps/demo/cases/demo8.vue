@@ -8,13 +8,7 @@
       <template slot="reached">
         <md-icon name="checked"></md-icon>
       </template>
-      <div
-        class="custom-content"
-        slot="content"
-
-      >
-
-      </div>
+      <div class="custom-content" slot="content"></div>
     </md-steps>
     <md-steps
       direction="vertical"
@@ -44,16 +38,11 @@
 </template>
 
 <script>
-import Steps from '../../../steps'
+import Steps from 'mand-mobile/lib/steps'
 // import Amount from '../../../amount'
-import Icon from '../../../icon'
+import Icon from 'mand-mobile/lib/icon'
 
 export default {
-  name: 'steps-demo',
-  /* DELETE */
-  title: '自定义内容',
-  titleEnUS: 'Custom content',
-  /* DELETE */
   components: {
     'md-steps': Steps,
     // 'md-amount': Amount,
@@ -83,6 +72,16 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '自定义内容',
+  },
+  'en-US': {
+    title: 'Custom content',
+  },
+}
+// #endregion ignore
 
 </script>
 

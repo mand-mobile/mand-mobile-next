@@ -16,12 +16,6 @@ import Field from 'mand-mobile/lib/field'
 import FieldItem from 'mand-mobile/lib/field/item'
 
 export default {
-  name: 'radio-demo',
-  /* DELETE */
-  title: '表单项内联',
-  titleEnUS: 'With Field',
-  align: 'left',
-  /* DELETE */
   components: {
     'md-field': Field,
     'md-field-item': FieldItem,
@@ -33,5 +27,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '表单项内联',
+  },
+  'en-US': {
+    title: 'Field items',
+  },
+}
+// #endregion ignore
 
 </script>

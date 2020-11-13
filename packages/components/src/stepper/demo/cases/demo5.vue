@@ -14,16 +14,21 @@ import Field from 'mand-mobile/lib/field/index'
 import FieldItem from 'mand-mobile/lib/field/item'
 
 export default {
-  name: 'stepper-demo',
-  /* DELETE */
-  title: 'step为小数1.3',
-  titleEnUS: 'Step is a decimal, 1.3',
-  /* DELETE */
   components: {
     'md-stepper': Stepper,
     'md-field': Field,
     'md-field-item': FieldItem,
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: 'step为小数1.3',
+  },
+  'en-US': {
+    title: 'Step is a decimal, 1.3',
+  },
+}
+// #endregion ignore
 
 </script>

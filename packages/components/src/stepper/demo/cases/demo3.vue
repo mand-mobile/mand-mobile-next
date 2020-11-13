@@ -14,11 +14,6 @@ import Field from 'mand-mobile/lib/field/index'
 import FieldItem from 'mand-mobile/lib/field/item'
 
 export default {
-  name: 'stepper-demo',
-  /* DELETE */
-  title: '步进2',
-  titleEnUS: 'Step 2',
-  /* DELETE */
   components: {
     'md-stepper': Stepper,
     'md-field': Field,
@@ -30,5 +25,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '步进2',
+  },
+  'en-US': {
+    title: 'Step 2',
+  },
+}
+// #endregion ignore
 
 </script>

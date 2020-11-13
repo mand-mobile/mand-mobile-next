@@ -13,7 +13,6 @@
 import TabBar from 'mand-mobile/lib/tab-bar'
 
 export default {
-  name: 'tab-bar-demo',
   components: {
     'md-tab-bar': TabBar,
   },
@@ -24,5 +23,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '无下划线',
+  },
+  'en-US': {
+    title: 'No ink',
+  },
+}
+// #endregion ignore
 
 </script>

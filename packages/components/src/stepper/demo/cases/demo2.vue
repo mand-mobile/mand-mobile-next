@@ -14,11 +14,6 @@ import Field from 'mand-mobile/lib/field/index'
 import FieldItem from 'mand-mobile/lib/field/item'
 
 export default {
-  name: 'stepper-demo',
-  /* DELETE */
-  title: '最小值-12，最大值18',
-  titleEnUS: 'Minimum is -12 and maximum is 18',
-  /* DELETE */
   components: {
     'md-stepper': Stepper,
     'md-field': Field,
@@ -30,5 +25,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '最小值-12，最大值18',
+  },
+  'en-US': {
+    title: 'Minimum is -12 and maximum is 18',
+  },
+}
+// #endregion ignore
 
 </script>

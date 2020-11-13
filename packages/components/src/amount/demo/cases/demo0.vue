@@ -19,7 +19,6 @@
 import Amount from 'mand-mobile/lib/amount'
 
 export default {
-  name: 'amount-demo',
   components: {
     'md-amount': Amount,
   },
@@ -27,13 +26,14 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 .md-example-child-amount {
   text-align: center;
   color: #666;
 }
 .md-example-child-amount p {
   font-size: 50px;
+  font-weight: 300;
 }
 .md-example-child-amount p span.describe {
   font-size: 18px;

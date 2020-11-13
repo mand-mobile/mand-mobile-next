@@ -25,14 +25,18 @@
 </template>
 
 <script>
-import {Progress} from 'mand-mobile'
+import Progress from 'mand-mobile/lib/progress'
 
 export default {
-  name: 'progress-demo',
   components: {
     'md-progress': Progress,
   },
 }
+// #region ignore
+export const metaInfo = {
+  platform: 'web',
+}
+// #endregion ignore
 
 </script>
 

@@ -28,12 +28,6 @@ import Field from 'mand-mobile/lib/field'
 import RadioList from 'mand-mobile/lib/radio/list'
 
 export default {
-  name: 'radio-demo',
-  /* DELETE */
-  title: '列表模式',
-  titleEnUS: 'List Radio',
-  align: 'right',
-  /* DELETE */
   components: {
     'md-field': Field,
     'md-radio-list': RadioList,
@@ -85,6 +79,16 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '列表模式',
+  },
+  'en-US': {
+    title: 'Radio list',
+  },
+}
+// #endregion ignore
 
 </script>
 

@@ -40,15 +40,11 @@
   </div>
 </template>
 
-<script>import InputItem from '../../index.vue'
-import Field from '../../../field/index.vue'
+<script>
+import InputItem from 'mand-mobile/lib/input-item'
+import Field from 'mand-mobile/lib/field'
 
 export default {
-  name: 'input-item-demo',
-  /* DELETE */
-  title: '业务场景输入框',
-  titleEnUS: 'Business scenario input',
-  /* DELETE */
   components: {
     'md-input-item': InputItem,
     'md-field': Field,
@@ -71,4 +67,15 @@ export default {
     },
   },
 }
-</script>
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '业务场景输入框',
+  },
+  'en-US': {
+    title: 'Business scenario',
+  },
+}
+// #endregion ignore
+
+</script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="md-example-child md-example-child-action-bar md-example-child-0">
+  <div class="md-example-child md-example-child-action-bar md-example-child-action-bar-0">
     <md-action-bar :actions="data"></md-action-bar>
   </div>
 </template>
@@ -8,10 +8,6 @@
 import {ActionBar, Toast} from 'mand-mobile'
 
 export default {
-  name: 'action-bar-demo',
-  /* DELETE */
-  height: 150,
-  /* DELETE */
   components: {
     'md-action-bar': ActionBar,
   },

@@ -15,12 +15,6 @@ import Radio from 'mand-mobile/lib/radio'
 import RadioGroup from 'mand-mobile/lib/radio/group'
 
 export default {
-  name: 'radio-demo',
-  /* DELETE */
-  title: '单选项组',
-  titleEnUS: 'Radio group',
-  align: 'left',
-  /* DELETE */
   components: {
     'md-radio': Radio,
     'md-radio-group': RadioGroup,
@@ -31,5 +25,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '单选项组',
+  },
+  'en-US': {
+    title: 'Radio group',
+  },
+}
+// #endregion ignore
 
 </script>

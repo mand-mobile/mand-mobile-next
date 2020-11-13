@@ -11,84 +11,69 @@
         <div class="banner-item" :style="{'background': `${item.color}`}">{{item.text}}</div>
       </md-swiper-item>
     </md-swiper>
+    <div class="operation">
+      <md-button size="small" inline @click="play">{{active ? 'stop' : 'play'}}</md-button>
+      <md-button type="primary" size="small" inline @click="goto">goto(2)</md-button>
+    </div>
+    <div class="status">
+      beforeChange - from: {{beforeChangeFrom}}, to: {{beforeChangeTo}} <br/>
+      afterChange - from: {{afterChangeFrom}}, to: {{afterChangeTo}}
+    </div>
   </div>
 </template>
 
 <script>
-import Swiper from '../../index'
-import SwiperItem from '../../swiper-item'
-import simple from '../../demo/data/simple'
+import Swiper from 'mand-mobile/lib/swiper'
+import SwiperItem from 'mand-mobile/lib/swiper-item'
+import simple from 'mand-mobile/lib/swiper/demo/data/simple'
+import Button from 'mand-mobile/lib/button'
 
 export default {
-  name: 'swiper-demo',
   components: {
     'md-swiper': Swiper,
     'md-swiper-item': SwiperItem,
+    'md-button': Button,
   },
   data() {
     return {
       simple,
+      beforeChangeFrom: 0,
+      beforeChangeTo: 0,
+      afterChangeFrom: 0,
+      afterChangeTo: 0,
+      active: false,
     }
   },
-  mounted() {
-    // Simulation of asynchronous
-    // setTimeout(() => {
-    //   this.simple = simple.concat(simple)
-    // }, 10000)
-    // Simulation of asynchronous
-    // setTimeout(() => {
-    //   this.simple = simple
-    // }, 24500)
-    // window.triggerSwiper0 = () => {
-    //   this.goto()
-    // }
-    // window.triggerSwiper1 = () => {
-    //   this.play()
-    // }
-    // window.triggerSwiper2 = () => {
-    //   this.stop()
-    // }
-  },
   methods: {
-    // setValue(id, value) {
-    //   document.querySelector(id) && (document.querySelector(id).innerHTML = value)
-    // },
     beforeChange(from, to) {
-      console.log(from, to)
-      // this.setValue('#valueSwiper0', from)
-      // this.setValue('#valueSwiper1', to)
+      this.beforeChangeFrom = from
+      this.beforeChangeTo = to
     },
     afterChange(from, to) {
-      console.log(from, to)
-      // this.setValue('#valueSwiper2', from)
-      // this.setValue('#valueSwiper3', to)
+      this.afterChangeFrom = from
+      this.afterChangeTo = to
     },
-    // fn(index) {
-    //   this.setValue('#valueSwiper4', index)
-    // },
-    // goto() {
-    //   this.$refs.swiper.goto(2)
-    // },
-    // play() {
-    //   this.$refs.swiper.play()
-    // },
-    // stop() {
-    //   this.$refs.swiper.stop()
-    // },
+    goto() {
+      this.$refs.swiper.goto(2)
+    },
+    play() {
+      this.active = !this.active
+      this.active ? this.$refs.swiper.play() : this.$refs.swiper.stop()
+    },
   },
 }
 
 </script>
 
 <style>
-.md-example-child-swiper-0 {
+/* .md-example-child-swiper-0 .md-swiper {
   height: 250px;
-}
+} */
 .md-example-child-swiper-0 .banner-item {
   float: left;
   width: 100%;
-  height: 100%;
-  line-height: 250px;
+  height: 250px;
+  display: flex;
   text-align: center;
   font-size: 28px;
   color: #FFF;
@@ -97,5 +82,12 @@ export default {
   box-pack: center;
   justify-content: center;
   text-decoration-line: none;
+}
+.md-example-child-swiper-0 .operation {
+  margin-top: 20px;
+}
+.md-example-child-swiper-0 .status {
+  margin-top: 20px;
+  font-size: 22px;
 }
 </style>
