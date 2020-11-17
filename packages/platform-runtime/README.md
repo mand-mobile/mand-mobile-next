@@ -1,6 +1,7 @@
 ---
 title: Platform
 name: platform
+permalink: /packages/modules/platform
 ---
 
 Runtime shims and compiletime plugins for smoothing out differences between platforms.
