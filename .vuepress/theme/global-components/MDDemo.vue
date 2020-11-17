@@ -30,15 +30,20 @@
           </a>
         </li> -->
         <a-tooltip>
-          <template slot="title">Copy Code</template>
+          <template slot="title">
+            <span v-if="isCodeCopying">
+              <a-icon type="check-circle" /> 复制成功
+            </span>
+            <span v-else>复制源码</span>
+          </template>
           <li class="md-doc-demo_code_tab_btn">
-            <a href="javascript:void(0)">
+            <a href="javascript:void(0)" @click="doCopy">
               <a-icon type="copy" />
             </a>
           </li>
         </a-tooltip>
         <a-tooltip>
-          <template slot="title">{{isCodeShow ? 'Close Code' : 'Show Code'}}</template>
+          <template slot="title">{{isCodeShow ? '隐藏源码' : '展示源码'}}</template>
           <li class="md-doc-demo_code_tab_btn">
             <a href="javascript:void(0)" @click="toggleDemoCode">
               <a-icon :type="!isCodeShow ? 'code' : 'close-square'" />
@@ -66,7 +71,7 @@ import {setScale} from '../util'
 
 export default {
   name: 'md-demo',
-  props: ['path'],
+  props: ['path', 'code'],
   components: {
     [Icon.name]: Icon,
     [Tooltip.name]: Tooltip,
@@ -80,6 +85,7 @@ export default {
         title: '基础'
       },
       isCodeShow: false,
+      isCodeCopying: false,
       zoom: 1
     }
   },
@@ -169,6 +175,17 @@ export default {
       }, '')
       
       this.shadowRoot.querySelector('#zoomStyle').textContent = `.md-example-child { ${styleConent} }`
+    },
+    doCopy () {
+      this.$copyText(decodeURIComponent(this.code)).then(() => {
+        this.isCodeCopying = true
+        setTimeout(() => {
+          this.isCodeCopying = false
+        }, 3000)
+      }, function (e) {
+        alert('Can not copy')
+        console.log(e)
+      })
     }
   }
 }
@@ -250,4 +267,8 @@ export default {
         line-height 1.5
         code
           font-size .8em
+
+.ant-tooltip-inner .anticon
+  color #2f86f6
+  
 </style>

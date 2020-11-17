@@ -1,7 +1,9 @@
 <template>
   <a-affix :offset-top="0">
     <aside class="md-doc-sidebar">
-      <div class="md-doc-sidebar_version">VERSION<span>{{version}}</span></div>
+      <div class="md-doc-sidebar_version">
+        <a-icon type="cloud-upload" />&nbsp;&nbsp;VERSION<span>{{version}}</span>
+      </div>
       <ul class="md-doc-sidebar_list" role="menu">
         <template v-for="(item0, index0) in sidebarItems">
           <SidebarItem
@@ -35,6 +37,7 @@
 
 <script>
 import Affix from 'ant-design-vue/lib/affix' 
+import Icon from 'ant-design-vue/lib/icon'
 // import 'ant-design-vue/lib/affix/style/index.css'
 import SidebarItem from './SidebarItem'
 
@@ -42,7 +45,8 @@ export default {
   props: ['sidebarItems'],
   components: {
     SidebarItem,
-    [Affix.name]: Affix
+    [Affix.name]: Affix,
+    [Icon.name]: Icon
   },
   computed: {
     version () {

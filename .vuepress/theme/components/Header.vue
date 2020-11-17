@@ -49,7 +49,7 @@ export default {
       display inline-block
       margin-right .8em
       width auto
-      height 1.8em
+      height 2.4em
       transition all .3s
     &_title
       display inline-flex
@@ -68,7 +68,8 @@ export default {
       border-color #E2E4EA
     .suggestions
       top 3.2em
-      border-color #E2E4EA
+      border none
+      box-shadow 0 2px 10px rgba(0, 0, 0, .08)
       z-index 3
       .suggestion
         font-size .9em

@@ -3,16 +3,23 @@
     <router-link v-if="href" :to="href" class="md-doc-sidebar_item_link">
       <SidebarItemText :title="item.title"/>
     </router-link>
+    <a v-else-if="item.link" :href="item.link" target="_blank" class="md-doc-sidebar_item_link">
+      <SidebarItemText :title="item.title">
+        <a-icon type="link" />
+      </SidebarItemText>
+    </a>
     <SidebarItemText class="md-doc-sidebar_item_category" v-else :title="item.title"/>
     <slot/>
   </li>
 </template>
 
 <script>
+import Icon from 'ant-design-vue/lib/icon'
 import SidebarItemText from './SidebarItemText'
 export default {
   props: ['item', 'grouped'],
   components: {
+    [Icon.name]: Icon,
     SidebarItemText
   },
   computed: {
@@ -38,6 +45,9 @@ export default {
       // transform translate3d(2px, 0, 0)
       /deep/.md-doc-sidebar_item_text
         color #2f86f6
+    .anticon
+      margin-left .3em
+      color #aaa
   &_category
     font-weight bold
     font-size 1.2em

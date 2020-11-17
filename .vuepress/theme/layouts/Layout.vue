@@ -103,6 +103,7 @@ export default {
 
 @media (max-width: 1500px)
   .md-doc-layout_content
+    max-width 1200px
     padding 1em 5em 0 5em
   .md-doc-layout_content_toc
     display none
