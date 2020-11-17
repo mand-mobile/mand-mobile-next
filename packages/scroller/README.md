@@ -1,4 +1,8 @@
-# `@mand-mobile/scroller`
+---
+title: Scroller
+name: scroller
+permalink: /packages/modules/scroller
+---
 
 Platform-independent virtual scrolling computing engine
 
@@ -292,7 +296,7 @@ animatior.stop(id)
 
 #### start
 
-```
+```typescript
 start: (
   stepCallback: (percent: number) => void,
   verifyCallback: (now: number, id: number) => boolean | null, 

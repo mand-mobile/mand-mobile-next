@@ -1,6 +1,8 @@
-# Mand Mobile 贡献者说明
-
-[TOC]
+---
+title: 开发指南
+name: development
+permalink: /packages/components/development
+---
 
 ## 开发准备
 
