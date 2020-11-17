@@ -7,6 +7,7 @@
       <template v-else>
         <span>{{text}}</span>
       </template>
+      <slot/>  
     </template>
   </div>
 </template>
