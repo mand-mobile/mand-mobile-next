@@ -106,7 +106,10 @@ function demos (md, options = {}) {
         content = dedent(lines.join('\n'))
         
         token.content = content
-        return `<MDDemo path="${token.demoPath}" slot="${token.align}">${fence(...args)}</MDDemo>`
+        return `
+          <MDDemo path="${token.demoPath}" slot="${token.align}" code="${encodeURIComponent(content)}">
+            ${fence(...args)}
+          </MDDemo>`
       } else {
         token.content = isAFile ? `Code snippet path not found: ${src}` : `Invalid code snippet option`
         token.info = ''
