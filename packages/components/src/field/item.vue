@@ -14,7 +14,7 @@
   >
     <div class="md-field-item_content" :class="customContentClass">
       <label class="md-field-item_content_title" v-if="title">{{title}}</label>
-      <div class="md-field-item_content_left" v-if="hasSlotLeft">
+      <div class="md-field-item_content_left" v-if="slots.left">
         <slot name="left"/>
       </div>
       <div class="md-field-item_content_control">
@@ -28,7 +28,7 @@
         <md-icon v-if="arrow" :name="arrow === true ? 'arrow-right' : arrow" size="md" />
       </div>
     </div>
-    <div class="md-field-item_children" :class="customContentClass" v-if="$slots.children">
+    <div class="md-field-item_children" :class="customContentClass" v-if="slots.children">
       <slot name="children"/>
     </div>
   </div>
@@ -123,15 +123,12 @@ export default {
     currentDisabled() {
       return this.rootField.disabled || this.disabled
     },
-    hasSlotLeft() {
+    slots() {
       /**
       * There will be an extra layer of view in uniapp, which makes it impossible 
       * to obtain whether the subcomponent slot really contains content
       */
-      if (this.childrenSlots) {
-        return this.childrenSlots.left
-      }
-      return this.$slots.left
+      return this.childrenSlots || this.$slots.left
     },
   },
 
