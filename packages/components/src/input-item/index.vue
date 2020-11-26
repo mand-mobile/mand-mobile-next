@@ -1,34 +1,39 @@
 <template>
   <md-field-item
-    class="md-input-item"
-    :customContentClass="contentClassList"
+    class="md-input-item md-field-item"
     :class="[
-      isHighlight ? 'md-is-highlight' : '',
-      isTitleLatent ? 'md-is-title-latent' : '',
-      isInputActive ? 'md-is-active' : '',
-      isInputFocus ? 'md-is-focus' : '',
-      isInputError ? 'md-is-error' : '',
+      isTitleLatent ? 'md-title-latent' : '',
+      isHighlight ? 'md-highlight' : '',
+      isInputActive ? 'md-active' : '',
+      isInputFocus ? 'md-focus' : '',
+      isInputError ? 'md-error' : '',
       isInputBrief && !isInputError ? 'md-with-brief' : '',
-      isDisabled ? 'md-is-disabled': '',
-      isAmount ? 'md-is-amount': '',
-      clearable ? 'md-is-clear' : '',
-      align,
-      size
+      isDisabled ? 'md-disabled': '',
+      isAmount ? 'md-amount': '',
+      clearable ? 'md-clear' : '',
+      `md-${align}`,
+      `md-${size}`,
     ]"
     :title="title"
+    :title-position="inputTitlePosition"
     :solid="solid && !isTitleLatent"
+    :highlight="inputHighlight"
+    :children-slots="inputSlots"
+    :is-padding="false"
   >
-    <template slot="left">
-      <slot name="left"></slot>
+    <template #left>
+      <slot name="left"/>
     </template>
     <!-- ------------ -->
     <!--    INPUT     -->
     <!-- ------------ -->
     <!-- Native Input -->
-    <div class="mask" v-if="readonly"/>
+    <div class="md-input-item_mask" v-if="readonly"/>
     <template v-if="!isVirtualKeyboard">
       <input
         class="md-input-item_input"
+        placeholder-class="md-input-item_placeholder"
+        ref="input"
         :type="inputType"
         :name="name"
         v-model="inputBindValue"
@@ -36,6 +41,7 @@
         :disabled="isDisabled"
         :readonly="readonly"
         :maxlength="isInputFormative ? inputItemMaxLength : maxlength"
+        :focus="isInputFocus"
         autocomplete="off"
         @focus="$_onFocus"
         @blur="$_onBlur"
@@ -49,8 +55,8 @@
       <div
         class="md-input-item_fake"
         :class="[
-          isInputFocus ? 'md-is-focus' : '',
-          !isInputEditing ? 'md-is-waiting' : '',
+          isInputFocus ? 'md-focus' : '',
+          !isInputEditing ? 'md-waiting' : '',
           isDisabled ? 'md-disabled' : '',
           readonly ? 'md-readonly' : '',
         ]"
@@ -64,7 +70,7 @@
       </div>
     </template>
 
-    <template slot="right">
+    <template #right>
       <!-- ------------ -->
       <!--  CLEART BTN  -->
       <!-- ------------ -->
@@ -80,10 +86,10 @@
       <!-- ------------ -->
       <!--  RIGHT SLOT  -->
       <!-- ------------ -->
-      <slot name="right"></slot>
+      <slot name="right"/>
     </template>
 
-    <template slot="children">
+    <template #children>
       <!-- -------------------- -->
       <!-- BRIEF/ERROR TIP -->
       <!-- -------------------- -->
@@ -91,15 +97,21 @@
         v-if="isInputError"
         class="md-input-item_msg"
       >
-        <p v-if="error !== ''" v-text="error"></p>
-        <slot name="error" v-else></slot>
+        <!-- <p v-if="error !== ''" v-text="error"></p>
+        <slot name="error" v-else></slot> -->
+        <slot name="error">
+          <p>{{error}}</p>
+        </slot>
       </div>
       <div
         v-if="isInputBrief && !isInputError"
         class="md-input-item_brief"
       >
-        <p v-if="brief !== ''" v-text="brief"></p>
-        <slot name="brief" v-else></slot>
+        <!-- <p v-if="brief !== ''" v-text="brief"></p>
+        <slot name="brief" v-else></slot> -->
+        <slot name="brief">
+          <p>{{brief}}</p>
+        </slot>
       </div>
       <!-- ------------ -->
       <!--   KEYBORARD  -->
@@ -126,7 +138,9 @@ import {
   formatValueByGapRule,
   formatValueByGapStep,
   trimValue,
+  mdDocument,
 } from '@mand-mobile/shared/lib/util'
+
 import Icon from '../icon'
 import FieldItem from '../field/item.vue'
 import NumberKeyboard from '../number-keyboard'
@@ -260,8 +274,6 @@ export default {
       isInputFocus: false,
       isInputEditing: false,
       isPreview: false,
-      // 数字键盘显示隐藏
-      showNumKeyboard: false,
     }
   },
 
@@ -292,8 +304,23 @@ export default {
         return 200
       }
     },
+    inputTitlePosition() {
+      return this.isTitleLatent ? (this.isInputActive ? 'floating-active' : 'floating') : 'fixed'
+    },
+    inputHighlight() {
+      if (this.isInputFocus && this.isHighlight) {
+        return 'default'
+      } else if (this.isInputError) {
+        return 'warning'
+      } else {
+        return ''
+      }
+    },
     inputPlaceholder() {
       return this.isTitleLatent && this.isInputActive ? '' : this.placeholder
+    },
+    inputSlots() {
+      return this.$slots || {}
     },
     isInputActive() {
       return !this.isInputEmpty || this.isInputFocus
@@ -308,11 +335,17 @@ export default {
     isDisabled() {
       return this.rootField.disabled || this.disabled
     },
-    isInputError() {
-      return this.$slots.error || this.error !== ''
+    isInputError: {
+      get() {
+        return this.$slots.error || this.error !== ''
+      },
+      cache: false,
     },
-    isInputBrief() {
-      return this.$slots.brief || this.brief !== ''
+    isInputBrief: {
+      get() {
+        return this.$slots.brief || this.brief !== ''
+      },
+      cache: false,
     },
     // chrildSlotshow
     hasChildrenSlot() {
@@ -321,38 +354,6 @@ export default {
         (this.isInputBrief && !this.isInputError) ||
         (this.isVirtualKeyboard && !this.virtualKeyboardVm)
       )
-    },
-    // classmap
-    contentClassList() {
-      const {
-        isHighlight,
-        isTitleLatent,
-        isInputActive,
-        isInputFocus,
-        isInputBrief,
-        isInputError,
-        isDisabled,
-        isAmount,
-        clearable,
-        hasChildrenSlot,
-        align,
-        size,
-      } = this
-      return [
-        'md-input-item-wrapper',
-        isHighlight ? 'md-is-highlight' : '',
-        isTitleLatent ? 'md-is-title-latent' : '',
-        isInputActive ? 'md-is-active' : '',
-        isInputFocus ? 'md-is-focus' : '',
-        isInputError ? 'md-is-error' : '',
-        isInputBrief && !isInputError ? 'md-with-brief' : '',
-        isDisabled ? 'md-is-disabled' : '',
-        isAmount ? 'md-is-amount' : '',
-        clearable ? 'md-is-clear' : '',
-        hasChildrenSlot ? 'md-has-children' : '',
-        align,
-        size,
-      ]
     },
   },
 
@@ -378,25 +379,15 @@ export default {
       }
     },
     isInputFocus(val) {
-      if (!this.isVirtualKeyboard || !this.inputNumberKeyboard || !this.$refs['number-keyboard']) {
+      if (!this.isVirtualKeyboard || !this.inputNumberKeyboard) {
         return
       }
-      if (inBrowser) {
-        if (val) {
-          this.inputNumberKeyboard.show()
-          this.$emit('focus', this.name)
-        } else {
-          this.inputNumberKeyboard.hide()
-          this.$emit('blur', this.name)
-        }
-      } else if (!inBrowser && this.$refs['number-keyboard']) {
-        if (val) {
-          this.$refs['number-keyboard'].show()
-          this.$emit('focus', this.name)
-        } else {
-          this.$refs['number-keyboard'].hide()
-          this.$emit('blur', this.name)
-        }
+      if (val) {
+        this.inputNumberKeyboard.show()
+        this.$emit('focus', this.name)
+      } else {
+        this.inputNumberKeyboard.hide()
+        this.$emit('blur', this.name)
       }
     },
   },
@@ -404,22 +395,27 @@ export default {
     this.inputValue = this.$_formateValue(this.$_subValue(this.value + '')).value
   },
   mounted() {
-    if (inBrowser && this.isVirtualKeyboard) {
+    // if (inBrowser && this.isVirtualKeyboard) {
+    //   this.$nextTick(() => {
+    //     this.$_initNumberKeyBoard()
+    //   })
+    // } else if (!inBrowser && this.isVirtualKeyboard) {
+    //   if (this.$refs['number-keyboard']) {
+    //     this.$refs['number-keyboard'].$on('enter', this.$_onNumberKeyBoardEnter)
+    //     this.$refs['number-keyboard'].$on('delete', this.$_onNumberKeyBoardDelete)
+    //     this.$refs['number-keyboard'].$on('confirm', this.$_onNumberKeyBoardConfirm)
+    //   }
+    // }
+    if (this.isVirtualKeyboard) {
       this.$nextTick(() => {
         this.$_initNumberKeyBoard()
       })
-    } else if (!inBrowser && this.isVirtualKeyboard) {
-      if (this.$refs['number-keyboard']) {
-        this.$refs['number-keyboard'].$on('enter', this.$_onNumberKeyBoardEnter)
-        this.$refs['number-keyboard'].$on('delete', this.$_onNumberKeyBoardDelete)
-        this.$refs['number-keyboard'].$on('confirm', this.$_onNumberKeyBoardConfirm)
-      }
     }
   },
   beforeDestroy() {
     const keyboard = this.inputNumberKeyboard
-    if (keyboard && keyboard.$el && document) {
-      document.body.removeChild(keyboard.$el)
+    if (keyboard && keyboard.$el) {
+      mdDocument.body.removeChild(keyboard.$el)
     }
   },
 
@@ -477,7 +473,7 @@ export default {
           formateValue.value += moneyCurDecimal
           break
         case 'digit':
-          curValue = this.$_subValue(trimValue(curValue.replace(/\D/g, '')))
+          curValue = this.$_subValue(trimValue(curValue.replace(/[^\d.]/g, '')))
           formateValue.value = curValue
           break
         /* istanbul ignore next */
@@ -518,31 +514,25 @@ export default {
     },
     $_focusFakeInput() {
       this.isInputFocus = true
-      this.showNumKeyboard = true
       setTimeout(() => {
         this.$_addBlurListener()
       }, 0)
     },
     $_blurFakeInput() {
       this.isInputFocus = false
-      this.showNumKeyboard = false
       this.$_removeBlurListener()
     },
     $_addBlurListener() {
-      if (document) {
-        document.addEventListener('click', this.$_blurFakeInput, false)
-      }
+      mdDocument.addEventListener('click', this.$_blurFakeInput, false)
     },
     $_removeBlurListener() {
-      if (document) {
-        document.removeEventListener('click', this.$_blurFakeInput, false)
-      }
+      mdDocument.removeEventListener('click', this.$_blurFakeInput, false)
     },
     $_initNumberKeyBoard() {
       let keyboard =
-        (typeof this.virtualKeyboardVm === 'object'
+        this.virtualKeyboardVm && typeof this.virtualKeyboardVm === 'object'
           ? this.virtualKeyboardVm
-          : this.$vnode.context.$refs[this.virtualKeyboardVm]) || this.$refs['number-keyboard']
+          : (this.$vnode ? this.$vnode.context.$refs[this.virtualKeyboardVm] : '') || this.$refs['number-keyboard']
 
       if (Array.isArray(keyboard)) {
         keyboard = keyboard[0]
@@ -551,10 +541,10 @@ export default {
         keyboard.$on('enter', this.$_onNumberKeyBoardEnter)
         keyboard.$on('delete', this.$_onNumberKeyBoardDelete)
         keyboard.$on('confirm', this.$_onNumberKeyBoardConfirm)
-        this.inputNumberKeyboard = keyboard
-        if (document) {
-          document.body.appendChild(keyboard.$el)
-        }
+
+        const {$el, show, hide} = keyboard
+        mdDocument.body.appendChild($el)
+        this.inputNumberKeyboard = {show, hide}
       }
     },
 
@@ -565,14 +555,22 @@ export default {
         this.isInputFormative ? getCursorsPosition(event.target) : 0,
       )
 
-      this.inputValue = formateValue.value
-      this.inputBindValue = formateValue.value
+      // this.inputValue = formateValue.value
+      // this.inputBindValue = formateValue.value
 
-      if (this.isInputFormative) {
-        this.$nextTick(() => {
+      // if (this.isInputFormative) {
+      //   this.$nextTick(() => {
+      //     setCursorsPosition(event.target, formateValue.range)
+      //   })
+      // }
+      this.$nextTick(() => {
+        this.inputValue = formateValue.value
+        this.inputBindValue = formateValue.value
+
+        if (this.isInputFormative) {
           setCursorsPosition(event.target, formateValue.range)
-        })
-      }
+        }
+      })
     },
     $_onKeyup(event) {
       this.$emit('keyup', this.name, event)
@@ -640,8 +638,8 @@ export default {
       if (this.isVirtualKeyboard) {
         this.$_onFakeInputClick()
       } else {
-        if (document) {
-          this.$el.querySelector('.md-input-item_input').blur()
+        if (this.$refs.input) {
+          this.$refs.input.focus()
         }
         setTimeout(() => {
           this.isInputFocus = true
@@ -652,8 +650,8 @@ export default {
       if (this.isVirtualKeyboard) {
         this.$_blurFakeInput()
       } else {
-        if (document) {
-          this.$el.querySelector('.md-input-item_input').blur()
+        if (this.$refs.input) {
+          this.$refs.input.blur()
         }
         this.isInputFocus = false
       }
@@ -667,18 +665,19 @@ export default {
 </script>
 
 <style lang="stylus">
-.md-input-item
-  .md-field-item_content
-    padding-top 0
-    padding-bottom 0
-  .md-field-item_control
-    display flex
-    align-items center
-  .md-mask
-    position absolute
-    width 100%
-    height 100%
-    z-index 10
+.md-input-item.md-title-latent
+  .md-input-item_input,
+  .md-input-item_fake
+    padding-top 20px
+// .md-input-item  
+//   .md-field-item_content_control
+//     display flex
+//     align-items center
+.md-input-item_mask
+  position absolute
+  width 100%
+  height 100%
+  z-index 10
 .md-input-item_clear
   padding 10px 0
   color md-input-item-icon
@@ -713,6 +712,9 @@ export default {
     font-weight md-font-weight-normal
   &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
     -webkit-appearance none
+.md-input-item_placeholder
+  color md-input-item-placeholder
+  font-weight md-font-weight-normal
 
 .md-input-item_fake
   line-height md-input-item-height
@@ -724,10 +726,10 @@ export default {
     display none
     content " "
     height md-input-item-font-size-large
-    border-right solid 1.5px md-color-text-base
-  &.is-focus:after
+    border-right solid 2px md-color-text-base
+  &.md-focus::after
     display inline
-  &.is-waiting:after
+  &.md-waiting::after
     animation keyboard-cursor infinite 1s step-start
 
 .md-input-item_fake-placeholder
@@ -752,7 +754,7 @@ export default {
   font-size md-input-item-font-size-error
   color md-input-item-color-error
 
-.md-input_item
+.md-input-item
   &.md-left
     .md-input-item_input,
     .md-input-item_fake
@@ -761,52 +763,21 @@ export default {
   &.md-center
     .md-input-item_input,
     .md-input-item_fake
-      text-align center
+      text-align center !important
 
   &.md-right
     .md-input-item_input,
     .md-input-item_fake
       text-align right
 
-  &.md-is-title-latent
-    .md-field-item_title
-      position absolute
-      top 50%
-      left 0
-      height auto
-      font-size md-input-item-title-latent-font-size
-      color md-input-item-title-latent-color
-      transform translate3d(0, -50%, 0)
-      transition all .3s ease
-      opacity 0
-      will-change auto
-    .md-field-item_content
-      min-height 115px
-    .md-field-item_content,
-    .md-field-item_left,
-    .md-field-item_right,
-    .md-input-item-input,
-    .md-input-item-fake
-      padding-top 20px
-    &.md-is-active
-      .md-field-item_title
-        opacity 1
-        top 20px
-        transform translate3d(0, 0, 0)
-
-  &.md-is-highlight
-    &.md-is-focus
-      >>> .md-field-item_content
-        hairline(bottom, md-input-item-color-highlight, 0, 4px)
-
-  &.md-is-disabled
+  &.md-disabled
     .md-input-item_input,
     .md-input-item_fake,
     .md-input-item_fake-placeholder
       -webkit-text-fill-color md-input-item-color-disabled
       color md-input-item-color-disabled
 
-  &.md-is-amount
+  &.md-amount
     .md-input-item_input,
     .md-input-item_fake
       font-family md-font-family-number
@@ -820,15 +791,11 @@ export default {
     .md-input-item_fake
       padding-bottom 15px
       font-size md-input-item-font-size-large
-    .md-input-item_input::-webkit-input-placeholder
-        font-size 60px
-        line-height 100px
+    .md-input-item_input::-webkit-input-placeholder, .md-input-item_placeholder
+      font-size 60px
+      line-height 100px
 
-  &.md-is-error
-    >>> .md-field-item_content
-      hairline(bottom, md-input-item-color-error, 0, 4px)
-
-  &.md-is-ios
+  &.md-field-item--ios
     .md-input-item_input::-webkit-input-placeholder
       position relative
       top 3px
@@ -836,7 +803,7 @@ export default {
     .md-input-item_fake::after
       border-right solid 6px #2C6CF5
       border-radius 2px
-  &.md-is-android
+  &.md-field-item--android
     .md-input-item_fake::after
       border-right solid 4px md-color-text-base
     .md-input-item_input,
