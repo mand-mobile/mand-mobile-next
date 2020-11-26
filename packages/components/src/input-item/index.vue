@@ -319,8 +319,14 @@ export default {
     inputPlaceholder() {
       return this.isTitleLatent && this.isInputActive ? '' : this.placeholder
     },
-    inputSlots() {
-      return this.$slots || {}
+    inputSlots: {
+      get() {
+        return {
+          left: this.$slots.left,
+          children: this.isInputError || this.isInputBrief,
+        }
+      },
+      cache: false,
     },
     isInputActive() {
       return !this.isInputEmpty || this.isInputFocus
@@ -346,14 +352,6 @@ export default {
         return this.$slots.brief || this.brief !== ''
       },
       cache: false,
-    },
-    // chrildSlotshow
-    hasChildrenSlot() {
-      return (
-        this.isInputError ||
-        (this.isInputBrief && !this.isInputError) ||
-        (this.isVirtualKeyboard && !this.virtualKeyboardVm)
-      )
     },
   },
 
