@@ -34,7 +34,7 @@
         @click="$_onChannelMoreClick"
       ></div>
     </div>
-    <div class="md-cashier-channel_block-btn">
+    <div class="md-cashier_container_block_btn">
       <md-button
         class="md-cashier-pay-button"
         :type="payButtonDisabled ? 'disabled': 'primary'"

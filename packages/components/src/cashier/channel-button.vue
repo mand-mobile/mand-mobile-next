@@ -1,5 +1,5 @@
 <template>
-  <div class="md-cashier-block-btn">
+  <div class="md-cashier_container_block_btn">
     <md-button
       v-for="(action, index) in actions"
       :type="index === actions.length - 1 ? 'primary': 'default'"
@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="stylus">
-.md-cashier-block-btn
+.md-cashier_container_block_btn
   display flex
   .md-button
     flex 1

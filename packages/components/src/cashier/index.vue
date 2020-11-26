@@ -35,7 +35,7 @@
             :channels="channels"
             :channelLimit="channelLimit"
             :default-index="defaultIndex"
-            @click="$_clickHandler"
+            @pay="$_clickHandler"
           >
             <slot name="channel"></slot>
             <template slot="button">
@@ -149,7 +149,7 @@ export default {
     'md-popup-title-bar': PopupTitlebar,
     'md-captcha': Captcha,
     'md-icon': Icon,
-    'md-roller-success': RollerSuccess,
+    'md-activity-indicator-rolling-success': RollerSuccess,
     'md-cashier-channel': Channel,
     'md-cashier-channel-button': ChannelButton,
   },
@@ -281,7 +281,7 @@ export default {
       this.$emit('cancel')
     },
     $_clickHandler() {
-      this.emit('click')
+      this.$emit('pay')
     },
     // MARK: public methods
     next(scene, option = {}) {
@@ -333,7 +333,7 @@ export default {
         font-size md-font-minor-large
         color md-color-text-minor
         text-align center
-      &--btn
+      &_btn
         block()
         padding 0 40px 40px
         box-sizing border-box
