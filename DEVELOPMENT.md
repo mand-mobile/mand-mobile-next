@@ -22,8 +22,8 @@ $ npm run bootstrap
 # 启动工程, 安装依赖
 $ npm run bootstrap
 
-# 调试工程， 可在最后输入组件名称用于调试单个组件
-$ npm run serve <button-name>
+# 调试工程， 当前阶段由于有较多的组件未通过验收，建议使用单个组件预览调试
+$ npm run serve-single <component-name>
 
 # 发布预发(非稳定)包
 $ npm run pub:prerelease
