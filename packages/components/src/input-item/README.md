@@ -61,7 +61,7 @@ Vue.component(InputItem.name, InputItem)
 |is-virtual-keyboard|表单是否使用金融数字键盘控件|Boolean|`false`|-|
 |virtual-keyboard-disorder|金融数字键盘数字键乱序|Boolean|`false`|-|
 |virtual-keyboard-ok-text|金融数字键盘确认键文案|String|`确定`|-|
-|virtual-keyboard-vm|金融数字键盘`ref`名称|String|-|一般用于自定义键盘|
+|virtual-keyboard-vm <MDPlatformTag web/>|金融数字键盘`ref`名称|String|-|一般用于自定义键盘|
 
 ### InputItem Slots
 
@@ -72,9 +72,13 @@ Vue.component(InputItem.name, InputItem)
 右侧插槽，一般用于放置图标等
 
 ### brief
+<MDPlatformTag web/>
+
 表单描述插槽，一般用于描述内容较复杂，用`Props`中`brief`无法满足的情况，需用`v-if`控制（不推荐）
 
 ### error
+<MDPlatformTag web/>
+
 表单错误插槽，一般用于错误内容较复杂，用`Props`中`error`无法满足的情况，需用`v-if`控制，参考示例中的`错误提示`（不推荐）
 
 ### InputItem Methods
