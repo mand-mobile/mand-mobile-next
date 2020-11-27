@@ -113,6 +113,7 @@ module.exports = {
     '!**/packages/examples/**',
     '!**/packages/mand-mobile/**',
     '!**/node_modules/**',
+    '!**/__temp__/**',
     '!**/.mand-mobile/**',
     '!**/lib/**',
     '!**/lib-vw/**',
@@ -148,7 +149,7 @@ module.exports = {
   chainWebpack: (config, isServer) => {
     config.resolve.alias
       .set('mand-mobile/lib', resolve('../packages/components/src'))
-      .set('@mand-mobile/platform/lib', resolve('../packages/platform/src/web'))
+      .set('@mand-mobile/platform-runtime/lib', resolve('../packages/platform-runtime/src/web'))
       .set('@mand-mobile', resolve('../packages'))
 
     config.resolve.extensions
