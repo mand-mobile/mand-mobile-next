@@ -94,15 +94,10 @@ export default {
       ],
     }
   },
-  computed: {
-    cashier() {
-      return this.$refs.cashier
-    },
-  },
   methods: {
     doPay() {
       if (this.isCashierCaptcha) {
-        this.cashier.next('captcha', {
+        this.$refs.cashier.next('captcha', {
           text: 'Verification code sent to 156 **** 8965',
           autoCountdown: false,
           countNormalText: 'Send Verification code',
@@ -118,7 +113,7 @@ export default {
             this.checkCaptcha(code).then(res => {
               if (res) {
                 this.createPay().then(() => {
-                  this.cashier.next(this.cashierResult)
+                  this.$refs.cashier.next(this.cashierResult)
                 })
               }
             })
@@ -126,18 +121,18 @@ export default {
         })
       } else {
         this.createPay().then(() => {
-          this.cashier.next(this.cashierResult, {
+          this.$refs.cashier.next(this.cashierResult, {
             actions: [
               {
                 buttonText: '返回',
                 handler: () => {
-                  this.cashier.next('choose')
+                  this.$refs.cashier.next('choose')
                 },
               },
               {
                 buttonText: '重试',
                 handler: () => {
-                  this.cashier.next('custom')
+                  this.$refs.cashier.next('custom')
                 },
               },
             ],
@@ -147,7 +142,7 @@ export default {
     },
     // Create a pay request & check pay result
     createPay() {
-      this.cashier.next('loading')
+      this.$refs.cashier.next('loading')
       return new Promise(resolve => {
         this.timer = setTimeout(() => {
           resolve()

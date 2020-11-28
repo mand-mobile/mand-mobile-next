@@ -237,4 +237,10 @@ export default {
   /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
   /* Version is required */
   src md-icon-font-family
+
+.md-icon
+  display flex
+  color md-color-text-placeholder
+  &.md-icon-checked
+    color md-cashier-choose-channel-icon-color
 </style>

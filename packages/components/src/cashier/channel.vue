@@ -40,7 +40,12 @@
         :type="payButtonDisabled ? 'disabled': 'primary'"
         @click="$_onChannelBtnClick"
       >
-        <slot name="button">{{ payButtonText }}</slot>
+        <template v-if="payButtonText">
+          {{ payButtonText }}
+        </template>
+        <template v-else>
+          <slot name="button"></slot>
+        </template>
       </md-button>
     </div>
   </div>
@@ -181,4 +186,9 @@ export default {
         display block
       .md-choose_channel_list
         max-height 1000px !important
+
+.md-cashier_container_block_btn
+  block()
+  padding 0 40px 40px
+  box-sizing border-box
 </style>
