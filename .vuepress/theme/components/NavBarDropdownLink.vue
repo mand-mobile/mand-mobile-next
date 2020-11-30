@@ -79,7 +79,7 @@ export default {
       display block
   .md-doc-nav-bar_subitem.active
     .md-doc-nav-bar_item_link
-      color #2F86F6 
+      color $accentColor 
 
   .md-doc-nav-bar_dropdown
     top 100%
@@ -92,6 +92,6 @@ export default {
       font-size: 14px
       color #111A34 
       &:hover
-        color #2F86F6 
+        color $accentColor 
     
 </style>

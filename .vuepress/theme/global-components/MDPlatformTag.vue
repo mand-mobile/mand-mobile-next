@@ -3,7 +3,9 @@
     <template v-for="(item, key) in platformsList">
       <a-tooltip v-if="item" :key="key">
         <template slot="title">{{`${tipPrefix}${transName(item)}`}}</template>
-        <em class="md-doc-platform-tag_item">{{transName(item)}}</em>
+        <em class="md-doc-platform-tag_item">
+          <span>{{transName(item)}}</span>
+        </em>
       </a-tooltip>
     </template>
   </div>
@@ -68,9 +70,9 @@ export default {
   &_item
     display flex
     align-items center
-    // border solid 1px #2f86f6
+    // border solid 1px $accentColor
     border-radius 2em
-    background-color #2f86f6
+    background-color $accentColor
     font-family DINAlternate-Bold,AvenirNext-Medium,Microsoft Yahei,Lato,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Verdana,Tahoma,sans-serif
     font-style normal
     font-weight 400

@@ -44,7 +44,7 @@ export default {
     &:hover
       // transform translate3d(2px, 0, 0)
       /deep/.md-doc-sidebar_item_text
-        color #2f86f6
+        color $accentColor
     .anticon
       margin-left .3em
       color #aaa
@@ -54,7 +54,7 @@ export default {
     font-family DINAlternate-Bold, AvenirNext-Medium, Microsoft Yahei, Lato, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Verdana, Tahoma, sans-serif
   &.grouped
     >.md-doc-sidebar_item_link
-      color #2f86f6
+      color $accentColor
     &.level-0
       margin-top 1em
     // &.level-1
@@ -63,7 +63,7 @@ export default {
     pointer-events none
     background rgba(47, 134, 246, .03)
     /deep/.md-doc-sidebar_item_text
-      color #2f86f6
+      color $accentColor
   &.level-2
     font-size .95em
 </style>

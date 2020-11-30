@@ -61,7 +61,7 @@ function find (page, items, offset) {
       font-style normal
     p
       margin-top 5px
-      color #2F86F6
+      color $accentColor
       font-size 14px
   a.prev
     float left

@@ -204,7 +204,7 @@ export default {
     display flex
     align-items center
     padding .8em
-    // border-top solid 4px #2f86f6
+    // border-top solid 4px $accentColor
     border-bottom solid 1px #E2E4EA
     p
       margin 0
@@ -254,7 +254,7 @@ export default {
           transition all .3s
           color #314659
         &:hover a
-          color #2f86f6
+          color $accentColor
     &_toggle
       div[class*="language-"]
         display flex
@@ -269,6 +269,6 @@ export default {
           font-size .8em
 
 .ant-tooltip-inner .anticon
-  color #2f86f6
+  color $accentColor
   
 </style>

@@ -77,11 +77,12 @@ html
         right 0
       .md-doc-platform-tag.small
         .md-doc-platform-tag_item
-          height 1.8em
+          height 1.6em
           line-height 1
-          padding .1em .6em
-          font-size 12px
-          // zoom .6
+          padding .1em .4em
+          span
+            font-size 12px
+            zoom .8
 
     th
       text-align left
@@ -101,12 +102,20 @@ html
       line-height 2
       border none
       // border-bottom .5px solid #ebebeb
-      &:first-of-type
+      &:first-of-type, &:nth-of-type(3)
         font-size 1.1em
-        font-weight 500
-        font-family DINAlternate,AvenirNext-Medium,Microsoft Yahei,Lato,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Verdana,Tahoma,sans-serif
+        font-family AvenirNext-Medium,Microsoft Yahei,Lato,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Verdana,Tahoma,sans-serif
+      &:first-of-type
+        font-weight 600
+      &:nth-of-type(3)
+        color $accentColor
       &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4)
         width 15%
+        a
+          font-style italic
+          font-weight 600
+          text-decoration underline
+          text-decoration-style dotted
       // &:nth-of-type(3), &:nth-of-type(4)
       //   width 10%
     
@@ -115,6 +124,8 @@ html
     img
       max-width 100%
       margin-top 1em
+  ul, li, ol
+
 
   img
     max-width 100%
@@ -125,6 +136,23 @@ html
     border none
   h3, h4
     margin-top 1em
+
+.contains-task-list
+  padding-left 0
+  .task-list-item
+    list-style none
+
+    input.task-list-item-checkbox
+      -webkit-appearance none
+      outline none
+      width .8em
+      height .8em !important
+      margin-right .3em
+      border solid 1px $accentColor !important
+      border-radius 50% !important
+
+    input.task-list-item-checkbox:checked
+      background-color #abcefd
 
 div[class*="language-"]
   margin-bottom 2em
@@ -140,7 +168,7 @@ div[class*="language-"] pre, div[class*="language-"] pre[class*="language-"]
 
 blockquote
   border-radius 2px
-  border-left 0.2rem solid #2f86f6
+  border-left 0.2rem solid $accentColor
   background-color #F9FAFB
   font-size .9em
 
@@ -154,7 +182,7 @@ blockquote
       margin-bottom 10px
       color #111A34
   &.tip
-    border-color #2f86f6
+    border-color $accentColor
     background-color #F9FAFB
 
 :not(pre) >code
@@ -185,8 +213,8 @@ sup.version-before, sup.version-after
   box-sizing border-box
 
 sup.version-after
-  border-color #2f86f6
-  color #2f86f6
+  border-color $accentColor
+  color $accentColor
 
 sup.version-before
   border-color #f56c6c

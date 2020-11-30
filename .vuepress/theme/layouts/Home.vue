@@ -62,7 +62,7 @@ export default {
           line-height 54px
           text-align center
           border-radius 100%
-          border solid 1px #2f86f6
+          border solid 1px $accentColor
           overflow hidden
           &::before,
           &::after 
@@ -73,7 +73,7 @@ export default {
             width 500%
             height 500%
             border-radius 45%
-            background-color #2f86f6
+            background-color $accentColor
             transform translateX(-50%) // 居中
             animation rotate 15s linear infinite
           &::before
@@ -107,11 +107,11 @@ export default {
       border-radius 24px
       box-sizing border-box
       &_primary
-        background #2f86f6
-        border solid 1px #2f86f6
+        background $accentColor
+        border solid 1px $accentColor
         color #fff
       &_ghost
-        border solid 1px #2f86f6
+        border solid 1px $accentColor
 
 @keyframes rotate 
   from

@@ -11,6 +11,7 @@
       <div class="md-doc-layout_content_main">
         <Content />
       </div>
+      <Contributors :fileName="$page.relativePath" :owner="repo[1]" :repo="repo[2]"/>
       <PageNav v-bind="{ sidebarItems }" />
       <PageToc
         v-if="hasToc"
@@ -25,6 +26,7 @@
 import Sidebar from '../components/Sidebar'
 import PageToc from '../components/Toc'
 import PageNav from '../components/PageNav'
+import Contributors from '../components/Contributors'
 // import PlatformTag from '../components/PlatformTag'
 import { resolveSidebarItems } from '../util'
 
@@ -33,13 +35,14 @@ export default {
     Sidebar,
     PageToc,
     PageNav,
+    Contributors
     // PlatformTag
   },
-  watch:{
-    $route(to,from){
-      console.log(to.path);
-    }
-  },
+  // watch:{
+  //   $route(to,from){
+  //     console.log(to.path);
+  //   }
+  // },
   computed: {
     hasToc () {
       return this.$page.frontmatter.toc !== 'hidden'
@@ -61,10 +64,18 @@ export default {
       }
       return this.$page.title
     },
+    repo () {
+      return ((this.$themeConfig.repo || '')
+        .match(/^(https?:\/\/)([0-9a-z\-.]+)(:[0-9]+)?([/0-9a-z\-.]+)?(\?[0-9a-z\-&=]+)?(#[0-9-a-z\-]+)?/i)[4] || '')
+        .split('/')
+    },
     platforms () {
       const platform = this.$page.meta.platform || (this.$page.meta.category ? ['web', 'uni'] : '')
       return Array.isArray(platform) ? platform : [platform]
     }
+  },
+  mounted() {
+    console.log(this.$page)
   }
 }
 </script>

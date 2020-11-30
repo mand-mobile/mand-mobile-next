@@ -77,6 +77,7 @@ export default {
           font-size .9em
           font-weight 400
           color #FFF
+          white-space nowrap
           img
             width 18px
             margin-right 5px
@@ -84,7 +85,7 @@ export default {
             font-size .9em
             color #858B9C
           &:hover
-            color #2f86f6
+            color $accentColor
   &_ext
     padding 1em 0
     font-size .8em

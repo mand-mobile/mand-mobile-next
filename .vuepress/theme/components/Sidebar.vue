@@ -77,7 +77,7 @@ export default {
     background-color rgba(47, 134, 246, .03)
     span
       margin-left .5em
-      color #2f86f6
+      color $accentColor
   &_list
     margin 0
     padding 0

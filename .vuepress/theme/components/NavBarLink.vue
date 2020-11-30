@@ -56,11 +56,11 @@ export default {
     &::after
       display block
     >.md-doc-nav-bar_item_link
-      color #2F86F6
+      color $accentColor
   >.md-doc-nav-bar_item_link
     color #111A34 
     &:hover
-      color #2F86F6 
+      color $accentColor 
     .anticon
       margin-left .5em
       font-size .8em
@@ -74,6 +74,6 @@ export default {
     width 1.6em
     height 4px
     margin-left -.8em
-    background #2F86F6
+    background $accentColor
     border-radius 3px
 </style>
