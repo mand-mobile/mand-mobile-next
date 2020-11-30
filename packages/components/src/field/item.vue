@@ -128,7 +128,7 @@ export default {
       * There will be an extra layer of view in uniapp, which makes it impossible 
       * to obtain whether the subcomponent slot really contains content
       */
-      return this.childrenSlots || this.$slots.left
+      return this.childrenSlots || this.$slots
     },
   },
 
