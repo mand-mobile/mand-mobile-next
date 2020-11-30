@@ -39,6 +39,7 @@ module.exports = {
   themeConfig: {
     version: packageInfo.version,
     logo: 'https://pt-starimg.didistatic.com/static/starimg/img/W8a5sNZUBC1605530382593.png',
+    repo: 'https://github.com/mand-mobile/mand-mobile-next',
     demoConfig: {
       shadowMode: false
     },
@@ -120,6 +121,9 @@ module.exports = {
     '!**/dist/**'
   ],
   markdown: {
+    extendMarkdown: md => {
+      md.use(require('markdown-it-task-lists'), {enabled: true})
+    },
     toc: { includeLevel: [2, 3, 4] }
   },
   locales: {
