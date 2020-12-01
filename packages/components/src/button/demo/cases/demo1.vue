@@ -5,7 +5,7 @@
     <md-button class="button" type="warning" plain>Warning & Plain</md-button>
     <md-button class="button" type="disabled" plain>Disabled & Plain</md-button>
     <md-button class="button" type="primary" plain round>Primary & Plain & Round</md-button>
-    <md-button class="button" type="primary" plain round loading>Primary & Plain & Loading</md-button>
+    <md-button class="button" type="primary" plain round loading="carousel">Primary & Plain & Loading</md-button>
   </div>
 </template>
 
