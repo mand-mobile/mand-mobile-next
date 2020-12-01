@@ -15,24 +15,30 @@
   >
     <div class="md-button_inner">
       <template v-if="loading">
-        <!-- <md-activity-indicator-rolling class="md-button_loading"></md-activity-indicator-rolling> -->
+        <md-activity-indicator class="md-button_loading"
+          :type="loadingType"
+          :color="loadingColor"
+        ></md-activity-indicator>
       </template>
       <template v-else-if="icon">
         <md-icon :name="icon" :svg="iconSvg"></md-icon>
       </template>
       <p class="md-button_content">
-        <slot></slot>
+        <slot/>
       </p>
     </div>
   </button>
 </template>
 
 <script>
+import ActivityIndicator from '../activity-indicator'
 import Icon from '../icon'
+
 export default {
   name: 'md-button',
 
   components: {
+    'md-activity-indicator': ActivityIndicator,
     'md-icon': Icon,
   },
 
@@ -74,8 +80,23 @@ export default {
       default: false,
     },
     loading: {
-      type: Boolean,
+      type: [Boolean, String], // roller, spinner, carousel
       default: false,
+    },
+    loadingColor: {
+      type: String,
+    },
+  },
+  computed: {
+    loadingType() {
+      // true => roller
+      let {loading} = this
+
+      if (typeof loading === 'boolean') {
+        loading = 'roller'
+      }
+
+      return loading
     },
   },
   methods: {
