@@ -15,16 +15,9 @@
 </template>
 
 <script>
-import Icon from '../../../icon'
+import Icon from 'mand-mobile/lib/icon'
 
 export default {
-  name: 'icon-demo',
-  /* DELETE */
-  title: '字体图标',
-  titleEnUS: 'Icon Font',
-  align: 'center',
-  background: '#fff',
-  /* DELETE */
   components: {
     'md-icon': Icon,
   },
@@ -108,16 +101,21 @@ export const metaInfo = {
 
 </script>
 
-<style lang="stylus">
-.md-example-child-icon
-  padding 0 32px
-  display flex
-  flex-wrap wrap
-  justify-content center
-  align-items center
-  .md-example-item
-    margin-bottom 16px
-    width 30%
-  .icon-name
-    font-size 24px
+<style scoped>
+.md-example-child-icon {
+  padding: 32px 32px 0;
+  background-color: #FFF;
+}
+.md-example-child-icon .md-example-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33.3%;
+  margin-bottom: 32px;
+}
+.md-example-child-icon .md-example-item .icon-name {
+  margin-top: 5px;
+  font-size: 18px;
+  color: #666;
+}
 </style>
