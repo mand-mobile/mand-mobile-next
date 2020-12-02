@@ -20,12 +20,14 @@ Vue.component(Icon.name, Icon)
 ## 代码演示
 <!-- DEMO -->
 <MDDemoWrapper single>
-<!-- left wrapper -->
 {{{ @/packages/components/src/icon/demo/cases/demo0.vue
 </MDDemoWrapper>
 
-<MDDemoWrapper>
+<MDDemoWrapper single>
 {{{ @/packages/components/src/icon/demo/cases/demo1.vue
+</MDDemoWrapper>
+
+<MDDemoWrapper>
 }}} @/packages/components/src/icon/demo/cases/demo2.vue
 {{{ @/packages/components/src/icon/demo/cases/demo3.vue
 </MDDemoWrapper>
