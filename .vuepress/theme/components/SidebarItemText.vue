@@ -36,3 +36,9 @@ export default {
     font-weight 400
     color #a0a5b1
 </style>
+
+<style lang="stylus">
+.dark
+  .md-doc-sidebar_item_text
+    color #f5f6f7 
+</style>

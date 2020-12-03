@@ -67,3 +67,11 @@ export default {
   &.level-2
     font-size .95em
 </style>
+
+<style lang="stylus">
+.dark
+  .md-doc-sidebar_item_category
+    color #f5f6f7 
+  .md-doc-sidebar_item.active
+    background rgba(47, 134, 246, .1)
+</style>

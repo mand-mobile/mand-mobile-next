@@ -62,7 +62,7 @@ export default {
   // margin-top 1em
   padding 0 1.5em 2em
   // border-right 1px solid #e8e8e8
-  background #FFF
+  // background #FFF
   box-sizing border-box
   overflow auto
   &_version
@@ -86,4 +86,12 @@ export default {
 @media (max-width: 1500px)
   /deep/.md-doc-sidebar_item_text span
     display none
+</style>
+
+<style lang="stylus">
+.dark
+  .md-doc-sidebar
+    background-color #121212
+  .md-doc-sidebar_version
+    background-color rgba(255, 255, 255, .03) 
 </style>

@@ -7,25 +7,63 @@
     <SearchBox class="md-doc-header_search"/>
     <NavBar v-bind="{ navItems }" />
     <!-- <VersionBox /> -->
+    <a-switch
+      v-model="isSwitchChecked"
+      checked-children="🌝"
+      un-checked-children="🌛"
+    ></a-switch>
   </div>
 </template>
 
 <script>
+import Switch from 'ant-design-vue/lib/switch'
+
 import SearchBox from '@SearchBox'
 import NavBar from './NavBar'
 import VersionBox from './VersionBox'
 import { resolveNavItems } from '../util'
 
+import 'ant-design-vue/lib/switch/style/index.css'
+
 export default {
   components: {
+    [Switch.name]: Switch,
     NavBar,
     // VersionBox,
     SearchBox
   },
+  data () {
+    return {
+      isSwitchChecked: false
+    }
+  },
+  inject: ['siteConfig'],
   computed: {
     navItems () {
       return resolveNavItems(this.$site, this.$localePath)
     }
+  },
+  watch: {
+    isSwitchChecked (val) {
+      this.changeTheme(val ? 'light' : 'dark')
+    }
+  },
+  mounted () {
+    const theme = this.changeTheme()
+    this.isSwitchChecked = theme === 'light'
+  },
+  methods: {
+    changeTheme (theme) {
+      const localStorage = window.localStorage
+      theme = theme || localStorage['MAND_MOBILE_NEXT_THEME']
+
+      if (theme) {
+        localStorage['MAND_MOBILE_NEXT_THEME'] = theme
+        this.$emit('theme', theme)
+      }
+
+      return theme
+    },
   }
 }
 </script>
@@ -35,15 +73,16 @@ export default {
   position relative
   // z-index 2
   display flex
+  align-items center
   height 4em
   margin-bottom 2em
+  padding 0 2.5em
   // border-bottom 1px solid #f0f1f2
   &_aside
     display flex
     align-items center
     width 16.666%
     height 100%
-    padding-left 2.5em
     box-sizing border-box
     &_logo
       display inline-block
@@ -73,6 +112,7 @@ export default {
       z-index 3
       .suggestion
         font-size .9em
+
 @media (max-width: 1500px)
   .md-doc-header_aside_logo
     height 1.8em
@@ -92,4 +132,18 @@ export default {
     input
       width 12em !important
       left 0 !important
+</style>
+
+<style lang="stylus">
+.dark
+  .md-doc-header_aside_title
+    color #f5f6f7
+  .md-doc-header_search
+    input
+      color #f5f6f7
+      background-color #2f495e
+  .ant-switch
+    background #2f495e
+    &::after
+      background $accentColor
 </style>

@@ -79,7 +79,7 @@ export default {
       display block
   .md-doc-nav-bar_subitem.active
     .md-doc-nav-bar_item_link
-      color $accentColor 
+      color $accentColor !important
 
   .md-doc-nav-bar_dropdown
     top 100%
@@ -93,5 +93,10 @@ export default {
       color #111A34 
       &:hover
         color $accentColor 
-    
+</style>
+
+<style lang="stylus">
+.dark
+  .md-doc-nav-bar_item .md-doc-nav-bar_item_link
+    color #f5f6f7
 </style>

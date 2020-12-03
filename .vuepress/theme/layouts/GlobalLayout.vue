@@ -1,6 +1,6 @@
 <template>
   <div id="global-layout" :class="{'is-home': isHome}">
-    <MDHeader />
+    <MDHeader @theme="onChangeTheme"/>
     <div class="content">
       <component :is="layout"/>
     </div>
@@ -17,6 +17,7 @@ export default {
   provide() {
     return {
       isHome: this.isHome,
+      siteConfig: this.siteConfig
     }
   },
   components: {
@@ -26,8 +27,9 @@ export default {
   },
   data () {
     return {
+      siteConfig: {},
       headerData: {},
-      footerData: {},
+      footerData: {}
     }
   },
   computed: {
@@ -57,6 +59,10 @@ export default {
     this.footerData = footer
   },
   methods: {
+    onChangeTheme (theme) {
+      this.siteConfig.theme = theme
+      document.body.className = theme
+    },
     async getSiteConfig () {
       const url = `http://star.xiaojukeji.com/config/get.node?city=-1&areaid=&name=mand_mobile_3_config`
       const data = await fetch(url)

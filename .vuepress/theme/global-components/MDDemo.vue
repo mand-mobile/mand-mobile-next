@@ -272,3 +272,15 @@ export default {
   color $accentColor
   
 </style>
+
+<style lang="stylus">
+.dark
+  .md-doc-demo
+    border-color #606770
+    .md-doc-demo_header
+      border-bottom-color #606770
+    .md-doc-demo_code_tab
+      border-top-color #606770
+      .anticon
+        color #f5f6f7
+</style>

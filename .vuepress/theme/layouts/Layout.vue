@@ -73,9 +73,6 @@ export default {
       const platform = this.$page.meta.platform || (this.$page.meta.category ? ['web', 'uni'] : '')
       return Array.isArray(platform) ? platform : [platform]
     }
-  },
-  mounted() {
-    console.log(this.$page)
   }
 }
 </script>
@@ -128,4 +125,10 @@ export default {
     font-size .9em
   .md-doc-layout_content_header
     display block !important
+</style>
+
+<style lang="stylus">
+.dark
+  .md-doc-layout_content_header_title
+    color #f5f6f7
 </style>

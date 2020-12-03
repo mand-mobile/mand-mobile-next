@@ -10,7 +10,8 @@
 //   font-weight normal
 //   src url(https://fonts.gstatic.com/s/quicksand/v21/6xKtdSZaM9iE8KbpRA_hK1QNYuDyPw.woff2) format("truetype")
 
-html
+html, body
+  height auto
   -webkit-text-size-adjust unset
   -ms-text-size-adjust unset
 
@@ -54,6 +55,10 @@ html
     line-height unset
 
 // markdown
+.content__default
+  font-size 14px
+  ul, li, ol
+    margin 5px 0
 .content__default >
   table
     display inline-table
@@ -124,8 +129,6 @@ html
     img
       max-width 100%
       margin-top 1em
-  ul, li, ol
-
 
   img
     max-width 100%
@@ -219,6 +222,36 @@ sup.version-after
 sup.version-before
   border-color #f56c6c
   color #f56c6c
+
+.dark
+  color #b1becc 
+  background-color #121212
+  h1, h2, h3, h4, h5, h6
+    color #f5f6f7 
+  blockquote
+    background-color #2f495e
+  :not(pre) >code
+    background-color #2f495e
+    color #f5f6f7 
+    border none
+  div[class*="language-"]
+    background-color #1b262f
+
+  .content__default >
+    table
+      color #97adc3 
+      th
+        background #1b262f
+      tr
+        &:nth-child(2n)
+          background #1e364a
+        &:nth-child(2n+1)
+          background #263c4e
+  .custom-block
+    &.tip
+      background-color #1b262f
+    .custom-block-title
+      color #f5f6f7 
 
 @media (max-width: 1000px)
   .content__default >

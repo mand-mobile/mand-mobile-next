@@ -120,3 +120,9 @@ export default {
   to
     transform translateX(-50%) rotateZ(360deg)
 </style>
+
+<style lang="stylus">
+.dark
+  .md-doc-home .home-block .home-text .home-text-h1
+    color #f5f6f7
+</style>

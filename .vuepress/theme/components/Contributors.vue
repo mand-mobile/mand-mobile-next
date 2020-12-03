@@ -46,7 +46,6 @@ export default {
   mounted () {
     this.getAvatarList(this.$props)
     .then(data => {
-      console.log(data)
       this.ctb = data
     })
   },
@@ -100,4 +99,9 @@ export default {
         display block
         width 100%
         height 100%
+</style>
+<style lang="stylus">
+.dark
+  .md-doc-contributors
+    border-bottom-color #606770
 </style>
