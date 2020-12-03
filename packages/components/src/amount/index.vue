@@ -1,14 +1,13 @@
 <template>
   <span class="md-amount" :class="{numerical: !isCapital}">
-    <div v-if="!isCapital">{{ formatValue | doPrecision(legalPrecision, isRoundUp) | doFormat(hasSeparator, separator) }}</div> 
-    <div v-else> {{ formatValue | doPrecision(4, isRoundUp) | doCapital }} </div>
+    <template v-if="!isCapital">{{ formatValue | doPrecision(legalPrecision, isRoundUp) | doFormat(hasSeparator, separator) }}</template> 
+    <template v-else> {{ formatValue | doPrecision(4, isRoundUp) | doCapital }} </template>
   </span>
 </template>
 
 <script>
-import {noop, inBrowser} from '@mand-mobile/shared/lib/util'
+import {noop, formatValueByGapStep, inBrowser} from '@mand-mobile/shared/lib/util'
 import Animator from '@mand-mobile/scroller/lib/animator'
-import {formatValueByGapStep} from '@mand-mobile/shared/lib/util'
 import numberCapital from './number-capital'
 
 export default {
