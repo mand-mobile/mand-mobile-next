@@ -7,9 +7,9 @@ permalink: /packages/modules/scroller
 Platform-independent virtual scrolling computing engine
 
 - [Scroller](#scroller)
-- [WheelScroller](#wheelscroller)
-- [PullDown](#pulldown)
-- [Animator](#animator)
+- [WheelScroller](#wheelscroller-badge-textplugin)
+- [PullDown](#pulldown-badge-textplugin)
+- [Animator](#animator-badge-textplugin)
 
 ## Scroller
 
@@ -181,7 +181,7 @@ Internal translate triggered during scrolling, generally used to receive transfo
 
 `scroller.on('destroy', () => {})`
 
-## WheelScroller
+## WheelScroller <Badge text="Plugin"/>
 
 ```typescript
 class WheelScroller {
@@ -192,8 +192,8 @@ class WheelScroller {
 ### Usage
 
 ```js
-import Scroller '@mand-mobile/scroller'
-import WheelScroller '@mand-mobile/scroller/wheel'
+import Scroller from '@mand-mobile/scroller'
+import WheelScroller from '@mand-mobile/scroller/lib/wheel'
 
 const scroller = new Scroller(wrapper, content)
 
@@ -222,7 +222,7 @@ const wheel = new WheelScroller(scroller)
 
 `getSelectedIndex: () => number`
 
-## PullDown
+## PullDown <Badge text="Plugin"/>
 
 ```js
 class PullDown {
@@ -233,7 +233,7 @@ class PullDown {
 ### Usage
 
 ```js
-import PullDown '@mand-mobile/scroller/pull-down'
+import PullDown from '@mand-mobile/scroller/lib/pull-down'
 
 const scroller = new Scroller(wrapper, content)
 
@@ -270,7 +270,7 @@ const refresher = new PullDown(scroller)
 
 `scroller.on('pullingDown', () => {})`
 
-## Animator
+## Animator <Badge text="Plugin"/>
 
 ```js
 class Animator {
@@ -281,7 +281,7 @@ class Animator {
 ### Usage
 
 ```js
-import Animator '@mand-mobile/scroller/animator'
+import Animator from '@mand-mobile/scroller/lib/animator'
 
 const animatior = new Animator()
 const id = animatior.start(
