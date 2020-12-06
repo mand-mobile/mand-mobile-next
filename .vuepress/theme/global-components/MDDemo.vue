@@ -105,6 +105,7 @@ export default {
       // `mand-mobile/lib/${this.path}`
       import(
         /* webpackInclude: /demo\/cases(.*)\/(.*)\.vue/ */
+        /* webpackExclude: /__temp__/ */
         `mand-mobile/lib/${this.path}`
       ).then(module => {
         this.resize(zoom => {
