@@ -28,12 +28,19 @@
 </template>
 
 <script>
+
 import Icon from '../icon'
+
+import style from './style'
+
 export default {
   name: 'md-button',
 
   components: {
     'md-icon': Icon,
+
+    // this component only used to import platform relatived code
+    'style': style,
   },
 
   props: {
@@ -88,6 +95,7 @@ export default {
 </script>
 
 <style lang="stylus">
+
 .md-button
   position relative
   display block
