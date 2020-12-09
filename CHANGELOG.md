@@ -1,12 +1,21 @@
----
-title: Change Log
-name: changelog
-permalink: /packages/components/changelog
-toc: hidden
----
+# Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.0.1](https://github.com/mand-mobile/mand-mobile-next/compare/v3.0.1-alpha.9...v3.0.1) (2020-12-09)
+
+
+### Bug Fixes
+
+* **button:** remove debug code in button components ([a3f8008](https://github.com/mand-mobile/mand-mobile-next/commit/a3f8008efbc858c238ff2be416d43feb763f8f34))
+* **button:** remove debug code in button components ([#51](https://github.com/mand-mobile/mand-mobile-next/issues/51)) ([ee7b39c](https://github.com/mand-mobile/mand-mobile-next/commit/ee7b39c566ffaa99b61af3479867eba3968d95a2))
+* **button:** remove debug code in button components ([#52](https://github.com/mand-mobile/mand-mobile-next/issues/52)) ([c45243c](https://github.com/mand-mobile/mand-mobile-next/commit/c45243c4f77080717e754a1756b4d2ae67f72938))
+* **components/field/input-item:** cross-platform compatibility issues ([#46](https://github.com/mand-mobile/mand-mobile-next/issues/46)) ([4cc2849](https://github.com/mand-mobile/mand-mobile-next/commit/4cc2849adbbfd28774c88eb2b404751cc577e853))
+
+
+
+
 
 ## [3.0.1-alpha.9](https://github.com/mand-mobile/mand-mobile-next/compare/v3.0.1-alpha.8...v3.0.1-alpha.9) (2020-09-17)
 
@@ -233,4 +242,3 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **platform:** support use $renderComponents in platform ([53d61c5](https://github.com/mand-mobile/mand-mobile-next/commit/53d61c54cbb15b6e08ca5d3ea3e279e17df87f95))
 * **platfrom:** support build bundle with rollup ([cf87fad](https://github.com/mand-mobile/mand-mobile-next/commit/cf87fad607f94632847662f3cda944c1817b21bf))
 * **platfrom:** support build bundle with rollup ([611c0c2](https://github.com/mand-mobile/mand-mobile-next/commit/611c0c25f0ca7eec7dfb5916e4572332d47d6210))
-
