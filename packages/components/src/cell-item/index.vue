@@ -11,8 +11,8 @@
       class="md-cell-item_body"
       :class="{'md-cell-item_body--multilines': !!brief}"
     >
-    <div class="md-cell-item_left" v-if="$slots.left">
-      <slot name="left"></slot>
+    <div class="md-cell-item_left" v-if="slots.left">
+      <slot name="left"/>
     </div>
     <div v-if="title || brief || $slots.default"
       class="md-cell-item_content"
@@ -22,15 +22,15 @@
       <p class="md-cell-item_brief" v-if="brief" v-text="brief"></p>
       <slot></slot>
     </div>
-    <div class="md-cell-item_right" v-if="arrow || addon || $slots.right">
+    <div class="md-cell-item_right" v-if="arrow || addon || slots.right">
       <slot name="right">
         {{ addon }}
       </slot>
       <md-icon v-if="arrow" name="arrow-right" size="md" />
     </div>
     </div>
-    <div class="md-cell-item_children"  v-if="$slots.children">
-      <slot name="children"></slot>
+    <div class="md-cell-item_children"  v-if="slots.children">
+      <slot name="children"/>
     </div>
   </div>
 </template>
@@ -82,12 +82,22 @@ export default {
       type: Boolean,
       default: false,
     },
-    // slotName: {
-    //   type: String,
-    //   default: 'sdsds', // default left right children
-    // },
+    childrenSlots: {
+      default: () => null,
+    },
   },
-  created() {},
+  computed: {
+    slots() {
+      /**
+      * There will be an extra layer of view in uniapp, which makes it impossible 
+      * to obtain whether the subcomponent slot really contains content
+      */
+      return {
+        ...this.$slots,
+        ...this.childrenSlots,
+      }
+    },
+  },
   methods: {
     $_onClick(e) {
       if (!this.disabled) {
