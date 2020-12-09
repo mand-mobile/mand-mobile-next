@@ -45,7 +45,6 @@ import InputItem from 'mand-mobile/lib/input-item'
 import Field from 'mand-mobile/lib/field'
 import Icon from 'mand-mobile/lib/icon'
 import NumberKeyboard from 'mand-mobile/lib/number-keyboard'
-import '../assets/bank-zs.svg'
 
 export default {
   components: {
@@ -61,9 +60,11 @@ export default {
         icon: 'warn',
       })
     },
+    onFakeInputFocus() {
+      console.log('[Mand Mobile] InputItem focus')
+    },
     onFakeInputBlur() {
-      // eslint-disable-next-line no-unused-expressions
-      this.scrollInputBack && this.scrollInputBack()
+      console.log('[Mand Mobile] InputItem blur')
     },
   },
 }
