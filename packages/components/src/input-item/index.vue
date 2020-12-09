@@ -117,7 +117,7 @@
       <!--   KEYBORARD  -->
       <!-- ------------ -->
       <md-number-keyboard
-        v-if="isVirtualKeyboard && !virtualKeyboardVm"
+        v-if="isInnerVirtualKeyboard"
         v-model="isInputFocus"
         ref="number-keyboard"
         custom-class="md-input-item_number-keyboard"
@@ -323,7 +323,7 @@ export default {
       get() {
         return {
           left: this.$slots.left,
-          children: this.isInputError || this.isInputBrief,
+          children: this.isInputError || this.isInputBrief || this.isInnerVirtualKeyboard,
         }
       },
       cache: false,
@@ -337,6 +337,9 @@ export default {
     isInputFormative() {
       const type = this.inputItemType
       return this.isFormative || (type === 'bankCard' || type === 'phone' || type === 'money' || type === 'digit')
+    },
+    isInnerVirtualKeyboard() {
+      return this.isVirtualKeyboard && !this.virtualKeyboardVm
     },
     isDisabled() {
       return this.rootField.disabled || this.disabled
@@ -393,17 +396,6 @@ export default {
     this.inputValue = this.$_formateValue(this.$_subValue(this.value + '')).value
   },
   mounted() {
-    // if (inBrowser && this.isVirtualKeyboard) {
-    //   this.$nextTick(() => {
-    //     this.$_initNumberKeyBoard()
-    //   })
-    // } else if (!inBrowser && this.isVirtualKeyboard) {
-    //   if (this.$refs['number-keyboard']) {
-    //     this.$refs['number-keyboard'].$on('enter', this.$_onNumberKeyBoardEnter)
-    //     this.$refs['number-keyboard'].$on('delete', this.$_onNumberKeyBoardDelete)
-    //     this.$refs['number-keyboard'].$on('confirm', this.$_onNumberKeyBoardConfirm)
-    //   }
-    // }
     if (this.isVirtualKeyboard) {
       this.$nextTick(() => {
         this.$_initNumberKeyBoard()
@@ -542,7 +534,7 @@ export default {
 
         const {$el, show, hide} = keyboard
         mdDocument.body.appendChild($el)
-        this.inputNumberKeyboard = {show, hide}
+        this.inputNumberKeyboard = {$el, show, hide}
       }
     },
 
