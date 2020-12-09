@@ -119,8 +119,7 @@ export default {
       color md-color-text-disabled
   &--is-inline
     display inline-flex
-    &:not(:last-child)
-      margin-right 40px
+    margin-right 30px
 
 .md-radio_icon
   position relative
