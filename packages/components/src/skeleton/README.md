@@ -3,9 +3,9 @@ title: Skeleton 骨架屏
 preview: https://didi.github.io/mand-mobile/examples/#/skeleton
 ---
 
-骨架屏，一般用于数据尚未加载前先展示出页面的大致结构的加载状态 <sup class="version-after">2.5.0+</sup>
+骨架屏，一般用于数据尚未加载前先展示出页面的大致结构的加载状态
 
-### 引入
+## 引入
 
 ```javascript
 import { Skeleton } from 'mand-mobile'
@@ -13,12 +13,17 @@ import { Skeleton } from 'mand-mobile'
 Vue.component(Skeleton.name, Skeleton)
 ```
 
-### 代码演示
+## 代码演示
 <!-- DEMO -->
+<MDDemoWrapper>
+{{{ @/packages/components/src/skeleton/demo/cases/demo0.vue
+}}} @/packages/components/src/skeleton/demo/cases/demo2.vue
+{{{ @/packages/components/src/skeleton/demo/cases/demo1.vue
+</MDDemoWrapper>
 
-### API
+## API
 
-#### Skeleton Props
+### Skeleton Props
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |loading|是否显示骨架屏|Boolean|true|-|

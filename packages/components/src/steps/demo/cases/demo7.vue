@@ -5,21 +5,14 @@
       :steps="steps"
       :current="1"
       vertical-adaptive
-    >
-    </md-steps>
+    ></md-steps>
   </div>
 </template>
 
 <script>
-import Steps from '../../index'
+import Steps from 'mand-mobile/lib/steps'
 
 export default {
-  name: 'steps-demo',
-  /* DELETE */
-  title: '纵向展示',
-  titleEnUS: 'Specify the current step',
-  height: 150,
-  /* DELETE */
   components: {
     'md-steps': Steps,
   },
@@ -46,5 +39,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '纵向展示',
+  },
+  'en-US': {
+    title: 'Vertical display',
+  },
+}
+// #endregion ignore
 
 </script>

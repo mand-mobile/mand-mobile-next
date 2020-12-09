@@ -32,7 +32,6 @@ import Swiper from 'mand-mobile/lib/swiper'
 import SwiperItem from 'mand-mobile/lib/swiper/swiper-item'
 
 export default {
-  name: 'tab-bar-demo',
   components: {
     'md-tab-bar': TabBar,
     'md-swiper': Swiper,
@@ -53,6 +52,16 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '手势切换',
+  },
+  'en-US': {
+    title: 'Gesture switching',
+  },
+}
+// #endregion ignore
 
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="md-example-child md-example-child-toast">
-    <md-button @click="showTextToast">自定义位置</md-button>
+    <md-button inline size="small" @click="showTextToast">底部展示</md-button>
   </div>
 </template>
 
@@ -9,7 +9,6 @@ import Button from 'mand-mobile/lib/button'
 import Toast from 'mand-mobile/lib/toast'
 
 export default {
-  name: 'toast-demo',
   components: {
     'md-button': Button,
   },
@@ -22,5 +21,16 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  platform: 'web',
+  'zh-CN': {
+    title: '自定义位置',
+  },
+  'en-US': {
+    title: 'Customized position',
+  },
+}
+// #endregion ignore
 
 </script>

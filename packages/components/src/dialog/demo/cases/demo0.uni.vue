@@ -1,11 +1,11 @@
 <template>
   <div class="md-example-child md-example-child-dialog md-example-child-dialog-0">
-    <md-button class="md-button" @click="basicDialog.open = true">基本</md-button>
-    <md-button class="md-button" @click="iconDialog.open = true">带图标</md-button>
-    <md-button class="md-button" @click="warnDialog.open = true">警示操作</md-button>
-    <md-button class="md-button" @click="asyncDialog.open = true">异步操作</md-button>
-    <md-button class="md-button" @click="actDialog.open = true">多操作</md-button>
-    <md-button class="md-button" @click="slotDialog.open = true">插槽</md-button>
+    <md-button inline size="small" @click="basicDialog.open = true">基本</md-button>
+    <md-button inline size="small" @click="iconDialog.open = true">带图标</md-button>
+    <md-button inline size="small" @click="warnDialog.open = true">警示操作</md-button>
+    <md-button inline size="small" @click="asyncDialog.open = true">异步操作</md-button>
+    <md-button inline size="small" @click="actDialog.open = true">多操作</md-button>
+    <md-button inline size="small" @click="slotDialog.open = true">插槽</md-button>
 
     <md-dialog
       title="窗口标题"

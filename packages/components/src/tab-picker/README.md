@@ -5,7 +5,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/tab-picker
 
 底部级联选择的tab切换面板
 
-### 引入
+## 引入
 
 ```javascript
 import { TabPicker } from 'mand-mobile'
@@ -13,33 +13,37 @@ import { TabPicker } from 'mand-mobile'
 Vue.component(TabPicker.name, TabPicker)
 ```
 
-### 代码演示
+## 代码演示
 <!-- DEMO -->
+<MDDemoWrapper>
+<!-- left wrapper -->
+{{{ @/packages/components/src/tab-picker/demo/cases/demo0.vue
+</MDDemoWrapper>
 
-### API
+## API
 
-#### TabPicker 参数
+### TabPicker 参数
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
-|v-model|控制显示或隐藏|Boolean|`false`| -|
-|default-value|默认值|Array|`[]`|-|
+|value|控制显示或隐藏|Boolean|`false`| |
+|default-value|默认值|Array|`[]`| |
 |data|数据源|Array|`[]`|数据格式参考`附录`|
-|title|弹窗标题|String|-|-|
-|describe|弹窗描述文本|String|-|-|
-|placeholder|默认提示文本|String|`请选择`|-|
-|mask-closable|点击蒙层是否可关闭弹出层|Boolean|`true`|-|
+|title|弹窗标题|String| | |
+|describe|弹窗描述文本|String| | |
+|placeholder|默认提示文本|String|`请选择`| |
+|mask-closable|点击蒙层是否可关闭弹出层|Boolean|`true`| |
 
 
-#### TabPicker 实例方法
+### TabPicker 实例方法
 
-##### getSelectedValues()
+#### getSelectedValues()
 获取所有面板选中项的值
 
 ```
 ['value1', 'value2', 'value3']
 ```
 
-##### getSelectedOptions()
+#### getSelectedOptions()
 获取所有面板选中项对象
 
 ```
@@ -50,9 +54,9 @@ Vue.component(TabPicker.name, TabPicker)
 ]
 ```
 
-#### TabPicker 事件
+### TabPicker 事件
 
-##### @select(data)
+#### @select(data)
 选项选中事件
 
 ```
@@ -64,7 +68,7 @@ Vue.component(TabPicker.name, TabPicker)
 }
 ```
 
-##### @change(data)
+#### @change(data)
 底部弹窗选中事件
 
 ```
@@ -79,13 +83,13 @@ Vue.component(TabPicker.name, TabPicker)
 }
 ```
 
-##### @show()
+#### @show()
 底部弹窗弹层展示事件
 
-##### @hide()
+#### @hide()
 底部弹窗弹层隐藏事件
 
-#### TabPicker 插槽
+### TabPicker 插槽
 选项插槽自定义
 
 ```
@@ -96,7 +100,7 @@ Vue.component(TabPicker.name, TabPicker)
 </md-tab-picker>
 ```
 
-### 附录
+## 附录
 
 * 级联数据源数据格式
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="md-example-child md-example-child-action-sheet">
+  <div class="md-example-child md-example-child-action-sheet-0">
     <md-button @click="$_showActionSheet">唤起动作面板</md-button>
     <md-action-sheet
       v-model="value"
@@ -20,8 +20,6 @@ import Button from 'mand-mobile/lib/button'
 import Dialog from 'mand-mobile/lib/dialog'
 
 export default {
-  name: 'action-sheet-demo',
-  height: 500,
   components: {
     'md-action-sheet': ActionSheet,
     'md-button': Button,
@@ -65,5 +63,10 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  height: 500,
+}
+// #endregion ignore
 
 </script>

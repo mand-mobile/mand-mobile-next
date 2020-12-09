@@ -12,11 +12,6 @@
 import Codebox from 'mand-mobile/lib/codebox'
 
 export default {
-  name: 'codebox-demo',
-  /* DELETE */
-  title: '系统键盘',
-  titleEnUS: 'System keyboard',
-  /* DELETE */
   components: {
     'md-codebox': Codebox,
   },
@@ -26,5 +21,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '系统键盘',
+  },
+  'en-US': {
+    title: 'System keyboard',
+  },
+}
+// #endregion ignore
 
 </script>

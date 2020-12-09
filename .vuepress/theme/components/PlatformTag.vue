@@ -53,11 +53,11 @@ export default {
     align-items center
     height 2em
     padding 0 .6em
-    border solid 1px #2f86f6
+    border solid 1px $accentColor
     border-radius 2em
     font-size .8em
     font-style normal
-    color #2f86f6
+    color $accentColor
     &:not(:last-child)
       margin-right 5px
 </style>

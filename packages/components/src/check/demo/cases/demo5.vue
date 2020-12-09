@@ -15,11 +15,6 @@ import Field from 'mand-mobile/lib/field'
 import CheckList from 'mand-mobile/lib/check/list'
 
 export default {
-  name: 'check-demo',
-  /* DELETE */
-  title: '复选列表',
-  titleEnUS: 'Check list',
-  /* DELETE */
   components: {
     'md-field': Field,
     'md-check-list': CheckList,
@@ -37,12 +32,21 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '复选列表配置',
+  },
+  'en-US': {
+    title: 'Check list configration',
+  },
+}
+// #endregion ignore
 
 </script>
 
 <style scoped>
-  .md-example-child {
-    font-size: 28px;
-  }
-    
+.md-example-child {
+  font-size: 28px;
+}
 </style>

@@ -11,15 +11,20 @@
 import ResultPage from 'mand-mobile/lib/result-page'
 
 export default {
-  name: 'result-page-demo',
-  /* DELETE */
-  title: '网络异常',
-  titleEnUS: 'Network anomaly',
-  /* DELETE */
   components: {
     'md-result-page': ResultPage,
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '网络异常',
+  },
+  'en-US': {
+    title: 'Network error',
+  },
+}
+// #endregion ignore
 
 </script>
 

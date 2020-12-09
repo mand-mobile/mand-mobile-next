@@ -14,8 +14,6 @@ import Field from 'mand-mobile/lib/field'
 import CellItem from 'mand-mobile/lib/cell-item'
 
 export default {
-  name: 'cell-item-demo',
-
   components: {
     'md-field': Field,
     'md-cell-item': CellItem,

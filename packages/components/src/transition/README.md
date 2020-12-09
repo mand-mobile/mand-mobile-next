@@ -5,7 +5,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/transition
 
 复用动画切换组件
 
-### 引入
+## 引入
 
 ```javascript
 import { Transition } from 'mand-mobile'
@@ -13,10 +13,14 @@ import { Transition } from 'mand-mobile'
 Vue.component(Transition.name, Transition)
 ```
 
-### 代码演示
+## 代码演示
 <!-- DEMO -->
+<MDDemoWrapper>
+<!-- left wrapper -->
+{{{ @/packages/components/src/transition/demo/cases/demo0.vue
+</MDDemoWrapper>
 
-### API
+## API
 `md-transition`组件为Vue内置`transtion`的一层封装，支持所有Transition的属性参数。
 
 其中内置动画`name`参数如下：

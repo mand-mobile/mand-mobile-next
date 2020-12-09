@@ -3,7 +3,7 @@
     <md-tab-bar
       v-model="current"
       :items="items"
-      :maxLength="5"
+      :max-length="3"
     />
   </div>
 </template>
@@ -20,14 +20,27 @@ export default {
     return {
       current: 1,
       items: [
-        {name: 1, label: '标签1'},
-        {name: 2, label: '标签2'},
-        {name: 3, label: '标签3'},
-        {name: 4, label: '标签4'},
-        {name: 5, label: '标签5'},
+        {name: 1, label: '精选'},
+        {name: 2, label: '全部'},
+        {name: 3, label: '满减券'},
+        {name: 4, label: '立减券'},
+        {name: 5, label: '免息券'},
+        {name: 6, label: '校园专享'},
+        {name: 7, label: '夜间优惠'},
+        {name: 8, label: '红包'},
       ],
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '首屏数量',
+  },
+  'en-US': {
+    title: 'Max length of first screen',
+  },
+}
+// #endregion ignore
 
 </script>

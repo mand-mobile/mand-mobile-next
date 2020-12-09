@@ -7,6 +7,7 @@
       <template v-else>
         <span>{{text}}</span>
       </template>
+      <slot/>  
     </template>
   </div>
 </template>
@@ -24,13 +25,20 @@ export default {
 
 <style lang="stylus" scoped>
 .md-doc-sidebar_item_text
-  padding .8em 1em
+  padding 12px 16px
   font-size .9em
   color #314659
   transform translateX(2px)
+  transition color .3s
   span
     margin-left .5em
-    font-size .8em
+    // font-size .8em
     font-weight 400
-    color #666f83
+    color #a0a5b1
+</style>
+
+<style lang="stylus">
+.dark
+  .md-doc-sidebar_item_text
+    color #f5f6f7 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="md-example-child md-example-child-md-activity-indicator md-example-child-md-activity-indicator-0">
+  <div class="md-example-child md-example-child-activity-indicator md-example-child-activity-indicator-0">
     <md-activity-indicator
       :size="20"
       :text-size="16"
@@ -12,24 +12,28 @@
     <md-activity-indicator
       class="md-activity-indicator-css"
     >loading...</md-activity-indicator>
-	</div>
+  </div>
 </template>
 
 <script>
-import ActivityIndicator from '../../'
+import ActivityIndicator from 'mand-mobile/lib/activity-indicator'
 
 export default {
-  name: 'activity-indicator-demo',
-  title: 'Roller',
   components: {
     'md-activity-indicator': ActivityIndicator,
   },
 }
+// #region ignore
+export const metaInfo = {
+  title: 'Roller',
+  platform: 'web',
+}
+// #endregion ignore
 
 </script>
 
-<style>
-.md-example-child-md-activity-indicator-0 {
+<style scoped>
+.md-example-child-activity-indicator-0 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,13 +43,12 @@ export default {
   margin-bottom: 30px;
 }
 
-.md-example-child-md-activity-indicator-0 .md-activity-indicator-css .md-activity-indicator_svg {
+.md-example-child-activity-indicator-0 .md-activity-indicator-css .md-activity-indicator_svg {
   width: 60px !important;
   height: 60px !important;
 }
       
-.md-example-child-md-activity-indicator-0 .md-activity-indicator-css .md-activity-indicator-text {
+.md-example-child-activity-indicator-0 .md-activity-indicator-css .md-activity-indicator-text {
   font-size: 32px;
 }
-        
 </style>

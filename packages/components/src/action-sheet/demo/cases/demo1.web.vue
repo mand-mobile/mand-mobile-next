@@ -1,5 +1,5 @@
 <template>
-  <div class="md-example-child md-example-child-action-sheet">
+  <div class="md-example-child md-example-child-action-sheet-1">
     <md-button @click="$_showActionSheet">唤起动作面板</md-button>
   </div>
 </template>
@@ -9,12 +9,6 @@ import ActionSheet from 'mand-mobile/lib/action-sheet'
 import Button from 'mand-mobile/lib/button'
 import Dialog from 'mand-mobile/lib/dialog'
 export default {
-  name: 'action-sheet-demo',
-  /* DELETE */
-  title: '单例模式',
-  titleEnUS: 'Singleton',
-  height: 500,
-  /* DELETE */
   components: {
     'md-button': Button,
   },
@@ -56,5 +50,15 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '单例模式',
+  },
+  'en-US': {
+    title: 'Singleton',
+  },
+}
+// #endregion ignore
 
 </script>

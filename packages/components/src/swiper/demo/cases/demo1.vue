@@ -2,27 +2,24 @@
   <div class="md-example-child md-example-child-swiper md-example-child-swiper-1">
     <md-swiper
       :dragable="false"
-      :autoplay="5000"
+      :autoplay="3000"
       transition="slideY"
-      @before-change="beforeChange"
-      @after-change="afterChange"
     >
       <md-swiper-item :key="$index" v-for="(item, $index) in simple">
-        <div
-          class="banner-item"
-          :style="{'background': `${item.color}`}">{{item.text}}</div>
+        <div class="banner-item" :style="{'background': `${item.color}`}">
+          {{item.text}}
+        </div>
       </md-swiper-item>
     </md-swiper>
   </div>
 </template>
 
 <script>
-import Swiper from '../../index'
-import SwiperItem from '../../swiper-item'
-import simple from '../../demo/data/simple'
+import Swiper from 'mand-mobile/lib/swiper'
+import SwiperItem from 'mand-mobile/lib/swiper-item'
+import simple from 'mand-mobile/lib/swiper/demo/data/simple'
 
 export default {
-  name: 'swiper-demo',
   components: {
     'md-swiper': Swiper,
     'md-swiper-item': SwiperItem,
@@ -32,20 +29,17 @@ export default {
       simple,
     }
   },
-  methods: {
-    // setValue(id, value) {
-    //   document.querySelector(id) && (document.querySelector(id).innerHTML = value)
-    // },
-    // beforeChange(from, to) {
-    // this.setValue('#valueSwiper5', from)
-    // this.setValue('#valueSwiper6', to)
-    // },
-    // afterChange(from, to) {
-    // this.setValue('#valueSwiper7', from)
-    // this.setValue('#valueSwiper8', to)
-    // },
+}
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '进度变化动效',
+  },
+  'en-US': {
+    title: 'Transition of progress',
   },
 }
+// #endregion ignore
 
 </script>
 
@@ -57,7 +51,8 @@ export default {
   float: left;
   width: 100%;
   height: 100%;
-  line-height: 250px;
+  display: flex;
+  /* line-height: 250px; */
   text-align: center;
   font-size: 28px;
   color: #FFF;

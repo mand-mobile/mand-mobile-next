@@ -11,7 +11,6 @@
 import TabBar from 'mand-mobile/lib/tab-bar'
 
 export default {
-  name: 'tab-bar-demo',
   components: {
     'md-tab-bar': TabBar,
   },

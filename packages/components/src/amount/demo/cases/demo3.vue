@@ -1,9 +1,6 @@
 <template>
   <div class="md-example-child md-example-child-amount">
-    <md-amount
-      :value="1234"
-      is-capital
-    ></md-amount>
+    <md-amount :value="1234" is-capital></md-amount>
 	</div>
 </template>
 
@@ -11,20 +8,26 @@
 import Amount from 'mand-mobile/lib/amount'
 
 export default {
-  name: 'amount-demo',
-  /* DELETE */
-  title: '大写中文',
-  titleEnUS: 'Capital Chinese',
-  /* DELETE */
   components: {
     'md-amount': Amount,
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '大写中文',
+  },
+  'en-US': {
+    title: 'Capital Chinese',
+  },
+}
+// #endregion ignore
 
 </script>
 
-<style>
+<style scoped>
 .md-example-child-amount {
+  font-weight: 300;
   text-align: center;
   font-size: 32px;
   color: #666;

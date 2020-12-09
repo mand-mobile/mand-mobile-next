@@ -17,11 +17,6 @@ import CheckBox from 'mand-mobile/lib/check/box'
 import CheckGroup from 'mand-mobile/lib/check/group'
 
 export default {
-  name: 'check-demo',
-  /* DELETE */
-  title: '复选框组',
-  titleEnUS: 'Check box group',
-  /* DELETE */
   components: {
     'md-check-box': CheckBox,
     'md-check-group': CheckGroup,
@@ -33,5 +28,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '复选框组',
+  },
+  'en-US': {
+    title: 'Check box group',
+  },
+}
+// #endregion ignore
 
 </script>

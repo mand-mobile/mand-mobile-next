@@ -30,20 +30,25 @@
 </template>
 
 <script>
-import Tag from '../../index'
-import Icon from '../../../icon'
+import Tag from 'mand-mobile/lib/tag'
+import Icon from 'mand-mobile/lib/icon'
 
 export default {
-  name: 'tag-demo',
-  /* DELETE */
-  title: '特殊标签',
-  titleEnUS: 'Special tags',
-  /* DELETE */
   components: {
     'md-tag': Tag,
     'md-icon': Icon,
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '特殊标签',
+  },
+  'en-US': {
+    title: 'Special tags',
+  },
+}
+// #endregion ignore
 
 </script>
 

@@ -12,7 +12,6 @@
 import Codebox from 'mand-mobile/lib/codebox'
 
 export default {
-  name: 'codebox-demo',
   components: {
     'md-codebox': Codebox,
   },

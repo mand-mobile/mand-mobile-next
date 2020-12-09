@@ -5,7 +5,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/field
 
 区域列表垂直排列，显示当前的内容、状态和可进行的操作。
 
-### 引入
+## 引入
 
 ```javascript
 import { Field, FieldItem } from 'mand-mobile'
@@ -14,12 +14,16 @@ Vue.component(Field.name, Field)
 Vue.component(FieldItem.name, FieldItem)
 ```
 
-### 代码演示
+## 代码演示
 <!-- DEMO -->
+<MDDemoWrapper>
+<!-- left wrapper -->
+{{{ @/packages/components/src/field/demo/cases/demo0.vue
+</MDDemoWrapper>
 
-### API
+## API
 
-#### Field Props
+### Field Props
 |属性 | 说明 | 类型 | 默认值|备注|
 |----|-----|------|------|------|
 |title|标题|String|-|-|
@@ -27,7 +31,9 @@ Vue.component(FieldItem.name, FieldItem)
 |disabled|是否禁用区域|Boolean|`false`|-|
 |plain|镂空样式|Boolean|`false`|-|
 
+:::tip
 当使用了`disabled`选项时，其后代内容可以通过[inject](https://vuejs.org/v2/api/#provide-inject)的方式获取祖先`Field`的实例属性。
+:::
 
 ```javascript
 export default {
@@ -48,23 +54,23 @@ export default {
 }
 ```
 
-#### Field Slots
+### Field Slots
 
-##### default
+#### default
 内容默认插槽
 
-##### header
+#### header
 页眉内容插槽
 
-##### action
+#### action
 页眉操作区域插槽
 
-##### footer
+#### footer
 页脚内容插槽
 
 ---
 
-#### FieldItem Props
+### FieldItem Props
 |属性 | 说明 | 类型 | 默认值|备注|
 |----|-----|------|------|------|
 |title|标题|String|-|-|
@@ -74,20 +80,20 @@ export default {
 |solid|是否固定标题宽度，超出会自动换行|Boolean|false|-|
 |arrow|动作箭头标识|Boolean|false|-|
 
-#### FieldItem Events
-##### @click(event)
+### FieldItem Events
+#### @click(event)
 非禁用状态下的点击事件
 
-#### FieldItem Slots
+### FieldItem Slots
 
-##### default
+#### default
 内容默认插槽
 
-##### left
+#### left
 起始区域插槽
 
-##### right
+#### right
 末尾区域插槽
 
-##### children
+#### children
 额外内容插槽

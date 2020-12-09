@@ -47,11 +47,6 @@ import Tag from 'mand-mobile/lib/tag'
 import Toast from 'mand-mobile/lib/toast'
 
 export default {
-  name: 'image-reader-demo',
-  /* DELETE */
-  title: '图片选择',
-  titleEnUS: 'Picture selection',
-  /* DELETE */
   components: {
     'md-icon': Icon,
     'md-tag': Tag,
@@ -98,6 +93,16 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '图片选择',
+  },
+  'en-US': {
+    title: 'Picture selection',
+  },
+}
+// #endregion ignore
 
 </script>
 

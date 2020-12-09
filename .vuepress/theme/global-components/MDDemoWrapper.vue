@@ -62,7 +62,7 @@ export default {
       margin-left 0
     /deep/.md-doc-demo_content_case
       max-width unset
-@media (max-width: 1500px)
+@media (max-width: 1400px)
   .md-doc-demo-wrapper
     display block
     .md-doc-demo-wrapper_list

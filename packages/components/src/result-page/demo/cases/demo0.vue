@@ -10,14 +10,15 @@
 import ResultPage from 'mand-mobile/lib/result-page'
 
 export default {
-  name: 'result-page-demo',
-  /* DELETE */
-  title: '404',
-  /* DELETE */
   components: {
     'md-result-page': ResultPage,
   },
 }
+// #region ignore
+export const metaInfo = {
+  title: '404',
+}
+// #endregion ignore
 
 </script>
 

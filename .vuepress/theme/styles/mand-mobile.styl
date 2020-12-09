@@ -1,22 +1,216 @@
-@import '../../../packages/shared/src/style/mixin/util'
-@import '../../../packages/shared/src/style/mixin/theme.components'
-@import '../../../packages/shared/src/style/mixin/theme.basic'
+// @import '../../../packages/shared/src/style/mixin/util'
+// @import '../../../packages/shared/src/style/mixin/theme.components'
+// @import '../../../packages/shared/src/style/mixin/theme.basic'
+@import '../../../packages/shared/src/style/transition'
 
 // @import '~nib/lib/nib/vendor'
 // @import '~nib/lib/nib/gradients'
 
 // md-button-primary-fill=red
 
-.md-toast, .md-dialog
+.md-toast, .md-dialog, .md-action-sheet, .md-number-keyboard
   zoom .6
+  h2
+    border none
+.md-tip
+  .md-tip_content
+    padding 9px 19px
+    font-size 14px
+  .md-tip_content_icon
+    margin-right 8px
+    right auto !important
+  .md-icon
+    width 19px !important
+    height 19px !important
+    font-size 19px !important
+    &.md-icon-close
+       right 9px !important
+  .md-tip_bg::after
+    border-width 6px 6px 0 6px !important
+    margin-left -6px
+    bottom -6px
+    
+  &.has-close .md-tip_content
+    padding-right 36px !important
+
+  &.is-top .md-tip_bg::after
+    border-width 6px 6px 0 6px !important
+    margin-left -6px
+    bottom -6px !important
+  &.is-bottom .md-tip_bg::after
+    border-width 0 6px 6px 6px !important
+    margin-left -6px
+    top -6px !important
+  &.is-left .md-tip_bg::after
+    border-width 6px 0 6px 6px !important
+    margin-top -6px !important
+    right: -5px !important
+  &.is-right .md-tip_bg::after
+    border-width 6px 6px 6px 0 !important
+    margin-top -6px !important
+    margin-left 0 !important
+    left: -5px !important
+
+.md-action-sheet
+  ul, ol
+    padding-left 0
+  .md-popup_box
+    max-width 900px
+    margin 0 auto
+
+.md-number-keyboard
+  ul, li, ol
+    padding-left 0
+    list-style none
+  .md-popup_box
+    max-width 900px
+    margin 0 auto
+    box-shadow 0 2px 4px -4px rgba(0,0,0,.08), 0 4px 12px 0 rgba(0,0,0,.05), 0 6px 20px 8px rgba(0,0,0,.05)
+
+.md-cashier
+  .md-popup_box
+    max-width 900px
+    margin 0 auto
+
+.md-example-child-action-bar .md-action-bar
+  // border solid .5px #e2e4ea
+  box-shadow 0 2px 4px -4px rgba(0,0,0,.08), 0 4px 12px 0 rgba(0,0,0,.05), 0 6px 20px 8px rgba(0,0,0,.05)
+
+.md-example-child-cell-item
+  border solid .5px #e2e4ea
+
+.md-example-child-detail-item
+  border solid .5px #e2e4ea
 
 .md-example-child-drop-menu
-  height 100%
-.md-example-child-icon-0
+  height 100% !important
+  border solid .5px #e2e4ea
+
+.md-example-child-icon
   zoom .6 !important
+  justify-content: flex-start !important
   .md-example-item
+    width 20% !important
+    margin 1.5em 0 !important
     display flex
     flex-direction column
     align-items center
-    justify-content center
-    width 25% !important
+
+.md-example-child-notice-bar
+  padding 0 !important
+  // height 250px
+  border solid .5px #e2e4ea
+  &:after
+    content "正文区域"
+    display block
+    width 100%
+    padding 80px 0
+    text-align center
+    font-size 1.5em
+.md-example-child-notice-bar-3 .md-notice-bar
+  margin 32px
+.md-example-child-steps
+  .md-steps_node--default_icon
+    width 10px !important
+    height 10px !important
+
+.md-example-child-action-sheet-0
+  height 100%
+  background #F9FAFB
+  transform translateZ(0)
+  overflow hidden
+  .md-popup
+    position absolute !important
+    z-index 2000 !important
+  .md-action-sheet
+    zoom 1
+    ul,li
+      list-style none
+
+.md-example-child-dialog
+  .md-dialog
+    zoom 1
+
+.md-example-child-popup, .md-example-child-picker, .md-example-child-date-picker, .md-example-child-tab-picker, .md-example-child-selector
+  .md-picker-view
+    border solid .5px #e2e4ea
+  .md-popup_box
+    max-width 900px
+    margin 0 auto
+    .md-picker-view
+      border none
+
+.md-example-child-tabs
+  .md-tabs
+    border solid .5px #e2e4ea
+
+.md-example-child-toast-7
+  .md-toast
+    zoom 1 !important
+
+.md-example-child-tip
+  zoom 1 !important 
+  // display flex
+  // align-items center
+  // justify-content center
+  // height 194px
+  .md-button
+    border-radius 4px
+    &.md-button--small
+      height 38px
+      line-height 38px
+      font-size 16px
+
+.md-example-child-captcha
+  border solid .5px #e2e4ea
+  .md-dialog, .md-number-keyboard
+    zoom 1 !important
+
+.md-example-child-cashier-0
+  border solid .5px #e2e4ea
+
+.md-example-child-codebox-1
+  .md-codebox_dot
+    width 20px
+    height 20px
+    border-radius 10px
+
+.md-example-child-landscape
+  .md-popup
+    position absolute
+
+.md-example-child-water-mark
+  border solid .5px #e2e4ea
+  .md-water-mark_list
+    ul, li
+      list-style none
+
+.md-example-child-check
+  padding 0 !important
+
+.md-example-child-field
+  border solid .5px #e2e4ea
+
+.md-example-child-number-keyboard
+  .md-number-keyboard
+    zoom 1 !important
+
+
+.dark
+  // .md-example-child-action-bar
+  //   .md-action-bar
+  //     background $containerBackgrounColorDark
+  .md-example-child-icon
+    background-color $backgrounColorDark !important
+    .md-example-item
+      font-size 1em !important
+      color #FFF
+      .md-icon
+        // font-size 64px !important
+        // width 64px !important
+        // height 64px !important
+        &.md-icon-spinner
+          filter none !important
+      .icon-name
+        font-size 24px !important
+        color #CCC !important
