@@ -24,7 +24,6 @@ import TabBar from 'mand-mobile/lib/tab-bar'
 import Icon from 'mand-mobile/lib/icon'
 
 export default {
-  name: 'tab-bar-demo',
   components: {
     'md-tab-bar': TabBar,
     'md-icon': Icon,
@@ -36,6 +35,16 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '自定义内容',
+  },
+  'en-US': {
+    title: 'Custom item content',
+  },
+}
+// #endregion ignore
 
 </script>
 

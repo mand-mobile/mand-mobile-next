@@ -24,14 +24,13 @@
 </template>
 
 <script>
-import {Toast, InputItem, Field, Icon} from 'mand-mobile'
+import Toast from 'mand-mobile/lib/toast'
+import InputItem from 'mand-mobile/lib/input-item'
+import Field from 'mand-mobile/lib/field'
+import Icon from 'mand-mobile/lib/icon'
 
 export default {
   name: 'input-item-demo',
-  /* DELETE */
-  title: '大尺寸金融表单',
-  titleEnUS: 'Large size financial input-item',
-  /* DELETE */
   components: {
     'md-input-item': InputItem,
     'md-field': Field,
@@ -59,6 +58,16 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '大尺寸金融表单',
+  },
+  'en-US': {
+    title: 'Large size',
+  },
+}
+// #endregion ignore
 
 </script>
 

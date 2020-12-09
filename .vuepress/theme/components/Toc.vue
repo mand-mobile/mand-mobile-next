@@ -57,3 +57,16 @@ export default {
   &::-webkit-scrollbar
     display none
 </style>
+
+<style lang="stylus">
+.dark
+  .ant-anchor-link-title
+    color #f5f6f7
+  .md-doc-toc_item.level-3
+    .ant-anchor-link-title
+      color #999
+  .ant-anchor-wrapper
+    background-color #121212
+  .ant-anchor-ink::before
+    background-color #606770
+</style>

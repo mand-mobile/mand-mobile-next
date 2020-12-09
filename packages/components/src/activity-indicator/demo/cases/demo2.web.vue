@@ -1,13 +1,13 @@
 <template>
-  <div class="md-example-child md-example-child-md-activity-indicator md-example-child-md-activity-indicator-2">
+  <div class="md-example-child md-example-child-activity-indicator md-example-child-activity-indicator-2">
     <md-activity-indicator
       type="carousel"
       :size="15"
     ></md-activity-indicator>
-    <md-button type="primary" @click="createPay">
+    <md-button type="primary" size="small" @click="createPay">
       <md-activity-indicator
         v-if="loading"
-        class="md-activity-indicator-css"
+        class="activity-indicator-css"
         type="carousel"
         :size="15"
         color="#fff"
@@ -23,8 +23,6 @@ import ActivityIndicator from 'mand-mobile/lib/activity-indicator'
 import Button from 'mand-mobile/lib/button'
 
 export default {
-  name: 'activity-indicator-demo',
-  title: 'Carousel',
   components: {
     'md-activity-indicator': ActivityIndicator,
     'md-button': Button,
@@ -46,29 +44,25 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  title: 'Carousel',
+  platform: 'web',
+}
+// #endregion ignore
 
 </script>
 
-<style lang="stylus">
-.md-example-child-md-activity-indicator-2 {
+<style lang="stylus" scoped>
+.md-example-child-activity-indicator-2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-  
-.md-activity-indicator {
-  margin-bottom: 30px;
+  justify-content: center;
 }
     
-.md-example-child-md-activity-indicator-2 .md-button {
-  width: 100%;
+.md-example-child-activity-indicator-2 .md-button {
+  margin-top: 30px;
 }
 
-.md-example-child-md-activity-indicator-2 .md-activity-indicator-css .md-activity-indicator-css {
-  margin-bottom: 0;
-}
-
-.md-example-child-md-activity-indicator-2 .md-activity-indicator-css .md-activity-indicator_svg {
-  height: 15px !important;
-}     
 </style>

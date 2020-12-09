@@ -11,23 +11,18 @@
         v-model="value"
       ></md-ruler>
     </div>
+    <md-button size="small" inline @click="value = 1500">设置1500</md-button>
   </div>
 </template>
 
-<script>import {Ruler} from 'mand-mobile'
+<script>
+import Button from 'mand-mobile/lib/button'
+import Ruler from 'mand-mobile/lib/ruler'
 
 export default {
-  name: 'ruler-demo',
-  /* DELETE */
-  title: '触发 <a href="javascript:window.triggerRuler2()">Change to 1500</a>',
-  titleEnUS: 'trigger <a href="javascript:window.triggerRuler2()">Change to 1500</a>',
-  describe: '只在滚动停止时有效',
-  describeEnUS: 'only valid when scroll is stopped',
-  message: '请在移动设备中扫码预览',
-  messageEnUS: 'Please scan QR code and preview on mobile device',
-  /* DELETE */
   components: {
-    [Ruler.name]: Ruler,
+    'md-button': Button,
+    'md-ruler': Ruler,
   },
   data() {
     return {
@@ -35,17 +30,25 @@ export default {
       scope: [1000, 2000],
     }
   },
-  mounted() {
-    window.triggerRuler2 = () => {
-      this.value = 1500
-    }
+}
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '触发',
+    describe: '请在移动设备中扫码预览',
+  },
+  'en-US': {
+    title: 'trigger',
+    describe: 'Please scan QR code and preview on mobile device',
   },
 }
-</script>
+// #endregion ignore
 
-<style lang="stylus" scoped>
-  .md-example-child-single-component
-    .container
-      margin 0 auto
-      width 640px
+</script>
+
+<style scoped>
+.md-example-child-single-component .container {
+  width: 640px;
+  margin: 0 auto;
+}
 </style>

@@ -6,18 +6,23 @@
 </template>
 
 <script>
-import Tag from '../../index'
+import Tag from 'mand-mobile/lib/tag'
 
 export default {
-  name: 'tag-demo',
-  /* DELETE */
-  title: '线框',
-  titleEnUS: 'Square',
-  /* DELETE */
   components: {
     Tag,
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '线框',
+  },
+  'en-US': {
+    title: 'Square',
+  },
+}
+// #endregion ignore
 
 </script>
 

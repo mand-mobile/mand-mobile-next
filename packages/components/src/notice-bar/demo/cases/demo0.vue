@@ -8,10 +8,6 @@
 import NoticeBar from 'mand-mobile/lib/notice-bar'
 
 export default {
-  name: 'notice-bar-demo',
-  /* DELETE */
-  background: '#fff',
-  /* DELETE */
   components: {
     'md-notice-bar': NoticeBar,
   },

@@ -49,18 +49,15 @@
   </div>
 </template>
 
-<script>import InputItem from '../../index.vue'
-import Field from '../../../field/index.vue'
+<script>
+import InputItem from 'mand-mobile/lib/input-item'
+import Field from 'mand-mobile/lib/field'
 
 export default {
-  name: 'input-item-demo',
-  /* DELETE */
-  title: '普通输入框',
-  titleEnUS: 'Normal input',
-  /* DELETE */
   components: {
     'md-input-item': InputItem,
     'md-field': Field,
   },
 }
-</script>
+
+</script>

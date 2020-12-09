@@ -18,11 +18,6 @@ import Field from 'mand-mobile/lib/field'
 import CheckGroup from 'mand-mobile/lib/check/group'
 
 export default {
-  name: 'check-demo',
-  /* DELETE */
-  title: '复选项组',
-  titleEnUS: 'Check options group',
-  /* DELETE */
   components: {
     'md-check': Check,
     'md-check-group': CheckGroup,
@@ -34,5 +29,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '复选项组',
+  },
+  'en-US': {
+    title: 'Check options group',
+  },
+}
+// #endregion ignore
 
 </script>

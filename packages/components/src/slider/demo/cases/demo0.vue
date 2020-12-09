@@ -8,11 +8,6 @@
 import Slider from 'mand-mobile/lib/slider'
 
 export default {
-  name: 'slider-demo',
-  /* DELETE */
-  title: '基本',
-  titleEnUS: 'Basic',
-  /* DELETE */
   components: {
     'md-slider': Slider,
   },

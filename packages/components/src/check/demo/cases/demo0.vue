@@ -10,12 +10,8 @@
 <script>
 import Check from 'mand-mobile/lib/check'
 import Field from 'mand-mobile/lib/field'
+
 export default {
-  name: 'check-demo',
-  /* DELETE */
-  title: '复选项',
-  titleEnUS: 'Check options',
-  /* DELETE */
   components: {
     'md-check': Check,
     'md-field': Field,
@@ -26,5 +22,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '复选项',
+  },
+  'en-US': {
+    title: 'Check options',
+  },
+}
+// #endregion ignore
 
 </script>

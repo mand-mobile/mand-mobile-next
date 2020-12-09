@@ -23,11 +23,6 @@ import Button from 'mand-mobile/lib/button'
 import CheckList from 'mand-mobile/lib/check/list'
 
 export default {
-  name: 'check-demo',
-  /* DELETE */
-  title: '复选列表',
-  titleEnUS: 'Check list',
-  /* DELETE */
   components: {
     'md-field': Field,
     'md-cell-item': CellItem,
@@ -55,6 +50,16 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '复选列表',
+  },
+  'en-US': {
+    title: 'Check list',
+  },
+}
+// #endregion ignore
 
 </script>
 

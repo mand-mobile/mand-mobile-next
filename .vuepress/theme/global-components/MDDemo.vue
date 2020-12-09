@@ -1,6 +1,6 @@
 <template>
   <div class="md-doc-demo">
-    <header class="md-doc-demo_header">
+    <header class="md-doc-demo_header" v-if="!getMetaInfo('hideHeader')">
       <section class="md-doc-demo_header_main">
         <p class="md-doc-demo_header_title" v-if="getMetaInfo('title')" v-html="getMetaInfo('title')"></p>
         <p class="md-doc-demo_header_desc" v-if="getMetaInfo('describe')" v-html="getMetaInfo('describe')"></p>
@@ -14,14 +14,15 @@
       </section>
     </header>
     <div class="md-doc-demo_content">
-      <div v-if="dynamicComponent" class="md-doc-demo_content_case" :style="{height: getMetaInfo('height') ? `${getMetaInfo('height')}px` : 'auto'}">
-        <ClientOnly>
+      <div class="md-doc-demo_content_case" :style="{height: getMetaInfo('height') ? `${getMetaInfo('height')}px` : 'auto'}">
+        <ClientOnly v-if="dynamicComponent">
           <component :is="dynamicComponent" :style="{ zoom }"/>
         </ClientOnly>
+        <a-skeleton v-else active :title="false" />
       </div>
-      <a-skeleton v-else active :title="false" />
+      
     </div>
-    <div class="md-doc-demo_code">
+    <div class="md-doc-demo_code" v-if="!getMetaInfo('hideCode')">
       <ul class="md-doc-demo_code_tab">
         <!-- <li class="md-doc-demo_code_tab_btn">
           <a href="javascript:void(0)">
@@ -29,15 +30,20 @@
           </a>
         </li> -->
         <a-tooltip>
-          <template slot="title">Copy Code</template>
+          <template slot="title">
+            <span v-if="isCodeCopying">
+              <a-icon type="check-circle" /> 复制成功
+            </span>
+            <span v-else>复制源码</span>
+          </template>
           <li class="md-doc-demo_code_tab_btn">
-            <a href="javascript:void(0)">
+            <a href="javascript:void(0)" @click="doCopy">
               <a-icon type="copy" />
             </a>
           </li>
         </a-tooltip>
         <a-tooltip>
-          <template slot="title">{{isCodeShow ? 'Close Code' : 'Show Code'}}</template>
+          <template slot="title">{{isCodeShow ? '隐藏源码' : '展示源码'}}</template>
           <li class="md-doc-demo_code_tab_btn">
             <a href="javascript:void(0)" @click="toggleDemoCode">
               <a-icon :type="!isCodeShow ? 'code' : 'close-square'" />
@@ -53,6 +59,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import Icon from 'ant-design-vue/lib/icon'
 import Tooltip from 'ant-design-vue/lib/tooltip'
 import Skeleton from 'ant-design-vue/lib/skeleton'
@@ -60,9 +67,11 @@ import Skeleton from 'ant-design-vue/lib/skeleton'
 import 'ant-design-vue/lib/tooltip/style/index.css'
 import 'ant-design-vue/lib/skeleton/style/index.css'
 
+import {setScale} from '../util'
+
 export default {
   name: 'md-demo',
-  props: ['path'],
+  props: ['path', 'code'],
   components: {
     [Icon.name]: Icon,
     [Tooltip.name]: Tooltip,
@@ -76,6 +85,7 @@ export default {
         title: '基础'
       },
       isCodeShow: false,
+      isCodeCopying: false,
       zoom: 1
     }
   },
@@ -84,29 +94,50 @@ export default {
       const info = this.metaInfo[this.$lang]
       return info || this.metaInfo
     },
+    shadowMode () {
+      return this.$site.themeConfig.demoConfig.shadowMode
+    },
   },
   mounted () {
     if (this.path) {
+      /* webpackInclude: /demo\/cases(.*)\/(.*)\.vue/ */
+      /* webpackMode: "eager" */
+      // `mand-mobile/lib/${this.path}`
       import(
         /* webpackInclude: /demo\/cases(.*)\/(.*)\.vue/ */
+        /* webpackExclude: /__temp__/ */
         `mand-mobile/lib/${this.path}`
       ).then(module => {
-        this.dynamicComponent = module.default
+        this.resize(zoom => {
+          if (document.documentElement.clientWidth > 750) {
+            setScale(.5)
+          }
+          if (this.shadowMode) {
+            this.renderShadowDemo(module.default)
+            this.renderShadowDemoStyle({ zoom })
+          } else {
+            this.dynamicComponent = module.default
+          }
+        })
+        // console.log(module)
         this.metaInfo = Object.assign({}, this.metaInfo, module.metaInfo)
-        this.resize()
       }).catch(err => {
         console.log(err)
       })
     }
 
-    window.addEventListener('resize', this.resize.bind(this))
+    // window.addEventListener('resize', () => {
+    //   this.resize.call(this, zoom => {
+    //     this.renderDemoStyle({ zoom })
+    //   })
+    // })
   },
   methods: {
-    resize () {
+    resize (fn) {
       this.$nextTick(() => {
         const content = this.$el.querySelector('.md-doc-demo_content_case')
-        if (content) {
-          this.zoom = content.clientWidth / 750
+        if (content && fn.call) {
+          fn.call(this, this.zoom = content.clientWidth / 750)
         }
       })
     },
@@ -115,6 +146,47 @@ export default {
     },
     getMetaInfo (prop) {
       return this.demoInfo[prop] || this.metaInfo[prop]
+    },
+    renderShadowDemo (MyComponent = {}) {
+      const treeHead = this.$el.querySelector('.md-doc-demo_content_case')
+      const holder = document.createElement('div')
+      const style = document.createElement( 'style' )
+      const shadowRoot = treeHead.attachShadow({mode: 'open'})
+
+      style.type = 'text/css'
+      style.id = 'zoomStyle'
+
+      shadowRoot.appendChild(style)
+      shadowRoot.appendChild(holder)
+
+      const app = new Vue({
+        el: holder,
+        shadowRoot,
+        render: h => h(MyComponent, {})
+      }).$mount()
+
+      this.shadowRoot = shadowRoot
+    },
+    renderShadowDemoStyle (styles) {
+      if (!this.shadowMode || !this.shadowRoot) {
+        return
+      }
+      const styleConent = Object.keys(styles).reduce((pre, cur) => {
+        return pre += `${cur}:${styles[cur]};`
+      }, '')
+      
+      this.shadowRoot.querySelector('#zoomStyle').textContent = `.md-example-child { ${styleConent} }`
+    },
+    doCopy () {
+      this.$copyText(decodeURIComponent(this.code)).then(() => {
+        this.isCodeCopying = true
+        setTimeout(() => {
+          this.isCodeCopying = false
+        }, 3000)
+      }, function (e) {
+        alert('Can not copy')
+        console.log(e)
+      })
     }
   }
 }
@@ -133,6 +205,7 @@ export default {
     display flex
     align-items center
     padding .8em
+    // border-top solid 4px $accentColor
     border-bottom solid 1px #E2E4EA
     p
       margin 0
@@ -148,11 +221,13 @@ export default {
 
   .md-doc-demo_content
     .md-doc-demo_content_case
-      max-width 450px
-      margin 0 auto
+      position relative
+      max-width 480px
+      margin 1.5em auto
+      font-size 24px
       /deep/.md-example-child
         padding 1.5em
-        zoom .6
+        // zoom .6
       &:after
         content ""
         display table
@@ -180,7 +255,7 @@ export default {
           transition all .3s
           color #314659
         &:hover a
-          color #2f86f6
+          color $accentColor
     &_toggle
       div[class*="language-"]
         display flex
@@ -190,7 +265,23 @@ export default {
         margin 0
         padding 1em
         // font-size .9em
-        line-height 1.3
+        line-height 1.5
         code
           font-size .8em
+
+.ant-tooltip-inner .anticon
+  color $accentColor
+  
+</style>
+
+<style lang="stylus">
+.dark
+  .md-doc-demo
+    border-color #606770
+    .md-doc-demo_header
+      border-bottom-color #606770
+    .md-doc-demo_code_tab
+      border-top-color #606770
+      .anticon
+        color #f5f6f7
 </style>

@@ -13,15 +13,10 @@
 </template>
 
 <script>
-import Button from '../../../button'
-import NumberKeyboard from '../../index'
+import Button from 'mand-mobile/lib/button'
+import NumberKeyboard from 'mand-mobile/lib/number-keyboard'
 
 export default {
-  name: 'number-keyboard-demo',
-  /* DELETE */
-  title: '数字键乱序',
-  titleEnUS: 'Number keys out of order',
-  /* DELETE */
   components: {
     'md-button': Button,
     'md-number-keyboard': NumberKeyboard,
@@ -44,6 +39,16 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '数字键乱序',
+  },
+  'en-US': {
+    title: 'Number keys out of order',
+  },
+}
+// #endregion ignore
 
 </script>
 

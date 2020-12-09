@@ -29,7 +29,6 @@ import Field from 'mand-mobile/lib/field'
 import FieldItem from 'mand-mobile/lib/field/item'
 
 export default {
-  name: 'selector-demo',
   components: {
     'md-selector': Selector,
     'md-field': Field,
@@ -70,5 +69,15 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '多选模式',
+  },
+  'en-US': {
+    title: 'Multi checked mode',
+  },
+}
+// #endregion ignore
 
 </script>

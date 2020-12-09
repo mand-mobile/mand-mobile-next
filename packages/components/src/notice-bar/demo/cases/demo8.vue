@@ -12,12 +12,6 @@ import Icon from 'mand-mobile/lib/icon'
 import NoticeBar from 'mand-mobile/lib/notice-bar'
 
 export default {
-  name: 'notice-bar-demo',
-  /* DELETE */
-  title: '动态插槽内容',
-  titleEnUS: 'Dynamic slot content',
-  background: '#fff',
-  /* DELETE */
   components: {
     'md-notice-bar': NoticeBar,
     'md-icon': Icon,
@@ -37,5 +31,15 @@ export default {
     }, 8000)
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '动态插槽内容',
+  },
+  'en-US': {
+    title: 'Dynamic slot content',
+  },
+}
+// #endregion ignore
 
 </script>

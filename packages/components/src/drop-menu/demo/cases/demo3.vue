@@ -1,7 +1,7 @@
 <template>
   <div class="md-example-child md-example-child-drop-menu md-example-child-drop-menu-3">
     <md-drop-menu :data="data">
-      <template v-slot:option="{ option }">
+      <template v-slot:default="{ option }">
         <div class="md-drop-menu-custom-title">{{option.text}}</div>
         <div class="md-drop-menu-custom-brief">{{ option.text }}【可使用slot-scope进行自定义描述】</div>
       </template>
@@ -14,12 +14,6 @@
 import DropMenu from 'mand-mobile/lib/drop-menu'
 
 export default {
-  name: 'drop-menu-demo',
-  /* DELETE */
-  title: '自定义菜单项',
-  titleEnUS: 'Custom menu options',
-  height: 250,
-  /* DELETE */
   components: {
     'md-drop-menu': DropMenu,
   },
@@ -44,33 +38,45 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  height: 250,
+  platform: 'web',
+  'zh-CN': {
+    title: '自定义菜单项',
+  },
+  'en-US': {
+    title: 'Custom menu options',
+  },
+}
+// #endregion ignore
 
 </script>
 
 <style>
-.md-example-child-drop-menu {
+.md-example-child-drop-menu-3 {
   position: relative;
   height: 400px;
   background: #F9FAFB;
   overflow: hidden;
 }
       
-.md-example-child-drop-menu .md-drop-menu {
+.md-example-child-drop-menu-3 .md-drop-menu {
   position: absolute;
   float: left;
   width: 100%;
   height: 100%;
 }
 
-.md-example-child-drop-menu .md-drop-menu .md-drop-menu_bar {
+.md-example-child-drop-menu-3 .md-drop-menu .md-drop-menu_bar {
   height: 110px;
 }
 
-.md-example-child-drop-menu .md-popup {
+.md-example-child-drop-menu-3 .md-popup {
   position: absolute;
 }
       
-.md-example-child-drop-menu .content {
+.md-example-child-drop-menu-3 .content {
   font-size: 26px;
   text-align: center;
   line-height: 400px;

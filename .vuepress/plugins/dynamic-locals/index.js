@@ -17,8 +17,8 @@ const {
 } = require('./utils')
 
 module.exports = (options, ctx) => {
-  const {locales} = ctx.siteConfig
-  
+  const {locales, patterns} = ctx.siteConfig
+  options.patterns = patterns
   resolveLocals(locales, name => {
     addPages(name, options, ctx)
     shieldLocalPatterns(name, options, ctx)

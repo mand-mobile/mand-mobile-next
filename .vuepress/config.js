@@ -1,4 +1,5 @@
 const path = require('path')
+const packageInfo = require('../packages/mand-mobile/package.json')
 const resolve = file => path.resolve(__dirname, file)
 
 const componentsSidebarConfig = [
@@ -28,20 +29,27 @@ module.exports = {
   title: 'Mand Mobile 3',
   base: '/mand-mobile/',
   head: [
+    ['link', { rel: 'icon', href: 'https://pt-starimg.didistatic.com/static/starimg/img/W8a5sNZUBC1605530382593.png' }],
     ['meta', { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge,chrome=1' }],
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover' }],
     ['meta', { name: 'format-detection', content: 'telephone=no,email=no' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-touch-fullscreen', content: 'yes' }]
+    ['meta', { name: 'apple-touch-fullscreen', content: 'yes' }],
   ],
   themeConfig: {
-    logo: 'https://manhattan.didistatic.com/static/manhattan/mand/docs/mand-logo-black.svg',
+    version: packageInfo.version,
+    logo: 'https://pt-starimg.didistatic.com/static/starimg/img/W8a5sNZUBC1605530382593.png',
+    repo: 'https://github.com/mand-mobile/mand-mobile-next',
+    demoConfig: {
+      shadowMode: false
+    },
+    searchPlaceholder: '搜索',
     locales: {
       '/': {
         nav: [
           { text: '首页', link: '/' },
           { text: '组件', link: '/packages/components/', redirect: '/packages/components/development' },
-          { text: '平台', link: '/packages/platform', redirect: '/packages/platform' },
+          { text: '模块', link: '/packages/modules/', redirect: '/packages/modules/platform' },
           { text: '2.x', link: 'https://didi.github.io/mand-mobile' },
           { text: 'Github', link: 'https://github.com/mand-mobile/mand-mobile-next' },
         ],
@@ -56,45 +64,73 @@ module.exports = {
             }, 
             ...componentsSidebarConfig
           ],
-        }
-      },
-      '/en-US/': {
-        nav: [
-          { text: 'Home', link: '/' },
-          { text: 'Component', link: '/en-US/packages/components/', redirect: '/en-US/packages/components/development' },
-          { text: 'Platform', link: '/en-US/packages/platform', redirect: '/en-US/packages/platform' },
-          { text: '2.x', link: 'https://didi.github.io/mand-mobile' },
-          { text: 'Github', link: 'https://github.com/mand-mobile/mand-mobile-next' },
-        ],
-        sidebar: {
-          '/en-US/packages/components/': [
+          '/packages/modules/': [
             {
-              name: 'development',
-              title: 'Development Guide'
+              name: 'platform',
+              title: 'Platform'
             }, {
-              name: 'changelog',
-              title: 'Change Log'
-            }, 
-            ...componentsSidebarConfig
+              name: 'scroller',
+              title: 'Scroller'
+            }, {
+              name: 'shared',
+              title: 'Shared'
+            },
+            // {
+            //   name: 'Outbound',
+            //   title: 'test',
+            //   link: 'https://www.baidu.com'
+            // }, 
           ],
-        }
-      }
+        },
+      },
+      // '/en-US/': {
+      //   nav: [
+      //     { text: 'Home', link: '/' },
+      //     { text: 'Component', link: '/en-US/packages/components/', redirect: '/en-US/packages/components/development' },
+      //     { text: 'Platform', link: '/en-US/packages/platform', redirect: '/en-US/packages/platform' },
+      //     { text: '2.x', link: 'https://didi.github.io/mand-mobile' },
+      //     { text: 'Github', link: 'https://github.com/mand-mobile/mand-mobile-next' },
+      //   ],
+      //   sidebar: {
+      //     '/en-US/packages/components/': [
+      //       {
+      //         name: 'development',
+      //         title: 'Development Guide'
+      //       }, {
+      //         name: 'changelog',
+      //         title: 'Change Log'
+      //       }, 
+      //       ...componentsSidebarConfig
+      //     ],
+      //   },
+      // }
     }
     // sidebarDepth: 2
   },
   patterns: [
     // '**/*.vue',
-     '**/*.md',
-    // '**/packages/**/button/**/*.md',
+    // '**/*.md',
+    '**/packages/components/**/*.md',
+    '**/packages/platform-runtime/**/*.md',
+    '**/packages/platform-builder/**/*.md',
+    '**/packages/scroller/**/*.md',
+    '**/packages/shared/**/*.md',
+    'README.md',
+    'CHANGELOG.md',
+    'DEVELOPMENT.md',
     '!**/packages/examples/**',
+    '!**/packages/mand-mobile/**',
     '!**/node_modules/**',
+    '!**/__temp__/**',
     '!**/.mand-mobile/**',
-    // '!**/test/**/*.spec.js',
-    // '**/packages/components/src/button/*.md',
-    // '!./packages/**/*.md',
-    // './packages/components/**/*.md',
+    '!**/lib/**',
+    '!**/lib-vw/**',
+    '!**/dist/**'
   ],
   markdown: {
+    extendMarkdown: md => {
+      md.use(require('markdown-it-task-lists'), {enabled: true})
+    },
     toc: { includeLevel: [2, 3, 4] }
   },
   locales: {
@@ -114,14 +150,21 @@ module.exports = {
   ],
   stylus: {
     import: [
-      resolve('./theme/styles/mand-mobile.styl')
+      resolve('../packages/shared/src/style/mixin/util'),
+      resolve('../packages/shared/src/style/mixin/theme.components'),
+      resolve('../packages/shared/src/style/mixin/theme.basic'),
+      // resolve('../packages/shared/src/style/global.styl'),
+      // resolve('./theme/styles/mand-mobile')
     ]
   },
-  configureWebpack: config => {
-    config.resolve.alias['mand-mobile/lib'] = resolve('../packages/components/src')
-    config.resolve.alias['@mand-mobile/platform/lib'] = resolve('../packages/platform/src/web')
-    config.resolve.alias['@mand-mobile'] = resolve('../packages')
+  chainWebpack: (config, isServer) => {
+    config.resolve.alias
+      .set('mand-mobile/lib', resolve('../packages/components/src'))
+      .set('@mand-mobile/platform-runtime/lib', resolve('../packages/platform-runtime/src/web'))
+      .set('@mand-mobile', resolve('../packages'))
 
-    config.resolve.extensions = ['.web.js', '.web.vue', '.js', '.vue', '.json']
+    config.resolve.extensions
+      .prepend('.web.js')
+      .prepend('.web.vue')
   }
 }

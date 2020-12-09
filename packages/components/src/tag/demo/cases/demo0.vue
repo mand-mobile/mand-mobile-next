@@ -17,18 +17,24 @@
 </template>
 
 <script>
-import Tag from '../../index'
+import Tag from 'mand-mobile/lib/tag'
 
 export default {
-  name: 'tag-demo',
-  /* DELETE */
-  title: '半圆',
-  titleEnUS: 'Semicircle',
-  /* DELETE */
   components: {
     'md-tag': Tag,
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '半圆',
+  },
+  'en-US': {
+    title: 'Semicircle',
+  },
+}
+// #endregion ignore
+
 </script>
 
 <style lang="stylus">

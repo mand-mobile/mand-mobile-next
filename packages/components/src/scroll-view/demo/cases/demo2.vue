@@ -3,7 +3,7 @@
     <md-scroll-view
       ref="scrollView"
       :scrolling-x="false"
-      :styles="{height: '300px'}"
+      :styles="{height: '800px'}"
       @refreshing="$_onRefresh"
     >
       <md-scroll-view-refresh
@@ -41,11 +41,6 @@ export default {
       randomFace,
     }
   },
-  mounted() {
-    // window.ScrollViewTrigger1 = () => {
-    //   this.$refs.scrollView.triggerRefresh()
-    // }
-  },
   methods: {
     $_onRefresh() {
       // async data
@@ -56,6 +51,16 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '下拉刷新',
+  },
+  'en-US': {
+    title: 'Pulldown Refreshing',
+  },
+}
+// #endregion ignore
 
 </script>
 
@@ -64,7 +69,7 @@ export default {
   background: #FFF;
 }
 .md-example-child-scroll-view-2 .md-scroll-view {
-  height: 600px;
+  height: 800px;
 }
 .md-example-child-scroll-view-2 .scroll-view-item {
   padding: 30px 0;

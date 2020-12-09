@@ -9,7 +9,7 @@
         text-color="white"
       >loading...</md-activity-indicator>
     </md-toast>
-    <md-button @click="showTextToast">定制Toast</md-button>
+    <md-button inline size="small" @click="showTextToast">定制内容</md-button>
   </div>
 </template>
 
@@ -42,5 +42,16 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  platform: 'web',
+  'zh-CN': {
+    title: '定制Toast',
+  },
+  'en-US': {
+    title: 'Customized toast cotent',
+  },
+}
+// #endregion ignore
 
 </script>

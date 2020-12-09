@@ -1,51 +1,60 @@
 <template>
   <div class="md-example-child md-example-child-icon md-example-child-icon-2">
-    <div class="md-example-item-s">
+    <div class="md-example-item">
       <md-icon name="location" size="xs"></md-icon>
-      <p>xs</p>
+      <p class="icon-name">xs</p>
     </div>
-    <div class="md-example-item-s">
+    <div class="md-example-item">
       <md-icon name="location" size="sm"></md-icon>
-      <p>sm</p>
+      <p class="icon-name">sm</p>
     </div>
-    <div class="md-example-item-s">
+    <div class="md-example-item">
       <md-icon name="location" size="md"></md-icon>
-      <p>md</p>
+      <p class="icon-name">md</p>
     </div>
-    <div class="md-example-item-s">
+    <div class="md-example-item">
       <md-icon name="location" size="lg"></md-icon>
-      <p>lg</p>
+      <p class="icon-name">lg</p>
     </div>
   </div>
 </template>
 
 <script>
-import Icon  from '../../../icon'
+import Icon from 'mand-mobile/lib/icon'
 
 export default {
-  name: 'icon-demo',
-  /* DELETE */
-  title: '大小',
-  titleEnUS: 'Icon size',
-  background: '#fff',
-  /* DELETE */
   components: {
     'md-icon': Icon,
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '大小',
+  },
+  'en-US': {
+    title: 'Icon size',
+  },
+}
+// #endregion ignore
 
 </script>
 
-<style lang="stylus">
-.md-example-child-icon
-  padding 0 32px
-  display flex
-  flex-wrap wrap
-  justify-content space-around
-  align-items center
-  .md-example-item-s
-    margin-bottom 16px
-    // width 30%
-  .icon-name
-    font-size 24px
+<style scoped>
+.md-example-child-icon {
+  padding: 32px 32px 0;
+  background-color: #FFF;
+}
+.md-example-child-icon .md-example-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  margin-bottom: 32px;
+}
+.md-example-child-icon .md-example-item .icon-name {
+  margin-top: 5px;
+  font-size: 18px;
+  color: #666;
+}
 </style>

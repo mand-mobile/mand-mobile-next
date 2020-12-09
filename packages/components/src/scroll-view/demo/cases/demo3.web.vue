@@ -3,7 +3,7 @@
     <md-scroll-view
       ref="scrollView"
       :scrolling-x="false"
-      :styles="{height: '300px'}"
+      :styles="{height: '800px'}"
       @end-reached="$_onEndReached"
     >
       <div class="scroll-view-list">
@@ -55,6 +55,16 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '加载更多',
+  },
+  'en-US': {
+    title: 'Load More',
+  },
+}
+// #endregion ignore
 
 </script>
 

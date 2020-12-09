@@ -8,17 +8,17 @@
 
 - [ ] Upgrade Vue to **3.0**
 - [ ] Refactor some components based on **Composition API**
-- [ ] Refactor the site based on **Vuepress** or **Vitepress**
+- [ ] Support internationalization
 
 ### M1
 
 - [x] Perfect engineering, construct a monorepo
-- [ ] Abstract serve & build process for multiple platforms
+- [x] Abstract serve & build process for multiple platforms
 - [x] Upgraded visual specification to **3.0**
-- [x] Improve code specifications
+- [ ] Improve code specifications
 - [ ] Improve components testing
 - [ ] Improve documentations
-- [ ] Support internationalization
+- [x] Refactor the site based on **Vuepress** or **Vitepress**
 
 ### M0
 
@@ -32,7 +32,8 @@ See [Development Guide](./DEVELOPMENT.md).
 ## Packages
 
 * [@mand-mobile/components](./packages/components)
-* [@mand-mobile/platform](./packages/platform)
+* [@mand-mobile/platform-runtime](./packages/platform-runtime)
+* [@mand-mobile/platform-builder](./packages/platform-builder)
 * [@mand-mobile/shared](./packages/shared)
 * [@mand-mobile/scroller](./packages/scroller)
 * [@mand-mobile/vue-cli-plugin-builder](./packages/vue-cli-plugin-builder)

@@ -16,14 +16,13 @@
 import DatePicker from 'mand-mobile/lib/date-picker/date-picker-view'
 
 export default {
-  name: 'date-picker-demo',
   components: {
     'md-date-picker-view': DatePicker,
   },
   data() {
     return {
       minDate: new Date('2013/9/9'),
-      maxDate: new Date('2020/9/9'),
+      maxDate: new Date('2030/9/9'),
       currentDate: new Date(),
     }
   },
@@ -33,5 +32,17 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '日期选择',
+    describe: '2013/9/9 - 2030/9/9',
+  },
+  'en-US': {
+    title: 'Date selection',
+    describe: '2013/9/9 - 2030/9/9',
+  },
+}
+// #endregion ignore
 
 </script>

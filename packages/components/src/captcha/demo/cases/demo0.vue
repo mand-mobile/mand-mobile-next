@@ -68,21 +68,15 @@
 
 <script>
 /* eslint-disable */
-import Button from '../../../button'
-import Toast from '../../../toast'
-import InputItem from '../../../input-item'
-import Field from '../../../field'
-import FieldItem from '../../../field/item'
-import Switch from '../../../switch'
-import Captcha from '../../index'
+import Button from 'mand-mobile/lib/button'
+import Toast from 'mand-mobile/lib/toast'
+import InputItem from 'mand-mobile/lib/input-item'
+import Field from 'mand-mobile/lib/field'
+import FieldItem from 'mand-mobile/lib/field/item'
+import Switch from 'mand-mobile/lib/switch'
+import Captcha from 'mand-mobile/lib/captcha'
 
 export default {
-  name: 'captcha-demo',
-  /* DELETE */
-  title: '自定义',
-  titleEnUS: 'Customize',
-  height: 650,
-  /* DELETE */
   components: {
     'md-button': Button,
     'md-captcha': Captcha,
@@ -131,10 +125,20 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '自定义',
+  },
+  'en-US': {
+    title: 'Customize',
+  },
+}
+// #endregion ignore
 
 </script>
 
-<style>
+<style scoped>
 .md-example-child-captcha {
   padding: 20px;
 }

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <md-button @click="alert">警告弹窗</md-button>
-    <md-button @click="confirm">确认弹窗</md-button>
-    <md-button @click="succeedConfirm">成功弹窗</md-button>
-    <md-button @click="failedConfirm">失败弹窗</md-button>
+    <md-button inline size="small" @click="alert">警告弹窗</md-button>
+    <md-button inline size="small" @click="confirm">确认弹窗</md-button>
+    <md-button inline size="small" @click="succeedConfirm">成功弹窗</md-button>
+    <md-button inline size="small" @click="failedConfirm">失败弹窗</md-button>
   </div>
 </template>
 
@@ -12,11 +12,6 @@ import Dialog from 'mand-mobile/lib/dialog'
 import Button from 'mand-mobile/lib/button'
 
 export default {
-  name: 'dialog-demo1',
-  /* DELETE */
-  title: '单例模式',
-  titleEnUS: 'Singleton',
-  /* DELETE */
   components: {
     'md-button': Button,
   },
@@ -60,5 +55,15 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '单例模式',
+  },
+  'en-US': {
+    title: 'Singleton',
+  },
+}
+// #endregion ignore
 
 </script>

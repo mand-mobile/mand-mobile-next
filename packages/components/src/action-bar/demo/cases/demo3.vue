@@ -1,5 +1,5 @@
 <template>
-  <div class="md-example-child md-example-child-action-bar md-example-child-3">
+  <div class="md-example-child md-example-child-action-bar md-example-child-action-bar-3">
     <md-action-bar :actions="data" @click="onBtnClick">
       <span class="price">
         &yen;128.00<small>起</small>
@@ -13,12 +13,6 @@ import ActionBar from 'mand-mobile/lib/action-bar'
 import Dialog from 'mand-mobile/lib/dialog'
 
 export default {
-  name: 'action-bar-demo',
-  /* DELETE */
-  title: '使用插槽',
-  titleEnUS: 'With slot',
-  height: 150,
-  /* DELETE */
   components: {
     'md-action-bar': ActionBar,
   },
@@ -46,6 +40,16 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '使用插槽',
+  },
+  'en-US': {
+    title: 'With slots',
+  },
+}
+// #endregion ignore
 
 </script>
 

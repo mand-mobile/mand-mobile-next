@@ -4,6 +4,10 @@ module.exports = {
   extendPageData ($page) {
     const { _filePath, frontmatter } = $page
 
+    if (!_filePath) {
+      return
+    } 
+
     const paths = _filePath.split('/')
     paths.splice(-1)
 

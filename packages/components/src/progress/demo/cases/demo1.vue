@@ -3,7 +3,7 @@
     <md-progress
       :value="0.8"
       :width="10"
-      :size="100"
+      :size="150"
       color="url(#linear)"
       border-color="#FFF"
       linecap="butt"
@@ -19,36 +19,42 @@
     <md-progress
       :value="0.8"
       :width="10"
-      :size="100"
+      :size="150"
       :rotate="-90"
       color="#FF5257"
       transition
     >
-      <span class="progress-value">
+      <div class="progress-value">
         <md-amount
           :value="80"
           :precision="0"
           transition
         ></md-amount>%
-      </span>
+      </div>
     </md-progress>
   </div>
 </template>
 
 <script>
-import {Amount, Progress} from 'mand-mobile'
-
+import Amount from 'mand-mobile/lib/amount'
+import Progress from 'mand-mobile/lib/progress'
 export default {
-  name: 'progress-demo',
-  /* DELETE */
-  title: '其他配置',
-  titleEnUS: 'Other configurations',
-  /* DELETE */
   components: {
     'md-amount': Amount,
     'md-progress': Progress,
   },
 }
+// #region ignore
+export const metaInfo = {
+  platform: 'web',
+  'zh-CN': {
+    title: '其他配置',
+  },
+  'en-US': {
+    title: 'Other configurations',
+  },
+}
+// #endregion ignore
 
 </script>
 

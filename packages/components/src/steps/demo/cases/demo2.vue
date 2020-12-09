@@ -1,28 +1,18 @@
 <template>
   <div class="md-example-child md-example-child-steps md-example-child-steps-2">
-    <md-steps
-      :steps="steps"
-      :current="2"
-    >
+    <md-steps :steps="steps" :current="2">
       <template v-slot:icon>
         <span>99</span>
       </template>
     </md-steps>
- 
   </div>
 </template>
 
 <script>
-import Steps from '../../index'
-import Icon from '../../../icon'
+import Steps from 'mand-mobile/lib/steps'
+import Icon from 'mand-mobile/lib/icon'
 
 export default {
-  name: 'steps-demo',
-  /* DELETE */
-  title: '自定义步骤图标',
-  titleEnUS: 'Custom step icon',
-  height: 150,
-  /* DELETE */
   components: {
     'md-steps': Steps,
     'md-icon': Icon,
@@ -46,5 +36,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '自定义步骤图标',
+  },
+  'en-US': {
+    title: 'Custom step icon',
+  },
+}
+// #endregion ignore
 
 </script>

@@ -8,17 +8,21 @@
 import NoticeBar from 'mand-mobile/lib/notice-bar'
 
 export default {
-  name: 'notice-bar-demo',
-  /* DELETE */
-  title: '设置时间',
-  titleEnUS: 'Setting dwell time',
-  describe: '5s后隐藏',
-  describeEnUS: 'Hidden after 5s',
-  background: '#fff',
-  /* DELETE */
   components: {
     'md-notice-bar': NoticeBar,
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '设置时间',
+    describe: '5s后隐藏',
+  },
+  'en-US': {
+    title: 'Setting dwell time',
+    describe: 'Hidden after 5s',
+  },
+}
+// #endregion ignore
 
 </script>

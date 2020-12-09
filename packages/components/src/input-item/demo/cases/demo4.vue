@@ -32,7 +32,7 @@
         ref="input11"
         placeholder="left/right slots"
       >
-        <md-icon name="bank-zs" slot="left" svg></md-icon>
+        <md-icon name="id-card" slot="left"></md-icon>
         <md-icon name="info" slot="right" @click.native="onClick"></md-icon>
       </md-input-item>
     </md-field>
@@ -40,17 +40,14 @@
 </template>
 
 <script>
-import {InputItem, Field, Icon, NumberKeyboard, Toast} from 'mand-mobile'
+import Toast from 'mand-mobile/lib/toast'
+import InputItem from 'mand-mobile/lib/input-item'
+import Field from 'mand-mobile/lib/field'
+import Icon from 'mand-mobile/lib/icon'
+import NumberKeyboard from 'mand-mobile/lib/number-keyboard'
 import '../assets/bank-zs.svg'
 
 export default {
-  name: 'input-item-demo',
-  /* DELETE */
-  title: '表单控件',
-  titleEnUS: 'Input with controls',
-  message: '请在移动设备中扫码预览',
-  messageEnUS: 'Please scan QR code and preview on mobile device',
-  /* DELETE */
   components: {
     'md-input-item': InputItem,
     'md-number-keyboard': NumberKeyboard,
@@ -64,52 +61,22 @@ export default {
         icon: 'warn',
       })
     },
-    onFakeInputFocus() {
-      // eslint-disable-next-line no-console
-      // console.log('Focus')
-      // function getElementPosition(element) {
-      //   const defaultRect = {top: 0, left: 0}
-      //   const rect = element
-      //     ? (element.getBoundingClientRect && element.getBoundingClientRect()) || defaultRect
-      //     : defaultRect
-      //   const ret = {
-      //     top: rect.top,
-      //     left: rect.left,
-      //   }
-      //   return ret
-      // }
-      // setTimeout(() => {
-      //   const wrapper = this.$el
-      //   const inputer = this.$refs['input10']
-      //   const inputEl = inputer.$el
-      //   const keyboardEl = document
-      //     .querySelector(`div[data-id=${inputer.name}-number-keyboard]`)
-      //     .querySelector('.md-number-keyboard-container')
-      //   const offset =
-      //     keyboardEl.clientHeight +
-      //     inputEl.clientHeight -
-      //     document.documentElement.clientHeight +
-      //     getElementPosition(inputEl).top +
-      //     30
-      //   const oldPaddingBottom = +wrapper.style.paddingBottom.replace(/px|rem|em/gi, '')
-      //   const oldScrollTop = document.body.scrollTop
-      //   const newPaddingBottom = oldPaddingBottom + offset
-      //   const newScrollTop = oldScrollTop + offset
-      //   wrapper.style.paddingBottom = `${newPaddingBottom}px`
-      //   document.body.scrollTop = newScrollTop
-      //   this.scrollInputBack = () => {
-      //     wrapper.style.paddingBottom = `${oldPaddingBottom}px`
-      //     document.body.scrollTop = oldScrollTop
-      //     this.scrollInputBack = null
-      //   }
-      // }, 300)
-    },
     onFakeInputBlur() {
       // eslint-disable-next-line no-unused-expressions
       this.scrollInputBack && this.scrollInputBack()
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '表单控件',
+  },
+  'en-US': {
+    title: 'Input with controls',
+  },
+}
+// #endregion ignore
 
 </script>
 

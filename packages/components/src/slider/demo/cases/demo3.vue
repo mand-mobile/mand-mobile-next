@@ -8,11 +8,6 @@
 import Slider from 'mand-mobile/lib/slider'
 
 export default {
-  name: 'slider-demo',
-  /* DELETE */
-  title: '范围',
-  titleEnUS: 'Range',
-  /* DELETE */
   components: {
     'md-slider': Slider,
   },
@@ -22,6 +17,16 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '范围',
+  },
+  'en-US': {
+    title: 'Range',
+  },
+}
+// #endregion ignore
 
 </script>
 

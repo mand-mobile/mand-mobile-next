@@ -5,13 +5,9 @@
 </template>
 
 <script>
-import Steps from '../../index'
+import Steps from 'mand-mobile/lib/steps'
 
 export default {
-  name: 'steps-demo',
-  /* DELETE */
-  height: 150,
-  /* DELETE */
   components: {
     'md-steps': Steps,
   },

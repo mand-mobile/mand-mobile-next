@@ -12,18 +12,12 @@
 	</div>
 </template>
 
-<script>import {Ruler} from 'mand-mobile'
+<script>
+import Ruler from 'mand-mobile/lib/ruler'
 
 export default {
-  name: 'ruler-demo-0',
-  /* DELETE */
-  title: '基本',
-  titleEnUS: 'Basic',
-  message: '请在移动设备中扫码预览',
-  messageEnUS: 'Please scan QR code and preview on mobile device',
-  /* DELETE */
   components: {
-    [Ruler.name]: Ruler,
+    'md-ruler': Ruler,
   },
   data() {
     return {
@@ -32,11 +26,22 @@ export default {
     }
   },
 }
-</script>
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    describe: '请在移动设备中扫码预览',
+  },
+  'en-US': {
+    describe: 'Please scan QR code and preview on mobile device',
+  },
+}
+// #endregion ignore
 
-<style lang="stylus" scoped>
-.md-example-child-single-component
-  .container
-    margin 0 auto
-    width 640px
+</script>
+
+<style scoped>
+.md-example-child-single-component .container {
+  width: 640px;
+  margin: 0 auto;
+}
 </style>

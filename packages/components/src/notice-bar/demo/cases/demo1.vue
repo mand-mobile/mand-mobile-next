@@ -13,15 +13,19 @@
 import NoticeBar from 'mand-mobile/lib/notice-bar'
 
 export default {
-  name: 'notice-bar-demo',
-  /* DELETE */
-  title: '设置图标',
-  titleEnUS: 'With icon',
-  background: '#fff',
-  /* DELETE */
   components: {
     'md-notice-bar': NoticeBar,
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '设置图标',
+  },
+  'en-US': {
+    title: 'With icon',
+  },
+}
+// #endregion ignore
 
 </script>

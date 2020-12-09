@@ -11,11 +11,6 @@
 import Switch from 'mand-mobile/lib/switch'
 
 export default {
-  name: 'switch-demo',
-  /* DELETE */
-  title: '关闭状态',
-  titleEnUS: 'Closed',
-  /* DELETE */
   components: {
     'md-switch': Switch,
   },
@@ -26,10 +21,19 @@ export default {
   },
   methods: {
     handler(name, active) {
-      // eslint-disable-next-line no-console
       console.log(`Status of switch ${name} is ${active ? 'active' : 'inactive'}`)
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '关闭状态',
+  },
+  'en-US': {
+    title: 'Closed',
+  },
+}
+// #endregion ignore
 
 </script>

@@ -1,10 +1,6 @@
 <template>
   <div class="md-example-child md-example-child-swiper md-example-child-swiper-3">
-    <md-swiper
-      ref="swiper"
-      @before-change="beforeChange"
-      @after-change="afterChange"
-    >
+    <md-swiper>
       <md-swiper-item :key="$index" v-for="(item, $index) in mulit">
         <ul>
           <li :key="$index1" v-for="(sub, $index1) in item" class="block">
@@ -17,9 +13,9 @@
 </template>
 
 <script>
-import Swiper from '../../index'
-import SwiperItem from '../../swiper-item'
-import mulit from '../../demo/data/mulit-item'
+import Swiper from 'mand-mobile/lib/swiper'
+import SwiperItem from 'mand-mobile/lib/swiper-item'
+import mulit from 'mand-mobile/lib/swiper/demo/data/mulit-item'
 
 export default {
   name: 'swiper-demo',
@@ -32,33 +28,12 @@ export default {
       mulit,
     }
   },
-  mounted() {
-    // window.triggerSwiper4 = () => {
-    //   this.goto()
-    // }
-  },
-  methods: {
-    // setValue(id, value) {
-    //   document.querySelector(id) && (document.querySelector(id).innerHTML = value)
-    // },
-    // beforeChange(from, to) {
-    // this.setValue('#valueSwiper15', from)
-    // this.setValue('#valueSwiper16', to)
-    // },
-    // afterChange(from, to) {
-    // this.setValue('#valueSwiper17', from)
-    // this.setValue('#valueSwiper18', to)
-    // },
-    goto() {
-      this.$refs.swiper.goto(2)
-    },
-  },
 }
 
 </script>
 
 <style>
-.md-example-child-swiper-3 {
+.md-example-child-swiper-3 .md-swiper {
   height: 250px;
 }
 .md-example-child-swiper-3 .block {

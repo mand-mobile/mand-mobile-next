@@ -14,15 +14,19 @@
 import NoticeBar from 'mand-mobile/lib/notice-bar'
 
 export default {
-  name: 'notice-bar-demo',
-  /* DELETE */
-  title: '滚动播放',
-  titleEnUS: 'Scroll play',
-  background: '#fff',
-  /* DELETE */
   components: {
     'md-notice-bar': NoticeBar,
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '滚动播放',
+  },
+  'en-US': {
+    title: 'Scrolling play',
+  },
+}
+// #endregion ignore
 
 </script>

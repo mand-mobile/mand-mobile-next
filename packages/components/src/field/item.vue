@@ -2,17 +2,20 @@
   <div
     class="md-field-item"
     :class="[
-      solid ? 'md-field-item--is-solid' : '',
-      currentDisabled ? 'md-field-item--is-disabled' : '',
-      alignRight ? 'md-field-item--is-align-right' : '',
-      inputEnv
+      solid ? 'md-field-item--solid' : '',
+      currentDisabled ? 'md-field-item--disabled' : '',
+      alignRight ? 'md-field-item--align-right' : '',
+      isPadding ? 'md-field-item--padding' : '',
+      highlight ? `md-field-item--highlight-${highlight}` : '',
+      titlePosition ? `md-field-item--title-${titlePosition}` : '',
+      inputEnv,
     ]"
     @click="$_onClick"
   >
     <div class="md-field-item_content" :class="customContentClass">
-      <label class="md-field-item_content_title" v-if="title" v-text="title"></label>
-      <div class="md-field-item_content_left" v-if="$slots.left">
-        <slot name="left"></slot>
+      <label class="md-field-item_content_title" v-if="title">{{title}}</label>
+      <div class="md-field-item_content_left" v-if="slots.left">
+        <slot name="left"/>
       </div>
       <div class="md-field-item_content_control">
         <slot>
@@ -25,8 +28,8 @@
         <md-icon v-if="arrow" :name="arrow === true ? 'arrow-right' : arrow" size="md" />
       </div>
     </div>
-    <div class="md-field-item_children" :class="customContentClass" v-if="$slots.children">
-      <slot name="children"></slot>
+    <div class="md-field-item_children" :class="customContentClass" v-if="slots.children">
+      <slot name="children"/>
     </div>
   </div>
 </template>
@@ -85,9 +88,24 @@ export default {
       type: Boolean,
       default: false,
     },
+    highlight: {
+      type: String,
+      default: '', // default, warning
+    },
+    isPadding: {
+      type: Boolean,
+      default: true,
+    },
+    titlePosition: {
+      type: String,
+      default: 'fixed', // floating, floating-active, fixed
+    },
     customContentClass: {
       type: Array,
       default: () => [],
+    },
+    childrenSlots: {
+      default: () => null,
     },
   },
 
@@ -95,15 +113,22 @@ export default {
     inputEnv() {
       /* istanbul ignore next */
       if (isIOS) {
-        return 'md-field-item--is-ios'
+        return 'md-field-item--ios'
       } else if (isAndroid) {
-        return 'md-field-item--is-android'
+        return 'md-field-item--android'
       } else {
-        return 'md-field-item--is-browser'
+        return 'md-field-item--browser'
       }
     },
     currentDisabled() {
       return this.rootField.disabled || this.disabled
+    },
+    slots() {
+      /**
+      * There will be an extra layer of view in uniapp, which makes it impossible 
+      * to obtain whether the subcomponent slot really contains content
+      */
+      return this.childrenSlots || this.$slots
     },
   },
 
@@ -128,8 +153,6 @@ export default {
   align-items center
   justify-content space-between
   min-height md-field-item-min-height
-  padding-top md-field-item-padding-v
-  padding-bottom md-field-item-padding-v
   box-sizing border-box
   hairline(bottom, md-field-item-border-color)
   &.input-item-wrapper
@@ -147,12 +170,12 @@ export default {
 
 .md-field-item_content_left
   flex-shrink 0
-  margin-right md-h-gap-sm
   display inline-flex
   align-items center
   justify-content flex-start
+  margin-right md-h-gap-sm
   color md-field-item-addon-color
-  font-size md-field-item-addon-font-size
+  font-size md-field-item-addon-font-size    
 
 .md-field-item_content_control
   position relative
@@ -181,22 +204,57 @@ export default {
 .md-field-item_children
   font-size md-field-item-children-font-size
   margin-top md-v-gap-md
-  &.has-children
-    margin-top md-v-gap-md
+  // &.has-children
+  //   margin-top md-v-gap-md
 
 .md-field-item
-  &--is-solid
+  &--solid
     .md-field-item_content_title
       width md-field-item-title-width
-  &--is-disabled
+  &--disabled
     .md-field-item_content_control,
     .md-field-item_content_left,
     .md-field-item_content_right
       color md-color-text-disabled
-  &--is-align-right
+  &--align-right
     .md-field-item_content_control
       text-align right
-  &--is-android
+  &--android
     .md-field-item_content_control
       font-weight md-field-title-font-weight-android
+  &--highlight-default
+    .md-field-item_content
+      hairline(bottom, md-field-item-color-highlight, 0, 4px)
+  &--highlight-warning
+    .md-field-item_content
+      hairline(bottom, md-field-item-color-highlight-warning, 0, 4px)
+  &--padding
+    .md-field-item_content
+      padding-top md-field-item-padding-v
+      padding-bottom md-field-item-padding-v
+  &--title-floating, &--title-floating-active
+    .md-field-item_content_title
+      position absolute
+      top 50%
+      left 0
+      height auto
+      font-size md-input-item-title-latent-font-size
+      color md-input-item-title-latent-color
+      transform translate3d(0, -50%, 0)
+      transition all .3s ease
+      opacity 0
+      will-change auto
+    .md-field-item_content
+      min-height 115px
+    .md-field-item_content,
+    .md-field-item_content_left,
+    .md-field-item_content_right,
+    .md-input-item-input,
+    .md-input-item-fake
+      padding-top 20px
+  &--title-floating-active
+    .md-field-item_content_title
+      opacity 1
+      top 20px
+      transform translate3d(0, 0, 0)
 </style>

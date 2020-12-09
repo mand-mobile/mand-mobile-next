@@ -51,7 +51,7 @@ function find (page, items, offset) {
 
 <style lang="stylus">
 .md-doc-nav
-  // padding 20px 64px
+  padding 2em 0
   box-sizing border-box
   a
     text-decoration none
@@ -61,7 +61,7 @@ function find (page, items, offset) {
       font-style normal
     p
       margin-top 5px
-      color #2F86F6
+      color $accentColor
       font-size 14px
   a.prev
     float left

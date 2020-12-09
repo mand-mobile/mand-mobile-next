@@ -1,21 +1,21 @@
 <template>
   <div class="md-example-child md-example-child-progress">
     <md-progress
-      :size="100"
+      :size="150"
       :value="0.2"
-      :width="5"
+      :width="10"
     >
       <span class="progress-value">20%</span>
     </md-progress>
     <md-progress
-      :size="100"
+      :size="150"
       :value="0.5"
-      :width="5"
+      :width="10"
     >
       <span class="progress-value">50%</span>
     </md-progress>
     <md-progress
-      :size="100"
+      :size="150"
       :value="1"
       :width="5"
     >
@@ -25,14 +25,17 @@
 </template>
 
 <script>
-import {Progress} from 'mand-mobile'
-
+import Progress from 'mand-mobile/lib/progress'
 export default {
-  name: 'progress-demo',
   components: {
     'md-progress': Progress,
   },
 }
+// #region ignore
+export const metaInfo = {
+  platform: 'web',
+}
+// #endregion ignore
 
 </script>
 
@@ -44,7 +47,6 @@ export default {
 .md-progress {
   margin: 0 10px;
 }
-
 .progress-value {
   font-size: 24px;
   font-family: DINPro-Medium;

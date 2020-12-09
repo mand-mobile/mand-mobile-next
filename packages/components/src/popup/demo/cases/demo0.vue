@@ -1,13 +1,13 @@
 <template>
   <div class="md-example-child md-example-child-popup md-example-child-popup-0">
-    <md-button class="md-button" id="md-button" @click="showPopUp('center')" style="{height:100px}">屏幕中弹出</md-button>
+    <md-button class="md-button" inline size="small" @click="showPopUp('center')" style="{height:100px}">屏幕中弹出</md-button>
     <md-popup v-model="isPopupShow.center">
       <div class="md-example-popup md-example-popup-center">
         Popup Center
       </div>
     </md-popup>
 
-    <md-button class="md-button" @click="showPopUp('bottom')">底部弹出</md-button>
+    <md-button class="md-button" inline size="small" @click="showPopUp('bottom')">底部弹出</md-button>
     <md-popup
       v-model="isPopupShow.bottom"
       position="bottom"
@@ -26,7 +26,7 @@
       </div>
     </md-popup>
 
-    <md-button class="md-button" @click="showPopUp('top')">顶部弹出</md-button>
+    <md-button class="md-button" inline size="small" @click="showPopUp('top')">顶部弹出</md-button>
     <md-popup
       v-model="isPopupShow.top"
       :hasMask="false"
@@ -42,7 +42,7 @@
       </div>
     </md-popup>
 
-    <md-button class="md-button" @click="showPopUp('left')">左侧弹出</md-button>
+    <md-button class="md-button" inline size="small" @click="showPopUp('left')">左侧弹出</md-button>
     <md-popup
       v-model="isPopupShow.left"
       position="left"
@@ -52,7 +52,7 @@
       </div>
     </md-popup>
 
-    <md-button class="md-button" @click="showPopUp('right')">右侧弹出</md-button>
+    <md-button class="md-button" inline size="small" @click="showPopUp('right')">右侧弹出</md-button>
     <md-popup
       v-model="isPopupShow.right"
       position="right"
@@ -64,13 +64,13 @@
   </div>
 </template>
 
-<script>import Popup from '../../index'
-import PopupTitleBar from '../../title-bar'
-import Button from '../../../button'
-import Icon from '../../../icon'
+<script>
+import Popup from 'mand-mobile/lib/popup'
+import PopupTitleBar from 'mand-mobile/lib/popup/title-bar'
+import Button from 'mand-mobile/lib/button'
+import Icon from 'mand-mobile/lib/icon'
 
 export default {
-  name: 'popup-demo',
   components: {
     'md-popup': Popup,
     'md-popup-title-bar': PopupTitleBar,
@@ -91,18 +91,14 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style>
 .md-example-child-popup-0 {
   position: relative;
   float: left;
   width: 100%;
-}
-.md-example-child-popup-0 .md-button {
-  display: block;
-  height: 100px;
-  margin-bottom: 20px;
 }
 .md-example-child-popup-0 .md-example-popup {
   position: relative;
@@ -124,7 +120,7 @@ export default {
   width: 100%;
   height: 75px;
   line-height: 75px;
-  background: #4a4c5b;
+  background: #2f86f6;
   color: #FFF;
 }
 .md-example-child-popup-0 .md-example-popup-top .md-icon {

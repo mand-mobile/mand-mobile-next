@@ -1,4 +1,8 @@
-# `@mand-mobile/shared`
+---
+title: Shared
+name: shared
+permalink: /packages/modules/shared
+---
 
 Internal utility functions, stylus, and constants shared across `@mand-mobile` packages.
 

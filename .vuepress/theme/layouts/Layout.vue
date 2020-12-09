@@ -11,6 +11,7 @@
       <div class="md-doc-layout_content_main">
         <Content />
       </div>
+      <Contributors :fileName="$page.relativePath" :owner="repo[1]" :repo="repo[2]"/>
       <PageNav v-bind="{ sidebarItems }" />
       <PageToc
         v-if="hasToc"
@@ -25,6 +26,7 @@
 import Sidebar from '../components/Sidebar'
 import PageToc from '../components/Toc'
 import PageNav from '../components/PageNav'
+import Contributors from '../components/Contributors'
 // import PlatformTag from '../components/PlatformTag'
 import { resolveSidebarItems } from '../util'
 
@@ -33,13 +35,14 @@ export default {
     Sidebar,
     PageToc,
     PageNav,
+    Contributors
     // PlatformTag
   },
-  watch:{
-    $route(to,from){
-      console.log(to.path);
-    }
-  },
+  // watch:{
+  //   $route(to,from){
+  //     console.log(to.path);
+  //   }
+  // },
   computed: {
     hasToc () {
       return this.$page.frontmatter.toc !== 'hidden'
@@ -61,9 +64,14 @@ export default {
       }
       return this.$page.title
     },
+    repo () {
+      return ((this.$themeConfig.repo || '')
+        .match(/^(https?:\/\/)([0-9a-z\-.]+)(:[0-9]+)?([/0-9a-z\-.]+)?(\?[0-9a-z\-&=]+)?(#[0-9-a-z\-]+)?/i)[4] || '')
+        .split('/')
+    },
     platforms () {
-      const platform = this.$page.meta.platform
-      return Array.isArray(platform) ? platform : [platform || '']
+      const platform = this.$page.meta.platform || (this.$page.meta.category ? ['web', 'uni'] : '')
+      return Array.isArray(platform) ? platform : [platform]
     }
   }
 }
@@ -78,7 +86,9 @@ export default {
     z-index 2
   &_content
     position relative
-    padding 1em 14em 0 5em
+    max-width 1800px
+    margin 0 auto
+    padding 0 14em 0 5em
     overflow hidden
     &_header
       display flex
@@ -101,15 +111,24 @@ export default {
 
 @media (max-width: 1500px)
   .md-doc-layout_content
-    padding 1em 14em 0 5em
-@media (max-width: 1000px)
-  .md-doc-layout_sidebar, .md-doc-layout_content_toc
+    max-width 1200px
+    padding 1em 5em 0 5em
+  .md-doc-layout_content_toc
     display none
+@media (max-width: 1000px)
   .md-doc-layout_content
     padding 1em 1.5em 0 1.5em
+  .md-doc-layout_sidebar
+    display none
 @media (max-width: 750px)
   .md-doc-layout_content_main
     font-size .9em
   .md-doc-layout_content_header
     display block !important
+</style>
+
+<style lang="stylus">
+.dark
+  .md-doc-layout_content_header_title
+    color #f5f6f7
 </style>

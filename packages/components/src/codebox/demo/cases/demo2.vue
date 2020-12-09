@@ -11,11 +11,6 @@
 import Codebox from 'mand-mobile/lib/codebox'
 
 export default {
-  name: 'codebox-demo',
-  /* DELETE */
-  title: '不限长度',
-  titleEnUS: 'Unlimited length',
-  /* DELETE */
   components: {
     'md-codebox': Codebox,
   },
@@ -25,5 +20,15 @@ export default {
     }
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '不限长度',
+  },
+  'en-US': {
+    title: 'Unlimited length',
+  },
+}
+// #endregion ignore
 
 </script>
