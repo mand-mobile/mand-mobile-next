@@ -5,25 +5,26 @@
   >
     <md-cell-item
       v-for="(item, index) in options"
-      :key="index"
+      :key="item"
       class="md-radio-item"
-      :alignCenter="alignCenter"
       :class="{
         'md-radio-item--is-selected': selectedValue === item.value && !inputSelected,
       }"
-      :title="hasSlot ? '' : (item.text || item.label)"
-      :brief="hasSlot ? '' : item.brief"
+      :title="hasSlot.default ? '' : (item.text || item.label)"
+      :brief="hasSlot.default ? '' : item.brief"
       :active="isTitleActive && selectedValue === item.value && !inputSelected"
       :disabled="item.disabled"
-      :noBorder="index === options.length - 1"
+      :align-center="alignCenter"
+      :no-border="index === options.length - 1"
+      :children-slots="hasSlot"
       @click="$_select(item, index)"
     >
-      <template v-if="hasSlot">
+      <template v-if="hasSlot.default">
         <slot :option="item" :index="index" :selected="currentValue === item.value"/>
       </template>
       <template #right>
         <md-radio
-          v-if="!alignCenter && !inputSelected && !withoutIcon && iconPosition === 'right'"
+          v-if="hasSlot.right"
           class="md-radio right"
           :name="item.value"
           v-model="selectedValue"
@@ -37,7 +38,7 @@
       </template>
       <template #left>
         <md-radio
-          v-if="!alignCenter && !inputSelected && !withoutIcon && iconPosition === 'left'"
+          v-if="hasSlot.left"
           class="md-radio left"
           :name="item.value"
           v-model="selectedValue"
@@ -124,14 +125,14 @@ export default {
     //   type: String,
     //   default: 'checked',
     // },
-    iconInverse: {
-      type: String,
-      default: 'check',
-    },
-    iconDisabled: {
-      type: String,
-      default: 'check-disabled',
-    },
+    // iconInverse: {
+    //   type: String,
+    //   default: 'check',
+    // },
+    // iconDisabled: {
+    //   type: String,
+    //   default: 'check-disabled',
+    // },
     // iconSvg: {
     //   type: Boolean,
     //   default: false,
@@ -140,10 +141,10 @@ export default {
     //   type: String,
     //   default: 'md',
     // },
-    iconPosition: {
-      type: String,
-      default: 'left',
-    },
+    // iconPosition: {
+    //   type: String,
+    //   default: 'left',
+    // },
   },
 
   data() {
@@ -163,7 +164,12 @@ export default {
       }
     },
     hasSlot() {
-      return this.isSlotScope !== undefined ? this.isSlotScope : !!this.$scopedSlots.default
+      const hasIcon = !this.alignCenter && !this.inputSelected && !this.withoutIcon
+      return {
+        default: this.isSlotScope !== undefined ? this.isSlotScope : !!this.$scopedSlots.default,
+        left: hasIcon && this.iconPosition === 'left',
+        right: hasIcon && this.iconPosition === 'right',
+      }
     },
     withoutIcon() {
       return this.isSlotScope && !this.icon
