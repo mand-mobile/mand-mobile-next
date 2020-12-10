@@ -1,6 +1,6 @@
 <template>
   <div class="md-example-child md-example-child-result-page md-example-child-result-page-2">
-    <md-result-page :buttons="buttons" @customHandler="customHandler"></md-result-page>
+    <md-result-page :buttons="buttons" @action="customHandler"></md-result-page>
   </div>
 </template>
 
@@ -9,11 +9,6 @@ import ResultPage from 'mand-mobile/lib/result-page'
 import Toast from 'mand-mobile/lib/toast'
 
 export default {
-  name: 'result-page-demo',
-  /* DELETE */
-  title: '按钮',
-  titleEnUS: 'With button',
-  /* DELETE */
   components: {
     'md-result-page': ResultPage,
   },
@@ -22,20 +17,19 @@ export default {
       buttons: [
         {
           text: '普通按钮',
-
-          handlerName: 'commonClick',
+          name: 'commonClick',
         },
         {
           text: '高亮按钮',
           type: 'primary',
-          handlerName: 'highlightClick',
+          name: 'highlightClick',
         },
       ],
     }
   },
   methods: {
-    customHandler(name) {
-      switch (name) {
+    customHandler(button) {
+      switch (button.name) {
         case 'commonClick':
           Toast.info('普通操作')
           break
@@ -63,6 +57,7 @@ export const metaInfo = {
 
 <style>
 .md-example-child-result-page-2 {
+  padding: 40px 0;
   background: #FFF;
 }
 </style>

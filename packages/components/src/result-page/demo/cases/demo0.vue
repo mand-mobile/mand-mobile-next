@@ -24,6 +24,7 @@ export const metaInfo = {
 
 <style>
 .md-example-child-result-page-0 {
+  padding: 40px 0;
   background: #FFF;
 }
 </style>

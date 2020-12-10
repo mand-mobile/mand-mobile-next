@@ -30,6 +30,7 @@ export const metaInfo = {
 
 <style>
 .md-example-child-result-page-1 {
+  padding: 40px 0;
   background: #FFF;
 }
 </style>
