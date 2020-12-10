@@ -100,7 +100,7 @@ export class PlatformSetupPlugin {
 
         // 设置shared, scroller
         aliasSet.add(['@mand-mobile/shared', path.resolve(container.config.outputRoot, sharedNameAs)])
-        aliasSet.add(['@mand-mobile/scroller', path.resolve(container.config.outputRoot, scrollerNameAs)])
+        aliasSet.add(['@mand-mobile/scroller/lib', path.resolve(container.config.outputRoot, scrollerNameAs)])
         // aliasSet.add(['@mand-mobile/platform-runtime/lib', path.resolve(container.config.outputRoot, `${this.nameAs}`)])
       })
 
