@@ -39,15 +39,20 @@ Vue.component(ResultPage.name, ResultPage)
 |subtext | 副文案 | String |  | 以更小的字体和更淡的颜色显示在主文案下方 |
 |buttons | 按钮列表 | Array\<[ButtonOptions](#buttonoptions)\> |  | 按钮对象数组，按钮可参考`Button`|
 
-### ButtonOptions
+#### ButtonOptions
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |text | 按钮文字 | String | - | - |
 |type | 按钮样式类别 | String | `default` | 可参考`Button` |
-|handler | 点击操作 | Function | - | 点击按钮后调用的方法 |
 |plain |朴素|Boolean|最后一个按钮为`false`，其它为`true`|
 |round |圆角|Boolean|`false`|-|
+|inactive |未激活|Boolean|`false`|-|
 |icon |按钮图标|String|-|-|
 |iconSvg <MDPlatformTag web/>|按钮svg图标|Boolean|`false`|-|
-|inactive |未激活|Boolean|`false`|-|
 |loading <MDPlatformTag web/>|加载中状态|Boolean|`false`|-|
+|handler <MDPlatformTag web/>| 点击操作 | Function | - | 点击按钮后调用的方法 |
+
+### ResultPage Events
+
+### @action(button: [ButtonOptions](#buttonoptions))
+点击按钮时触发，也可以直接配置[ButtonOptions](#buttonoptions)中的handler
