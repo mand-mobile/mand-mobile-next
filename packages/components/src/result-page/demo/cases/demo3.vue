@@ -29,3 +29,10 @@ export const metaInfo = {
 // #endregion ignore
 
 </script>
+
+<style>
+.md-example-child-result-page-3 {
+  padding: 40px 0;
+  background: #FFF;
+}
+</style>

@@ -6,21 +6,22 @@
     <div class="md-result_text" v-if="actualText">{{actualText}}</div>
     <div class="md-result_subtext" v-if="actualSubText">{{actualSubText}}</div>
     <div class="md-result_buttons" v-if="buttons.length">
-      <md-button
-        v-for="(button, index) of buttons"
-        :type="button.type"
-        :plain="button.plain === undefined || button.plain"
-        :round="button.round"
-        :inactive="button.inactive"
-        :loading="button.loading"
-        :icon="button.icon"
-        :icon-svg="button.iconSvg"
-        size="small"
-        inline
-        @click="$emit('customHandler', button.handlerName)"
-        :key="index">
-        {{button.text}}
-      </md-button>
+      <template v-for="button of buttons">
+        <md-button
+          class="md-button"
+          :type="button.type"
+          :plain="button.plain === undefined || button.plain"
+          :round="button.round"
+          :inactive="button.inactive"
+          :loading="button.loading"
+          :icon="button.icon"
+          :icon-svg="button.iconSvg"
+          :key="button.text"
+          size="small"
+          inline
+          @click="onButtonClick(button)"
+        >{{button.text}}</md-button>
+      </template>
     </div>
   </div>
 </template>
@@ -86,6 +87,15 @@ export default {
         }[this.type] ||
         ''
       )
+    },
+  },
+
+  methods: {
+    onButtonClick(button) {
+      if (button.handler) {
+        button.handler.call(this, button)
+      }
+      this.$emit('action', button)
     },
   },
 }
