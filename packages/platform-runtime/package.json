@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@mand-mobile/scroller": "^3.0.4-alpha.5",
-    "@mand-mobile/shared": "^3.0.1",
+    "@mand-mobile/shared": "^3.0.4-alpha.5",
     "bluebird": "^3.7.2",
     "glob": "^7.1.6",
     "nib": "^1.1.2",

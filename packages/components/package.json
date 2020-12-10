@@ -19,7 +19,7 @@
   "dependencies": {
     "@mand-mobile/platform-runtime": "^3.0.4-alpha.5",
     "@mand-mobile/scroller": "^3.0.4-alpha.5",
-    "@mand-mobile/shared": "^3.0.1",
+    "@mand-mobile/shared": "^3.0.4-alpha.5",
     "@vue/test-utils": "^1.0.4",
     "babel-plugin-import": "^1.13.0",
     "jest": "^26.0.1",

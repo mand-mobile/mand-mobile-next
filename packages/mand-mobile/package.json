@@ -27,8 +27,7 @@
   "files": ["uni", "web", "package.json"],
   "dependencies": {
     "@mand-mobile/components": "^3.0.4-alpha.5",
-    "@mand-mobile/platform": "^3.0.1-alpha.9",
-    "@mand-mobile/shared": "^3.0.1",
+    "@mand-mobile/shared": "^3.0.4-alpha.5",
     "@vue/cli": "^4.5.7",
     "find": "^0.3.0",
     "mv": "^2.1.1"
