@@ -16,7 +16,7 @@
           :loading="button.loading"
           :icon="button.icon"
           :icon-svg="button.iconSvg"
-          :key="button"
+          :key="button.text"
           size="small"
           inline
           @click="onButtonClick(button)"
