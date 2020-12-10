@@ -1,6 +1,6 @@
 {
   "name": "@mand-mobile/vue-cli-plugin-builder",
-  "version": "3.0.4-alpha.2",
+  "version": "3.0.4-alpha.4",
   "description": "mand-mobile 构建层封装",
   "keywords": ["mand-mobile", "buildtime"],
   "author": "lucker <byterotate@gmail.com>",
