@@ -1,6 +1,6 @@
 {
   "name": "@mand-mobile/platform-builder",
-  "version": "3.0.4-alpha.4",
+  "version": "3.0.4-alpha.5",
   "main": "lib/index.js",
   "scripts": {
     "test":
@@ -39,8 +39,8 @@
     "@dcloudio/vue-cli-plugin-uni-optimize": "^2.0.0-26920200424005",
     "@dcloudio/webpack-uni-mp-loader": "^2.0.0-26920200424005",
     "@dcloudio/webpack-uni-pages-loader": "^2.0.0-26920200424005",
-    "@mand-mobile/components": "^3.0.4-alpha.2",
-    "@mand-mobile/platform-runtime": "^3.0.4-alpha.2",
+    "@mand-mobile/components": "^3.0.4-alpha.5",
+    "@mand-mobile/platform-runtime": "^3.0.4-alpha.5",
     "@rollup/plugin-alias": "^3.1.1",
     "@rollup/plugin-babel": "^5.0.4",
     "@rollup/plugin-node-resolve": "^8.4.0",
