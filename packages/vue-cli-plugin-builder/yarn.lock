@@ -1913,14 +1913,14 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@mand-mobile/components@^3.0.1-alpha.9":
-  version "3.0.1-alpha.9"
-  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-3.0.1-alpha.9.tgz#c11857212fa06da28bd65cabaf638b0edbaa8b49"
-  integrity sha512-+9hzk3ZPe2KT9WVTJt2Vr575c2ZstTyZf/H2llWE941lXikDyU+pzaWMNl5MN5TxKxY60IyXbmbZUfUfQKIWmg==
+"@mand-mobile/components@^3.0.4-alpha.5":
+  version "3.0.4-alpha.5"
+  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-3.0.4-alpha.5.tgz#5d6d94c7f7ae1bcbe70977a18313780f5b8e8289"
+  integrity sha512-y/CPd3M3RNfuoFn45ACLVvweX1EO1GLwjrs4bkFXUzL7ob4vjvg9w49lNeloY6Qf/ln3onYuhdz/L0ntKvH5IA==
   dependencies:
-    "@mand-mobile/platform" "^3.0.1-alpha.9"
-    "@mand-mobile/scroller" "^3.0.1-alpha.9"
-    "@mand-mobile/shared" "^3.0.1-alpha.9"
+    "@mand-mobile/platform-runtime" "^3.0.4-alpha.5"
+    "@mand-mobile/scroller" "^3.0.4-alpha.5"
+    "@mand-mobile/shared" "^3.0.1"
     "@vue/test-utils" "^1.0.4"
     babel-plugin-import "^1.13.0"
     jest "^26.0.1"
@@ -1931,10 +1931,10 @@
     vue-jest "2.x"
     vue-server-renderer "^2.6.11"
 
-"@mand-mobile/platform-builder@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.npmjs.org/@mand-mobile/platform-builder/-/platform-builder-0.1.0.tgz#6714b1b35408e992d214890421ea33a4828b174a"
-  integrity sha512-UIysyfpX/PR97hjbMpeTH5JXB/OeCiumBRJelOh4MTZALI471BR8khsOnwf2NLZ1SG70D6CarAaxTWZMynqhWQ==
+"@mand-mobile/platform-builder@^3.0.4-alpha.5":
+  version "3.0.4-alpha.5"
+  resolved "https://registry.npmjs.org/@mand-mobile/platform-builder/-/platform-builder-3.0.4-alpha.5.tgz#369a49cc62a9659e330196095cfe3e6c28291eba"
+  integrity sha512-xRjfomQMAhXLY3A1n6+b3W/CZDK66aWUAIlsDysEmOVs7QQT6tEVPg7nRA04BBGpP04Rq6J1EEAZhgC6BZjsBA==
   dependencies:
     "@dcloudio/uni-cli-shared" "^2.0.0-26920200424005"
     "@dcloudio/uni-h5" "^2.0.0-26920200424005"
@@ -1948,6 +1948,8 @@
     "@dcloudio/vue-cli-plugin-uni-optimize" "^2.0.0-26920200424005"
     "@dcloudio/webpack-uni-mp-loader" "^2.0.0-26920200424005"
     "@dcloudio/webpack-uni-pages-loader" "^2.0.0-26920200424005"
+    "@mand-mobile/components" "^3.0.4-alpha.5"
+    "@mand-mobile/platform-runtime" "^3.0.4-alpha.5"
     "@rollup/plugin-alias" "^3.1.1"
     "@rollup/plugin-babel" "^5.0.4"
     "@rollup/plugin-node-resolve" "^8.4.0"
@@ -1967,6 +1969,7 @@
     "@vue/compiler-core" "^3.0.0-rc.5"
     "@vue/compiler-sfc" "^3.0.0-beta.18"
     "@vue/test-utils" "^1.0.3"
+    babel-plugin-import "^1.13.0"
     child_process "^1.0.2"
     copyfiles "^2.3.0"
     ejs "^3.1.5"
@@ -1976,6 +1979,8 @@
     fs-extra "^9.0.1"
     mv "^2.1.1"
     postcss-comment "^2.0.0"
+    postcss-pixel-to-viewport "^1.0.2"
+    postcss-plugin-px2rem "^0.8.1"
     ramda "^0.27.1"
     rollup "^2.28.1"
     rollup-plugin-babel "^4.4.0"
@@ -1991,23 +1996,25 @@
     rollup-plugin-vue "5.1.9"
     stylus "^0.54.8"
     stylus-loader "^3.0.2"
+    sugarss "^3.0.1"
     tapable "^1.1.3"
     ts-jest "^26.2.0"
     typescript "^4.0.2"
+    vue "2.6.12"
     vue-router "^3.4.3"
-    vue-template-compiler "^2.6.11"
+    vue-template-compiler "2.6.12"
     webpack "^4.44.1"
     webpack-chain "^6.5.1"
     webpack-merge "^5.1.3"
     zp-vueify "^9.4.2"
 
-"@mand-mobile/platform@^3.0.1-alpha.9":
-  version "3.0.1-alpha.9"
-  resolved "https://registry.npmjs.org/@mand-mobile/platform/-/platform-3.0.1-alpha.9.tgz#d9a7b7822e2f138cbc3f7214c6fa2be6e98af891"
-  integrity sha512-Rn7yfvKR/3H4DeLJK5I5D4RGiLWT+vdwTp64DOuUzjnE0RwLPhsBb1n1PQNw4WVbq81YZFnvKnNmEFRndDHCKQ==
+"@mand-mobile/platform-runtime@^3.0.4-alpha.5":
+  version "3.0.4-alpha.5"
+  resolved "https://registry.npmjs.org/@mand-mobile/platform-runtime/-/platform-runtime-3.0.4-alpha.5.tgz#167cc59fade6e46a7ebc14db4d424532ade5bfc0"
+  integrity sha512-lbKFAe8WT8LW2legUn65mpm338PJxabvxcM9IgOqeGcfbZYp8A7gkyyOYvXADkbNMLteTw3uGiNxgcG8PZPMxQ==
   dependencies:
-    "@mand-mobile/scroller" "^3.0.1-alpha.9"
-    "@mand-mobile/shared" "^3.0.1-alpha.9"
+    "@mand-mobile/scroller" "^3.0.4-alpha.5"
+    "@mand-mobile/shared" "^3.0.4-alpha.5"
     bluebird "^3.7.2"
     glob "^7.1.6"
     nib "^1.1.2"
@@ -2015,22 +2022,21 @@
     postcss-pxtorem "^5.1.1"
     postcss-url "^8.0.0"
     recursive-copy "^2.0.10"
-    rollup-plugin-css-only "^2.1.0"
     vue "^2.6.11"
 
-"@mand-mobile/scroller@^3.0.1-alpha.9":
-  version "3.0.1-alpha.9"
-  resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-3.0.1-alpha.9.tgz#46d9c8897af755a197f9fc04f7cfbb568a0c4114"
-  integrity sha512-c36uo1j/UqFbcz64+9rSzXLWGXncUCTO6YBcj8j9+E7B/T3HBAaS22d/5ca8KNUKUQRLfhLNYmu+6yR8PZ8EsQ==
+"@mand-mobile/scroller@^3.0.4-alpha.5":
+  version "3.0.4-alpha.5"
+  resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-3.0.4-alpha.5.tgz#dc42a69e7a1433d4b1060c6c43bb065a27bd8044"
+  integrity sha512-1JcHUoR/xCEGaRCCq79FRoWr7AH6399w7fuxiSqysMMIrD5zomCjXq5nO+etttmO2gQUYt44FYQt6F9UhkaVdw==
   dependencies:
-    "@mand-mobile/shared" "^3.0.1-alpha.9"
+    "@mand-mobile/shared" "^3.0.1"
     "@types/jest" "^26.0.4"
     jest "^26.1.0"
 
-"@mand-mobile/shared@^3.0.1-alpha.9":
-  version "3.0.1-alpha.9"
-  resolved "https://registry.npmjs.org/@mand-mobile/shared/-/shared-3.0.1-alpha.9.tgz#6d9797da0a0199a6d9d3b9c149941ad0ef8f8e04"
-  integrity sha512-8/thGUQVF8b4R5BAet4l85HzcfMrtzwW2EQXiKTdHlQB+J9uVA9DPHj/oveTLTo5YRpoZJfCohy9LPRGRBBS8A==
+"@mand-mobile/shared@^3.0.1", "@mand-mobile/shared@^3.0.4-alpha.5":
+  version "3.0.4-alpha.5"
+  resolved "https://registry.npmjs.org/@mand-mobile/shared/-/shared-3.0.4-alpha.5.tgz#c5d8820eed0ff5635bba197ede6d1a87ebf1679a"
+  integrity sha512-bOojtoIbnsaqvSVVEjqDsrkHAwwepwqEr7tULC2CVmqQcDDDpp0d7VWRiPCpg6vhlOW1jx66Wle9IIa4mfk0JQ==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -12982,6 +12988,11 @@ nanoid@^2.1.0:
   resolved "https://registry.npmjs.org/nanoid/-/nanoid-2.1.11.tgz#ec24b8a758d591561531b4176a01e3ab4f0f0280"
   integrity sha512-s/snB+WGm6uwi0WjsZdaVcuf3KJXlfGl2LcxgwkEwJF0D/BWzVWAZW/XY4bFaiR7s0Jk3FPvlnepg1H1b1UwlA==
 
+nanoid@^3.1.20:
+  version "3.1.20"
+  resolved "https://registry.npmjs.org/nanoid/-/nanoid-3.1.20.tgz#badc263c6b1dcf14b71efaa85f6ab4c1d6cfc788"
+  integrity sha512-a1cQNyczgKbLX9jwbS/+d7W8fX/RfgYR7lVWwWOGIPNgK2m0MWvrGF6/m4kk6U3QcFMnZf3RIhL0v2Jgh/0Uxw==
+
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "https://registry.npmjs.org/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
@@ -14669,6 +14680,20 @@ postcss-ordered-values@^4.1.2:
     postcss "^7.0.0"
     postcss-value-parser "^3.0.0"
 
+postcss-pixel-to-viewport@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/postcss-pixel-to-viewport/-/postcss-pixel-to-viewport-1.0.2.tgz#be63ac52dccd80851cc5148e7edc0bae28233a4b"
+  integrity sha512-JMt8S8vXNZ/nyQxfy1lzEHxrgEVpjOYDvxokqr+43WA5CByzbFjNrnFjtGtpA1MzhwSd5cfct4ME68lWwlSTbQ==
+  dependencies:
+    postcss "^6.0.21"
+
+postcss-plugin-px2rem@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.npmjs.org/postcss-plugin-px2rem/-/postcss-plugin-px2rem-0.8.1.tgz#e8adf28fd2befbc079a119126b5c62a88905d5e1"
+  integrity sha512-gNxhrnR57pnGrPLLqVNWY9+BWgj46kYkphw+0gpRJf9tjgwI7/tLqQPK7KdlksB2SSAddOb11otDVwri8b8mXw==
+  dependencies:
+    postcss "^5.0.21"
+
 postcss-pxtorem@^5.1.1:
   version "5.1.1"
   resolved "https://registry.npmjs.org/postcss-pxtorem/-/postcss-pxtorem-5.1.1.tgz#198a68c10f9ad2d42370ef66299d7b3168f8cffa"
@@ -14840,7 +14865,7 @@ postcss@6.0.1:
     source-map "^0.5.6"
     supports-color "^3.2.3"
 
-postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.2, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.8, postcss@^5.2.16, postcss@^5.2.5:
+postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.2, postcss@^5.0.21, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.8, postcss@^5.2.16, postcss@^5.2.5:
   version "5.2.18"
   resolved "https://registry.npmjs.org/postcss/-/postcss-5.2.18.tgz#badfa1497d46244f6390f58b319830d9107853c5"
   integrity sha512-zrUjRRe1bpXKsX1qAJNJjqZViErVuyEkMTRrwu4ud4sbTtIBRmtaYDrHmcGgmrbsW3MHfmtIf+vJumgQn+PrXg==
@@ -14850,7 +14875,7 @@ postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0
     source-map "^0.5.6"
     supports-color "^3.2.3"
 
-postcss@^6.0.0, postcss@^6.0.1:
+postcss@^6.0.0, postcss@^6.0.1, postcss@^6.0.21:
   version "6.0.23"
   resolved "https://registry.npmjs.org/postcss/-/postcss-6.0.23.tgz#61c82cc328ac60e677645f979054eb98bc0e3324"
   integrity sha512-soOk1h6J3VMTZtVeVpv15/Hpdl2cBLX3CAw4TAbkpTJiNPk9YP/zWcD1ND+xEtvyuuvKzbxliTOIyvkSeSJ6ag==
@@ -14876,6 +14901,15 @@ postcss@^7.0.7:
     chalk "^2.4.2"
     source-map "^0.6.1"
     supports-color "^6.1.0"
+
+postcss@^8.1.6:
+  version "8.2.1"
+  resolved "https://registry.npmjs.org/postcss/-/postcss-8.2.1.tgz#eabc5557c4558059b9d9e5b15bce7ffa9089c2a8"
+  integrity sha512-RhsqOOAQzTgh1UB/IZdca7F9WDb7SUCR2Vnv1x7DbvuuggQIpoDwjK+q0rzoPffhYvWNKX5JSwS4so4K3UC6vA==
+  dependencies:
+    colorette "^1.2.1"
+    nanoid "^3.1.20"
+    source-map "^0.6.1"
 
 prelude-ls@~1.1.2:
   version "1.1.2"
@@ -17066,6 +17100,13 @@ subscriptions-transport-ws@^0.9.11, subscriptions-transport-ws@^0.9.16:
     symbol-observable "^1.0.4"
     ws "^5.2.0"
 
+sugarss@^3.0.1:
+  version "3.0.3"
+  resolved "https://registry.npmjs.org/sugarss/-/sugarss-3.0.3.tgz#bb2489961b98fbd15e4e35d6b9f4f2ee5547a6cb"
+  integrity sha512-uxa2bbuc+w7ov7DyYIhF6bM0qZF3UkFT5/nE8AJgboiVnKsBDbwxs++dehEIe1JNhpMaGJc37wGQ2QrrWey2Sg==
+  dependencies:
+    postcss "^8.1.6"
+
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
@@ -18349,7 +18390,7 @@ vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@^2.0.0-alpha.8, vue-template-compiler@^2.6.10, vue-template-compiler@^2.6.11:
+vue-template-compiler@2.6.12, vue-template-compiler@^2.0.0-alpha.8, vue-template-compiler@^2.6.10:
   version "2.6.12"
   resolved "https://registry.npmjs.org/vue-template-compiler/-/vue-template-compiler-2.6.12.tgz#947ed7196744c8a5285ebe1233fe960437fcc57e"
   integrity sha512-OzzZ52zS41YUbkCBfdXShQTe69j1gQDZ9HIX8miuC9C3rBCk9wIRjLiZZLrmX9V+Ftq/YEyv1JaVr5Y/hNtByg==
@@ -18369,6 +18410,11 @@ vue-template-es2015-compiler@^1.2.2, vue-template-es2015-compiler@^1.6.0, vue-te
   version "1.9.1"
   resolved "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
+
+vue@2.6.12:
+  version "2.6.12"
+  resolved "https://registry.npmjs.org/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
+  integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==
 
 vue@^2.6.11:
   version "2.6.11"

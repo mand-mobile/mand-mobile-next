@@ -1678,14 +1678,14 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@mand-mobile/components@^3.0.1-alpha.9":
-  version "3.0.1-alpha.9"
-  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-3.0.1-alpha.9.tgz#c11857212fa06da28bd65cabaf638b0edbaa8b49"
-  integrity sha512-+9hzk3ZPe2KT9WVTJt2Vr575c2ZstTyZf/H2llWE941lXikDyU+pzaWMNl5MN5TxKxY60IyXbmbZUfUfQKIWmg==
+"@mand-mobile/components@^3.0.4-alpha.5":
+  version "3.0.4-alpha.5"
+  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-3.0.4-alpha.5.tgz#5d6d94c7f7ae1bcbe70977a18313780f5b8e8289"
+  integrity sha512-y/CPd3M3RNfuoFn45ACLVvweX1EO1GLwjrs4bkFXUzL7ob4vjvg9w49lNeloY6Qf/ln3onYuhdz/L0ntKvH5IA==
   dependencies:
-    "@mand-mobile/platform" "^3.0.1-alpha.9"
-    "@mand-mobile/scroller" "^3.0.1-alpha.9"
-    "@mand-mobile/shared" "^3.0.1-alpha.9"
+    "@mand-mobile/platform-runtime" "^3.0.4-alpha.5"
+    "@mand-mobile/scroller" "^3.0.4-alpha.5"
+    "@mand-mobile/shared" "^3.0.1"
     "@vue/test-utils" "^1.0.4"
     babel-plugin-import "^1.13.0"
     jest "^26.0.1"
@@ -1696,13 +1696,13 @@
     vue-jest "2.x"
     vue-server-renderer "^2.6.11"
 
-"@mand-mobile/platform-runtime@^3.0.1-alpha.9":
-  version "3.0.1-alpha.9"
-  resolved "https://registry.npmjs.org/@mand-mobile/platform-runtime/-/platform-runtime-3.0.1-alpha.9.tgz#d8f34af26fe54293e2c60075ec86b3c6a77b0cde"
-  integrity sha512-++0J76O1je268aDh6Catu9PUl9quOT/5kjseyjdOT0R1cjYBkEvdOTFs7YKncyEeUWG5qAzeItN/b++MHxvmlg==
+"@mand-mobile/platform-runtime@^3.0.4-alpha.5":
+  version "3.0.4-alpha.5"
+  resolved "https://registry.npmjs.org/@mand-mobile/platform-runtime/-/platform-runtime-3.0.4-alpha.5.tgz#167cc59fade6e46a7ebc14db4d424532ade5bfc0"
+  integrity sha512-lbKFAe8WT8LW2legUn65mpm338PJxabvxcM9IgOqeGcfbZYp8A7gkyyOYvXADkbNMLteTw3uGiNxgcG8PZPMxQ==
   dependencies:
-    "@mand-mobile/scroller" "^3.0.1-alpha.9"
-    "@mand-mobile/shared" "^3.0.1-alpha.9"
+    "@mand-mobile/scroller" "^3.0.4-alpha.5"
+    "@mand-mobile/shared" "^3.0.4-alpha.5"
     bluebird "^3.7.2"
     glob "^7.1.6"
     nib "^1.1.2"
@@ -1712,36 +1712,19 @@
     recursive-copy "^2.0.10"
     vue "^2.6.11"
 
-"@mand-mobile/platform@^3.0.1-alpha.9":
-  version "3.0.1-alpha.9"
-  resolved "https://registry.npmjs.org/@mand-mobile/platform/-/platform-3.0.1-alpha.9.tgz#d9a7b7822e2f138cbc3f7214c6fa2be6e98af891"
-  integrity sha512-Rn7yfvKR/3H4DeLJK5I5D4RGiLWT+vdwTp64DOuUzjnE0RwLPhsBb1n1PQNw4WVbq81YZFnvKnNmEFRndDHCKQ==
+"@mand-mobile/scroller@^3.0.4-alpha.5":
+  version "3.0.4-alpha.5"
+  resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-3.0.4-alpha.5.tgz#dc42a69e7a1433d4b1060c6c43bb065a27bd8044"
+  integrity sha512-1JcHUoR/xCEGaRCCq79FRoWr7AH6399w7fuxiSqysMMIrD5zomCjXq5nO+etttmO2gQUYt44FYQt6F9UhkaVdw==
   dependencies:
-    "@mand-mobile/scroller" "^3.0.1-alpha.9"
-    "@mand-mobile/shared" "^3.0.1-alpha.9"
-    bluebird "^3.7.2"
-    glob "^7.1.6"
-    nib "^1.1.2"
-    postcss-load-config "^2.1.0"
-    postcss-pxtorem "^5.1.1"
-    postcss-url "^8.0.0"
-    recursive-copy "^2.0.10"
-    rollup-plugin-css-only "^2.1.0"
-    vue "^2.6.11"
-
-"@mand-mobile/scroller@^3.0.1-alpha.9":
-  version "3.0.1-alpha.9"
-  resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-3.0.1-alpha.9.tgz#46d9c8897af755a197f9fc04f7cfbb568a0c4114"
-  integrity sha512-c36uo1j/UqFbcz64+9rSzXLWGXncUCTO6YBcj8j9+E7B/T3HBAaS22d/5ca8KNUKUQRLfhLNYmu+6yR8PZ8EsQ==
-  dependencies:
-    "@mand-mobile/shared" "^3.0.1-alpha.9"
+    "@mand-mobile/shared" "^3.0.1"
     "@types/jest" "^26.0.4"
     jest "^26.1.0"
 
-"@mand-mobile/shared@^3.0.1-alpha.9":
-  version "3.0.1-alpha.9"
-  resolved "https://registry.npmjs.org/@mand-mobile/shared/-/shared-3.0.1-alpha.9.tgz#6d9797da0a0199a6d9d3b9c149941ad0ef8f8e04"
-  integrity sha512-8/thGUQVF8b4R5BAet4l85HzcfMrtzwW2EQXiKTdHlQB+J9uVA9DPHj/oveTLTo5YRpoZJfCohy9LPRGRBBS8A==
+"@mand-mobile/shared@^3.0.1", "@mand-mobile/shared@^3.0.4-alpha.5":
+  version "3.0.4-alpha.5"
+  resolved "https://registry.npmjs.org/@mand-mobile/shared/-/shared-3.0.4-alpha.5.tgz#c5d8820eed0ff5635bba197ede6d1a87ebf1679a"
+  integrity sha512-bOojtoIbnsaqvSVVEjqDsrkHAwwepwqEr7tULC2CVmqQcDDDpp0d7VWRiPCpg6vhlOW1jx66Wle9IIa4mfk0JQ==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
