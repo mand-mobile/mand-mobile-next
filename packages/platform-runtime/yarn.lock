@@ -1390,19 +1390,19 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@mand-mobile/scroller@^3.0.4-alpha.2":
-  version "3.0.4-alpha.2"
-  resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-3.0.4-alpha.2.tgz#6ce4fabeae048f88dd776e259b95749c7e3296c9"
-  integrity sha512-MDcUMgCZH8/TkLdb3iUhWjfJUE/xBLCpi2FW5mAgH5QDCghREeaJtdUoN9Y0yFowezf2INT2NQcdmKCl6+OsjA==
+"@mand-mobile/scroller@^3.1.0-alpha.0":
+  version "3.1.0-alpha.0"
+  resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-3.1.0-alpha.0.tgz#8150b29588d1c62f8c5b6082379439f9d222f177"
+  integrity sha512-n6CW7vSdRoc3QoizQi4Tweek5FuHU6iu+ox1XNnocTWOxSA2r6JOXFmUw3zD8UAIRbUmEER0ZlIaEWvCQxO/fg==
   dependencies:
-    "@mand-mobile/shared" "^3.0.1"
+    "@mand-mobile/shared" "^3.1.0-alpha.0"
     "@types/jest" "^26.0.4"
     jest "^26.1.0"
 
-"@mand-mobile/shared@^3.0.1":
-  version "3.0.4-alpha.3"
-  resolved "https://registry.npmjs.org/@mand-mobile/shared/-/shared-3.0.4-alpha.3.tgz#e158c263694c51382f446a6f38d23258c639f47e"
-  integrity sha512-gbSBtxOvDjull0hfqlGGJQKV0jgk42cEyjDWkatf7FOTRzXSgryIKuE0KWvXnoL4YNgc7YMRGgGNO0FUyKz2yQ==
+"@mand-mobile/shared@^3.1.0-alpha.0":
+  version "3.1.0-alpha.0"
+  resolved "https://registry.npmjs.org/@mand-mobile/shared/-/shared-3.1.0-alpha.0.tgz#cd9d126eb64ea3ac75c1690e974f78e884662c57"
+  integrity sha512-r/lDlX/VKLPd//piWoP2E5lh+UBdIbtFDDk/Po6k/at8HLLP/cZm0H/5BxXIPFDWn8K1szDupGb+GZhAyOS19A==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
