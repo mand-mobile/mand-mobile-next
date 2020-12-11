@@ -42,7 +42,7 @@ Vue.component(Button.name, Button)
 |icon|图标|String|-|可选值请参考组件`Icon`|
 |icon-svg <MDPlatformTag web/>|使用svg图标|Boolean|`false`|-|
 |loading <MDPlatformTag web/>|加载中状态|Boolean\/String|`false`|`roller`（等同于true），`spinner`，`carousel`|
-|loading-color <MDPlatformTag web/>|加载中图标颜色|String|`false`|参考[ActivityIndicator - color](http://book.intra.xiaojukeji.com/mand-mobile/packages/components/src/activity-indicator/#activityindicator-props)|
+|loading-color <MDPlatformTag web/>|加载中图标颜色|String|`false`|参考`ActivityIndicator`|
 
 ### Button Slots
 
