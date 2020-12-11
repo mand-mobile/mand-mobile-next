@@ -2,12 +2,12 @@
   <div
     class="md-notice-bar"
     :class="[
-      round && 'md-notice-bar-round',
+      round && 'md-notice-bar--round',
       type
     ]"
     v-if="isShow"
   >
-    <div class="md-notice-bar-left" :class="[(!customLeft && !icon) && 'md-notice-bar-empty']">
+    <div class="md-notice-bar_left" :class="[(!customLeft && !icon) && 'md-notice-bar--empty']">
       <!-- custom first -->
       <template v-if="customLeft">
         <slot name="left"></slot>
@@ -17,23 +17,23 @@
       </template>
     </div>
     <div
-      class="md-notice-bar-content"
+      class="md-notice-bar__content"
       :class="[
         multiRows && 'md-notice-bar-multi-content'
       ]"
       ref="wrap"
     >
       <!-- uni 中无法准确的获取到节点的 scrollWidth, 在 uni 版中去掉了对 overflow 的判断 -->
-      <!-- <div :class="[(overflow && scrollable) && 'md-notice-bar-content-animate']" ref="content"> -->
+      <!-- <div :class="[(overflow && scrollable) && 'md-notice-bar__content--animate']" ref="content"> -->
       <div
-        class="md-notice-bar-content-slot"
-        :class="[scrollable && 'md-notice-bar-content-animate']"
+        class="md-notice-bar__content-slot"
+        :class="[scrollable && 'md-notice-bar__content--animate']"
         ref="content"
       >
         <slot></slot>
       </div>
     </div>
-    <div class="md-notice-bar-right">
+    <div class="md-notice-bar_right">
       <!-- custom first -->
       <template v-if="customRight">
         <slot name="right"></slot>
@@ -178,37 +178,37 @@ export default {
 <style lang="stylus">
 .md-notice-bar
   display flex
-  z-index notice-bar-zindex
-  font-size notice-bar-font-size
+  z-index md-notice-bar-zindex
+  font-size md-notice-bar-font-size
   min-height 64px
-  background-color notice-bar-fill
-  color notice-bar-color
+  background-color md-notice-bar-fill
+  color md-notice-bar-color
   position relative
   padding-left 32px
   box-sizing border-box
   will-change all
-  &.md-notice-bar-round
-    border-radius notice-bar-border-radius
+  &.md-notice-bar--round
+    border-radius md-notice-bar-border-radius
   &.activity
-    background-color notice-bar-fill-activity
-    color notice-bar-color-activity
+    background-color md-notice-bar-fill-activity
+    color md-notice-bar-color-activity
   &.warning
-    background-color notice-bar-fill-warning
-    color notice-bar-color-warning
+    background-color md-notice-bar-fill-warning
+    color md-notice-bar-color-warning
 
-.md-notice-bar-left,
-.md-notice-bar-right
+.md-notice-bar_left,
+.md-notice-bar_right
   display flex
   align-items center
 
-.md-notice-bar-left
+.md-notice-bar_left
   padding-right 12px
-.md-notice-bar-right
+.md-notice-bar_right
   padding-right 32px
-.md-notice-bar-empty
+.md-notice-bar--empty
   padding-right 0
 
-.md-notice-bar-content
+.md-notice-bar__content
   flex 1
   margin auto
   width auto
@@ -216,10 +216,10 @@ export default {
   white-space nowrap
   overflow hidden
   &.md-notice-bar-multi-content
-    padding h-gap-md 0
-    line-height font-caption-large
+    padding md-h-gap-md 0
+    line-height md-font-caption-large
     white-space normal
-  .md-notice-bar-content-animate
+  .md-notice-bar__content--animate
     padding-left 100%
     display inline-block
     animation md-notice-bar-animation linear 16s infinite both
