@@ -20,6 +20,12 @@ export default {
   },
 }
 
+// #region ignore
+export const metaInfo = {
+  title: '基础',
+}
+// #endregion ignore
+
 </script>
 
 <style>
