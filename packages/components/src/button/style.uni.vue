@@ -10,11 +10,9 @@ export default {}
 
 <style lang="stylus">
 // this file used to provied platform related code
-.md-button 
-  button 
-    border: none 
-    &:after
-      border: none
-      content: ""
-
+button
+  border: none 
+  &:after
+    border: none
+    content: ""
 </style>
