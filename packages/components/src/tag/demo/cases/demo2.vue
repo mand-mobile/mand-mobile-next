@@ -1,7 +1,7 @@
 <template>
   <div class="md-example-child md-example-child-tag md-example-child-tag-2">
-    <tag class="md-tag" size="large" shape="square" font-color="#FF8843" type="ghost">可选</tag>
-    <tag class="md-tag" size="small" shape="square" font-color="#28AA91" type="ghost">可选</tag>
+    <md-tag class="md-tag" size="large" shape="square" font-color="#FF8843" type="ghost">可选</md-tag>
+    <md-tag class="md-tag" size="small" shape="square" font-color="#28AA91" type="ghost">可选</md-tag>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import Tag from 'mand-mobile/lib/tag'
 
 export default {
   components: {
-    Tag,
+    'md-tag': Tag,
   },
 }
 // #region ignore

@@ -1,7 +1,7 @@
 <template>
   <div class="md-example-child md-example-child-tag md-example-child-tag-3">
-    <tag class="md-tag" size="large" shape="square" fill-color="rgba(0,0,0,0)" type="fill" font-weight="bolder" font-color="#333">￥3600</tag>
-    <tag class="md-tag" size="small" shape="square" fill-color="rgba(0,0,0,0)" type="fill" font-weight="bolder" font-color="#333">￥300</tag>
+    <md-tag class="md-tag" size="large" shape="square" fill-color="rgba(0,0,0,0)" type="fill" font-weight="bolder" font-color="#333">￥3600</md-tag>
+    <md-tag class="md-tag" size="small" shape="square" fill-color="rgba(0,0,0,0)" type="fill" font-weight="bolder" font-color="#333">￥300</md-tag>
   </div>
 </template>
 
