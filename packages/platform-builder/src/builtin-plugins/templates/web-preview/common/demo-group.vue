@@ -78,5 +78,7 @@ export default {
       margin-top 20px
       box-sizing border-box
       font-size 28px
+      background #f9fafb
 </style>
+
 
