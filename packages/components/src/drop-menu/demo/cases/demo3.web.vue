@@ -11,6 +11,9 @@
 </template>
 
 <script>
+/**
+ * 不支持作用域插槽
+ */
 import DropMenu from 'mand-mobile/lib/drop-menu'
 
 export default {
