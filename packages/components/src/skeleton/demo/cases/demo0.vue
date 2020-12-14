@@ -13,6 +13,13 @@ export default {
   },
 }
 
+// #region ignore
+export const metaInfo = {
+  title: '基础骨架屏',
+  describe: '3s后加载完成',
+}
+// #endregion ignore
+
 </script>
 
 <style>
