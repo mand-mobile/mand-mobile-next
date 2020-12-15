@@ -28,4 +28,6 @@ export default {
   },
 }
 
+export const metaInfo = {}
+
 </script>
