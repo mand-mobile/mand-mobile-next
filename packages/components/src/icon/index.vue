@@ -72,9 +72,11 @@ export default {
   fill currentColor
   -webkit-backface-visibility hidden
   transform translateZ(0) scale(1.0, 1.0)
-  // display flex
-  // align-items center
-  // justify-content center
+
+  // 需要保证:after伪元素居中，如果不加在微信中tab-bar中会展示异常
+  display flex
+  align-items center
+  justify-content center
 
   // size
   &.icon-font
@@ -89,6 +91,8 @@ export default {
     speak none
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
+    
+
     &.xss
       font-size md-icon-size-xxs
     &.xs

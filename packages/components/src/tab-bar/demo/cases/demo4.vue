@@ -61,5 +61,11 @@ export const metaInfo = {
 .md-example-child-tab-bar-4 .custom-item .text {
   font-size: 20px;
 }
+
+.md-icon.icon-font {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 </style>
 

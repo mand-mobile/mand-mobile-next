@@ -10,6 +10,12 @@
 <script>
 import TabBar from 'mand-mobile/lib/tab-bar'
 
+// #region ignore
+export const metaInfo = {
+  title: '基础',
+}
+// #endregion ignore
+
 export default {
   components: {
     'md-tab-bar': TabBar,
