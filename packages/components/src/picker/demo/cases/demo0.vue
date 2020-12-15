@@ -45,13 +45,13 @@ export default {
     getColumnValues(picker) {
       const value = this.$refs[picker].getColumnValues()
       Dialog.alert({
-        content: `<pre>${JSON.stringify(value)}</pre>`,
+        content: `${JSON.stringify(value, 2)}`,
       })
     },
     getColumnIndexs(picker) {
       const value = this.$refs[picker].getColumnIndexs()
       Dialog.alert({
-        content: `<pre>${JSON.stringify(value)}</pre>`,
+        content: `${JSON.stringify(value, 2)}`,
       })
     },
   },
