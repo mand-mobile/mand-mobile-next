@@ -26,7 +26,7 @@
         <template v-if="index === 1">
           <p class="name active" v-text="step.name"></p>
           <p class="amount">
-            <!-- <md-amount :value="+step.amount"></md-amount>元 -->
+            <md-amount :value="step.amount"></md-amount>元
           </p>
         </template>
         <template v-else>
@@ -39,13 +39,13 @@
 
 <script>
 import Steps from 'mand-mobile/lib/steps'
-// import Amount from '../../../amount'
+import Amount from 'mand-mobile/lib/amount'
 import Icon from 'mand-mobile/lib/icon'
 
 export default {
   components: {
     'md-steps': Steps,
-    // 'md-amount': Amount,
+    'md-amount': Amount,
     'md-icon': Icon,
   },
   data() {
