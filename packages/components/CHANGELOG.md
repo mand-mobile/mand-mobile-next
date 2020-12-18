@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0-alpha.1](https://github.com/mand-mobile/mand-mobile-next/compare/v3.1.0-alpha.0...v3.1.0-alpha.1) (2020-12-18)
+
+
+### Bug Fixes
+
+* **icon:** reopen flex display in icon ([092376f](https://github.com/mand-mobile/mand-mobile-next/commit/092376ff56208b0b5b5f37acec5a382dc77ea072))
+* **notice-bar:** fix invalid BEM css rules and add global variables prefix ([930fcb2](https://github.com/mand-mobile/mand-mobile-next/commit/930fcb20472e9d1dff064c750e1d9d16a35da206))
+* **platform-builder:** display web demo can show metaInfo ([90cfa94](https://github.com/mand-mobile/mand-mobile-next/commit/90cfa948ec15d7e307418d2d9b58c26786652177))
+* **tag:** fix component register self name in demos ([c452b03](https://github.com/mand-mobile/mand-mobile-next/commit/c452b03fbae7a0477031876bbc2d5bacc62af920))
+
+
+
+## [3.0.4-alpha.5](https://github.com/mand-mobile/mand-mobile-next/compare/v3.0.4-alpha.3...v3.0.4-alpha.5) (2020-12-10)
+
+
+
+## [3.0.4-alpha.2](https://github.com/mand-mobile/mand-mobile-next/compare/v3.0.4-alpha.1...v3.0.4-alpha.2) (2020-12-10)
+
+
+
+## [3.0.4-alpha.1](https://github.com/mand-mobile/mand-mobile-next/compare/v3.0.4-alpha.0...v3.0.4-alpha.1) (2020-12-10)
+
+
+
+## [3.0.4-alpha.0](https://github.com/mand-mobile/mand-mobile-next/compare/v3.0.3...v3.0.4-alpha.0) (2020-12-09)
+
+
+
+## [3.0.3](https://github.com/mand-mobile/mand-mobile-next/compare/v3.0.1...v3.0.3) (2020-12-09)
+
+
+
+## [3.0.1](https://github.com/mand-mobile/mand-mobile-next/compare/v3.0.1-alpha.9...v3.0.1) (2020-12-09)
+
+
+
+
+
 ## [3.0.4-alpha.5](https://github.com/mand-mobile/mand-mobile-next/compare/v3.0.4-alpha.3...v3.0.4-alpha.5) (2020-12-10)
 
 **Note:** Version bump only for package @mand-mobile/components

@@ -1,6 +1,6 @@
 {
   "name": "@mand-mobile/components",
-  "version": "3.1.0-alpha.0",
+  "version": "3.1.0-alpha.1",
   "description": "mand-mobile source code",
   "keywords": ["mfe"],
   "author": "lucker <byterotate@gmail.com>",
@@ -17,8 +17,8 @@
     "build": "echo \"build nothing\""
   },
   "dependencies": {
-    "@mand-mobile/platform-runtime": "^3.1.0-alpha.0",
-    "@mand-mobile/scroller": "^3.1.0-alpha.0",
+    "@mand-mobile/platform-runtime": "^3.1.0-alpha.1",
+    "@mand-mobile/scroller": "^3.1.0-alpha.1",
     "@mand-mobile/shared": "^3.1.0-alpha.0",
     "@vue/test-utils": "^1.0.4",
     "babel-plugin-import": "^1.13.0",
