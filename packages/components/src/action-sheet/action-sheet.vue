@@ -1,9 +1,9 @@
 <template>
   <div class="md-action-sheet">
     <md-popup
-      class="inner-popup large-radius"
       v-model="isActionSheetShow"
       position="bottom"
+      isInner="true"
       prevent-scroll
       @show="$_onShow"
       @hide="$_onHide"
