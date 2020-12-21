@@ -1,11 +1,11 @@
 <template>
-  <div class="md-codebox-wrapper">
+  <div class="md-codebox-wrapper" :class="{'md-view': isView}">
     <div
       class="md-codebox"
-      :class="[
-        disabled ? 'md-disabled' : '',
-        justify ? 'md-justify': '',
-      ]"
+      :class="{
+        'md-disabled': disabled,
+        'md-justify': justify,
+      }"
       @click="focus"
     >
       <template v-if="maxlength > 0">
@@ -52,7 +52,9 @@
         />
       </template>
     </div>
-    <slot></slot>
+    <div class="md-codebox_footer">
+      <slot/>
+    </div>
     <form ref="form" action="" v-if="system" @submit="$_onSubmit">
       <input
         :value="code"
@@ -281,7 +283,12 @@ export default {
     // border-bottom 1px solid red
     left -9999px
     opacity 0
-
+  &.md-view
+    .md-codebox, .md-codebox_footer
+      margin 0 40px
+    .md-codebox_footer
+      margin-bottom 44px
+      
 .md-codebox
   position relative
   display flex
