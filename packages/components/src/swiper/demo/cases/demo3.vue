@@ -14,7 +14,7 @@
 
 <script>
 import Swiper from 'mand-mobile/lib/swiper'
-import SwiperItem from 'mand-mobile/lib/swiper-item'
+import SwiperItem from 'mand-mobile/lib/swiper/swiper-item'
 import mulit from 'mand-mobile/lib/swiper/demo/data/mulit-item'
 
 export default {
