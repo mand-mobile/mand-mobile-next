@@ -36,9 +36,9 @@ Vue.component(SwiperItem.name, SwiperItem)
 |default-index|第一屏面板索引值|Number|`0`|`[0, length - 1]`|
 |has-dots|控制面板指示点|Boolean|`true`|-|
 |is-prevent|阻止默认的事件，如页面滚动事件|Boolean|`true`|为`swiper-item`绑定点击事件需将其设置为`false`|
-|is-loop|循环播放|Boolean|`true`|-|
 |dragable|禁用触摸滑动|Boolean|`true`|-|
 |use-native-driver|开启3D加速|Boolean|`true`|-|
+|is-loop <MDPlatformTag web/>|循环播放|Boolean|`true`|-|
 
 ### Swiper Methods
 
