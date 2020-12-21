@@ -394,6 +394,9 @@ export default {
   },
   created() {
     this.inputValue = this.$_formateValue(this.$_subValue(this.value + '')).value
+    this.$_stopEditInput = debounce(function() {
+      this.isInputEditing = false
+    }, 500)
   },
   mounted() {
     if (this.isVirtualKeyboard) {
@@ -488,9 +491,7 @@ export default {
       this.isInputEditing = true
       this.$_stopEditInput()
     },
-    $_stopEditInput: debounce(function() {
-      this.isInputEditing = false
-    }, 500),
+    $_stopEditInput: noop,
     $_clearInput() {
       this.inputValue = ''
       if (!this.isTitleLatent) {
