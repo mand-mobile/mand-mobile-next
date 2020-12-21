@@ -5,7 +5,7 @@
   >
     <md-cell-item
       v-for="(item, index) in options"
-      :key="item"
+      :key="item.value"
       class="md-radio-item"
       :class="{
         'md-radio-item--is-selected': selectedValue === item.value && !inputSelected,
