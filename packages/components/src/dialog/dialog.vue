@@ -6,13 +6,11 @@
       :maskClosable="maskClosable"
       position="center"
       :transition="transition"
-      :preventScroll="preventScroll"
-      :preventScrollExclude="preventScrollExclude"
       @input="$_onInput"
       @show="$_onShow"
       @hide="$_onHide"
     >
-      <div class="md-dialog_content">
+      <div class="md-dialog_content" :class="[`md-dialog_content--${position}`]">
         <slot name="header"></slot>
         <div class="md-dialog_content_body">
           <div
@@ -47,9 +45,9 @@
               @click="$_onClick(btn, index)"
               @touchmove.prevent
             >
-              <!--              <md-activity-indicator-rolling v-if="btn.loading" class="md-dialog-btn-loading"></md-activity-indicator-rolling>-->
+              <md-activity-indicator v-if="btn.loading" class="md-dialog-btn-loading"></md-activity-indicator>
               <md-icon
-                v-if="btn.icon"
+                v-else-if="btn.icon"
                 class="md-dialog_content_actions_btn_icon"
                 :name="btn.icon"
                 :svg="btn.iconSvg"
@@ -67,7 +65,7 @@
 <script>
 import Popup from '../popup'
 import Icon from '../icon'
-// import ActivityIndicatorRolling from '../activity-indicator/roller'
+import ActivityIndicator from '../activity-indicator'
 
 export default {
   name: 'md-dialog',
@@ -75,7 +73,7 @@ export default {
   components: {
     'md-popup': Popup,
     'md-icon': Icon,
-    // 'md-activity-indicator-rolling': ActivityIndicatorRolling,
+    'md-activity-indicator': ActivityIndicator,
   },
 
   props: {
@@ -114,6 +112,10 @@ export default {
       type: String,
       default: 'row',
     },
+    position: {
+      type: String,
+      default: 'center',
+    },
     appendTo: {
       default: false,
     },
@@ -128,14 +130,6 @@ export default {
     transition: {
       type: String,
       default: 'md-fade',
-    },
-    preventScroll: {
-      type: Boolean,
-      default: false,
-    },
-    preventScrollExclude: {
-      type: String,
-      default: '',
     },
   },
 
@@ -194,6 +188,8 @@ export default {
   border-radius md-dialog-radius
   background-color md-color-bg-inverse
   overflow hidden
+  &--top
+    margin-bottom 500px
 
 .md-dialog_content_body
   color md-dialog-text-color
@@ -275,25 +271,25 @@ export default {
   -webkit-tap-highlight-color transparent
   &--warning
     color md-color-text-error !important
-    // .md-dialog-btn-loading .md-activity-indicator_svg .md-circle circle
-    //   stroke md-color-text-error !important
+    .md-dialog-btn-loading .md-activity-indicator_svg .md-circle circle
+      stroke md-color-text-error !important
   &--disabled
     color md-color-text-disabled !important
-    // .md-dialog-btn-loading .md-activity-indicator_svg .md-circle circle
-    //   stroke md-color-text-disabled !important
+    .md-dialog-btn-loading .md-activity-indicator_svg .md-circle circle
+      stroke md-color-text-disabled !important
   &:last-child
     color md-dialog-action-highlight-color
     remove-hairline(right)
-    // .md-dialog-btn-loading .md-activity-indicator_svg .md-circle circle
-    //   stroke md-dialog-action-highlight-color
+    .md-dialog-btn-loading .md-activity-indicator_svg .md-circle circle
+      stroke md-dialog-action-highlight-color
   &:not(.disabled):active
     background-color md-color-bg-tap
-  // .md-dialog-btn-loading .md-activity-indicator_svg
-  //   width 32px !important
-  //   height 32px !important
-  //   margin-right 10px
-  //   .circle circle
-  //     stroke md-color-text-minor
+  .md-dialog-btn-loading .md-activity-indicator_svg
+    width 32px !important
+    height 32px !important
+    margin-right 10px
+    .circle circle
+      stroke md-color-text-minor
   .md-dialog_content_actions_btn_icon
     margin-right 10px
 </style>
