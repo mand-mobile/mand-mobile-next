@@ -74,7 +74,8 @@
   </div>
 </template>
 
-<script>// import titleBarMixin from './mixins/title-bar'
+<script>
+// import titleBarMixin from './mixins/title-bar'
 import Icon from '../icon'
 
 export default {
@@ -113,17 +114,9 @@ export default {
       default: false,
     },
   },
-
-  watch: {
-    largeRadius: {
-      handler(val) {
-        this.$parent.largeRadius = val
-      },
-      immediate: true,
-    },
-  },
 }
-</script>
+
+</script>
 
 <style lang="stylus" scoped>
 .md-popup-title-bar
