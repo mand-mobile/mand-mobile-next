@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import {inBrowser} from '@mand-mobile/shared/lib/util/env'
+import {inBrowser, mdDocument} from '@mand-mobile/shared/lib/util'
 import NumberKeyboard from '../number-keyboard'
 
 export default {
@@ -179,30 +179,28 @@ export default {
     },
   },
   mounted() {
-    if (this.closable && document) {
-      document.addEventListener('click', this.$_handleOutClick)
+    if (this.closable) {
+      mdDocument.addEventListener('click', this.$_handleOutClick)
     }
-    if (!this.system && !this.isView && document) {
-      document.body.appendChild(this.$refs.keyboard.$el)
+    if (!this.system && !this.isView) {
+      mdDocument.body.appendChild(this.$refs.keyboard.$el)
     }
     this.$nextTick(() => {
       this.focused = this.autofocus
     })
   },
   beforeDestroy() {
-    if (this.closable && document) {
-      document.removeEventListener('click', this.$_handleOutClick)
+    if (this.closable) {
+      mdDocument.removeEventListener('click', this.$_handleOutClick)
     }
     if (this.focused) {
       this.blur()
     }
-    if (!this.system && !this.isView && document) {
-      document.body.removeChild(this.$refs.keyboard.$el)
+    if (!this.system && !this.isView) {
+      mdDocument.body.removeChild(this.$refs.keyboard.$el)
     }
   },
   methods: {
-    // MARK: private methods
-
     // MARK: events handler
     $_handleOutClick(e) {
       if (inBrowser && !this.$el.contains(e.target)) {
