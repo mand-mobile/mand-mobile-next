@@ -22,7 +22,7 @@
             <md-icon name="close" />
           </div>
           <div v-if="icon" class="md-dialog_content_body_icon">
-            <md-icon :name="icon" :svg="iconSvg" />
+            <md-icon :name="icon" :svg="iconSvg" :size="iconSize"/>
           </div>
           <h2 class="md-dialog_content_body_title" v-if="title" v-text="title"></h2>
           <slot>
@@ -92,6 +92,10 @@ export default {
     iconSvg: {
       type: Boolean,
       default: false,
+    },
+    iconSize: {
+      type: String,
+      default: 'slg',
     },
     closable: {
       type: Boolean,
@@ -203,21 +207,21 @@ export default {
   width md-dialog-icon-size
   height md-dialog-icon-size
   margin md-v-gap-md auto 28px
-.md-dialog .md-dialog_content_body_icon .md-icon
-.md-dialog .md-dialog_content_body_icon .md-icon.icon-svg
-.md-dialog .md-dialog_content_body_icon .md-icon.icon-font
-  display flex
-  align-items center
-  justify-content center
-  position absolute
-  top 0
-  left 0
-  width md-dialog-icon-size
-  height md-dialog-icon-size
-  fill md-dialog-icon-fill
-  color md-dialog-icon-fill
-  font-size md-dialog-icon-size
-  line-height md-dialog-icon-size
+// .md-dialog .md-dialog_content_body_icon .md-icon
+// .md-dialog .md-dialog_content_body_icon .md-icon.icon-svg
+// .md-dialog .md-dialog_content_body_icon .md-icon.icon-font
+//   display flex
+//   align-items center
+//   justify-content center
+//   position absolute
+//   top 0
+//   left 0
+  // width md-dialog-icon-size
+  // height md-dialog-icon-size
+  // fill md-dialog-icon-fill
+  // color md-dialog-icon-fill
+  // font-size md-dialog-icon-size
+  // line-height md-dialog-icon-size
 
 .md-dialog_content_body_close
   position absolute
