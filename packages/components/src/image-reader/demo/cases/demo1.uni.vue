@@ -1,9 +1,9 @@
 <template>
-  <div class="md-example-child md-example-child-reader md-example-child-reader-0">
+  <div class="md-example-child md-example-child-reader md-example-child-reader-1">
     <ul class="image-reader-list">
       <li
         class="image-reader-item"
-        v-for="(img, index) in imageList['reader0']"
+        v-for="(img, index) in imageList['reader1']"
         :key="index"
         :style="{
           'backgroundImage': `url(${img})`,
@@ -19,17 +19,18 @@
           fill-color="#111A34"
           type="fill"
           font-color="#fff"
-          @click.native="onDeleteImage('reader0', index)"
+          @click.native="onDeleteImage('reader1', index)"
         >
           <md-icon name="close" size="sm"></md-icon>
         </md-tag>
       </li>
       <li class="image-reader-item add">
         <md-image-reader
-          name="reader0"
+          name="reader1"
           @select="onReaderSelect"
           @complete="onReaderComplete"
           @error="onReaderError"
+          is-multiple
         ></md-image-reader>
         <!-- <md-icon name="camera" size="md" color="#CCC"></md-icon> -->
         <img src="http://img-hxy021.didistatic.com/static/manhattan_fe/do1_CMYGcgAwc4JUNBzc61St" />
@@ -63,22 +64,27 @@ export default {
     }
   },
   methods: {
-    onReaderSelect(name, {files}) {
-      files.forEach(file => {
-        // eslint-disable-next-line no-console
-        console.log('[Mand Mobile] ImageReader Selected:', 'File Name ' + file.name)
-      })
+    onReaderSelect() {
       Toast.loading('图片读取中...')
     },
-    onReaderComplete(name, {dataUrl, file}) {
+    onReaderComplete(name, {file}) {
+      const demoImageList = this.imageList[name] || []
+
+      // eslint-disable-next-line no-undef
+      uni.compressImage({
+        src: file.path,
+        width: 10,
+        height: 10,
+        quality: 1,
+        success: res => {
+          // eslint-disable-next-line no-undef
+          const dataUrl = uni.getFileSystemManager().readFileSync(res.tempFilePath, 'base64')
+          demoImageList.push(`data:image/jpeg;base64,${dataUrl}`)
+          this.$set(this.imageList, name, demoImageList)
+        },
+      })
+
       Toast.hide()
-      // eslint-disable-next-line no-console
-      console.log('[Mand Mobile] ImageReader Complete:', 'File Name ' + file.name)
-      setTimeout(() => {
-        const demoImageList = this.imageList[name] || []
-        demoImageList.push(dataUrl)
-        this.$set(this.imageList, name, demoImageList)
-      }, 100)
     },
     onReaderError(name, {msg}) {
       Toast.failed(msg)
@@ -94,11 +100,12 @@ export default {
 }
 // #region ignore
 export const metaInfo = {
+  describe: 'width: 200&nbsp;&nbsp;height: 200&nbsp;&nbsp;quality: 0.1',
   'zh-CN': {
-    title: '图片选择',
+    title: '图片选择并轴向修正，压缩处理',
   },
   'en-US': {
-    title: 'Picture selection',
+    title: 'Picture selection and axial correction, compression processing',
   },
 }
 // #endregion ignore
@@ -131,7 +138,7 @@ export const metaInfo = {
   margin-right: 0;
 }
 
-.md-example-child-reader .image-reader-item .image-reader-item-del {
+.md-example-child-reader .image-reader-item-del {
   position: absolute;
   top: 0;
   right: 0;

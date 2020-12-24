@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style>
-.md-example-child-swiper-2 .md-swiper {
+.md-example-child-swiper-2 {
   height: 250px;
 }
 .md-example-child-swiper-2 .banner-item {

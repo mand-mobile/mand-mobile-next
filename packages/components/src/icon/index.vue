@@ -103,6 +103,8 @@ export default {
       font-size md-icon-size-md
     &.lg
       font-size md-icon-size-lg
+    &.slg
+      font-size md-icon-size-slg
     &:before
       position relative
       z-index 2
@@ -123,6 +125,9 @@ export default {
     &.lg
       width md-icon-size-lg
       vertical-height(md-icon-size-lg)
+    &.slg
+      width md-icon-size-slg
+      vertical-height(md-icon-size-slg)
 
 // name
 .md-icon-rectangle:before

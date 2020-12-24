@@ -1,11 +1,11 @@
 <template>
-  <div class="md-codebox-wrapper">
+  <div class="md-codebox-wrapper" :class="{'md-view': isView}">
     <div
       class="md-codebox"
-      :class="[
-        disabled ? 'md-disabled' : '',
-        justify ? 'md-justify': '',
-      ]"
+      :class="{
+        'md-disabled': disabled,
+        'md-justify': justify,
+      }"
       @click="focus"
     >
       <template v-if="maxlength > 0">
@@ -52,7 +52,9 @@
         />
       </template>
     </div>
-    <slot></slot>
+    <div class="md-codebox_footer">
+      <slot/>
+    </div>
     <form ref="form" action="" v-if="system" @submit="$_onSubmit">
       <input
         :value="code"
@@ -82,7 +84,7 @@
 </template>
 
 <script>
-import {inBrowser} from '@mand-mobile/shared/lib/util/env'
+import {inBrowser, mdDocument} from '@mand-mobile/shared/lib/util'
 import NumberKeyboard from '../number-keyboard'
 
 export default {
@@ -177,30 +179,28 @@ export default {
     },
   },
   mounted() {
-    if (this.closable && document) {
-      document.addEventListener('click', this.$_handleOutClick)
+    if (this.closable) {
+      mdDocument.addEventListener('click', this.$_handleOutClick)
     }
-    if (!this.system && !this.isView && document) {
-      document.body.appendChild(this.$refs.keyboard.$el)
+    if (!this.system && !this.isView) {
+      mdDocument.body.appendChild(this.$refs.keyboard.$el)
     }
     this.$nextTick(() => {
       this.focused = this.autofocus
     })
   },
   beforeDestroy() {
-    if (this.closable && document) {
-      document.removeEventListener('click', this.$_handleOutClick)
+    if (this.closable) {
+      mdDocument.removeEventListener('click', this.$_handleOutClick)
     }
     if (this.focused) {
       this.blur()
     }
-    if (!this.system && !this.isView && document) {
-      document.body.removeChild(this.$refs.keyboard.$el)
+    if (!this.system && !this.isView) {
+      mdDocument.body.removeChild(this.$refs.keyboard.$el)
     }
   },
   methods: {
-    // MARK: private methods
-
     // MARK: events handler
     $_handleOutClick(e) {
       if (inBrowser && !this.$el.contains(e.target)) {
@@ -281,7 +281,12 @@ export default {
     // border-bottom 1px solid red
     left -9999px
     opacity 0
-
+  &.md-view
+    .md-codebox, .md-codebox_footer
+      margin 0 40px
+    .md-codebox_footer
+      margin-bottom 44px
+      
 .md-codebox
   position relative
   display flex

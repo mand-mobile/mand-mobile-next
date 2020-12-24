@@ -1,17 +1,17 @@
 <template>
   <div class="md-example-child md-example-child-amount">
-    <p>
-      <span class="describe">Original</span>
+    <div class="md-example-child-amount_item">
+      <p class="describe">Original</p>
       <md-amount :value="1234.125" :precision="3"></md-amount>
-    </p>
-    <p>
-      <span class="describe">Round</span>
+    </div>
+    <div class="md-example-child-amount_item">
+      <p class="describe">Round</p>
       <md-amount :value="1234.125"></md-amount>
-    </p>
-    <p>
-      <span class="describe">Floor</span>
+    </div>
+    <div class="md-example-child-amount_item">
+      <p class="describe">Floor</p>
       <md-amount :value="1234.123" :is-round-up="false"></md-amount>
-    </p>
+    </div>
 	</div>
 </template>
 
@@ -27,15 +27,16 @@ export default {
 </script>
 
 <style scoped>
-.md-example-child-amount {
-  text-align: center;
-  color: #666;
+.md-example-child-amount .md-example-child-amount_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 48px;
 }
-.md-example-child-amount p {
-  font-size: 50px;
-  font-weight: 300;
-}
-.md-example-child-amount p span.describe {
+.md-example-child-amount .md-example-child-amount_item .describe {
+  color: #999;
   font-size: 18px;
+  font-weight: 300;
 }
 </style>

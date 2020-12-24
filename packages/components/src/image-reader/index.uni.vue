@@ -1,91 +1,45 @@
 <template>
   <div class="md-image-reader">
-    <div class="md-image-reader_file" @click="$_onChooseImage"></div>
+    <div class="md-image-reader_file" @click="$_onReaderChange"></div>
   </div>
 </template>
 
 <script>
-import {randomId} from '@mand-mobile/shared/lib/util'
-
-const ERROR = {
-  '100': 'browser does not support',
-  '101': 'picture size is beyond the preset',
-  '102': 'picture read failure',
-  '103': 'the number of pictures exceeds the limit',
-}
+import imageReaderMixin from './mixins'
 
 export default {
   name: 'md-image-reader',
 
-  props: {
-    name: {
-      type: String,
-      default() {
-        return randomId('image-reader')
-      },
-    },
-    size: {
-      type: [String, Number],
-      default: 0,
-    },
-    isCameraOnly: {
-      type: Boolean,
-      default: false,
-    },
-    amount: {
-      type: Number,
-      default: 0,
-    },
-  },
+  mixins: [imageReaderMixin],
 
   methods: {
-    // MARK: private methods
-    $_emitter(event, data) {
-      this.$emit(event, this.name, data)
+    $_readFile(files) {
+      files.forEach(file => {
+        if (this.size && file.size > this.size) {
+          this.$_mixinReaderComplete(101)
+          return
+        }
+        try {
+          // eslint-disable-next-line no-undef
+          const dataUrl = uni.getFileSystemManager().readFileSync(file.path, 'base64')
+          this.$_mixinReaderComplete(0, {
+            dataUrl: `data:image/jpeg;base64,${dataUrl}`,
+            file,
+          })
+        } catch (error) {
+          this.$_mixinReaderComplete(102)
+        }
+      })
     },
     // MARK: events handler
-    $_onChooseImage() {
+    $_onReaderChange() {
       // eslint-disable-next-line no-undef
       uni.chooseImage({
-        count: this.amount,
-        sizeType: ['original', 'compressed'],
+        count: this.isMultiple ? this.amount : 1,
+        sizeType: ['original'],
         sourceType: this.isCameraOnly ? ['camera'] : ['camera', 'album'],
         success: res => {
-          const {tempFiles} = res || {}
-          if (!tempFiles) {
-            this.$_emitter('error', {
-              code: '102',
-              msg: ERROR['102'],
-            })
-            return
-          }
-          if (this.amount && tempFiles.length > this.amount) {
-            this.$_emitter('error', {
-              code: '103',
-              msg: ERROR['103'],
-            })
-            return
-          }
-          tempFiles.forEach(file => {
-            if (this.size && file.size > this.size) {
-              this.$_emitter('error', {
-                code: '101',
-                msg: ERROR['101'],
-              })
-              return
-            }
-            this.$_emitter('complete', {
-              dataUrl: file.path,
-              file,
-            })
-          })
-        },
-        // eslint-disable-next-line no-unused-vars
-        fail: err => {
-          this.$_emitter('error', {
-            code: '102',
-            msg: ERROR['102'],
-          })
+          this.$_mixinReaderChange(res.tempFiles)
         },
       })
     },

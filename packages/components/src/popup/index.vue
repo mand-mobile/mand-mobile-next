@@ -9,10 +9,15 @@
       isInner? 'inner-popup' : ''
     ]"
   >
-    <md-transition :show="hasMask && isPopupBoxShow" name="md-fade">
+    <md-transition
+      class="md-popup-transition md-popup-transition_mask"
+      :show="hasMask && isPopupBoxShow"
+      name="md-fade"
+    >
       <div class="md-popup_mask" @click="$_onPopupMaskClick"></div>
     </md-transition>
     <md-transition
+      class="md-popup-transition md-popup-transition_box"
       :show="isPopupBoxShow"
       :name="transitionName"
       :styles="{height: (position === 'left' || position === 'right') ? '100%' : 'auto'}"
@@ -28,7 +33,8 @@
   </div>
 </template>
 
-<script>import Transition from '../transition'
+<script>
+import Transition from '../transition'
 import popupMixin from './mixins'
 
 export default {
@@ -45,16 +51,6 @@ export default {
     transition: {
       type: String,
       default: '',
-    },
-    preventScroll: {
-      type: Boolean,
-      default: false,
-    },
-    preventScrollExclude: {
-      type: [String, Function],
-      default() {
-        return ''
-      },
     },
     isFullScreen: {
       type: Boolean,
@@ -206,7 +202,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-popup
@@ -254,6 +251,10 @@ export default {
   &.inner-popup .md-popup_box
     background-color md-color-bg-inverse
     border-radius md-popup-title-bar-radius md-popup-title-bar-radius 0 0
+
+.md-popup-transition_box
+  position relative
+  z-index 2
 
 .md-popup_mask
   absolute-pos()
