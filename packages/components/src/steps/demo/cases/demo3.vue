@@ -1,6 +1,6 @@
 <template>
   <div class="md-example-child md-example-child-steps md-example-child-steps-3">
-    <md-steps :steps="steps" :current="2"></md-steps>
+    <md-steps :steps="steps" :current="2" dislocation></md-steps>
   </div>
 </template>
 

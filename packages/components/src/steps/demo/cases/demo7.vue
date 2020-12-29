@@ -3,9 +3,19 @@
     <md-steps
       direction="vertical"
       :steps="steps"
-      :current="1"
-      vertical-adaptive
-    ></md-steps>
+      :current="1.5"
+      adaptive
+    >
+      <template #reached={}>
+        <div class="step-icon reached"></div>
+      </template>
+      <template #current={}>
+        <div class="step-icon reached"></div>
+      </template>
+      <template #unreached={}>
+        <div class="step-icon"></div>
+      </template>
+    </md-steps>
   </div>
 </template>
 
@@ -20,20 +30,16 @@ export default {
     return {
       steps: [
         {
-          name: '登录',
-          text: '这是登录的描述',
+          name: '步骤一',
+          text: '这是步骤一的描述',
         },
         {
-          name: '开通',
-          text: '这是开通的描述',
+          name: '步骤二',
+          text: '这是步骤二的描述',
         },
         {
-          name: '验证',
-          text: '这是验证的描述',
-        },
-        {
-          name: '成功',
-          text: '这是成功的描述',
+          name: '步骤三',
+          text: '这是步骤三的描述',
         },
       ],
     }
@@ -51,3 +57,22 @@ export const metaInfo = {
 // #endregion ignore
 
 </script>
+
+<style scoped>
+.md-example-child-steps-7 {
+  height: 450px;
+  padding: 40px;
+  border-radius: 8px;
+  background: #ebebeb;
+}
+.step-icon {
+  width: 32px;
+  height: 32px;
+  border: solid 6px #e2e4ea;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.step-icon.reached {
+  border-color: #2f86f6;
+}
+</style>

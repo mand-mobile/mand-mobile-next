@@ -1,8 +1,23 @@
 <template>
   <div class="md-example-child md-example-child-steps md-example-child-steps-2">
     <md-steps :steps="steps" :current="2">
-      <template v-slot:icon>
-        <span>99</span>
+      <template #icon="{index, currentIndex}">
+        <p :class="{highlight: index === currentIndex}">{{ index }}</p>
+      </template>
+    </md-steps>
+    <md-steps
+      :steps="steps"
+      :current="2"
+    >
+      <template #reached="{index}">
+        <md-icon name="checked" v-if="index === 1"></md-icon>
+        <md-icon name="check" v-else></md-icon>
+      </template>
+      <template #current={}>
+        <md-icon name="location"></md-icon>
+      </template>
+      <template #unreached={}>
+        <md-icon name="time"></md-icon>
       </template>
     </md-steps>
   </div>
@@ -48,3 +63,10 @@ export const metaInfo = {
 // #endregion ignore
 
 </script>
+
+<style scoped>
+p.highlight {
+  font-size: 42px;
+  font-weight: bold;
+}
+</style>
