@@ -111,11 +111,12 @@ export const metaInfo = {
   flex-direction: column;
   align-items: center;
   width: 33.3%;
-  margin-bottom: 32px;
+  margin-bottom: 56px;
+  color: #111A34;
 }
 .md-example-child-icon .md-example-item .icon-name {
   margin-top: 5px;
-  font-size: 18px;
+  font-size: 14px;
   color: #666;
 }
 </style>
