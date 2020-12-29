@@ -3,6 +3,7 @@
     <md-water-mark
       class="text-container"
       spacing="10vw"
+      opacity="0.5"
     >
       <p class="text">
         通过<b>作用域插槽</b>的坐标属性(coord)可以对水印行列进行定制
@@ -13,7 +14,7 @@
       <p class="text">
         通过<b>作用域插槽</b>的坐标属性(coord)可以对水印行列进行定制
       </p>
-      <template slot="watermark" slot-scope="{ coord }">
+      <template #watermark="{ coord }">
         <span>水印（{{coord.row}}-{{coord.col}}）</span>
       </template>
     </md-water-mark>
@@ -53,5 +54,9 @@ export const metaInfo = {
   margin-bottom: 20px;
   font-size: 24px;
   text-indent: 2em;
+}
+.md-example-child-water-mark .text b {
+  display: inline;
+  font-weight: bold;
 }
 </style>
