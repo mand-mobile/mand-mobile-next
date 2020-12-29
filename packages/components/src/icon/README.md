@@ -24,7 +24,7 @@ Vue.component(Icon.name, Icon)
 </MDDemoWrapper>
 
 <MDDemoWrapper single>
-{{{ @/packages/components/src/icon/demo/cases/demo1.vue
+{{{ @/packages/components/src/icon/demo/cases/demo1.web.vue
 </MDDemoWrapper>
 
 <MDDemoWrapper>
@@ -38,7 +38,7 @@ Vue.component(Icon.name, Icon)
 |属性 | 说明 | 类型 | 默认值| 备注|
 |----|-----|------|------|------|
 |name|图标名称|String| | |
-|size|图标大小|String|`md`|`xs`, `sm`, `md`, `lg`|
+|size|图标大小|String|`md`|`xs`, `sm`, `md`, `lg`, `slg`|
 |color|图标颜色|String|当前字体颜色||
 |svg <MDPlatformTag web/>|使用svg图标|Boolean|`false`| |
 
