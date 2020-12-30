@@ -11,7 +11,8 @@
   </div>
 </template>
 
-<script>import {flatStyleObject} from '@mand-mobile/shared/lib/util'
+<script>
+import {flatStyleObject} from '@mand-mobile/shared/lib/util'
 
 export default {
   name: 'md-transition-uni',
@@ -35,7 +36,7 @@ export default {
     return {
       transitionClass: [],
       isShow: false,
-      whenTransitionEnds: null,
+      whenTransitionEnds: {},
     }
   },
   computed: {
@@ -62,6 +63,14 @@ export default {
       if (!this.name) {
         return
       }
+
+      /**
+       * Clear the hook registered in the previous step, because the closing 
+       * of "isShow" is a delayed operation that will cause the state to be 
+       * disordered when clicke quickly
+       */
+      this.$_onTransitionendEnd()
+
       const animationClass = this.$_getTransitionClass(this.name)
       const startClass = animationClass.enterClass
       const activeClass = animationClass.enterActiveClass
@@ -74,11 +83,11 @@ export default {
         this.$nextTick(() => {
           this.$_removeTransitionClass(startClass)
           this.$_addTransitionClass(toClass)
-          this.whenTransitionEnds = () => {
+          this.whenTransitionEnds.enter = () => {
             this.$_removeTransitionClass(toClass)
             this.$_removeTransitionClass(activeClass)
             this.$emit('afterEnter')
-            this.whenTransitionEnds = null
+            this.$_abortTransition('enter')
           }
         })
       }, 50)
@@ -89,6 +98,7 @@ export default {
       if (!this.name) {
         return
       }
+
       const animationClass = this.$_getTransitionClass(this.name)
       const startClass = animationClass.leaveClass
       const activeClass = animationClass.leaveActiveClass
@@ -100,15 +110,22 @@ export default {
       this.$nextTick(() => {
         this.$_removeTransitionClass(startClass)
         this.$_addTransitionClass(toClass)
-        this.whenTransitionEnds = () => {
+        this.whenTransitionEnds.leave = () => {
           this.$_removeTransitionClass(toClass)
           this.$_removeTransitionClass(activeClass)
           this.$emit('afterLeave')
           this.isShow = false
-          this.whenTransitionEnds = null
+          this.$_abortTransition('leave')
         }
       })
       this.$emit('leave')
+    },
+    $_abortTransition(type) {
+      if (type) {
+        delete this.whenTransitionEnds[type]
+      } else {
+        this.whenTransitionEnds = {}
+      }
     },
     $_getTransitionClass(name) {
       return {
@@ -133,11 +150,14 @@ export default {
       }
     },
     $_onTransitionendEnd() {
-      this.whenTransitionEnds && this.whenTransitionEnds()
+      const {enter, leave} = this.whenTransitionEnds
+      enter && enter.call(this)
+      leave && leave.call(this)
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 @import '~@mand-mobile/shared/lib/style/transition.styl'
