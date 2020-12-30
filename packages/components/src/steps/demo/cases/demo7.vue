@@ -1,19 +1,26 @@
 <template>
-  <div class="md-example-child md-example-child-steps md-example-child-steps-7">
+  <div class="md-example-child md-example-child-steps md-example-child-steps-8">
     <md-steps
       direction="vertical"
       :steps="steps"
-      :current="1.5"
-      adaptive
+      :current="0.5"
     >
-      <template #reached={}>
-        <div class="step-icon reached"></div>
+      <template #reached>
+        <md-icon name="checked"></md-icon>
       </template>
-      <template #current={}>
-        <div class="step-icon reached"></div>
-      </template>
-      <template #unreached={}>
-        <div class="step-icon"></div>
+      <template #content="{index, step}">
+        <div class="custom-content">
+          <template v-if="index === 0">
+            <p class="name active" v-text="step.name"></p>
+            <p class="amount">
+              <md-amount class="md-amount" :value="step.amount"/>元
+            </p>
+            <p class="desc" v-html="step.text"></p>
+          </template>
+          <template v-else>
+            <p class="name" v-text="step.name"></p>
+          </template>
+        </div>
       </template>
     </md-steps>
   </div>
@@ -21,25 +28,25 @@
 
 <script>
 import Steps from 'mand-mobile/lib/steps'
+import Amount from 'mand-mobile/lib/amount'
+import Icon from 'mand-mobile/lib/icon'
 
 export default {
   components: {
     'md-steps': Steps,
+    'md-amount': Amount,
+    'md-icon': Icon,
   },
   data() {
     return {
       steps: [
         {
-          name: '步骤一',
-          text: '这是步骤一的描述',
+          name: '还款申请已提交',
+          amount: 600.5,
+          text: '银行处理中，预计30分钟内到账，请留意短信信息。如有疑问，请联系客服。',
         },
         {
-          name: '步骤二',
-          text: '这是步骤二的描述',
-        },
-        {
-          name: '步骤三',
-          text: '这是步骤三的描述',
+          name: '还款成功',
         },
       ],
     }
@@ -48,10 +55,10 @@ export default {
 // #region ignore
 export const metaInfo = {
   'zh-CN': {
-    title: '纵向展示',
+    title: '自定义内容',
   },
   'en-US': {
-    title: 'Vertical display',
+    title: 'Custom content',
   },
 }
 // #endregion ignore
@@ -59,20 +66,32 @@ export const metaInfo = {
 </script>
 
 <style scoped>
-.md-example-child-steps-7 {
-  height: 450px;
-  padding: 40px;
-  border-radius: 8px;
-  background: #ebebeb;
+.custom-content {
+  margin-bottom: 20px;
 }
-.step-icon {
-  width: 32px;
-  height: 32px;
-  border: solid 6px #e2e4ea;
-  border-radius: 50%;
-  box-sizing: border-box;
+.custom-content .name {
+  font-size: 28px;
+  color: #858B9C
 }
-.step-icon.reached {
-  border-color: #2f86f6;
+.custom-content .name.active {
+  /* font-size: 40px; */
+  color: #111A34;
+}
+.custom-content .amount {
+  margin-top: 20px;
+  color: #111A34;
+}
+.custom-content .amount .md-amount {
+  margin-right: 5px;
+  font-size: 60px;
+}
+.custom-content .desc {
+  line-height: 40px !important;
+  font-size: 26px;
+  color: #858b9c;
+}
+.custom-content .desc /deep/span {
+  color: #FF8325;
 }
 </style>
+

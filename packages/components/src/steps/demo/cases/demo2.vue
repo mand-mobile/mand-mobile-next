@@ -65,6 +65,9 @@ export const metaInfo = {
 </script>
 
 <style scoped>
+.md-example-child-steps-2 {
+  padding: 0 30px;
+}
 p.highlight {
   font-size: 42px;
   font-weight: bold;

@@ -57,3 +57,9 @@ export const metaInfo = {
 
 </script>
 
+<style scoped>
+.md-example-child-steps-4 {
+  padding: 0 30px;
+}
+</style>
+

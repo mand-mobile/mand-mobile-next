@@ -29,3 +29,9 @@ export default {
 }
 
 </script>
+
+<style scoped>
+.md-example-child-steps-0 {
+  padding: 0 60px;
+}
+</style>

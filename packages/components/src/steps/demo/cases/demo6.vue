@@ -1,6 +1,21 @@
 <template>
-  <div class="md-example-child md-example-child-steps md-example-child-steps-6">
-    <md-steps :steps="steps" :current="currentStep"></md-steps>
+  <div class="md-example-child md-example-child-steps md-example-child-steps-7">
+    <md-steps
+      direction="vertical"
+      :steps="steps"
+      :current="1.5"
+      adaptive
+    >
+      <template #reached={}>
+        <div class="step-icon reached"></div>
+      </template>
+      <template #current={}>
+        <div class="step-icon reached"></div>
+      </template>
+      <template #unreached={}>
+        <div class="step-icon"></div>
+      </template>
+    </md-steps>
   </div>
 </template>
 
@@ -15,31 +30,49 @@ export default {
     return {
       steps: [
         {
-          name: '登录',
+          name: '步骤一',
+          text: '这是步骤一的描述',
         },
         {
-          name: '开通',
+          name: '步骤二',
+          text: '这是步骤二的描述',
         },
         {
-          name: '验证',
-        },
-        {
-          name: '成功',
+          name: '步骤三',
+          text: '这是步骤三的描述',
         },
       ],
-      currentStep: 4,
     }
   },
 }
 // #region ignore
 export const metaInfo = {
   'zh-CN': {
-    title: '完成全部步骤',
+    title: '纵向展示',
   },
   'en-US': {
-    title: 'Complete all steps',
+    title: 'Vertical display',
   },
 }
 // #endregion ignore
 
 </script>
+
+<style scoped>
+.md-example-child-steps-7 {
+  height: 450px;
+  padding: 40px;
+  border-radius: 8px;
+  background: #FFF;
+}
+.step-icon {
+  width: 32px;
+  height: 32px;
+  border: solid 6px #e2e4ea;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.step-icon.reached {
+  border-color: #2f86f6;
+}
+</style>
