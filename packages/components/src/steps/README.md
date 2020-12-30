@@ -24,7 +24,6 @@ Vue.component(Steps.name, Steps)
 {{{ @/packages/components/src/steps/demo/cases/demo5.web.vue
 {{{ @/packages/components/src/steps/demo/cases/demo6.vue
 }}} @/packages/components/src/steps/demo/cases/demo7.vue
-}}} @/packages/components/src/steps/demo/cases/demo8.vue
 </MDDemoWrapper>
 
 ## API
@@ -32,13 +31,25 @@ Vue.component(Steps.name, Steps)
 ### Steps Props
 | 属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------|------|
-|steps|步骤信息数组|Array\<{name, text}\>| | |
+|steps|步骤信息数组|Array\<[StepOptions](#stepoptions)\>| | |
 |current|当前步骤/进度|Number|`0`| 支持小数 |
 |direction|展示方向|String|`horizontal`|`horizontal`, `vertical`|
 |transition|进度变化动效|Boolean|`false`| |
-|dislocation|步骤文案交错排列|Boolean|`false`|仅支持水平方向展示时|
+|dislocation|步骤文案位置自动交错排列|Boolean|`false`|仅支持水平方向展示时|
 |adaptive|步骤高度自适应|Boolean|`false`|仅用于`vertical`, **如果设置为`true`则根据容器高度自适应，需设置`.mfe-steps`高度**|
 
+### StepOptions
+| 属性 | 说明 | 类型 | 默认值 | 备注 |
+|----|-----|------|------|------|
+|name|步骤标题|String| | |
+|desc|步骤描述|String| | |
+|flex|步骤空间占比|Number| 1 | |
+|alignItems|步骤图标和连接线的对齐方式|String| center | flex-start/center/flex-end |
+|textPosition|步骤文本位置|String| bottom | top/bottom，仅支持水平方向展示时|
+|textAlign|步骤文本的对齐方式|String| center | left/center/right，仅支持水平方向展示时|
+|iconSize|步骤图标最小尺寸|Number| 32 | 单位px |
+|barSize|连接线尺寸|Number| 2 | 单位px |
+|barText|连接线文案|String| | |
 
 ### Steps Slots
 
