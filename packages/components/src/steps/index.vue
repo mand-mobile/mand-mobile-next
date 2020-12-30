@@ -1,13 +1,12 @@
 <template>
   <div
     class="md-steps"
-    :class="{
-      'md-steps--vertical': direction == 'vertical',
-      'md-steps--horizontal': direction == 'horizontal',
-      'md-steps--adaptive': direction == 'horizontal' || adaptive,
-      'md-steps--no-current': currentLength % 1 !== 0,
-      'md-steps--dislocation': dislocation
-    }"
+    :class="[
+      direction == 'horizontal' ? 'md-steps--horizontal' : 'md-steps--vertical',
+      direction == 'horizontal' || adaptive ? 'md-steps--adaptive' : '',
+      currentLength % 1 !== 0 ? 'md-steps--no-current': '',
+      `md-steps--padding-${padding}`
+    ]"
   >
     <template v-for="(step, index) of steps">
       <md-step-horizontal
@@ -24,6 +23,9 @@
         :slots="{
           icon: $scopedSlots.icon,
           content: $scopedSlots.content
+        }"
+        :style="{
+          flex: step.flex || 1
         }"
       >
         <template #icon>
@@ -97,6 +99,10 @@ import StepHorizontal from './step-horizontal'
 import StepNode from './step-node'
 import Icon from '../icon'
 
+const POS_TOP = 'top'
+const POS_BOTTOM = 'bottom'
+const POS_DIS = 'dislocation'
+
 export default {
   name: 'md-steps',
 
@@ -152,6 +158,26 @@ export default {
   },
 
   computed: {
+    padding() {
+      if (this.dislocation) {
+        return POS_DIS
+      }
+
+      let equal = false
+      const res = this.steps.every(step => {
+        const pos = step.textPosition || POS_BOTTOM
+        equal = pos === this.steps[0].textPosition || pos === POS_BOTTOM
+        return pos === POS_TOP
+      })
+
+      if (res) {
+        return POS_TOP
+      } else if (equal) {
+        return POS_BOTTOM
+      } else {
+        return POS_DIS
+      }
+    },
     barInnerTransform() {
       return index => {
         const {progress} = this
@@ -257,15 +283,17 @@ export default {
 
   &.md-steps--horizontal
     align-items center
-    padding 40px 100px 100px
+    padding 40px 0 100px
     &.md-steps--adaptive
       width 100%
       .md-steps_item--horizontal
         flex 1
         &:last-of-type
           display contents
-    &.md-steps--dislocation
-      padding 100px
+    &.md-steps--padding-dislocation
+      padding 100px 0
+    &.md-steps--padding-top
+      padding 100px 0 40px
 
   &.md-steps--vertical
     align-items flex-start

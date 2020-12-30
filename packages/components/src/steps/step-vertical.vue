@@ -6,13 +6,22 @@
       'md-last': isLast,
       'md-adaptive': adaptive,
     }"
+    :style="[
+      step.alignItems ? {alignItems: step.alignItems} : ''
+    ]"
   >
     <div class="md-steps-item_container">
       <div class="md-steps_wrapper">
-        <div v-if="slots.icon" class="md-steps_icon">
-          <slot name="icon"/>
-        </div>
-        <div v-else class="md-steps_icon">
+        <div
+          class="md-steps_icon"
+          :style="[step.iconSize ? {
+            minWidth: `${step.iconSize}px`,
+            minHeight: `${step.iconSize}px`
+          } : '']"
+        >
+          <template v-if="slots.icon">
+            <slot name="icon"/>
+          </template>
           <template v-if="isReached">
             <slot name="reached"/>
           </template>
@@ -23,12 +32,16 @@
             <slot name="unreached"/>
           </template>
         </div>
-        <div class="md-steps_bar">
+        <div class="md-steps_bar" :style="[
+          step.barSize ? {width: `${step.barSize}px`} : '',
+          step.barColor ? {backgroundColor: step.barColor} : ''
+        ]">
           <i
             v-if="progress"
             class="md-bar_inner"
             :style="barInnerTransformStyle"
           ></i>
+          <p v-if="step.barText" class="md-bar_text">{{step.barText}}</p>
         </div>
       </div>
       <div class="md-steps_text">
@@ -113,6 +126,7 @@ export default {
       color md-steps-text-color
     .md-desc
       margin-top 18px
+      font-size md-steps-desc-font-size
       color md-steps-desc-color
   .md-steps_bar
     position relative
@@ -131,4 +145,13 @@ export default {
       display block
       content ''
       transition all linear 1s
+    .md-bar_text
+      position absolute
+      absolute-pos()
+      z-index 11
+      display flex
+      align-items center
+      justify-content center
+      font-size 20px
+      color #FFF
 </style>

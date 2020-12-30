@@ -1,18 +1,29 @@
 <template>
   <div class="md-steps-item md-steps-item--horizontal"
-    :class="{
-      'md-reached': isReached,
-      'md-current': isCurrent,
-      'md-last': isLast,
-      'md-dislocation': dislocation
+    :class="[
+      isReached ? 'md-reached': '',
+      isCurrent ? 'md-current': '',
+      isLast ? 'md-last': '',
+      !step.textPosition && dislocation ? 'md-dislocation': '',
+      step.textPosition ? `md-position-${step.textPosition}` : '',
+      step.textAlign ? `md-textalign-${step.textAlign}` : ''
+    ]"
+    :style="{
+      alignItems: step.alignItems || 'center'
     }"
   >
     <div class="md-steps_wrapper">
-      <div v-if="slots.icon" class="md-steps_icon">
-        <slot name="icon"/>
-      </div>
-      <div v-else class="md-steps_icon">
-        <template v-if="isReached">
+      <div
+        class="md-steps_icon"
+        :style="[step.iconSize ? {
+          minWidth: `${step.iconSize}px`,
+          minHeight: `${step.iconSize}px`
+        } : '']"
+      >
+        <template v-if="slots.icon">
+          <slot name="icon"/>
+        </template>
+        <template v-else-if="isReached">
           <slot name="reached"/>
         </template>
         <template v-else-if="isCurrent">
@@ -30,12 +41,16 @@
         </template>
       </div>
     </div>
-    <div class="md-steps_bar">
+    <div class="md-steps_bar" :style="[
+      step.barSize ? {height: `${step.barSize}px`} : '',
+      step.barColor ? {backgroundColor: step.barColor} : ''
+    ]">
       <i
         v-if="progress"
         class="md-bar_inner"
         :style="barInnerTransformStyle"
       ></i>
+      <p v-if="step.barText" class="md-bar_text">{{step.barText}}</p>
     </div>
   </div>
 </template>
@@ -71,12 +86,20 @@ export default {
   align-items center
   flex 1
 
-  &.md-dislocation
+  &.md-dislocation, &.md-position-top
     .md-steps_text
       top auto
       bottom 100%
       padding-top 0
       padding-bottom md-steps-text-gap-horizontal
+  &.md-textalign-left
+    .md-steps_text
+      left 50%
+      text-align left
+  &.md-textalign-right
+    .md-steps_text
+      right 50%
+      text-align right
   &.md-last
     display contents
     .md-steps_bar
@@ -110,6 +133,7 @@ export default {
       color md-steps-text-color
     .md-desc
       margin-top 18px
+      font-size md-steps-desc-font-size
       color md-steps-desc-color
 
   .md-steps_bar
@@ -121,7 +145,7 @@ export default {
     .md-bar_inner
       z-index 10
       width 100%
-      height md-steps-border-size
+      height 100%
       background-color md-steps-color-active
       position absolute
       top 0
@@ -129,4 +153,13 @@ export default {
       display block
       content ''
       transition all linear 1s
+    .md-bar_text
+      position absolute
+      absolute-pos()
+      z-index 11
+      display flex
+      align-items center
+      justify-content center
+      font-size 20px
+      color #FFF
 </style>
