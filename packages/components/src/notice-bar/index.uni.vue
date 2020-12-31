@@ -178,23 +178,23 @@ export default {
 <style lang="stylus">
 .md-notice-bar
   display flex
-  z-index notice-bar-zindex
-  font-size notice-bar-font-size
+  z-index md-notice-bar-zindex
+  font-size md-notice-bar-font-size
   min-height 64px
-  background-color notice-bar-fill
-  color notice-bar-color
+  background-color md-notice-bar-fill
+  color md-notice-bar-color
   position relative
   padding-left 32px
   box-sizing border-box
   will-change all
   &.md-notice-bar-round
-    border-radius notice-bar-border-radius
+    border-radius md-notice-bar-border-radius
   &.activity
-    background-color notice-bar-fill-activity
-    color notice-bar-color-activity
+    background-color md-notice-bar-fill-activity
+    color md-notice-bar-color-activity
   &.warning
-    background-color notice-bar-fill-warning
-    color notice-bar-color-warning
+    background-color md-notice-bar-fill-warning
+    color md-notice-bar-color-warning
 
 .md-notice-bar-left,
 .md-notice-bar-right
@@ -216,8 +216,8 @@ export default {
   white-space nowrap
   overflow hidden
   &.md-notice-bar-multi-content
-    padding h-gap-md 0
-    line-height font-caption-large
+    padding md-h-gap-md 0
+    line-height md-font-caption-large
     white-space normal
   .md-notice-bar-content-animate
     padding-left 100%
