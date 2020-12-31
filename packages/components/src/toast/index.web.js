@@ -140,7 +140,7 @@ function ToastFactory() {
    */
   Toast.loading = (content = '', duration = 0, hasMask = true, parentNode = mdDocument.body) => {
     return generate({
-      icon: 'spinner',
+      icon: 'ring',
       iconSvg: true,
       content,
       duration,
