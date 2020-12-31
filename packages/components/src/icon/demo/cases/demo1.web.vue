@@ -5,6 +5,10 @@
       <p class="icon-name">spinner</p>
     </div>
     <div class="md-example-item">
+      <md-icon name="ring" size="lg" style="-webkit-filter:invert(1)"></md-icon>
+      <p class="icon-name">ring</p>
+    </div>
+    <div class="md-example-item">
       <md-icon name="success-color" size="lg" svg></md-icon>
       <p class="icon-name">success-color</p>
     </div>
