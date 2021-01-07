@@ -1,12 +1,19 @@
 <template>
   <div
     class="md-ruler"
-    @touchstart="$_startDrag"
-    @touchend="$_stopDrag"
+    @touchstart.prevent.stop="$_onDragStart"
+    @touchmove.prevent.stop="$_onDrag"
+    @touchend.prevent.stop="$_onDragEnd"
+    @mousedown.prevent.stop="$_onDragStart"
+    @mousemove.prevent.stop="$_onDrag"
+    @mouseup.prevent.stop="$_onDragEnd"
+    @mouseleave.prevent.stop="$_onDragEnd"
   >
-    <canvas
-      class="md-ruler-canvas"
+    <canvas type="2d"
+      id="md-ruler-canvas"
       ref="canvas"
+      canvas-id="md-ruler-canvas"
+      class="md-ruler-canvas"
     ></canvas>
     <div
       class="md-ruler-cursor"
@@ -18,12 +25,12 @@
 
 <script>
 import Scroller from '@mand-mobile/scroller'
+import WheelScroller from '@mand-mobile/scroller/lib/wheel'
 import {throttle, noop} from '@mand-mobile/shared/lib/util'
+import {Dom, Device} from '@mand-mobile/platform-runtime/lib/module'
 
 export default {
   name: 'md-ruler',
-
-  components: {},
 
   props: {
     value: {
@@ -50,19 +57,44 @@ export default {
       type: Number,
       default: 100,
     },
-    stepTextPosition: {
+    scaleMarkSpacing: {
+      type: Number,
+      default: 30,
+    },
+    scaleMarkColor: {
+      type: String,
+      default: '#858B9C',
+    },
+    scaleTextColor: {
+      type: String,
+      default: '#C5CAD5',
+    },
+    scaleTextSize: {
+      type: Number,
+      default: 22,
+    },
+    scaleTextFont: {
+      type: String,
+      default: '"Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif',
+    },
+    scaleTextPosition: {
       type: String,
       default: 'top',
       validator: val => !!~['top', 'bottom'].indexOf(val),
     },
-    stepTextRender: {
+    scaleTextRender: {
       type: Function,
       default: noop,
+    },
+    isVibrate: {
+      type: Boolean,
+      default: true,
     },
   },
 
   data() {
     return {
+      clientWidth: 0,
       clientHeight: 60,
       scroller: null,
       ratio: 2,
@@ -73,7 +105,7 @@ export default {
 
       x: 0,
       scrollingX: 0,
-      blank: 30, // unit blank
+      // blank: 60, // unit blank
     }
   },
 
@@ -84,7 +116,7 @@ export default {
     },
 
     canvasWidth() {
-      return this.$refs.canvas.clientWidth * this.ratio
+      return this.clientWidth * this.ratio
     },
 
     realMin() {
@@ -106,18 +138,18 @@ export default {
     },
 
     blankLeft() {
-      const {scope, realMin, unit, blank} = this
+      const {scope, realMin, unit, scaleMarkSpacing} = this
       const [min] = scope
-      return Math.ceil((realMin - min) / unit) * blank
+      return Math.ceil((realMin - min) / unit) * scaleMarkSpacing
     },
 
     blankRight() {
-      const {scope, realMax, unit, blank} = this
+      const {scope, realMax, unit, scaleMarkSpacing} = this
       const [, max] = scope
-      return Math.ceil((max - realMax) / unit) * blank
+      return Math.ceil((max - realMax) / unit) * scaleMarkSpacing
     },
     isStepTextBottom() {
-      return this.stepTextPosition === 'bottom'
+      return this.scaleTextPosition === 'bottom'
     },
   },
 
@@ -131,79 +163,90 @@ export default {
       this.isScrolling = true
       const x = this.$_initX()
       this.$_draw(x)
-      this.scroller.scrollTo(x, 0, true)
+      this.scroller.scrollTo(-x, 0, 300)
     },
   },
 
   mounted() {
-    const {$refs} = this
-
-    // without watch ctx
-    this.ctx = $refs.canvas.getContext('2d')
-
-    this.$_initCanvas()
-    this.x = this.canvasWidth
-    this.$_initScroller()
+    this.refresh()
   },
 
   methods: {
     // MARK: private methods
-    $_initCanvas() {
-      const {ratio, ctx, canvasWidth, clientHeight, $refs} = this
-      const {canvas} = $refs
+    async $_initCanvas() {
+      let {ratio, clientHeight} = this
 
-      canvas.width = canvasWidth
+      const $MDDom = Dom.bind(this)
+      const wrapper = $MDDom().querySelector('#md-ruler-canvas')
+      const {width: clientWidth} = await wrapper.getBoundingClientRect()
+      const canvas = await wrapper.getNode()
+      const ctx = canvas.getContext('2d')
+
+      canvas.width = clientWidth * ratio
       canvas.height = clientHeight * ratio
 
-      const scale = 1 / ratio
-      ctx.scale(scale, 1)
+      ctx.scale(1 / ratio, 1)
+      this.ctx = ctx
+
+      this.clientWidth = clientWidth
+      this.ratio = ratio
     },
 
     $_initScroller() {
-      const {blankLeft, blankRight, blank, unitCount, canvasWidth, clientHeight} = this
-
+      const {blankLeft, blankRight, scaleMarkSpacing, unitCount, canvasWidth, clientHeight} = this
       const drawFn = throttle(this.$_draw, 10)
-      const scroller = new Scroller(
-        left => {
-          this.isInitialed && drawFn(left)
+
+      const scroller = new Scroller('', '', {
+        scrollX: true,
+        scrollY: false,
+        swipeTime: 1500,
+        probeType: 3,
+      })
+      // set real scroll width
+      const innerWidth = unitCount * scaleMarkSpacing + canvasWidth - blankLeft - blankRight
+      const x = this.$_initX()
+      this.$_draw(x)
+
+      scroller.setDimensions(
+        {
+          width: canvasWidth,
+          height: clientHeight,
         },
         {
-          scrollingX: true,
-          scrollingY: false,
-          snapping: true,
-          snappingVelocity: 1,
-          animationDuration: 200,
-          inRequestAnimationFrame: true,
-          scrollingComplete: () => {
-            this.isScrolling = false
-          },
+          width: innerWidth,
+          height: clientHeight,
         },
       )
 
-      // set real scroll width
-      const innerWidth = unitCount * blank + canvasWidth - blankLeft - blankRight
-      const x = this.$_initX()
-      this.$_draw(x)
-      scroller.setDimensions(canvasWidth, clientHeight, innerWidth, clientHeight)
-      scroller.setSnapSize(blank, 0)
-      scroller.scrollTo(x, 0, false)
+      const wheel = new WheelScroller(scroller, {
+        itemHeight: scaleMarkSpacing,
+      })
+
+      scroller.on('scroll', point => {
+        this.isInitialed && drawFn(-point.x)
+      })
+      scroller.on('scrollEnd', () => {
+        this.isScrolling = false
+      })
+      scroller.scrollTo(-x, 0)
 
       this.scroller = scroller
+      this.wheel = wheel
       this.isInitialed = true
     },
 
     $_initX() {
-      const {value, scope, realMin, realMax, unit, blank, unitCount, canvasWidth} = this
+      const {value, scope, realMin, realMax, unit, scaleMarkSpacing, unitCount, canvasWidth} = this
       const [min] = scope
 
-      this.x = canvasWidth - Math.ceil((realMin - min) / unit) * blank
+      this.x = canvasWidth - Math.ceil((realMin - min) / unit) * scaleMarkSpacing
 
       if (value <= realMin) {
         return 0
       } else if (value >= realMax) {
-        return unitCount * blank
+        return unitCount * scaleMarkSpacing
       } else {
-        return Math.ceil((value - realMin) / unit) * blank
+        return Math.ceil((value - realMin) / unit) * scaleMarkSpacing
       }
     },
 
@@ -222,33 +265,46 @@ export default {
     },
 
     $_drawLine() {
-      const {ctx, x, scope, step, unit, ratio, blank, unitCount, isStepTextBottom} = this
+      const {
+        ctx,
+        x,
+        scope,
+        step,
+        unit,
+        ratio,
+        unitCount,
+        scaleMarkSpacing,
+        scaleMarkColor,
+        scaleTextSize,
+        scaleTextFont,
+        scaleTextColor,
+        isStepTextBottom,
+      } = this
       const {blankLeft, blankRight, canvasWidth} = this
       const [scopeLeft] = scope
 
-      const _fontSize = 22
+      const _fontSize = scaleTextSize
       const _y = 120 - (isStepTextBottom ? _fontSize + 40 : 0)
       const _stepUnit = Math.round(step / unit)
 
       ctx.lineWidth = 2
-      ctx.font = `${_fontSize *
-        ratio}px DIN Alternate, "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif`
+      ctx.font = `${_fontSize * ratio}px ${scaleTextFont}`
 
       for (let i = 0; i <= unitCount; i++) {
-        const _x = x + i * blank
+        const _x = x + i * scaleMarkSpacing
 
         if (_x < 0 || _x > canvasWidth * 2) {
           continue
         }
 
         // over range use another color
-        const outRange = _x < x + blankLeft || _x > x + 1 + unitCount * blank - blankRight
+        const outRange = _x < x + blankLeft || _x > x + 1 + unitCount * scaleMarkSpacing - blankRight
         if (outRange) {
           ctx.fillStyle = '#E2E4EA'
           ctx.strokeStyle = '#E2E4EA'
         } else {
-          ctx.fillStyle = '#C5CAD5'
-          ctx.strokeStyle = '#858B9C'
+          ctx.fillStyle = scaleTextColor
+          ctx.strokeStyle = scaleMarkColor
         }
 
         ctx.beginPath()
@@ -272,49 +328,45 @@ export default {
       ctx.strokeStyle = '#E2E4EA'
       ctx.beginPath()
       ctx.moveTo(x, _y)
-      ctx.lineTo(x + unitCount * blank, _y)
+      ctx.lineTo(x + unitCount * scaleMarkSpacing, _y)
       ctx.stroke()
 
       this.$_updateValue()
     },
 
     $_matchStepText(step) {
-      const match = this.stepTextRender(step)
+      if (!this.scaleTextRender) {
+        return step
+      }
+      const match = this.scaleTextRender(step)
       return match !== undefined && match !== null ? match : step
     },
 
-    $_startDrag(event) {
-      if (this.isDragging) {
+    $_onDragStart(event) {
+      if (this.isDragging || !this.scroller) {
         return
       }
 
       event.preventDefault()
       event.stopPropagation()
-      this.scroller.doTouchStart(event.touches, event.timeStamp)
+      this.scroller.handleStart(event)
 
       this.isDragging = true
       this.isScrolling = true
-
-      window.addEventListener('touchmove', this.$_onDrag)
     },
 
     $_onDrag(event) {
       event.preventDefault()
       event.stopPropagation()
-      if (!this.isDragging) {
-        return
-      }
-      this.scroller.doTouchMove(event.touches, event.timeStamp, event.scale)
+      this.scroller.handleMove(event)
     },
 
-    $_stopDrag(event) {
+    $_onDragEnd(event) {
       event.preventDefault()
       event.stopPropagation()
       this.isDragging = false
 
-      this.scroller.doTouchEnd(event.timeStamp)
-
-      window.removeEventListener('touchmove', this.$_onDrag)
+      this.scroller.handleEnd(event)
     },
 
     $_updateValue() {
@@ -322,7 +374,7 @@ export default {
         return
       }
 
-      const {x, scope: [min], realMin, realMax, unit, blank, canvasWidth} = this
+      const {x, scope: [min], realMin, realMax, unit, scaleMarkSpacing, canvasWidth} = this
 
       if (x > canvasWidth) {
         this.$_onInput(realMin)
@@ -330,17 +382,28 @@ export default {
       }
 
       const _x = x >= 0 ? Math.abs(x - canvasWidth) : Math.abs(x) + canvasWidth
-      let value = min + Math.round(_x / blank) * unit
+      let value = min + Math.round(_x / scaleMarkSpacing) * unit
+
+      if (this.value === value) {
+        return
+      }
 
       value > realMax && (value = realMax)
       value < realMin && (value = realMin)
       this.$_onInput(value)
+
+      this.isVibrate && Device().vibrate()
     },
 
     // MARK: events handler, 如 $_onButtonClick
     $_onInput(value) {
       this.$emit('input', value)
       this.$emit('change', value)
+    },
+
+    async refresh() {
+      await this.$_initCanvas()
+      this.$_initScroller()
     },
   },
 }
@@ -354,7 +417,7 @@ export default {
   width 100%
   height 142px
   box-sizing border-box
-  font-family font-family-number
+  font-family md-font-family-number
   .md-ruler-canvas
     width 100%
     height 60px
@@ -366,8 +429,8 @@ export default {
     width 2px
     height 70px
     transform translate(-50%)
-    background-color #2F86F6
-    box-shadow 0 2px 4px #2F86F6
+    background-color md-color-primary
+    box-shadow 0 2px 4px md-color-primary
     &-bottom
       height 40px
   .md-ruler-arrow
@@ -375,7 +438,7 @@ export default {
     position absolute
     bottom 25px
     left 50%
-    border-bottom 10px solid #2F86F6
+    border-bottom 10px solid md-color-primary
     border-left 10px solid transparent
     border-right 10px solid transparent
     transform translate(-50%)
