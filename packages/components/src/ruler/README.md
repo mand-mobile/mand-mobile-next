@@ -22,7 +22,7 @@ Vue.component(Ruler.name, Ruler)
 {{{ @/packages/components/src/ruler/demo/cases/demo4.vue
 <!-- right wrapper -->
 }}} @/packages/components/src/ruler/demo/cases/demo1.vue
-}}} @/packages/components/src/ruler/demo/cases/demo3.vue
+}}} @/packages/components/src/ruler/demo/cases/demo3.web.vue
 </MDDemoWrapper>
 
 ## API
@@ -36,8 +36,20 @@ Vue.component(Ruler.name, Ruler)
 |unit|刻度尺每一小格步数|Number|1| |
 |min|最小可滑动位置|Number|0| |
 |max|最大可滑动位置|Number|100| |
-|step-text-position|step标识位置|String|`top`|可选`top`, `bottom`|
-|step-text-render|自定义step文案|Function| |自定义函数应该返回字符串|
+|scale-mark-spacing|刻度线间距|Number|30| |
+|scale-mark-color|刻度线颜色|String|`#858B9C`| |
+|scale-text-color|刻度文案颜色|String|`#C5CAD5`| |
+|scale-text-size|刻度文案大小|Number|22| |
+|scale-text-font|刻度文案字体|String|`"Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif`| |
+|scale-text-position|刻度文案位置|String|`top`|可选`top`, `bottom`|
+|scale-text-render <MDPlatformTag web/>|自定义刻度文案|Function| |自定义函数应该返回字符串|
+|is-vibrate <MDPlatformTag uni/>|刻度值变化时震动|Boolean|`true`| |
+
+### Ruler Methods
+
+#### refresh
+重新初始化刻度尺，如当容器元素尺寸变化时
+
 
 ### Ruler Events
 
