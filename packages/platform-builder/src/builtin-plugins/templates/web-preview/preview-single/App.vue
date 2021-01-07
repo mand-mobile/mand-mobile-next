@@ -32,7 +32,7 @@ block()
   -webkit-overflow-scrolling touch
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-  background color-primary-background
+  background #F9FAFB
   .md-nav
     position relative
     display flex
@@ -44,64 +44,34 @@ block()
       &.home
         top 10px
         .md-icon
-          color color-text-base
+          color #111A34
       &.name
-        margin-left h-gap-lg
-        font-size font-heading-large
-        font-weight font-weight-medium
-        color color-text-base
+        margin-left 28px
+        font-size 60px
+        font-weight 500
+        color #111A34
       &.name-zh
         top 9px
-        margin-left h-gap-sm
-        font-size font-body-large
-        font-weight font-weight-normal
-        color color-text-minor
+        margin-left 12px
+        font-size 28px
+        font-weight 400
+        color #666f83
         
   .md-example-wrapper
     position relative
     z-index 3
     padding 20px
     clearfix()
-    .md-example
-      .md-example-section
-        clearfix()
-        margin-bottom 30px
-        color color-text-base
-        .md-example-title
-          block()
-          font-size font-body-normal
-          font-weight font-weight-medium
-          a
-            margin-right 5px
-            background color-primary
-            color #fff
-            padding 5px 10px
-            border-radius radius-normal
-            font-size font-minor-large
-            font-weight 300
-            line-height 28px
-            text-decoration none
-        .md-example-describe
-          block()
-          margin-top 15px
-          font-size font-minor-large
-          font-weight 300
-          color color-text-minor
-        .md-example-content
-          block()
-          position relative
-          margin-top 20px
-          box-sizing border-box
-          font-size 28px
+    
 .md-dialog pre
   width 100%
   padding 20px 10px
   box-sizing border-box
   white-space pre-wrap
   word-wrap break-word
-  font-size font-minor-normal
-  background color-primary-background
-  border-radius radius-normal
+  font-size 20px
+  background #F9FAFB
+  border-radius 4px
 @media screen and (min-width: 749px)
   .mand
     margin-left -360px
