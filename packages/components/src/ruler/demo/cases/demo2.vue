@@ -1,6 +1,6 @@
 <template>
   <div class="md-example-child md-example-child-single-component">
-    <p>当前值：{{ value }}</p>
+    <p class="title">当前值：{{ value }}</p>
     <div class="container">
       <md-ruler
         :scope="scope"
@@ -35,11 +35,9 @@ export default {
 export const metaInfo = {
   'zh-CN': {
     title: '触发',
-    describe: '请在移动设备中扫码预览',
   },
   'en-US': {
     title: 'trigger',
-    describe: 'Please scan QR code and preview on mobile device',
   },
 }
 // #endregion ignore
@@ -47,8 +45,13 @@ export const metaInfo = {
 </script>
 
 <style scoped>
+.md-example-child-single-component .title {
+  font-size: 22px;
+  color: #999;
+}
 .md-example-child-single-component .container {
-  width: 640px;
-  margin: 0 auto;
+  margin: 20px 0;
+  border-radius: 6px;
+  background: #FFF;
 }
 </style>
