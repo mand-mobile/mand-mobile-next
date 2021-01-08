@@ -1,3 +1,5 @@
+import {root, inBrowser} from './env'
+
 export const noop = () => {}
 
 export const no = () => false
@@ -78,3 +80,86 @@ export function traverse(data, childrenKeys = [], fn: any) {
   }
   walk(data)
 }
+
+export function getNow() {
+  return root.performance && root.performance.now && root.performance.timing
+    ? root.performance.now() + root.performance.timing.navigationStart
+    : +new Date()
+}
+
+export const requestAnimationFrame = (() => {
+  // Check for request animation Frame support
+  const requestFrame =
+    root.requestAnimationFrame ||
+    root.webkitRequestAnimationFrame ||
+    root.mozRequestAnimationFrame ||
+    root.oRequestAnimationFrame
+
+  let isNative = !!requestFrame
+
+  if (requestFrame && !/requestAnimationFrame\(\)\s*\{\s*\[native code\]\s*\}/i.test(requestFrame.toString())) {
+    isNative = false
+  }
+
+  if (isNative) {
+    return requestFrame
+  }
+
+  const TARGET_FPS = 60
+  let requests = {}
+  let requestCount = 0
+  let rafHandle = 1
+  let intervalHandle = null
+  let lastActive = getNow()
+
+  return callback => {
+    const callbackHandle = rafHandle++
+
+    // Store callback
+    requests[callbackHandle] = callback
+    requestCount++
+
+    // Create timeout at first request
+    if (intervalHandle === null) {
+      intervalHandle = setInterval(() => {
+        const time = getNow()
+        const currentRequests = requests
+
+        // Reset data structure before executing callbacks
+        requests = {}
+        requestCount = 0
+
+        for (const key in currentRequests) {
+          if (currentRequests.hasOwnProperty(key)) {
+            currentRequests[key](time)
+            lastActive = time
+          }
+        }
+
+        // Disable the timeout when nothing happens for a certain
+        // period of time
+        if (time - lastActive > 2500) {
+          clearInterval(intervalHandle)
+          intervalHandle = null
+        }
+      }, 1000 / TARGET_FPS)
+    }
+    return callbackHandle
+  }
+})()
+
+export const cancelAnimationFrame = (() => {
+  if (!inBrowser) {
+    /* istanbul ignore if */
+    return noop
+  }
+  return (
+    root.cancelAnimationFrame ||
+    root.webkitCancelAnimationFrame ||
+    root.mozCancelAnimationFrame ||
+    root.oCancelAnimationFrame ||
+    function(id: number) {
+      root.clearTimeout(id)
+    }
+  )
+})()
