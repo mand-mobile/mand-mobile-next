@@ -1,48 +1,70 @@
 <template>
   <div class="md-slider" :class="{'md-slider--is-disabled': disabled}">
-    <template v-if="range">
-      <div class="md-slider_bar" :style="barStyle"></div>
-      <div class="md-slider_handle md-slider--is-lower"
-        :data-hint="format(values[0])"
-        :class="{
-          'md-slider--is-active': isDragging && !isDragingUpper
-        }"
-        :style="{'left': lowerHandlePosition + '%'}">
-        <span
-          @mousedown="$_startLowerDrag"
-          @touchstart="$_startLowerDrag"
-        ></span>
-      </div>
-      <div class="md-slider_handle md-slider--is-higher"
-        :data-hint="format(values[1])"
-        :class="{
-          'md-slider--is-active': isDragging && isDragingUpper
-        }"
-        :style="{'left': upperHandlePosition + '%'}">
-        <span
-          @mousedown="$_startUpperDrag"
-          @touchstart="$_startUpperDrag"
-        ></span>
-      </div>
-    </template>
-    <template v-else>
-      <div class="md-slider_bar" :style="barStyle"></div>
-      <div class="md-slider_handle"
-        :data-hint="format(values[0])"
-        :class="{
-          'md-slider--is-active': isDragging
-        }"
-        :style="{'left': lowerHandlePosition + '%'}">
-        <span
-          @mousedown="$_startLowerDrag"
-          @touchstart="$_startLowerDrag"
-        ></span>
-      </div>
-    </template>
+    <div class="md-slider-wrapper">
+      <template v-if="range">
+        <div class="md-slider_bar" :style="barStyle"></div>
+        <div class="md-slider_handle md-slider--is-lower"
+          :data-hint="$_formatValue(values[0])"
+          :class="{
+            'md-slider--is-active': isDragging && !isDragingUpper
+          }"
+          :style="{'left': lowerHandlePosition + '%'}">
+          <span
+            @touchstart.prevent.stop="$_startLowerDrag"
+            @touchmove.prevent.stop="$_onDrag"
+            @touchend.prevent.stop="$_onUp"
+            @touchcancel.prevent.stop="$_onUp"
+            @mousedown.prevent.stop="$_startLowerDrag"
+            @mousemove.prevent.stop="$_onDrag"
+            @mouseup.prevent.stop="$_onUp"
+          ></span>
+        </div>
+        <div class="md-slider_handle md-slider--is-higher"
+          :data-hint="$_formatValue(values[1])"
+          :class="{
+            'md-slider--is-active': isDragging && isDragingUpper
+          }"
+          :style="{'left': upperHandlePosition + '%'}">
+          <span
+            @touchstart.prevent.stop="$_startUpperDrag"
+            @touchmove.prevent.stop="$_onDrag"
+            @touchend.prevent.stop="$_onUp"
+            @touchcancel.prevent.stop="$_onUp"
+            @mousedown.prevent.stop="$_startUpperDrag"
+            @mousemove.prevent.stop="$_onDrag"
+            @mouseup.prevent.stop="$_onUp"
+            @mouseleave.prevent.stop="$_onUp"
+          ></span>
+        </div>
+      </template>
+      <template v-else>
+        <div class="md-slider_bar" :style="barStyle"></div>
+        <div class="md-slider_handle"
+          :data-hint="$_formatValue(values[0])"
+          :class="{
+            'md-slider--is-active': isDragging
+          }"
+          :style="{'left': lowerHandlePosition + '%'}">
+          <span
+            @touchstart.prevent.stop="$_startLowerDrag"
+            @touchmove.prevent.stop="$_onDrag"
+            @touchend.prevent.stop="$_onUp"
+            @touchcancel.prevent.stop="$_onUp"
+            @mousedown.prevent.stop="$_startLowerDrag"
+            @mousemove.prevent.stop="$_onDrag"
+            @mouseup.prevent.stop="$_onUp"
+            @mouseleave.prevent.stop="$_onUp"
+          ></span>
+        </div>
+      </template>
+    </div>
   </div>
 </template>
 
 <script>
+import {Dom, Device} from '@mand-mobile/platform-runtime/lib/module'
+import {flatStyleObject, requestAnimationFrame} from '@mand-mobile/shared/lib/util'
+
 export default {
   name: 'md-slider',
 
@@ -69,11 +91,17 @@ export default {
     },
     format: {
       type: Function,
-      default: val => val,
+      default(val) {
+        return val
+      },
     },
     disabled: {
       type: Boolean,
       default: false,
+    },
+    isVibrate: {
+      type: Boolean,
+      default: true,
     },
   },
 
@@ -84,6 +112,7 @@ export default {
       values: [this.min, this.max],
       startDragMousePos: 0,
       startVal: 0,
+      wrapperWidth: 0,
     }
   },
 
@@ -116,17 +145,24 @@ export default {
     barStyle() {
       const {range, values, min, max, lowerHandlePosition} = this
 
+      let styleList
       if (range) {
-        return {
+        styleList = {
           width: (values[1] - values[0]) / (max - min) * 100 + '%',
           left: lowerHandlePosition + '%',
         }
       } else {
-        return {
+        styleList = {
           width: (values[0] - min) / (max - min) * 100 + '%',
         }
       }
+
+      return flatStyleObject(styleList)
     },
+  },
+
+  mounted() {
+    this.refresh()
   },
 
   methods: {
@@ -178,6 +214,12 @@ export default {
         this.$emit('input', this.values[0])
       }
     },
+    $_formatValue(val) {
+      if (this.format) {
+        return this.format(val)
+      }
+      return val
+    },
     $_startLowerDrag(e) {
       if (this.disabled) {
         return
@@ -189,10 +231,8 @@ export default {
       this.startVal = this.values[0]
       this.isDragingUpper = false
       this.isDragging = true
-      window.addEventListener('mousemove', this.$_onDrag, {passive: false})
-      window.addEventListener('touchmove', this.$_onDrag, {passive: false})
-      window.addEventListener('mouseup', this.$_onUp, {passive: false})
-      window.addEventListener('touchend', this.$_onUp, {passive: false})
+
+      this.isVibrate && Device().vibrate()
     },
     $_startUpperDrag(e) {
       if (this.disabled) {
@@ -205,10 +245,8 @@ export default {
       this.startVal = this.values[1]
       this.isDragingUpper = true
       this.isDragging = true
-      window.addEventListener('mousemove', this.$_onDrag, {passive: false})
-      window.addEventListener('touchmove', this.$_onDrag, {passive: false})
-      window.addEventListener('mouseup', this.$_onUp, {passive: false})
-      window.addEventListener('touchend', this.$_onUp, {passive: false})
+
+      this.isVibrate && Device().vibrate()
     },
     $_onDrag(e) {
       if (this.disabled) {
@@ -220,8 +258,8 @@ export default {
         return
       }
       e = e.changedTouches ? e.changedTouches[0] : e
-      window.requestAnimationFrame(() => {
-        let diff = (e.pageX - this.startDragMousePos) / this.$el.offsetWidth * (this.max - this.min)
+      requestAnimationFrame(() => {
+        let diff = (e.pageX - this.startDragMousePos) / this.wrapperWidth * (this.max - this.min)
         let nextVal = this.startVal + diff
         if (this.isDragging) {
           if (this.isDragingUpper) {
@@ -240,10 +278,14 @@ export default {
     $_stopDrag() {
       this.isDragging = false
       this.isDragingUpper = false
-      window.removeEventListener('mousemove', this.$_onDrag, {passive: false})
-      window.removeEventListener('touchmove', this.$_onDrag, {passive: false})
-      window.removeEventListener('mouseup', this.$_onUp, {passive: false})
-      window.removeEventListener('touchend', this.$_onUp, {passive: false})
+    },
+
+    async refresh() {
+      const $MDDom = Dom.bind(this)
+      const rect = await $MDDom()
+        .querySelector('.md-slider-wrapper')
+        .getBoundingClientRect()
+      this.wrapperWidth = rect.width
     },
   },
 }
