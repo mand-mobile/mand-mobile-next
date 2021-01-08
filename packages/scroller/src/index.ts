@@ -7,6 +7,7 @@
  * https://raw.github.com/zynga/scroller/master/MIT-LICENSE.txt
  *
  */
+ import {getNow} from '@mand-mobile/shared/lib/util'
 import ScrollerOptions, { BounceConfig } from './options'
 import Behavior from './behavior'
 import DirectionLockAction from './direction-lock'
@@ -15,7 +16,6 @@ import EventEmitter from './event'
 import {
   isUndef,
   Probe,
-  getNow,
   TouchEvent,
   eventTypeMap,
   EventType,

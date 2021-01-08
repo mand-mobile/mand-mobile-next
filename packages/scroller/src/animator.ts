@@ -1,7 +1,4 @@
-import {
-  getNow,
-  requestAnimationFrame
-} from './utils'
+import {getNow, requestAnimationFrame} from '@mand-mobile/shared/lib/util'
 
 type RunningList = {
   [prop: string]: boolean | null
