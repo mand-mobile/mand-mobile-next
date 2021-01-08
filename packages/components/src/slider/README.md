@@ -37,3 +37,4 @@ Vue.component(Slider.name, Slider)
 |step|步长|number|`1`|-|
 |range|是否启动双向拖动|Boolean|`false`|-|
 |format|显示文本的格式化函数|Function|`(val) => {return val}`|-|
+|is-vibrate <MDPlatformTag uni/>|按下拖动按钮时震动|Boolean|`true`| |
