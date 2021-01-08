@@ -14,7 +14,8 @@
   "scripts": {
     "prebuild": "rm -fr lib || true",
     "build": "tsc && copyfiles -s -u 1 -e **/*.ts src/**/* src/**/**/* lib",
-    "build:watch": "chokidar \"src/**/*\" -c \"npm run build\"",
+    "build:watch":
+      "npm run build && chokidar \"src/**/*\" -c \"npm run build\"",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "devDependencies": {
