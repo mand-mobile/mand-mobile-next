@@ -1,6 +1,6 @@
 <template>
   <div class="md-example-child md-example-child-steps md-example-child-steps-0">
-    <md-steps :steps="steps"></md-steps>
+    <md-steps :steps="steps" adaptive></md-steps>
   </div>
 </template>
 
@@ -29,3 +29,9 @@ export default {
 }
 
 </script>
+
+<style scoped>
+.md-example-child-steps-0 {
+  padding: 0 60px;
+}
+</style>

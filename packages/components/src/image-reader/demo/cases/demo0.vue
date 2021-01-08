@@ -30,7 +30,6 @@
           @select="onReaderSelect"
           @complete="onReaderComplete"
           @error="onReaderError"
-          is-multiple
         ></md-image-reader>
         <!-- <md-icon name="camera" size="md" color="#CCC"></md-icon> -->
         <img src="http://img-hxy021.didistatic.com/static/manhattan_fe/do1_CMYGcgAwc4JUNBzc61St" />
@@ -132,7 +131,7 @@ export const metaInfo = {
   margin-right: 0;
 }
 
-.md-example-child-reader .image-reader-item-del {
+.md-example-child-reader .image-reader-item .image-reader-item-del {
   position: absolute;
   top: 0;
   right: 0;

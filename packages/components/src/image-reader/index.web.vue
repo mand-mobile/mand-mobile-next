@@ -8,57 +8,21 @@
       :accept="mimeType"
       :capture="isCameraOnly"
       :multiple="isMultiple"
-      @change="$_onFileChange"
+      @change="$_onReaderChange"
     />
   </div>
 </template>
 
 <script>
-import {functionToUrl, randomId} from '@mand-mobile/shared/lib/util'
+import {functionToUrl} from '@mand-mobile/shared/lib/util'
+import imageReaderMixin from './mixins'
 import createImageReader from './image-reader'
 import {dataURItoBlob} from './image-dataurl'
-
-const ERROR = {
-  '100': 'browser does not support',
-  '101': 'picture size is beyond the preset',
-  '102': 'picture read failure',
-  '103': 'the number of pictures exceeds the limit',
-}
 
 export default {
   name: 'md-image-reader',
 
-  props: {
-    name: {
-      type: String,
-      default() {
-        return randomId('image-reader')
-      },
-    },
-    size: {
-      type: [String, Number],
-      default: 0,
-    },
-    mime: {
-      type: Array,
-      default() {
-        /* istanbul ignore next */
-        return []
-      },
-    },
-    isCameraOnly: {
-      type: Boolean,
-      default: false,
-    },
-    isMultiple: {
-      type: Boolean,
-      default: false,
-    },
-    amount: {
-      type: Number,
-      default: 0,
-    },
-  },
+  mixins: [imageReaderMixin],
 
   data() {
     return {
@@ -82,10 +46,6 @@ export default {
   },
 
   methods: {
-    // MARK: private methods
-    $_emitter(event, data) {
-      this.$emit(event, this.name, data)
-    },
     $_openWebWorker(fn) {
       /* istanbul ignore next */
       return new Worker(functionToUrl(fn))
@@ -94,11 +54,19 @@ export default {
       /* istanbul ignore next */
       worker.terminate()
     },
-    $_readFile(fileElement) {
+    $_readFile(files) {
       const size = +this.size * 1000
-      const files = fileElement.files
       let worker
       let count = 0
+
+      const onReaderComplete = ({errorCode, dataUrl, file}) => {
+        this.$_mixinReaderComplete(errorCode, {
+          blob: dataURItoBlob(dataUrl),
+          dataUrl: dataUrl,
+          file,
+        })
+        this.$_clearFile()
+      }
 
       /* istanbul ignore if */
       if (window.Worker) {
@@ -111,7 +79,7 @@ export default {
         })
         // worker response
         worker.onmessage = evt => {
-          this.$_onReaderComplete(evt.data)
+          onReaderComplete(evt.data)
 
           count++
 
@@ -127,53 +95,17 @@ export default {
           files,
           size: size,
           isWebWorker: false,
-          complete: this.$_onReaderComplete,
+          complete: onReaderComplete,
         })
       }
     },
-    $_cleaeFile() {
+    $_clearFile() {
       this.inputTmpKey = Date.now()
     },
 
     // MARK: events handler
-    $_onFileChange(event) {
-      /* istanbul ignore next */
-      const fileElement = event.target
-
-      /* istanbul ignore next */
-      if (fileElement.files && fileElement.files.length) {
-        this.$_emitter('select', {
-          files: Array.prototype.slice.call(fileElement.files),
-        })
-
-        // error 超出每次上传最大张数
-        if (this.amount && fileElement.files.length > this.amount) {
-          this.$_emitter('error', {
-            code: '103',
-            msg: ERROR['103'],
-          })
-          this.$_cleaeFile()
-          return
-        }
-
-        this.$_readFile(fileElement)
-      }
-    },
-    $_onReaderComplete({errorCode, dataUrl, file}) {
-      if (errorCode) {
-        this.$_emitter('error', {
-          code: errorCode,
-          msg: ERROR[errorCode],
-        })
-        return
-      }
-
-      this.$_emitter('complete', {
-        blob: dataURItoBlob(dataUrl),
-        dataUrl: dataUrl,
-        file,
-      })
-      this.$_cleaeFile()
+    $_onReaderChange(event) {
+      this.$_mixinReaderChange(event.target.files)
     },
   },
 }

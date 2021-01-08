@@ -1,8 +1,8 @@
 <template>
   <div class="md-example-child md-example-child-amount">
-    <md-amount class="amount" :value="1234" has-separator></md-amount>
+    <md-amount :value="1234" has-separator></md-amount>
     <br>
-    <md-amount class="amount" :value="-123456.123" :precision="3" has-separator></md-amount>
+    <md-amount :value="-123456.123" :precision="3" has-separator></md-amount>
 	</div>
 </template>
 
@@ -28,10 +28,10 @@ export const metaInfo = {
 </script>
 
 <style scoped>
-.md-example-child-amount .amount{
+.md-example-child-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 48px;
-  font-weight: 300;
-  text-align: center;
-  color: #666;
 }
 </style>

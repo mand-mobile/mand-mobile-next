@@ -472,10 +472,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@mand-mobile/shared@^3.0.4-alpha.5":
-  version "3.0.4-alpha.5"
-  resolved "https://registry.npmjs.org/@mand-mobile/shared/-/shared-3.0.4-alpha.5.tgz#c5d8820eed0ff5635bba197ede6d1a87ebf1679a"
-  integrity sha512-bOojtoIbnsaqvSVVEjqDsrkHAwwepwqEr7tULC2CVmqQcDDDpp0d7VWRiPCpg6vhlOW1jx66Wle9IIa4mfk0JQ==
+"@mand-mobile/shared@^3.1.0-alpha.0":
+  version "3.1.0-alpha.0"
+  resolved "https://registry.npmjs.org/@mand-mobile/shared/-/shared-3.1.0-alpha.0.tgz#cd9d126eb64ea3ac75c1690e974f78e884662c57"
+  integrity sha512-r/lDlX/VKLPd//piWoP2E5lh+UBdIbtFDDk/Po6k/at8HLLP/cZm0H/5BxXIPFDWn8K1szDupGb+GZhAyOS19A==
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.0"

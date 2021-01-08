@@ -1,7 +1,6 @@
 <template>
   <div class="md-cashier">
     <md-popup
-      class="inner-popup"
       v-model="isCashierShow"
       position="bottom"
       :mask-closable="false"
@@ -10,118 +9,119 @@
       @show="$_onPopupShow"
       @hide="$_onPopupHide"
     >
-      <md-popup-title-bar
-        :title="title"
-        :describe="describe"
-        only-close
-        @cancel="$_onPopupCancel"
-      ></md-popup-title-bar>
-      <div class="md-cashier_container">
-        <slot name="header" :scene="scene"></slot>
+      <div class="md-cashier_popup">
+        <md-popup-title-bar
+          :title="title"
+          :describe="describe"
+          only-close
+          @cancel="$_onPopupCancel"
+        ></md-popup-title-bar>
+        <div class="md-cashier_container">
+          <slot name="header" :scene="scene"></slot>
 
-        <!-- Choose pay channel -->
-        <div
-          v-if="scene === 'choose'"
-          class="md-cashier_container_block"
-          :key="sceneKey">
-          <md-cashier-channel
-            ref="channel"
-            :payment-title="paymentTitle"
-            :payment-amount="paymentAmount"
-            :payment-describe="paymentDescribe"
-            :more-button-text="moreButtonText"
-            :pay-button-text="payButtonText"
-            :pay-button-disabled="payButtonDisabled"
-            :channels="channels"
-            :channelLimit="channelLimit"
-            :default-index="defaultIndex"
-            @click="$_clickHandler"
+          <!-- Choose pay channel -->
+          <div
+            v-if="scene === 'choose'"
+            class="md-cashier_container_block"
+            :key="sceneKey"
           >
-            <slot name="channel"></slot>
-            <template slot="button">
-              <slot name="payButton"></slot>
-            </template>
-          </md-cashier-channel>
-        </div>
+            <md-cashier-channel
+              ref="channel"
+              :payment-title="paymentTitle"
+              :payment-amount="paymentAmount"
+              :payment-describe="paymentDescribe"
+              :more-button-text="moreButtonText"
+              :pay-button-text="payButtonText"
+              :pay-button-disabled="payButtonDisabled"
+              :channels="channelsAggregated"
+              :channelLimit="channelLimit"
+              :default-index="defaultIndex"
+              @action="$_onActionsHandler"
+              @select="$_cashierChannelEventHandler('select', $event)"
+              @pay="$_cashierChannelEventHandler('pay', $event)"
+            >
+              <slot name="channel"></slot>
+              <template #button>
+                <slot name="payButton">{{ payButtonText }}</slot>
+              </template>
+            </md-cashier-channel>
+          </div>
 
-        <!-- Captcha -->
-        <div
-          v-else-if="scene === 'captcha'"
-          class="md-cashier_container_block md-cashier_captcha"
-          :key="sceneKey">
-          <md-captcha
-            ref="captcha"
-            :maxlength="sceneOption.captcha.maxlength"
-            :count="sceneOption.captcha.count"
-            :countNormalText="sceneOption.captcha.countNormalText"
-            :countActiveText="sceneOption.captcha.countActiveText"
-            :auto-countdown="sceneOption.captcha.autoCountdown"
-            :brief="sceneOption.captcha.brief"
-            is-view
-            @send="sceneOption.captcha.onSend"
-            @submit="sceneOption.captcha.onSubmit"
+          <!-- Captcha -->
+          <div
+            v-else-if="scene === 'captcha'"
+            class="md-cashier_container_block md-cashier-captcha"
+            :key="sceneKey"
           >
-            <div v-text="sceneOption.captcha.text"></div>
-          </md-captcha>
-        </div>
-
-        <!-- Loaing, Success -->
-        <div
-          v-else-if="scene === 'loading' || scene === 'success'"
-          class="md-cashier_container_block"
-          :class="{
-            'md-cashier-loading': scene === 'loading',
-            'md-cashier-success': scene === 'success'
-          }"
-          :key="sceneKey">
-          <div class="md-cashier_container_block_icon">
-            <md-activity-indicator-rolling-success
-              ref="rolling"
-              :is-success="scene === 'success'"
-            ></md-activity-indicator-rolling-success>
+            <md-captcha
+              ref="captcha"
+              class="md-cashier_captcha_inner"
+              :maxlength="sceneOption.captcha.maxlength"
+              :count="sceneOption.captcha.count"
+              :countNormalText="sceneOption.captcha.countNormalText"
+              :countActiveText="sceneOption.captcha.countActiveText"
+              :auto-countdown="sceneOption.captcha.autoCountdown"
+              :brief="sceneOption.captcha.brief"
+              is-view
+              @send="$_onCaptchaHandler('onSend', $event)"
+              @submit="$_onCaptchaHandler('onSubmit', $event)"
+            >
+              <div v-text="sceneOption.captcha.text"></div>
+            </md-captcha>
           </div>
-          <div class="md-cashier_container_block_text">{{ scene === 'success' ? sceneOption.success.text : sceneOption.loading.text }}</div>
-          <md-cashier-channel-button
-            v-if="scene === 'success'"
-            :actions="
-              sceneOption.success.actions ||
-              [{
-                buttonText: sceneOption.success.buttonText,
-                handler: sceneOption.success.handler
-              }]
-            "
-          />
-        </div>
 
-        <!-- Fail -->
-        <div
-          v-else-if="scene === 'fail'"
-          class="md-cashier_container_block md-cashier--fail"
-          :key="sceneKey">
-          <div class="md-cashier_container_block_icon">
-            <md-icon name="warn-color"></md-icon>
+          <!-- Loaing, Success -->
+          <div
+            v-else-if="scene === 'loading' || scene === 'success'"
+            class="md-cashier_container_block"
+            :class="{
+              'md-cashier-loading': scene === 'loading',
+              'md-cashier-success': scene === 'success'
+            }"
+            :key="sceneKey"
+          >
+            <div class="md-cashier_container_block_icon">
+              <md-roller-success
+                class="md-roller-success"
+                ref="rolling"
+                :is-success="scene === 'success'"
+                :key="sceneKey"
+              ></md-roller-success>
+            </div>
+            <div class="md-cashier_container_block_text">{{ scene === 'success' ? sceneOption.success.text : sceneOption.loading.text }}</div>
+            <md-cashier-channel-button
+              v-if="scene === 'success'"
+              :actions="sceneOption.success.actions"
+              @action="$_onActionsHandler"
+            />
           </div>
-          <div class="md-cashier_container_block_text" v-text="sceneOption.fail.text"></div>
-          <md-cashier-channel-button
-            :actions="
-              sceneOption.fail.actions ||
-              [{
-                buttonText: sceneOption.fail.buttonText,
-                handler: sceneOption.fail.handler
-              }]
-            "
-          />
-        </div>
 
-        <!-- Custom -->
-        <div
-          v-else-if="scene === 'custom'"
-          class="md-cashier_container_block md-cashier--custom"
-          :key="sceneKey">
-          <slot name="scene"></slot>
-        </div>
+          <!-- Fail -->
+          <div
+            v-else-if="scene === 'fail'"
+            class="md-cashier_container_block md-cashier-fail"
+            :key="sceneKey">
+            <div class="md-cashier_container_block_icon">
+              <md-icon class="md-icon" name="warn-color"></md-icon>
+            </div>
+            <div class="md-cashier_container_block_text" v-text="sceneOption.fail.text"></div>
+            <md-cashier-channel-button
+              :actions="sceneOption.fail.actions"
+              @action="$_onActionsHandler"
+            />
+          </div>
 
-        <slot name="footer" :scene="scene"></slot>
+          <!-- Custom -->
+          <div
+            v-else-if="scene === 'custom'"
+            class="md-cashier_container_block md-cashier-custom"
+            :key="sceneKey"
+          >
+            <slot name="scene"/>
+          </div>
+
+          <slot name="footer" :scene="scene"></slot>
+        </div>
       </div>
     </md-popup>
   </div>
@@ -220,12 +220,16 @@ export default {
         success: {
           text: '\u652f\u4ed8\u6210\u529f', // 支付成功
           buttonText: '\u6211\u77e5\u9053\u4e86', // 我知道了
-          handler: null,
+          handler: () => {
+            this.isCashierShow = false
+          },
         },
         fail: {
           text: '\u652f\u4ed8\u5931\u8d25\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5', // 支付失败，请稍后重试
           buttonText: '\u6211\u77e5\u9053\u4e86', // 我知道了
-          handler: null,
+          handler: () => {
+            this.isCashierShow = false
+          },
         },
         captcha: {
           text: '',
@@ -237,7 +241,14 @@ export default {
           onSubmit: noop,
         },
       },
+      channelsTmp: [],
     }
+  },
+
+  computed: {
+    channelsAggregated() {
+      return [...this.channels, ...this.channelsTmp]
+    },
   },
 
   watch: {
@@ -252,7 +263,7 @@ export default {
   created() {
     this.$_initialCashier()
 
-    if (this.channels.length < 3) {
+    if (this.channelsAggregated.length < 3) {
       this.isChannelShow = true
       this.isChannelActive = true
     }
@@ -268,6 +279,16 @@ export default {
       this.isChannelShow = false
       this.isChannelActive = false
     },
+    $_bindActionHandler(scene, actions) {
+      if (!actions) {
+        return
+      }
+      return actions.map((action, index) => {
+        action.scene = scene
+        action.index = index
+        return action
+      })
+    },
     // MARK: events handler, 如 $_onButtonClick
     $_onPopupShow() {
       this.$emit('show')
@@ -280,13 +301,49 @@ export default {
       this.isCashierShow = false
       this.$emit('cancel')
     },
-    $_clickHandler() {
-      this.emit('click')
+    $_onCaptchaHandler() {
+      const [handlerName, ...args] = arguments
+      this.sceneOption.captcha[handlerName].apply(this, args)
+    },
+    $_onActionsHandler(action) {
+      const sceneOption = this.sceneOption[action.scene]
+      const actions = sceneOption.actions
+      const handler = action.handler || actions[action.index].handler
+      handler.call(this)
+    },
+    $_cashierChannelEventHandler(evt, payload) {
+      this.$emit(evt, payload)
     },
     // MARK: public methods
+    setChannels(channels) {
+      this.channelsTmp = channels
+
+      // 小程序不支持透传function hanlder，通过代理记录handler位置
+      const scene = 'channelItem'
+      this.sceneOption[scene] = this.sceneOption[scene] || {}
+      this.sceneOption[scene].actions = this.$_bindActionHandler(
+        scene,
+        channels.map(channel => {
+          return channel.action
+        }),
+      )
+    },
     next(scene, option = {}) {
       if (this.sceneOption[scene]) {
         extend(this.sceneOption[scene], option)
+
+        const sceneOption = this.sceneOption[scene]
+        if (sceneOption && sceneOption.handler && !sceneOption.actions) {
+          sceneOption.actions = [
+            {
+              buttonText: sceneOption.buttonText,
+              handler: sceneOption.handler,
+            },
+          ]
+        }
+
+        // 小程序不支持透传function hanlder，通过代理记录handler位置
+        sceneOption.actions = this.$_bindActionHandler(scene, sceneOption.actions)
       }
       this.scene = scene
       this.sceneKey = Date.now()
@@ -298,20 +355,13 @@ export default {
 
 <style lang="stylus">
 .md-cashier
-  .md-popup-title-bar .md-popup-cancel
-    .md-icon
-      align-self flex-start
-      margin-left md-h-gap-lg
-  .md-popup-box
-    background-color md-color-bg-inverse
-    border-radius md-popup-title-bar-radius md-popup-title-bar-radius 0 0
   &_container
     block()
     position relative
     background md-cashier-bg
     -webkit-touch-callout none
     -webkit-user-select none
-    transition all .3s
+    top -2px
     overflow hidden
     &_block
       clearfix()
@@ -323,6 +373,10 @@ export default {
         height 100px
         margin-top 75px
         transform translateX(-50%)
+        .md-roller-success
+          display block
+          width 100%
+          height 100%
         .md-activity-indicator_svg
           width 100px !important
           height 100px !important
@@ -333,36 +387,19 @@ export default {
         font-size md-font-minor-large
         color md-color-text-minor
         text-align center
-      &--btn
-        block()
-        padding 0 40px 40px
-        box-sizing border-box
-      // &.md-cashier-choose
         
-      &.md-cashier_captcha
-        .md-captcha
-          block()
-        .md-captcha-content
+      &.md-cashier-captcha
+        .md-cashier_captcha_inner
+          display block
           margin-top 44px
-          margin-bottom 20px
           color md-color-text-caption
-        .md-codebox
-          margin-bottom 26px
-        .md-captcha-content,
-        .md-captcha-message,
-        .md-codebox,
-        .md-captcha-footer
-          margin-left 40px
-          margin-right 40px
-        .md-captcha-footer
-          margin-bottom 44px
 
-      &.md-cashier--fail
-        .md-cashier_block_icon
+      &.md-cashier-fail
+        .md-cashier_container_block_icon
           position relative
           text-align center
           line-height 100px
-          .md-icon--warn-color
+          .md-icon
             position relative
             z-index 2
             color #FFF6F1

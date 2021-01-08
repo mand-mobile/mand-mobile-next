@@ -1,16 +1,13 @@
 <template>
   <div class="md-cashier-block-btn">
     <md-button
+      class="md-button"
       v-for="(action, index) in actions"
       :type="index === actions.length - 1 ? 'primary': 'default'"
-      :inline="actions.length > 1"
       :key="index"
       v-html="action.buttonText"
-      @click="() => {
-        action.handler && action.handler()
-      }"
-    >
-    </md-button>
+      @click="$emit('action', action)"
+    ></md-button>
   </div>
 </template>
 
@@ -40,6 +37,9 @@ export default {
 <style lang="stylus">
 .md-cashier-block-btn
   display flex
+  block()
+  padding 0 40px 40px
+  box-sizing border-box
   .md-button
     flex 1
     margin-right md-h-gap-md

@@ -15,7 +15,7 @@
 
 <script>
 import Swiper from 'mand-mobile/lib/swiper'
-import SwiperItem from 'mand-mobile/lib/swiper-item'
+import SwiperItem from 'mand-mobile/lib/swiper/swiper-item'
 import simple from 'mand-mobile/lib/swiper/demo/data/simple'
 
 export default {
@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style>
-.md-example-child-swiper-2 .md-swiper {
+.md-example-child-swiper-2 {
   height: 250px;
 }
 .md-example-child-swiper-2 .banner-item {

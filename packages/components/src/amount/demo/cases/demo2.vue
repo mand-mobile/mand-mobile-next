@@ -1,7 +1,9 @@
 <template>
   <div class="md-example-child md-example-child-amount">
-    <md-amount class="amount" :value="val" :duration="800" transition></md-amount>
-    <md-button inline size="small" @click="randomDelta">加{{delta}}</md-button>
+    <p>
+      <md-amount :value="val" :duration="800" transition></md-amount>
+    </p>
+    <md-button class="btn" inline size="small" @click="randomDelta">加{{delta}}</md-button>
 	</div>
 </template>
 
@@ -44,10 +46,13 @@ export const metaInfo = {
 </script>
 
 <style scoped>
-.md-example-child-amount .amount{
-  font-weight: 300;
+.md-example-child-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 48px;
-  text-align: center;
-  color: #666;
+}
+.md-example-child-amount .btn {
+  margin-top: 20px;
 }
 </style>

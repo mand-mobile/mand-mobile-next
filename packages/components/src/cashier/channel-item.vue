@@ -8,33 +8,29 @@
     </div>
     <div class="md-cashier-channel-item_label">
       <p class="md-cashier-channel-item_label_title">
-        <span v-html="data.text || data"></span>
+        <span class="md-rich-text" v-html="data.text || data"></span>
         <span
           v-if="data.action"
-          class="md-active"
+          class="md-rich-text md-active"
           v-html="data.action.text"
-          @click.stop="data.action.handler"
+          @click.stop="$emit('action', data.action)"
         ></span>
       </p>
       <p
-        class="md-cashier-channel-item_label_desc"
+        class="md-cashier-channel-item_label_desc md-rich-text"
         v-if="data.desc"
         v-html="data.desc"
       ></p>
     </div>
-    <div class="md-cashier-channel-item_check_icon">
-      <md-icon
-        v-if="data.disabled"
-        name="check-disabled"
-      ></md-icon>
-      <md-icon
-        v-else-if="active"
-        name="checked"
-      ></md-icon>
-      <md-icon
-        v-else
-        name="check"
-      ></md-icon>
+    <div
+      class="md-cashier-channel-item_check_icon"
+      :class="{'md-cashier-channel-item_checked_icon': active}"
+    >
+      <md-icon class="md-icon check-disabled" v-if="data.disabled" name="check-disabled"></md-icon>
+      <template v-else>
+        <md-icon class="md-icon checked" name="checked"></md-icon>
+        <md-icon class="md-icon check" name="check"></md-icon>
+      </template>
     </div>
   </div>
 </template>
@@ -82,12 +78,15 @@ export default {
     margin 6px 0
   &_image img
     block() 
+    height inherit
   &_label
     float left
     margin-left md-h-gap-sm
     &_title
       font-size md-cashier-choose-channel-title-font-size
       color md-cashier-choose-channel-title-color
+      .md-rich-text
+        display inline-block
       .md-active
         padding-left md-h-gap-sm
         font-size md-cashier-choose-channel-title-action-font-size
@@ -100,10 +99,24 @@ export default {
     position absolute
     top 50%
     right 0
+    width 32px
+    height 32px
+    color transparent
     transform translateY(-50%)
     .md-icon
-      display flex
+      position absolute
+      top 0
+      left 0
       color md-color-text-placeholder
-      &.md-icon-checked
-        color md-cashier-choose-channel-icon-color
+      transition all .3s md-ease-in-out-quint
+    .checked
+      opacity 0
+      transform scale(0.3)
+  &_checked_icon
+    .check
+      color md-cashier-choose-channel-icon-color
+    .checked
+      color md-cashier-choose-channel-icon-color
+      opacity 1
+      transform scale(1)
 </style>

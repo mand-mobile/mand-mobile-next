@@ -7,12 +7,13 @@
  * https://github.com/ustbhuangyi/better-scroll/blob/dev/LICENSE
  *
  */
-import Scroller from './index'
+import Scroller, {TranslaterPoint} from './index'
 import {ease} from './animator'
 const {isPlainObject} = require('@mand-mobile/shared/lib/util')
 
 export type wheelOptions = Partial<WheelConfig>
 export interface WheelConfig {
+  direction: string;
   items: any[]
   itemHeight: number
   selectedIndex: number
@@ -34,6 +35,13 @@ export default class WheelScroller {
     this.items = this.options.items || []
     this.itemHeight = this.options.itemHeight || this.itemHeight || 0
     this.init()
+  }
+
+  get directionX () {
+    const direction = this.options.direction || (
+      this.scroller.options.scrollX ? 'x' : 'y'
+    )
+    return direction === 'x'
   }
 
   init() {
@@ -61,14 +69,29 @@ export default class WheelScroller {
       this.selectedIndex = this.options.selectedIndex || 0
     }
 
-    this.itemHeight = scrollBehaviorY.originContentSize / itemLength
+    if (this.directionX) {
+      this.itemHeight = scrollBehaviorX.originContentSize / itemLength
 
-    scrollBehaviorX.maxScrollPos = 0
-    scrollBehaviorY.maxScrollPos = -this.itemHeight * (itemLength - 1)
-    scrollBehaviorX.minScrollPos = 0
-    scrollBehaviorY.minScrollPos = 0
-    scrollBehaviorY.hasScroll =
-      scrollBehaviorY.options && scrollBehaviorY.maxScrollPos <= scrollBehaviorY.minScrollPos
+      scrollBehaviorX.maxScrollPos = -this.itemHeight * (itemLength - 1)
+      scrollBehaviorX.minScrollPos = 0
+
+      scrollBehaviorY.maxScrollPos = 0
+      scrollBehaviorY.minScrollPos = 0
+
+      scrollBehaviorX.hasScroll =
+        scrollBehaviorX.options && scrollBehaviorX.maxScrollPos <= scrollBehaviorX.minScrollPos
+    } else {
+      this.itemHeight = scrollBehaviorY.originContentSize / itemLength
+
+      scrollBehaviorX.maxScrollPos = 0
+      scrollBehaviorX.minScrollPos = 0
+
+      scrollBehaviorY.maxScrollPos = -this.itemHeight * (itemLength - 1)
+      scrollBehaviorY.minScrollPos = 0
+
+      scrollBehaviorY.hasScroll =
+        scrollBehaviorY.options && scrollBehaviorY.maxScrollPos <= scrollBehaviorY.minScrollPos
+    }
   }
 
   getSelectedIndex() {
@@ -76,8 +99,13 @@ export default class WheelScroller {
   }
 
   wheelTo(index = 0, time = 0) {
-    const y = -index * this.itemHeight
-    this.scroller.scrollTo(0, y, time, ease.bounce.fn)
+    const offset = -index * this.itemHeight
+    const baseParams = [time, ease.bounce.fn]
+    if (this.directionX) {
+      this.scroller.scrollTo(offset, 0, ...baseParams)
+    } else {
+      this.scroller.scrollTo(0, offset, ...baseParams)
+    }
   }
 
   private normalizeOptions() {
@@ -106,9 +134,15 @@ export default class WheelScroller {
     }
   }
 
-  findNearestValidWheel(y: number) {
-    y = y > 0 ? 0 : y < this.scroller.maxScrollY ? this.scroller.maxScrollY : y
-    let currentIndex = this.itemHeight ? Math.abs(Math.round(-y / this.itemHeight)) : 0
+  findNearestValidWheel(point: TranslaterPoint): {index: number, point: TranslaterPoint} {
+    let offset, {x, y} = point
+    if (this.directionX) {
+      offset = x > 0 ? 0 : x < this.scroller.maxScrollX ? this.scroller.maxScrollX : x
+    } else {
+      offset = y > 0 ? 0 : y < this.scroller.maxScrollY ? this.scroller.maxScrollY : y
+    }
+    
+    let currentIndex = this.itemHeight ? Math.abs(Math.round(-offset / this.itemHeight)) : 0
     const cacheIndex = currentIndex
     const invalidIndex = this.options.invalidIndex
     const items = this.items
@@ -140,10 +174,15 @@ export default class WheelScroller {
       currentIndex = cacheIndex
     }
     
+    const newOffset = -currentIndex * this.itemHeight
+    const newPoint = this.directionX
+      ? {x: newOffset, y}
+      : {x, y: newOffset}
+
     // when all the items are disabled, this.selectedIndex should always be -1
     return {
       index: this.wheelItemsAllDisabled ? -1 : currentIndex,
-      y: -currentIndex * this.itemHeight
+      point: newPoint
     }
   }
 
@@ -159,7 +198,9 @@ export default class WheelScroller {
 
   private tapIntoHooks() {
     const scroller = this.scroller
+    const scrollBehaviorX = scroller.scrollBehaviorX
     const scrollBehaviorY = scroller.scrollBehaviorY
+    const directionX = this.directionX
 
     scroller.on(scroller.eventTypes.refresh, () => {
       this.refresh()
@@ -170,9 +211,10 @@ export default class WheelScroller {
     //   this.wheelTo(index, this.options.adjustTime)
     //   return true
     // })
-    scroller.on(scroller.eventTypes.scrollTo, (endPoint: { x: number; y: number }) => {
-      const item = this.findNearestValidWheel(endPoint.y)
-      endPoint.y = item.y
+    scroller.on(scroller.eventTypes.scrollTo, (endPoint: TranslaterPoint) => {
+      const {point} = this.findNearestValidWheel(endPoint)
+      endPoint.x = point.x
+      endPoint.y = point.y
     })
     scroller.on(scroller.eventTypes.ignoreDisMoveForSamePos, () => {
       return true
@@ -182,10 +224,10 @@ export default class WheelScroller {
     // })
     scroller.on(
       scroller.eventTypes.translate,
-      (endPoint: { x: number; y: number }) => {
+      (endPoint: TranslaterPoint) => {
         // this.rotateX(endPoint.y)
-        const item = this.findNearestValidWheel(endPoint.y)
-        this.selectedIndex = item.index
+        const {index} = this.findNearestValidWheel(endPoint)
+        this.selectedIndex = index
       }
     )
 
@@ -200,9 +242,15 @@ export default class WheelScroller {
         distance: number
       ) => {
         momentumInfo.rate = 4
-        momentumInfo.destination = this.findNearestValidWheel(
-          momentumInfo.destination
-        ).y
+        if (directionX) {
+          momentumInfo.destination = this.findNearestValidWheel(
+            {x: momentumInfo.destination, y: 0}
+          ).point.x
+        } else {
+          momentumInfo.destination = this.findNearestValidWheel(
+            {x: 0, y: momentumInfo.destination}
+          ).point.y
+        }
         const maxDistance = 1000
         const minDuration = 800
         if (distance < maxDistance) {
@@ -213,13 +261,17 @@ export default class WheelScroller {
         }
       }
     )
+
     scrollBehaviorY.hooks.on(
       scrollBehaviorY.hooks.eventTypes.end,
       (momentumInfo: { destination: number; duration: number }) => {
-        let validWheel = this.findNearestValidWheel(scrollBehaviorY.currentPos)
-        momentumInfo.destination = validWheel.y
+        const {index, point} = this.findNearestValidWheel({
+          x: scrollBehaviorX.currentPos,
+          y: scrollBehaviorY.currentPos
+        })
+        momentumInfo.destination = directionX ? point.x : point.y
         momentumInfo.duration = this.options.adjustTime as number
-        this.selectedIndex = validWheel.index
+        this.selectedIndex = index
       }
     )
   }

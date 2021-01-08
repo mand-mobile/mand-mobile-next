@@ -26,7 +26,8 @@
   </div>
 </template>
 
-<script>import Popup from '../popup'
+<script>
+import Popup from '../popup'
 import Icon from '../icon'
 
 export default {
@@ -89,7 +90,7 @@ export default {
           return this.icon || 'fail'
           break
         case 'loading':
-          return this.icon || 'spinner'
+          return this.icon || 'ring'
           break
         default:
           return this.icon
@@ -129,7 +130,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-toast

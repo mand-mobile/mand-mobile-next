@@ -51,39 +51,13 @@
 
 <script>
 import {getDpr} from '@mand-mobile/shared/lib/util'
+import commonMixin from './mixins'
 import './common.styl'
-const fontSize = 14
-const color = '#858B9C'
 
 export default {
   name: 'md-water-mark',
 
-  props: {
-    content: {
-      type: String,
-      default: '',
-    },
-    spacing: {
-      type: [String, Number],
-      default: '20vw',
-    },
-    repeatX: {
-      type: Boolean,
-      default: true,
-    },
-    repeatY: {
-      type: Boolean,
-      default: true,
-    },
-    rotate: {
-      type: [String, Number],
-      default: -30,
-    },
-    opacity: {
-      type: [String, Number],
-      default: 0.1,
-    },
-  },
+  mixins: [commonMixin],
 
   data() {
     return {
@@ -137,14 +111,14 @@ export default {
     },
 
     $_draw() {
-      const {content, ctx, realSpacing, ratio, ctxWidth, ctxHeight} = this
+      const {content, ctx, realSpacing, ratio, color, fontSize, ctxWidth, ctxHeight} = this
 
       const _fontSize = fontSize * ratio
       const contentLength = content.length * _fontSize
       const xCount = Math.ceil(ctxWidth * ratio / (contentLength + realSpacing))
       const yCount = Math.ceil(ctxHeight * ratio / (_fontSize + realSpacing))
 
-      ctx.font = `${_fontSize}px DIN Alternate, "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif`
+      ctx.font = `${_fontSize}px "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif`
       ctx.fillStyle = color
 
       let ctxX = 0

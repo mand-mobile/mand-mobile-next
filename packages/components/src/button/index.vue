@@ -8,7 +8,7 @@
       inline ? 'md-button--inline' : 'md-button--block',
       round ? 'md-button--round' : '',
       plain ? 'md-button--plain' : '',
-      size === 'small' ? 'md-button--small' : '',
+      buttonSize === 'small' ? 'md-button--small' : '',
     ]"
     :disabled="inactive || type === 'disabled'"
     @click="clickHandler"
@@ -33,16 +33,13 @@
 <script>
 import ActivityIndicator from '../activity-indicator'
 import Icon from '../icon'
-import style from './style'
+
 export default {
   name: 'md-button',
 
   components: {
     'md-activity-indicator': ActivityIndicator,
     'md-icon': Icon,
-
-    // this component only used to import platform relatived code
-    'style': style,
   },
 
   props: {
@@ -89,6 +86,10 @@ export default {
     loadingColor: {
       type: String,
     },
+    small: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     loadingType() {
@@ -100,6 +101,9 @@ export default {
       }
 
       return loading
+    },
+    buttonSize() {
+      return this.small ? 'small' : this.size
     },
   },
   methods: {
@@ -246,9 +250,10 @@ export default {
         border-radius md-button-small-height
 
   &.md-button--link
-    display inline
+    display inline-block
     width auto
     height auto
+    padding 0
     line-height 1
     font-size md-button-small-font-size
     font-weight md-font-weight-normal
@@ -257,6 +262,8 @@ export default {
     &.md-button--inactive
       color md-color-text-disabled
       opacity 1
+    &::after
+      display none
 
   &.md-button--inactive
     opacity md-opacity-disabled

@@ -184,8 +184,8 @@ export default {
     background-color md-notice-bar-fill-activity
     color md-notice-bar-color-activity
   &.warning
-    color notice-bar-color-warning
-    background-color notice-bar-fill-warning
+    color md-notice-bar-color-warning
+    background-color md-notice-bar-fill-warning
 
 .md-notice-bar_left,
 .md-notice-bar_right

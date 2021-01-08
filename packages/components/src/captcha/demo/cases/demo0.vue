@@ -22,7 +22,7 @@
         title="限制验证码长度"
         customized
         align="right">
-        <md-switch v-model="limit"></md-switch>
+        <md-switch v-model="limit" slot="right"></md-switch>
       </md-field-item>
 
       <md-input-item
@@ -32,17 +32,17 @@
       ></md-input-item>
 
       <md-field-item
-        title="采用掩码"
+        title="采用掩码11"
         customized
         align="right">
-        <md-switch v-model="mask"></md-switch>
+        <md-switch v-model="mask" slot="right"></md-switch>
       </md-field-item>
 
       <md-field-item
         title="使用系统键盘"
         customized
         align="right">
-        <md-switch v-model="system"></md-switch>
+        <md-switch v-model="system" slot="right"></md-switch>
       </md-field-item>
 
     </md-field>
@@ -55,7 +55,6 @@
       :maxlength="limit ? parseFloat(maxlength) : -1"
       :system="system"
       :mask="mask"
-      :appendTo="false"
       @submit="submit"
       @show="showHandler"
       @hide="hideHandler"
@@ -109,13 +108,13 @@ export default {
             this.$refs.captcha.setError('验证码错误，请重新输入')
           } else {
             this.show = false
-            console.log(`你输入了${val}`)
+            Toast.info(`你输入了${val}`)
           }
         }
       }, 300)
     },
     onSend() {
-      console.log('click resend button.')
+      Toast.info('click resend button.')
     },
     showHandler() {
       console.log('show')

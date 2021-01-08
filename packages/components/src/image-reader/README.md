@@ -29,13 +29,12 @@ Vue.component(ImageReader.name, ImageReader)
 |size|图片尺寸限制|String/Number| |单位`kb`|
 |is-camera-only|是否只支持拍照|Boolean|`false`| |
 |amount|选择多张|Number| |只在`is-multiple`为`true`时有效|
-|is-multiple <MDPlatformTag web/>|是否支持选择多张|Boolean|`false`|存在[兼容问题](https://caniuse.com/#feat=input-file-multiple)|
+|is-multiple|是否支持选择多张|Boolean|`false`|存在[兼容问题](https://caniuse.com/#feat=input-file-multiple)|
 |mime <MDPlatformTag web/>|支持图片类型|Array|`*`|如`['jpeg','png']`|
 
 ### ImageReader Events
 
 #### @select(name, { files })
-<MDPlatformTag web/>
 图片选择完成事件，还未开始读取
 
 |属性 | 说明 | 类型| 备注|
@@ -50,8 +49,12 @@ Vue.component(ImageReader.name, ImageReader)
 |-----|-----|-----|-----|
 |name|选择器标识|String|-|
 |dataUrl|图片Base64|String|-|
-|blob|图片Blob对象，可用于`formData`，仅支持web|Blob|-|
 |file|图片对象|File|-|
+|blob <MDPlatformTag web/>|图片Blob对象，可用于`formData`|Blob|-|
+
+:::tips
+Uniapp中需使用[uni.uploadFile](https://uniapp.dcloud.io/api/request/network-file?id=uploadfile)上传图片
+:::
 
 #### @error(name, { code, msg })
 图片选择读取失败事件
@@ -66,6 +69,10 @@ Vue.component(ImageReader.name, ImageReader)
 <MDPlatformTag web/>
 
 用于图片轴向修正，图片质量压缩，宽高控制
+
+:::tips
+Uniapp中需使用[uni.compressImage](https://uniapp.dcloud.io/api/media/image?id=compressimage)压缩图片
+:::
 
 ### 引入
 

@@ -5,20 +5,18 @@
       :current="currentStep"
       transition
     ></md-steps>
+    <md-button size="small" inline @click="next">下一步</md-button>
   </div>
 </template>
 
 <script>
 import Steps from 'mand-mobile/lib/steps'
+import Button from 'mand-mobile/lib/button'
 
 export default {
   components: {
     'md-steps': Steps,
-  },
-  mounted() {
-    setTimeout(() => {
-      this.currentStep = 3
-    }, 2000)
+    'md-button': Button,
   },
   data() {
     return {
@@ -39,6 +37,12 @@ export default {
       currentStep: 0,
     }
   },
+  methods: {
+    next() {
+      const {currentStep, steps} = this
+      this.currentStep = currentStep < steps.length - 1 ? currentStep + 1 : 0
+    },
+  },
 }
 // #region ignore
 export const metaInfo = {
@@ -52,4 +56,10 @@ export const metaInfo = {
 // #endregion ignore
 
 </script>
+
+<style scoped>
+.md-example-child-steps-4 {
+  padding: 0 30px;
+}
+</style>
 

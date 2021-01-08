@@ -19,9 +19,16 @@ export default {
 }
 // #region ignore
 export const metaInfo = {
-  title: '文字链接按钮',
+  title: '文字链接按钮11',
   align: 'right',
 }
 // #endregion ignore
 
 </script>
+
+<style scoped>
+.md-example-child-button {
+  display: flex;
+  justify-content: space-between;
+}
+</style>
