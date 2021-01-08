@@ -16,6 +16,10 @@
       <md-icon name="location" size="lg"></md-icon>
       <p class="icon-name">lg</p>
     </div>
+    <div class="md-example-item">
+      <md-icon name="location" size="slg"></md-icon>
+      <p class="icon-name">slg</p>
+    </div>
   </div>
 </template>
 
@@ -49,7 +53,7 @@ export const metaInfo = {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  width: 25%;
+  width: 20%;
   margin-bottom: 32px;
 }
 .md-example-child-icon .md-example-item .icon-name {

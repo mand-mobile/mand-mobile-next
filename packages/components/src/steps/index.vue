@@ -1,87 +1,115 @@
 <template>
   <div
     class="md-steps"
-    :class="{
-      'md-steps--vertical': direction == 'vertical',
-      'md-steps--horizontal': direction == 'horizontal',
-      'md-steps--adaptive': direction == 'vertical' && verticalAdaptive,
-      'md-steps--no-current': currentLength % 1 !== 0
-    }"
+    :class="[
+      direction == 'horizontal' ? 'md-steps--horizontal' : 'md-steps--vertical',
+      direction == 'horizontal' || adaptive ? 'md-steps--adaptive' : '',
+      currentLength % 1 !== 0 ? 'md-steps--no-current': '',
+      `md-steps--padding-${padding}`
+    ]"
   >
-  
-    <template v-for="(step, index) of steps" >
-      <div class="md-steps_wrapper"
-        :key="`steps-${index}`"
-        :class="[index < currentLength ? 'md-reached' : '', index === currentLength ? 'md-current' : '']"
+    <template v-for="(step, index) of steps">
+      <md-step-horizontal
+        v-if="direction == 'horizontal'"
+        class="md-steps_item--horizontal"
+        :step="step"
+        :index="index"
+        :progress="progress[index]"
+        :dislocation="dislocation && (index % 2 === 0)"
+        :is-reached="index < currentLength"
+        :is-current="index === currentLength"
+        :is-last="index === steps.length - 1"
+        :key="step.index"
+        :slots="{
+          icon: $scopedSlots.icon,
+          content: $scopedSlots.content
+        }"
+        :style="{
+          flex: step.flex || 1
+        }"
       >
-        <!-- Customize uniformly -->
-        <!-- <div class="icon-wrapper" >
-          <slot name="icon"></slot>
-        </div> -->
-        <!-- Customize uniformly -->
-        <div class="md-steps_icon_wrapper">
-          <template v-if="index < currentLength">
-            <slot name="reached" :index="index">
-              <div class="md-steps_node--default">
-                <div class="md-steps_node--default_icon" style="width: 6px;height: 6px;border-radius: 50%;"></div>
-              </div>
-            </slot>
-          </template>
-          <template v-else-if="index === currentLength">
-            <!-- <slot
-              v-if="$scopedSlots.current || $slots.current"
-              name="current"
-              :index="index"
-            ></slot> -->
+        <template #icon>
+          <slot name="icon" :index="index" :current-index="currentLength"/>
+        </template>
+        <template #reached>
+          <slot name="reached" :index="index">
+            <md-step-node active/>
+          </slot>
+        </template>
+        <template #current>
+          <slot name="current" :index="index">
             <md-icon name="success"></md-icon>
-          </template>
-          <template v-else>
-            <!-- <slot
-              v-if="$scopedSlots.unreached || $slots.unreached"
-              name="unreached"
-              :index="index"
-            ></slot> -->
-            <div class="md-steps_node--default">
-              <div class="md-steps_node--default_icon" style="width: 6px;height: 6px;border-radius: 50%;"></div>
-            </div>
-          </template>
-        </div>
-        <div class="md-steps--text-wrapper">
-          <template>
-            <div class="md-name">
-              {{step.name}}
-            </div>
-            <div class="md-desc" v-if="step.text">
-              {{step.text}}
-            </div>
-          </template>
-        </div>      
-      </div>
-      <div class="md-bar"
-        :class="[direction === 'horizontal' ? 'md-bar_horizontal' : 'md-bar_vertical']"
-        :key="`bar-${index}`"
+          </slot>
+        </template>
+        <template #unreached>
+          <slot name="unreached" :index="index">
+            <md-step-node/>
+          </slot>
+        </template>
+        <template #content>
+          <slot name="content" :index="index" :step="step"/>
+        </template>
+      </md-step-horizontal>
+      <md-step-vertical
+        v-else
+        class="md-steps_item--vertical"
+        :step="step"
+        :index="index"
+        :progress="progress[index]"
+        :dislocation="dislocation && (index % 2 === 0)"
+        :adaptive="adaptive"
+        :is-reached="index < currentLength"
+        :is-current="index === currentLength"
+        :is-last="index === steps.length - 1"
+        :key="step.index"
+        :slots="{
+          icon: $scopedSlots.icon,
+          content: $scopedSlots.content
+        }"
       >
-        <i
-          class="md-bar_inner"
-          v-if="progress[index]"
-          :style="{
-            transform: `translate3d${barInnerTransform(index)}`,
-            transition: `all ${progress[index]['time']}s linear`,
-          }"
-        ></i>
-      </div>
+        <template #icon>
+          <slot name="icon" :index="index" :current-index="currentLength"/>
+        </template>
+        <template #reached>
+          <slot name="reached" :index="index">
+            <md-step-node active/>
+          </slot>
+        </template>
+        <template #current>
+          <slot name="current" :index="index">
+            <md-icon name="success"></md-icon>
+          </slot>
+        </template>
+        <template #unreached>
+          <slot name="unreached" :index="index">
+            <md-step-node/>
+          </slot>
+        </template>
+        <template #content>
+          <slot name="content" :index="index" :step="step"/>
+        </template>
+      </md-step-vertical>
     </template>
   </div>
 </template>
 
 <script>
-import {toArray} from '@mand-mobile/shared/lib/util'
+import StepVertical from './step-vertical'
+import StepHorizontal from './step-horizontal'
+import StepNode from './step-node'
 import Icon from '../icon'
+
+const POS_TOP = 'top'
+const POS_BOTTOM = 'bottom'
+const POS_DIS = 'dislocation'
 
 export default {
   name: 'md-steps',
 
   components: {
+    'md-step-horizontal': StepHorizontal,
+    'md-step-vertical': StepVertical,
+    'md-step-node': StepNode,
     'md-icon': Icon,
   },
 
@@ -104,11 +132,15 @@ export default {
       type: String,
       default: 'horizontal',
     },
+    dislocation: {
+      type: Boolean,
+      default: false,
+    },
     transition: {
       type: Boolean,
       default: false,
     },
-    verticalAdaptive: {
+    adaptive: {
       type: Boolean,
       default: false,
     },
@@ -126,17 +158,24 @@ export default {
   },
 
   computed: {
-    $_barInnerStyle() {
-      return index => {
-        const {progress} = this
-        const transform =
-          this.direction === 'horizontal'
-            ? `(${(progress[index]['len'] - 1) * 100}%, 0, 0)`
-            : `(0, ${(progress[index]['len'] - 1) * 100}%, 0)`
-        return {
-          transform: `translate3d${transform}`,
-          transition: `all ${progress[index]['time']}s linear`,
-        }
+    padding() {
+      if (this.dislocation) {
+        return POS_DIS
+      }
+
+      let equal = false
+      const res = this.steps.every(step => {
+        const pos = step.textPosition || POS_BOTTOM
+        equal = pos === this.steps[0].textPosition || pos === POS_BOTTOM
+        return pos === POS_TOP
+      })
+
+      if (res) {
+        return POS_TOP
+      } else if (equal) {
+        return POS_BOTTOM
+      } else {
+        return POS_DIS
       }
     },
     barInnerTransform() {
@@ -156,7 +195,9 @@ export default {
       const newProgress = this.$_sliceProgress(currentStep)
       if (this.transition) {
         const isAdd = currentStep >= oldVal
-        this.timer && clearTimeout(this.timer)
+        if (this.timer) {
+          clearTimeout(this.timer)
+        }
         this.timer = setTimeout(() => {
           this.$_doTransition(newProgress, isAdd, len => {
             if ((isAdd && len > this.currentLength) || (!isAdd && len < this.currentLength)) {
@@ -176,64 +217,9 @@ export default {
     this.currentLength = currentStep
     this.progress = this.$_sliceProgress(currentStep)
   },
-  mounted() {
-    this.$_initStepSize()
-  },
-  updated() {
-    this.$nextTick(() => {
-      this.$_initStepSize()
-    })
-  },
 
   methods: {
     // MARK: private methods
-    async $_initStepSize() {
-      if (this.direction !== 'vertical' || this.verticalAdaptive) {
-        return
-      }
-      const dom = await this.$MDDom()
-      const iconWrappers = dom.querySelectorAll('.md-steps_icon_wrapper')
-      const textWrappers = dom.querySelectorAll('.md-steps--text-wrapper')
-      const stepsSize = toArray(textWrappers).map((wrapper, index) => {
-        let stepHeight = wrapper.clientHeight
-        const iconHeight = iconWrappers[index].clientHeight
-        if (index === textWrappers.length - 1) {
-          // The last step needs to subtract floated height
-          stepHeight -= iconHeight
-        } else {
-          // Add spacing between steps to prevent distance too close
-          stepHeight += 40
-        }
-        return stepHeight > 0 ? stepHeight : 0
-      })
-
-      if (stepsSize.toString() !== this.stepsSize.toString()) {
-        this.stepsSize = stepsSize
-      }
-    },
-    $_getStepSizeForStyle(index) {
-      const size = this.direction === 'vertical' && !this.verticalAdaptive ? this.stepsSize[index] : 0
-      return size
-        ? {
-            height: `${size}px`,
-          }
-        : null
-    },
-    $_getStepStatusClass(index) {
-      const currentLength = this.currentLength
-
-      let status = []
-
-      if (index < currentLength) {
-        status.push('reached')
-      }
-
-      if (index === Math.floor(currentLength)) {
-        status.push('current')
-      }
-
-      return status.join(' ')
-    },
     $_formatValue(val) {
       if (val < 0) {
         return 0
@@ -293,139 +279,32 @@ export default {
   display flex
   justify-content space-around
   font-size 28px
+  box-sizing border-box
 
   &.md-steps--horizontal
     align-items center
-    padding 40px 100px 100px
-    .md-steps_wrapper
-      margin 0 4px
-      justify-content center
-      align-items center
-      flex-direction column
-      &.md-reached
-        .md-steps--text-wrapper .md-name
-          color md-steps-text-color
-      &.md-current
-        .md-steps--text-wrapper .md-name
-          color md-steps-color-active
-    .md-steps--text-wrapper
-      top 100%
-      padding-top md-steps-text-gap-horizontal
-      text-align center
-      .md-name
-        color md-steps-desc-color
-      .md-desc
-        margin-top 10px
-        color md-steps-desc-color
-    &.md-steps--no-current
-      .md-reached:last-of-type
-        display none !important
+    padding 40px 0 100px
+    &.md-steps--adaptive
+      width 100%
+      .md-steps_item--horizontal
+        flex 1
+        &:last-of-type
+          display contents
+    &.md-steps--padding-dislocation
+      padding 100px 0
+    &.md-steps--padding-top
+      padding 100px 0 40px
 
   &.md-steps--vertical
     align-items flex-start
-    padding 40px
     flex-direction column
+    padding 40px
     &.md-steps--adaptive
-      justify-content normal
-      padding 40px 40px 8px
-      .md-bar.md-bar_vertical
+      height 100%
+      padding 0
+      justify-content normal 
+      .md-steps_item--vertical  // uni
         flex 1
-    .md-steps_wrapper
-      width 100%
-      margin 4px 0
-      align-items stretch
-      .md-steps_icon_wrapper
-        position relative
-        .md-steps_node--default
-          min-width md-steps-icon-size
-          min-height md-steps-icon-size
-      .md-steps--text-wrapper
-        left md-steps-icon-size
-        padding-left md-steps-text-gap-vertical
-        .md-name, .md-desc
-          white-space normal
-        .md-name
-          color md-steps-text-color
-        .md-desc
-          margin-top 18px
-          color md-steps-desc-color
-
-  .md-steps_icon_wrapper
-    display flex
-    justify-content center
-    align-items center
-    color md-steps-color
-
-    >div
-      display flex
-      justify-content center
-      align-items center
-    &:nth-child(2)
-      display none
-
-    .md-steps_node--default_icon
-      background md-steps-color
-
-  .md-steps_wrapper
-    display flex
-    position relative
-    min-width md-steps-icon-size
-    min-height md-steps-icon-size
-    .md-steps_icon_wrapper
-      min-width md-steps-icon-size
-      min-height md-steps-icon-size
-      .md-icon
-        width md-steps-icon-size
-        height md-steps-icon-size
-        font-size md-steps-icon-size
-        line-height md-steps-icon-size
-    .md-steps--text-wrapper
-      position absolute
-      .md-name, .md-desc
-        white-space nowrap
-      .md-name
-        line-height md-steps-text-font-size
-        font-size md-steps-text-font-size
-      .md-desc
-        line-height md-steps-text-font-size
-        font-size md-steps-desc-font-size
-    &.md-reached, &.md-current
-      .md-steps_icon_wrapper
-        color md-steps-color-active
-        .md-steps_node--default_icon
-          background md-steps-color-active
-
-  .md-bar
-    position relative
-    background-color md-steps-color
-    overflow hidden
-    .md-bar_inner
-      z-index 10
-      position absolute
-      top 0
-      left 0
-      display block
-      content ''
-      transition all linear 1s
-    &.md-bar_horizontal
-      flex 1
-      height md-steps-border-size
-      .md-bar_inner
-        width 100%
-        height md-steps-border-size
-        background-color md-steps-color-active
-    &.md-bar_vertical
-      left 16px
-      width md-steps-border-size
-      transform translateX(-50%)
-      min-height 110px
-      .md-bar_inner
-        width md-steps-border-size
-        height 100%
-        background-color md-steps-color-active
-    &:last-of-type
-      &.md-bar_horizontal
-        display none
-      &.md-bar_vertical
-        visibility hidden
+        &:last-of-type
+          display contents
 </style>

@@ -8,7 +8,7 @@
       inline ? 'md-button--inline' : 'md-button--block',
       round ? 'md-button--round' : '',
       plain ? 'md-button--plain' : '',
-      size === 'small' ? 'md-button--small' : '',
+      buttonSize === 'small' ? 'md-button--small' : '',
     ]"
     :disabled="inactive || type === 'disabled'"
     @click="clickHandler"
@@ -86,6 +86,10 @@ export default {
     loadingColor: {
       type: String,
     },
+    small: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     loadingType() {
@@ -97,6 +101,9 @@ export default {
       }
 
       return loading
+    },
+    buttonSize() {
+      return this.small ? 'small' : this.size
     },
   },
   methods: {

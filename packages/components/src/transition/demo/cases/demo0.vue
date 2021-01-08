@@ -1,19 +1,19 @@
 <template>
   <div class="md-example-child md-example-child-transition">
-    <md-button class="md-button" inline size="small" @click="showPopUp('md-fade')">Fade</md-button>
-    <md-button class="md-button" inline size="small" @click="showPopUp('md-fade-up')">Fade Up</md-button>
-    <md-button class="md-button" inline size="small" @click="showPopUp('md-fade-down')">Fade Down</md-button>
-    <md-button class="md-button" inline size="small" @click="showPopUp('md-fade-left')">Fade Left</md-button>
-    <md-button class="md-button" inline size="small" @click="showPopUp('md-fade-right')">Fade Right</md-button>
-    <md-button class="md-button" inline size="small" @click="showPopUp('md-bounce')">Bounce</md-button>
-    <md-button class="md-button" inline size="small" @click="showPopUp('md-punch')">Punch</md-button>
-    <md-button class="md-button" inline size="small" @click="showPopUp('md-zoom')">Zoom</md-button>
-    <md-button class="md-button" inline size="small" @click="showPopUp('md-slide-up')">Slide Up</md-button>
-    <md-button class="md-button" inline size="small" @click="showPopUp('md-slide-down')">Slide Down</md-button>
-    <md-button class="md-button" inline size="small" @click="showPopUp('md-slide-left')">Slide Left</md-button>
-    <md-button class="md-button" inline size="small" @click="showPopUp('md-slide-right')">Slide Right</md-button>
+    <md-button class="md-button" inline small @click="showPopUp('md-fade')">Fade</md-button>
+    <md-button class="md-button" inline small @click="showPopUp('md-fade-up')">Fade Up</md-button>
+    <md-button class="md-button" inline small @click="showPopUp('md-fade-down')">Fade Down</md-button>
+    <md-button class="md-button" inline small @click="showPopUp('md-fade-left')">Fade Left</md-button>
+    <md-button class="md-button" inline small @click="showPopUp('md-fade-right')">Fade Right</md-button>
+    <md-button class="md-button" inline small @click="showPopUp('md-bounce')">Bounce</md-button>
+    <md-button class="md-button" inline small @click="showPopUp('md-punch')">Punch</md-button>
+    <md-button class="md-button" inline small @click="showPopUp('md-zoom')">Zoom</md-button>
+    <md-button class="md-button" inline small @click="showPopUp('md-slide-up')">Slide Up</md-button>
+    <md-button class="md-button" inline small @click="showPopUp('md-slide-down')">Slide Down</md-button>
+    <md-button class="md-button" inline small @click="showPopUp('md-slide-left')">Slide Left</md-button>
+    <md-button class="md-button" inline small @click="showPopUp('md-slide-right')">Slide Right</md-button>
 
-    <div class="wrapper" v-show="isWrapperShow">
+    <div class="wrapper" v-if="isWrapperShow">
       <md-transition :show="isBoxShow" name="md-fade">
         <div class="layer" @click="hidePopup"></div>
       </md-transition>
@@ -48,7 +48,9 @@ export default {
     showPopUp(name) {
       this.transitionName = name
       this.isWrapperShow = true
-      this.isBoxShow = true
+      this.$nextTick(() => {
+        this.isBoxShow = true
+      })
     },
     hidePopup() {
       this.isBoxShow = false
@@ -63,7 +65,8 @@ export default {
 
 <style>
 .md-example-child-transition .md-button {
-  margin-bottom: 20px;
+  display: inline-block;
+  margin: 0 10px 20px;
 }
 
 .md-example-child-transition .wrapper {
@@ -98,6 +101,6 @@ export default {
   border-radius: 12px;
   background: #FFF;
   box-shadow: 0 2px 4px -4px rgba(0,0,0,.08), 0 4px 12px 0 rgba(0,0,0,.1), 0 6px 20px 8px rgba(0,0,0,.1);
-  z-index: 2;
+  z-index: 1;
 }
 </style>

@@ -187,7 +187,7 @@ export default {
   padding-left 32px
   box-sizing border-box
   will-change all
-  &.md-notice-bar--round
+  &.md-notice-bar-round
     border-radius md-notice-bar-border-radius
   &.activity
     background-color md-notice-bar-fill-activity

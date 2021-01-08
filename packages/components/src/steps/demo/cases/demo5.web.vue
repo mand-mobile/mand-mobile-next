@@ -47,6 +47,7 @@ export const metaInfo = {
 <style lang="stylus">
 .md-example-child-steps-5
   height 140px
+  padding 0 30px
   .md-steps .icon.current::before
     content ''
     color color-primary-tap

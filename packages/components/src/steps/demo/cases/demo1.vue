@@ -42,3 +42,9 @@ export const metaInfo = {
 // #endregion ignore
 
 </script>
+
+<style scoped>
+.md-example-child-steps-1 {
+  padding: 0 30px;
+}
+</style>

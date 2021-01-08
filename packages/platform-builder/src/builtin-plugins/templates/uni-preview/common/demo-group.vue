@@ -1,7 +1,6 @@
 <template>
-  <div class="md-example picker">
-<% for (let demoIndex = 0; demoIndex < component.demoCases.length; demoIndex++) {%>
-
+  <div class="md-example">
+  <%for (let demoIndex = 0; demoIndex < component.demoCases.length; demoIndex++) {%>
     <section class="md-example-section" >
       <div class="md-example-title" v-html="demos[<%- demoIndex %>].title || '基础'"></div>
       <div class="md-example-describe" v-html="demos[<%- demoIndex %>].describe"></div>
@@ -9,13 +8,11 @@
         <demo<%- demoIndex %>></demo<%- demoIndex %>>
       </div>
     </section>
-<%}%>
-
+  <%}%>
 	</div>
 </template>
 
 <script>
-// @example import Demo1 from './cases/demo1'
 // prettier-ignore
 <% for (let demoIndex = 0; demoIndex < component.demoCases.length; demoIndex++) {%>
 import Demo<%- demoIndex %> from '../mand-mobile/<%- component.dashedStyledName %>/demo/cases/<%- component.demoCases[demoIndex] %>'
@@ -41,8 +38,6 @@ export default {
 </script>
 
 <style lang="stylus">
-// .md-example.picker .md-example-title a
-//   font-size 20px !important
 .md-example
   clearfix()
   position relative
@@ -54,6 +49,7 @@ export default {
     color color-text-base
     .md-example-title
       block()
+      padding 0
       font-size font-body-normal
       font-weight font-weight-medium
       a

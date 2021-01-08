@@ -14,6 +14,7 @@
             :key="index"
             :data="item"
             :active="index === activeChannelIndex"
+            @action="$_onChannelItemAction"
             @click.native="$_onChannelItemClick(item, index)"
           />
         </template>
@@ -23,6 +24,7 @@
           class="default"
           :data="channels[defaultIndex]"
           active
+          @action="$_onChannelItemAction"
           @click.native="$_onChannelItemClick(channels[defaultIndex], defaultIndex)"
         />
       </div>
@@ -34,14 +36,12 @@
         @click="$_onChannelMoreClick"
       ></div>
     </div>
-    <div class="md-cashier-channel_block-btn">
+    <div class="md-cashier-channel_btn">
       <md-button
         class="md-cashier-pay-button"
         :type="payButtonDisabled ? 'disabled': 'primary'"
         @click="$_onChannelBtnClick"
-      >
-        <slot name="button">{{ payButtonText }}</slot>
-      </md-button>
+      ><slot name="button"/></md-button>
     </div>
   </div>
 </template>
@@ -81,7 +81,6 @@ export default {
   },
 
   created() {
-    // console.log(this.$listeners.select)
     this.activeChannelIndex = this.defaultIndex
   },
 
@@ -101,6 +100,9 @@ export default {
   },
 
   methods: {
+    $_onChannelItemAction(payload) {
+      this.$emit('action', payload)
+    },
     $_onChannelItemClick(item, index) {
       if (item.disabled) {
         return
@@ -147,9 +149,9 @@ export default {
       &.md-cashier-channel_text_describe
         font-size md-cashier-choose-describe-font-size
         color md-cashier-choose-describe-color
-  .md-cashier-channel_channel
+  &_channel
     clearfix()
-    max-height 500px
+    max-height 600px
     padding 40px 60px
     box-sizing border-box
     overflow auto
@@ -158,7 +160,6 @@ export default {
       // max-height 64px
       transition all .5s ease-in
       overflow hidden
-      
     .md-more
       margin-top 10px
       font-size md-cashier-choose-more-font-size
@@ -181,4 +182,8 @@ export default {
         display block
       .md-choose_channel_list
         max-height 1000px !important
+  &_btn
+    block()
+    padding 0 40px 40px
+    box-sizing border-box
 </style>

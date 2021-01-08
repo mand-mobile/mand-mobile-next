@@ -1,11 +1,11 @@
 <template>
   <div class="md-example-child md-example-child-toast">
-    <md-button inline size="small" @click="showTextToast">纯文字</md-button>
-    <md-button inline size="small" @click="showSucceedToast">成功</md-button>
-    <md-button inline size="small" @click="showFailedToast">失败</md-button>
-    <md-button inline size="small" @click="showLoadingToast">载入</md-button>
-    <md-button inline size="small" @click="showMultiToast">连续调用</md-button>
-    <md-button inline size="small" @click="showLoginTextToast">长文字</md-button>
+    <md-button class="button" inline small @click="showTextToast">纯文字</md-button>
+    <md-button class="button" inline small @click="showSucceedToast">成功</md-button>
+    <md-button class="button" inline small @click="showFailedToast">失败</md-button>
+    <md-button class="button" inline small @click="showLoadingToast">载入</md-button>
+    <md-button class="button" inline small @click="showMultiToast">连续调用</md-button>
+    <md-button class="button" inline small @click="showLoginTextToast">长文字</md-button>
   </div>
 </template>
 
@@ -50,3 +50,9 @@ export default {
 }
 
 </script>
+
+<style scoped>
+.button {
+  margin: 10px;
+}
+</style>
