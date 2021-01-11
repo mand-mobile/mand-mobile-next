@@ -23,8 +23,8 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "@mand-mobile/components": "^3.0.1-alpha.9",
-    "@mand-mobile/platform-runtime": "^3.0.1-alpha.9"
+    "@mand-mobile/components": "^3.0.4-alpha.5",
+    "@mand-mobile/platform-runtime": "^3.0.4-alpha.5"
   },
   "dependencies": {
     "@dcloudio/uni-cli-shared": "^2.0.0-29820201110001",

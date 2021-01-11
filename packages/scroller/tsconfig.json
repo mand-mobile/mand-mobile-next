@@ -7,13 +7,12 @@
     "target": "ESNext",
     "noImplicitAny": false,
     "allowJs": true,
+    "declaration": true,
     "preserveConstEnums": true,
     "suppressImplicitAnyIndexErrors": true,
     "types": ["node"],
     "outDir": "lib"
   },
   "include": ["src/**/*"],
-  "exclude": [
-    "node_modules",
-  ]
+  "exclude": ["node_modules"]
 }

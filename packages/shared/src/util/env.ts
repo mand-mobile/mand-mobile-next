@@ -10,7 +10,7 @@ export const isProd = process.env.NODE_ENV === 'production'
 export const ismp = typeof Page === 'function' && typeof Component === 'function'
 
 // Browser environment sniffing
-export const root = (typeof window !== 'undefined' ? window : global) || {}
+export const root: any = (typeof window !== 'undefined' ? window : global) || {}
 
 // browser, miniapp, server
 export const inBrowser = typeof window !== 'undefined' && !!(root as any).history

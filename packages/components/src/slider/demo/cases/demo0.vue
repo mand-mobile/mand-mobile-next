@@ -19,3 +19,11 @@ export default {
 }
 
 </script>
+
+<style scoped>
+.md-example-child-slider {
+  padding: 20px;
+  border-radius: 6px;
+  background: #fff;
+}
+</style>
