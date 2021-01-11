@@ -4,7 +4,6 @@
     <md-cashier
       ref="cashier"
       v-model="isCashierhow"
-      :channels="cashierChannels"
       :payment-amount="cashierAmount"
       payment-describe="关于支付金额的特殊说明"
       large-radius
@@ -13,22 +12,21 @@
       @pay="onCashierPay"
       @cancel="onCashierCancel"
     >
-      <div slot-scope="{ scene }" slot="header">
+      <template #header="{ scene }">
         <md-notice-bar
           v-if="scene === 'choose'"
-          mode="closable"
           icon="warn"
           type="warning"
         >
           该银行3:00-12:00系统维护，请更换其他银行卡
         </md-notice-bar>
-      </div>
-      <div slot-scope="{ scene }" slot="footer">
+      </template>
+      <template #footer="{ scene }">
         <div v-if="scene === 'choose' && !isCashierInitialed" class="cashier-loading">
           <md-activity-indicator :size="30" vertical>加载中...</md-activity-indicator>
         </div>
-      </div>
-      <div slot="payButton" style="display:flex;">
+      </template>
+      <div slot="payButton" class="pay-button">
         <md-icon name="checked"></md-icon>发起支付
       </div>
       <div slot="scene" class="custom-scene">
@@ -47,12 +45,6 @@ import NoticeBar from 'mand-mobile/lib/notice-bar'
 import ActivityIndicator from 'mand-mobile/lib/activity-indicator'
 
 export default {
-  name: 'cashier-demo',
-  /* DELETE */
-  height: 700,
-  title: '使用插槽及其他配置',
-  titleEnUS: 'Using slots and other configurations',
-  /* DELETE */
   components: {
     'md-button': Button,
     'md-cashier': Cashier,
@@ -94,15 +86,14 @@ export default {
       ],
     }
   },
-  computed: {
-    cashier() {
-      return this.$refs.cashier
-    },
+  mounted() {
+    this.$refs.cashier.setChannels(this.cashierChannels)
   },
   methods: {
     doPay() {
       if (this.isCashierCaptcha) {
-        this.cashier.next('captcha', {
+        const cashier = this.$refs.cashier
+        cashier.next('captcha', {
           text: 'Verification code sent to 156 **** 8965',
           autoCountdown: false,
           countNormalText: 'Send Verification code',
@@ -118,7 +109,7 @@ export default {
             this.checkCaptcha(code).then(res => {
               if (res) {
                 this.createPay().then(() => {
-                  this.cashier.next(this.cashierResult)
+                  cashier.next(this.cashierResult)
                 })
               }
             })
@@ -126,18 +117,19 @@ export default {
         })
       } else {
         this.createPay().then(() => {
-          this.cashier.next(this.cashierResult, {
+          const cashier = this.$refs.cashier
+          cashier.next(this.cashierResult, {
             actions: [
               {
                 buttonText: '返回',
                 handler: () => {
-                  this.cashier.next('choose')
+                  cashier.next('choose')
                 },
               },
               {
                 buttonText: '重试',
                 handler: () => {
-                  this.cashier.next('custom')
+                  cashier.next('custom')
                 },
               },
             ],
@@ -147,7 +139,7 @@ export default {
     },
     // Create a pay request & check pay result
     createPay() {
-      this.cashier.next('loading')
+      this.$refs.cashier.next('loading')
       return new Promise(resolve => {
         this.timer = setTimeout(() => {
           resolve()
@@ -188,12 +180,26 @@ export default {
     },
   },
 }
+// #region ignore
+export const metaInfo = {
+  'zh-CN': {
+    title: '使用插槽及其他配置',
+  },
+  'en-US': {
+    title: 'Using slots and other configurations',
+  },
+}
+// #endregion ignore
 
 </script>
 
-<style>
+<style scoped>
 .md-example-child-cashier .md-field {
   margin-bottom: 30px;
+}
+.md-example-child-cashier .pay-button {
+  display: flex;
+  align-items: center;
 }
 .md-example-child-cashier .custom-scene {
   display: flex;
@@ -202,7 +208,7 @@ export default {
   min-height: 300px;
   font-size: 32px;
 }
-.md-example-child-cashier .cashier-loading {
+.cashier-loading {
   position: absolute;
   top: 0;
   left: 0;
