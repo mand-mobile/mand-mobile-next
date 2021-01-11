@@ -1,7 +1,7 @@
 <template>
   <div class="md-activity-indicator-rolling-success">
-    <img v-if="!isSuccess" class="md-activity-indicator-rolling-success_image" src="https://pt-starimg.didistatic.com/static/starimg/img/IHcr0BomhJ1609333095846.gif" alt="">
-    <img v-else class="md-activity-indicator-rolling-success_image" src="https://pt-starimg.didistatic.com/static/starimg/img/DRz83ufJVh1609333095729.gif" alt="">
+    <img v-if="!isSuccess" class="md-activity-indicator-rolling-success_image" src="https://pt-starimg.didistatic.com/static/starimg/img/IHcr0BomhJ1609333095846.gif" alt="" />
+    <img v-else class="md-activity-indicator-rolling-success_image" src="https://pt-starimg.didistatic.com/static/starimg/img/DRz83ufJVh1609333095729.gif" alt="" />
   </div>
 </template>
 

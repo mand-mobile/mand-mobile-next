@@ -9,11 +9,11 @@
  */
 const { warn } = require('@mand-mobile/shared/lib/util/index')
 
-interface Events {
+export interface Events {
   [name: string]: [Function][]
 }
 
-interface EventTypes {
+export interface EventTypes {
   [type: string]: string
 }
 

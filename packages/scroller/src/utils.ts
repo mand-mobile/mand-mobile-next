@@ -159,13 +159,13 @@ export function getRect(el: HTMLElement): Partial<DOMRect> {
   }
 }
 
-interface TouchList {
+export interface TouchList {
   length: number
   [index: number]: Touch
   item: (index: number) => Touch
 }
 
-interface Touch {
+export interface Touch {
   identifier: number
   target: EventTarget
   screenX: number

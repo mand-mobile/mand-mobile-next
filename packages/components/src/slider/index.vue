@@ -64,6 +64,9 @@
 <script>
 import {Dom, Device} from '@mand-mobile/platform-runtime/lib/module'
 import {flatStyleObject, requestAnimationFrame} from '@mand-mobile/shared/lib/util'
+import * as utils from '@mand-mobile/shared/lib/util'
+
+console.info(utils)
 
 export default {
   name: 'md-slider',
