@@ -23,10 +23,10 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "@mand-mobile/components": "^3.0.4-alpha.5",
-    "@mand-mobile/platform-runtime": "^3.0.4-alpha.5",
-    "@mand-mobile/scroller": "^3.0.4-alpha.5",
-    "@mand-mobile/shared": "^3.0.4-alpha.5"
+    "@mand-mobile/components": "^3.1.0-alpha.2",
+    "@mand-mobile/platform-runtime": "^3.1.0-alpha.2",
+    "@mand-mobile/scroller": "^3.1.0-alpha.2",
+    "@mand-mobile/shared": "^3.1.0-alpha.2"
   },
   "dependencies": {
     "@dcloudio/uni-cli-shared": "^2.0.0-29820201110001",
@@ -102,10 +102,10 @@
     "zp-vueify": "^9.4.2"
   },
   "devDependencies": {
-    "@mand-mobile/components": "^3.0.4-alpha.5",
-    "@mand-mobile/platform-runtime": "^3.0.4-alpha.5",
-    "@mand-mobile/scroller": "^3.0.4-alpha.5",
-    "@mand-mobile/shared": "^3.0.4-alpha.5",
+    "@mand-mobile/components": "^3.1.0-alpha.2",
+    "@mand-mobile/platform-runtime": "^3.1.0-alpha.2",
+    "@mand-mobile/scroller": "^3.1.0-alpha.2",
+    "@mand-mobile/shared": "^3.1.0-alpha.2",
     "chokidar-cli": "^2.1.0",
     "copyfiles": "^2.3.0",
     "jest": "^26.4.2"
