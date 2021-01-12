@@ -18,6 +18,7 @@
         <md-activity-indicator class="md-button_loading"
           :type="loadingType"
           :color="loadingColor"
+          :size="17.5"
         ></md-activity-indicator>
       </template>
       <template v-else-if="icon">
@@ -148,10 +149,10 @@ export default {
   white-space nowrap
 
 .md-button_loading
+  margin-right 10px
   .md-activity-indicator_svg
     width 35px !important
     height 35px !important
-    margin-right 10px
 
 .md-button_content
   display flex
