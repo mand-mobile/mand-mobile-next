@@ -136,7 +136,7 @@ export function resolveComponents({platform: PLATFORM, componentSource}): Array<
     const result = R.mergeRight(componentMeta, {demoCases: computedDemos(dir)})
     return result
   }
-  return R.compose(R.map(R.compose(componentNameMapper)), R.map(loadComponent), lsComponentsDirectories)(componentSource)
+  return R.compose((value) => {console.info('>>>>>>>>>>>>', value); return value},R.filter((component) => (!component.platform || component.platform===PLATFORM)), R.map(R.compose(componentNameMapper)), R.map(loadComponent), lsComponentsDirectories)(componentSource)
 }
 
 

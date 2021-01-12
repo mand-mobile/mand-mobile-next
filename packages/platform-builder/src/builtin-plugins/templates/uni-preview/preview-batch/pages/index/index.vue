@@ -13,7 +13,8 @@
 
 
 <script>
-import {Button, Icon} from 'mand-mobile'
+import Button from 'mand-mobile/lib/button'
+import Icon from 'mand-mobile/lib/icon'
 // import CheckBox from 'mand-mobile';
 
 export default {

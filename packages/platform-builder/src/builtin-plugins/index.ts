@@ -108,13 +108,13 @@ export class PlatformSetupPlugin {
       // 处理组件
       container.hooks.afterContainerCreated.tap(PlatformSetupPlugin.NS, () => {
 
-        const compoentRoot = container.context[ComponentsSourceSetupPlugin.NS].componentRoot
-        const fst = fs.statSync(compoentRoot)
+        const componentRoot = container.context[ComponentsSourceSetupPlugin.NS].componentRoot
+        const fst = fs.statSync(componentRoot)
         if (this.removePlatformExt && !fst.isSymbolicLink()) {
           const platform = this.platform || 'web'
-          const files = find.fileSync(/\.(js|vue|ts)$/, compoentRoot)
+          const files = find.fileSync(/\.(js|vue|ts)$/, componentRoot)
           const filehandler = R.forEach((file: string) => {
-            if (anymatch(`${compoentRoot}/**/demo/**`, file)) {
+            if (anymatch(`${componentRoot}/**/demo/**`, file)) {
               return
             }
             const dirname = path.dirname(file)
