@@ -1157,22 +1157,23 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@dcloudio/uni-cli-shared@^2.0.0-26920200424005":
-  version "2.0.0-29820201110001"
-  resolved "https://registry.npmjs.org/@dcloudio/uni-cli-shared/-/uni-cli-shared-2.0.0-29820201110001.tgz#0e2234fc56f815543a70027d440bc0c947fae112"
-  integrity sha512-um2EeIAdbgymfbscARQfqUFgU1Wu9nHBxt7nT3rI5/uP2d//Yd9IfXTTu3f/QuDjFROgWcWoSTJzzyr4KU4VkQ==
+"@dcloudio/uni-cli-shared@^2.0.0-29820201110001":
+  version "2.0.0-30520210106003"
+  resolved "https://registry.npmjs.org/@dcloudio/uni-cli-shared/-/uni-cli-shared-2.0.0-30520210106003.tgz#a02d6a37c515a763e199293dc15d0fba4f18dea9"
+  integrity sha512-QH32wb0lIVvq0UGD4/aoQqVlmVWX8UEX5hrLhFBy6bZLp2iGfwC/rdzcl1GkCqup6eESqifniR1jP6kZH8GBsA==
   dependencies:
     hash-sum "^1.0.2"
     postcss-urlrewrite "^0.2.2"
     strip-json-comments "^2.0.1"
 
-"@dcloudio/uni-h5@^2.0.0-26920200424005":
-  version "2.0.0-29820201110001"
-  resolved "https://registry.npmjs.org/@dcloudio/uni-h5/-/uni-h5-2.0.0-29820201110001.tgz#50cf14d5078c7fe7fed5755e0ebebf73154ebfc8"
-  integrity sha512-fRpPfFIekrD8+aC/hYAzaAuNIm3SSt1FJKaQp07rItFKRh9Iq7e9/BUPtoCsH6o7G+MustYbLOr/9YXiotNyaw==
+"@dcloudio/uni-h5@^2.0.0-29820201110001":
+  version "2.0.0-30520210106003"
+  resolved "https://registry.npmjs.org/@dcloudio/uni-h5/-/uni-h5-2.0.0-30520210106003.tgz#efc4f41779a8ac6d3f7b4f1402d7fecca1097de5"
+  integrity sha512-ZnmLvwe6sZF1lSk7dPWy53vzTW1x8k1LCmplC2Zm+DnxFmQyGx6wGDfdx2abPEmovQoLciZtkkKiRxlExQ9kyw==
   dependencies:
     base64-arraybuffer "^0.2.0"
     intersection-observer "^0.7.0"
+    pako "^1.0.11"
     safe-area-insets "^1.4.1"
 
 "@dcloudio/uni-helper-json@*":
@@ -1180,10 +1181,10 @@
   resolved "https://registry.npmjs.org/@dcloudio/uni-helper-json/-/uni-helper-json-1.0.9.tgz#f64c6b56b670406285c74922fd8158480bd8ebe9"
   integrity sha512-GZYMX/HlIzvgAI3Dyc5KWMl3AUAvsANLhvccm/fhJPp52Nhlh0nhnum12wzNNxgZTDk9fAGaf7wO67OPRQUwSQ==
 
-"@dcloudio/uni-migration@^2.0.0-26920200424005":
-  version "2.0.0-29820201110001"
-  resolved "https://registry.npmjs.org/@dcloudio/uni-migration/-/uni-migration-2.0.0-29820201110001.tgz#d7c4c7a5064b8652c9dcf081da7b877328e3be38"
-  integrity sha512-QtrVzXjkSf2aU2LCCBTj7X4zWjjzeNcObjHOxAq9W1Ysz8DnqNDQQwMkRZGdoU0t8+mjDtll2zbUAXhNUIBP6g==
+"@dcloudio/uni-migration@^2.0.0-29820201110001":
+  version "2.0.0-30520210106003"
+  resolved "https://registry.npmjs.org/@dcloudio/uni-migration/-/uni-migration-2.0.0-30520210106003.tgz#1fed0527e448dc0e13c118dbc510edff5687f90a"
+  integrity sha512-7fbFSKZXgllcsWBsNd3XB3fNJ6hU4L3fAV3JJ1nqJKZB5ukpz+0Fv5LwOCNZ3wC0kGm7mQGJo5hw+5b12lnh2A==
   dependencies:
     commander "^4.0.1"
     fs-extra "^8.1.0"
@@ -1191,20 +1192,25 @@
     recast "*"
     stricter-htmlparser2 "^3.9.6"
 
-"@dcloudio/uni-mp-weixin@^2.0.0-26920200424005":
-  version "2.0.0-29820201110001"
-  resolved "https://registry.npmjs.org/@dcloudio/uni-mp-weixin/-/uni-mp-weixin-2.0.0-29820201110001.tgz#5636b3ee328a3f1b58954808f0ea8273ffb7ab65"
-  integrity sha512-S24dHsALf3D8u8FS+WB/uMMG3dB2bcFRaxrChD8UykNP4+orBk6U3npWLTB4PFip8fL0XyGMqkV5Rgrwz4hBxg==
+"@dcloudio/uni-mp-weixin@^2.0.0-29820201110001":
+  version "2.0.0-30520210106003"
+  resolved "https://registry.npmjs.org/@dcloudio/uni-mp-weixin/-/uni-mp-weixin-2.0.0-30520210106003.tgz#c69a4500f8faec22d87a889b24455393aac1848e"
+  integrity sha512-UP+R27XBTK1O7ioEj+LHA9vpg1krlo8ZAp+cZW3t+8m0zKq8nujyYdXzlLDl570JgJkni8sPhUZ0Mrj+tpLNwg==
 
-"@dcloudio/uni-stat@^2.0.0-26920200424005", "@dcloudio/uni-stat@^2.0.0-29820201110001":
+"@dcloudio/uni-stat@^2.0.0-29820201110001":
   version "2.0.0-29820201110001"
   resolved "https://registry.npmjs.org/@dcloudio/uni-stat/-/uni-stat-2.0.0-29820201110001.tgz#69231f1f19b68d7a3e673be2718e199a064ca75c"
   integrity sha512-kp/NpdLWcZ/B3a928+O9uhgFzAE6p9NuPFdS3W7/KEocClkLVzJOpgSFKerPbJ9h1lZyYH6KZ5lSLoe7zhJn+g==
 
-"@dcloudio/uni-template-compiler@^2.0.0-26920200424005":
-  version "2.0.0-29820201110001"
-  resolved "https://registry.npmjs.org/@dcloudio/uni-template-compiler/-/uni-template-compiler-2.0.0-29820201110001.tgz#b6898018ddf34f25f430db74f54c0dac49750bff"
-  integrity sha512-1MNgISko7sQAzQe04GcU724hoOme4aeEs6pVpCM16lpcG473jj43WUobPx2Pu5rhr6ItrS/2cEyd/9MjqMIzKw==
+"@dcloudio/uni-stat@^2.0.0-30520210106003":
+  version "2.0.0-30520210106003"
+  resolved "https://registry.npmjs.org/@dcloudio/uni-stat/-/uni-stat-2.0.0-30520210106003.tgz#28a767fe1bc56106e003968eb49320d44024cfeb"
+  integrity sha512-gbDqmOFOfqXDyEGy5ar27CtuO+i4HvAME7OXAeCDEI8DAVkepIZYqqZT6c4CLYIq+sExfXrgtMnJy/2dljxGZg==
+
+"@dcloudio/uni-template-compiler@^2.0.0-29820201110001":
+  version "2.0.0-30520210106003"
+  resolved "https://registry.npmjs.org/@dcloudio/uni-template-compiler/-/uni-template-compiler-2.0.0-30520210106003.tgz#bba2985a6161dffd34e7e7460e34f18f6cfcf8bf"
+  integrity sha512-PH7bHQyJ8xHpW5Oq7Yp3fL6Bb5K2JXu+m8DXLkUmSeEknsFW79UOAJ6C2gis16jcHm393St0H2SYGlZaooiVig==
   dependencies:
     "@babel/parser" "^7.3.3"
     "@babel/traverse" "^7.3.3"
@@ -1220,17 +1226,17 @@
     css "~2.2.1"
     escodegen "^1.8.1"
 
-"@dcloudio/vue-cli-plugin-uni-optimize@^2.0.0-26920200424005":
-  version "2.0.0-29820201110001"
-  resolved "https://registry.npmjs.org/@dcloudio/vue-cli-plugin-uni-optimize/-/vue-cli-plugin-uni-optimize-2.0.0-29820201110001.tgz#66f0b9c7ea4877004c07a0377a1bf45d04293303"
-  integrity sha512-G5Fb0fAu1U1/P0Y3oY6/RJ0GiesyrcnT4Q/VyjOV6FZs03pHvHovgX20OohWcQOrP4EqVDmW2opyWzwQRDhv5w==
+"@dcloudio/vue-cli-plugin-uni-optimize@^2.0.0-29820201110001":
+  version "2.0.0-30520210106003"
+  resolved "https://registry.npmjs.org/@dcloudio/vue-cli-plugin-uni-optimize/-/vue-cli-plugin-uni-optimize-2.0.0-30520210106003.tgz#b50243613fd5cb1072348e13bbb620622ea364c6"
+  integrity sha512-RleHFsRTNXMQMQyV/jjev9yKz3FB2Qa87dixVAg0QnJQYtsoeWkWPklrmdtkf+h8dwkQjRgL/ETRvZbZD6S92g==
 
-"@dcloudio/vue-cli-plugin-uni@^2.0.0-26920200424005":
-  version "2.0.0-29820201110001"
-  resolved "https://registry.npmjs.org/@dcloudio/vue-cli-plugin-uni/-/vue-cli-plugin-uni-2.0.0-29820201110001.tgz#6863afa8058bdc73c57bf0f400e2c1653e249032"
-  integrity sha512-bwbjvWVTk8mKGGlcReSep43cw45PrUN0l0AgI/aaburKJXTNBy39Arbk8+w/0jjIXbMVERpYxRd2GUcutnKoKA==
+"@dcloudio/vue-cli-plugin-uni@^2.0.0-29820201110001":
+  version "2.0.0-30520210106003"
+  resolved "https://registry.npmjs.org/@dcloudio/vue-cli-plugin-uni/-/vue-cli-plugin-uni-2.0.0-30520210106003.tgz#123d8fb7bd5b6e6563180c93ea53dc5b17e6f958"
+  integrity sha512-TDFhqCcXG393TU/ZFMjt8XXVIeJSKXDiILd74o/tANjoc1pFZ4HZdrarh+zDX61pp9lY7LHJeoI9OLhU0EtxlA==
   dependencies:
-    "@dcloudio/uni-stat" "^2.0.0-29820201110001"
+    "@dcloudio/uni-stat" "^2.0.0-30520210106003"
     buffer-json "^2.0.0"
     copy-webpack-plugin "^5.1.1"
     cross-env "^5.2.0"
@@ -1250,15 +1256,15 @@
     wrap-loader "^0.2.0"
     xregexp "4.0.0"
 
-"@dcloudio/webpack-uni-mp-loader@^2.0.0-26920200424005":
-  version "2.0.0-29820201110001"
-  resolved "https://registry.npmjs.org/@dcloudio/webpack-uni-mp-loader/-/webpack-uni-mp-loader-2.0.0-29820201110001.tgz#f74a6586ad4ce79d2d0734314ce2251db11df9a7"
-  integrity sha512-OrM+ckfoJq1MSRwm278Y4jv7Qpx0P3nMsIKWVPUGQ2fqiImF9Wf9+CNLzHWsrGycuw9PXi2vAFLBbpX/jdd9lg==
+"@dcloudio/webpack-uni-mp-loader@^2.0.0-29820201110001":
+  version "2.0.0-30520210106003"
+  resolved "https://registry.npmjs.org/@dcloudio/webpack-uni-mp-loader/-/webpack-uni-mp-loader-2.0.0-30520210106003.tgz#192353fdf9e9d19046bdbbc071cf1689758df295"
+  integrity sha512-/HIINYLeE/1xHMeKpsGrUVIR7F+dB4wWv7yFnpICDwBLGPTEdVd2Cvs4bzvRyodUWt+orSiyltvaNIKA0ZA4ZA==
 
-"@dcloudio/webpack-uni-pages-loader@^2.0.0-26920200424005":
-  version "2.0.0-29820201110001"
-  resolved "https://registry.npmjs.org/@dcloudio/webpack-uni-pages-loader/-/webpack-uni-pages-loader-2.0.0-29820201110001.tgz#bc9d93e15c510e397b7062c3c712fccddc47145e"
-  integrity sha512-NgK+PR1Gx5CC9RVf7FOG3H8UivdNeMXUqRfuK5OuRQ+Nc3dfCN7/0uB4+nm1c9LwTFa9aF8S9Bl4pwoQ+aoAqw==
+"@dcloudio/webpack-uni-pages-loader@^2.0.0-29820201110001":
+  version "2.0.0-30520210106003"
+  resolved "https://registry.npmjs.org/@dcloudio/webpack-uni-pages-loader/-/webpack-uni-pages-loader-2.0.0-30520210106003.tgz#164dcd8e4dc55fdaeb502d1eb9305dac279b4a4d"
+  integrity sha512-J4zO5vnOnpPmyhpxdwr2bso9nsN0i4MG56sDa9OoUM+jCpvMB8O73XYkrEOhas0UUN1WeTgLMPnnwr+in3WKVw==
   dependencies:
     merge "^1.2.1"
     strip-json-comments "^2.0.1"
@@ -1670,13 +1676,13 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@mand-mobile/components@^3.1.0-alpha.0":
-  version "3.1.0-alpha.0"
-  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-3.1.0-alpha.0.tgz#a680d7c2c55312fae09eac922a90cf560e6e60fc"
-  integrity sha512-AZaSy+XIZ4u3YfIuqoiMfY2jkhlqUyybvC4A51Xp525YDxTv++WIyjT2aaR4KFARbs4WX5tvBb3LFKaJz7pewQ==
+"@mand-mobile/components@^3.1.0-alpha.1":
+  version "3.1.0-alpha.1"
+  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-3.1.0-alpha.1.tgz#760e8343203247079c48ab99b9a6b8b2b2ed387e"
+  integrity sha512-/vmgOS9NczYttfcZcNaGerKbXAU6ZNNr7iagXmn/9GhpJLQ6r3FvwlNVCCb1tHu+/LyHuLLGr+u5dzKUuIuDDg==
   dependencies:
-    "@mand-mobile/platform-runtime" "^3.1.0-alpha.0"
-    "@mand-mobile/scroller" "^3.1.0-alpha.0"
+    "@mand-mobile/platform-runtime" "^3.1.0-alpha.1"
+    "@mand-mobile/scroller" "^3.1.0-alpha.1"
     "@mand-mobile/shared" "^3.1.0-alpha.0"
     "@vue/test-utils" "^1.0.4"
     babel-plugin-import "^1.13.0"
@@ -1688,25 +1694,25 @@
     vue-jest "2.x"
     vue-server-renderer "^2.6.11"
 
-"@mand-mobile/platform-builder@^3.1.0-alpha.0":
-  version "3.1.0-alpha.0"
-  resolved "https://registry.npmjs.org/@mand-mobile/platform-builder/-/platform-builder-3.1.0-alpha.0.tgz#50ba238757a20f47af5666d1774f3b986a8a9396"
-  integrity sha512-jXXiHXBVWUZ2E4t6xOtldxFPH15jxptlTnpG8q2UDKLXGfANgp4LfTEgxdjXMlTyyh5fmxmItxe9zIOJxEly1Q==
+"@mand-mobile/platform-builder@^3.1.0-alpha.1":
+  version "3.1.0-alpha.1"
+  resolved "https://registry.npmjs.org/@mand-mobile/platform-builder/-/platform-builder-3.1.0-alpha.1.tgz#77646b760296f089dad6eca723c8e993604c7324"
+  integrity sha512-U4LJqId6DfFP4VrAa9hooKfQzXfB49u9Q1Llb2cmTDGE2ydTJ5hpmZdx/Gj63WKPtu3jS+n3cQ7U6eI9o5M3kg==
   dependencies:
-    "@dcloudio/uni-cli-shared" "^2.0.0-26920200424005"
-    "@dcloudio/uni-h5" "^2.0.0-26920200424005"
+    "@dcloudio/uni-cli-shared" "^2.0.0-29820201110001"
+    "@dcloudio/uni-h5" "^2.0.0-29820201110001"
     "@dcloudio/uni-helper-json" "*"
-    "@dcloudio/uni-migration" "^2.0.0-26920200424005"
-    "@dcloudio/uni-mp-weixin" "^2.0.0-26920200424005"
-    "@dcloudio/uni-stat" "^2.0.0-26920200424005"
-    "@dcloudio/uni-template-compiler" "^2.0.0-26920200424005"
+    "@dcloudio/uni-migration" "^2.0.0-29820201110001"
+    "@dcloudio/uni-mp-weixin" "^2.0.0-29820201110001"
+    "@dcloudio/uni-stat" "^2.0.0-29820201110001"
+    "@dcloudio/uni-template-compiler" "^2.0.0-29820201110001"
     "@dcloudio/vue-cli-plugin-hbuilderx" "^2.0.0-27920200527001"
-    "@dcloudio/vue-cli-plugin-uni" "^2.0.0-26920200424005"
-    "@dcloudio/vue-cli-plugin-uni-optimize" "^2.0.0-26920200424005"
-    "@dcloudio/webpack-uni-mp-loader" "^2.0.0-26920200424005"
-    "@dcloudio/webpack-uni-pages-loader" "^2.0.0-26920200424005"
-    "@mand-mobile/components" "^3.1.0-alpha.0"
-    "@mand-mobile/platform-runtime" "^3.1.0-alpha.0"
+    "@dcloudio/vue-cli-plugin-uni" "^2.0.0-29820201110001"
+    "@dcloudio/vue-cli-plugin-uni-optimize" "^2.0.0-29820201110001"
+    "@dcloudio/webpack-uni-mp-loader" "^2.0.0-29820201110001"
+    "@dcloudio/webpack-uni-pages-loader" "^2.0.0-29820201110001"
+    "@mand-mobile/components" "^3.1.0-alpha.1"
+    "@mand-mobile/platform-runtime" "^3.1.0-alpha.1"
     "@rollup/plugin-alias" "^3.1.1"
     "@rollup/plugin-babel" "^5.0.4"
     "@rollup/plugin-node-resolve" "^8.4.0"
@@ -1765,12 +1771,12 @@
     webpack-merge "^5.1.3"
     zp-vueify "^9.4.2"
 
-"@mand-mobile/platform-runtime@^3.1.0-alpha.0":
-  version "3.1.0-alpha.0"
-  resolved "https://registry.npmjs.org/@mand-mobile/platform-runtime/-/platform-runtime-3.1.0-alpha.0.tgz#3dbb7110f789aea799a1c974d9ef0aba9673ef82"
-  integrity sha512-aXROkBW8ib84MN8Vx/lKRD1e7E5t7TLvwV+0ktPkGFDFADeQJfA5CR3Ec4kEQl0aLUtTqwoKY2SaZPNpEJC/ng==
+"@mand-mobile/platform-runtime@^3.1.0-alpha.1":
+  version "3.1.0-alpha.1"
+  resolved "https://registry.npmjs.org/@mand-mobile/platform-runtime/-/platform-runtime-3.1.0-alpha.1.tgz#5b709d21d6734c4d33d11b88dc00766c1a00c146"
+  integrity sha512-Bf/trGJCkTUvM1GDbUaDRBaFEDSW1p7BhMM/Q9m5EbmjlN09j2uyoWmtFQk7ePPA7e1TiVcE6jaPXwi/nJ48qw==
   dependencies:
-    "@mand-mobile/scroller" "^3.1.0-alpha.0"
+    "@mand-mobile/scroller" "^3.1.0-alpha.1"
     "@mand-mobile/shared" "^3.1.0-alpha.0"
     bluebird "^3.7.2"
     glob "^7.1.6"
@@ -1795,21 +1801,22 @@
     postcss-pxtorem "^5.1.1"
     postcss-url "^8.0.0"
     recursive-copy "^2.0.10"
+    rollup-plugin-css-only "^2.1.0"
     vue "^2.6.11"
 
-"@mand-mobile/scroller@^3.0.4-alpha.5":
-  version "3.0.4-alpha.5"
-  resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-3.0.4-alpha.5.tgz#dc42a69e7a1433d4b1060c6c43bb065a27bd8044"
-  integrity sha512-1JcHUoR/xCEGaRCCq79FRoWr7AH6399w7fuxiSqysMMIrD5zomCjXq5nO+etttmO2gQUYt44FYQt6F9UhkaVdw==
+"@mand-mobile/scroller@^3.0.1-alpha.9":
+  version "3.0.1-alpha.9"
+  resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-3.0.1-alpha.9.tgz#46d9c8897af755a197f9fc04f7cfbb568a0c4114"
+  integrity sha512-c36uo1j/UqFbcz64+9rSzXLWGXncUCTO6YBcj8j9+E7B/T3HBAaS22d/5ca8KNUKUQRLfhLNYmu+6yR8PZ8EsQ==
   dependencies:
-    "@mand-mobile/shared" "^3.0.1"
+    "@mand-mobile/shared" "^3.0.1-alpha.9"
     "@types/jest" "^26.0.4"
     jest "^26.1.0"
 
-"@mand-mobile/scroller@^3.1.0-alpha.0":
-  version "3.1.0-alpha.0"
-  resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-3.1.0-alpha.0.tgz#8150b29588d1c62f8c5b6082379439f9d222f177"
-  integrity sha512-n6CW7vSdRoc3QoizQi4Tweek5FuHU6iu+ox1XNnocTWOxSA2r6JOXFmUw3zD8UAIRbUmEER0ZlIaEWvCQxO/fg==
+"@mand-mobile/scroller@^3.1.0-alpha.1":
+  version "3.1.0-alpha.1"
+  resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-3.1.0-alpha.1.tgz#929a5f432aee7b391022c6bf69da465075bfc908"
+  integrity sha512-a6Vybdk+nic7zhPCHHO5B/MG+Qh67KP7zOg0sUj1Qepnaz8z8uH14IpQ6tlJ8uh0Whh0J9D6/fjP9yE1tZVbTQ==
   dependencies:
     "@mand-mobile/shared" "^3.1.0-alpha.0"
     "@types/jest" "^26.0.4"
@@ -1825,13 +1832,13 @@
   resolved "https://registry.npmjs.org/@mand-mobile/shared/-/shared-3.1.0-alpha.0.tgz#cd9d126eb64ea3ac75c1690e974f78e884662c57"
   integrity sha512-r/lDlX/VKLPd//piWoP2E5lh+UBdIbtFDDk/Po6k/at8HLLP/cZm0H/5BxXIPFDWn8K1szDupGb+GZhAyOS19A==
 
-"@mand-mobile/vue-cli-plugin-builder@^3.1.0-alpha.0":
-  version "3.1.0-alpha.0"
-  resolved "https://registry.npmjs.org/@mand-mobile/vue-cli-plugin-builder/-/vue-cli-plugin-builder-3.1.0-alpha.0.tgz#7e48da87c2a477b32a8e6ab424d5be040b6163a0"
-  integrity sha512-bobU+iiaq+ttU6++IRdTr+xQsy95M43t+h8jxTCKAYn+41e/zSdsPkqQA/5Bxsnv3FJYk7ArqPdHG4SR3vclPw==
+"@mand-mobile/vue-cli-plugin-builder@^3.1.0-alpha.1":
+  version "3.1.0-alpha.1"
+  resolved "https://registry.npmjs.org/@mand-mobile/vue-cli-plugin-builder/-/vue-cli-plugin-builder-3.1.0-alpha.1.tgz#0ff2610c330ef7f02d102c282769265835e2da8f"
+  integrity sha512-9gwkRbdUFGJoWWCG0lxMfDLsiocvaHty5s617HlH35qGmLptUuRrL6iIAVK/mcMB+1YBTaXLurESvpVx1l/igQ==
   dependencies:
-    "@mand-mobile/components" "^3.1.0-alpha.0"
-    "@mand-mobile/platform-builder" "^3.1.0-alpha.0"
+    "@mand-mobile/components" "^3.1.0-alpha.1"
+    "@mand-mobile/platform-builder" "^3.1.0-alpha.1"
     "@mand-mobile/shared" "^3.1.0-alpha.0"
     "@rollup/plugin-babel" "^5.0.4"
     "@vue/cli" "^4.4.4"
@@ -13512,7 +13519,7 @@ pacote@^11.1.10:
     ssri "^8.0.0"
     tar "^6.0.1"
 
-pako@~1.0.5:
+pako@^1.0.11, pako@~1.0.5:
   version "1.0.11"
   resolved "https://registry.npmjs.org/pako/-/pako-1.0.11.tgz#6c9599d340d54dfd3946380252a35705a6b992bf"
   integrity sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==

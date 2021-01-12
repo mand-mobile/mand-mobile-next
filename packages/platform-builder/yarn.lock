@@ -1520,13 +1520,13 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@mand-mobile/components@^3.1.0-alpha.0":
-  version "3.1.0-alpha.0"
-  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-3.1.0-alpha.0.tgz#a680d7c2c55312fae09eac922a90cf560e6e60fc"
-  integrity sha512-AZaSy+XIZ4u3YfIuqoiMfY2jkhlqUyybvC4A51Xp525YDxTv++WIyjT2aaR4KFARbs4WX5tvBb3LFKaJz7pewQ==
+"@mand-mobile/components@^3.1.0-alpha.1":
+  version "3.1.0-alpha.1"
+  resolved "https://registry.npmjs.org/@mand-mobile/components/-/components-3.1.0-alpha.1.tgz#760e8343203247079c48ab99b9a6b8b2b2ed387e"
+  integrity sha512-/vmgOS9NczYttfcZcNaGerKbXAU6ZNNr7iagXmn/9GhpJLQ6r3FvwlNVCCb1tHu+/LyHuLLGr+u5dzKUuIuDDg==
   dependencies:
-    "@mand-mobile/platform-runtime" "^3.1.0-alpha.0"
-    "@mand-mobile/scroller" "^3.1.0-alpha.0"
+    "@mand-mobile/platform-runtime" "^3.1.0-alpha.1"
+    "@mand-mobile/scroller" "^3.1.0-alpha.1"
     "@mand-mobile/shared" "^3.1.0-alpha.0"
     "@vue/test-utils" "^1.0.4"
     babel-plugin-import "^1.13.0"
@@ -1538,12 +1538,12 @@
     vue-jest "2.x"
     vue-server-renderer "^2.6.11"
 
-"@mand-mobile/platform-runtime@^3.1.0-alpha.0":
-  version "3.1.0-alpha.0"
-  resolved "https://registry.npmjs.org/@mand-mobile/platform-runtime/-/platform-runtime-3.1.0-alpha.0.tgz#3dbb7110f789aea799a1c974d9ef0aba9673ef82"
-  integrity sha512-aXROkBW8ib84MN8Vx/lKRD1e7E5t7TLvwV+0ktPkGFDFADeQJfA5CR3Ec4kEQl0aLUtTqwoKY2SaZPNpEJC/ng==
+"@mand-mobile/platform-runtime@^3.1.0-alpha.1":
+  version "3.1.0-alpha.1"
+  resolved "https://registry.npmjs.org/@mand-mobile/platform-runtime/-/platform-runtime-3.1.0-alpha.1.tgz#5b709d21d6734c4d33d11b88dc00766c1a00c146"
+  integrity sha512-Bf/trGJCkTUvM1GDbUaDRBaFEDSW1p7BhMM/Q9m5EbmjlN09j2uyoWmtFQk7ePPA7e1TiVcE6jaPXwi/nJ48qw==
   dependencies:
-    "@mand-mobile/scroller" "^3.1.0-alpha.0"
+    "@mand-mobile/scroller" "^3.1.0-alpha.1"
     "@mand-mobile/shared" "^3.1.0-alpha.0"
     bluebird "^3.7.2"
     glob "^7.1.6"
@@ -1554,14 +1554,28 @@
     recursive-copy "^2.0.10"
     vue "^2.6.11"
 
-"@mand-mobile/scroller@^3.1.0-alpha.0":
-  version "3.1.0-alpha.0"
-  resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-3.1.0-alpha.0.tgz#8150b29588d1c62f8c5b6082379439f9d222f177"
-  integrity sha512-n6CW7vSdRoc3QoizQi4Tweek5FuHU6iu+ox1XNnocTWOxSA2r6JOXFmUw3zD8UAIRbUmEER0ZlIaEWvCQxO/fg==
+"@mand-mobile/scroller@^3.0.4-alpha.5":
+  version "3.0.4-alpha.5"
+  resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-3.0.4-alpha.5.tgz#dc42a69e7a1433d4b1060c6c43bb065a27bd8044"
+  integrity sha512-1JcHUoR/xCEGaRCCq79FRoWr7AH6399w7fuxiSqysMMIrD5zomCjXq5nO+etttmO2gQUYt44FYQt6F9UhkaVdw==
+  dependencies:
+    "@mand-mobile/shared" "^3.0.1"
+    "@types/jest" "^26.0.4"
+    jest "^26.1.0"
+
+"@mand-mobile/scroller@^3.1.0-alpha.1":
+  version "3.1.0-alpha.1"
+  resolved "https://registry.npmjs.org/@mand-mobile/scroller/-/scroller-3.1.0-alpha.1.tgz#929a5f432aee7b391022c6bf69da465075bfc908"
+  integrity sha512-a6Vybdk+nic7zhPCHHO5B/MG+Qh67KP7zOg0sUj1Qepnaz8z8uH14IpQ6tlJ8uh0Whh0J9D6/fjP9yE1tZVbTQ==
   dependencies:
     "@mand-mobile/shared" "^3.1.0-alpha.0"
     "@types/jest" "^26.0.4"
     jest "^26.1.0"
+
+"@mand-mobile/shared@^3.0.1", "@mand-mobile/shared@^3.0.4-alpha.5":
+  version "3.0.4-alpha.5"
+  resolved "https://registry.npmjs.org/@mand-mobile/shared/-/shared-3.0.4-alpha.5.tgz#c5d8820eed0ff5635bba197ede6d1a87ebf1679a"
+  integrity sha512-bOojtoIbnsaqvSVVEjqDsrkHAwwepwqEr7tULC2CVmqQcDDDpp0d7VWRiPCpg6vhlOW1jx66Wle9IIa4mfk0JQ==
 
 "@mand-mobile/shared@^3.1.0-alpha.0":
   version "3.1.0-alpha.0"
