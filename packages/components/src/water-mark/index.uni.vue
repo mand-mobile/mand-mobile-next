@@ -1,11 +1,10 @@
 <template>
-  <div class="md-water-mark">
+  <div class="md-water-mark" :style="inlineStyles">
     <div class="md-water-mark_container">
       <slot></slot>
     </div>
     <div
       class="md-water-mark_list"
-      ref="mark"
     >
       <div
         class="md-water-mark_list_wrapper"
@@ -15,7 +14,12 @@
          }"
       > 
         <template v-if="useCanvas">
-          <canvas canvas-id="md-water-mark" type="2d" id="md-water-mark"></canvas>
+          <canvas
+            id="md-water-mark"
+            canvas-id="md-water-mark"
+            class="md-water-mark_list_canvas--uni"
+            type="2d"
+          ></canvas>
         </template>
         <template v-else-if="!!$slots.watermark">
           <ul
@@ -44,6 +48,7 @@
 </template>
 
 <script>
+import {flatStyleObject} from '@mand-mobile/shared/lib/util'
 import {Dom} from '@mand-mobile/platform-runtime/lib/module'
 import commonMixin from './mixins'
 import './common.styl'
@@ -52,13 +57,6 @@ export default {
   name: 'md-water-mark',
 
   mixins: [commonMixin],
-
-  props: {
-    color: {
-      type: String,
-      default: '133, 139, 156',
-    },
-  },
 
   data() {
     return {
@@ -70,23 +68,36 @@ export default {
     useCanvas() {
       return !!this.content
     },
+    inlineStyles() {
+      return flatStyleObject(this.styles)
+    },
   },
 
   async mounted() {
     if (this.content) {
-      const $MDDom = Dom.bind(this)
-      const canvas = await $MDDom()
-        .querySelector('#md-water-mark')
-        .getNode()
-      const ctx = canvas.getContext('2d')
-      this.ctx = ctx
-
+      await this.$_initCanvas()
       this.$_computedSpacing()
       this.$_draw()
     }
   },
 
   methods: {
+    async $_initCanvas() {
+      const $MDDom = Dom.bind(this)
+      const wrapper = $MDDom().querySelector('#md-water-mark')
+      const {width: clientWidth, height: clientHeight} = await wrapper.getBoundingClientRect()
+      const canvas = await wrapper.getNode()
+      const ctx = canvas.getContext('2d')
+      const ratio = 1
+
+      this.ctxWidth = canvas.width = clientWidth * ratio
+      this.ctxHeight = canvas.height = clientHeight * ratio
+
+      ctx.scale(1 / ratio, 1 / ratio)
+      this.ctx = ctx
+      this.ratio = ratio
+    },
+
     $_computedSpacing() {
       const {spacing} = this
 
@@ -99,14 +110,18 @@ export default {
     },
 
     $_draw() {
-      const {content, ctx, realSpacing, rotate, opacity, color, fontSize} = this
+      const {content, ctx, realSpacing, ratio, rotate, opacity, color, fontSize, ctxWidth, ctxHeight} = this
       const contentLength = content.length * fontSize
-      const xCount = 10 //  Math.ceil(ctxWidth * ratio / (contentLength + realSpacing))
-      const yCount = 10 //  Math.ceil(ctxHeight * ratio / (_fontSize + realSpacing))
+      const xCount = Math.ceil(ctxWidth * ratio / (contentLength + realSpacing / ratio))
+      const yCount = Math.ceil(ctxHeight * ratio / (fontSize + realSpacing / ratio))
 
+      ctx.translate(ctxWidth / 2, ctxHeight / 2)
       ctx.rotate(rotate * Math.PI / 180)
+      ctx.translate(-ctxWidth / 2, -ctxHeight / 2)
+
       ctx.font = `${fontSize}px "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif`
-      ctx.fillStyle = `rgba(${color}, ${opacity})`
+      ctx.fillStyle = color
+      ctx.globalAlpha = opacity
       let ctxX = 0
       let ctxY = 0
       for (let y = 0; y < yCount; y++) {

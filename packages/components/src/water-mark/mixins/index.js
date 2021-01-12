@@ -22,7 +22,7 @@ export default {
     },
     opacity: {
       type: [String, Number],
-      default: 0.1,
+      default: 0.3,
     },
     color: {
       type: String,
@@ -31,6 +31,10 @@ export default {
     fontSize: {
       type: Number,
       default: 14,
+    },
+    styles: {
+      type: Object,
+      default: {},
     },
   },
 }
