@@ -24,7 +24,8 @@
   
 </template>
 
-<script>import FieldItem from '../field/item'
+<script>
+import FieldItem from '../field/item'
 // import WaterMark from '../water-mark'
 
 export default {
@@ -50,7 +51,8 @@ export default {
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-bill

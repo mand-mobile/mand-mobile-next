@@ -1,10 +1,12 @@
 <template>
   <div class="md-example-child md-example-child-bill-1">
     <md-bill>
-      <div class="header-slot" slot="header">
-        <h1 class="title">借款单据</h1>
-        <p class="desc">仔细阅读，关注您的利益、义务</p>
-      </div>
+      <template>
+        <div class="header-slot" slot="header" :style="{padding: '40rpx 0 20rpx 0'}">
+          <h1 class="title" :style="{'color': '#111A34', 'font-size': '60rpx', 'font-family': 'Songti SC','line-height': 1}">借款单据</h1>
+          <p class="desc" :style="{  'margin-top': '16rpx', 'color': '#858B9C', 'font-size': '26rpx'}">仔细阅读，关注您的利益、义务</p>
+        </div>
+      </template>
       <md-detail-item title="借款金额">
         &yen;30,000
       </md-detail-item>
@@ -23,7 +25,7 @@
         >首次</md-tag>
         &yen;404.50&nbsp;(9月22日)
       </md-detail-item>
-      <div class="footer-slot" slot="footer">
+      <div class="footer-slot" slot="footer" :style="{'padding': '32rpx 0', 'color': '#858B9C','font-size': '22rpx', 'line-height': 1.5, 'border-top': 'solid 1rpx #E1E4EB'}">
         1 账单生成后显示在滴水贷首页，请按时还款避免逾期。 <br>
         2 整笔账单还款完成后，额度将恢复。暂不支持额度实时恢复。<br>
         3 还款日将自动扣款，扣款顺序优先余额，其次还款账户：工商银行 (尾号xxxx)。
