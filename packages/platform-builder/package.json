@@ -24,7 +24,9 @@
   "license": "ISC",
   "peerDependencies": {
     "@mand-mobile/components": "^3.0.4-alpha.5",
-    "@mand-mobile/platform-runtime": "^3.0.4-alpha.5"
+    "@mand-mobile/platform-runtime": "^3.0.4-alpha.5",
+    "@mand-mobile/scroller": "^3.0.4-alpha.5",
+    "@mand-mobile/shared": "^3.0.4-alpha.5"
   },
   "dependencies": {
     "@dcloudio/uni-cli-shared": "^2.0.0-29820201110001",
@@ -102,7 +104,11 @@
   "devDependencies": {
     "chokidar-cli": "^2.1.0",
     "copyfiles": "^2.3.0",
-    "jest": "^26.4.2"
+    "jest": "^26.4.2",
+    "@mand-mobile/components": "^3.0.4-alpha.5",
+    "@mand-mobile/platform-runtime": "^3.0.4-alpha.5",
+    "@mand-mobile/scroller": "^3.0.4-alpha.5",
+    "@mand-mobile/shared": "^3.0.4-alpha.5"
   },
   "directories": {
     "test": "test"

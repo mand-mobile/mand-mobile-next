@@ -26,3 +26,7 @@ __temp__
 *.sln
 *.sw?
 coverage
+
+
+packages/shared/shard
+packages/platform-builder/scroller
