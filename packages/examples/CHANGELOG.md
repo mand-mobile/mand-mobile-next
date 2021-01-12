@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0-alpha.2](https://github.com/mand-mobile/mand-mobile-next/compare/v3.1.0-alpha.1...v3.1.0-alpha.2) (2021-01-12)
+
+
+### Features
+
+* upgrade rely version in [@mand-mobile](https://github.com/mand-mobile) group ([9b9bd45](https://github.com/mand-mobile/mand-mobile-next/commit/9b9bd45be4d04cdc41be00c1b80b6b5a364a3191))
+
+
+
+
+
 # [3.1.0-alpha.1](https://github.com/mand-mobile/mand-mobile-next/compare/v3.1.0-alpha.0...v3.1.0-alpha.1) (2020-12-18)
 
 

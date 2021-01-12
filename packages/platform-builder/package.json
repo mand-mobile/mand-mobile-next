@@ -1,6 +1,6 @@
 {
   "name": "@mand-mobile/platform-builder",
-  "version": "3.1.0-alpha.1",
+  "version": "3.1.0-alpha.2",
   "main": "lib/index.js",
   "scripts": {
     "test":
@@ -41,8 +41,8 @@
     "@dcloudio/vue-cli-plugin-uni-optimize": "^2.0.0-29820201110001",
     "@dcloudio/webpack-uni-mp-loader": "^2.0.0-29820201110001",
     "@dcloudio/webpack-uni-pages-loader": "^2.0.0-29820201110001",
-    "@mand-mobile/components": "^3.1.0-alpha.1",
-    "@mand-mobile/platform-runtime": "^3.1.0-alpha.1",
+    "@mand-mobile/components": "^3.1.0-alpha.2",
+    "@mand-mobile/platform-runtime": "^3.1.0-alpha.2",
     "@rollup/plugin-alias": "^3.1.1",
     "@rollup/plugin-babel": "^5.0.4",
     "@rollup/plugin-node-resolve": "^8.4.0",
@@ -102,13 +102,13 @@
     "zp-vueify": "^9.4.2"
   },
   "devDependencies": {
-    "chokidar-cli": "^2.1.0",
-    "copyfiles": "^2.3.0",
-    "jest": "^26.4.2",
     "@mand-mobile/components": "^3.0.4-alpha.5",
     "@mand-mobile/platform-runtime": "^3.0.4-alpha.5",
     "@mand-mobile/scroller": "^3.0.4-alpha.5",
-    "@mand-mobile/shared": "^3.0.4-alpha.5"
+    "@mand-mobile/shared": "^3.0.4-alpha.5",
+    "chokidar-cli": "^2.1.0",
+    "copyfiles": "^2.3.0",
+    "jest": "^26.4.2"
   },
   "directories": {
     "test": "test"

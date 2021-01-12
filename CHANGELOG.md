@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0-alpha.2](https://github.com/mand-mobile/mand-mobile-next/compare/v3.1.0-alpha.1...v3.1.0-alpha.2) (2021-01-12)
+
+
+### Bug Fixes
+
+* fix types error ([fe5da99](https://github.com/mand-mobile/mand-mobile-next/commit/fe5da99137c063010a29c86113e15e8ecb1aec37))
+* **shared:** force build once when bootstrap ([047ef0d](https://github.com/mand-mobile/mand-mobile-next/commit/047ef0d7960c061bd4e8a0069c8c3bf73748f9d2))
+* modify container dir name ([0fc2b45](https://github.com/mand-mobile/mand-mobile-next/commit/0fc2b4585dfaa2387d535713786ead76e54e3f13))
+* **action-sheet:** use isInner props instead class set ([dae01bf](https://github.com/mand-mobile/mand-mobile-next/commit/dae01bf58d62819843b6fdc6a26eab27ec5c6763))
+* **swiper:** fix unsupported importing components ways ([5454641](https://github.com/mand-mobile/mand-mobile-next/commit/5454641545b0baecc81db5f221f86ae156429694))
+
+
+### Features
+
+* upgrade rely version in [@mand-mobile](https://github.com/mand-mobile) group ([9b9bd45](https://github.com/mand-mobile/mand-mobile-next/commit/9b9bd45be4d04cdc41be00c1b80b6b5a364a3191))
+* upgrade typescript version ([792cbad](https://github.com/mand-mobile/mand-mobile-next/commit/792cbad3de3be5827697040245583949c51950e7))
+
+
+
+
+
 # [3.1.0-alpha.1](https://github.com/mand-mobile/mand-mobile-next/compare/v3.1.0-alpha.0...v3.1.0-alpha.1) (2020-12-18)
 
 
