@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0-alpha.3](https://github.com/mand-mobile/mand-mobile-next/compare/v3.1.0-alpha.2...v3.1.0-alpha.3) (2021-01-12)
+
+
+### Bug Fixes
+
+* **platform-builder:** bump up devdDependences version to 3.1.0-alpha.2 ([f725fa9](https://github.com/mand-mobile/mand-mobile-next/commit/f725fa986ff40f68cefbc920455385fac4ce4de9))
+
+
+
+
+
 # [3.1.0-alpha.2](https://github.com/mand-mobile/mand-mobile-next/compare/v3.1.0-alpha.1...v3.1.0-alpha.2) (2021-01-12)
 
 
