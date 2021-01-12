@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import Roller from '../activity-indicator/roller'
+import Roller from '../roller'
 
 export default {
   name: 'md-activity-indicator-rolling-success',
