@@ -5,7 +5,7 @@
         class="md-activity-indicator-rolling_rolling"
         src="https://pt-starimg.didistatic.com/static/starimg/img/I4gkiiTYYm1610369771710.gif"
         :style="styles"
-      >
+      />
     </div>
     <div class="md-activity-indicator-rolling_content" v-if="$slots.default">
       <slot></slot>
