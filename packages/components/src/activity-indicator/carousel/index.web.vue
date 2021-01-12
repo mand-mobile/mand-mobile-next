@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import CarouselCircle from '../activity-indicator/carousel-circle'
+import CarouselCircle from './carousel-circle'
 
 export default {
   name: 'md-activity-indicator-carousel',
@@ -42,9 +42,9 @@ export default {
   data() {
     return {
       circleAnimateValues: [
-        [1, 0.8, 0.6, 0.6, 0.6, 0.8, 1],
-        [0.6, 0.8, 1, 0.8, 0.6, 0.6, 0.6],
-        [0.6, 0.6, 0.6, 0.8, 1, 0.8, 0.6],
+        [1, 0.9, 0.8, 0.8, 0.8, 0.9, 1],
+        [0.8, 0.9, 1, 0.9, 0.8, 0.8, 0.8],
+        [0.8, 0.8, 0.8, 0.9, 1, 0.9, 0.8],
       ],
     }
   },

@@ -9,7 +9,7 @@
         v-if="loading"
         class="activity-indicator-css"
         type="carousel"
-        :size="15"
+        :size="8"
         color="#fff"
         text-color="#fff"
       ></md-activity-indicator>
@@ -40,7 +40,7 @@ export default {
       this.loading = true
       setTimeout(() => {
         this.loading = false
-      }, 2000)
+      }, 3000)
     },
   },
 }

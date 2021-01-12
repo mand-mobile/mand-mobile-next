@@ -11,35 +11,30 @@
         <template v-if="type === 'roller'">
           <md-activity-indicator-rolling
             :size="size"
-            :color="color"
+            :color="colorCoerce"
             :width="width"
-          ></md-activity-indicator-rolling>
+          />
         </template>
-        <!-- <template v-else-if="type === 'roller-success'">
-          <md-activity-indicator-rolling-success
-            :size="size"
-            :color="color"
-          ></md-activity-indicator-rolling-success>
-        </template> -->
-        <template v-else-if="type === 'spinner'">
+        <template v-else-if="type === 'spinner' || type === 'ring'">
           <md-activity-indicator-spinning
+            :type="type"
             :size="size"
-            :color="color"
-          ></md-activity-indicator-spinning>
+            :color="colorCoerce"
+          />
         </template>
         <template v-else-if="type === 'carousel'">
           <md-activity-indicator-carousel
             :size="size"
-            :color="color"
-          ></md-activity-indicator-carousel>
+            :color="colorCoerce"
+          />
         </template>
       </div>
       <div
         v-if="$slots.default"
-        :style="{fontSize: `${textSize}px`, color: textColor}"
         class="md-activity-indicator_text"
+        :style="{fontSize: `${textSize}px`, color: textColor}"
       >
-        <slot></slot>
+        <slot/>
       </div>
     </div>
   </div>
@@ -47,7 +42,6 @@
 
 <script>
 import Roller from '../activity-indicator/roller'
-// import RollerSuccess from './roller-success'
 import Spinner from '../activity-indicator/spinner'
 import Carousel from '../activity-indicator/carousel'
 
@@ -56,7 +50,6 @@ export default {
 
   components: {
     'md-activity-indicator-rolling': Roller,
-    // [RollerSuccess.name]: RollerSuccess,
     'md-activity-indicator-spinning': Spinner,
     'md-activity-indicator-carousel': Carousel,
   },
@@ -75,24 +68,33 @@ export default {
     },
     color: {
       type: String,
-      default() {
-        if (this.type === 'spinner') {
-          return 'dark'
-        } else {
-          return '#2F86F6'
-        }
-      },
+      default: '',
     },
     textColor: {
       type: String,
       default: '#999',
     },
     textSize: {
-      type: Number,
+      type: [Number, String],
+      default: '16',
     },
     vertical: {
       type: Boolean,
       default: false,
+    },
+  },
+
+  computed: {
+    colorCoerce() {
+      if (this.color) {
+        return this.color
+      }
+
+      if (this.type === 'spinner') {
+        return 'dark'
+      } else {
+        return '#2F86F6'
+      }
     },
   },
 }
@@ -107,7 +109,7 @@ export default {
     align-items center
   &_text
     margin 0 0 0 15px
-    color color-text-minor
+    color md-color-text-minor
   .md-vertical
     flex-direction column
     justify-content center

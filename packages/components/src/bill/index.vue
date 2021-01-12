@@ -1,5 +1,9 @@
 <template>
-  <div class="md-bill">
+  <md-water-mark
+    class="md-bill"
+    :content="waterMarkProps.content"
+    :styles="waterMarkProps.styles"
+  >
     <header class="md-bill_header">
       <template v-if="!$slots.header">
         <h4 class="md-bill_title" v-if="title" v-text="title"></h4>
@@ -10,7 +14,11 @@
       </template>
     </header>
     <div class="md-bill_neck">
-      <span></span>
+      <span class="md-bill_neck_border"></span>
+      <template v-if="neckNotch">
+        <em class="md-bill_neck_notch md-left" :style="{background: `${neckNotch}`}"></em>
+        <em class="md-bill_neck_notch md-right" :style="{background: `${neckNotch}`}"></em>
+      </template>
     </div>
     <div class="md-bill_content">
       <div class="md-bill_detail">
@@ -19,21 +27,23 @@
       <footer v-if="$slots.footer" class="md-bill-footer">
         <slot name="footer"></slot>
       </footer>
+      <!-- <template #watermark="{ coord }">
+        <slot name="watermark" :coord="coord"/>
+      </template> -->
     </div>
-  </div>
-  
+  </md-water-mark>
 </template>
 
 <script>
 import FieldItem from '../field/item'
-// import WaterMark from '../water-mark'
+import WaterMark from '../water-mark'
 
 export default {
   name: 'md-bill',
 
   components: {
     'md-field-item': FieldItem,
-    // [WaterMark.name]: WaterMark,
+    'md-water-mark': WaterMark,
   },
 
   props: {
@@ -46,8 +56,22 @@ export default {
       default: '',
     },
     waterMark: {
-      type: String,
+      type: [String, Object],
       default: '',
+    },
+    neckNotch: {
+      type: String,
+      default: '#F3F4F5',
+    },
+    styles: {
+      type: Object,
+      default: {},
+    },
+  },
+  computed: {
+    waterMarkProps() {
+      const {waterMark} = this
+      return typeof waterMark === 'string' ? {content: waterMark} : waterMark
     },
   },
 }
@@ -81,14 +105,26 @@ export default {
     padding 10px
     margin 0 28px
     box-sizing border-box
-    span
+    &_border
       position absolute
       top 50%
       left 10px
       right 10px
       display block
-      height 1px
-      border-top dashed 1px md-color-border-element
+      height 2px
+      border-top dashed 2px md-color-border-element
+    &_notch
+      content ''
+      position absolute
+      top 0
+      width 36px
+      height 36px
+      border-radius 18px
+      &.md-left
+        left -46px
+      &.md-right
+        right -46px
+
 
   .md-bill_content
     padding 0 32px 20px 32px

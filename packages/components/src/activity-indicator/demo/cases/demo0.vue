@@ -1,17 +1,16 @@
 <template>
   <div class="md-example-child md-example-child-activity-indicator md-example-child-activity-indicator-0">
     <md-activity-indicator
+      class="activity-indicator"
       :size="20"
       :text-size="16"
     >加载中...</md-activity-indicator>
     <md-activity-indicator
+      class="activity-indicator"
       :size="20"
       :text-size="16"
       vertical
     >vertical loading</md-activity-indicator>
-    <md-activity-indicator
-      class="md-activity-indicator-css"
-    >loading...</md-activity-indicator>
   </div>
 </template>
 
@@ -39,16 +38,16 @@ export const metaInfo = {
   align-items: center;
 }
   
-.md-activity-indicator {
+.activity-indicator {
   margin-bottom: 30px;
 }
 
-.md-example-child-activity-indicator-0 .md-activity-indicator-css .md-activity-indicator_svg {
+.activity-indicator .md-activity-indicator_svg {
   width: 60px !important;
   height: 60px !important;
 }
       
-.md-example-child-activity-indicator-0 .md-activity-indicator-css .md-activity-indicator-text {
+.activity-indicator .md-activity-indicator-text {
   font-size: 32px;
 }
 </style>

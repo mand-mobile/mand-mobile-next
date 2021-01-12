@@ -2,6 +2,7 @@
   <div class="md-activity-indicator-rolling-success">
     <md-activity-indicator-rolling
       :width="strokeWidth"
+      :size="size"
       :radius="radius"
       fill="#FFF6F1"
       border-color="transparent"
@@ -42,7 +43,7 @@
 </template>
 
 <script>
-import Roller from '../activity-indicator/roller'
+import Roller from '../roller'
 
 export default {
   name: 'md-activity-indicator-rolling-success',

@@ -1,5 +1,5 @@
 <template>
-  <div class="md-water-mark">
+  <div class="md-water-mark" :style="inlineStyles">
     <div class="md-water-mark_container">
       <slot></slot>
     </div>
@@ -16,7 +16,7 @@
          }"
       >
         <template v-if="content">
-          <canvas ref="canvas" class="md-water-mark_list_wrap_canvas"></canvas>
+          <canvas ref="canvas" class="md-water-mark_list_canvas"></canvas>
         </template>
         <template v-else-if="!!$scopedSlots.watermark">
           <ul
@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import {getDpr} from '@mand-mobile/shared/lib/util'
+import {getDpr, flatStyleObject} from '@mand-mobile/shared/lib/util'
 import commonMixin from './mixins'
 import './common.styl'
 
@@ -63,6 +63,12 @@ export default {
     return {
       repetition: process.env.NODE_ENV === 'test' ? 2 : 50,
     }
+  },
+
+  computed: {
+    inlineStyles() {
+      return flatStyleObject(this.styles)
+    },
   },
 
   mounted() {

@@ -8,7 +8,7 @@
     <div class="activity-indicator-container">
       <md-activity-indicator
         class="md-activity-indicator-css"
-        type="spinner"
+        type="ring"
         :size="30"
         :text-size="20"
         color="light"
@@ -27,7 +27,7 @@ export default {
 }
 // #region ignore
 export const metaInfo = {
-  title: 'Spinner',
+  title: 'Spinner & Ring',
   platform: 'web',
 }
 // #endregion ignore

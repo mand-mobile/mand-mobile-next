@@ -5,14 +5,14 @@
   >
     <md-icon
       class="md-activity-indicator_svg"
-      name="spinner"
+      :name="type"
       :style="{width: `${size}px`, height: `${size}px`}"
     ></md-icon>
   </div>
 </template>
 
 <script>
-import Icon from '../icon'
+import Icon from '../../icon'
 
 export default {
   name: 'md-activity-indicator-spinning',
@@ -22,6 +22,10 @@ export default {
   },
 
   props: {
+    type: {
+      type: String,
+      default: 'ring',
+    },
     size: {
       type: Number,
       default: 70,

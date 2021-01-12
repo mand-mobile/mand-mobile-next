@@ -1,12 +1,10 @@
 <template>
   <div class="md-example-child md-example-child-bill-1">
-    <md-bill>
-      <template>
-        <div class="header-slot" slot="header" :style="{padding: '40rpx 0 20rpx 0'}">
-          <h1 class="title" :style="{'color': '#111A34', 'font-size': '60rpx', 'font-family': 'Songti SC','line-height': 1}">借款单据</h1>
-          <p class="desc" :style="{  'margin-top': '16rpx', 'color': '#858B9C', 'font-size': '26rpx'}">仔细阅读，关注您的利益、义务</p>
-        </div>
-      </template>
+    <md-bill :water-mark="waterMarkProps">
+      <div class="header-slot" slot="header">
+        <h1 class="title">借款单据</h1>
+        <p class="desc">仔细阅读，关注您的利益、义务</p>
+      </div>
       <md-detail-item title="借款金额">
         &yen;30,000
       </md-detail-item>
@@ -45,6 +43,17 @@ export default {
     'md-detail-item': DetailItem,
     'md-tag': Tag,
   },
+  data() {
+    return {
+      waterMarkProps: {
+        content: 'MAND-MOBILE',
+        opacity: 0.5,
+        styles: {
+          background: '#FFF',
+        },
+      },
+    }
+  },
 }
 // #region ignore
 export const metaInfo = {
@@ -58,49 +67,22 @@ export const metaInfo = {
 // #endregion ignore
 
 </script>
-<style>
-.md-example-child-bill-1 .md-bill {
-  background-color: #FFF;
-  box-shadow: 0 6px 24px rgba(17, 26, 52, .05);
-}
-.md-example-child-bill-1 .md-bill.md-water-mark {
-  overflow: visible;
-}
-.md-example-child-bill-1 .md-bill .md-bill-neck:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -46px;
-  width: 36px;
-  height: 36px;
-  border-radius: 18px;
-  background-color: #F3F4F5;
-}
-.md-example-child-bill-1 .md-bill .md-bill-neck:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: -46px;
-  width: 36px;
-  height: 36px;
-  border-radius: 18px;
-  background-color: #F3F4F5;
-}
-.md-example-child-bill-1 .md-bill .header-slot {
+<style scoped>
+.header-slot {
   padding: 40px 0 20px 0;
 }
-.md-example-child-bill-1 .md-bill .header-slot .title {
+.header-slot .title {
   color: #111A34;
   font-size: 60px;
   font-family: Songti SC;
   line-height: 1;
 }
-.md-example-child-bill-1 .md-bill .header-slot .desc {
+.header-slot .desc {
   margin-top: 16px;
   color: #858B9C;
   font-size: 26px;
 }
-.md-example-child-bill-1 .md-bill .footer-slot {
+.footer-slot {
   padding: 32px 0;
   color: #858B9C;
   font-size: 22px;
