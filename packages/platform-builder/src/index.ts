@@ -29,7 +29,7 @@ const timeout = (timeout: number = 500) => new Promise((resolve, reject) => {
  */
 export function linkDir(sourceDir, targetDir): Promise<void> {
   return execa('ln', [
-    '-sfn',
+    '-sFn',
     sourceDir,
     targetDir,
   ])
