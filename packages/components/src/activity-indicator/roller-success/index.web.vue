@@ -2,6 +2,7 @@
   <div class="md-activity-indicator-rolling-success">
     <md-activity-indicator-rolling
       :width="strokeWidth"
+      :size="size"
       :radius="radius"
       fill="#FFF6F1"
       border-color="transparent"
