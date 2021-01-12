@@ -34,14 +34,14 @@ Vue.component(Button.name, Button)
 |----|-----|------|------ |------|
 |type|样式|String|`default`|`default`, `primary`, `warning`, `disabled`, `link`|
 |native-type|类型|String|`button`|-|
-|size|尺寸|String|`large`|`large/small`|
+|size|尺寸|String|`large`|`large/small`，小尺寸可直接用属性`small`简写|
 |plain|朴素|Boolean|`false`|-|
 |round|圆角|Boolean|`false`|-|
 |inline|行内|Boolean|`false`|-|
 |inactive|未激活|Boolean|`false`|`inactive`设为`true`和`disabled`类型的按钮都无法点击，前者一般用于表单校验无效等主观因素，后者用于无权限或无库存等客观因素|
 |icon|图标|String|-|可选值请参考组件`Icon`|
 |icon-svg <MDPlatformTag web/>|使用svg图标|Boolean|`false`|-|
-|loading <MDPlatformTag web/>|加载中状态|Boolean\/String|`false`|`roller`（等同于true），`spinner`，`carousel`|
+|loading|加载中状态|Boolean\/String|`false`|`roller`（等同于true），`spinner`，`ring`，`carousel`|
 |loading-color <MDPlatformTag web/>|加载中图标颜色|String|`false`|参考`ActivityIndicator`|
 
 ### Button Slots
