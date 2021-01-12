@@ -5,8 +5,8 @@
       <md-button class="button" type="primary" inline plain>Inline Plain</md-button>
     </div>
     <div class="md-example-section">
-      <md-button class="button" type="warning" size="small" inline>Warning</md-button>
-      <md-button class="button" type="disabled" size="small" inline>Disabled</md-button>
+      <md-button class="button" type="warning" small inline>Warning</md-button>
+      <md-button class="button" type="disabled" small inline>Disabled</md-button>
     </div>
   </div>
 </template>
