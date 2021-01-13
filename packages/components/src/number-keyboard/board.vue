@@ -162,7 +162,8 @@ export default {
   display flex
   width md-number-keyboard-width
   height md-number-keyboard-height
-  hairline(top, md-number-keyboard-key-border-color)
+  // hairline(top, md-number-keyboard-key-border-color)
+  border-top solid 1px md-number-keyboard-key-border-color
   &.simple
     .keyboard-number
       .keyboard-number_list
