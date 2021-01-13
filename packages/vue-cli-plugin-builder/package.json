@@ -1,11 +1,11 @@
 {
   "name": "@mand-mobile/vue-cli-plugin-builder",
   "version": "3.1.0-alpha.3",
-  "description": "mand-mobile 构建层封装",
+  "description": "mand-mobile vue-cli-plugin-builder",
   "keywords": ["mand-mobile", "buildtime"],
   "author": "lucker <byterotate@gmail.com>",
   "homepage": "",
-  "license": "ISC",
+  "license": "Apache",
   "main": "lib/index.js",
   "directories": {
     "lib": "lib",

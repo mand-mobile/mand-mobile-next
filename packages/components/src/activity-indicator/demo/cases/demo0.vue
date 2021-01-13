@@ -25,7 +25,6 @@ export default {
 // #region ignore
 export const metaInfo = {
   title: 'Roller',
-  platform: 'web',
 }
 // #endregion ignore
 

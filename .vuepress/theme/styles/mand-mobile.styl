@@ -76,6 +76,14 @@
   // border solid .5px #e2e4ea
   box-shadow 0 2px 4px -4px rgba(0,0,0,.08), 0 4px 12px 0 rgba(0,0,0,.05), 0 6px 20px 8px rgba(0,0,0,.05)
 
+.md-example-child-activity-indicator
+  .md-activity-indicator.roller, .md-activity-indicator.spinner, .md-activity-indicator.ring
+    .md-activity-indicator_svg
+      width 42px !important
+      height 42px !important
+    .md-activity-indicator_text
+      font-size 22px !important
+
 .md-example-child-cell-item
   border solid .5px #e2e4ea
 
@@ -195,6 +203,38 @@
   .md-number-keyboard
     zoom 1 !important
 
+.md-example-child-bill-0
+  .md-bill_neck_notch
+    background #FFF !important
+.md-example-child-bill-1
+  padding 0 !important
+  .md-bill
+    overflow visible
+    box-shadow 0 2px 4px -4px rgba(0,0,0,.08), 0 4px 12px 0 rgba(0,0,0,.05), 0 6px 20px 8px rgba(0,0,0,.05)
+    .md-bill_neck_notch
+      width 50px
+      height 50px
+      border-radius 0 50% 50% 0
+      background #FFF !important
+      &::after
+        content ""
+        position absolute
+        top 0
+        bottom 0
+        width 100%
+        border-radius 50%
+        box-shadow 0 2px 4px 6px rgba(0,0,0,.05) inset
+      &.md-left
+        left -60px
+        &::after
+          right 0
+          clip rect(0, auto, auto, 24px)
+      &.md-right
+        right -60px
+        &::after
+          left 0
+          clip rect(0, 24px, auto, auto)
+
 
 .dark
   // .md-example-child-action-bar
@@ -214,3 +254,6 @@
       .icon-name
         font-size 24px !important
         color #CCC !important
+  .md-example-child-activity-indicator
+    .md-activity-indicator.spinner .md-activity-indicator_svg
+      filter none

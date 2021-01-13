@@ -27,11 +27,6 @@ export default {
     'md-water-mark': WaterMark,
   },
 }
-// #region ignore
-export const metaInfo = {
-  platform: 'web',
-}
-// #endregion ignore
 
 </script>
 

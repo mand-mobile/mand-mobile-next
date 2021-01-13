@@ -41,3 +41,9 @@ export default {
 }
 
 </script>
+
+<style scoped>
+.md-example-child-bill-0 {
+  border: solid 1px #ccc;
+}
+</style>

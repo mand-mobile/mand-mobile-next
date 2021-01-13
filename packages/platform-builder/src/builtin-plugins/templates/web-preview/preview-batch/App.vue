@@ -62,7 +62,7 @@ block()
   -webkit-overflow-scrolling touch
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-  background #F9FAFB
+  background #f3f4f5
   .md-nav
     position relative
     display flex

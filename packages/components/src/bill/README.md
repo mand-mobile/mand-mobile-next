@@ -28,7 +28,8 @@ Vue.component(Bill.name, Bill)
 |----|-----|------|------ |------|
 |name|票据抬头|String| | |
 |no|票据编号|String| | |
-|water-mark|水印内容|String| |复杂内容使用`scoped slot`|
+|neckNotch|票据打孔颜色|String| |
+|water-mark|水印内容|String\/Object| | |
 
 ### Bill Slots
 
@@ -40,12 +41,3 @@ Vue.component(Bill.name, Bill)
 
 #### footer
 底部内容插槽
-
-#### watermask
-水印内容scoped插槽
-
-```html
-<div slot="watermark" slot-scope="props">
-  <!-- 水印内容 -->
-</div>
-```

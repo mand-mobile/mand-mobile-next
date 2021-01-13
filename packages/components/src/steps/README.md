@@ -19,9 +19,9 @@ Vue.component(Steps.name, Steps)
 {{{ @/packages/components/src/steps/demo/cases/demo0.vue
 }}} @/packages/components/src/steps/demo/cases/demo1.vue
 {{{ @/packages/components/src/steps/demo/cases/demo2.vue
-{{{ @/packages/components/src/steps/demo/cases/demo3.vue
+}}} @/packages/components/src/steps/demo/cases/demo3.vue
 {{{ @/packages/components/src/steps/demo/cases/demo4.vue
-{{{ @/packages/components/src/steps/demo/cases/demo5.web.vue
+}}} @/packages/components/src/steps/demo/cases/demo5.web.vue
 {{{ @/packages/components/src/steps/demo/cases/demo6.vue
 }}} @/packages/components/src/steps/demo/cases/demo7.vue
 </MDDemoWrapper>

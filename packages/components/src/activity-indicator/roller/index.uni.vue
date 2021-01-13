@@ -24,38 +24,27 @@ export default {
       type: Number,
       default: 70,
     },
-    width: {
-      type: Number,
-    },
     color: {
       type: String,
       default: '#2F86F6',
-    },
-    borderColor: {
-      type: String,
-      default: 'rgba(0, 0, 0, .1)',
     },
     fill: {
       type: String,
       default: 'transparent',
     },
-    linecap: {
-      // butt | round | square | inherit
-      type: String,
-      default: 'round',
-    },
     rotate: {
       type: Number,
       default: 0,
     },
-    process: {
-      // process control 0-1
-      type: Number,
-    },
   },
   computed: {
     styles() {
+      let styles = {}
+      if (this.color.toLocaleUpperCase() !== '#2F86F6') {
+        styles.filter = 'grayscale(100%)'
+      }
       return flatStyleObject({
+        ...styles,
         width: `${this.size}px`,
         height: `${this.size}px`,
       })

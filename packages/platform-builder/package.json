@@ -1,6 +1,7 @@
 {
   "name": "@mand-mobile/platform-builder",
   "version": "3.1.0-alpha.3",
+  "description": "mand-mobile platform builder",
   "main": "lib/index.js",
   "scripts": {
     "test":
@@ -20,8 +21,7 @@
     "testMatch": ["**/(*.)+(test|spec).ts"],
     "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
   },
-  "author": "",
-  "license": "ISC",
+  "license": "Apache",
   "peerDependencies": {
     "@mand-mobile/components": "^3.1.0-alpha.2",
     "@mand-mobile/platform-runtime": "^3.1.0-alpha.2",
@@ -112,6 +112,5 @@
   },
   "directories": {
     "test": "test"
-  },
-  "description": ""
+  }
 }

@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import {Device} from '@mand-mobile/platform-runtime/lib/module'
 import Popup from '../popup'
 import Keyborad from './board'
 
@@ -99,6 +100,10 @@ export default {
       type: Function,
       default: () => {},
     },
+    isVibrate: {
+      type: Boolean,
+      default: true,
+    },
   },
 
   data() {
@@ -123,14 +128,20 @@ export default {
   },
 
   methods: {
-    // MARK: events handler, 如 $_onButtonClick
+    $_vibrate() {
+      this.isVibrate && Device().vibrate()
+    },
+
     $_onEnter(val) {
+      this.$_vibrate()
       this.$emit('enter', val)
     },
     $_onDelete() {
+      this.$_vibrate()
       this.$emit('delete')
     },
     $_onConfirm() {
+      this.$_vibrate()
       this.$emit('confirm')
       if (this.isHideConfirm) {
         this.hide()

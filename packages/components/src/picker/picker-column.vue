@@ -448,7 +448,7 @@ export default {
     $_onColumnScrolling(index, point) {
       const wheel = this.$_getWheel(index)
       const curActivedIndex = this.activedIndexs[index]
-      const activedIndex = wheel.findNearestValidWheel(point.y).index
+      const activedIndex = wheel.findNearestValidWheel(point).index
 
       if (curActivedIndex !== activedIndex) {
         this.$set(this.activedIndexs, index, activedIndex)

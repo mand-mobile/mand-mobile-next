@@ -21,10 +21,12 @@
           该银行3:00-12:00系统维护，请更换其他银行卡
         </md-notice-bar>
       </template>
-      <template #footer="{ scene }">
-        <div v-if="scene === 'choose' && !isCashierInitialed" class="cashier-loading">
-          <md-activity-indicator :size="30" vertical>加载中...</md-activity-indicator>
-        </div>
+      <template #footer>
+        <md-transition :show="!isCashierInitialed" name="md-fade">
+          <div class="cashier-loading">
+            <md-activity-indicator :size="30" vertical>加载中...</md-activity-indicator>
+          </div>
+        </md-transition>
       </template>
       <div slot="payButton" class="pay-button">
         <md-icon name="checked"></md-icon>发起支付
@@ -43,6 +45,7 @@ import Toast from 'mand-mobile/lib/toast'
 import Icon from 'mand-mobile/lib/icon'
 import NoticeBar from 'mand-mobile/lib/notice-bar'
 import ActivityIndicator from 'mand-mobile/lib/activity-indicator'
+import Transition from 'mand-mobile/lib/transition'
 
 export default {
   components: {
@@ -51,6 +54,7 @@ export default {
     'md-icon': Icon,
     'md-notice-bar': NoticeBar,
     'md-activity-indicator': ActivityIndicator,
+    'md-transition': Transition,
   },
   data() {
     return {
@@ -214,7 +218,7 @@ export const metaInfo = {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 1);
   z-index: 1400;
   display: flex;
   align-items: center;

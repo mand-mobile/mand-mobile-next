@@ -4,6 +4,4 @@ module.exports = {
   'category': 'basic',
   'description': '',
   'demoCasesNum': '3',
-  'platform': 'web',
-  'author': 'chengyanjing <chengyanjing@didiglobal.com>'
 }

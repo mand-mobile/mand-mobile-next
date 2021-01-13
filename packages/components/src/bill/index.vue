@@ -2,6 +2,13 @@
   <md-water-mark
     class="md-bill"
     :content="waterMarkProps.content"
+    :spacing="waterMarkProps.spacing"
+    :repeatX="waterMarkProps.repeatX"
+    :repeatY="waterMarkProps.repeatY"
+    :rotate="waterMarkProps.rotate"
+    :opacity="waterMarkProps.opacity"
+    :color="waterMarkProps.color"
+    :fontSize="waterMarkProps.fontSize"
     :styles="waterMarkProps.styles"
   >
     <header class="md-bill_header">
@@ -37,6 +44,7 @@
 <script>
 import FieldItem from '../field/item'
 import WaterMark from '../water-mark'
+import WaterMarkMixin from '../water-mark/mixins'
 
 export default {
   name: 'md-bill',
@@ -61,17 +69,25 @@ export default {
     },
     neckNotch: {
       type: String,
-      default: '#F3F4F5',
     },
     styles: {
       type: Object,
-      default: {},
+      default() {
+        return {}
+      },
     },
   },
   computed: {
     waterMarkProps() {
       const {waterMark} = this
-      return typeof waterMark === 'string' ? {content: waterMark} : waterMark
+      const defaultProps = {}
+
+      Object.keys(WaterMarkMixin.props).forEach(prop => {
+        const val = WaterMarkMixin.props[prop].default
+        defaultProps[prop] = typeof val === 'function' ? val() : val
+      })
+
+      return typeof waterMark === 'string' ? {...defaultProps, content: waterMark} : {...defaultProps, ...waterMark}
     },
   },
 }
