@@ -48,8 +48,7 @@ export const metaInfo = {
   display flex
   align-items center
   justify-content center
-  padding 10px 0
+  padding 15px 0
   font-size 24px
-  // font-weight bold
   color #FF7D41
 </style>

@@ -1,29 +1,35 @@
 <template>
   <div class="md-example-child md-example-child-number-keyboard md-example-child-number-keyboard-0">
-    <md-button class="md-button" @click="toggleKeyboard(0)">{{ buttonText0 }}</md-button>
+    <md-button class="md-button" @click="toggleKeyboard(0)">
+      {{ isKeyBoardShow0 ? '收起键盘' : '唤起键盘，无小数点' }}
+    </md-button>
     <md-number-keyboard
-      v-model="isKeyBoardShow[0]"
+      v-model="isKeyBoardShow0"
       @enter="onNumberEnter"
       @delete="onNumberDelete"
     ></md-number-keyboard>
 
-    <md-button class="md-button" @click="toggleKeyboard(1)">{{ buttonText1 }}</md-button>
+    <md-button class="md-button" @click="toggleKeyboard(1)">
+      {{ isKeyBoardShow1 ? '收起键盘' : '唤起键盘，无小数点' }}
+    </md-button>
     <md-number-keyboard
-      v-model="isKeyBoardShow[1]"
+      v-model="isKeyBoardShow1"
       hide-dot
       @enter="onNumberEnter"
       @delete="onNumberDelete"
     ></md-number-keyboard>
 
-    <md-button class="md-button" @click="toggleKeyboard(2)">{{ buttonText2 }}</md-button>
+    <md-button class="md-button" @click="toggleKeyboard(2)">
+      {{ isKeyBoardShow2 ? '收起键盘' : '唤起键盘，无小数点' }}
+    </md-button>
     <md-number-keyboard
-      v-model="isKeyBoardShow[2]"
+      v-model="isKeyBoardShow2"
       @input="handler"
       :text-render="keyFormatter"
       @enter="onNumberEnter"
       @delete="onNumberDelete"
     ></md-number-keyboard>
-    <div class="md-example-display" v-show="isKeyBoardShow" v-text="number"></div>
+    <div class="md-example-display" v-show="isKeyBoardShow0 || isKeyBoardShow1 || isKeyBoardShow2" v-text="number"></div>
   </div>
 </template>
 
@@ -38,24 +44,16 @@ export default {
   },
   data() {
     return {
-      isKeyBoardShow: [],
+      isKeyBoardShow0: false,
+      isKeyBoardShow1: false,
+      isKeyBoardShow2: false,
       number: '',
     }
   },
-  computed: {
-    buttonText0() {
-      return this.isKeyBoardShow[0] ? '收起键盘' : '唤起键盘，有小数点'
-    },
-    buttonText1() {
-      return this.isKeyBoardShow[1] ? '收起键盘' : '唤起键盘，无小数点'
-    },
-    buttonText2() {
-      return this.isKeyBoardShow[2] ? '收起键盘' : '唤起键盘，替换键值'
-    },
-  },
   methods: {
     toggleKeyboard(index) {
-      this.$set(this.isKeyBoardShow, index, !this.isKeyBoardShow[index])
+      const isKeyBoardShow = this.$data[`isKeyBoardShow${index}`]
+      this.$set(this.$data, `isKeyBoardShow${index}`, !isKeyBoardShow)
     },
     keyFormatter(val) {
       if (val === '.') {
