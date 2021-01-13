@@ -62,7 +62,7 @@ export default {
   // margin-top 1em
   padding 0 1.5em 2em
   // border-right 1px solid #e8e8e8
-  // background #FFF
+  background $backgrounColor
   box-sizing border-box
   overflow auto
   &_version

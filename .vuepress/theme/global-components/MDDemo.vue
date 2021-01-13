@@ -116,7 +116,9 @@ export default {
             this.renderShadowDemo(module.default)
             this.renderShadowDemoStyle({ zoom })
           } else {
-            this.dynamicComponent = module.default
+            setTimeout(() => {
+              this.dynamicComponent = module.default
+            }, 1000)
           }
         })
         // console.log(module)
