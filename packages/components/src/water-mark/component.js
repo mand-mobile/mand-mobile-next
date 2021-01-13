@@ -3,6 +3,5 @@ module.exports = {
   'text': '水印',
   'category': 'business',
   'description': '',
-  'platform': 'web',
   'author': 'xuxiaoyan'
 }
