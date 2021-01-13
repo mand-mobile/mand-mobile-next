@@ -28,7 +28,7 @@ Vue.component(WaterMask.name, WaterMark)
 |属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------ |------|
 |content|水印内容|String| |复杂内容使用`scoped slot`|
-|spacing|水印间距|String|`20vw`| |
+|spacing|水印间距|String|`60px`| |
 |repeat-x|横向重复|Boolean|`true`| |
 |repeat-y|纵向重复|Boolean|`true`| |
 |rotate|旋转角度|String|`-30`| |
