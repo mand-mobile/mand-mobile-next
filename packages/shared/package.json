@@ -1,10 +1,8 @@
 {
   "name": "@mand-mobile/shared",
   "version": "3.1.0-alpha.0",
-  "description": "> TODO: description",
-  "author": "lucker <byterotate@gmail.com>",
-  "homepage": "",
-  "license": "ISC",
+  "description": "mand-mobile shared utils",
+  "license": "Apache",
   "main": "index.js",
   "typings": "lib/index.d.ts",
   "directories": {
