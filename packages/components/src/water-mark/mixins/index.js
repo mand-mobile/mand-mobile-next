@@ -6,7 +6,7 @@ export default {
     },
     spacing: {
       type: [String, Number],
-      default: '20vw',
+      default: '60px',
     },
     repeatX: {
       type: Boolean,
@@ -34,7 +34,9 @@ export default {
     },
     styles: {
       type: Object,
-      default: {},
+      default() {
+        return {}
+      },
     },
   },
 }
