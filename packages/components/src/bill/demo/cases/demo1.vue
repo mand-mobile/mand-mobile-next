@@ -1,6 +1,6 @@
 <template>
   <div class="md-example-child md-example-child-bill-1">
-    <md-bill :water-mark="waterMarkProps">
+    <md-bill :water-mark="waterMarkProps" neckNotch="#F3F4F5">
       <div class="header-slot" slot="header">
         <h1 class="title">借款单据</h1>
         <p class="desc">仔细阅读，关注您的利益、义务</p>
@@ -46,8 +46,6 @@ export default {
   data() {
     return {
       waterMarkProps: {
-        content: 'MAND-MOBILE',
-        opacity: 0.5,
         styles: {
           background: '#FFF',
         },
