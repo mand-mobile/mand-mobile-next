@@ -52,7 +52,10 @@
   </svg>
 </template>
 
-<script>export default {
+<script>
+import {root, mdDocument} from '@mand-mobile/shared/lib/util'
+
+export default {
   name: 'md-chart',
 
   props: {
@@ -258,27 +261,28 @@
 
   // LiftCircle Hook
   mounted() {
-    if (document.readyState !== 'loading') {
+    if (mdDocument.readyState !== 'loading') {
       this.$_resize()
     }
-    document.addEventListener('DOMContentLoaded', this.$_resize)
-    window.addEventListener('resize', this.$_resize)
+    mdDocument.addEventListener('DOMContentLoaded', this.$_resize)
+    root.addEventListener('resize', this.$_resize)
   },
   beforeDestroy() {
-    document.removeEventListener('DOMContentLoaded', this.$_resize)
-    window.removeEventListener('resize', this.$_resize)
+    mdDocument.removeEventListener('DOMContentLoaded', this.$_resize)
+    root.removeEventListener('resize', this.$_resize)
   },
 
   methods: {
     // MARK: private methods
     $_resize() {
       this.unit = parseFloat(
-        window.getComputedStyle(document.getElementsByTagName('html')[0]).getPropertyValue('font-size'),
+        root.getComputedStyle(mdDocument.getElementsByTagName('html')[0]).getPropertyValue('font-size'),
       )
     },
   },
 }
-</script>
+
+</script>
 
 <style lang="stylus">
 .md-chart

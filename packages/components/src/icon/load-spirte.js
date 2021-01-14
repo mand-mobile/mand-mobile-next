@@ -1,5 +1,6 @@
 // inspried by https://github.com/kisenka/svg-sprite-loader/blob/master/runtime/browser-sprite.js
 // Much simplified, do make sure run this after document ready
+import {mdDocument} from '@mand-mobile/shared/lib/util'
 import icons from './default-svg-list'
 
 const svgSprite = contents => `
@@ -27,11 +28,11 @@ const renderSvgSprite = () => {
 
 const loadSprite = () => {
   /* istanbul ignore if */
-  if (!document) {
+  if (!mdDocument) {
     return
   }
-  const existing = document.getElementById('__MAND_MOBILE_SVG_SPRITE_NODE__')
-  const mountNode = document.body
+  const existing = mdDocument.getElementById('__MAND_MOBILE_SVG_SPRITE_NODE__')
+  const mountNode = mdDocument.body
 
   if (!existing) {
     mountNode.insertAdjacentHTML('afterbegin', renderSvgSprite())

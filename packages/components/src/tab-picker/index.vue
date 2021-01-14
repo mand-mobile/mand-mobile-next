@@ -42,7 +42,11 @@
                 :name="pane.name"
                 :label="pane.label"
               >
-                <div class="md-tab-picker_pane" @touchstart="$_onActivePane(index)">
+                <div
+                  class="md-tab-picker_pane"
+                  @touchstart="$_onActivePane(index)"
+                  @mousedown="$_onActivePane(index)"
+                >
                   <md-radio-list
                     :value="pane.value"
                     :options="pane.options"
