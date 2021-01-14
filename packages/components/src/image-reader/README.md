@@ -52,7 +52,7 @@ Vue.component(ImageReader.name, ImageReader)
 |file|图片对象|File|-|
 |blob <MDPlatformTag web/>|图片Blob对象，可用于`formData`|Blob|-|
 
-:::tips
+:::tip
 Uniapp中需使用[uni.uploadFile](https://uniapp.dcloud.io/api/request/network-file?id=uploadfile)上传图片
 :::
 
@@ -70,7 +70,7 @@ Uniapp中需使用[uni.uploadFile](https://uniapp.dcloud.io/api/request/network-
 
 用于图片轴向修正，图片质量压缩，宽高控制
 
-:::tips
+:::tip
 Uniapp中需使用[uni.compressImage](https://uniapp.dcloud.io/api/media/image?id=compressimage)压缩图片
 :::
 
