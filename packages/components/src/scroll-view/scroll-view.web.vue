@@ -49,7 +49,7 @@
 <script>
 import Scroller from '@mand-mobile/scroller'
 import PulldownRefresh from '@mand-mobile/scroller/lib/pull-down'
-import {throttle, flatStyleObject} from '@mand-mobile/shared/lib/util'
+import {throttle, flatStyleObject, root, mdDocument} from '@mand-mobile/shared/lib/util'
 
 export default {
   name: 'md-scroll-view-primitive',
@@ -225,14 +225,14 @@ export default {
     },
     $_checkScrollerBoundery() {
       const boundaryDistance = 15
-      const scrollLeft = document.documentElement.scrollLeft || window.pageXOffset || document.body.scrollLeft
-      const scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop
+      const scrollLeft = mdDocument.documentElement.scrollLeft || root.pageXOffset || mdDocument.body.scrollLeft
+      const scrollTop = mdDocument.documentElement.scrollTop || root.pageYOffset || mdDocument.body.scrollTop
 
       const pX = this.currentX - scrollLeft
       const pY = this.currentY - scrollTop
       if (
-        pX > document.documentElement.clientWidth - boundaryDistance ||
-        pY > document.documentElement.clientHeight - boundaryDistance ||
+        pX > mdDocument.documentElement.clientWidth - boundaryDistance ||
+        pY > mdDocument.documentElement.clientHeight - boundaryDistance ||
         pX < boundaryDistance ||
         pY < boundaryDistance
       ) {
