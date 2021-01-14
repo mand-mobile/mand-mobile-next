@@ -45,6 +45,9 @@ export = (api: any) => async (args: any) => {
       }])
     }
   }
+
+
+
   const c = new BuilderContainer({
     // 暂时使用一个唯一的时间戳用于创建临时文件，防并发使用随机数前缀
     outputRoot: path.resolve(process.cwd(), `__temp__/${R.compose((item) => item.toString(), Math.floor, (num) => num * 100, Math.random)()}-${+(new Date())}-${args.platform}`),
@@ -52,7 +55,12 @@ export = (api: any) => async (args: any) => {
     plugins,
   })
   await c.create()
-  await c.serve()
+
+  if (args.export) {
+    await c.build()
+  } else {
+    await c.serve()
+  }
 
   process.on('exit', async () => {
     // 进程退出前自动清理构建产物

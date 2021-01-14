@@ -26,3 +26,5 @@ __temp__
 *.sln
 *.sw?
 coverage
+
+packages/examples/bundle
