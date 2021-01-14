@@ -408,7 +408,9 @@ export default {
   beforeDestroy() {
     const keyboard = this.inputNumberKeyboard
     if (keyboard && keyboard.$el) {
-      mdDocument.body.removeChild(keyboard.$el)
+      try {
+        mdDocument.body.removeChild(keyboard.$el)
+      } catch (error) {}
     }
   },
 
