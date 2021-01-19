@@ -24,12 +24,12 @@ Vue.component(ScrollView.name, ScrollView)
 <!-- DEMO -->
 <MDDemoWrapper>
 <!-- left wrapper -->
-{{{ @/packages/components/src/scroll-view/demo/demo0.vue
-{{{ @/packages/components/src/scroll-view/demo/demo2.vue
+{{{ @/packages/components/src/scroll-view/demo/cases/demo0.vue
+{{{ @/packages/components/src/scroll-view/demo/cases/demo2.vue
 <!-- right wrapper -->
 
-}}} @/packages/components/src/scroll-view/demo/demo1.vue
-}}} @/packages/components/src/scroll-view/demo/demo3.web.vue
+}}} @/packages/components/src/scroll-view/demo/cases/demo1.vue
+}}} @/packages/components/src/scroll-view/demo/cases/demo3.web.vue
 </MDDemoWrapper>
 
 ## API
