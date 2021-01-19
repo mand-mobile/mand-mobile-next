@@ -3,9 +3,9 @@
     <div class="md-home-logo">
       <img src="//manhattan.didistatic.com/static/manhattan/mand/docs/mand-logo-black.svg" alt="">
     </div>
-    <div class="md-home-name" data-in-effect="fadeInLeftBig">Mand Mobile 2</div>
+    <div class="md-home-name" data-in-effect="fadeInLeftBig">Mand Mobile 3</div>
     <div class="md-home-time">0%</div>
-    <h1 class="md-home-copyright">Produced By DiDi - FDC &times; MFE</h1>
+    <h1 class="md-home-copyright">滴滴金融 - FD+ &times; MFE</h1>
   </div>
 </template>
 
@@ -52,7 +52,7 @@ export default {
 .md-home
   position fixed
   absolute-pos()
-  background color-bg-base
+  background md-color-bg-base
   .md-home-logo
     position absolute
     top 30%
@@ -68,21 +68,21 @@ export default {
     width 100%
     top 45%
     left 0
-    font-size font-heading-medium
+    font-size md-font-heading-medium
     font-family DINAlternate-Bold
-    color color-text-base
+    color md-color-text-base
     text-align center
     span.word3
-        color color-primary
+        color md-color-primary
         font-family DINAlternate-Bold
   .md-home-time
     position absolute
     width 100%
     top 50%
     left 0
-    font-size font-minor-normal
-    font-weight font-weight-light
-    color color-text-minor
+    font-size md-font-minor-normal
+    font-weight md-font-weight-light
+    color md-color-text-minor
     text-align center
   .md-home-copyright
     position fixed
@@ -90,9 +90,9 @@ export default {
     bottom 20px
     width 100%
     text-align center
-    font-size font-minor-normal
+    font-size md-font-minor-normal
     font-weight 300
-    color color-text-caption
+    color md-color-text-caption
 
 @keyframes blur-out
   from

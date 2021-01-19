@@ -1,6 +1,6 @@
 <template>
   <div class="md-cg">
-    <h1 class="md-cg-title">Mand Mobile</h1>
+    <h1 class="md-cg-title">Mand Mobile 3</h1>
     <h1 class="md-cg-subtitle">面向金融场景的移动端Vue组件库</h1>
     <div class="md-cg-logo">
       <img src="//manhattan.didistatic.com/static/manhattan/mand/docs/mand-logo-black.svg" alt="">
@@ -33,7 +33,7 @@
         </div>
       </transition>
     </section>
-    <h1 class="md-cg-copyright">Produced By DiDi - FDC &times; MFE</h1>
+    <h1 class="md-cg-copyright">滴滴金融 - FD+ &times; MFE</h1>
   </div>
 </template>
 
@@ -75,8 +75,10 @@ block()
     block()
     margin 20px 0
     font-size md-font-heading-large
-    font-weight md-font-weight-normal
-    color md-color-text-minor
+    // font-weight md-font-weight-normal
+    font-family DINAlternate-Bold
+    color md-color-text-base
+    text-align center
     span
       color md-color-text-base
   .md-cg-subtitle
@@ -85,6 +87,7 @@ block()
     font-size md-font-body-normal
     font-weight 300
     color md-color-text-minor
+    text-align center
   .md-cg-logo
     position fixed
     top -.3rem
@@ -101,8 +104,9 @@ block()
     z-index 3
     height 120px
     margin-bottom 20px
-    border-radius md-border-width-base
+    border-radius 12px
     transform translate(0, 0)
+    overflow hidden
     &.active
       height auto
     // box-shadow shadow-bottom
@@ -110,10 +114,12 @@ block()
       position relative
       z-index 2
       block()
+      display flex
+      justify-content space-between
       height 120px
-      padding 0 md-h-gap-lg
+      padding 0 90px 0 md-h-gap-lg
       line-height 120px
-      font-size md-font-heading-normal
+      font-size 36px
       font-family DINAlternate-Bold
       // font-weight font-weight-medium
       color md-color-text-base
@@ -137,7 +143,7 @@ block()
         position absolute
         left 0
         top 0
-        width 4px
+        width 10px
         height 100%
         border-radius md-border-width-base
         // display none
@@ -168,7 +174,7 @@ block()
           font-size md-font-body-normal
           font-family DINAlternate-Bold
           color md-color-text-minor
-          hairline(bottom, color-border-base)
+          hairline(bottom, md-color-border-base)
           .md-icon
             position absolute
             right 0
