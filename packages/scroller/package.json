@@ -1,6 +1,6 @@
 {
   "name": "@mand-mobile/scroller",
-  "version": "3.1.0-alpha.2",
+  "version": "3.1.0-alpha.4",
   "author": "lucker <byterotate@gmail.com>",
   "homepage": "",
   "description": "mand-mobile scroller",
@@ -17,7 +17,7 @@
   "files": ["lib"],
   "license": "Apache",
   "dependencies": {
-    "@mand-mobile/shared": "^3.1.0-alpha.2",
+    "@mand-mobile/shared": "^3.1.0-alpha.4",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0"
   }

@@ -1,6 +1,6 @@
 {
   "name": "@mand-mobile/vue-cli-plugin-builder",
-  "version": "3.1.0-alpha.3",
+  "version": "3.1.0-alpha.4",
   "description": "mand-mobile vue-cli-plugin-builder",
   "keywords": ["mand-mobile", "buildtime"],
   "author": "lucker <byterotate@gmail.com>",
@@ -29,9 +29,9 @@
     "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
   },
   "dependencies": {
-    "@mand-mobile/components": "^3.1.0-alpha.2",
-    "@mand-mobile/platform-builder": "^3.1.0-alpha.3",
-    "@mand-mobile/shared": "^3.1.0-alpha.2",
+    "@mand-mobile/components": "^3.1.0-alpha.4",
+    "@mand-mobile/platform-builder": "^3.1.0-alpha.4",
+    "@mand-mobile/shared": "^3.1.0-alpha.4",
     "@rollup/plugin-babel": "^5.0.4",
     "@vue/cli": "^4.4.4",
     "@vue/cli-plugin-babel": "^4.4.4",

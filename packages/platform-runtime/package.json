@@ -1,6 +1,6 @@
 {
   "name": "@mand-mobile/platform-runtime",
-  "version": "3.1.0-alpha.2",
+  "version": "3.1.0-alpha.4",
   "description": "mand-mobile runtime cross platform plugins",
   "main": "index.js",
   "directories": {
@@ -15,8 +15,8 @@
     "prepublish": "rm -fr lib && cp -r src lib"
   },
   "dependencies": {
-    "@mand-mobile/scroller": "^3.1.0-alpha.2",
-    "@mand-mobile/shared": "^3.1.0-alpha.2",
+    "@mand-mobile/scroller": "^3.1.0-alpha.4",
+    "@mand-mobile/shared": "^3.1.0-alpha.4",
     "bluebird": "^3.7.2",
     "glob": "^7.1.6",
     "nib": "^1.1.2",

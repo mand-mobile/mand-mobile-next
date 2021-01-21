@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0-alpha.4](https://github.com/mand-mobile/mand-mobile-next/compare/v3.1.0-alpha.3...v3.1.0-alpha.4) (2021-01-21)
+
+
+### Bug Fixes
+
+* **platform-builder:** bump up devdDependences version to 3.1.0-alpha.2 ([995ca1c](https://github.com/mand-mobile/mand-mobile-next/commit/995ca1cfa7cb63d5fe0b9b720416c32acdce6416))
+* **platform-builder:** use -F options when link dirs to avoid recycle linked ([afc6b3c](https://github.com/mand-mobile/mand-mobile-next/commit/afc6b3cac3d25080729059a7440b08eb273eacca))
+* **platform-builder:** use -F options when link dirs to avoid recycle linked ([3c896b1](https://github.com/mand-mobile/mand-mobile-next/commit/3c896b1cd42cb923e5887ed8f132be34e40ebf68))
+* remove debug logs ([ec0f647](https://github.com/mand-mobile/mand-mobile-next/commit/ec0f647cd150b7d1c6abbdefaf315616d66d7f38))
+* remove debug logs ([a0195e5](https://github.com/mand-mobile/mand-mobile-next/commit/a0195e5b128e33563607c7f86674aac92022030d))
+* use platform meta info to filter unsupported components ([6b9f7cf](https://github.com/mand-mobile/mand-mobile-next/commit/6b9f7cf49f52d5aeacaab77439954fca8e24c080))
+* use platform meta info to filter unsupported components ([837a917](https://github.com/mand-mobile/mand-mobile-next/commit/837a917d7851e9e042cbfea49abd1c0df529dff7))
+
+
+
+
+
 # [3.1.0-alpha.3](https://github.com/mand-mobile/mand-mobile-next/compare/v3.1.0-alpha.2...v3.1.0-alpha.3) (2021-01-12)
 
 

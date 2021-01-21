@@ -1,6 +1,6 @@
 {
   "name": "mand-mobile-next",
-  "version": "3.1.0-alpha.3",
+  "version": "3.1.0-alpha.4",
   "author": "lucker <byterotate@gmail.com>",
   "description": "mand-mobile",
   "scripts": {
@@ -26,15 +26,15 @@
   "module": "web/bundle/mand-mobile.esm.js",
   "files": ["uni", "web", "package.json"],
   "dependencies": {
-    "@mand-mobile/components": "^3.1.0-alpha.2",
+    "@mand-mobile/components": "^3.1.0-alpha.4",
     "@mand-mobile/platform": "^3.0.1-alpha.9",
-    "@mand-mobile/shared": "^3.1.0-alpha.2",
+    "@mand-mobile/shared": "^3.1.0-alpha.4",
     "@vue/cli": "^4.5.7",
     "find": "^0.3.0",
     "mv": "^2.1.1"
   },
   "devDependencies": {
-    "@mand-mobile/vue-cli-plugin-builder": "^3.1.0-alpha.3",
+    "@mand-mobile/vue-cli-plugin-builder": "^3.1.0-alpha.4",
     "@vue/cli-service": "^4.5.7",
     "fastclick": "^1.0.6",
     "npm-run-all": "^4.1.5",
