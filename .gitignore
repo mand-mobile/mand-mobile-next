@@ -30,3 +30,4 @@ coverage
 
 packages/shared/shard
 packages/platform-builder/scroller
+packages/examples/bundle

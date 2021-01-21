@@ -1,3 +1,4 @@
+import {mdDocument} from '@mand-mobile/shared/lib/util'
 /**
  * get position of input cursor
  */
@@ -8,9 +9,9 @@ export function getCursorsPosition(ctrl) {
   }
   let CaretPos = 0 // IE Support
   /* istanbul ignore next */
-  if (document && document.selection) {
+  if (mdDocument && mdDocument.selection) {
     ctrl.focus()
-    const Sel = document.selection.createRange()
+    const Sel = mdDocument.selection.createRange()
     Sel.moveStart('character', -ctrl.value.length)
     CaretPos = Sel.text.length
   } else if (ctrl.selectionStart || ctrl.selectionStart === '0') {

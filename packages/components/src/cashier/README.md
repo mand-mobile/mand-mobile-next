@@ -54,7 +54,7 @@ Vue.component(Cashier.name, Cashier)
 #### setChannels(channels: CashierChannel)
 手动设置支付渠道数据源
 
-:::tips
+:::tip
 在Uniapp中通过`Props`设置渠道数据中不能包含Function类型的字段，如果数据中包含特殊动作回调，请手动设置
 :::
 

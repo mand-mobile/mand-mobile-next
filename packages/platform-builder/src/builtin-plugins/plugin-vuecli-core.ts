@@ -87,7 +87,11 @@ export class VueCliBuilderPlugin {
   public async build(builderContext, container: BuilderContainer): Promise<void> {
     const { babelConfig, postcssConfig, stylusConfig, aliasMapper } = builderContext
 
-    const service = new Service(container.config.outputRoot)
+    let inlineOptions:any = {}
+    if (container.config.artifactRoot) {
+      inlineOptions.outputDir = container.config.artifactRoot
+    }
+    const service = new Service(container.config.outputRoot, {inlineOptions})
 
     //@todo set mode process.env.VUE_CLI_MODE
     service.init()
@@ -100,6 +104,14 @@ export class VueCliBuilderPlugin {
       .push(chain => {
 
         chain.entry('app').clear().add('./main.js').end()
+
+        if (container.config.artifactRoot) {
+          chain
+            .output
+            .path(container.config.artifactRoot)
+            .filename('[name].bundle.js')
+            .end()
+        }
 
         chain.resolve.symlinks(false)
 

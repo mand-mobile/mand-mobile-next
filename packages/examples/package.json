@@ -10,7 +10,11 @@
   "scripts": {
     "serve": "run-p serve:*",
     "serve-single": "run-p \"serve:* -- --single --component-name {1}\" --",
-    "build": "echo \"Nothing wait for build\" && exit 0",
+    "build": "rm -fr bundle && run-p build:*",
+    "build:uni":
+      "vue-cli-service md-preview --platform uni --export --output bundle/wechat",
+    "build:web":
+      "vue-cli-service md-preview --platform web --export --output bundle/web",
     "clean:dist": "rm -fr dist",
     "clean:workspace": "rm -fr .mand-mobile",
     "serve:uni":

@@ -1,5 +1,5 @@
+import {noop, requireRemoteScript, mdDocument} from '@mand-mobile/shared/lib/util'
 import {dataURIToArrayBuffer, dataURItoBlob} from './image-dataurl'
-import {noop, requireRemoteScript} from '@mand-mobile/shared/lib/util'
 
 const UA = (userAgent => {
   const isOldIos = /OS (\d)_.* like Mac OS X/g.exec(userAgent)
@@ -119,7 +119,7 @@ function getImageSize(img, orientation, maxWidth, maxHeight) {
 /* istanbul ignore next */
 function makeCanvas(img, orientation, maxWidth, maxHeight, quality) {
   const {width, height} = getImageSize(img, orientation, maxWidth, maxHeight)
-  const canvas = document.createElement('canvas')
+  const canvas = mdDocument.createElement('canvas')
   const ctx = canvas.getContext('2d')
 
   canvas.width = width

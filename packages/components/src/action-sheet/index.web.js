@@ -1,5 +1,7 @@
 import Vue from 'vue'
+import {mdDocument} from '@mand-mobile/shared/lib/util'
 import ActionSheet from './action-sheet'
+
 function actionSheetFactory() {
   const noop = function() {}
 
@@ -42,14 +44,14 @@ function actionSheetFactory() {
 
     /* istanbul ignore else */
     if (value) {
-      document.body.appendChild(vm.$el)
+      mdDocument.body.appendChild(vm.$el)
       vm.value = true
     }
     vm.$watch(
       'value',
       /* istanbul ignore next */ val => {
         if (val) {
-          document.body.appendChild(vm.$el)
+          mdDocument.body.appendChild(vm.$el)
         }
       },
     )

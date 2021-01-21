@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import {randomId} from '@mand-mobile/shared/lib/util/data'
+import {mdDocument, randomId} from '@mand-mobile/shared/lib/util'
 import TipOptions from './tip'
 
 const Tip = Vue.extend(TipOptions)
@@ -108,7 +108,7 @@ export default {
      * the right parent container
      */
     $_getFirstScrollWrapper(node) {
-      if (node === null || node === document.body) {
+      if (node === null || node === mdDocument.body) {
         return node
       }
 
@@ -143,7 +143,7 @@ export default {
         x += el.offsetLeft
         y += el.offsetTop
 
-        if (el === wrapper || el === document.body || el === null) {
+        if (el === wrapper || el === mdDocument.body || el === null) {
           break
         }
 
