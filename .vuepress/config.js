@@ -49,7 +49,7 @@ module.exports = {
         nav: [
           { text: '首页', link: '/' },
           { text: '组件', link: '/packages/components/', redirect: '/packages/components/development' },
-          { text: '模块', link: '/packages/modules/', redirect: '/packages/modules/platform' },
+          { text: '模块', link: '/packages/modules/', redirect: '/packages/modules/platform-builder' },
           { text: '2.x', link: 'https://didi.github.io/mand-mobile' },
           { text: 'Github', link: 'https://github.com/mand-mobile/mand-mobile-next' },
         ],
@@ -66,8 +66,12 @@ module.exports = {
           ],
           '/packages/modules/': [
             {
-              name: 'platform',
-              title: 'Platform'
+              name: 'platform-builder',
+              title: 'PlatformBuilder'
+            },
+            {
+              name: 'platform-runtime',
+              title: 'PlatformRuntime'
             }, {
               name: 'scroller',
               title: 'Scroller'
