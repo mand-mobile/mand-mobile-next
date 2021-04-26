@@ -29,7 +29,7 @@ module.exports = {
   title: 'Mand Mobile 3',
   base: '/mand-mobile/',
   head: [
-    ['link', { rel: 'icon', href: 'https://pt-starimg.didistatic.com/static/starimg/img/W8a5sNZUBC1605530382593.png' }],
+    ['link', { rel: 'icon', href: 'https://pt-starimg.didistatic.com/static/starimg/img/ySOsAunfGm1610683661213.png' }],
     ['meta', { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge,chrome=1' }],
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover' }],
     ['meta', { name: 'format-detection', content: 'telephone=no,email=no' }],
@@ -38,7 +38,7 @@ module.exports = {
   ],
   themeConfig: {
     version: packageInfo.version,
-    logo: 'https://pt-starimg.didistatic.com/static/starimg/img/W8a5sNZUBC1605530382593.png',
+    logo: 'https://pt-starimg.didistatic.com/static/starimg/img/ySOsAunfGm1610683661213.png',
     repo: 'https://github.com/mand-mobile/mand-mobile-next',
     demoConfig: {
       shadowMode: false
