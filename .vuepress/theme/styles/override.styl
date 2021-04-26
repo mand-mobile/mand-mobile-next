@@ -56,7 +56,10 @@ html, body
 
 // markdown
 .content__default
-  font-size 14px
+  font-size 16px
+
+  ol ol, ul ul, ol ul, ul ol
+    margin-bottom 10px
   
 .content__default >
   ul, li, ol
@@ -127,6 +130,7 @@ html, body
     
   ul, li, p
     margin-top 8px
+
     img
       max-width 100%
       margin-top 1em
@@ -191,14 +195,14 @@ blockquote
 
 :not(pre) >code
   margin 0 3px
-  padding 2px 5px
+  padding .25rem .5rem
   color #666f83
-  font-size .8em
+  font-size .85em
   font-weight 400
   // font-family "source-code-pro-special"
   background-color #f2f4f5
   border-radius 3px
-  border 1px solid #ebebeb
+  // border 1px solid #ebebeb
 
 sup.version-before, sup.version-after
   display inline-flex
@@ -253,6 +257,10 @@ sup.version-before
       background-color #1b262f
     .custom-block-title
       color #f5f6f7 
+
+  .ant-skeleton.ant-skeleton-active .ant-skeleton-content .ant-skeleton-paragraph > li
+    background linear-gradient(90deg, #1b262f 25%, #22394c 37%, #1b262f 63%)
+    background-size 400% 100%
 
 @media (max-width: 1000px)
   .content__default >

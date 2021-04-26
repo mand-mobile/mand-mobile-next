@@ -12,6 +12,9 @@
   zoom .6
   h2
     border none
+.md-button
+  &::after
+    border solid 4px #c5cad5 !important
 .md-tip
   .md-tip_content
     padding 9px 19px
@@ -71,6 +74,7 @@
   .md-popup_box
     max-width 900px
     margin 0 auto
+
 
 .md-example-child-action-bar .md-action-bar
   // border solid .5px #e2e4ea
@@ -214,7 +218,6 @@
     .md-bill_neck_notch
       width 50px
       height 50px
-      border-radius 0 50% 50% 0
       background #FFF !important
       &::after
         content ""
@@ -226,11 +229,13 @@
         box-shadow 0 2px 4px 6px rgba(0,0,0,.05) inset
       &.md-left
         left -60px
+        border-radius 0 50% 50% 0
         &::after
           right 0
           clip rect(0, auto, auto, 24px)
       &.md-right
         right -60px
+        border-radius 50% 0 0 50%
         &::after
           left 0
           clip rect(0, 24px, auto, auto)
@@ -244,7 +249,7 @@
     background-color $backgrounColorDark !important
     .md-example-item
       font-size 1em !important
-      color #FFF
+      color #FFF !important
       .md-icon
         // font-size 64px !important
         // width 64px !important
@@ -257,3 +262,33 @@
   .md-example-child-activity-indicator
     .md-activity-indicator.spinner .md-activity-indicator_svg
       filter none
+  .md-example-child-bill-1
+    .md-bill
+      box-shadow 0 2px 4px -4px rgba(255,255,255,.08), 0 4px 12px 0 rgba(255,255,255,.1), 0 6px 20px 8px rgba(255,255,255,.1)
+      .md-bill_neck_notch
+        background $backgrounColorDark !important
+  .md-example-child-single-component .container, .md-example-child-slider, .md-example-child-reader .image-reader-item
+    background-color $backgrounColorDark !important
+  
+  .md-example-child-scroll-view
+    background $backgrounColorDark !important
+    .scroll-view-item
+      border none !important
+    .scroll-view-item:nth-child(2n+1)
+      background #263c4e !important
+    .scroll-view-item:nth-child(2n)
+      background #1e364a !important
+  .md-doc-demo_content_case
+    .md-button.md-button--default
+      background-color #111A34
+      color #FFF
+    .md-field, .md-picker-column
+      background $backgrounColorDark
+    .md-picker .md-picker-column
+      background #FFF
+    .md-field_header_title, .md-field-item_content_control, .md-cell-item_content,
+    .md-popup-title-bar .md-popup-title-bar_title_main, .md-input-item_input, .md-input-item_fake,
+    .md-check-base-box, .md-textarea-item__textarea
+      color #FFF
+    .md-check-base-box--is-disabled
+      opacity .3
