@@ -1,3 +1,9 @@
+---
+title: 更新日志
+name: changelog
+permalink: /packages/components/changelog
+---
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
