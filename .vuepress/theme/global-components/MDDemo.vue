@@ -18,7 +18,7 @@
         <ClientOnly v-if="dynamicComponent">
           <component :is="dynamicComponent" :style="{ zoom }"/>
         </ClientOnly>
-        <a-skeleton v-else active :title="false" />
+        <a-skeleton v-else active :title="false" :paragraph="{ rows: 3 }"/>
       </div>
       
     </div>

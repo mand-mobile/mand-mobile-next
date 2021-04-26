@@ -89,6 +89,9 @@ export default {
       margin-right .8em
       width auto
       height 2.4em
+      border solid 1px #FFF
+      border-radius 50%
+      box-sizing border-box
       transition all .3s
     &_title
       display inline-flex
