@@ -7,7 +7,7 @@
         class="custom-prog"
         color="#111a34"
         :size="12"
-        :value="35 / 48"
+        :value="37 / 48"
         :width="2"
       />
     </h1>
