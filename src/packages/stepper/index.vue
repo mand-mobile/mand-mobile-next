@@ -1,0 +1,112 @@
+<template>
+  <div class="md-stepper" :class="{ disabled: disabled }">
+    <div
+      class="md-stepper-button md-stepper-button-reduce"
+      :class="{ disabled: isMin }"
+      @click="reduce"
+    ></div>
+    <div class="md-stepper-number">
+      <input
+        type="tel"
+        :size="contentLength"
+        :readOnly="readOnly"
+        :disabled="disabled"
+        :value="currentNum"
+        @input="onInput"
+        @focus="onFocus"
+        @blur="onChange"
+      />
+    </div>
+    <div
+      class="md-stepper-button md-stepper-button-add"
+      :class="{ disabled: isMax }"
+      @click="add"
+    ></div>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import {
+  stepperProps,
+  useStepper,
+  emits,
+} from './use-stepper'
+
+export default defineComponent({
+  name: 'MdStepper',
+  props: stepperProps,
+  emits: emits,
+  setup(props) {
+    return {
+      ...useStepper(props),
+    }
+  },
+})
+</script>
+
+<style lang="stylus">
+.md-stepper
+  color stepper-color
+  -webkit-font-smoothing antialiased
+  font-size stepper-font-size
+  height stepper-height
+  display flex
+  &.disabled
+    .md-stepper-button
+      &:before,
+      &:after
+        opacity stepper-disabled-opacity
+    input
+      opacity stepper-disabled-opacity
+
+.md-stepper-button
+  position relative
+  width stepper-width-button
+  height stepper-height
+  background-color stepper-fill
+  border-radius stepper-radius-button
+  &:after
+    content ""
+    position absolute
+    width 24px
+    height 2px
+    top 50%
+    left 50%
+    background stepper-color
+    transform translate(-50%, -50%)
+  &.md-stepper-button-add
+    &:before
+      content ""
+      position absolute
+      width 2px
+      height 24px
+      top 50%
+      left 50%
+      background stepper-color
+      transform translate(-50%, -50%)
+  &.disabled
+    &:before,
+    &:after
+      opacity stepper-disabled-opacity
+
+.md-stepper-number
+  margin 0 4px
+  min-width stepper-width-input
+  height stepper-height
+  padding 0 4px
+  text-align center
+  border-radius stepper-radius-input
+  background-color stepper-fill
+  input
+    width 100%
+    height stepper-height
+    border none
+    outline none
+    font-size stepper-input-font-size
+    line-height stepper-height
+    background-color transparent
+    box-sizing border-box
+    text-align center
+    color stepper-color
+</style>

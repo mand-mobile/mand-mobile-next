@@ -1,0 +1,10 @@
+node_modules
+.DS_Store
+dist
+example
+dist-ssr
+*.local
+mand-mobile.ts
+coverage
+lib
+es

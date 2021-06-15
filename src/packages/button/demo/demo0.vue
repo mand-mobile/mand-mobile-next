@@ -1,0 +1,36 @@
+<template>
+  <div
+    class="
+      md-example-child
+      md-example-child-button
+      md-example-child-button-0
+    "
+  >
+    <md-button type="default">Default</md-button>
+    <md-button type="default" inactive
+      >Default Inactive</md-button
+    >
+    <md-button type="primary">Primary</md-button>
+    <md-button type="primary" inactive
+      >Primary Inactive</md-button
+    >
+    <md-button type="primary" loading>Loading</md-button>
+    <md-button type="warning">Warning</md-button>
+    <md-button type="warning" inactive
+      >Warning Inactive</md-button
+    >
+    <md-button type="disabled">Disabled</md-button>
+  </div>
+</template>
+
+<script lang="ts">
+import Button from 'mand-mobile/button'
+
+export default {
+  name: 'ButtonDemo',
+  title: '基本',
+  components: {
+    [Button.name]: Button,
+  },
+}
+</script>

@@ -1,0 +1,58 @@
+{
+	// Place your mand-mobile-v3 工作区 snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Print to mand-mobile-component": {
+    "scope": "vue",
+    "prefix": "mdd",
+    "body": [
+      "<template>",
+			"  <div class=\"md-example\">",
+			"    <section",
+      "      v-for=\"(demo, index) in demos\"",
+      "      :key=\"index\"",
+      "      class=\"md-example-section\"",
+    	"    >",
+			"      <div",
+      "        class=\"md-example-title\"",
+      "        v-text=\"demo.title\"",
+      "      ></div>",
+      "      <div",
+      "        class=\"md-example-describe\"",
+      "        v-text=\"demo.describe\"",
+      "      ></div>",
+      "      <div class=\"md-example-content\">",
+      "        <component :is=\"demo\"></component>",
+      "      </div>",
+      "    </section>",
+      "  </div>",
+			"</template>",
+			"",
+      "<script lang=\"ts\">",
+      "import { createDemoModule } from 'mand-mobile/utils'",
+			"const demos = import.meta.globEager('./demo*.vue')",
+			"",
+      "export default createDemoModule(",
+			"  '$1',",
+      "  Object.entries(demos).map((demo) => demo[1].default)",
+      ")",
+      "</script>",
+      "<style lang=\"stylus\">",
+      "</style>",
+    ],
+    "description": "Log output to console"
+  }
+}

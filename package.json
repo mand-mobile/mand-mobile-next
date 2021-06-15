@@ -1,0 +1,116 @@
+{
+  "name": "mand-mobile",
+  "version": "0.0.0",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/lib/mand-mobile.umd.js",
+  "module": "./dist/es/mand-mobile.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/es/mand-mobile.esm.js",
+      "require": "./dist/lib/mand-mobile.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite --host",
+    "dev:preview": "NODE_ENV=preview vite --mode bundle --host",
+    "build:bundle": "yarn gen-entry && rm -rf dist && NODE_ENV=build rollup -c ./scripts/rollup.bundle.config.ts",
+    "build:component": "NODE_ENV=build rollup -c ./scripts/rollup.config.ts",
+    "build:lib": "esno ./scripts/esbuild.ts ",
+    "build": "yarn build:bundle && yarn build:lib",
+    "build:example": "vite build && rsync -avz example/* root@10.96.82.236:/home/mand-mobile",
+    "serve": "vite preview",
+    "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .eslintrc.js . --fix",
+    "gen": "esno ./scripts/gen-component.ts --name",
+    "gen-entry": "esno ./scripts/gen-entry.ts",
+    "test": "jest --coverage",
+    "cz": "git commit"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "prepare-commit-msg": "exec < /dev/tty && npx git-cz --hook"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,ts,vue}": [
+      "eslint --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "peerDependencies": {
+    "@better-scroll/core": "^2.3.1",
+    "@better-scroll/slide": "^2.3.1",
+    "@better-scroll/pull-down": "^2.3.1",
+    "@better-scroll/pull-up": "^2.3.1",
+    "@better-scroll/wheel": "^2.3.1",
+    "jpeg-js": "^0.4.3",
+    "vue": "^3.0.11"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.14.1",
+    "@babel/preset-typescript": "^7.13.0",
+    "@better-scroll/core": "^2.3.1",
+    "@better-scroll/pull-down": "^2.3.1",
+    "@better-scroll/pull-up": "^2.3.1",
+    "@better-scroll/slide": "^2.3.1",
+    "@better-scroll/wheel": "^2.3.1",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-replace": "^2.4.2",
+    "@types/jest": "^26.0.23",
+    "@types/klaw-sync": "^6.0.0",
+    "@types/node": "^15.0.2",
+    "@types/stylus": "^0.48.34",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "@vitejs/plugin-vue": "^1.2.1",
+    "@vitejs/plugin-vue-jsx": "^1.1.3",
+    "@vue/babel-plugin-jsx": "^1.0.6",
+    "@vue/compiler-sfc": "^3.0.5",
+    "@vue/test-utils": "^2.0.0-rc.6",
+    "autoprefixer": "^10.2.5",
+    "babel-jest": "^26.6.3",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "es-module-lexer": "^0.4.1",
+    "esbuild-plugin-vue": "^0.1.2",
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.9.0",
+    "esno": "^0.5.0",
+    "glob": "^7.1.7",
+    "husky": "4",
+    "jest": "^26.6.3",
+    "jpeg-js": "^0.4.3",
+    "klaw-sync": "^6.0.0",
+    "lint-staged": "10",
+    "plop": "^2.7.4",
+    "postcss": "^8.2.15",
+    "postcss-pxtorem": "^6.0.0",
+    "prettier": "^2.2.1",
+    "rollup-plugin-esbuild": "^4.2.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "stylus": "^0.54.8",
+    "ts-jest": "^26.5.6",
+    "typescript": "^4.1.3",
+    "vite": "^2.3.4",
+    "vite-plugin-pages": "^0.12.1",
+    "vue": "^3.1.1",
+    "vue-jest": "^5.0.0-alpha.7",
+    "vue-router": "^4.0.6",
+    "vue-tsc": "^0.0.24"
+  },
+  "license": "MIT",
+  "dependencies": {}
+}
