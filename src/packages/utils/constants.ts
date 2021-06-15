@@ -11,6 +11,8 @@ export const FOCUS_EVENT = 'focus'
 export const BLUR_EVENT = 'blur'
 export const SHOW_EVENT = 'show'
 export const HIDE_EVENT = 'hide'
+export const KEYUP = 'keyup'
+export const KEYDOWN = 'keydown'
 
 export const DEFAULT_TITLE_WIDTH = '40%'
 export const DEFAULT_WIDTH = '100%'
