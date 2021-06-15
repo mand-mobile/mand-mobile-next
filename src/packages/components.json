@@ -149,7 +149,8 @@
         "name": "Bill",
         "path": "/bill",
         "icon": "bill",
-        "text": "票据"
+        "text": "票据",
+        "complate": true
       },
       {
         "name": "Captcha",
