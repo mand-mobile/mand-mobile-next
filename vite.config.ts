@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Pages from 'vite-plugin-pages'
+import createSvgSpritePlugin from 'vite-plugin-svg-sprite'
 import path from 'path'
 
 // https://vitejs.dev/config/
@@ -25,6 +26,7 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
+    createSvgSpritePlugin(),
     Pages({
       pagesDir: [
         { dir: 'src/pages', baseRoute: '' },
