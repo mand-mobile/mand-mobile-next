@@ -9,49 +9,49 @@
         "path": "/action-bar",
         "icon": "action-bar",
         "text": "操作栏",
-        "complate": true
+        "complete": true
       },
       {
         "name": "ActivityIndicator",
         "path": "/activity-indicator",
         "icon": "activity-indicator",
         "text": "活动指示器",
-        "complate": true
+        "complete": true
       },
       {
         "path": "/button",
         "name": "Button",
         "icon": "button",
         "text": "按钮",
-        "complate": true
+        "complete": true
       },
       {
         "name": "CellItem",
         "path": "/cell-item",
         "icon": "cell-item",
         "text": "列表单元",
-        "complate": true
+        "complete": true
       },
       {
         "name": "DetailItem",
         "path": "/detail-item",
         "icon": "detail-item",
         "text": "清单项",
-        "complate": true
+        "complete": true
       },
       {
         "name": "DropMenu",
         "path": "/drop-menu",
         "icon": "drop-menu",
         "text": "下拉菜单",
-        "complate": true
+        "complete": true
       },
       {
         "path": "/icon",
         "name": "Icon",
         "icon": "icon",
         "text": "图标",
-        "complate": true
+        "complete": true
       },
       
       {
@@ -59,77 +59,77 @@
         "path": "/image-reader",
         "icon": "image-reader",
         "text": "图片选择器",
-        "complate": true
+        "complete": true
       },
       {
         "name": "ImageViewer",
         "path": "/image-viewer",
         "icon": "image-viewer",
         "text": "图片浏览器",
-        "complate": true
+        "complete": true
       },
       {
         "name": "NoticeBar",
         "path": "/notice-bar",
         "icon": "notice-bar",
         "text": "通知栏",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Progress",
         "path": "/progress",
         "icon": "progress",
         "text": "进度",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Skeleton",
         "path": "/skeleton",
         "icon": "skeleton",
         "text": "骨架屏",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Stepper",
         "path": "/stepper",
         "icon": "stepper",
         "text": "步进器",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Steps",
         "path": "/steps",
         "icon": "steps",
         "text": "步骤条",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Swiper",
         "path": "/swiper",
         "icon": "swiper",
         "text": "轮播",
-        "complate": true
+        "complete": true
       },
       {
         "name": "TabBar",
         "path": "/tab-bar",
         "icon": "tab-bar",
         "text": "标签栏",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Tabs",
         "path": "/tabs",
         "icon": "tabs",
         "text": "标签页",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Tag",
         "path": "/tag",
         "icon": "tag",
         "text": "标签",
-        "complate": true
+        "complete": true
       }
     ]
   },
@@ -143,14 +143,14 @@
         "path": "/amount",
         "icon": "amount",
         "text": "金融数字",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Bill",
         "path": "/bill",
         "icon": "bill",
         "text": "票据",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Captcha",
@@ -175,14 +175,14 @@
         "path": "/landscape",
         "icon": "landscape",
         "text": "压屏窗",
-        "complate": true
+        "complete": true
       },
       {
         "name": "ResultPage",
         "path": "/result-page",
         "icon": "result-page",
         "text": "结果页",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Ruler",
@@ -195,7 +195,7 @@
         "path": "/water-mark",
         "icon": "water-mark",
         "text": "水印",
-        "complate": true
+        "complete": true
       }
     ]
   },
@@ -209,7 +209,7 @@
         "path": "/action-sheet",
         "icon": "action-sheet",
         "text": "动作面板",
-        "complate": true
+        "complete": true
       },
       {
         "name": "DatePicker",
@@ -222,21 +222,21 @@
         "path": "/dialog",
         "icon": "dialog",
         "text": "模态窗",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Picker",
         "path": "/picker",
         "icon": "picker",
         "text": "选择器",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Popup",
         "path": "/popup",
         "icon": "popup",
         "text": "弹出层",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Selector",
@@ -255,21 +255,21 @@
         "path": "/tip",
         "icon": "tip",
         "text": "气泡提示",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Toast",
         "path": "/toast",
         "icon": "toast",
         "text": "轻提示",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Transition",
         "path": "/transition",
         "icon": "transition",
         "text": "动画",
-        "complate": true
+        "complete": true
       }
     ]
   },
@@ -283,14 +283,14 @@
         "path": "/agree",
         "icon": "agree",
         "text": "勾选按钮",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Check",
         "path": "/check",
         "icon": "check",
         "text": "选择项组",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Codebox",
@@ -303,7 +303,7 @@
         "path": "/field",
         "icon": "field",
         "text": "区域列表组合",
-        "complate": true
+        "complete": true
       },
       {
         "name": "InputItem",
@@ -322,21 +322,21 @@
         "path": "/radio",
         "icon": "radio",
         "text": "单选框",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Slider",
         "path": "/slider",
         "icon": "slider",
         "text": "滑块",
-        "complate": true
+        "complete": true
       },
       {
         "name": "Switch",
         "path": "/switch",
         "icon": "switch",
         "text": "开关",
-        "complate": true
+        "complete": true
       },
       {
         "name": "TextareaItem",
@@ -356,7 +356,7 @@
         "path": "/scroll-view",
         "icon": "scroll-view",
         "text": "滚动区域/下拉刷新",
-        "complate": true
+        "complete": true
       }
     ]
   }
