@@ -191,7 +191,8 @@
         "name": "WaterMark",
         "path": "/water-mark",
         "icon": "water-mark",
-        "text": "水印"
+        "text": "水印",
+        "complate": true
       }
     ]
   },

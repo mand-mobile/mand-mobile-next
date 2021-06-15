@@ -40,9 +40,9 @@ import Icon from 'mand-mobile/icon'
 
 ## 其他
 
-### [example](http://10.96.82.236:3030)
+### example
 
-![img](https://pt-starimg.didistatic.com/static/starimg/img/xGYtxhudxq1621568050925.png)
+![img](https://pt-starimg.didistatic.com/static/starimg/img/CrPs2OPjgL1623749247621.png)
 
 ### 参考文档
 

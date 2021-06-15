@@ -95,7 +95,7 @@ mand-mobile-next 可以在原来的版本之上继续迭代，维持 2.x 的版�
   - [ ] Landscape
   - [ ] ResultPage
   - [ ] Ruler
-  - [ ] WaterMark
+  - [x] WaterMark
 - 手势 (**6月第三周开发完毕**)
   - [x] ScrollView
 
