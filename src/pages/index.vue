@@ -51,7 +51,7 @@
             @click="goToComponent(item.path)"
           >
             <md-icon
-              v-if="item?.complate"
+              v-if="item?.complete"
               :name="'checked'"
               size="xs"
             />
