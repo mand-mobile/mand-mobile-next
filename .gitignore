@@ -1,7 +1,7 @@
 node_modules
 .DS_Store
 dist
-example
+example/*
 dist-ssr
 *.local
 mand-mobile.ts
