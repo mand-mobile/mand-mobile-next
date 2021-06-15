@@ -92,8 +92,8 @@ mand-mobile-next 可以在原来的版本之上继续迭代，维持 2.x 的版�
   - [ ] Captcha
   - [ ] Cashier
   - [ ] Chart
-  - [ ] Landscape
-  - [ ] ResultPage
+  - [x] Landscape
+  - [x] ResultPage
   - [ ] Ruler
   - [x] WaterMark
 - 手势 (**6月第三周开发完毕**)

@@ -174,13 +174,15 @@
         "name": "Landscape",
         "path": "/landscape",
         "icon": "landscape",
-        "text": "压屏窗"
+        "text": "压屏窗",
+        "complate": true
       },
       {
         "name": "ResultPage",
         "path": "/result-page",
         "icon": "result-page",
-        "text": "结果页"
+        "text": "结果页",
+        "complate": true
       },
       {
         "name": "Ruler",
