@@ -1,6 +1,6 @@
 <template>
   <md-popup
-    v-model="poopupShow"
+    v-model="popupShow"
     class="md-landscape"
     :class="{ 'is-full': fullScreen }"
     :mask-closable="maskClosable"
@@ -76,7 +76,7 @@ export default defineComponent({
     const hidePage = () => {
       emit(UPDATE_MODEL_EVENT, false)
     }
-    const poopupShow = computed({
+    const popupShow = computed({
       get: () => props.modelValue,
       set: () => hidePage(),
     })
@@ -89,7 +89,7 @@ export default defineComponent({
     })
 
     return {
-      poopupShow,
+      popupShow,
       onHide,
       onShow,
       hidePage,
