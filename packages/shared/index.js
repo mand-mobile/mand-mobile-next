@@ -1,1 +1,0 @@
-console.info('hack for resolve module root dir')
