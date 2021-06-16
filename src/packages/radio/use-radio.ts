@@ -154,7 +154,7 @@ export const useRadioList = (props: {
   modelValue: IModelType
 }) => {
   const { emit } = useContext()
-  const selectedValue = ref<IModelType>('')
+  const selectedValue = ref<IModelType>(props.modelValue)
 
   watchEffect(() => {
     emit(UPDATE_MODEL_EVENT, selectedValue.value)

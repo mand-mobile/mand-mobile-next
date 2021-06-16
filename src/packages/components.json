@@ -242,7 +242,8 @@
         "name": "Selector",
         "path": "/selector",
         "icon": "selector",
-        "text": "列表选择器"
+        "text": "列表选择器",
+        "complete": true
       },
       {
         "name": "TabPicker",
@@ -342,7 +343,8 @@
         "name": "TextareaItem",
         "path": "/textarea-item",
         "icon": "textarea-item",
-        "text": "文本域"
+        "text": "文本域",
+        "complete": true
       }
     ]
   },

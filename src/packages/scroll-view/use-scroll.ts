@@ -130,6 +130,7 @@ export const useScroll = (
         {
           scrollX: props.scrollingX,
           scrollY: props.scrollingY,
+          bounce: props.bouncing,
           bounceTime: props.bounceTime,
           click: !props.isPrevent,
           pullDownRefresh: props.pullDownOptions,
@@ -152,6 +153,15 @@ export const useScroll = (
       scrollerInstance.on(SCROLL, scrollHandler)
     }
   }
+
+  const resetScroller = () => {
+    if (scrollerInstance) {
+      scrollerInstance.destroy()
+      scrollerInstance = null
+      initScroller()
+    }
+  }
+
   const getScrollerInstance = () => scrollerInstance
 
   const scrollHandler = (position: {
@@ -219,6 +229,7 @@ export const useScroll = (
   return {
     wrapRef,
     getScrollerInstance,
+    resetScroller,
 
     finishPullDown,
     beforePullDown,

@@ -27,7 +27,7 @@ const alert = (content: string) => {
     <md-button @click="showPic = true">图片广告</md-button>
     <md-landscape v-model="showPic">
       <img
-        src="//manhattan.didistatic.com/static/manhattan/do1_6VL7HL8TYaUMsIfygfpz"
+        src="https://manhattan.didistatic.com/static/manhattan/do1_6VL7HL8TYaUMsIfygfpz"
       />
     </md-landscape>
 
@@ -39,7 +39,7 @@ const alert = (content: string) => {
       :mask-closable="true"
     >
       <img
-        src="//manhattan.didistatic.com/static/manhattan/do1_6VL7HL8TYaUMsIfygfpz"
+        src="https://manhattan.didistatic.com/static/manhattan/do1_6VL7HL8TYaUMsIfygfpz"
       />
     </md-landscape>
 
@@ -80,7 +80,7 @@ const alert = (content: string) => {
     <md-button @click="showNoMask = true">无蒙层</md-button>
     <md-landscape v-model="showNoMask" :has-mask="false">
       <img
-        src="//manhattan.didistatic.com/static/manhattan/do1_6VL7HL8TYaUMsIfygfpz"
+        src="https://manhattan.didistatic.com/static/manhattan/do1_6VL7HL8TYaUMsIfygfpz"
       />
     </md-landscape>
 
@@ -93,7 +93,7 @@ const alert = (content: string) => {
       @hide="alert('已隐藏')"
     >
       <img
-        src="//manhattan.didistatic.com/static/manhattan/do1_6VL7HL8TYaUMsIfygfpz"
+        src="https://manhattan.didistatic.com/static/manhattan/do1_6VL7HL8TYaUMsIfygfpz"
       />
     </md-landscape>
 
@@ -105,7 +105,7 @@ const alert = (content: string) => {
       transition="md-bounce"
     >
       <img
-        src="//manhattan.didistatic.com/static/manhattan/do1_6VL7HL8TYaUMsIfygfpz"
+        src="https://manhattan.didistatic.com/static/manhattan/do1_6VL7HL8TYaUMsIfygfpz"
       />
     </md-landscape>
   </div>

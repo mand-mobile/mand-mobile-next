@@ -59,11 +59,11 @@ export default defineComponent({
   },
   props: {
     title: {
-      type: String,
+      type: [String, Number],
       default: '',
     },
     brief: {
-      type: String,
+      type: [String, Number],
       default: '',
     },
     addon: {

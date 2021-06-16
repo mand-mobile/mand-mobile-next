@@ -154,6 +154,7 @@ export default defineComponent({
     box-sizing border-box
     line-height 1
     p.title
+      height 50px
       font-size popup-title-bar-font-size-title
       color popup-title-bar-color-title
     p.describe

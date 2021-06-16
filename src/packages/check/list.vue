@@ -71,9 +71,10 @@ export default defineComponent({
         Array<{
           value: string | number
           disabled?: boolean
-          text?: string
-          label?: string
-          brief?: string
+          text?: string | number
+          label?: string | number
+          brief?: string | number
+          [k: string]: any
         }>
       >,
       default: () => {
