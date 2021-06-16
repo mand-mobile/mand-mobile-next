@@ -12,6 +12,7 @@ describe('ActivityIndicator.vue', () => {
       'md-activity-indicator'
     )
   })
+
   test('render-roller-success', () => {
     const wrapper = mount(ActivityIndicator, {
       props: {
@@ -24,6 +25,7 @@ describe('ActivityIndicator.vue', () => {
       'md-activity-indicator'
     )
   })
+
   test('render-spinner', () => {
     const wrapper = mount(ActivityIndicator, {
       props: {
@@ -35,6 +37,7 @@ describe('ActivityIndicator.vue', () => {
       'md-activity-indicator'
     )
   })
+
   test('render-carousel', () => {
     const wrapper = mount(ActivityIndicator, {
       props: {
@@ -46,6 +49,7 @@ describe('ActivityIndicator.vue', () => {
       'md-activity-indicator'
     )
   })
+
   test('slot-content', () => {
     const wrapper = mount(ActivityIndicator, {
       slots: {
@@ -53,5 +57,14 @@ describe('ActivityIndicator.vue', () => {
       },
     })
     expect(wrapper.html()).toContain('Main Content')
+  })
+
+  test('computed innerColor should be work', () => {
+    const wrapper = mount(ActivityIndicator, {
+      props: {
+        color: 'light',
+      },
+    })
+    expect(wrapper.vm.innerColor).toBe('light')
   })
 })

@@ -6,6 +6,7 @@ export default {
 </script>
 <script setup lang="ts">
 import MdCellItem from 'mand-mobile/cell-item'
+import MdField from 'mand-mobile/field'
 
 const onClickHandler = (e: UIEvent) => {
   console.log(e.target)
@@ -20,21 +21,21 @@ const onClickHandler = (e: UIEvent) => {
       md-example-child-cell-item-0
     "
   >
-    <!-- <md-field> -->
-    <md-cell-item
-      title="普通条目"
-      @click="onClickHandler"
-    />
-    <md-cell-item
-      title="动作条目"
-      arrow
-      @click="onClickHandler"
-    />
-    <md-cell-item
-      title="禁用条目"
-      disabled
-      @click="onClickHandler"
-    />
-    <!-- </md-field> -->
+    <md-field>
+      <md-cell-item
+        title="普通条目"
+        @click="onClickHandler"
+      />
+      <md-cell-item
+        title="动作条目"
+        arrow
+        @click="onClickHandler"
+      />
+      <md-cell-item
+        title="禁用条目"
+        disabled
+        @click="onClickHandler"
+      />
+    </md-field>
   </div>
 </template>

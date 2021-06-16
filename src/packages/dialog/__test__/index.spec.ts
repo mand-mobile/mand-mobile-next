@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Dialog from '../index.vue'
+import Dialog from 'mand-mobile/dialog'
 
 describe('Dialog.vue', () => {
   test('render', () => {
