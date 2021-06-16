@@ -74,14 +74,14 @@ mand-mobile-next 可以在原来的版本之上继续迭代，维持 2.x 的版�
   - [x] Radio
   - [x] Slider
   - [x] Switch
-  - [ ] TextareaItem
+  - [x] TextareaItem
 - 操作反馈 (**6月第二周开发完毕**)
   - [x] ActionSheet
   - [ ] DatePicker
   - [x] Dialog
   - [x] Picker
   - [x] Popup
-  - [ ] Selector
+  - [x] Selector
   - [ ] TabPicker
   - [x] Tip
   - [x] Toast

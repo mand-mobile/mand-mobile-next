@@ -60,6 +60,7 @@ export default defineComponent({
     const {
       wrapRef: wrapper,
       getScrollerInstance,
+      resetScroller,
       finishPullDown,
       beforePullDown,
       isPullingDown,
@@ -74,6 +75,7 @@ export default defineComponent({
     return {
       wrapper,
       getScrollerInstance,
+      resetScroller,
 
       finishPullDown,
       beforePullDown,
