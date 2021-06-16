@@ -8,6 +8,7 @@ export default {
 import { ref } from 'vue'
 import MdCellItem from 'mand-mobile/cell-item'
 import MdSwitch from 'mand-mobile/switch'
+import MdField from 'mand-mobile/field'
 
 const open = ref(true)
 </script>
@@ -20,25 +21,29 @@ const open = ref(true)
       md-example-child-cell-item-0
     "
   >
-    <!-- <md-field> -->
-    <md-cell-item title="余额" addon="可用8000.34" arrow />
-    <md-cell-item title="余额" addon="可用8000.34" />
-    <md-cell-item title="使用余额">
-      <template #right>
-        <md-switch v-model="open" />
-      </template>
-    </md-cell-item>
-    <md-cell-item title="使用余额" disabled>
-      <template #right>
-        <md-switch :model-value="true" disabled />
-      </template>
-    </md-cell-item>
-    <md-cell-item title="余额" addon="可用8000.34" arrow>
-      <template #left>
-        <div class="holder"></div>
-      </template>
-    </md-cell-item>
-    <!-- </md-field> -->
+    <md-field>
+      <md-cell-item
+        title="余额"
+        addon="可用8000.34"
+        arrow
+      />
+      <md-cell-item title="余额" addon="可用8000.34" />
+      <md-cell-item title="使用余额">
+        <template #right>
+          <md-switch v-model="open" />
+        </template>
+      </md-cell-item>
+      <md-cell-item title="使用余额" disabled>
+        <template #right>
+          <md-switch :model-value="true" disabled />
+        </template>
+      </md-cell-item>
+      <md-cell-item title="余额" addon="可用8000.34" arrow>
+        <template #left>
+          <div class="holder"></div>
+        </template>
+      </md-cell-item>
+    </md-field>
   </div>
 </template>
 
