@@ -69,19 +69,6 @@ export function compareObjects(
 }
 
 /**
- * Convert an Array-like object to a real Array.
- */
-export function toArray(list: Array<any>, start?: number) {
-  start = start || 0
-  let i = list.length - start
-  const ret = []
-  while (i--) {
-    ret.unshift(list[i + start])
-  }
-  return ret
-}
-
-/**
  * https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/sign
  * 此函数共有5种返回值, 分别是 1, -1, 0, -0, NaN. 代表的各是正数, 负数, 正零, 负零, NaN。
  * @param x

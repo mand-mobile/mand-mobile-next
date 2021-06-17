@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-this-alias */
-import { noop } from './lang'
 import { inBrowser } from './env'
 
 export const no = () => false
+
+export function noop() {}
+
 /**
  * Creates a debounced function that delays invoking fn until after delay milliseconds
  */
@@ -72,4 +74,53 @@ export function getDpr() {
   return (
     1 / Math.min(initialScale, maximumScale, minimumScale)
   )
+}
+
+/**
+ * generate random id
+ */
+export function randomId(prefix = '', length = 8) {
+  return `${prefix}-${parseInt(
+    `${Math.random() * Math.pow(10, length)}`
+  )}`
+}
+
+/**
+ * transform a Function to Blob Url
+ */
+export function functionToUrl(fn: (options: any) => void) {
+  const blob = new Blob([`(${fn.toString()})(null)`], {
+    type: 'application/javascript',
+  })
+  return URL.createObjectURL(blob)
+}
+
+/**
+ * Convert an Array-like object to a real Array.
+ */
+export function toArray<T = any>(
+  list: ArrayLike<T>,
+  start = 0
+) {
+  let i = list.length - start
+  const ret = []
+  while (i--) {
+    ret.unshift(list[i + start])
+  }
+  return ret
+}
+
+/**
+ * Merge an Array of Objects into a single Object.
+ */
+export function toObject<T extends Record<string, unknown>>(
+  arr: Array<T>
+) {
+  const res = {}
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]) {
+      Object.assign(res, arr[i])
+    }
+  }
+  return res
 }

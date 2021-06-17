@@ -26,7 +26,6 @@ import type {
   PropType,
   ComponentInternalInstance,
 } from 'vue'
-import type { Options } from '@better-scroll/core'
 
 export type PropsItem = ExtractPropTypes<
   typeof pickerProps
@@ -85,6 +84,7 @@ export const usePicker = (
   )
 
   const curWheelIndex = ref<number>(-1)
+  const cacheColumnIndex = ref<number>(-1)
   const cacheSelectedIndexs = ref<number[]>([])
 
   // init wheel item height
@@ -99,7 +99,7 @@ export const usePicker = (
   const { emit } = useContext()
 
   const selectedIndexs = computed({
-    get: () => {
+    get: (): number[] => {
       return props.modelValue.reduce(function (
         total: number[],
         value: unknown,
@@ -120,7 +120,7 @@ export const usePicker = (
       },
       [])
     },
-    set: (val) => {
+    set: (val: number[]) => {
       const selectedItems = val.map(
         (itemIndex: number, columnIndex: number) => {
           return pickerData.value[columnIndex]?.[itemIndex]
@@ -128,13 +128,27 @@ export const usePicker = (
       )
 
       const selectedValues = selectedItems.map(
-        (i) => i?.value
+        (i: PropsItem) => i?.value
       )
 
       emit(UPDATE_MODEL_EVENT, selectedValues)
-      emit(CHANGE_EVENT, selectedItems)
+      // emit(CHANGE_EVENT, selectedItems)
     },
   })
+
+  watch(
+    selectedIndexs,
+    (val: number[], oldVal: number[]) => {
+      wheelInstance &&
+        wheelInstance.map(
+          (wheel: BScroll, index: number): void => {
+            if (val[index] !== oldVal[index]) {
+              wheel.wheelTo(val[index], 0)
+            }
+          }
+        )
+    }
+  )
 
   const setWheelsRef = (
     el: Element | ComponentInternalInstance | null
@@ -170,6 +184,9 @@ export const usePicker = (
         []
 
       curWheelIndex.value = index
+      if (cacheColumnIndex.value === -1) {
+        cacheColumnIndex.value = index
+      }
       cacheSelectedIndexs.value = curSelectedIndex
       refreshPickerColumn()
     })
@@ -292,13 +309,32 @@ export const usePicker = (
       refreshWheel(curWheelIndex.value)
 
       if (curWheelIndex.value + 1 >= props.cols) {
-        selectedIndexs.value = [
-          ...cacheSelectedIndexs.value,
-        ]
+        onRefreshFinish()
       }
     } else {
-      selectedIndexs.value = [...cacheSelectedIndexs.value]
+      onRefreshFinish()
     }
+  }
+
+  /**
+   * when finish cascade refresh, emit change and reset user scroll column
+   */
+  const onRefreshFinish = () => {
+    const changedColumnIndex = cacheColumnIndex.value
+    const changedItemIndex =
+      cacheSelectedIndexs.value[cacheColumnIndex.value]
+
+    emit(
+      CHANGE_EVENT,
+      changedColumnIndex,
+      changedItemIndex,
+      pickerData.value[changedColumnIndex]?.[
+        changedItemIndex
+      ]
+    )
+
+    selectedIndexs.value = [...cacheSelectedIndexs.value]
+    cacheColumnIndex.value = -1
   }
 
   /**
