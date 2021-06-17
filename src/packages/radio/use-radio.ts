@@ -163,11 +163,12 @@ export const useRadioList = (props: {
     item: { value: IModelType },
     index: number
   ) => {
-    if (item.value === selectedValue.value) return
+    if (item.value !== selectedValue.value) {
+      emit(CHANGE_EVENT, item, index)
+    }
     selectedValue.value = item.value
     inputSelected.value = false
     inputValue.value = ''
-    emit(CHANGE_EVENT, item, index)
   }
 
   const mdInput = ref<ComponentPublicInstance | null>(null)

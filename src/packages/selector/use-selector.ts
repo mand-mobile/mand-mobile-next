@@ -149,6 +149,12 @@ export const useSelector = (
     hide: hideSelector,
   } = useShow(props, emit)
 
+  const directHide = () => {
+    if (!isConfirm.value) {
+      hideSelector()
+    }
+  }
+
   const onShow = () => {
     showHandler()
     /**
@@ -210,6 +216,7 @@ export const useSelector = (
     content,
     scroller,
     popupShow,
+    directHide,
     onHide,
     onShow,
     confirmHandler,
