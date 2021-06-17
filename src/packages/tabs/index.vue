@@ -5,6 +5,7 @@
       :model-value="tabItems[currentIndex]?.name || ''"
       :items="tabItems"
       :has-ink="hasInk"
+      :ink-length="inkLength"
       @change="changeHandler"
     />
     <md-swiper
@@ -12,6 +13,7 @@
       :autoplay="0"
       :is-loop="false"
       :has-dots="false"
+      :is-prevent="false"
       @before-change="swiperChangeHandler"
     >
       <slot></slot>

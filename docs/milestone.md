@@ -82,7 +82,7 @@ mand-mobile-next 可以在原来的版本之上继续迭代，维持 2.x 的版�
   - [x] Picker
   - [x] Popup
   - [x] Selector
-  - [ ] TabPicker
+  - [x] TabPicker
   - [x] Tip
   - [x] Toast
   - [x] Transition

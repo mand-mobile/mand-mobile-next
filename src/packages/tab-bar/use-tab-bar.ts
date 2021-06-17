@@ -6,6 +6,7 @@ import {
   useContext,
   watch,
   unref as $,
+  nextTick,
 } from 'vue'
 import {
   UPDATE_MODEL_EVENT,
@@ -41,7 +42,7 @@ export const tabBarProps = {
   },
   inkLength: {
     type: Number,
-    default: 100,
+    default: 0,
   },
   immediate: {
     type: Boolean,
@@ -58,6 +59,10 @@ export const useTabBar = (
 
   const scrollable = ref(false)
   const initScroller = () => {
+    if (scrollerInstance) {
+      scrollerInstance.destroy()
+      scrollerInstance = null
+    }
     wrapRef.value &&
       (scrollerInstance = createScroller(wrapRef.value))
   }
@@ -193,6 +198,19 @@ export const useTabBar = (
 
     inkWidth.value = `${itemsWidth[index]}px`
     inkOffsetLeft.value = `${itemsOffsets[index]}px`
+
+    /**
+     * fallback
+     */
+    nextTick(() => {
+      if (props.inkLength) {
+        const delta = itemsWidth[index] - props.inkLength
+        inkWidth.value = `${props.inkLength}px`
+        inkOffsetLeft.value = `${
+          itemsOffsets[index] + delta / 2
+        }px`
+      }
+    })
   }
 
   /**
@@ -222,6 +240,7 @@ export const useTabBar = (
     clickHandle,
     inkWidth,
     inkOffsetLeft,
+    setInkStyle,
   }
 }
 

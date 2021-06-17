@@ -5,6 +5,7 @@ import {
   ref,
   onMounted,
   watch,
+  onBeforeUnmount,
 } from 'vue'
 import { CHANGE_EVENT } from 'mand-mobile/utils'
 
@@ -18,7 +19,8 @@ import type Slide from '@better-scroll/slide'
 import type BScroll from '@better-scroll/core'
 
 interface tabsContext {
-  addItem: (item: Item) => void
+  addItem: (item: Item) => number
+  removeItem: (index: Item) => void
 }
 
 type Item = ExtractPropTypes<typeof paneProps>
@@ -38,6 +40,10 @@ export const tabsProps = {
   immediate: {
     type: Boolean,
     default: false,
+  },
+  inkLength: {
+    type: Number,
+    default: 0,
   },
 }
 
@@ -63,12 +69,20 @@ export const useTabs = (
   const tabItems = ref<Item[]>([])
   const addItem = (item: Item) => {
     tabItems.value.push(item)
+    return tabItems.value.length - 1
+  }
+  const removeItem = (item: Item) => {
+    const index = tabItems.value.findIndex(
+      (t) => t.name === item.name && t.label === t.label
+    )
+    tabItems.value.splice(index, 1)
   }
 
   provide(
     tabsKey,
     reactive({
       addItem,
+      removeItem,
     })
   )
 
@@ -90,7 +104,7 @@ export const useTabs = (
     index: number
   ) {
     currentIndex.value = index
-    swiperRef.value?.getSwiperInstance().goToPage(index, 0)
+    swiperRef.value?.getSwiperInstance()?.goToPage(index, 0)
 
     emit(CHANGE_EVENT, {
       ...tabItems.value[currentIndex.value],
@@ -127,7 +141,7 @@ export const useTabs = (
      */
     swiperRef.value
       ?.getSwiperInstance()
-      .goToPage(currentIndex.value, 0)
+      ?.goToPage?.(currentIndex.value, 0)
     if (props.immediate)
       emit(CHANGE_EVENT, {
         ...tabItems.value[currentIndex.value],
@@ -148,7 +162,13 @@ export const useTabs = (
 export const usePane = (
   props: ExtractPropTypes<typeof paneProps>
 ) => {
-  const { addItem } = inject(tabsKey, {} as tabsContext)
+  const { addItem, removeItem } = inject(
+    tabsKey,
+    {} as tabsContext
+  )
 
   addItem(props)
+  onBeforeUnmount(() => {
+    removeItem(props)
+  })
 }

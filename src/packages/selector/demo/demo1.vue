@@ -1,7 +1,7 @@
 <script lang="ts">
 export default {
   name: 'SelectorDemo',
-  title: '基本',
+  title: '自定义',
 }
 </script>
 <script setup lang="ts">

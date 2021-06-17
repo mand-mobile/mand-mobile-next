@@ -249,7 +249,8 @@
         "name": "TabPicker",
         "path": "/tab-picker",
         "icon": "tab-picker",
-        "text": "多频道选择器"
+        "text": "多频道选择器",
+        "complete": true
       },
       {
         "name": "Tip",
