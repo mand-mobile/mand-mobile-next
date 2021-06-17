@@ -154,16 +154,16 @@ export const useRadioList = (props: {
   modelValue: IModelType
 }) => {
   const { emit } = useContext()
-  const selectedValue = ref<IModelType>(props.modelValue)
-
-  watchEffect(() => {
-    emit(UPDATE_MODEL_EVENT, selectedValue.value)
+  const selectedValue = computed<IModelType>({
+    get: () => props.modelValue,
+    set: (val) => emit(UPDATE_MODEL_EVENT, val),
   })
 
   const selectHandler = (
     item: { value: IModelType },
     index: number
   ) => {
+    if (item.value === selectedValue.value) return
     selectedValue.value = item.value
     inputSelected.value = false
     inputValue.value = ''

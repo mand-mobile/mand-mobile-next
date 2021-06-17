@@ -8,6 +8,8 @@
     }"
     position="bottom"
     :mask-closable="maskClosable"
+    :prevent-scroll="true"
+    :prevent-scroll-exclude="content"
     @hide="onHide"
     @show="onShow"
   >
@@ -26,68 +28,73 @@
       ></md-popup-title-bar>
     </slot>
 
-    <div class="md-selector-container">
-      <md-scroll-view
+    <div
+      ref="content"
+      class="md-selector-container"
+      :style="{
+        maxHeight: `${maxHeight}`,
+        minHeight: `${minHeight}`,
+      }"
+      @touchstart.stop
+      @touchmove.stop
+      @touchend.stop
+    >
+      <!-- <md-scroll-view
         ref="scroller"
         :is-prevent="false"
         :style="{
           maxHeight: `${maxHeight}`,
           minHeight: `${minHeight}`,
         }"
-      >
-        <slot name="header"></slot>
-        <template v-if="!Array.isArray(modelValue)">
-          <md-radio-list
-            class="md-selector-list"
-            :options="data"
-            :is-slot-scope="!!$slots.default"
-            :icon="icon"
-            :icon-disabled="iconDisabled"
-            :icon-inverse="iconInverse"
-            :icon-position="iconPosition"
-            :icon-size="iconSize"
-            :icon-svg="iconSvg"
-            :model-value="modelValue"
-            @change="selectHandler"
-          >
-            <template
-              #default="{ option, index, selected }"
-            >
-              <slot
-                :option="option"
-                :index="index"
-                :selected="selected"
-              ></slot>
-            </template>
-          </md-radio-list>
-        </template>
-        <!-- multi -->
-        <template v-else>
-          <md-check-list
-            v-model="multiValue"
-            class="md-selector-list"
-            :options="data"
-            :is-slot-scope="!!$slots.default"
-            :icon="icon"
-            :icon-disabled="iconDisabled"
-            :icon-inverse="iconInverse"
-            :icon-position="iconPosition"
-            :icon-size="iconSize"
-            :icon-svg="iconSvg"
-          >
-            <template
-              #default="{ option, index, selected }"
-            >
-              <slot
-                :option="option"
-                :index="index"
-                :selected="selected"
-              ></slot>
-            </template>
-          </md-check-list>
-        </template>
-        <slot name="footer"></slot>
-      </md-scroll-view>
+      > -->
+      <slot name="header"></slot>
+      <template v-if="!Array.isArray(innerValue)">
+        <md-radio-list
+          v-model="innerValue"
+          class="md-selector-list"
+          :options="data"
+          :is-slot-scope="!!$slots.default"
+          :icon="icon"
+          :icon-disabled="iconDisabled"
+          :icon-inverse="iconInverse"
+          :icon-position="iconPosition"
+          :icon-size="iconSize"
+          :icon-svg="iconSvg"
+        >
+          <template #default="{ option, index, selected }">
+            <slot
+              :option="option"
+              :index="index"
+              :selected="selected"
+            ></slot>
+          </template>
+        </md-radio-list>
+      </template>
+      <!-- multi -->
+      <template v-else>
+        <md-check-list
+          v-model="innerValue"
+          class="md-selector-list"
+          :options="data"
+          :is-slot-scope="!!$slots.default"
+          :icon="icon"
+          :icon-disabled="iconDisabled"
+          :icon-inverse="iconInverse"
+          :icon-position="iconPosition"
+          :icon-size="iconSize"
+          :icon-svg="iconSvg"
+        >
+          <template #default="{ option, index, selected }">
+            <slot
+              :option="option"
+              :index="index"
+              :selected="selected"
+            ></slot>
+          </template>
+        </md-check-list>
+      </template>
+      <slot name="footer"></slot>
+      <!-- </md-scroll-view> -->
     </div>
   </md-popup>
 </template>
@@ -95,7 +102,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { Popup, PopupTitleBar } from 'mand-mobile/popup'
-import MdScrollView from 'mand-mobile/scroll-view'
+// import MdScrollView from 'mand-mobile/scroll-view'
 import MdRadioList from 'mand-mobile/radio-list'
 import MdCheckList from 'mand-mobile/check-list'
 import {
@@ -109,7 +116,7 @@ export default defineComponent({
   components: {
     MdPopup: Popup,
     MdPopupTitleBar: PopupTitleBar,
-    MdScrollView,
+    // MdScrollView,
     MdRadioList,
     MdCheckList,
   },
@@ -122,9 +129,9 @@ export default defineComponent({
       onShow,
       cancelHandler,
       confirmHandler,
-      selectHandler,
-      multiValue,
+      innerValue,
       scroller,
+      content,
     } = useSelector(props, context)
 
     return {
@@ -133,9 +140,9 @@ export default defineComponent({
       onShow,
       cancelHandler,
       confirmHandler,
-      selectHandler,
-      multiValue,
+      innerValue,
       scroller,
+      content,
     }
   },
 })
@@ -169,7 +176,9 @@ export default defineComponent({
   background-color color-bg-inverse
   padding-bottom calc(constant(safe-area-inset-bottom))
   padding-bottom calc(env(safe-area-inset-bottom))
-  // overflow hidden
+  overflow auto
+  &::-webkit-scrollbar
+    display none
 
 .md-selector
   &.is-normal

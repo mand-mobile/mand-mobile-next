@@ -49,6 +49,8 @@ export default defineComponent({
     const {
       indicatorCount,
       wrapRef: wrapper,
+      renderSwiper,
+      resetSwiper,
       currentIndex,
       getSwiperInstance,
       isVertical,
@@ -59,6 +61,8 @@ export default defineComponent({
       currentIndex,
 
       wrapper,
+      renderSwiper,
+      resetSwiper,
 
       getSwiperInstance,
       isVertical,

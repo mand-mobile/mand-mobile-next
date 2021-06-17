@@ -79,6 +79,7 @@ export default defineComponent({
       modelIndex,
       inkWidth,
       inkOffsetLeft,
+      setInkStyle,
     } = useTabBar(props)
 
     return {
@@ -93,6 +94,7 @@ export default defineComponent({
       clickHandle,
       inkWidth,
       inkOffsetLeft,
+      setInkStyle,
     }
   },
 })

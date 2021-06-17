@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue'
+import { computed, ref, watch, watchEffect } from 'vue'
 import { t } from 'mand-mobile/locale'
 import {
   UPDATE_MODEL_EVENT,
@@ -135,13 +135,18 @@ export const useSelector = (
   props: ExtractPropTypes<typeof selectorProps>,
   { emit }: SetupContext<EmitsType[]>
 ) => {
+  /**
+   * @deprecated
+   */
   const scroller = ref<any>(null)
+
+  const content = ref<HTMLElement | undefined>(undefined)
 
   const {
     popupShow,
-    onHide,
+    onHide: hideHandler,
     onShow: showHandler,
-    hideSelector,
+    hide: hideSelector,
   } = useShow(props, emit)
 
   const onShow = () => {
@@ -149,13 +154,20 @@ export const useSelector = (
     /**
      * important the scroller need reset after popup show
      */
-    scroller.value.resetScroller()
+    scroller.value?.resetScroller()
   }
 
-  const { multiValue, onCancel, onSelect } = useSelect(
+  const onHide = () => {
+    hideHandler()
+    innerValue.value = props.modelValue
+  }
+
+  const { innerValue, onCancel, onSelect } = useSelect(
     props,
     emit
   )
+
+  const isConfirm = computed(() => props.okText !== '')
 
   const cancelHandler = () => {
     onCancel()
@@ -165,55 +177,67 @@ export const useSelector = (
   const confirmHandler = () => {
     if (!Array.isArray(props.modelValue)) {
       props.modelValue !== '' &&
-        (emit(CONFIRM), hideSelector())
+        (emit(CONFIRM),
+        emit(UPDATE_MODEL_EVENT, innerValue.value),
+        hideSelector())
     } else {
       props.modelValue.length > 0 &&
-        (emit(CONFIRM), hideSelector())
+        (emit(CONFIRM),
+        emit(UPDATE_MODEL_EVENT, innerValue.value),
+        hideSelector())
     }
   }
 
-  const selectHandler = (
-    item: ExtractPropTypes<typeof selectorProps>['data'][0]
-  ) => {
-    onSelect(item)
-    if (props.okText === '') {
+  watch(innerValue, (val) => {
+    if (
+      !isConfirm.value &&
+      !Array.isArray(props.modelValue)
+    ) {
+      onSelect(
+        props.data.find((item) => item.value === val) as any
+      )
+      hideSelector()
+    } else if (
+      !isConfirm.value &&
+      Array.isArray(props.modelValue)
+    ) {
+      emit(UPDATE_MODEL_EVENT, val)
       hideSelector()
     }
-  }
+  })
 
   return {
+    content,
     scroller,
     popupShow,
     onHide,
     onShow,
     confirmHandler,
     cancelHandler,
-    selectHandler,
-
-    multiValue,
+    innerValue,
   }
 }
 
-function useShow(
-  props: ExtractPropTypes<typeof selectorProps>,
-  emit: SetupContext<EmitsType[]>['emit']
-) {
+export function useShow<
+  T extends { visible: boolean },
+  E extends ('update:visible' | 'hide' | 'show')[]
+>(props: T, emit: SetupContext<E>['emit']) {
   const popupShow = computed({
     get: () => props.visible,
-    set: () => hideSelector(),
+    set: () => hide(),
   })
   const onHide = () => {
     emit(HIDE_EVENT)
-    hideSelector()
+    hide()
   }
   const onShow = () => {
     emit(SHOW_EVENT)
   }
 
-  const hideSelector = () => {
+  const hide = () => {
     emit(UPDATE_VISIBLE_EVENT, false)
   }
-  return { popupShow, onHide, onShow, hideSelector }
+  return { popupShow, onHide, onShow, hide }
 }
 
 function useSelect(
@@ -232,15 +256,11 @@ function useSelect(
   }
 
   /**
-   * multi
+   * innerValue
    */
-  const multiValue = computed({
-    get: () =>
-      Array.isArray(props.modelValue)
-        ? props.modelValue
-        : [],
-    set: (val) => emit(UPDATE_MODEL_EVENT, val),
-  })
+  const innerValue = ref<
+    string | number | (string | number)[]
+  >(props.modelValue)
 
-  return { multiValue, onSelect, onCancel }
+  return { innerValue, onSelect, onCancel }
 }

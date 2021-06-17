@@ -118,6 +118,7 @@ export const useSwiper = (
 
   const initSwiper = () => {
     wrapRef.value &&
+      !swiperInstance &&
       (swiperInstance = createSwiper(wrapRef.value, {
         scrollX: !isVertical.value,
         scrollY: isVertical.value,
@@ -144,8 +145,8 @@ export const useSwiper = (
     currentIndex.value = index
   }
 
-  onMounted(() => {
-    props.transition !== 'fade' && initSwiper()
+  const renderSwiper = () => {
+    initSwiper()
 
     swiperInstance?.on(
       'slidePageChanged',
@@ -170,10 +171,22 @@ export const useSwiper = (
         indexChange(pageNumber)
       }
     )
+  }
 
-    onBeforeUnmount(() => {
-      swiperInstance?.destroy()
-    })
+  const resetSwiper = () => {
+    if (swiperInstance) {
+      swiperInstance.destroy()
+      swiperInstance = null
+      renderSwiper()
+    }
+  }
+
+  onMounted(() => {
+    const rect = wrapRef.value?.getBoundingClientRect()
+    props.transition !== 'fade' &&
+      rect?.width &&
+      rect.height &&
+      renderSwiper()
 
     /**
      * fade
@@ -181,6 +194,10 @@ export const useSwiper = (
     props.transition === 'fade' &&
       wrapRef.value &&
       onScrollHandler(wrapRef.value, currentIndex, props)
+  })
+
+  onBeforeUnmount(() => {
+    swiperInstance?.destroy()
   })
 
   provide(
@@ -194,6 +211,8 @@ export const useSwiper = (
 
   return {
     wrapRef,
+    renderSwiper,
+    resetSwiper,
 
     indicatorCount,
     currentIndex,
