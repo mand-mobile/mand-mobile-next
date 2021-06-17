@@ -61,12 +61,19 @@ describe('NoticeBar.vue', () => {
     expect(left.text()).toBe('this is a slot')
   })
 
-  test('computed', () => {
+  test('computed', (done) => {
     const wrapper = mount(NoticeBar, {
       props: {
         mode: 'link',
+        time: 300,
+        scrollable: true,
       },
     })
     expect(wrapper.vm.rightIcon).toBe('arrow-right')
+
+    setTimeout(() => {
+      expect(wrapper.vm.isShow).toBe(false)
+      done()
+    }, 300)
   })
 })
