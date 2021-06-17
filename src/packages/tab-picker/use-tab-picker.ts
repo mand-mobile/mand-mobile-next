@@ -89,6 +89,14 @@ export const tabPickerProps = {
     type: Boolean,
     default: true,
   },
+  maxHeight: {
+    type: String,
+    default: '40vh',
+  },
+  minHeight: {
+    type: String,
+    default: '40vh',
+  },
 }
 
 export const useTabPicker = (
