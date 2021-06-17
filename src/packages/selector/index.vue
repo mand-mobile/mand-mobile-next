@@ -60,6 +60,7 @@
           :icon-position="iconPosition"
           :icon-size="iconSize"
           :icon-svg="iconSvg"
+          @update:modelValue="directHide"
         >
           <template #default="{ option, index, selected }">
             <slot
@@ -125,6 +126,7 @@ export default defineComponent({
   setup(props, context) {
     const {
       popupShow,
+      directHide,
       onHide,
       onShow,
       cancelHandler,
@@ -136,6 +138,7 @@ export default defineComponent({
 
     return {
       popupShow,
+      directHide,
       onHide,
       onShow,
       cancelHandler,
