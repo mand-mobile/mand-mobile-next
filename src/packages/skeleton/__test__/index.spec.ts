@@ -61,7 +61,7 @@ describe('Skeleton.vue', () => {
     const wrapper = mount(Skeleton, {
       props: {
         loadding: true,
-        rowWidth: 20,
+        rowWidth: [20],
       },
     })
     expect(wrapper.html()).toContain('width: 20%')

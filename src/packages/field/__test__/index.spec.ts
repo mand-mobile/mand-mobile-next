@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
 import Field from '../index.vue'
+import MdFieldItem from 'mand-mobile/field-item'
 
 describe('Field.vue', () => {
   test('render', () => {
@@ -36,5 +37,23 @@ describe('Field.vue', () => {
       },
     })
     expect(wrapper.html()).toContain('is-disabled')
+  })
+
+  test('props addon should be work', () => {
+    const wrapper = mount(MdFieldItem, {
+      props: {
+        addon: 'this is addon',
+      },
+    })
+    expect(wrapper.text()).toContain('this is addon')
+  })
+
+  test('props arrow should be work', () => {
+    const wrapper = mount(MdFieldItem, {
+      props: {
+        arrow: true,
+      },
+    })
+    expect(wrapper.html()).toContain('arrow-right')
   })
 })
