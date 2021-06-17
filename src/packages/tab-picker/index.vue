@@ -17,7 +17,13 @@
       ></md-popup-title-bar>
     </slot>
 
-    <div class="md-tab-picker-content" style="height: 40vh">
+    <div
+      class="md-tab-picker-content"
+      :style="{
+        maxHeight,
+        minHeight,
+      }"
+    >
       <md-tabs ref="tabs">
         <md-tab-pane
           v-for="(pane, index) in panes"
