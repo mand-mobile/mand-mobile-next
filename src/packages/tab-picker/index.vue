@@ -20,8 +20,7 @@
     <div
       class="md-tab-picker-content"
       :style="{
-        maxHeight,
-        minHeight,
+        height,
       }"
     >
       <md-tabs ref="tabs">
