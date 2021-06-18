@@ -1,7 +1,7 @@
 <script lang="ts">
 export default {
   name: 'CodeboxDemo',
-  title: '基本',
+  title: '掩码',
 }
 </script>
 <script setup lang="ts">
@@ -12,5 +12,5 @@ const code = ref('')
 </script>
 
 <template>
-  <MdCodebox v-model="code" />
+  <MdCodebox v-model="code" mask :maxlength="5" />
 </template>

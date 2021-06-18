@@ -69,6 +69,9 @@ export const useCodebox = (
 
   const focusHandler = () => {
     focused.value = true
+    if (props.system) {
+      nativeInputRef.value?.focus()
+    }
   }
   const blurHandler = () => {
     focused.value = false
@@ -79,6 +82,15 @@ export const useCodebox = (
       code.value += `${val}`
     }
   }
+  const nativeInputHandler = (e: Event) => {
+    if (
+      (e.target as HTMLInputElement).value.length <=
+      props.maxlength
+    ) {
+      code.value = (e.target as HTMLInputElement).value
+    }
+  }
+
   const deleteHandler = () => {
     code.value = `${code.value}`.slice(0, -1)
   }
@@ -88,6 +100,7 @@ export const useCodebox = (
   const box = computed<HTMLElement | undefined>(
     () => numberKeyBoardRef.value?.$refs.popup.box
   )
+  const nativeInputRef = ref<HTMLElement | null>(null)
 
   watchEffect(() => {
     if (code.value.length >= props.maxlength) {
@@ -101,8 +114,10 @@ export const useCodebox = (
     focusHandler,
     blurHandler,
     inputHandler,
+    nativeInputHandler,
     deleteHandler,
     numberKeyBoardRef,
     box,
+    nativeInputRef,
   }
 }
