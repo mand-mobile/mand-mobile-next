@@ -4,7 +4,7 @@
       <md-icon name="home" size="lg"></md-icon>
     </p>
     <p class="name">NumberKeyboard</p>
-    <p class="name-zh"><del>数字键盘</del></p>
+    <p class="name-zh">数字键盘</p>
   </div>
   <div class="md-example number-keyboard">
     <section

@@ -55,11 +55,11 @@ export default defineComponent({
 
 <style lang="stylus">
 .md-number-key-item
-    display flex
-    justify-content center
-    align-items center
-    background number-keyboard-key-bg
-    transition background .3s
-    hairline(right, number-keyboard-key-border-color)
-    hairline(top, number-keyboard-key-border-color)
+  display flex
+  justify-content center
+  align-items center
+  background number-keyboard-key-bg
+  transition background .3s
+  hairline(right, number-keyboard-key-border-color)
+  hairline(top, number-keyboard-key-border-color)
 </style>

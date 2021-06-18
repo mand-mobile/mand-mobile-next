@@ -38,10 +38,16 @@
     />
     <md-fake-input
       v-else
+      :type="type"
       :placeholder="placeholder"
       :disabled="disabled"
       :readonly="readonly"
       :model-value="innerValue"
+      :maxlength="maxlength"
+      :ok-text="okText"
+      :hide-dot="hideDot"
+      :disorder="disorder"
+      @update:modelValue="fakeInputHandler"
     ></md-fake-input>
 
     <template #right>
@@ -89,6 +95,7 @@ export default defineComponent({
       innerValue,
       nativeInputRef,
       nativeInputHandler,
+      fakeInputHandler,
       nativeInputMaxLength,
     } = useInput(props)
 
@@ -98,6 +105,7 @@ export default defineComponent({
       innerValue,
       nativeInputRef,
       nativeInputHandler,
+      fakeInputHandler,
 
       nativeInputMaxLength,
 

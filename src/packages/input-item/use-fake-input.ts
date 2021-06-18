@@ -1,11 +1,24 @@
-import { ref, SetupContext } from 'vue'
+import {
+  computed,
+  nextTick,
+  onMounted,
+  ref,
+  watch,
+  watchEffect,
+} from 'vue'
 import {
   UPDATE_MODEL_EVENT,
   FOCUS_EVENT,
   BLUR_EVENT,
 } from 'mand-mobile/utils'
+import { formatValue } from './use-input'
 
-import type { ExtractPropTypes } from 'vue'
+import type {
+  ComponentPublicInstance,
+  SetupContext,
+  ExtractPropTypes,
+  PropType,
+} from 'vue'
 
 export const fakeInputProps = {
   modelValue: {
@@ -36,6 +49,32 @@ export const fakeInputProps = {
     type: Boolean,
     default: false,
   },
+  type: {
+    type: String as PropType<
+      | 'text'
+      | 'bankCard'
+      | 'password'
+      | 'phone'
+      | 'money'
+      | 'digit'
+      | 'tel'
+      | 'email'
+      | string
+    >,
+    default: 'text',
+  },
+  okText: {
+    type: String,
+    default: '确认',
+  },
+  hideDot: {
+    type: Boolean,
+    default: false,
+  },
+  disorder: {
+    type: Boolean,
+    default: false,
+  },
 }
 
 export const useFakeInput = (
@@ -46,6 +85,12 @@ export const useFakeInput = (
     ('focus' | 'blur' | 'update:modelValue')[]
   >
 ) => {
+  const numberKeyBoardRef =
+    ref<ComponentPublicInstance<any> | null>(null)
+  const box = computed<HTMLElement | undefined>(
+    () => numberKeyBoardRef.value?.$refs.popup.box
+  )
+
   const isFocus = ref(false)
   const isWaiting = ref(false)
 
@@ -59,11 +104,33 @@ export const useFakeInput = (
     emit(BLUR_EVENT)
   }
 
-  const inputHandler = (val: string) => {
-    emit(
-      UPDATE_MODEL_EVENT,
-      val.substring(0, props.maxlength)
+  const innerValue = ref<number | string>('')
+  const displayValue = computed(() => {
+    return formatValue(innerValue.value + '', props.type)
+  })
+
+  watchEffect(() => {
+    innerValue.value = `${props.modelValue}`.replace(
+      /\s|,/g,
+      ''
     )
+  })
+
+  watch(innerValue, (val) => {
+    emit(UPDATE_MODEL_EVENT, val)
+  })
+
+  const inputHandler = (val: string) => {
+    if (`${innerValue.value}`.length < props.maxlength) {
+      innerValue.value += val + ''
+      if (!displayValue.value.length) {
+        nextTick(() => (innerValue.value = ''))
+      }
+    }
+  }
+
+  const deleteHandler = () => {
+    innerValue.value = `${innerValue.value}`.slice(0, -1)
   }
 
   return {
@@ -72,5 +139,10 @@ export const useFakeInput = (
     clickHandler,
     blurHandler,
     inputHandler,
+    deleteHandler,
+    numberKeyBoardRef,
+    box,
+    innerValue,
+    displayValue,
   }
 }

@@ -70,7 +70,7 @@ mand-mobile-next 可以在原来的版本之上继续迭代，维持 2.x 的版�
   - [ ] Codebox
   - [x] Field
   - [x] InputItem
-  - [ ] NumberKeyboard
+  - [x] NumberKeyboard
   - [x] Radio
   - [x] Slider
   - [x] Switch

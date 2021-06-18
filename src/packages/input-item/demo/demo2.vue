@@ -16,6 +16,14 @@ const val = ref('')
   <MdField>
     <MdInputItem
       v-model="val"
+      title="虚拟键盘"
+      type="phone"
+      :is-virtual-keyboard="true"
+      :maxlength="5"
+      placeholder="phone xxx xxxx xxxx"
+    />
+    <MdInputItem
+      v-model="val"
       title="手机号"
       type="phone"
       placeholder="phone xxx xxxx xxxx"
@@ -52,11 +60,5 @@ const val = ref('')
       type="email"
       placeholder="其他标准 html input 类型"
     ></md-input-item>
-    <MdInputItem
-      v-model="val"
-      title="虚拟键盘"
-      :is-virtual-keyboard="true"
-      placeholder="phone xxx xxxx xxxx"
-    />
   </MdField>
 </template>
