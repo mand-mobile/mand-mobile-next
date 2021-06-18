@@ -298,7 +298,8 @@
         "name": "Codebox",
         "path": "/codebox",
         "icon": "codebox",
-        "text": "字符码输入框"
+        "text": "字符码输入框",
+        "complete": true
       },
       {
         "name": "Field",

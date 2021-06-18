@@ -12,6 +12,7 @@ async function run(options?: BuildOptions) {
     bundle: true,
     entryPoints: componentEntrys,
     plugins: [vue()],
+    loader: { '.png': 'dataurl' },
     external: [
       'vue',
       'mand-mobile/*',
@@ -30,6 +31,7 @@ async function bundle(options?: BuildOptions) {
     bundle: true,
     entryPoints: [`${cwd()}/src/packages/mand-mobile.ts`],
     plugins: [vue()],
+    loader: { '.png': 'dataurl' },
     external: [
       'vue',
       'mand-mobile/*',

@@ -20,16 +20,24 @@
       v-text="placeholder"
     ></span>
   </div>
-  <md-number-keyboard
-    ref="numberKeyBoard"
-    v-model:visible="isFocus"
-    class="fake-input-keyboard"
-    :ok-text="okText"
-    :hide-dot="hideDot"
-    :disorder="disorder"
-    @enter="inputHandler"
-    @delete="deleteHandler"
-  ></md-number-keyboard>
+  <slot
+    name="keyboard"
+    :focused="isFocus"
+    :refs="numberKeyBoard"
+    :inputHandler="inputHandler"
+    :deleteHandler="deleteHandler"
+  >
+    <md-number-keyboard
+      ref="numberKeyBoard"
+      v-model:visible="isFocus"
+      class="fake-input-keyboard"
+      :ok-text="okText"
+      :hide-dot="hideDot"
+      :disorder="disorder"
+      @enter="inputHandler"
+      @delete="deleteHandler"
+    ></md-number-keyboard>
+  </slot>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
