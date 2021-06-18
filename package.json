@@ -113,5 +113,12 @@
     "vue-tsc": "^0.0.24"
   },
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "@better-scroll/core": "^2.3.1",
+    "@better-scroll/pull-down": "^2.3.1",
+    "@better-scroll/pull-up": "^2.3.1",
+    "@better-scroll/slide": "^2.3.1",
+    "@better-scroll/wheel": "^2.3.1",
+    "jpeg-js": "^0.4.3"
+  }
 }
