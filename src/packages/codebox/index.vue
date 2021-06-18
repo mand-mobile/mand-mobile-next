@@ -28,27 +28,38 @@
           </template>
         </span>
       </template>
+      <!-- hidden input -->
+      <input
+        v-if="system"
+        ref="input"
+        :value="code"
+        :type="mask ? 'password' : 'text'"
+        :maxlength="maxlength"
+        class="md-codebox-input"
+        @input="nativeInputHandler"
+      />
     </div>
+    <slot
+      name="keyboard"
+      :focused="focused"
+      :refs="numberKeyBoard"
+      :inputHandler="inputHandler"
+      :deleteHandler="deleteHandler"
+    >
+      <md-number-keyboard
+        v-if="!system"
+        ref="numberKeyBoard"
+        v-model:visible="focused"
+        class="fake-input-keyboard"
+        type="simple"
+        :ok-text="okText"
+        :disorder="disorder"
+        :is-view="isView"
+        @enter="inputHandler"
+        @delete="deleteHandler"
+      ></md-number-keyboard>
+    </slot>
   </div>
-  <slot
-    name="keyboard"
-    :focused="focused"
-    :refs="numberKeyBoard"
-    :inputHandler="inputHandler"
-    :deleteHandler="deleteHandler"
-  >
-    <md-number-keyboard
-      ref="numberKeyBoard"
-      v-model:visible="focused"
-      class="fake-input-keyboard"
-      type="simple"
-      :ok-text="okText"
-      :disorder="disorder"
-      :is-view="isView"
-      @enter="inputHandler"
-      @delete="deleteHandler"
-    ></md-number-keyboard>
-  </slot>
 </template>
 
 <script lang="ts">
@@ -78,9 +89,11 @@ export default defineComponent({
       focusHandler,
       blurHandler,
       inputHandler,
+      nativeInputHandler,
       deleteHandler,
       numberKeyBoardRef: numberKeyBoard,
       box,
+      nativeInputRef: input,
     } = useCodebox(props, context)
 
     return {
@@ -89,9 +102,11 @@ export default defineComponent({
       focusHandler,
       blurHandler,
       inputHandler,
+      nativeInputHandler,
       deleteHandler,
       numberKeyBoard,
       box,
+      input,
     }
   },
 })
