@@ -46,6 +46,7 @@ import {
 } from './use-fake-input'
 
 export default defineComponent({
+  name: 'MdFakeInputItem',
   components: {
     MdNumberKeyboard,
   },
