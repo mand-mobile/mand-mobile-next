@@ -1,6 +1,6 @@
 <template>
   <div
-    v-click-outside:[excludes]="blurHandler"
+    v-click-outside:[box]="blurHandler"
     class="md-fake-input"
     :class="{
       'is-focus': isFocus,
@@ -12,14 +12,24 @@
   >
     <span
       class="md-fake-input-value"
-      v-text="modelValue"
+      v-text="displayValue"
     ></span>
     <span
-      v-if="modelValue === '' && placeholder !== ''"
+      v-if="innerValue === '' && placeholder !== ''"
       class="md-fake-input-placeholder"
       v-text="placeholder"
     ></span>
   </div>
+  <md-number-keyboard
+    ref="numberKeyBoard"
+    v-model:visible="isFocus"
+    class="fake-input-keyboard"
+    :ok-text="okText"
+    :hide-dot="hideDot"
+    :disorder="disorder"
+    @enter="inputHandler"
+    @delete="deleteHandler"
+  ></md-number-keyboard>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
@@ -29,25 +39,46 @@ import {
   UPDATE_MODEL_EVENT,
 } from 'mand-mobile/utils'
 import { clickOutside } from 'mand-mobile/directives'
+import MdNumberKeyboard from 'mand-mobile/number-keyboard'
 import {
   useFakeInput,
   fakeInputProps,
 } from './use-fake-input'
 
 export default defineComponent({
+  components: {
+    MdNumberKeyboard,
+  },
   directives: {
     clickOutside,
   },
   props: fakeInputProps,
   emits: [FOCUS_EVENT, BLUR_EVENT, UPDATE_MODEL_EVENT],
   setup(props, context) {
-    const { isFocus, clickHandler, blurHandler } =
-      useFakeInput(props, context)
+    const {
+      isFocus,
+      clickHandler,
+      blurHandler,
+      innerValue,
+      displayValue,
+      deleteHandler,
+      inputHandler,
+      numberKeyBoardRef: numberKeyBoard,
+      box,
+    } = useFakeInput(props, context)
 
     return {
       isFocus,
       clickHandler,
       blurHandler,
+
+      innerValue,
+      displayValue,
+      inputHandler,
+      deleteHandler,
+
+      numberKeyBoard,
+      box,
     }
   },
 })
@@ -94,4 +125,9 @@ export default defineComponent({
   width 100%
   color input-item-placeholder
   font-weight font-weight-normal
+
+.fake-input-keyboard
+  hairline(top, number-keyboard-key-border-color)
+  &::after
+    top .5px
 </style>

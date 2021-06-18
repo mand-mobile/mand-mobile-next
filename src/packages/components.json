@@ -311,13 +311,15 @@
         "name": "InputItem",
         "path": "/input-item",
         "icon": "input-item",
-        "text": "输入框"
+        "text": "输入框",
+        "complete": true
       },
       {
         "name": "NumberKeyboard",
         "path": "/number-keyboard",
         "icon": "number-keyboard",
-        "text": "数字键盘"
+        "text": "数字键盘",
+        "complete": true
       },
       {
         "name": "Radio",

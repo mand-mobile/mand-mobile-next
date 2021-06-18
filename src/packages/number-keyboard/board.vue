@@ -152,63 +152,63 @@ export default defineComponent({
 
 <style lang="stylus">
 .md-number-keyboard-container
+  position relative
+  display flex
+  overflow hidden
+  -webkit-user-select none
+  -webkit-tap-highlight-color transparent
+
+  .keyboard-key
     position relative
+    background number-keyboard-bg
+    flex 3
     display flex
-    overflow hidden
-    -webkit-user-select none
-    -webkit-tap-highlight-color transparent
+    flex-wrap wrap
 
-    .keyboard-key
-        position relative
-        background number-keyboard-bg
-        flex 3
-        display flex
-        flex-wrap wrap
+    .keyboard-key-item
+      position relative
+      flex-basis 33.33%
+      height 107px
+      font-size number-keyboard-key-font-size
+      font-weight number-keyboard-key-font-weight
+      font-family font-family-number
 
-        .keyboard-key-item
-            position relative
-            flex-basis 33.33%
-            height 107px
-            font-size number-keyboard-key-font-size
-            font-weight number-keyboard-key-font-weight
-            font-family font-family-number
+      &.no-bg
+        background transparent
 
-            &.no-bg
-              background transparent
+      &.delete
+        background transparent url("./images/keyboard-del.png") center no-repeat
+        background-size 46px
 
-            &.delete
-              background transparent url("./images/keyboard-del.png") center no-repeat
-              background-size 46px
+      &.slidedown
+        background number-keyboard-key-bg url("./images/keyboard-hide.png") center no-repeat
+        background-size 54px
 
-            &.slidedown
-              background number-keyboard-key-bg url("./images/keyboard-hide.png") center no-repeat
-              background-size 54px
+      &.large-item
+        flex-grow 1
 
-            &.large-item
-              flex-grow 1
+      &:active, &.active
+        background-color number-keyboard-key-bg-tap
 
-            &:active, &.active
-              background-color number-keyboard-key-bg-tap
+  .keyboard-operate
+    position relative
+    flex 1
+    display flex
+    flex-direction column
 
-    .keyboard-operate
-        position relative
-        flex 1
-        display flex
-        flex-direction column
+    .keyboard-operate-item
+      position relative
+      flex 1
 
-        .keyboard-operate-item
-            position relative
-            flex 1
-
-            &.delete
-              background number-keyboard-key-bg url("./images/keyboard-del.png") center no-repeat
-              background-size 42px
-              &.active
-                background-color number-keyboard-key-bg-tap
-            &.confirm
-              color number-keyboard-key-confirm-color
-              font-size font-caption-large
-              background number-keyboard-key-confirm-bg
-              &.active
-                background-color number-keyboard-key-confirm-bg-tap
+      &.delete
+        background number-keyboard-key-bg url("./images/keyboard-del.png") center no-repeat
+        background-size 42px
+        &.active
+          background-color number-keyboard-key-bg-tap
+      &.confirm
+        color number-keyboard-key-confirm-color
+        font-size font-caption-large
+        background number-keyboard-key-confirm-bg
+        &.active
+          background-color number-keyboard-key-confirm-bg-tap
 </style>

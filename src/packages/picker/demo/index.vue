@@ -4,7 +4,7 @@
       <md-icon name="home" size="lg"></md-icon>
     </p>
     <p class="name">Picker</p>
-    <p class="name-zh"><del>组件中文名称</del></p>
+    <p class="name-zh">选择器</p>
   </div>
   <div class="md-example picker">
     <section

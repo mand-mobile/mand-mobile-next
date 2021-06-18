@@ -19,6 +19,7 @@ export const inputProps = {
       | 'digit'
       | 'tel'
       | 'email'
+      | string
     >,
     default: 'text',
   },
@@ -115,6 +116,18 @@ export const inputProps = {
     type: Function as PropType<(val: string) => string>,
     default: undefined,
   },
+  okText: {
+    type: String,
+    default: '确认',
+  },
+  hideDot: {
+    type: Boolean,
+    default: false,
+  },
+  disorder: {
+    type: Boolean,
+    default: false,
+  },
 }
 
 export const useInput = (
@@ -170,11 +183,22 @@ export const useInput = (
     isNativeInputFormative.value ? '' : props.maxlength
   )
 
+  /**
+   * faker input
+   */
+  const fakeInputHandler = (
+    val: string | number | undefined
+  ) => {
+    innerValue.value = val ? val + '' : ''
+    emit(UPDATE_MODEL_EVENT, val)
+  }
+
   return {
     innerValue,
     nativeInputRef,
 
     nativeInputHandler,
+    fakeInputHandler,
 
     nativeInputMaxLength,
   }
@@ -227,7 +251,7 @@ export const useInputDisplay = (
   }
 }
 
-function formatValue(
+export function formatValue(
   value: string,
   type: string,
   formation?: (val: string) => string
@@ -239,13 +263,16 @@ function formatValue(
 
   switch (type) {
     case 'bankCard':
-      formatValue = formatBankCard(value)
+      formatValue = formatBankCard(value).replace(/\./g, '')
       break
     case 'phone':
-      formatValue = formatPhoneNumber(value)
+      formatValue = formatPhoneNumber(value).replace(
+        /\./g,
+        ''
+      )
       break
     case 'digit':
-      formatValue = value.replace(/\D/g, '')
+      formatValue = value.replace(/[\D\.]/g, '')
       break
     case 'money':
       formatValue = formatMoney(value)

@@ -14,6 +14,7 @@
 
   <md-popup
     v-else
+    ref="popup"
     v-model="popupShow"
     position="bottom"
     :has-mask="false"

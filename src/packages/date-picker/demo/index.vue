@@ -4,7 +4,7 @@
       <md-icon name="home" size="lg"></md-icon>
     </p>
     <p class="name">DatePicker</p>
-    <p class="name-zh"><del>时间选择器</del></p>
+    <p class="name-zh">时间选择器</p>
   </div>
   <div class="md-example date-picker">
     <section
