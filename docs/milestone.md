@@ -67,7 +67,7 @@ mand-mobile-next 可以在原来的版本之上继续迭代，维持 2.x 的版�
 - 表单 (**6月第一周开发完毕**)
   - [x] Agree
   - [x] Check
-  - [ ] Codebox
+  - [x] Codebox
   - [x] Field
   - [x] InputItem
   - [x] NumberKeyboard

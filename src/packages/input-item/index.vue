@@ -48,7 +48,11 @@
       :hide-dot="hideDot"
       :disorder="disorder"
       @update:modelValue="fakeInputHandler"
-    ></md-fake-input>
+    >
+      <template #keyboard="props">
+        <slot v-bind="props"></slot>
+      </template>
+    </md-fake-input>
 
     <template #right>
       <div

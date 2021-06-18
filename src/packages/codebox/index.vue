@@ -30,18 +30,25 @@
       </template>
     </div>
   </div>
-
-  <md-number-keyboard
-    ref="numberKeyBoard"
-    v-model:visible="focused"
-    class="fake-input-keyboard"
-    type="simple"
-    :ok-text="okText"
-    :disorder="disorder"
-    :is-view="isView"
-    @enter="inputHandler"
-    @delete="deleteHandler"
-  ></md-number-keyboard>
+  <slot
+    name="keyboard"
+    :focused="focused"
+    :refs="numberKeyBoard"
+    :inputHandler="inputHandler"
+    :deleteHandler="deleteHandler"
+  >
+    <md-number-keyboard
+      ref="numberKeyBoard"
+      v-model:visible="focused"
+      class="fake-input-keyboard"
+      type="simple"
+      :ok-text="okText"
+      :disorder="disorder"
+      :is-view="isView"
+      @enter="inputHandler"
+      @delete="deleteHandler"
+    ></md-number-keyboard>
+  </slot>
 </template>
 
 <script lang="ts">
