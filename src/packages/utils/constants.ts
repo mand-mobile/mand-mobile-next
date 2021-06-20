@@ -14,6 +14,8 @@ export const HIDE_EVENT = 'hide'
 export const KEYUP_EVNET = 'keyup'
 export const KEYDOWN_EVENT = 'keydown'
 export const SUBMIT_EVNENT = 'submit'
+export const CONFIRM_EVENT = 'confirm'
+export const CANCEL_EVENT = 'cancel'
 
 export const DEFAULT_TITLE_WIDTH = '40%'
 export const DEFAULT_WIDTH = '100%'
