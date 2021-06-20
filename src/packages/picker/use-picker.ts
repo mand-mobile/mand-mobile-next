@@ -8,6 +8,7 @@ import {
   computed,
   watch,
   useContext,
+  nextTick,
 } from 'vue'
 
 import BScroll from '@better-scroll/core'
@@ -52,6 +53,10 @@ export const pickerProps = {
   cols: {
     type: Number,
     default: 1,
+  },
+  isView: {
+    type: Boolean,
+    default: false,
   },
   invalidValue: {
     type: Array as PropType<Array<Array<string | number>>>,
@@ -136,20 +141,6 @@ export const usePicker = (
     },
   })
 
-  watch(
-    selectedIndexs,
-    (val: number[], oldVal: number[]) => {
-      wheelInstance &&
-        wheelInstance.map(
-          (wheel: BScroll, index: number): void => {
-            if (val[index] !== oldVal[index]) {
-              wheel.wheelTo(val[index], 0)
-            }
-          }
-        )
-    }
-  )
-
   const setWheelsRef = (
     el: Element | ComponentInternalInstance | null
   ) => {
@@ -199,18 +190,33 @@ export const usePicker = (
         wheelsRef.value &&
           createWheel(wheelsRef.value[i], i)
       }
-    } else {
-      wheelInstance &&
-        wheelInstance.map((wheel) => {
-          wheel.refresh()
-        })
     }
   }
 
   /**
-   * if not keep index, refresh wheel to first index
+   * when change data, refresh wheel
    */
-  const refreshWheel = (columnIndex: number) => {
+  const refreshWheel = () => {
+    wheelInstance &&
+      wheelInstance.map((wheel) => {
+        wheel.refresh()
+      })
+  }
+
+  /**
+   * reset data and wheel
+   */
+  const resetWheel = () => {
+    resetPickerData()
+    nextTick(() => {
+      initWheel()
+    })
+  }
+
+  /**
+   * if not keep index, reset wheel to first index
+   */
+  const resetWheelIndex = (columnIndex: number) => {
     if (props.keepIndex) {
       return
     }
@@ -299,14 +305,12 @@ export const usePicker = (
           cacheSelectedIndexs.value
         )
         curWheelIndex.value++
-        refreshWheel(curWheelIndex.value)
       } while (
         !cacheSelectedIndexs.value[curWheelIndex.value] &&
         curWheelIndex.value < props.cols - 1
       )
 
-      // reset cascade column to first index
-      refreshWheel(curWheelIndex.value)
+      resetWheelIndex(curWheelIndex.value)
 
       if (curWheelIndex.value + 1 >= props.cols) {
         onRefreshFinish()
@@ -365,11 +369,20 @@ export const usePicker = (
     return invalidColumnValue.indexOf(item.value) > -1
   }
 
+  const getColumnValues = () => {
+    return selectedIndexs.value.map(
+      (itemIndex: number, columnIndex: number) => {
+        console.log(pickerData.value)
+        return pickerData.value[columnIndex]?.[itemIndex]
+      }
+    )
+  }
+
   watch(
     () => props.data,
     async () => {
       destroyWheel()
-      resetPickerData()
+      resetWheel()
     }
   )
 
@@ -378,7 +391,12 @@ export const usePicker = (
   })
 
   onMounted(() => {
-    initWheel()
+    // if the wheels dom have initialized, init wheel
+    if (wheelsRef.value?.length) {
+      const rect =
+        wheelsRef.value[0]?.getBoundingClientRect()
+      rect?.width && rect?.height && initWheel()
+    }
   })
 
   onBeforeUpdate(() => {
@@ -386,7 +404,7 @@ export const usePicker = (
   })
 
   onUpdated(() => {
-    initWheel()
+    refreshWheel()
   })
 
   onBeforeUnmount(() => {
@@ -401,5 +419,10 @@ export const usePicker = (
     selectedIndexs,
     setWheelsRef,
     checkInvalid,
+
+    resetWheel,
+    destroyWheel,
+
+    getColumnValues,
   }
 }

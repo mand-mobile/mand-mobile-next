@@ -27,6 +27,7 @@ const pickerInvalidValue = ref([[2, 3, 4]])
       :data="pickerData"
       :invalid-value="pickerInvalidValue"
       :cols="2"
+      is-view
     />
   </div>
 </template>

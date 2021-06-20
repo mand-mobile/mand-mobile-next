@@ -39,6 +39,7 @@ const onChangeData = () => {
       :is-cascade="true"
       :cols="cols"
       :invalid-value="pickerInvalidValue"
+      is-view
     />
     <md-button
       type="primary"
