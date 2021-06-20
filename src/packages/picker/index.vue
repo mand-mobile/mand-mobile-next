@@ -1,86 +1,98 @@
 <template>
   <div class="md-picker">
-    <div
-      class="md-picker_container"
-      :style="{
-        height: `${indicatorHeight + 2 * maskerHeight}px`,
-      }"
-    >
-      <div
-        class="md-picker_masker md-picker_masker--top"
-        :style="{ height: `${maskerHeight}px` }"
-      ></div>
-      <div
-        class="md-picker_masker md-picker_masker--bottom"
-        :style="{ height: `${maskerHeight}px` }"
-      ></div>
-      <div class="md-picker_wheel_wrapper">
-        <div
-          v-for="(columnData, i) in pickerData"
-          :ref="setWheelsRef"
-          :key="i"
-          class="md-picker_wheel_column"
-        >
-          <ul
-            class="md-picker_wheel"
-            :style="{
-              marginTop: `${maskerHeight}px`,
-            }"
-          >
-            <li
-              v-for="(item, j) in columnData"
-              :key="item.value"
-              class="md-picker_wheel--item"
-              :class="{
-                active:
-                  j ===
-                  (selectedIndexs && selectedIndexs[i]),
-                'md-picker_wheel--disabled-item':
-                  checkInvalid(i, item),
-              }"
-              :style="{
-                height: `${indicatorHeight}px`,
-                lineHeight: `${indicatorHeight}px`,
-              }"
-            >
-              {{ item.text }}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <template v-if="isView">
+      <md-picker-view
+        ref="pickerView"
+        v-model="innerValue"
+        :data="data"
+        :cols="cols"
+        :invalid-value="invalidValue"
+        :is-cascade="isCascade"
+        :keep-index="keepIndex"
+        :line-height="lineHeight"
+        @change="onPickerChange"
+      />
+    </template>
+    <template v-else>
+      <md-popup
+        ref="popup"
+        v-model="popupShow"
+        class="inner-popup"
+        position="bottom"
+        :mask-closable="maskClosable"
+        :prevent-scroll="true"
+        @show="onShow"
+        @hide="onHide"
+        @maskClick="cancelHandler"
+      >
+        <md-popup-title-bar
+          :title="title"
+          :describe="describe"
+          :ok-text="okText"
+          :cancel-text="cancelText"
+          :large-radius="largeRadius"
+          @confirm="confirmHandler"
+          @cancel="cancelHandler"
+        ></md-popup-title-bar>
+        <md-picker-view
+          ref="pickerView"
+          v-model="innerValue"
+          :data="data"
+          :cols="cols"
+          :invalid-value="invalidValue"
+          :is-cascade="isCascade"
+          :keep-index="keepIndex"
+          :line-height="lineHeight"
+          @change="onPickerChange"
+        />
+      </md-popup>
+    </template>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import {
-  UPDATE_MODEL_EVENT,
-  CHANGE_EVENT,
-} from 'mand-mobile/utils'
+import { Popup, PopupTitleBar } from 'mand-mobile/popup'
+import PickerView from 'mand-mobile/picker/picker-view.vue'
 import { pickerProps, usePicker } from './use-picker'
+import { popupProps, usePopup, emits } from './use-popup'
 
 export default defineComponent({
   name: 'MdPicker',
-  props: pickerProps,
-  emits: [UPDATE_MODEL_EVENT, CHANGE_EVENT],
-  setup(props) {
+  components: {
+    MdPopup: Popup,
+    MdPopupTitleBar: PopupTitleBar,
+    MdPickerView: PickerView,
+  },
+  props: { ...pickerProps, ...popupProps },
+  emits,
+  setup(props, context) {
     const {
-      pickerData,
-      selectedIndexs,
-      maskerHeight,
-      indicatorHeight,
-      setWheelsRef,
-      checkInvalid,
-    } = usePicker(props)
+      popupShow,
+      innerValue,
+      pickerView,
+      onHide,
+      onShow,
+      cancelHandler,
+      confirmHandler,
+      onPickerChange,
+    } = usePopup(props, context)
+
+    const getColumnValues = () => {
+      return pickerView.value?.getColumnValues()
+    }
 
     return {
-      pickerData,
-      selectedIndexs,
-      maskerHeight,
-      indicatorHeight,
-      setWheelsRef,
-      checkInvalid,
+      popupShow,
+      innerValue,
+      pickerView,
+
+      onHide,
+      onShow,
+      cancelHandler,
+      confirmHandler,
+      onPickerChange,
+      getColumnValues,
     }
   },
 })
@@ -88,53 +100,7 @@ export default defineComponent({
 
 <style lang="stylus">
 .md-picker
-  .md-picker_container
-    position relative
-    height 100%
-    overflow hidden
-    .md-picker_masker
-      position absolute
-      height 100px
-      left 0
-      right 0
-      &:before, &:after
-        content ""
-        width 100%
-        display block
-        position absolute
-        transform-origin 0 0
-      &--top
-        top 0
-        &:after
-          bottom: 0
-          border-bottom solid 1px picker-border-color
-          transform-origin 0 bottom
-      &--bottom
-        bottom 0
-        &:before
-          top 0
-          border-top solid 1px picker-border-color
-          transform-origin 0 top
-    .md-picker_wheel_wrapper
-      display flex
-      z-index 10
-    .md-picker_wheel_column
-      position relative
-      flex 1
-      overflow hidden
-    .md-picker_wheel
-      margin-top 100px
-      &--item
-        width 100%
-        padding 0 h-gap-sm
-        box-sizing border-box
-        color picker-color
-        font-size picker-font-size
-        text-align center
-        word-ellipsis()
-        &.active
-          color picker-color-active
-          font-weight picker-font-weight-active
-      &--disabled-item
-        opacity picker-disabled-opacity
+  width 100%
+  .md-popup
+    z-index picker-zindex
 </style>
