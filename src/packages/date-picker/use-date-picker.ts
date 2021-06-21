@@ -1,18 +1,13 @@
-import {
-  onBeforeMount,
-  ref,
-  computed,
-  watch,
-  useContext,
-  ComponentPublicInstance,
-} from 'vue'
+import { onBeforeMount, ref, computed } from 'vue'
 import {
   transformDate,
   toObject,
   warn,
-  UPDATE_MODEL_EVENT,
+  deepEquals,
   CHANGE_EVENT,
 } from 'mand-mobile/utils'
+
+import { popupProps, usePopup } from 'mand-mobile/picker'
 
 import type { ExtractPropTypes, PropType } from 'vue'
 
@@ -77,8 +72,12 @@ export const TYPE_FORMAT_INVERSE: Record<string, string> =
 
 export const datePickerProps = {
   modelValue: {
-    type: [Date, Array as PropType<Array<string | number>>],
-    // default: [],
+    type: [Date, Array],
+    default: [],
+  },
+  isView: {
+    type: Boolean,
+    default: false,
   },
   type: {
     type: String as PropType<datePickerType>,
@@ -116,7 +115,10 @@ export const datePickerProps = {
 }
 
 export const useDatePicker = (
-  props: ExtractPropTypes<typeof datePickerProps>
+  props: ExtractPropTypes<
+    typeof popupProps & typeof datePickerProps
+  >,
+  context: any
 ) => {
   const pickerData = ref<any[]>([])
 
@@ -141,16 +143,40 @@ export const useDatePicker = (
     })
   })
 
-  const pickerRef =
-    ref<ComponentPublicInstance<{
-      getColumnIndexs: (all?: boolean) => void
-    }> | null>(null)
+  const { emit } = context
 
-  const { emit } = useContext()
+  const {
+    popupShow,
+    innerValue,
+    pickerView,
+    onHide,
+    onShow,
+    cancelHandler,
+    confirmHandler,
+  } = usePopup(props, context)
+
+  const dateValues = computed({
+    get: () => {
+      return innerValue.value
+    },
+    set: (val) => {
+      if (
+        innerValue.value instanceof Date &&
+        props.type !== 'time'
+      ) {
+        const date = toDate(columnTypes.value, val as any)
+        innerValue.value = new Date(date)
+        // emit(UPDATE_MODEL_EVENT, new Date(date))
+      } else {
+        innerValue.value = val
+        // emit(UPDATE_MODEL_EVENT, val)
+      }
+    },
+  })
 
   const selectedValues = computed({
     get: () => {
-      if (props.modelValue instanceof Date) {
+      if (innerValue.value instanceof Date) {
         if (props.type === 'time') {
           warn(
             'v-model should be array when date picker type is time'
@@ -161,39 +187,25 @@ export const useDatePicker = (
         return columnTypes.value.map((column) => {
           const methodName =
             TYPE_METHODS[TYPE_FORMAT[column]]
-          let columnValue = props.modelValue[methodName]()
+          let columnValue = innerValue.value[methodName]()
 
           if (column === 'MM') {
             columnValue += 1
           }
           return columnValue
         })
+      } else if (Array.isArray(innerValue.value)) {
+        return innerValue.value
       } else {
-        return props.modelValue || []
+        return []
       }
     },
     set: (val) => {
-      if (
-        props.modelValue instanceof Date &&
-        props.type !== 'time'
-      ) {
-        const date = toDate(columnTypes.value, val as any)
-        emit(UPDATE_MODEL_EVENT, new Date(date))
-      } else {
-        emit(UPDATE_MODEL_EVENT, val)
-      }
+      initColumnData(curChangedIndex.value, val as number[])
     },
   })
 
-  watch(selectedValues, (val, oldVal) => {
-    if (!(JSON.stringify(val) === JSON.stringify(oldVal))) {
-      if (curChangedIndex.value < cols.value) {
-        initColumnData(curChangedIndex.value)
-      }
-    }
-  })
-
-  const columnDataGenerator = ref([])
+  const columnDataGenerator = ref<any>([])
 
   const currentDate = new Date()
   const minDate = computed(() => {
@@ -206,6 +218,7 @@ export const useDatePicker = (
   const initPicker = () => {
     initPickerColumn()
   }
+
   const initPickerColumn = () => {
     resetPickerColumn()
     initColumnDataGenerator()
@@ -232,13 +245,15 @@ export const useDatePicker = (
     }
   }
 
-  const initColumnData = (changedColumnIndex: number) => {
-    const newPickerData = (pickerData.value as any[]) || []
-    const newSelectedValues =
-      (selectedValues.value as number[]) || []
-
-    const columnDataGeneratorParams =
-      getGeneratorArguments()
+  const initColumnData = (
+    changedColumnIndex: number,
+    changedColumnValues?: number[]
+  ) => {
+    const newPickerData =
+      [...(pickerData.value as any[])] || []
+    const newSelectedValues: any = changedColumnValues
+      ? [...changedColumnValues]
+      : selectedValues.value
 
     const dateTypeIndex =
       changedColumnIndex > -1
@@ -255,12 +270,15 @@ export const useDatePicker = (
           const generator: any =
             columnDataGenerator.value[columnIndex]
 
+          const columnDataGeneratorParams =
+            getGeneratorArguments(newSelectedValues)
+
           // Generator colume data with columnDataGeneratorParams
           const curColumnData = generator
-            ? generator.apply(this, [
+            ? generator(
                 columnIndex,
-                columnDataGeneratorParams,
-              ])
+                columnDataGeneratorParams
+              )
             : ''
 
           // When change column data, some date doesn't exist between minDate and maxDate
@@ -276,13 +294,20 @@ export const useDatePicker = (
               curColumnData[0].value
           }
 
-          newPickerData[columnIndex] = curColumnData
+          newPickerData[columnIndex] = [...curColumnData]
         }
       }
     )
 
-    selectedValues.value = newSelectedValues
-    pickerData.value = newPickerData
+    if (
+      !deepEquals(selectedValues.value, newSelectedValues)
+    ) {
+      dateValues.value = newSelectedValues
+    }
+
+    if (!deepEquals(pickerData.value, newPickerData)) {
+      pickerData.value = newPickerData
+    }
   }
 
   const onPickerChange = (
@@ -299,11 +324,18 @@ export const useDatePicker = (
   })
 
   return {
-    pickerRef,
     pickerData,
     cols,
     selectedValues,
     onPickerChange,
+
+    popupShow,
+    innerValue,
+    pickerView,
+    onHide,
+    onShow,
+    cancelHandler,
+    confirmHandler,
   }
 
   function initColumnDataGeneratorForCustom(
@@ -486,7 +518,6 @@ export const useDatePicker = (
     columnIndex: number,
     curSelected: Record<string, number>
   ) {
-    const args = getGeneratorArguments()
     let start = 0,
       end = 59
 
@@ -531,7 +562,6 @@ export const useDatePicker = (
     columnIndex: number,
     curSelected: Record<string, number>
   ) {
-    const args = getGeneratorArguments()
     let start = 0,
       end = 59
 
@@ -603,9 +633,9 @@ export const useDatePicker = (
     return data
   }
 
-  function getGeneratorArguments() {
+  function getGeneratorArguments(selectedValues: number[]) {
     const defaultDate = getDefaultDate()
-    const args = {
+    const args: any = {
       Year: defaultDate.getFullYear(),
       Month: defaultDate.getMonth() + 1,
       Date: defaultDate.getDate(),
@@ -613,8 +643,8 @@ export const useDatePicker = (
       Minute: defaultDate.getMinutes(),
       Second: defaultDate.getSeconds(),
     }
-    selectedValues.value &&
-      selectedValues.value.map(
+    selectedValues &&
+      selectedValues.map(
         (selectedValue: number, index: number) => {
           const columnType = columnTypes.value[index]
           args[TYPE_FORMAT[columnType]] = selectedValue
@@ -653,7 +683,7 @@ export const useDatePicker = (
    * @params Date
    * @params year, month, date ...
    */
-  function isDateTimeEqual(date: Date, ...args: number[]) {
+  function isDateTimeEqual(date: any, ...args: number[]) {
     const methods = Object.keys(TYPE_METHODS).map((key) => {
       return TYPE_METHODS[key]
     })

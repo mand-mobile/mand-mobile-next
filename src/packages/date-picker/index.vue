@@ -1,24 +1,56 @@
 <template>
   <div class="md-date-picker">
-    <md-picker
-      ref="pickerRef"
-      v-model="selectedValues"
-      :data="pickerData"
-      :cols="cols"
-      :keep-index="keepIndex"
-      :line-height="lineHeight"
-      @change="onPickerChange"
-    />
+    <template v-if="isView">
+      <md-picker-view
+        ref="pickerView"
+        v-model="selectedValues"
+        :is-view="isView"
+        :data="pickerData"
+        :cols="cols"
+        :keep-index="keepIndex"
+        :line-height="lineHeight"
+        @change="onPickerChange"
+      />
+    </template>
+    <template v-else>
+      <md-popup
+        ref="popup"
+        v-model="popupShow"
+        class="inner-popup"
+        position="bottom"
+        :mask-closable="maskClosable"
+        :prevent-scroll="true"
+        @show="onShow"
+        @hide="onHide"
+        @maskClick="cancelHandler"
+      >
+        <md-popup-title-bar
+          :title="title"
+          :describe="describe"
+          :ok-text="okText"
+          :cancel-text="cancelText"
+          :large-radius="largeRadius"
+          @confirm="confirmHandler"
+          @cancel="cancelHandler"
+        ></md-popup-title-bar>
+        <md-picker-view
+          ref="pickerView"
+          v-model="selectedValues"
+          :data="pickerData"
+          :cols="cols"
+          :keep-index="keepIndex"
+          :line-height="lineHeight"
+          @change="onPickerChange"
+        />
+      </md-popup>
+    </template>
   </div>
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  ref,
-  ComponentPublicInstance,
-} from 'vue'
-import MdPicker from 'mand-mobile/picker'
+import { defineComponent } from 'vue'
+import { PickerView, popupProps } from 'mand-mobile/picker'
+import { Popup, PopupTitleBar } from 'mand-mobile/popup'
 import {
   datePickerProps,
   useDatePicker,
@@ -26,23 +58,46 @@ import {
 
 export default defineComponent({
   name: 'MdDatePicker',
-  components: { MdPicker },
-  props: datePickerProps,
-  setup(props) {
+  components: {
+    MdPopup: Popup,
+    MdPopupTitleBar: PopupTitleBar,
+    MdPickerView: PickerView,
+  },
+  props: { ...datePickerProps, ...popupProps },
+  setup(props, context) {
     const {
-      pickerRef,
       pickerData,
       cols,
       selectedValues,
       onPickerChange,
-    } = useDatePicker(props)
+
+      popupShow,
+      innerValue,
+      pickerView,
+      onHide,
+      onShow,
+      cancelHandler,
+      confirmHandler,
+    } = useDatePicker(props, context)
+
+    const getColumnValues = () => {
+      return pickerView.value?.getColumnValues()
+    }
 
     return {
-      pickerRef,
       pickerData,
       cols,
       selectedValues,
       onPickerChange,
+
+      popupShow,
+      innerValue,
+      pickerView,
+      onHide,
+      onShow,
+      cancelHandler,
+      confirmHandler,
+      getColumnValues,
     }
   },
 })

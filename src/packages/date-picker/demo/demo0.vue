@@ -11,10 +11,6 @@ import MdDatePicker from 'mand-mobile/date-picker'
 const minDate = new Date('2013/9/9')
 const maxDate = new Date('2022/9/9')
 const selectedDate = ref(new Date())
-
-watch(selectedDate, (val) => {
-  console.log(val)
-})
 </script>
 
 <template>
@@ -27,6 +23,7 @@ watch(selectedDate, (val) => {
   >
     <md-date-picker
       v-model="selectedDate"
+      is-view
       :min-date="minDate"
       :max-date="maxDate"
     ></md-date-picker>
