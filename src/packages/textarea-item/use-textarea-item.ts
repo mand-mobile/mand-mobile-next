@@ -11,8 +11,8 @@ import {
   CHANGE_EVENT,
   FOCUS_EVENT,
   BLUR_EVENT,
-  KEYUP,
-  KEYDOWN,
+  KEYUP_EVNET,
+  KEYDOWN_EVENT,
   noop,
   randomId,
 } from 'mand-mobile/utils'
@@ -162,10 +162,10 @@ export const useTextareaItem = (
   }
 
   const onKeyup = (event: Event) => {
-    emit(KEYUP, event)
+    emit(KEYUP_EVNET, event)
   }
   const onKeydown = (event: Event) => {
-    emit(KEYDOWN, event)
+    emit(KEYDOWN_EVENT, event)
   }
 
   const textarea = ref<HTMLElement | null>(null)

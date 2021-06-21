@@ -1,5 +1,6 @@
 import { computed } from 'vue'
 import { t } from 'mand-mobile/locale'
+import { useShow } from 'mand-mobile/composable'
 import {
   UPDATE_MODEL_EVENT,
   UPDATE_VISIBLE_EVENT,
@@ -74,21 +75,16 @@ export const useActionSheet = (
   props: ExtractPropTypes<typeof actionSheetProps>,
   { emit }: SetupContext<typeof emits>
 ) => {
+  const {
+    popupShow,
+    onHide,
+    onShow,
+    hide: hideSheet,
+  } = useShow(props, emit)
+
   const cancelHandler = () => {
     emit(CANCEL)
     hideSheet()
-  }
-
-  const onHide = () => {
-    emit(HIDE_EVENT)
-    hideSheet()
-  }
-  const onShow = () => {
-    emit(SHOW_EVENT)
-  }
-
-  const hideSheet = () => {
-    emit(UPDATE_VISIBLE_EVENT, false)
   }
 
   const onSelect = (
@@ -110,11 +106,6 @@ export const useActionSheet = (
       (item) => item.value === props.modelValue
     )
   )
-
-  const popupShow = computed({
-    get: () => props.visible,
-    set: () => hideSheet(),
-  })
 
   return {
     hideSheet,

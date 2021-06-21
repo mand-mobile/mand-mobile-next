@@ -1,6 +1,5 @@
 /**
- *  extend  components
- *  To solve Vue3 remove extends
+ *  use API to mounted component
  */
 import { render, mergeProps, createVNode } from 'vue'
 

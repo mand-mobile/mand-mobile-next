@@ -14,7 +14,7 @@ import {
   SHOW_EVENT,
   CHANGE_EVENT,
 } from 'mand-mobile/utils'
-import { useShow } from 'mand-mobile/selector'
+import { useShow } from 'mand-mobile/composable'
 import type {
   ExtractPropTypes,
   SetupContext,
