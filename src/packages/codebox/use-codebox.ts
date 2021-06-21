@@ -1,4 +1,4 @@
-import { computed, ref, watchEffect } from 'vue'
+import { computed, onMounted, ref, watchEffect } from 'vue'
 import { UPDATE_MODEL_EVENT } from 'mand-mobile/utils'
 import type {
   ExtractPropTypes,
@@ -19,6 +19,9 @@ export const codeboxProps = {
     type: Boolean,
     default: false,
   },
+  /**
+   * @deprecated
+   */
   disabled: {
     type: Boolean,
     default: false,
@@ -30,10 +33,6 @@ export const codeboxProps = {
   mask: {
     type: Boolean,
     default: false,
-  },
-  closable: {
-    type: Boolean,
-    default: true,
   },
   system: {
     type: Boolean,
@@ -98,7 +97,7 @@ export const useCodebox = (
   const numberKeyBoardRef =
     ref<ComponentPublicInstance<any> | null>(null)
   const box = computed<HTMLElement | undefined>(
-    () => numberKeyBoardRef.value?.$refs.popup.box
+    () => numberKeyBoardRef.value?.$refs.popup?.box
   )
   const nativeInputRef = ref<HTMLElement | null>(null)
 
@@ -106,6 +105,10 @@ export const useCodebox = (
     if (code.value.length >= props.maxlength) {
       blurHandler()
     }
+  })
+
+  onMounted(() => {
+    props.autofocus && focusHandler()
   })
 
   return {

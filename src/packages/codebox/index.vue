@@ -3,6 +3,10 @@
     <div
       v-click-outside:[box]="blurHandler"
       class="md-codebox"
+      :class="{
+        'is-disabled': disabled,
+        'is-justify': justify,
+      }"
       @click="focusHandler"
     >
       <template v-if="maxlength > 0">
@@ -28,6 +32,32 @@
           </template>
         </span>
       </template>
+      <template v-else>
+        <input
+          v-if="mask"
+          type="password"
+          :maxlength="maxlength"
+          :value="code"
+          readonly
+          disabled
+          :class="[
+            'md-codebox-holder',
+            focused && 'is-active',
+          ]"
+        />
+        <input
+          v-else
+          type="text"
+          :maxlength="maxlength"
+          :value="code"
+          readonly
+          disabled
+          :class="[
+            'md-codebox-holder',
+            focused && 'is-active',
+          ]"
+        />
+      </template>
       <!-- hidden input -->
       <input
         v-if="system"
@@ -39,6 +69,7 @@
         @input="nativeInputHandler"
       />
     </div>
+    <slot></slot>
     <slot
       name="keyboard"
       :focused="focused"

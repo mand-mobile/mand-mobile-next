@@ -5,6 +5,5 @@ Selector.install = (app: App) => {
   app.component(Selector.name, Selector)
 }
 
-export { useShow } from './use-selector'
 export { Selector }
 export default Selector

@@ -26,7 +26,8 @@ const componentEntrys = klawSync(PACKAGES_PATH, {
     (dir) =>
       !dir.path.endsWith('utils') &&
       !dir.path.endsWith('directives') &&
-      !dir.path.endsWith('locale')
+      !dir.path.endsWith('locale') &&
+      !dir.path.endsWith('composable')
   )
   .map((dir) => dir.path + '/index.ts')
 

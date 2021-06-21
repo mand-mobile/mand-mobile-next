@@ -156,7 +156,8 @@
         "name": "Captcha",
         "path": "/captcha",
         "icon": "captcha",
-        "text": "验证码窗口"
+        "text": "验证码窗口",
+        "complete": true
       },
       {
         "name": "Cashier",
