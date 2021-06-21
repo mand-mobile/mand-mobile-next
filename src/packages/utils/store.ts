@@ -68,6 +68,33 @@ export function compareObjects(
   return result
 }
 
+export function compareArrays(
+  arr0: Array<unknown>,
+  arr1: Array<unknown>
+) {
+  if (arr0.length !== arr1.length) {
+    return false
+  }
+  let result = true
+  for (let i = 0; i < arr0.length; i++) {
+    if (!deepEquals(arr0[i], arr1[i])) {
+      result = false
+    }
+  }
+  return result
+}
+
+export function deepEquals(a: unknown, b: unknown) {
+  if (a instanceof Array && b instanceof Array)
+    return compareArrays(a, b)
+  if (
+    Object.getPrototypeOf(a) === Object.prototype &&
+    Object.getPrototypeOf(b) === Object.prototype
+  )
+    return compareObjects(a, b)
+  return a === b
+}
+
 /**
  * https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/sign
  * 此函数共有5种返回值, 分别是 1, -1, 0, -0, NaN. 代表的各是正数, 负数, 正零, 负零, NaN。

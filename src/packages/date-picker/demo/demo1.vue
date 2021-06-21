@@ -8,14 +8,8 @@ export default {
 import { ref, watch } from 'vue'
 import MdDatePicker from 'mand-mobile/date-picker'
 
-const minDate = new Date('2013/9/9')
-const maxDate = new Date('2022/9/9')
-const selectedTime = ref(new Date())
-const unit = ['时', '分', '秒']
-
-watch(selectedTime, (val) => {
-  console.log(val)
-})
+const selectedTime = ref([23, 0, 0])
+const unit = ['小时', '分', '秒']
 </script>
 
 <template>
@@ -29,6 +23,7 @@ watch(selectedTime, (val) => {
     <md-date-picker
       v-model="selectedTime"
       type="time"
+      is-view
       :unit-text="unit"
     ></md-date-picker>
   </div>

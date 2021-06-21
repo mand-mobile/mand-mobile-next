@@ -29,14 +29,7 @@ export const emits: EmitsType[] = [
   CANCEL,
 ]
 
-import type {
-  ExtractPropTypes,
-  PropType,
-  ComponentInternalInstance,
-  SetupContext,
-} from 'vue'
-
-import { pickerProps } from './use-picker'
+import type { ExtractPropTypes, SetupContext } from 'vue'
 
 export const popupProps = {
   visible: {
@@ -71,7 +64,7 @@ export const popupProps = {
 
 export const usePopup = (
   props: ExtractPropTypes<
-    typeof popupProps & typeof pickerProps
+    typeof popupProps & { modelValue: any }
   >,
   { emit }: SetupContext<EmitsType[]>
 ) => {
@@ -109,9 +102,7 @@ export const usePopup = (
     hidePicker()
   }
 
-  const innerValue = ref<(string | number)[] | undefined>(
-    props.modelValue
-  )
+  const innerValue = ref<any>(props.modelValue)
 
   const onPickerChange = (
     columnIndex: number,
@@ -129,10 +120,10 @@ export const usePopup = (
   }
 
   const confirmHandler = () => {
-    if (
-      Array.isArray(innerValue.value) &&
-      innerValue.value.length > 0
-    ) {
+    if (Array.isArray(innerValue.value)) {
+      innerValue.value.length > 0 &&
+        emit(UPDATE_MODEL_EVENT, innerValue.value)
+    } else if (innerValue.value) {
       emit(UPDATE_MODEL_EVENT, innerValue.value)
     }
     emit(CONFIRM)
