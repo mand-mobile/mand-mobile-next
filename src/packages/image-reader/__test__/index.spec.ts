@@ -1,5 +1,7 @@
 import { mount } from '@vue/test-utils'
 import ImageReader from '../index.vue'
+import { imageProcessor } from '../image-processor'
+import { dataUrl } from './fileMock'
 
 describe('ImageReader.vue', () => {
   test('render', () => {
@@ -9,5 +11,24 @@ describe('ImageReader.vue', () => {
       },
     })
     expect(wrapper.classes()).toContain('md-image-reader')
+  })
+
+  test('create a image-reader', () => {
+    const wrapper = mount(ImageReader, {
+      props: {
+        size: 10,
+        accept: ['jpeg', 'png'],
+      },
+    })
+    expect(wrapper.find('input')).toBeTruthy()
+  })
+
+  test('image-reader processor', () => {
+    imageProcessor({
+      dataUrl,
+      width: 200,
+      height: 200,
+      quality: 0.1,
+    })
   })
 })

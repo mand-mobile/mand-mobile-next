@@ -1,5 +1,7 @@
 import { mount } from '@vue/test-utils'
 import Amount from '../index.vue'
+import { capitalize } from '../number-capital'
+import { useAmount } from '../use-amount'
 
 describe('Amount.vue', () => {
   test('render', () => {
@@ -43,5 +45,17 @@ describe('Amount.vue', () => {
       expect(instance.value).toBe(20.66)
       done()
     }, 4000)
+  })
+
+  test('capitalize', () => {
+    const wrapper = mount(Amount, {
+      props: {
+        value: '-1.2',
+      },
+    })
+    const { doCapital } = useAmount(wrapper.vm.props)
+    expect(doCapital(wrapper.vm.value)).toBe(
+      capitalize(wrapper.vm.value)
+    )
   })
 })
