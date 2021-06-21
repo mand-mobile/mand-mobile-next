@@ -36,10 +36,6 @@ const textRender = (
   }
   return
 }
-
-watch(selectedDateTime, (val) => {
-  console.log(val)
-})
 </script>
 
 <template>
@@ -53,9 +49,11 @@ watch(selectedDateTime, (val) => {
     <md-date-picker
       v-model="selectedDateTime"
       type="custom"
+      is-view
       :custom-types="customTypes"
       :text-render="textRender"
       :unit-text="['日', '月', '年']"
+      :keep-index="true"
       today-text="今日"
       :min-date="minDate"
       :max-date="maxDate"

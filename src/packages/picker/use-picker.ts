@@ -92,6 +92,8 @@ export const usePicker = (
   const cacheColumnIndex = ref<number>(-1)
   const cacheSelectedIndexs = ref<number[]>([])
 
+  const isDestory = ref(false)
+
   // init wheel item height
   const maskerHeight = computed(() => {
     return (props.lineHeight * 2 + 10) * dpr
@@ -126,18 +128,21 @@ export const usePicker = (
       [])
     },
     set: (val: number[]) => {
-      const selectedItems = val.map(
-        (itemIndex: number, columnIndex: number) => {
-          return pickerData.value[columnIndex]?.[itemIndex]
-        }
-      )
+      if (Array.isArray(val) && val.length > 0) {
+        const selectedItems = val.map(
+          (itemIndex: number, columnIndex: number) => {
+            return pickerData.value[columnIndex]?.[
+              itemIndex
+            ]
+          }
+        )
 
-      const selectedValues = selectedItems.map(
-        (i: PropsItem) => i?.value
-      )
-
-      emit(UPDATE_MODEL_EVENT, selectedValues)
-      // emit(CHANGE_EVENT, selectedItems)
+        const selectedValues = selectedItems.map(
+          (i: PropsItem) => i?.value
+        )
+        emit(UPDATE_MODEL_EVENT, selectedValues)
+        // emit(CHANGE_EVENT, selectedItems)
+      }
     },
   })
 
@@ -174,6 +179,10 @@ export const usePicker = (
           )) ||
         []
 
+      // when destory wheel, not refresh selected indexs and column data
+      if (isDestory.value) {
+        return
+      }
       curWheelIndex.value = index
       if (cacheColumnIndex.value === -1) {
         cacheColumnIndex.value = index
@@ -224,16 +233,18 @@ export const usePicker = (
   }
 
   const destroyWheel = () => {
+    isDestory.value = true
     wheelInstance &&
       wheelInstance.map((wheel: BScroll): void => {
-        // before destory, reset selectedIndexs
-        selectedIndexs.value = []
         // reset the wrapper class to first index
         wheel.wheelTo(0, 0)
 
         wheel.destroy()
       })
     wheelInstance = null
+    // reset selectedIndexs
+    selectedIndexs.value = []
+    isDestory.value = false
   }
 
   const initPickerColumn = (
@@ -372,7 +383,6 @@ export const usePicker = (
   const getColumnValues = () => {
     return selectedIndexs.value.map(
       (itemIndex: number, columnIndex: number) => {
-        console.log(pickerData.value)
         return pickerData.value[columnIndex]?.[itemIndex]
       }
     )
