@@ -65,6 +65,8 @@ describe('Steps.vue', () => {
           },
         ],
         current: 4,
+        verticalAdaptive: false,
+        direction: 'vertical',
       },
     })
     expect(wrapper.html()).toContain('md-icon-success')
@@ -86,6 +88,8 @@ describe('Steps.vue', () => {
         ],
         direction: 'vertical',
         verticalAdaptive: true,
+        transition: true,
+        current: 2,
       },
     })
     expect(wrapper.html()).toContain('vertical-adaptive')

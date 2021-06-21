@@ -82,10 +82,22 @@ describe('Skeleton.vue', () => {
     const wrapper = mount(Skeleton, {
       props: {
         loadding: false,
+        titleWidth: '',
       },
     })
 
     const skeletons = wrapper.findAllComponents(Skeleton)
     expect(skeletons).toHaveLength(0)
+  })
+
+  test('getTitleWidth', () => {
+    const wrapper = mount(Skeleton, {
+      props: {
+        rowWidth: 10,
+        titleWidth: '20%',
+      },
+    })
+    expect(wrapper.vm.getRowWidth()).toBe('10%')
+    expect(wrapper.vm.getTitleWidth()).toBe('20%')
   })
 })

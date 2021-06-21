@@ -42,7 +42,9 @@ describe('Radio.vue', () => {
     ).toEqual(3)
 
     wrapper.vm.selectHandler({ value: 2 })
-    expect(wrapper.vm.selectedValue).toEqual(2)
+    setTimeout(() => {
+      expect(wrapper.vm.selectedValue).toEqual(2)
+    }, 300)
 
     wrapper.setProps({
       modelValue: 1,
@@ -56,7 +58,7 @@ describe('Radio.vue', () => {
     })
 
     wrapper.vm.focusHandler()
-    expect(wrapper.vm.selectedValue).toBe('')
+    expect(wrapper.vm.selectedValue).toBe(0)
 
     wrapper.vm.blurHandler()
     expect(wrapper.vm.inputSelected).toBe(false)
