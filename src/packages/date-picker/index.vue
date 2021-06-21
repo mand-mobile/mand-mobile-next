@@ -54,6 +54,7 @@ import { Popup, PopupTitleBar } from 'mand-mobile/popup'
 import {
   datePickerProps,
   useDatePicker,
+  emits,
 } from './use-date-picker'
 
 export default defineComponent({
@@ -64,6 +65,7 @@ export default defineComponent({
     MdPickerView: PickerView,
   },
   props: { ...datePickerProps, ...popupProps },
+  emits,
   setup(props, context) {
     const {
       pickerData,

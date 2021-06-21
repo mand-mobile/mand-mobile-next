@@ -4,7 +4,13 @@ import {
   toObject,
   warn,
   deepEquals,
+  UPDATE_MODEL_EVENT,
+  UPDATE_VISIBLE_EVENT,
+  HIDE_EVENT,
+  SHOW_EVENT,
   CHANGE_EVENT,
+  CONFIRM_EVENT,
+  CANCEL_EVENT,
 } from 'mand-mobile/utils'
 
 import { popupProps, usePopup } from 'mand-mobile/picker'
@@ -60,6 +66,16 @@ export const TYPE_COLUMN: Record<string, Array<string>> = {
   time: ['hh', 'mm', 'ss'],
   datetime: ['yyyy', 'MM', 'dd', 'hh', 'mm'],
 }
+
+export const emits = [
+  UPDATE_MODEL_EVENT,
+  UPDATE_VISIBLE_EVENT,
+  HIDE_EVENT,
+  SHOW_EVENT,
+  CHANGE_EVENT,
+  CONFIRM_EVENT,
+  CANCEL_EVENT,
+]
 
 export const TYPE_FORMAT_INVERSE: Record<string, string> =
   toObject(
