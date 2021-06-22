@@ -19,7 +19,7 @@
     "build:component": "NODE_ENV=build rollup -c ./scripts/rollup.config.ts",
     "build:lib": "esno ./scripts/esbuild.ts ",
     "build": "yarn build:bundle && yarn build:lib",
-    "build:example": "vite build && rsync -avz example/* root@10.96.82.236:/home/mand-mobile",
+    "build:example": "vite build --base=./",
     "serve": "vite preview",
     "lint": "eslint --ext .ts,.vue --ignore-path .gitignore .eslintrc.js . --fix",
     "gen": "esno ./scripts/gen-component.ts --name",

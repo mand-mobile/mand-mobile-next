@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref } from 'vue'
-import MdIcon from 'mand-mobile/Icon'
+import MdIcon from 'mand-mobile/icon'
 import MdPopup from 'mand-mobile/popup'
 import {
   HIDE_EVENT,
