@@ -21,7 +21,7 @@
     "build": "yarn build:bundle && yarn build:lib",
     "build:example": "vite build && rsync -avz example/* root@10.96.82.236:/home/mand-mobile",
     "serve": "vite preview",
-    "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .eslintrc.js . --fix",
+    "lint": "eslint --ext .ts,.vue --ignore-path .gitignore .eslintrc.js . --fix",
     "gen": "esno ./scripts/gen-component.ts --name",
     "gen-entry": "esno ./scripts/gen-entry.ts",
     "test": "jest --coverage",
