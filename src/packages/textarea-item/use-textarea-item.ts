@@ -82,8 +82,8 @@ export const emits = [
   CHANGE_EVENT,
   BLUR_EVENT,
   FOCUS_EVENT,
-  KEYUP,
-  KEYDOWN,
+  KEYUP_EVNET,
+  KEYDOWN_EVENT,
 ]
 export const useTextareaItem = (
   props: ExtractPropTypes<typeof textareaItemProps>

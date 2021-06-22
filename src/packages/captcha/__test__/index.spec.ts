@@ -5,7 +5,7 @@ describe('Captcha.vue', () => {
   test('render', () => {
     const wrapper = mount(Captcha, {
       props: {
-        name: 'scan',
+        isView: true,
       },
     })
     expect(wrapper.classes()).toContain('md-captcha')

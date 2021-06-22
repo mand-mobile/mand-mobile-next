@@ -5,11 +5,11 @@ describe('NumberKeyboard.vue', () => {
   test('render', () => {
     const wrapper = mount(NumberKeyboard, {
       props: {
-        name: 'scan',
+        isView: true,
       },
     })
     expect(wrapper.classes()).toContain(
-      'md-number-keyboard'
+      'md-number-keyboard-container'
     )
   })
 })

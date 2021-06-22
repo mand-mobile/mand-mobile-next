@@ -27,7 +27,7 @@ describe('WaterMark.vue', () => {
         spacing: '10vh',
       },
       slots: {
-        watermark: ['<div>MAND MOBILE<div>'],
+        watermark: ['<div>MAND MOBILE</div>'],
       },
     })
     expect(wrapper.text()).toContain('MAND MOBILE')

@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { DefineComponent, defineComponent } from 'vue'
 import MdIcon from 'mand-mobile/icon'
 // eslint-disable-next-line @typescript-eslint/ban-types
