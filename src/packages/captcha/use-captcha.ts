@@ -160,11 +160,11 @@ export const useCaptcha = (
     }
   }
 
-  const stopWathcer = watch(popupShow, (val) => {
+  const stopWatcher = watch(popupShow, (val) => {
     if (val) {
       sendHandler()
     }
-    stopWathcer()
+    stopWatcher()
   })
 
   return {

@@ -216,7 +216,8 @@
         "name": "DatePicker",
         "path": "/date-picker",
         "icon": "date-picker",
-        "text": "日期选择器"
+        "text": "日期选择器",
+        "complete": true
       },
       {
         "name": "Dialog",
