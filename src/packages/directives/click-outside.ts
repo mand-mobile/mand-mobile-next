@@ -19,7 +19,7 @@ function clickHandler(e: UIEvent) {
       }) ?? []
 
     const isSelf = el === e.target
-    const isComposed = e.composedPath().includes(el)
+    const isComposed = e.composedPath?.().includes(el)
     const isContainedByEl = el.contains(e.target as Node)
     const isExcludes =
       excludes.includes(e.target) ||
