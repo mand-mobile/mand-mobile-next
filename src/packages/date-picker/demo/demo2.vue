@@ -9,7 +9,7 @@ import { ref, watch } from 'vue'
 import MdDatePicker from 'mand-mobile/date-picker'
 
 const minDate = new Date('2013/9/9 12:00:00')
-const maxDate = new Date('2022/9/9 24:00:00')
+const maxDate = new Date('2022/9/9 23:00:00')
 const selectedDateTime = ref(new Date())
 </script>
 

@@ -111,3 +111,7 @@ export const MathSign = function (x: string | number) {
   }
   return Math.sign(n)
 }
+
+export function isValidDate(d: unknown) {
+  return d instanceof Date && !isNaN(d.getTime())
+}

@@ -163,10 +163,10 @@ export const usePicker = (
       wheel: {
         selectedIndex:
           (selectedIndexs.value[index] as number) || 0,
-        wheelWrapperClass: 'md-picker_wheel',
-        wheelItemClass: 'md-picker_wheel--item',
+        wheelWrapperClass: 'md-picker-view_wheel',
+        wheelItemClass: 'md-picker-view_wheel--item',
         wheelDisabledItemClass:
-          'md-picker_wheel--disabled-item',
+          'md-picker-view_wheel--disabled-item',
       },
       probeType: 3,
     })
