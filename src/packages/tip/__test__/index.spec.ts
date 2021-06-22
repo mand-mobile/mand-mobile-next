@@ -72,17 +72,18 @@ describe('Tip.vue', () => {
       placement: 'right',
       fill: true,
       clickOutsideHide: true, // It's will trigger `Maximum recursive updates exceeded`
-      appendToBody: false,
       closable: false,
       icon: 'info',
     })
     const button = wrapper.find('.md-button')
-    const tip = wrapper.find('.md-tip-content')
+    const tip = document.body.querySelector(
+      '.md-tip-content'
+    ) as any
 
     button.trigger('click')
     await Promise.resolve()
     map.click({ target: document.body })
     await Promise.resolve()
-    expect(tip.isVisible()).toBe(false)
+    expect(tip.style.display).toBe('none')
   })
 })
