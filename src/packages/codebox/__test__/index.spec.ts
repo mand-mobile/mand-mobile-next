@@ -4,10 +4,10 @@ import Codebox from '../index.vue'
 describe('Codebox.vue', () => {
   test('render', () => {
     const wrapper = mount(Codebox, {
-      props: {
-        name: 'scan',
-      },
+      props: {},
     })
-    expect(wrapper.classes()).toContain('md-codebox')
+    expect(wrapper.classes()).toContain(
+      'md-codebox-wrapper'
+    )
   })
 })

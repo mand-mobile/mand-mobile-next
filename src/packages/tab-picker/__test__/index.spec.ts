@@ -1,13 +1,18 @@
 import { mount } from '@vue/test-utils'
 import TabPicker from '../index.vue'
+import data from '../demo/data.json'
 
 describe('TabPicker.vue', () => {
-  test('render', () => {
+  test('render', async () => {
     const wrapper = mount(TabPicker, {
       props: {
-        name: 'scan',
+        data,
       },
     })
-    expect(wrapper.classes()).toContain('md-tab-picker')
+    await Promise.resolve()
+    const tabPicker = document.body.querySelector(
+      '.md-slide-up'
+    ) as any
+    expect(tabPicker.style.display).toContain('none')
   })
 })
