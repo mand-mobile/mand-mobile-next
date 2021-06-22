@@ -4,6 +4,7 @@ import {
   toObject,
   warn,
   deepEquals,
+  isValidDate,
   UPDATE_MODEL_EVENT,
   UPDATE_VISIBLE_EVENT,
   HIDE_EVENT,
@@ -224,14 +225,36 @@ export const useDatePicker = (
   const columnDataGenerator = ref<any>([])
 
   const currentDate = new Date()
-  const minDate = computed(() => {
-    return props.minDate && transformDate(props.minDate)
+  const minDate = computed<Date>(() => {
+    const date =
+      props.minDate && transformDate(props.minDate)
+
+    if (props.type !== 'time' && !isValidDate(date)) {
+      warn('Param minDate has invalid value.')
+      return currentDate
+    }
+    return date as Date
   })
-  const maxDate = computed(() => {
-    return props.maxDate && transformDate(props.maxDate)
+  const maxDate = computed<Date>(() => {
+    const date =
+      props.maxDate && transformDate(props.maxDate)
+
+    if (props.type !== 'time' && !isValidDate(date)) {
+      warn('Param maxDate has invalid value.')
+      return currentDate
+    }
+    return date as Date
   })
 
   const initPicker = () => {
+    if (
+      minDate.value?.getTime() >= maxDate.value?.getTime()
+    ) {
+      warn(
+        'Param minDate Year should be earlier than Param maxDate.'
+      )
+      return
+    }
     initPickerColumn()
   }
 
@@ -359,9 +382,27 @@ export const useDatePicker = (
   ) {
     customTypes.forEach((type: string) => {
       type = TYPE_FORMAT[type] || type
-      columnDataGenerator.value.push(
-        eval(`generate${type}Data`)
-      )
+
+      switch (type) {
+        case 'Year':
+          columnDataGenerator.value.push(generateYearData)
+          break
+        case 'Month':
+          columnDataGenerator.value.push(generateMonthData)
+          break
+        case 'Date':
+          columnDataGenerator.value.push(generateDateData)
+          break
+        case 'Hour':
+          columnDataGenerator.value.push(generateHourData)
+          break
+        case 'Minute':
+          columnDataGenerator.value.push(generateMinuteData)
+          break
+        case 'Second':
+          columnDataGenerator.value.push(generateSecondData)
+          break
+      }
     })
   }
 
@@ -373,11 +414,6 @@ export const useDatePicker = (
       ? maxDate.value.getFullYear()
       : currentDate.getFullYear() + 20
 
-    /* istanbul ignore if */
-    if (start > end) {
-      warn('MinDate Year should be earlier than MaxDate')
-      return
-    }
     return generateData(
       start,
       end,
@@ -513,11 +549,6 @@ export const useDatePicker = (
       /* istanbul ignore if */
       if (end < start) {
         end = 23
-      }
-      /* istanbul ignore if */
-      if (start > end) {
-        warn('MinDate Hour should be earlier than MaxDate')
-        return
       }
     }
 
@@ -722,11 +753,18 @@ export const useDatePicker = (
     return res
   }
 
+  /**
+   * transform the selected array to date string
+   * @param columnTypes example: ['yyyy','MM','dd']
+   * @param columnValues example: [2021, 10, 1 ]
+   * @result '2021/10/1 00:00:00'
+   */
   function toDate(
     columnTypes: Array<string>,
     columnValues: Array<string | number>
   ) {
-    let format = 'yyyy-MM-dd hh:mm:ss'
+    // iOS can't transform the yyyy-MM-dd format, the separator / works both for Andriod and iOS
+    let format = 'yyyy/MM/dd hh:mm:ss'
 
     columnValues.forEach(
       (

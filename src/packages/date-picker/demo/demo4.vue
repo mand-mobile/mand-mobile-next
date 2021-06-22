@@ -18,7 +18,7 @@ const isDatePickerShow = ref(false)
 const datePickerValue = ref('')
 
 const onDatePickerConfirm = () => {
-  datePickerValue.value = selectedDate.value?.toISOString()
+  datePickerValue.value = selectedDate.value?.toDateString()
 }
 </script>
 
