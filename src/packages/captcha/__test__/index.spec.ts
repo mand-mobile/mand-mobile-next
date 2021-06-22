@@ -3,6 +3,29 @@ import Captcha from '../index.vue'
 import demo from '../demo/demo0.vue'
 
 describe('Captcha.vue', () => {
+  test('captcha input', async () => {
+    const wrapper = mount(demo, {
+      props: {},
+    })
+    const button = wrapper.find('.md-button')
+    const captcha = wrapper.findComponent<any>({
+      name: 'MdCaptcha',
+    })
+    button.trigger('click')
+    await Promise.resolve()
+    const keyone = document.body.querySelector(
+      '.keyboard-key-item'
+    )
+
+    for (const i of [4, 3, 2, 1]) {
+      keyone?.dispatchEvent(new Event('touchstart'))
+      keyone?.dispatchEvent(new Event('touchend'))
+      await Promise.resolve()
+    }
+
+    expect(captcha.vm.code === '1111').toBe(true)
+  })
+
   test('inlineview render', () => {
     const wrapper = mount(Captcha, {
       props: {
@@ -50,20 +73,6 @@ describe('Captcha.vue', () => {
     captcha.vm.onHide()
     await Promise.resolve()
     expect(captcha.vm.popupShow).toBe(false)
-  })
-
-  test('captcha input', async () => {
-    const wrapper = mount(demo, {
-      props: {},
-    })
-    const button = wrapper.find('.md-button')
-    const captcha = wrapper.findComponent<any>({
-      name: 'MdCaptcha',
-    })
-    button.trigger('click')
-    await Promise.resolve()
-    captcha.vm.code = '1111'
-    expect(captcha.vm.code === '1111').toBe(true)
   })
 
   test('captcha setError', async () => {
