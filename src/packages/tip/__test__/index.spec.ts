@@ -1,50 +1,88 @@
 import { mount } from '@vue/test-utils'
+import { h } from 'vue'
+import MdButton from 'mand-mobile/button'
 import Tip from '../index.vue'
+
+const Wrapped = (props: any) => {
+  return h(Tip, props, {
+    default: h(MdButton, { class: 'tip-button' }),
+  })
+}
+
+const _mount = (props: any) =>
+  mount(Wrapped, {
+    props,
+  })
 
 describe('Tip.vue', () => {
   test('render', () => {
-    const wrapper = mount(Tip, {
-      props: {
-        name: 'scan',
-        placement: 'left',
-        fill: true,
-      },
+    const wrapper = _mount({
+      content: 'test content',
+      placement: 'left',
+      fill: true,
+      clickOutsideHide: false,
     })
-    expect(wrapper.classes()).toContain('md-tip')
+
+    expect(wrapper.find('.tip-button').exists()).toBe(true)
   })
 
-  test('triggerHandler should be work', () => {
-    const wrapper = mount(Tip, {
-      props: {
-        placement: 'bottom',
-        fill: true,
-      },
+  test('triggerShow', async () => {
+    const wrapper = _mount({
+      content: 'test content',
+      placement: 'bottom',
+      fill: true,
+      clickOutsideHide: false,
+      appendToBody: false,
     })
-    expect(wrapper.vm.triggerHandler(false)).toBeTruthy()
-    expect(wrapper.vm.contentPosition).toBeTruthy()
+    const button = wrapper.find('.md-button')
+    const tip = wrapper.find('.md-tip-content')
+
+    button.trigger('click')
+    await Promise.resolve()
+    expect(tip.isVisible()).toBe(true)
   })
 
-  test('props placement should be work', () => {
-    const wrapper = mount(Tip, {
-      props: {
-        placement: 'top',
-        fill: true,
-      },
+  test('triggerHide', async () => {
+    const wrapper = _mount({
+      content: 'test content',
+      placement: 'top',
+      fill: true,
+      clickOutsideHide: false,
+      appendToBody: false,
     })
-    wrapper.setProps({ placement: 'left' })
-    setTimeout(() => {
-      expect(wrapper.vm.contentPosition).toBeTruthy()
-    }, 300)
+    const button = wrapper.find('.md-button')
+    const tip = wrapper.find('.md-tip-content')
+    const closeIcon = wrapper.find('.md-icon')
+
+    button.trigger('click')
+    await Promise.resolve()
+    closeIcon.trigger('click')
+    await Promise.resolve()
+    expect(tip.isVisible()).toBe(false)
   })
 
-  test('props placement should be work', () => {
-    const wrapper = mount(Tip, {
-      props: {
-        placement: 'right',
-        fill: true,
-      },
+  test('triggerClickoutside', async () => {
+    const map: any = {}
+    document.addEventListener = jest.fn((event, cb) => {
+      map[event] = cb
     })
-    expect(wrapper.vm.triggerHandler(true)).toBeTruthy()
-    expect(wrapper.vm.contentPosition).toBeTruthy()
+
+    const wrapper = _mount({
+      content: 'test content',
+      placement: 'right',
+      fill: true,
+      clickOutsideHide: true, // It's will trigger `Maximum recursive updates exceeded`
+      appendToBody: false,
+      closable: false,
+      icon: 'info',
+    })
+    const button = wrapper.find('.md-button')
+    const tip = wrapper.find('.md-tip-content')
+
+    button.trigger('click')
+    await Promise.resolve()
+    map.click({ target: document.body })
+    await Promise.resolve()
+    expect(tip.isVisible()).toBe(false)
   })
 })

@@ -5,11 +5,9 @@ import {
   Teleport,
   withDirectives,
   resolveDirective,
-  computed,
   ref,
   defineComponent,
   onMounted,
-  ComponentPublicInstance,
   watch,
   vShow,
   nextTick,
@@ -23,15 +21,12 @@ import MdTransition from 'mand-mobile/transition'
 import MdIcon from 'mand-mobile/icon'
 import { clickOutside } from 'mand-mobile/directives'
 
-import type { PropType } from 'vue'
+import type { PropType, ComponentPublicInstance } from 'vue'
 
 export default defineComponent({
+  name: 'MdTip',
   directives: { clickOutside },
   props: {
-    modelValue: {
-      type: Boolean,
-      default: false,
-    },
     placement: {
       type: String as PropType<
         'top' | 'left' | 'bottom' | 'right'
@@ -81,6 +76,10 @@ export default defineComponent({
      * feature tip will follow trigger position change
      */
     follow: {
+      type: Boolean,
+      default: true,
+    },
+    appendToBody: {
       type: Boolean,
       default: true,
     },
@@ -212,12 +211,6 @@ export default defineComponent({
             transform: `translate3d(0, -50%, 0)`,
           }
           break
-        default:
-          style = {
-            top: '0px',
-            left: '0px',
-          }
-          break
       }
 
       /**
@@ -233,7 +226,7 @@ export default defineComponent({
         }
       const bodyPosition =
         document.body.getBoundingClientRect()
-
+      /* istanbul ignore if */
       if (
         style.width === 'auto' &&
         (props.placement === 'top' ||
@@ -311,6 +304,7 @@ export default defineComponent({
      * watch get arrow rect
      */
     let setPositionId: number | undefined = undefined
+    /* istanbul ignore next */
     const flowHandler = () => {
       setPositionId = undefined
       if (!props.follow) return
@@ -327,7 +321,7 @@ export default defineComponent({
 
     function stop() {
       if (setPositionId) {
-        window.cancelAnimationFrame(setPositionId)
+        globalThis.cancelAnimationFrame(setPositionId)
         setPositionId = undefined
       }
     }
@@ -398,6 +392,7 @@ export default defineComponent({
         Teleport,
         {
           to: 'body',
+          disabled: !props.appendToBody,
         },
         [
           h(
