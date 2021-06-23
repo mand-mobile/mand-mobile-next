@@ -23,7 +23,9 @@ export default defineComponent({
   components: { MdIcon },
   props: checkProps,
   emits: [UPDATE_MODEL_EVENT],
-  setup: (props) => ({ ...useCheck(props) }),
+  setup: (props, context) => ({
+    ...useCheck(props, context),
+  }),
 })
 </script>
 

@@ -1,12 +1,12 @@
+import { ref, onMounted, computed, watch } from 'vue'
 import {
-  ref,
-  useContext,
-  onMounted,
-  computed,
-  watch,
-} from 'vue'
-import { traverse, compareObjects } from 'mand-mobile/utils'
-import type { Ref } from 'vue'
+  traverse,
+  compareObjects,
+  SHOW_EVENT,
+  HIDE_EVENT,
+  CHANGE_EVENT,
+} from 'mand-mobile/utils'
+import type { Ref, SetupContext } from 'vue'
 
 /**
  * todo more check
@@ -24,12 +24,13 @@ interface IPropsParams {
   defaultValue: Array<any>
 }
 
-export const SHOW = 'show'
-export const HIDE = 'hide'
-export const CHANGE = 'change'
-
-export const useDropMenu = (props: IPropsParams) => {
-  const { emit, slots } = useContext()
+export const useDropMenu = (
+  props: IPropsParams,
+  {
+    emit,
+    slots,
+  }: SetupContext<('show' | 'hide' | 'change')[]>
+) => {
   const isPopupShow = ref(false)
 
   const hasSlot = computed(() => {
@@ -64,11 +65,11 @@ export const useDropMenu = (props: IPropsParams) => {
 
   const onListShow = () => {
     setScroller(boxRef.value, menuRef.value, scroller)
-    emit(SHOW)
+    emit(SHOW_EVENT)
   }
 
   const onListHide = () => {
-    emit(HIDE)
+    emit(HIDE_EVENT)
   }
 
   const onListBeforeHide = () => {
@@ -129,7 +130,7 @@ export const useDropMenu = (props: IPropsParams) => {
     selectedMenuListValue.value[activeIndex] =
       listItem.value
     selectedMenuListItem.value[activeIndex] = listItem
-    emit(CHANGE, barItem, listItem)
+    emit(CHANGE_EVENT, barItem, listItem)
   }
 
   const scroller = ref('')

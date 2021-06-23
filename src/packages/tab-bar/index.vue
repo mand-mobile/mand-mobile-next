@@ -68,7 +68,7 @@ export default defineComponent({
     },
     [UPDATE_MODEL_EVENT]: (name: string) => true,
   },
-  setup(props) {
+  setup(props, context) {
     const {
       wrapRef,
       contentRef,
@@ -80,7 +80,7 @@ export default defineComponent({
       inkWidth,
       inkOffsetLeft,
       setInkStyle,
-    } = useTabBar(props)
+    } = useTabBar(props, context)
 
     return {
       wrapper: wrapRef,

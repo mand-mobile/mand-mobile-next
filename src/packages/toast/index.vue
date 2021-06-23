@@ -73,7 +73,7 @@ export default defineComponent({
       default: false,
     },
   },
-  setup(props) {
+  setup(props, context) {
     const {
       onShow,
       onHide,
@@ -81,7 +81,7 @@ export default defineComponent({
       hide,
       fire,
       isPopupShow,
-    } = useToast(props)
+    } = useToast(props, context)
     return {
       onShow,
       onHide,

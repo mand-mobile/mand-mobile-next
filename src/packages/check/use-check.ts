@@ -2,13 +2,16 @@ import {
   provide,
   inject,
   computed,
-  useContext,
   reactive,
   toRefs,
 } from 'vue'
 import { UPDATE_MODEL_EVENT } from 'mand-mobile/utils'
 
-import type { InjectionKey, ExtractPropTypes } from 'vue'
+import type {
+  InjectionKey,
+  ExtractPropTypes,
+  SetupContext,
+} from 'vue'
 
 type IGroupModelType = Array<string | number>
 type IModelType = boolean | string | number
@@ -72,7 +75,8 @@ export const checkProps = {
 }
 
 export const useCheck = (
-  props: ExtractPropTypes<typeof checkProps>
+  props: ExtractPropTypes<typeof checkProps>,
+  { emit }: SetupContext<'update:modelValue'[]>
 ) => {
   const checkGroup = inject(
     checkGroupKey,
@@ -92,7 +96,6 @@ export const useCheck = (
         ))
   )
 
-  const { emit } = useContext()
   const clickHandler = () => {
     if (!props.disabled) {
       if (typeof props.name === 'boolean') {
@@ -130,12 +133,13 @@ export const useCheck = (
   }
 }
 
-export const useCheckGroup = (props: {
-  modelValue: IGroupModelType
-  max: number
-}) => {
-  const { emit, slots } = useContext()
-
+export const useCheckGroup = (
+  props: {
+    modelValue: IGroupModelType
+    max: number
+  },
+  { emit, slots }: SetupContext
+) => {
   const isMax = computed(
     () =>
       props.max !== 0 &&

@@ -47,6 +47,11 @@
 import { defineComponent, PropType } from 'vue'
 import Popup from 'mand-mobile/popup'
 import { RadioList as MdRadioList } from 'mand-mobile/radio'
+import {
+  SHOW_EVENT,
+  HIDE_EVENT,
+  CHANGE_EVENT,
+} from 'mand-mobile/utils'
 import { useDropMenu } from './use-drop-menu'
 
 export default defineComponent({
@@ -75,7 +80,8 @@ export default defineComponent({
       default: () => [],
     },
   },
-  setup(props) {
+  emits: [SHOW_EVENT, HIDE_EVENT, CHANGE_EVENT],
+  setup(props, context) {
     const {
       hasSlot,
       isPopupShow,
@@ -95,7 +101,7 @@ export default defineComponent({
       scroller,
       boxRef: box,
       menuRef: menu,
-    } = useDropMenu(props)
+    } = useDropMenu(props, context)
     return {
       hasSlot,
       isPopupShow,

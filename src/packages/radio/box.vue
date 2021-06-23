@@ -26,7 +26,9 @@ export default defineComponent({
   components: { MdIcon },
   props: radioProps,
   emits: [UPDATE_MODEL_EVENT],
-  setup: (props) => ({ ...useRadio(props) }),
+  setup: (props, context) => ({
+    ...useRadio(props, context),
+  }),
 })
 </script>
 

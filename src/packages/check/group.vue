@@ -22,8 +22,8 @@ export default defineComponent({
       default: 0,
     },
   },
-  setup: (props) => {
-    const { toggleAll } = useCheckGroup(props)
+  setup: (props, context) => {
+    const { toggleAll } = useCheckGroup(props, context)
 
     return { toggleAll }
   },

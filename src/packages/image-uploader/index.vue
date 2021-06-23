@@ -59,14 +59,14 @@ export default defineComponent({
 
   emits,
 
-  setup(props) {
+  setup(props, context) {
     const {
       isOverMaxCount,
       dataList,
       onUploadComplete,
       onUploadError,
       onUploadSelect,
-    } = useImageUploader(props)
+    } = useImageUploader(props, context)
 
     return {
       dataList,

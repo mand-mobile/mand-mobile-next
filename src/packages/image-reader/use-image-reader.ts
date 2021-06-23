@@ -1,4 +1,4 @@
-import { ref, computed, useContext, PropType } from 'vue'
+import { ref, computed, PropType } from 'vue'
 
 import { dataURItoBlob } from './image-dataurl'
 import { CreateImageReader } from './image-reader'
@@ -11,7 +11,7 @@ import {
   ERROR_EVENT,
 } from 'mand-mobile/utils'
 
-import type { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes, SetupContext } from 'vue'
 import type { ICompleteResult } from './image-reader'
 
 const ERROR = {
@@ -76,16 +76,18 @@ export const imageReaderProps = {
   },
 }
 
-export const emits = [
+export const emits: ('error' | 'select' | 'complete')[] = [
   SELECT_EVENT,
   COMPLETE_EVENT,
   ERROR_EVENT,
 ]
 
 export const useImageUploader = (
-  props: ExtractPropTypes<typeof imageReaderProps>
+  props: ExtractPropTypes<typeof imageReaderProps>,
+  {
+    emit,
+  }: SetupContext<('error' | 'select' | 'complete')[]>
 ) => {
-  const { emit } = useContext()
   const inputTempKey = ref(Date.now())
 
   const clearFile = () => {

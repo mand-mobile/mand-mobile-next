@@ -1,11 +1,18 @@
-import { computed, useContext } from 'vue'
+import { computed } from 'vue'
 import {
   UPDATE_MODEL_EVENT,
   CHANGE_EVENT,
 } from 'mand-mobile/utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import type {
+  ExtractPropTypes,
+  PropType,
+  SetupContext,
+} from 'vue'
 
-export const emits = [UPDATE_MODEL_EVENT, CHANGE_EVENT]
+export const emits: ('update:modelValue' | 'change')[] = [
+  UPDATE_MODEL_EVENT,
+  CHANGE_EVENT,
+]
 
 export const agreeProps = {
   modelValue: {
@@ -23,9 +30,9 @@ export const agreeProps = {
 }
 
 export const useAgree = (
-  props: ExtractPropTypes<typeof agreeProps>
+  props: ExtractPropTypes<typeof agreeProps>,
+  { emit }: SetupContext<('update:modelValue' | 'change')[]>
 ) => {
-  const { emit } = useContext()
   const onChange = (event: Event) => {
     if (props.disabled) {
       return

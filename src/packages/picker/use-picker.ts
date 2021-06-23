@@ -7,7 +7,6 @@ import {
   ref,
   computed,
   watch,
-  useContext,
   nextTick,
 } from 'vue'
 
@@ -26,6 +25,7 @@ import type {
   ExtractPropTypes,
   PropType,
   ComponentInternalInstance,
+  SetupContext,
 } from 'vue'
 
 export type PropsItem = ExtractPropTypes<
@@ -79,7 +79,8 @@ export const pickerProps = {
 const dpr = getDpr()
 
 export const usePicker = (
-  props: ExtractPropTypes<typeof pickerProps>
+  props: ExtractPropTypes<typeof pickerProps>,
+  { emit }: SetupContext<('update:modelValue' | 'change')[]>
 ) => {
   let wheelInstance: BScroll[] | null = null
   const wheelsRef = ref<HTMLElement[]>([])
@@ -102,8 +103,6 @@ export const usePicker = (
   const indicatorHeight = computed(() => {
     return props.lineHeight * dpr
   })
-
-  const { emit } = useContext()
 
   const selectedIndexs = computed({
     get: (): number[] => {

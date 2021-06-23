@@ -31,7 +31,9 @@ export default defineComponent({
   },
   props,
   emits,
-  setup: (props) => ({ ...useAgree(props) }),
+  setup: (props, context) => ({
+    ...useAgree(props, context),
+  }),
 })
 </script>
 

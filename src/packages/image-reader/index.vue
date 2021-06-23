@@ -33,10 +33,9 @@ export default defineComponent({
   name: 'MdImageReader',
   props: imageReaderProps,
   emits,
-
-  setup(props) {
+  setup(props, context) {
     const { inputTempKey, acceptType, onFileChange } =
-      useImageUploader(props)
+      useImageUploader(props, context)
 
     return {
       inputTempKey,

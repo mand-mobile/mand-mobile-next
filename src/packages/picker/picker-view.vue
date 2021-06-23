@@ -69,7 +69,7 @@ export default defineComponent({
   name: 'MdPicker',
   props: pickerProps,
   emits: [UPDATE_MODEL_EVENT, CHANGE_EVENT],
-  setup(props) {
+  setup(props, context) {
     const {
       pickerData,
       selectedIndexs,
@@ -81,7 +81,7 @@ export default defineComponent({
       resetWheel,
       destroyWheel,
       getColumnValues,
-    } = usePicker(props)
+    } = usePicker(props, context)
 
     return {
       pickerData,

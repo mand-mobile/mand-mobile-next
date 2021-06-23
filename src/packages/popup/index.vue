@@ -65,7 +65,7 @@ export default defineComponent({
     BEFORE_SHOW,
     BEFORE_HIDE,
   ],
-  setup(props) {
+  setup(props, context) {
     const {
       isPopupShow,
       currentTransition,
@@ -76,7 +76,7 @@ export default defineComponent({
       beforePopupLeave,
       maskRef: mask,
       boxRef: box,
-    } = usePop(props)
+    } = usePop(props, context)
 
     return {
       isPopupShow,

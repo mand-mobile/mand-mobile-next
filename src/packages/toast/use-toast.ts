@@ -1,4 +1,5 @@
-import { ref, useContext, onBeforeUnmount } from 'vue'
+import { ref, onBeforeUnmount } from 'vue'
+import { SetupContext } from 'vue'
 
 export const SHOW = 'show'
 export const HIDE = 'hide'
@@ -6,9 +7,10 @@ export const HIDE = 'hide'
 interface IToastProps {
   duration: number
 }
-export const useToast = (props: IToastProps) => {
-  const { emit } = useContext()
-
+export const useToast = (
+  props: IToastProps,
+  { emit }: SetupContext
+) => {
   const onShow = () => {
     emit(SHOW)
   }

@@ -1,13 +1,11 @@
-import {
-  ref,
-  watch,
-  useContext,
-  onMounted,
-  computed,
-} from 'vue'
+import { ref, watch, onMounted, computed } from 'vue'
 import { UPDATE_MODEL_EVENT } from 'mand-mobile/utils'
 
-import type { PropType, ExtractPropTypes } from 'vue'
+import type {
+  PropType,
+  ExtractPropTypes,
+  SetupContext,
+} from 'vue'
 
 export const MASK_CLICK = 'maskClick'
 export const SHOW = 'show'
@@ -59,9 +57,20 @@ export const popupProps = {
 }
 
 export const usePop = (
-  props: ExtractPropTypes<typeof popupProps>
+  props: ExtractPropTypes<typeof popupProps>,
+  {
+    emit,
+  }: SetupContext<
+    (
+      | 'update:modelValue'
+      | 'maskClick'
+      | 'show'
+      | 'hide'
+      | 'beforeShow'
+      | 'beforeHide'
+    )[]
+  >
 ) => {
-  const { emit } = useContext()
   const isPopupShow = ref(false)
   const maskRef = ref<HTMLElement | null>(null)
   const boxRef = ref<HTMLElement | null>(null)
