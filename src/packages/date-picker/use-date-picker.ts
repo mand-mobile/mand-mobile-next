@@ -18,7 +18,11 @@ import { t } from 'mand-mobile/locale'
 
 import { popupProps, usePopup } from 'mand-mobile/picker'
 
-import type { ExtractPropTypes, PropType } from 'vue'
+import type {
+  ExtractPropTypes,
+  PropType,
+  SetupContext,
+} from 'vue'
 
 type datePickerType =
   | 'date'
@@ -144,7 +148,7 @@ export const useDatePicker = (
   props: ExtractPropTypes<
     typeof popupProps & typeof datePickerProps
   >,
-  context: any
+  context: SetupContext<any[]>
 ) => {
   const pickerData = ref<any[]>([])
 

@@ -15,11 +15,13 @@ import {
   noop,
   randomId,
 } from 'mand-mobile/utils'
+
 import type {
   ExtractPropTypes,
   Ref,
   SetupContext,
 } from 'vue'
+
 export const textareaItemProps = {
   title: {
     type: String,
@@ -80,6 +82,7 @@ export const textareaItemProps = {
     default: '',
   },
 }
+
 export const emits = [
   UPDATE_MODEL_EVENT,
   CHANGE_EVENT,
@@ -88,6 +91,7 @@ export const emits = [
   KEYUP_EVNET,
   KEYDOWN_EVENT,
 ]
+
 export const useTextareaItem = (
   props: ExtractPropTypes<typeof textareaItemProps>,
   { emit }: SetupContext<string[]>

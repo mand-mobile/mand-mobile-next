@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Toast from '../index.vue'
+import Toast from '../index'
 
 describe('Toast.vue', () => {
   test('render', () => {
@@ -34,5 +34,17 @@ describe('Toast.vue', () => {
       },
     })
     expect(wrapper.text()).toContain('this is content')
+  })
+
+  test('api call', async () => {
+    Toast.info('message')
+    Toast.failed('failed')
+    Toast.loading('loading')
+    Toast.succeed('success')
+    expect(Toast._instance).toBeTruthy()
+    Toast.hide()
+    expect(Toast._instance).toBeTruthy()
+    Toast.hide(true)
+    expect(Toast._instance).toBe(null)
   })
 })
