@@ -59,7 +59,7 @@ export const actionSheetProps = {
   },
   cancelText: {
     type: String,
-    default: t('md.action-sheet.cancel'),
+    default: t('md.action_sheet.cancel'),
   },
 }
 export const CANCEL = 'cancel'

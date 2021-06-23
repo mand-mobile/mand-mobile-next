@@ -6,6 +6,8 @@ import {
   randomId,
 } from 'mand-mobile/utils'
 
+import { t } from 'mand-mobile/locale'
+
 import type {
   PropType,
   ExtractPropTypes,
@@ -122,7 +124,7 @@ export const inputProps = {
   },
   okText: {
     type: String,
-    default: '确认',
+    default: t('md.number_keyboard.confirm'),
   },
   hideDot: {
     type: Boolean,

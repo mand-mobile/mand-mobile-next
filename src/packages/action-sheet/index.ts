@@ -4,6 +4,7 @@ import type {
   ComponentPublicInstance,
 } from 'vue'
 import { createComponent, noop } from 'mand-mobile/utils'
+import { t } from 'mand-mobile/locale'
 import ActionSheetConstructor from './index.vue'
 
 type ActionSheetFactory = typeof ActionSheetConstructor & {
@@ -35,7 +36,7 @@ ActionSheetConstructor.create = function ({
   title = '',
   options = [],
   invalidIndex = -1,
-  cancelText = '取消',
+  cancelText = t('md.action_sheet.cancel'),
   maxHeight = 400,
   onShow = noop,
   onHide = noop,

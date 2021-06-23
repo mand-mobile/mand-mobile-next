@@ -86,9 +86,9 @@ export default defineComponent({
         props.text ||
         {
           // 网络连接异常
-          network: t('md.result-page.networkError'),
+          network: t('md.result_page.networkError'),
           // 暂无信息
-          empty: t('md.result-page.noInformation'),
+          empty: t('md.result_page.noInformation'),
         }[props.type] ||
         ''
       )
@@ -99,7 +99,7 @@ export default defineComponent({
         props.subtext ||
         {
           // 您要访问的页面已丢失
-          lost: t('md.result-page.lostWay'),
+          lost: t('md.result_page.lostWay'),
         }[props.type] ||
         ''
       )

@@ -11,6 +11,7 @@ import {
   FOCUS_EVENT,
   BLUR_EVENT,
 } from 'mand-mobile/utils'
+import { t } from 'mand-mobile/locale'
 import { formatValue } from './use-input'
 
 import type {
@@ -65,7 +66,7 @@ export const fakeInputProps = {
   },
   okText: {
     type: String,
-    default: '确认',
+    default: t('md.number_keyboard.confirm'),
   },
   hideDot: {
     type: Boolean,

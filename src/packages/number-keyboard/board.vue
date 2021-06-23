@@ -46,6 +46,7 @@
 import { defineComponent, computed } from 'vue'
 import MdNumberKeyboardItem from './key.vue'
 import type { PropType } from 'vue'
+import { t } from 'mand-mobile/locale'
 
 export default defineComponent({
   name: 'MdNumberKeyboardContainer',
@@ -63,7 +64,7 @@ export default defineComponent({
     },
     okText: {
       type: String,
-      default: '确认',
+      default: t('md.number_keyboard.confirm'),
     },
     hideDot: {
       type: Boolean,

@@ -11,6 +11,7 @@ import {
 } from 'mand-mobile/utils'
 
 import { useShow } from 'mand-mobile/composable'
+import { t } from 'mand-mobile/locale'
 
 type EmitsType =
   | 'update:modelValue'
@@ -48,11 +49,11 @@ export const popupProps = {
   },
   okText: {
     type: String,
-    default: '确认',
+    default: t('md.picker.confirm'),
   },
   cancelText: {
     type: String,
-    default: '取消',
+    default: t('md.picker.cancel'),
   },
   largeRadius: {
     type: Boolean,
