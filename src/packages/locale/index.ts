@@ -1,4 +1,4 @@
-import defaultLang from './lang/zh-cn'
+import defaultLang from './lang/zh-CN'
 
 let lang = defaultLang
 
@@ -37,9 +37,8 @@ export const t = (path: string, option?: any) => {
 }
 
 export const setLocale = (l: {
-  name: string
   md: {
-    'action-sheet': { cancel: string }
+    action_sheet: { cancel: string }
     captcha: { sendCaptcha: string; countdown: string }
     cashier: {
       payCash: string
@@ -51,22 +50,23 @@ export const setLocale = (l: {
       payFail: string
       confirm: string
     }
-    'date-picker': {
+    date_picker: {
       year: string
       month: string
       day: string
       hour: string
       minute: string
+      second: string
     }
     dialog: { confirm: string; cancel: string }
-    'number-keyboard': { confirm: string }
+    number_keyboard: { confirm: string }
     picker: { confirm: string; cancel: string }
-    'result-page': {
+    result_page: {
       networkError: string
       noInformation: string
       lostWay: string
     }
-    'scroll-view': {
+    scroll_view: {
       more: { loading: string; allLoaded: string }
       refresh: {
         pullDownRefresh: string
@@ -76,7 +76,7 @@ export const setLocale = (l: {
       }
     }
     selector: { cancel: string }
-    'tab-picker': { choose: string }
+    tab_picker: { choose: string }
   }
 }) => {
   lang = l || lang

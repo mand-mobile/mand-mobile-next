@@ -14,6 +14,8 @@ import {
   CANCEL_EVENT,
 } from 'mand-mobile/utils'
 
+import { t } from 'mand-mobile/locale'
+
 import { popupProps, usePopup } from 'mand-mobile/picker'
 
 import type { ExtractPropTypes, PropType } from 'vue'
@@ -112,7 +114,14 @@ export const datePickerProps = {
   },
   unitText: {
     type: Array as PropType<Array<string>>,
-    default: ['年', '月', '日', '时', '分', '秒'],
+    default: [
+      t('md.date_picker.year'),
+      t('md.date_picker.month'),
+      t('md.date_picker.day'),
+      t('md.date_picker.hour'),
+      t('md.date_picker.minute'),
+      t('md.date_picker.second'),
+    ],
   },
   todayText: {
     type: String,

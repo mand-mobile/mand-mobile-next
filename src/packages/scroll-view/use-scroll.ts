@@ -101,21 +101,21 @@ export const useScroll = (
   const pullDownText = computed(() => {
     if (beforePullDown.value) {
       return canFreePullingDown.value
-        ? t('md.scroll-view.refresh.freedRefresh')
-        : t('md.scroll-view.refresh.pullDownRefresh')
+        ? t('md.scroll_view.refresh.freedRefresh')
+        : t('md.scroll_view.refresh.pullDownRefresh')
     } else {
       return isPullingDown.value
-        ? t('md.scroll-view.refresh.refreshing')
-        : t('md.scroll-view.refresh.success')
+        ? t('md.scroll_view.refresh.refreshing')
+        : t('md.scroll_view.refresh.success')
     }
   })
 
   const pullUpText = computed(() =>
     props.isFinished
-      ? t('md.scroll-view.more.allLoaded')
+      ? t('md.scroll_view.more.allLoaded')
       : isPullUpLoad.value
-      ? t('md.scroll-view.more.loading')
-      : t('md.scroll-view.more.loading')
+      ? t('md.scroll_view.more.loading')
+      : t('md.scroll_view.more.loading')
   )
 
   let scrollerInstance: null | BScroll = null
