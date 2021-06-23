@@ -1,10 +1,5 @@
-import {
-  ref,
-  useContext,
-  onUpdated,
-  onMounted,
-  computed,
-} from 'vue'
+import { ref, onUpdated, onMounted, computed } from 'vue'
+import type { SetupContext } from 'vue'
 interface InoticeProps {
   mode: string
   closable: boolean
@@ -12,8 +7,10 @@ interface InoticeProps {
   scrollable: boolean
 }
 
-export const useNotice = (props: InoticeProps) => {
-  const { emit, slots } = useContext()
+export const useNotice = (
+  props: InoticeProps,
+  { emit, slots }: SetupContext<'close'[]>
+) => {
   const isShow = ref(true)
   const overflow = ref(false)
   const wrap = ref<HTMLElement | null>(null)

@@ -1,4 +1,4 @@
-import { computed, ref, useContext, watchEffect } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import {
   UPDATE_MODEL_EVENT,
   FOCUS_EVENT,
@@ -6,7 +6,11 @@ import {
   randomId,
 } from 'mand-mobile/utils'
 
-import type { PropType, ExtractPropTypes } from 'vue'
+import type {
+  PropType,
+  ExtractPropTypes,
+  SetupContext,
+} from 'vue'
 
 export const inputProps = {
   type: {
@@ -131,9 +135,13 @@ export const inputProps = {
 }
 
 export const useInput = (
-  props: ExtractPropTypes<typeof inputProps>
+  props: ExtractPropTypes<typeof inputProps>,
+  {
+    emit,
+  }: SetupContext<
+    ('update:modelValue' | 'focus' | 'blur')[]
+  >
 ) => {
-  const { emit } = useContext()
   const innerValue = ref('')
   const nativeInputRef = ref<HTMLInputElement | null>(null)
 
@@ -205,9 +213,14 @@ export const useInput = (
 }
 
 export const useInputDisplay = (
-  props: ExtractPropTypes<typeof inputProps>
+  props: ExtractPropTypes<typeof inputProps>,
+  {
+    emit,
+    slots,
+  }: SetupContext<
+    ('update:modelValue' | 'focus' | 'blur')[]
+  >
 ) => {
-  const { emit, slots } = useContext()
   const nativeInputType = computed(() => {
     let inputType = props.type
     if (

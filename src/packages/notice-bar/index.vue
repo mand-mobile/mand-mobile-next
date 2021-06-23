@@ -99,9 +99,9 @@ export default defineComponent({
     },
   },
   emits: ['close'],
-  setup(props) {
+  setup(props, context) {
     return {
-      ...useNotice(props),
+      ...useNotice(props, context),
     }
   },
 })

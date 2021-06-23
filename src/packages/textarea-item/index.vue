@@ -60,7 +60,7 @@ export default defineComponent({
   },
   props,
   emits,
-  setup(props) {
+  setup(props, context) {
     const {
       inputValue,
       isDisabled,
@@ -78,7 +78,7 @@ export default defineComponent({
       onKeydown,
 
       textarea,
-    } = useTextareaItem(props)
+    } = useTextareaItem(props, context)
     return {
       inputValue,
       isDisabled,

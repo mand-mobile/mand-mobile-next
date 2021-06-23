@@ -2,7 +2,6 @@ import {
   provide,
   inject,
   computed,
-  useContext,
   reactive,
   toRefs,
   ref,
@@ -16,6 +15,7 @@ import type {
   InjectionKey,
   ComponentPublicInstance,
   ExtractPropTypes,
+  SetupContext,
 } from 'vue'
 
 type IModelType = boolean | string | number
@@ -82,7 +82,8 @@ export const radioProps = {
 }
 
 export const useRadio = (
-  props: ExtractPropTypes<typeof radioProps>
+  props: ExtractPropTypes<typeof radioProps>,
+  { emit }: SetupContext<'update:modelValue'[]>
 ) => {
   const radioGroup = inject(
     radioGroupKey,
@@ -107,7 +108,6 @@ export const useRadio = (
       : props.iconInverse
   )
 
-  const { emit } = useContext()
   const clickHandler = () => {
     if (!props.disabled) {
       if (isGroup.value) {
@@ -131,11 +131,12 @@ export const useRadio = (
   }
 }
 
-export const useRadioGroup = (props: {
-  modelValue: IModelType
-}) => {
-  const { emit } = useContext()
-
+export const useRadioGroup = (
+  props: {
+    modelValue: IModelType
+  },
+  { emit }: SetupContext<'update:modelValue'[]>
+) => {
   const checkEvent = (name: IModelType) => {
     emit(UPDATE_MODEL_EVENT, name)
   }
@@ -150,10 +151,12 @@ export const useRadioGroup = (props: {
   )
 }
 
-export const useRadioList = (props: {
-  modelValue: IModelType
-}) => {
-  const { emit } = useContext()
+export const useRadioList = (
+  props: {
+    modelValue: IModelType
+  },
+  { emit }: SetupContext<('update:modelValue' | 'change')[]>
+) => {
   const selectedValue = computed<IModelType>({
     get: () => props.modelValue,
     set: (val) => emit(UPDATE_MODEL_EVENT, val),

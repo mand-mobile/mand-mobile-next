@@ -1,4 +1,4 @@
-import { ref, useContext, watchEffect, watch } from 'vue'
+import { ref, watchEffect, watch } from 'vue'
 
 import {
   DELETE_EVENT,
@@ -6,7 +6,7 @@ import {
   UPDATE_LIST_EVENT,
 } from 'mand-mobile/utils'
 
-import type { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes, SetupContext } from 'vue'
 
 export const imageViewerProps = {
   visible: {
@@ -31,17 +31,24 @@ export const imageViewerProps = {
   },
 }
 
-export const emits = [
+export const emits: (
+  | 'update:list'
+  | 'delete'
+  | 'update:visible'
+)[] = [
   UPDATE_LIST_EVENT,
   DELETE_EVENT,
   UPDATE_VISIBLE_EVENT,
 ]
 
 export const useImageViewer = (
-  props: ExtractPropTypes<typeof imageViewerProps>
+  props: ExtractPropTypes<typeof imageViewerProps>,
+  {
+    emit,
+  }: SetupContext<
+    ('update:list' | 'delete' | 'update:visible')[]
+  >
 ) => {
-  const { emit } = useContext()
-
   const currentImgIndex = ref(0)
   const isViewerShow = ref(false)
   const dataList = ref<any[]>([])

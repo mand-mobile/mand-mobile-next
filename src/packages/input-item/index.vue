@@ -88,20 +88,20 @@ export default defineComponent({
   components: { MdFieldItem, MdIcon, MdFakeInput },
   props: inputProps,
   emits: [UPDATE_MODEL_EVENT, FOCUS_EVENT, BLUR_EVENT],
-  setup(props) {
+  setup(props, context) {
     const {
       nativeInputType,
       isNativeInputFocus,
       focusHandler,
       blurHandler,
-    } = useInputDisplay(props)
+    } = useInputDisplay(props, context)
     const {
       innerValue,
       nativeInputRef,
       nativeInputHandler,
       fakeInputHandler,
       nativeInputMaxLength,
-    } = useInput(props)
+    } = useInput(props, context)
 
     return {
       nativeInputType,

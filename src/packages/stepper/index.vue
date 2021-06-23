@@ -37,9 +37,9 @@ export default defineComponent({
   name: 'MdStepper',
   props: stepperProps,
   emits: emits,
-  setup(props) {
+  setup(props, context) {
     return {
-      ...useStepper(props),
+      ...useStepper(props, context),
     }
   },
 })

@@ -45,7 +45,7 @@ export default defineComponent({
   name: 'MdSwiper',
   props: swiperProps,
   emits: [BEFORE_CHANGE, AFTER_CHANGE],
-  setup(props) {
+  setup(props, context) {
     const {
       indicatorCount,
       wrapRef: wrapper,
@@ -54,7 +54,7 @@ export default defineComponent({
       currentIndex,
       getSwiperInstance,
       isVertical,
-    } = useSwiper(props)
+    } = useSwiper(props, context)
 
     return {
       indicatorCount,

@@ -94,7 +94,7 @@ export default defineComponent({
   },
   props: imageViewerProps,
   emits,
-  setup(props) {
+  setup(props, context) {
     const {
       currentImgIndex,
       isViewerShow,
@@ -103,7 +103,7 @@ export default defineComponent({
       showViewer,
       afterChange,
       onDeleteImage,
-    } = useImageViewer(props)
+    } = useImageViewer(props, context)
 
     return {
       currentImgIndex,

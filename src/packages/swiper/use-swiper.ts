@@ -5,7 +5,6 @@ import {
   onMounted,
   PropType,
   ref,
-  useContext,
   provide,
   unref as $,
   reactive,
@@ -20,6 +19,7 @@ import type {
   ExtractPropTypes,
   InjectionKey,
   Ref,
+  SetupContext,
 } from 'vue'
 
 export interface swiperContext {
@@ -100,10 +100,12 @@ export const swiperKey: InjectionKey<swiperContext> =
   'swiper' as any
 
 export const useSwiper = (
-  props: ExtractPropTypes<typeof swiperProps>
+  props: ExtractPropTypes<typeof swiperProps>,
+  {
+    emit,
+    slots,
+  }: SetupContext<('beforeChange' | 'afterChange')[]>
 ) => {
-  const { slots, emit } = useContext()
-
   let swiperInstance: null | BScroll = null
   const wrapRef = ref<null | HTMLElement>(null)
 
@@ -193,7 +195,12 @@ export const useSwiper = (
      */
     props.transition === 'fade' &&
       wrapRef.value &&
-      onScrollHandler(wrapRef.value, currentIndex, props)
+      onScrollHandler(
+        wrapRef.value,
+        currentIndex,
+        props,
+        emit
+      )
   })
 
   onBeforeUnmount(() => {
@@ -225,9 +232,11 @@ export const useSwiper = (
 function onScrollHandler(
   wrap: HTMLElement,
   currentIndex: Ref<number>,
-  props: ExtractPropTypes<typeof swiperProps>
+  props: ExtractPropTypes<typeof swiperProps>,
+  emit: SetupContext<
+    ('beforeChange' | 'afterChange')[]
+  >['emit']
 ) {
-  const { emit } = useContext()
   /**
    * get dom arrts
    */

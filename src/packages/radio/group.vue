@@ -20,8 +20,8 @@ export default defineComponent({
     },
   },
   emits: [UPDATE_MODEL_EVENT],
-  setup(props) {
-    useRadioGroup(props)
+  setup(props, context) {
+    useRadioGroup(props, context)
   },
 })
 </script>

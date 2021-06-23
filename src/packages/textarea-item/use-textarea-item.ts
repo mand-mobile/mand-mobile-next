@@ -3,7 +3,6 @@ import {
   computed,
   onMounted,
   watch,
-  useContext,
   nextTick,
 } from 'vue'
 import {
@@ -16,7 +15,11 @@ import {
   noop,
   randomId,
 } from 'mand-mobile/utils'
-import type { ExtractPropTypes, Ref } from 'vue'
+import type {
+  ExtractPropTypes,
+  Ref,
+  SetupContext,
+} from 'vue'
 export const textareaItemProps = {
   title: {
     type: String,
@@ -86,7 +89,8 @@ export const emits = [
   KEYDOWN_EVENT,
 ]
 export const useTextareaItem = (
-  props: ExtractPropTypes<typeof textareaItemProps>
+  props: ExtractPropTypes<typeof textareaItemProps>,
+  { emit }: SetupContext<string[]>
 ) => {
   const inputValue = ref(props.modelValue)
 
@@ -102,7 +106,6 @@ export const useTextareaItem = (
     return inputValue.value === ''
   })
 
-  const { emit } = useContext()
   watch(
     () => inputValue.value,
     (val) => {

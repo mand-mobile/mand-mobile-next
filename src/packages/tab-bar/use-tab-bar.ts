@@ -3,7 +3,6 @@ import {
   computed,
   onMounted,
   ref,
-  useContext,
   watch,
   unref as $,
   nextTick,
@@ -13,7 +12,11 @@ import {
   CHANGE_EVENT,
 } from 'mand-mobile/utils'
 
-import type { ExtractPropTypes, PropType } from 'vue'
+import type {
+  ExtractPropTypes,
+  PropType,
+  SetupContext,
+} from 'vue'
 import type { Options } from '@better-scroll/core'
 
 export type PropsItem = ExtractPropTypes<
@@ -51,7 +54,8 @@ export const tabBarProps = {
 }
 
 export const useTabBar = (
-  props: ExtractPropTypes<typeof tabBarProps>
+  props: ExtractPropTypes<typeof tabBarProps>,
+  { emit }: SetupContext<('update:modelValue' | 'change')[]>
 ) => {
   let scrollerInstance: BScroll | null = null
   const wrapRef = ref<HTMLElement | null>(null)
@@ -127,7 +131,6 @@ export const useTabBar = (
    * 1. v-model
    * 2. change ink position
    */
-  const { emit } = useContext()
   const inkOffsetLeft = ref('0px')
   const inkWidth = ref('0px')
 

@@ -153,7 +153,7 @@ export default defineComponent({
     },
   },
   emits: [UPDATE_MODEL_EVENT, CHANGE_EVENT],
-  setup(props) {
+  setup(props, context) {
     const {
       selectedValue,
       selectHandler,
@@ -163,7 +163,7 @@ export default defineComponent({
       inputSelected,
       focusHandler,
       blurHandler,
-    } = useRadioList(props)
+    } = useRadioList(props, context)
 
     return {
       selectedValue,

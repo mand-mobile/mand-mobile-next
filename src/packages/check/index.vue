@@ -36,9 +36,9 @@ export default defineComponent({
   },
   props: checkProps,
   emits: [UPDATE_MODEL_EVENT],
-  setup(props) {
+  setup(props, context) {
     const { isChecked, currentIcon, clickHandler } =
-      useCheck(props)
+      useCheck(props, context)
 
     return { isChecked, currentIcon, clickHandler }
   },

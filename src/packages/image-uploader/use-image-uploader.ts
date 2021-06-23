@@ -1,11 +1,4 @@
-import {
-  useContext,
-  computed,
-  ref,
-  watchEffect,
-  watch,
-  onMounted,
-} from 'vue'
+import { computed, ref, watch, onMounted } from 'vue'
 
 import {
   SELECT_EVENT,
@@ -17,7 +10,7 @@ import {
 
 import { imageReaderProps } from 'mand-mobile/image-reader'
 
-import type { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes, SetupContext } from 'vue'
 
 export const imageUploaderProps = {
   ...imageReaderProps,
@@ -31,7 +24,13 @@ export const imageUploaderProps = {
   },
 }
 
-export const emits = [
+export const emits: (
+  | 'error'
+  | 'select'
+  | 'complete'
+  | 'update:modelValue'
+  | 'delete'
+)[] = [
   SELECT_EVENT,
   COMPLETE_EVENT,
   ERROR_EVENT,
@@ -40,9 +39,19 @@ export const emits = [
 ]
 
 export const useImageUploader = (
-  props: ExtractPropTypes<typeof imageUploaderProps>
+  props: ExtractPropTypes<typeof imageUploaderProps>,
+  {
+    emit,
+  }: SetupContext<
+    (
+      | 'error'
+      | 'select'
+      | 'complete'
+      | 'update:modelValue'
+      | 'delete'
+    )[]
+  >
 ) => {
-  const { emit } = useContext()
   const dataList = ref<any[]>([])
 
   const isOverMaxCount = computed(() => {

@@ -27,6 +27,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import MdIcon from 'mand-mobile/icon'
+import { UPDATE_MODEL_EVENT } from 'mand-mobile/utils'
 import { radioProps, useRadio } from './use-radio'
 
 export default defineComponent({
@@ -35,9 +36,10 @@ export default defineComponent({
     MdIcon,
   },
   props: radioProps,
-  setup(props) {
+  emits: [UPDATE_MODEL_EVENT],
+  setup(props, context) {
     const { currentIcon, isChecked, clickHandler } =
-      useRadio(props)
+      useRadio(props, context)
 
     return {
       currentIcon,

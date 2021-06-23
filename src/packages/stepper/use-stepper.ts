@@ -1,11 +1,5 @@
-import {
-  ref,
-  watch,
-  computed,
-  useContext,
-  onMounted,
-} from 'vue'
-import type { ExtractPropTypes } from 'vue'
+import { ref, watch, computed, onMounted } from 'vue'
+import type { ExtractPropTypes, SetupContext } from 'vue'
 import {
   warn,
   UPDATE_MODEL_EVENT,
@@ -74,9 +68,9 @@ function subtr(num1: number, num2: number) {
 }
 
 export const useStepper = (
-  props: ExtractPropTypes<typeof stepperProps>
+  props: ExtractPropTypes<typeof stepperProps>,
+  { emit }: SetupContext<string[]>
 ) => {
-  const { emit } = useContext()
   const isMin = ref(false)
   const isMax = ref(false)
   const isEditing = ref(false)
