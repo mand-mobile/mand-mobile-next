@@ -63,6 +63,7 @@ export const useTabBar = (
 
   const scrollable = ref(false)
   const initScroller = () => {
+    /* istanbul ignore if  */
     if (scrollerInstance) {
       scrollerInstance.destroy()
       scrollerInstance = null
@@ -107,6 +108,7 @@ export const useTabBar = (
   const maskStartShown = ref(false)
   const maskEndShown = ref(true)
 
+  /* istanbul ignore next */
   function maskHandler(
     wrapperWidth: number,
     contentWidth: number
@@ -206,6 +208,7 @@ export const useTabBar = (
      * fallback
      */
     nextTick(() => {
+      /* istanbul ignore if  */
       if (props.inkLength) {
         const delta = itemsWidth[index] - props.inkLength
         inkWidth.value = `${props.inkLength}px`
@@ -247,6 +250,7 @@ export const useTabBar = (
   }
 }
 
+/* istanbul ignore next */
 function createScroller(
   el: string | HTMLElement,
   options?: Options
