@@ -100,6 +100,7 @@ export const useTabs = (
       [k: string]: any
       name: string | number
       label: string | number
+      disabled?: boolean | undefined
     },
     index: number
   ) {
