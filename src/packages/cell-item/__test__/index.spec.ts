@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import CellItem from '../index.vue'
+import CellItem from '../index'
 
 describe('CellItem.vue', () => {
   test('render', () => {
@@ -66,5 +66,11 @@ describe('CellItem.vue', () => {
       },
     })
     expect(wrapper.html()).toContain('this is slot')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(CellItem).use(CellItem)
+    ).toBeTruthy()
   })
 })

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Bill from '../index.vue'
+import Bill from '../index'
 
 describe('Bill.vue', () => {
   test('render', () => {
@@ -18,5 +18,11 @@ describe('Bill.vue', () => {
       },
     })
     expect(wrapper.text()).toContain('this is title')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Bill).use(Bill)
+    ).toBeTruthy()
   })
 })

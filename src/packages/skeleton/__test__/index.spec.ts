@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Skeleton from '../index.vue'
+import Skeleton from '../index'
 
 describe('Skeleton.vue', () => {
   test('render', () => {
@@ -99,5 +99,11 @@ describe('Skeleton.vue', () => {
     })
     expect(wrapper.vm.getRowWidth()).toBe('10%')
     expect(wrapper.vm.getTitleWidth()).toBe('20%')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Skeleton).use(Skeleton)
+    ).toBeTruthy()
   })
 })

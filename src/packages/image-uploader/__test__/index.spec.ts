@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import ImageUploader from '../index.vue'
+import ImageUploader from '../index'
 
 describe('ImageUploader.vue', () => {
   test('render', () => {
@@ -9,5 +9,12 @@ describe('ImageUploader.vue', () => {
       },
     })
     expect(wrapper.classes()).toContain('md-image-uploader')
+  })
+  test('install', () => {
+    expect(
+      require('vue')
+        .createApp(ImageUploader)
+        .use(ImageUploader)
+    ).toBeTruthy()
   })
 })

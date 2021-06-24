@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Picker from '../index.vue'
+import Picker from '../index'
 
 describe('Picker.vue', () => {
   test('render', () => {
@@ -9,5 +9,11 @@ describe('Picker.vue', () => {
       },
     })
     expect(wrapper.classes()).toContain('md-picker')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Picker).use(Picker)
+    ).toBeTruthy()
   })
 })

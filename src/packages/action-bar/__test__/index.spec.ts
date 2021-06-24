@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import ActionBar from '../index.vue'
+import ActionBar from '../index'
 
 describe('ActionBar.vue', () => {
   test('render', () => {
@@ -50,5 +50,11 @@ describe('ActionBar.vue', () => {
       },
     })
     expect(wrapper.html()).toContain('md-action-bar-text')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(ActionBar).use(ActionBar)
+    ).toBeTruthy()
   })
 })

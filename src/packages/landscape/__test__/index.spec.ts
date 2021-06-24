@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Landscape from '../index.vue'
+import Landscape from '../index'
 
 describe('Landscape.vue', () => {
   test('render', () => {
@@ -38,5 +38,11 @@ describe('Landscape.vue', () => {
     wrapper.vm.onHide()
     wrapper.vm.hidePage()
     expect(wrapper.emitted('hide')).toBeTruthy()
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Landscape).use(Landscape)
+    ).toBeTruthy()
   })
 })

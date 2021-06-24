@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Steps from '../index.vue'
+import Steps from '../index'
 
 describe('Steps.vue', () => {
   test('render', () => {
@@ -93,5 +93,11 @@ describe('Steps.vue', () => {
       },
     })
     expect(wrapper.html()).toContain('vertical-adaptive')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Steps).use(Steps)
+    ).toBeTruthy()
   })
 })

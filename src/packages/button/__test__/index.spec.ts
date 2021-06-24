@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Button from '../index.vue'
+import Button from '../index'
 describe('Button.vue', () => {
   test('render', () => {
     const wrapper = mount(Button, {
@@ -92,5 +92,11 @@ describe('Button.vue', () => {
       },
     })
     expect(wrapper.html()).toContain('this is slot')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Button).use(Button)
+    ).toBeTruthy()
   })
 })

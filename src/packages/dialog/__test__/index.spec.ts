@@ -127,4 +127,10 @@ describe('Dialog.vue', () => {
     expect(vm.actions[0].handler()).toBeFalsy()
     expect(vm.actions[1].handler()).toBeFalsy()
   })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Dialog).use(Dialog)
+    ).toBeTruthy()
+  })
 })

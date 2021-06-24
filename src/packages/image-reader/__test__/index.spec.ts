@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import ImageReader from '../index.vue'
+import ImageReader from '../index'
 import { imageProcessor } from '../image-processor'
 import { dataUrl } from './fileMock'
 
@@ -30,5 +30,11 @@ describe('ImageReader.vue', () => {
       height: 200,
       quality: 0.1,
     })
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(ImageReader).use(ImageReader)
+    ).toBeTruthy()
   })
 })

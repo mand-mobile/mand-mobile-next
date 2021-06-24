@@ -178,7 +178,7 @@ ToastConstructor.loading = (
 const Toast = ToastConstructor as ToastFactory
 
 Toast.install = (app: App) => {
-  app.component(Toast.component.name, Toast)
+  app.component(Toast.name, Toast)
 }
 
 export { Toast }

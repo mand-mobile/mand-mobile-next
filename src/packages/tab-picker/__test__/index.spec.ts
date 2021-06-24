@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import TabPicker from '../index.vue'
+import TabPicker from '../index'
 import data from '../demo/data.json'
 
 describe('TabPicker.vue', () => {
@@ -14,5 +14,11 @@ describe('TabPicker.vue', () => {
       '.md-slide-up'
     ) as any
     expect(tabPicker.style.display).toContain('none')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(TabPicker).use(TabPicker)
+    ).toBeTruthy()
   })
 })

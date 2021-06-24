@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import DatePicker from '../index.vue'
+import DatePicker from '../index'
 
 describe('DatePicker.vue', () => {
   test('render', () => {
@@ -9,5 +9,11 @@ describe('DatePicker.vue', () => {
       },
     })
     expect(wrapper.classes()).toContain('md-date-picker')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(DatePicker).use(DatePicker)
+    ).toBeTruthy()
   })
 })

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import DetailItem from '../index.vue'
+import DetailItem from '../index'
 
 describe('DetailItem.vue', () => {
   test('render', () => {
@@ -27,5 +27,11 @@ describe('DetailItem.vue', () => {
       },
     })
     expect(wrapper.text()).toContain('this is content')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(DetailItem).use(DetailItem)
+    ).toBeTruthy()
   })
 })
