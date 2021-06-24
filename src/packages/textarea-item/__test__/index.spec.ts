@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import TextareaItem from '../index.vue'
+import TextareaItem from '../index'
 
 describe('TextareaItem.vue', () => {
   test('render', () => {
@@ -150,5 +150,13 @@ describe('TextareaItem.vue', () => {
     inputEle.trigger('keydown')
     expect(wrapper.emitted()).toBeTruthy()
     expect(wrapper.vm.inputValue).toBe(inputContent)
+  })
+
+  test('install', () => {
+    expect(
+      require('vue')
+        .createApp(TextareaItem)
+        .use(TextareaItem)
+    ).toBeTruthy()
   })
 })

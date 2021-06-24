@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import WaterMark from '../index.vue'
+import WaterMark from '../index'
 
 describe('WaterMark.vue', () => {
   test('render', () => {
@@ -42,5 +42,11 @@ describe('WaterMark.vue', () => {
     })
     const canvasRef = wrapper.vm.$refs.canvas
     expect(canvasRef).toBeTruthy()
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(WaterMark).use(WaterMark)
+    ).toBeTruthy()
   })
 })

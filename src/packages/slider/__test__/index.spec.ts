@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Slider from '../index.vue'
+import Slider from '../index'
 
 describe('Slider.vue', () => {
   test('render', () => {
@@ -34,5 +34,11 @@ describe('Slider.vue', () => {
       expect(wrapper.vm.realValue).toBe(20)
       done()
     }, 300)
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Slider).use(Slider)
+    ).toBeTruthy()
   })
 })

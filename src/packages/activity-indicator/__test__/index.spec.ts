@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import ActivityIndicator from '../index.vue'
+import ActivityIndicator from '../index'
 
 describe('ActivityIndicator.vue', () => {
   test('render-roller', () => {
@@ -66,5 +66,13 @@ describe('ActivityIndicator.vue', () => {
       },
     })
     expect(wrapper.vm.innerColor).toBe('light')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue')
+        .createApp(ActivityIndicator)
+        .use(ActivityIndicator)
+    ).toBeTruthy()
   })
 })

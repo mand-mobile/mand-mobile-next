@@ -47,4 +47,10 @@ describe('Toast.vue', () => {
     Toast.hide(true)
     expect(Toast._instance).toBe(null)
   })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Toast).use(Toast)
+    ).toBeTruthy()
+  })
 })

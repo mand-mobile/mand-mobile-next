@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Check from '../index.vue'
+import Check from '../index'
 import {
   CheckBox as MdCheckBox,
   CheckList as MdCheckList,
@@ -111,5 +111,11 @@ describe('Check.vue', () => {
     })
     await wrapper.vm.toggleAll()
     expect(wrapper.vm.modelValue).toBeTruthy()
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(CheckGroup).use(Check)
+    ).toBeTruthy()
   })
 })

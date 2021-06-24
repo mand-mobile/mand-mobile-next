@@ -78,7 +78,7 @@ ActionSheetConstructor.create = function ({
       props
     )
     ActionSheetConstructor._show?.()
-    return
+    return ActionSheetConstructor._instance.component.proxy
   }
 
   const vm = (ActionSheetConstructor._instance =

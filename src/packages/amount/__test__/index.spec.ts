@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Amount from '../index.vue'
+import Amount from '../index'
 import { capitalize } from '../number-capital'
 import { useAmount } from '../use-amount'
 
@@ -57,5 +57,11 @@ describe('Amount.vue', () => {
     expect(doCapital(wrapper.vm.value)).toBe(
       capitalize(wrapper.vm.value)
     )
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Amount).use(Amount)
+    ).toBeTruthy()
   })
 })

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Tabs from '../index.vue'
+import Tabs from '../index'
 
 describe('Tabs.vue', () => {
   test('render', () => {
@@ -31,5 +31,11 @@ describe('Tabs.vue', () => {
     })
     wrapper.vm.swiperChangeHandler('', 2)
     expect(wrapper.emitted('change')).toBeTruthy()
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Tabs).use(Tabs)
+    ).toBeTruthy()
   })
 })

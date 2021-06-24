@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Agree from '../index.vue'
+import Agree from '../index'
 import type { Component } from 'vue'
 
 describe('Agree.vue', () => {
@@ -52,5 +52,11 @@ describe('Agree.vue', () => {
       },
     })
     expect(wrapper.vm.currentIcon).toBe('checked')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Agree).use(Agree)
+    ).toBeTruthy()
   })
 })

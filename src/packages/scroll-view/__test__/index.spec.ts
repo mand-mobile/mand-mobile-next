@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import ScrollView from '../index.vue'
+import ScrollView from '../index'
 
 describe('ScrollView.vue', () => {
   test('render', () => {
@@ -9,5 +9,11 @@ describe('ScrollView.vue', () => {
       },
     })
     expect(wrapper.classes()).toContain('md-scroll-view')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(ScrollView).use(ScrollView)
+    ).toBeTruthy()
   })
 })

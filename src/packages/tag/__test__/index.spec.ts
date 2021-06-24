@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Tag from '../index.vue'
+import Tag from '../index'
 
 describe('Tag.vue', () => {
   test('render', () => {
@@ -94,5 +94,11 @@ describe('Tag.vue', () => {
       },
     })
     expect(wrapper.props('shape')).toBe('bubble')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Tag).use(Tag)
+    ).toBeTruthy()
   })
 })

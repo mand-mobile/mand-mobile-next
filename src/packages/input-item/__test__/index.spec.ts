@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import InputItem from '../index.vue'
+import InputItem from '../index'
 
 describe('InputItem.vue', () => {
   test('render', () => {
@@ -9,5 +9,11 @@ describe('InputItem.vue', () => {
       },
     })
     expect(wrapper.classes()).toContain('md-input-item')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(InputItem).use(InputItem)
+    ).toBeTruthy()
   })
 })

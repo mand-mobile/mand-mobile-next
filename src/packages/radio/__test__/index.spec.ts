@@ -1,5 +1,5 @@
 import { mount, VueWrapper } from '@vue/test-utils'
-import Radio from '../index.vue'
+import Radio from '../index'
 import { RadioList as MdRadioList } from 'mand-mobile/radio'
 import MdRadioGroup from 'mand-mobile/radio-group'
 
@@ -62,5 +62,11 @@ describe('Radio.vue', () => {
 
     wrapper.vm.blurHandler()
     expect(wrapper.vm.inputSelected).toBe(false)
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Radio).use(Radio)
+    ).toBeTruthy()
   })
 })

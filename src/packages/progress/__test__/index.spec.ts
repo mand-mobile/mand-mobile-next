@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Progress from '../index.vue'
+import Progress from '../index'
 
 describe('Progress.vue', () => {
   test('render', () => {
@@ -51,5 +51,11 @@ describe('Progress.vue', () => {
       },
     })
     expect(wrapper.html()).toContain('100%')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Progress).use(Progress)
+    ).toBeTruthy()
   })
 })

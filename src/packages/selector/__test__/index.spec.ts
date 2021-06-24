@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Selector from '../index.vue'
+import Selector from '../index'
 
 describe('Selector.vue', () => {
   test('props visible should be work', () => {
@@ -73,5 +73,11 @@ describe('Selector.vue', () => {
       wrapper.vm.confirmHandler()
       done()
     }, 300)
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Selector).use(Selector)
+    ).toBeTruthy()
   })
 })

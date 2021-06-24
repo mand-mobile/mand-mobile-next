@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Field from '../index.vue'
+import Field from '../index'
 import MdFieldItem from 'mand-mobile/field-item'
 
 describe('Field.vue', () => {
@@ -55,5 +55,14 @@ describe('Field.vue', () => {
       },
     })
     expect(wrapper.html()).toContain('arrow-right')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue')
+        .createApp(MdFieldItem)
+        .use(MdFieldItem)
+        .use(Field)
+    ).toBeTruthy()
   })
 })

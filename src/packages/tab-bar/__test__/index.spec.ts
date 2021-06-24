@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import TabBar from '../index.vue'
+import TabBar from '../index'
 import type { Component } from 'vue'
 
 describe('TabBar.vue', () => {
@@ -95,5 +95,11 @@ describe('TabBar.vue', () => {
     })
     expect(wrapper.vm.modelIndex).toBe(0)
     expect(wrapper.emitted('change')[0][0]).toBeTruthy()
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(TabBar).use(TabBar)
+    ).toBeTruthy()
   })
 })

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Captcha from '../index.vue'
+import Captcha from '../index'
 import demo from '../demo/demo0.vue'
 
 describe('Captcha.vue', () => {
@@ -104,5 +104,11 @@ describe('Captcha.vue', () => {
     await Promise.resolve()
     jest.advanceTimersByTime(60000)
     expect(captcha.vm.countBtnText).toBe('发送验证码')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Captcha).use(Captcha)
+    ).toBeTruthy()
   })
 })

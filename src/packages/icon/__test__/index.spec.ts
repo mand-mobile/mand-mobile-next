@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Icon from '../index.vue'
+import Icon from '../index'
 
 describe('Icon.vue', () => {
   test('render', () => {
@@ -36,5 +36,11 @@ describe('Icon.vue', () => {
       },
     })
     expect(wrapper.html()).toContain('md-icon-close')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Icon).use(Icon)
+    ).toBeTruthy()
   })
 })

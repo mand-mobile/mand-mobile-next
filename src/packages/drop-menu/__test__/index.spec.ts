@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import DropMenu from '../index.vue'
+import DropMenu from '../index'
 
 describe('DropMenu.vue', () => {
   const data = [
@@ -109,5 +109,11 @@ describe('DropMenu.vue', () => {
     expect(wrapper.emitted('show')).toBeTruthy()
     wrapper.vm.onListHide()
     expect(wrapper.emitted('hide')).toBeTruthy()
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(DropMenu).use(DropMenu)
+    ).toBeTruthy()
   })
 })

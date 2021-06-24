@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Stepper from '../index.vue'
+import Stepper from '../index'
 
 describe('Stepper.vue', () => {
   test('render', () => {
@@ -141,5 +141,11 @@ describe('Stepper.vue', () => {
 
     await div.trigger('click')
     expect(wrapper.find('input').element.value).toBe('10')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Stepper).use(Stepper)
+    ).toBeTruthy()
   })
 })

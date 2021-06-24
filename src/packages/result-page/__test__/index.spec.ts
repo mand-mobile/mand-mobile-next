@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import ResultPage from '../index.vue'
+import ResultPage from '../index'
 
 describe('ResultPage.vue', () => {
   test('render', () => {
@@ -44,5 +44,11 @@ describe('ResultPage.vue', () => {
     })
     expect(wrapper.html()).toContain('普通按钮')
     expect(wrapper.vm.buttons[0].handler()).toBe(666)
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(ResultPage).use(ResultPage)
+    ).toBeTruthy()
   })
 })

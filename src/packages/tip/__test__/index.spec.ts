@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { h } from 'vue'
 import MdButton from 'mand-mobile/button'
-import Tip from '../index.vue'
+import Tip from '../index'
 
 const Wrapped = (props: any) => {
   return h(Tip, props, {
@@ -85,5 +85,11 @@ describe('Tip.vue', () => {
     map.click({ target: document.body })
     await Promise.resolve()
     expect(tip.style.display).toBe('none')
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Tip).use(Tip)
+    ).toBeTruthy()
   })
 })

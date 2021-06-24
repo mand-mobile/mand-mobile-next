@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import ImageViewer from '../index.vue'
+import ImageViewer from '../index'
 import type { Component } from 'vue'
 
 describe('ImageViewer.vue', () => {
@@ -45,5 +45,11 @@ describe('ImageViewer.vue', () => {
     )
     wrapper.vm.onDeleteImage(1)
     expect(wrapper.emitted('delete')[0][0]).toBe(1)
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(ImageViewer).use(ImageViewer)
+    ).toBeTruthy()
   })
 })

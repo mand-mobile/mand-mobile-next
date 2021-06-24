@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Popup from '../index.vue'
+import Popup from '../index'
 
 describe('NoticeBar.vue', () => {
   test('popup show/hide', (done) => {
@@ -42,5 +42,11 @@ describe('NoticeBar.vue', () => {
     expect(wrapper.vm.currentTransition).toBe(
       'md-slide-right'
     )
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Popup).use(Popup)
+    ).toBeTruthy()
   })
 })

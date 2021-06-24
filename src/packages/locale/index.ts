@@ -1,4 +1,5 @@
-import defaultLang from './lang/zh-CN'
+/* istanbul ignore file  */
+import defaultLang from './lang/zh-cn'
 
 let lang = defaultLang
 

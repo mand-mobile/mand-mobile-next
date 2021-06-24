@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Switch from '../index.vue'
+import Switch from '../index'
 import type { Component } from 'vue'
 
 describe('Switch.vue', () => {
@@ -36,5 +36,11 @@ describe('Switch.vue', () => {
     expect(wrapper.emitted('update:modelValue')[0][0]).toBe(
       true
     )
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(Switch).use(Switch)
+    ).toBeTruthy()
   })
 })

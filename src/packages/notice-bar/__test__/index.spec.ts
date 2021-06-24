@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import NoticeBar from '../index.vue'
+import NoticeBar from '../index'
 
 describe('NoticeBar.vue', () => {
   test('render', () => {
@@ -75,5 +75,11 @@ describe('NoticeBar.vue', () => {
       expect(wrapper.vm.isShow).toBe(false)
       done()
     }, 300)
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(NoticeBar).use(NoticeBar)
+    ).toBeTruthy()
   })
 })

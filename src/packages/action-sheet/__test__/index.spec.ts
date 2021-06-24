@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
-import ActionSheet from '../index.vue'
+import { ref } from 'vue'
+import ActionSheet from '../index'
 import type { Component } from 'vue'
 
 describe('ActionSheet.vue', () => {
@@ -67,5 +68,64 @@ describe('ActionSheet.vue', () => {
       wrapper.emitted('update:visible')[0][0]
     ).toBeFalsy()
     expect(wrapper.vm.visible).toBe(false)
+  })
+
+  test('api call', async () => {
+    const val = ref<number | string>('')
+    const options = {
+      title: '操作说明的标题',
+      options: [
+        {
+          label: '选项1',
+          value: 0,
+        },
+        {
+          label: '选项2',
+          value: 1,
+        },
+        {
+          label: '选项3',
+          value: 2,
+        },
+      ],
+      modelValue: val.value,
+      invalidIndex: 2,
+      cancelText: '取消',
+      onCancel: () => {
+        vm?.updateProps?.({ visible: false })
+      },
+      onSelect: (item: any) => {
+        console.log('click', item)
+        val.value = item.value
+        vm?.updateProps?.({
+          visible: false,
+          modelValue: val.value,
+        })
+      },
+      onHide: () => {
+        console.log('hide')
+        vm?.remove?.()
+      },
+      onMaskClick: () => {
+        vm?.updateProps?.({ visible: false })
+      },
+    }
+    const vm =
+      ActionSheet.create<{
+        label: string
+        value: number | string
+      }>(options)
+
+    expect(vm).toBeTruthy()
+    const vm2 = ActionSheet.create(options)
+    expect(vm2).toEqual(vm)
+    vm2?.remove?.()
+    expect(ActionSheet._instance).toBe(null)
+  })
+
+  test('install', () => {
+    expect(
+      require('vue').createApp(ActionSheet).use(ActionSheet)
+    ).toBeTruthy()
   })
 })
