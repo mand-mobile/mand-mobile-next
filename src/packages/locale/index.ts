@@ -1,5 +1,5 @@
 /* istanbul ignore file  */
-import defaultLang from './lang/zh-cn'
+import defaultLang from './lang/zh-CN'
 
 let lang = defaultLang
 
@@ -37,49 +37,7 @@ export const t = (path: string, option?: any) => {
   return ''
 }
 
-export const setLocale = (l: {
-  md: {
-    action_sheet: { cancel: string }
-    captcha: { sendCaptcha: string; countdown: string }
-    cashier: {
-      payCash: string
-      confirmPay: string
-      morePayWays: string
-      pay: string
-      payResultSearch: string
-      paySuccess: string
-      payFail: string
-      confirm: string
-    }
-    date_picker: {
-      year: string
-      month: string
-      day: string
-      hour: string
-      minute: string
-      second: string
-    }
-    dialog: { confirm: string; cancel: string }
-    number_keyboard: { confirm: string }
-    picker: { confirm: string; cancel: string }
-    result_page: {
-      networkError: string
-      noInformation: string
-      lostWay: string
-    }
-    scroll_view: {
-      more: { loading: string; allLoaded: string }
-      refresh: {
-        pullDownRefresh: string
-        freedRefresh: string
-        refreshing: string
-        success: string
-      }
-    }
-    selector: { cancel: string }
-    tab_picker: { choose: string }
-  }
-}) => {
+export const setLocale = (l: any) => {
   lang = l || lang
 }
 
