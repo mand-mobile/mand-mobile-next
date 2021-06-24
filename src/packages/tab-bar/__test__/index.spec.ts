@@ -1,6 +1,5 @@
 import { mount } from '@vue/test-utils'
 import TabBar from '../index'
-import demo from '../demo/demo0.vue'
 import type { Component } from 'vue'
 
 describe('TabBar.vue', () => {
@@ -96,16 +95,6 @@ describe('TabBar.vue', () => {
     })
     expect(wrapper.vm.modelIndex).toBe(0)
     expect(wrapper.emitted('change')[0][0]).toBeTruthy()
-  })
-
-  test('scroll', () => {
-    const wrapper = mount(demo)
-    console.log(
-      wrapper.findAllComponents({ name: 'MdTabBar' })?.[0]
-        ?.vm.scrollable,
-      window.innerWidth
-    )
-    console.log(wrapper.html())
   })
 
   test('install', () => {
