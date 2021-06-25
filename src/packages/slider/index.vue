@@ -22,40 +22,21 @@
       :format="format"
     >
       <div
-        :ref="(el) => (draggers[0] = el)"
+        v-for="item in isRange ? [0, 1] : [0]"
+        :key="item"
+        :ref="(el) => (draggers[item] = el)"
         class="md-slider-handle"
+        :class="[item === 1 ? 'is-higher' : '']"
       >
         <md-tip
-          ref="tip"
+          :ref="item === 0 ? 'tip' : 'tipHigther'"
           name="slider-tip"
           :closable="false"
           :placement="tipPlacement"
           :content="
             Array.isArray(realValue)
-              ? format(realValue[0].toString())
+              ? format(realValue[item].toString())
               : format(realValue.toString())
-          "
-        >
-          <span
-            @touchstart="dragStartHandler"
-            @touchend="dragEndHandler"
-          ></span>
-        </md-tip>
-      </div>
-      <div
-        v-if="isRange"
-        :ref="(el) => (draggers[1] = el)"
-        class="md-slider-handle is-higher"
-      >
-        <md-tip
-          ref="tipHigther"
-          name="slider-tip"
-          :closable="false"
-          :placement="tipPlacement"
-          :content="
-            Array.isArray(realValue)
-              ? format(realValue[1].toString())
-              : ''
           "
         >
           <span
