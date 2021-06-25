@@ -18,6 +18,7 @@ const sleep = (time = 1500) =>
 
 const list = ref(10)
 const scroller = ref<any>(null)
+const isfinished = ref(false)
 const onItemClick = (index: number) => {
   console.log(index)
 }
@@ -32,6 +33,7 @@ const pullingUpHandler = async () => {
   await sleep(3000)
   list.value = list.value + 5
   scroller.value.finishPullUp()
+  isfinished.value = true
 }
 </script>
 
@@ -47,6 +49,7 @@ const pullingUpHandler = async () => {
       ref="scroller"
       :pull-down="true"
       :pull-up="true"
+      :is-finished="isfinished"
       @pulling-down="pullingDownHandler"
       @pulling-up="pullingUpHandler"
     >
