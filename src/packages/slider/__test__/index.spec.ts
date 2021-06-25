@@ -1,39 +1,81 @@
 import { mount } from '@vue/test-utils'
 import Slider from '../index'
+import demo from '../demo/demo0.vue'
+import demo2 from '../demo/demo2.vue'
+
+const originGetBoundingClientRect =
+  HTMLDivElement.prototype.getBoundingClientRect
+
+beforeAll(() => {
+  HTMLDivElement.prototype.getBoundingClientRect = () =>
+    ({
+      height: 50,
+      width: 750,
+      x: 0,
+      y: 0,
+    } as any)
+})
+
+afterAll(() => {
+  HTMLDivElement.prototype.getBoundingClientRect =
+    originGetBoundingClientRect
+})
 
 describe('Slider.vue', () => {
   test('render', () => {
     const wrapper = mount(Slider, {
-      props: {
-        name: 'scan',
-      },
+      props: {},
     })
     expect(wrapper.classes()).toContain('md-slider')
   })
 
-  test('dragEndHandler', () => {
-    const wrapper = mount(Slider, {
-      props: {
-        hasTip: true,
-        modelValue: [1, 2],
-      },
+  test('slide', async () => {
+    const wrapper = mount(demo)
+    const dragger = wrapper.find('span')
+
+    dragger.trigger('touchstart')
+
+    const touchstart = new TouchEvent('touchstart', {
+      touches: [{ pageX: 0, pageY: 0 }] as any,
     })
-    expect(wrapper.vm.dragEndHandler()).toBeFalsy()
+    window.dispatchEvent(touchstart)
+
+    const touchmove = new TouchEvent('touchmove', {
+      touches: [{ pageX: 375, pageY: 0 }] as any,
+    })
+    window.dispatchEvent(touchmove)
+
+    await Promise.resolve()
+
+    window.dispatchEvent(new Event('touchend'))
+    dragger.trigger('touchend')
+
+    expect(wrapper.vm.step).toBe(50)
   })
 
-  test('computed realValue should be work', (done) => {
-    const wrapper = mount(Slider, {
-      props: {
-        hasTip: true,
-        modelValue: 10,
-      },
+  test('range slide', async () => {
+    const wrapper = mount(demo2)
+    const dragger = wrapper.find('span')
+
+    dragger.trigger('touchstart')
+
+    const touchstart = new TouchEvent('touchstart', {
+      touches: [{ pageX: 0, pageY: 0 }] as any,
     })
-    wrapper.setProps({ modelValue: 20 })
-    wrapper.emitted('update:modelValue')
-    setTimeout(() => {
-      expect(wrapper.vm.realValue).toBe(20)
-      done()
-    }, 300)
+    window.dispatchEvent(touchstart)
+
+    const touchmove = new TouchEvent('touchmove', {
+      touches: [{ pageX: 375, pageY: 0 }] as any,
+    })
+    window.dispatchEvent(touchmove)
+
+    await Promise.resolve()
+
+    window.dispatchEvent(new Event('touchend'))
+    dragger.trigger('touchend')
+
+    expect(wrapper.vm.range).toEqual([50, 55])
+    wrapper.unmount()
   })
 
   test('install', () => {
