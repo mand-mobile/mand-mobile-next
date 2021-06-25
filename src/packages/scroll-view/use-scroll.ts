@@ -190,7 +190,7 @@ export const useScroll = (
     canFreePullingDown.value = false
     getScrollerInstance()?.finishPullDown()
 
-    setTimeout(() => {
+    globalThis.setTimeout(() => {
       beforePullDown.value = true
       getScrollerInstance()?.refresh()
     }, props.bounceTime + 100)
@@ -204,7 +204,7 @@ export const useScroll = (
   const finishPullUp = () => {
     getScrollerInstance()?.finishPullUp()
 
-    setTimeout(() => {
+    globalThis.setTimeout(() => {
       getScrollerInstance()?.refresh()
     }, 100)
 

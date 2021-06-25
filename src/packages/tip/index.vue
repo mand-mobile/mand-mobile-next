@@ -408,6 +408,11 @@ export default defineComponent({
       )
 
     const defaultSlots = slots.default?.() || []
+    if (!defaultSlots.length) {
+      console.warn(
+        `Tip should have be provided at least one Element or Component into default slot.`
+      )
+    }
 
     const directiveClickOutside =
       resolveDirective('clickOutside')
