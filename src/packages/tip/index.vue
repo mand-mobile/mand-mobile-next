@@ -68,6 +68,13 @@ export default defineComponent({
         return { top: 0, left: 0 }
       },
     },
+    /**
+     * feature tip will not show after click
+     */
+    clickTrigger: {
+      type: Boolean,
+      default: true,
+    },
     clickOutsideHide: {
       type: Boolean,
       default: true,
@@ -421,7 +428,9 @@ export default defineComponent({
         ? withDirectives(
             h(defaultSlots[0], {
               ref: triggerRef,
-              onClick: () => triggerHandler(true),
+              onClick: () => {
+                props.clickTrigger && triggerHandler(true)
+              },
             }),
             [
               [
@@ -433,7 +442,9 @@ export default defineComponent({
           )
         : h(defaultSlots[0], {
             ref: triggerRef,
-            onClick: () => triggerHandler(true),
+            onClick: () => {
+              props.clickTrigger && triggerHandler(true)
+            },
           })
 
     return () =>

@@ -1,3 +1,4 @@
+/* istanbul ignore next  */
 export function triggerEvent(
   element: any,
   eventName: string,
