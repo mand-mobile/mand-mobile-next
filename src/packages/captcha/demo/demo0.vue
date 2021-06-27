@@ -12,7 +12,8 @@ import MdInputItem from 'mand-mobile/input-item'
 import MdField from 'mand-mobile/field'
 import MdFieldItem from 'mand-mobile/field-item'
 import MdSwitch from 'mand-mobile/switch'
-import { ref } from 'vue'
+import { focusAndOpenKeyboard } from 'mand-mobile/codebox'
+import { ref, watch } from 'vue'
 
 const show = ref(false)
 const limit = ref(false)
@@ -27,6 +28,24 @@ const submitHandler = (code: string) => {
   Toast.info(`你输入了${code}`)
   show.value = false
 }
+
+const button = ref<HTMLElement | undefined>(undefined)
+let remove: any = null
+const clickHandler = () => {
+  if (system.value) {
+    button.value &&
+      (remove = focusAndOpenKeyboard(button.value))
+  }
+  show.value = !show.value
+}
+/**
+ * Fix iOS safari input autofus
+ */
+watch(show, (val) => {
+  if (!val) {
+    setTimeout(() => remove?.(), 0)
+  }
+})
 </script>
 
 <template>
@@ -87,7 +106,12 @@ const submitHandler = (code: string) => {
       :maxlength="maxlength - 0"
       @submit="submitHandler"
     />
-    <Button v-show="!isView" @click="show = !show">
+    <Button
+      v-show="!isView"
+      ref="button"
+      style="margin-top: 0.32rem"
+      @click="clickHandler"
+    >
       确定
     </Button>
   </div>

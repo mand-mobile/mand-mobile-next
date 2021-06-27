@@ -3,10 +3,6 @@ import ScrollView from '../index'
 import demo from '../demo/demo0.vue'
 
 jest.useFakeTimers()
-const sleep = (time = 1500) =>
-  new Promise((resolve, _) => {
-    setTimeout(() => resolve(false), time)
-  })
 
 describe('ScrollView.vue', () => {
   test('render', () => {
