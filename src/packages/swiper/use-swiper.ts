@@ -251,13 +251,15 @@ function onScrollHandler(
   const children = (
     compInstance?.proxy?.$el as HTMLElement
   ).querySelector('.md-swiper-container')?.children
-  const itemRect = children?.[0].getBoundingClientRect()
+  const itemRect = children?.[0]?.getBoundingClientRect()
   const items = Array.from(children || []) as HTMLElement[]
 
   /**
    * init dom status
    */
-  wrap.style.height = itemRect?.height + 'px' || '0px'
+  wrap.style.height = itemRect?.height
+    ? itemRect?.height + 'px'
+    : '0px'
   items[0].style.opacity = '1'
 
   /**

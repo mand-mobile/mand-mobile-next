@@ -14,6 +14,7 @@ import MdFieldItem from 'mand-mobile/field-item'
 import MdSwitch from 'mand-mobile/switch'
 import { focusAndOpenKeyboard } from 'mand-mobile/codebox'
 import { ref, watch } from 'vue'
+import { isIOS } from 'mand-mobile/utils'
 
 const show = ref(false)
 const limit = ref(false)
@@ -33,7 +34,8 @@ const button = ref<HTMLElement | undefined>(undefined)
 let remove: any = null
 const clickHandler = () => {
   if (system.value) {
-    button.value &&
+    isIOS &&
+      button.value &&
       (remove = focusAndOpenKeyboard(button.value))
   }
   show.value = !show.value
