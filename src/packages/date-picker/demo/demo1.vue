@@ -13,18 +13,10 @@ const unit = ['小时', '分', '秒']
 </script>
 
 <template>
-  <div
-    class="
-      md-example-child
-      md-example-child-date-picker
-      md-example-child-date-picker-1
-    "
-  >
-    <md-date-picker
-      v-model="selectedTime"
-      type="time"
-      is-view
-      :unit-text="unit"
-    ></md-date-picker>
-  </div>
+  <md-date-picker
+    v-model="selectedTime"
+    type="time"
+    is-view
+    :unit-text="unit"
+  ></md-date-picker>
 </template>
