@@ -15,19 +15,11 @@ const pickerInvalidValue = ref([[2, 3, 4]])
 </script>
 
 <template>
-  <div
-    class="
-      md-example-child
-      md-example-child-picker
-      md-example-child-picker-0
-    "
-  >
-    <md-picker
-      v-model="pickerValue"
-      :data="pickerData"
-      :invalid-value="pickerInvalidValue"
-      :cols="2"
-      is-view
-    />
-  </div>
+  <md-picker
+    v-model="pickerValue"
+    :data="pickerData"
+    :invalid-value="pickerInvalidValue"
+    :cols="2"
+    is-view
+  />
 </template>

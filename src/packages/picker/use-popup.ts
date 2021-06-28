@@ -139,6 +139,8 @@ export const usePopup = (
       Array.isArray(props.modelValue)
     ) {
       emit(UPDATE_MODEL_EVENT, val)
+    } else if (innerValue.value) {
+      emit(UPDATE_MODEL_EVENT, innerValue.value)
     }
   })
 
