@@ -39,6 +39,8 @@ type customType =
   | 'mm'
   | 'ss'
 
+type ModelData = Date | string
+
 export const TYPE_FORMAT: Record<string, string> = {
   yyyy: 'Year',
   MM: 'Month',
@@ -95,7 +97,9 @@ export const TYPE_FORMAT_INVERSE: Record<string, string> =
 
 export const datePickerProps = {
   modelValue: {
-    type: [Date, Array],
+    type: [Date, Array] as PropType<
+      ModelData | ModelData[] | number[]
+    >,
     default: [],
   },
   isView: {
@@ -111,10 +115,10 @@ export const datePickerProps = {
     default: [],
   },
   minDate: {
-    type: [Date, String],
+    type: [Date, String] as PropType<ModelData>,
   },
   maxDate: {
-    type: [Date, String],
+    type: [Date, String] as PropType<ModelData>,
   },
   unitText: {
     type: Array as PropType<Array<string>>,
@@ -252,6 +256,7 @@ export const useDatePicker = (
     const date =
       props.maxDate && transformDate(props.maxDate)
 
+    /* istanbul ignore if  */
     if (props.type !== 'time' && !isValidDate(date)) {
       warn('Param maxDate has invalid value.')
       return currentDate
@@ -260,6 +265,7 @@ export const useDatePicker = (
   })
 
   const initPicker = () => {
+    /* istanbul ignore if  */
     if (
       minDate.value?.getTime() >= maxDate.value?.getTime()
     ) {
@@ -351,6 +357,7 @@ export const useDatePicker = (
       }
     )
 
+    /* istanbul ignore if  */
     if (
       !deepEquals(selectedValues.value, newSelectedValues)
     ) {
@@ -362,6 +369,7 @@ export const useDatePicker = (
     }
   }
 
+  /* istanbul ignore next  */
   const onPickerChange = (
     columnIndex: number,
     itemIndex: number,
@@ -766,6 +774,7 @@ export const useDatePicker = (
     return res
   }
 
+  /* istanbul ignore next  */
   /**
    * transform the selected array to date string
    * @param columnTypes example: ['yyyy','MM','dd']

@@ -14,18 +14,10 @@ const selectedDate = ref(new Date())
 </script>
 
 <template>
-  <div
-    class="
-      md-example-child
-      md-example-child-date-picker
-      md-example-child-date-picker-0
-    "
-  >
-    <md-date-picker
-      v-model="selectedDate"
-      is-view
-      :min-date="minDate"
-      :max-date="maxDate"
-    ></md-date-picker>
-  </div>
+  <md-date-picker
+    v-model="selectedDate"
+    is-view
+    :min-date="minDate"
+    :max-date="maxDate"
+  ></md-date-picker>
 </template>
