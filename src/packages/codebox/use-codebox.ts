@@ -125,6 +125,7 @@ export const useCodebox = (
   }
 }
 
+/* istanbul ignore next */
 export function focusAndOpenKeyboard(
   el: HTMLElement,
   timeout = 100
