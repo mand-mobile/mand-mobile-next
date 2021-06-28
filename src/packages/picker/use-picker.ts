@@ -201,6 +201,8 @@ export const usePicker = (
     }
   }
 
+  const getWheelInstance = () => wheelInstance
+
   /**
    * when change data, refresh wheel
    */
@@ -429,6 +431,7 @@ export const usePicker = (
     setWheelsRef,
     checkInvalid,
 
+    getWheelInstance,
     resetWheel,
     destroyWheel,
 

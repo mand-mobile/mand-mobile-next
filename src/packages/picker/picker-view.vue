@@ -66,7 +66,7 @@ import {
 import { pickerProps, usePicker } from './use-picker'
 
 export default defineComponent({
-  name: 'MdPicker',
+  name: 'MdPickerView',
   props: pickerProps,
   emits: [UPDATE_MODEL_EVENT, CHANGE_EVENT],
   setup(props, context) {
@@ -80,6 +80,7 @@ export default defineComponent({
 
       resetWheel,
       destroyWheel,
+      getWheelInstance,
       getColumnValues,
     } = usePicker(props, context)
 
@@ -93,6 +94,7 @@ export default defineComponent({
 
       resetWheel,
       destroyWheel,
+      getWheelInstance,
       getColumnValues,
     }
   },
