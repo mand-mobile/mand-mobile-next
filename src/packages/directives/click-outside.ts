@@ -18,21 +18,14 @@ function clickHandler(e: UIEvent) {
         return item
       }) ?? []
 
-    const isSelf = el === e.target
     const isComposed = e.composedPath?.().includes(el)
-    const isContainedByEl = el.contains(e.target as Node)
     const isExcludes =
       excludes.includes(e.target) ||
       excludes.some((item) =>
         (item as HTMLElement)?.contains(e.target as Node)
       )
 
-    if (
-      !isSelf &&
-      !isComposed &&
-      !isContainedByEl &&
-      !isExcludes
-    ) {
+    if (!isComposed && !isExcludes) {
       typeof bindingObj.bindingFn === 'function' &&
         bindingObj.bindingFn()
     }
