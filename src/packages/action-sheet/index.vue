@@ -1,4 +1,5 @@
 <template>
+  <!-- eslint-disable vue/no-v-html -->
   <div class="md-action-sheet">
     <md-popup
       v-model="popupShow"

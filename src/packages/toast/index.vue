@@ -1,5 +1,6 @@
 <template>
   <div class="md-toast" :class="[position]">
+    <!-- eslint-disable vue/no-v-html -->
     <md-popup
       v-model="isPopupShow"
       :has-mask="hasMask"

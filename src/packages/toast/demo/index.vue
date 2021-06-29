@@ -1,4 +1,5 @@
 <template>
+  <!-- eslint-disable vue/no-v-html -->
   <div class="md-nav">
     <p class="home" @click="$router.push('/')">
       <md-icon name="home" size="lg"></md-icon>
