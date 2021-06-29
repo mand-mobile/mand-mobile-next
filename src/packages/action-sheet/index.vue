@@ -1,48 +1,47 @@
 <template>
   <!-- eslint-disable vue/no-v-html -->
-  <div class="md-action-sheet">
-    <md-popup
-      v-model="popupShow"
-      position="bottom"
-      prevent-scroll
-      @show="onShow"
-      @hide="onHide"
-    >
-      <div class="md-action-sheet-content">
-        <div v-if="title" class="md-action-sheet-header">
-          {{ title }}
-        </div>
-        <ul class="md-action-sheet-list">
-          <template
-            v-for="(item, index) in options"
-            :key="index"
-          >
-            <li
-              :class="{
-                active: index === currentIndex,
-                disabled: index === invalidIndex,
-                'md-action-sheet-item': true,
-              }"
-              @click="onSelect(item)"
-            >
-              <div class="md-action-sheet-item-wrapper">
-                <div
-                  class="md-action-sheet-item-section"
-                  v-html="item.text || item.label"
-                ></div>
-              </div>
-            </li>
-          </template>
-          <li
-            class="md-action-sheet-cancel"
-            @click="cancelHandler"
-          >
-            {{ cancelText }}
-          </li>
-        </ul>
+  <md-popup
+    v-model="popupShow"
+    class="md-action-sheet"
+    position="bottom"
+    prevent-scroll
+    @show="onShow"
+    @hide="onHide"
+  >
+    <div class="md-action-sheet-content">
+      <div v-if="title" class="md-action-sheet-header">
+        {{ title }}
       </div>
-    </md-popup>
-  </div>
+      <ul class="md-action-sheet-list">
+        <template
+          v-for="(item, index) in options"
+          :key="index"
+        >
+          <li
+            :class="{
+              active: index === currentIndex,
+              disabled: index === invalidIndex,
+              'md-action-sheet-item': true,
+            }"
+            @click="onSelect(item)"
+          >
+            <div class="md-action-sheet-item-wrapper">
+              <div
+                class="md-action-sheet-item-section"
+                v-html="item.text || item.label"
+              ></div>
+            </div>
+          </li>
+        </template>
+        <li
+          class="md-action-sheet-cancel"
+          @click="cancelHandler"
+        >
+          {{ cancelText }}
+        </li>
+      </ul>
+    </div>
+  </md-popup>
 </template>
 
 <script lang="ts">
@@ -87,10 +86,6 @@ export default defineComponent({
 .md-action-sheet
   color action-sheet-color
   -webkit-font-smoothing antialiased
-  .md-popup
-    z-index action-sheet-zindex
-  .md-popup-box
-    background-color color-bg-base
 
 .md-action-sheet-content
   position relative
