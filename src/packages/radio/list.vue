@@ -53,6 +53,14 @@
           :icon-svg="iconSvg"
         ></md-radio>
       </template>
+      <template #[otherSlot]>
+        <slot
+          :name="otherSlot"
+          :option="item"
+          :index="index"
+          :selected="selectedValue === item.value"
+        ></slot>
+      </template>
     </md-cell-item>
     <md-input-item
       v-if="hasInput"
@@ -165,6 +173,9 @@ export default defineComponent({
       blurHandler,
     } = useRadioList(props, context)
 
+    const otherSlot: 'left' | 'right' =
+      props.iconPosition === 'left' ? 'right' : 'left'
+
     return {
       selectedValue,
       selectHandler,
@@ -174,6 +185,8 @@ export default defineComponent({
       inputSelected,
       focusHandler,
       blurHandler,
+
+      otherSlot,
     }
   },
 })

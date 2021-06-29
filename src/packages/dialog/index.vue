@@ -1,4 +1,5 @@
 <template>
+  <!-- eslint-disable vue/no-v-html -->
   <md-popup
     v-model="dialogShow"
     class="md-dialog"

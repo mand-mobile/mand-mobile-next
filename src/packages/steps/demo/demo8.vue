@@ -30,6 +30,7 @@ const steps1 = [
 </script>
 
 <template>
+  <!-- eslint-disable vue/no-v-html -->
   <div
     class="
       md-example-child

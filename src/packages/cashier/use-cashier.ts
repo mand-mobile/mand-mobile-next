@@ -1,8 +1,9 @@
-import { ref } from 'vue'
+import { ref, computed, reactive, watch } from 'vue'
 import { useShow } from 'mand-mobile/composable'
 import { t } from 'mand-mobile/locale'
 import {
   UPDATE_VISIBLE_EVENT,
+  UPDATE_MODEL_EVENT,
   HIDE_EVENT,
   SHOW_EVENT,
   noop,
@@ -30,12 +31,17 @@ export const cashierProps = {
   channels: {
     type: Array as PropType<
       Array<{
-        text: string
         value: string | number
-        icon: string
-        iconSvg: boolean
-        img: string
-        action: (...arg: unknown[]) => void
+        text: string
+        icon?: string
+        iconSvg?: boolean
+        img?: string
+        disabled?: boolean
+        desc?: string
+        action?: {
+          text: string
+          handler: (...arg: unknown[]) => void
+        }
       }>
     >,
     default: () => [],
@@ -76,7 +82,17 @@ export const cashierProps = {
 
 export const useCashier = (
   props: ExtractPropTypes<typeof cashierProps>,
-  { emit }: SetupContext
+  {
+    emit,
+  }: SetupContext<
+    (
+      | 'hide'
+      | 'update:visible'
+      | 'show'
+      | 'select'
+      | 'pay'
+    )[]
+  >
 ) => {
   const { popupShow, onShow, onHide, hide } = useShow(
     props,
@@ -87,7 +103,7 @@ export const useCashier = (
     ref<
       'choose' | 'captcha' | 'loading' | 'success' | 'fail'
     >('choose')
-  const sceneOption = {
+  const sceneOption = reactive({
     loading: {
       text: t('md.cashier.payResultSearch'), // 支付结果查询中...
     },
@@ -109,7 +125,31 @@ export const useCashier = (
       autoCountdown: true,
       onSend: noop,
       onSubmit: noop,
+      countNormalText: '',
+      countActiveText: '',
     },
+  })
+
+  const currentPayChannelValue = ref(
+    props.channels[0].value
+  )
+  watch(currentPayChannelValue, (val) => {
+    emit('select', val)
+  })
+
+  const payHandler = () => {
+    emit('pay', currentPayChannelValue)
+  }
+
+  const next = (
+    sceneStage: Exclude<typeof scene.value, 'choose'>,
+    options: Record<string, any> = {}
+  ) => {
+    scene.value = sceneStage
+    sceneOption[scene.value] = {
+      ...sceneOption[scene.value],
+      ...options,
+    } as any
   }
 
   return {
@@ -119,5 +159,101 @@ export const useCashier = (
     hide,
     scene,
     sceneOption,
+    currentPayChannelValue,
+    payHandler,
+    next,
+  }
+}
+
+export const channelProps = {
+  paymentTitle: {
+    type: String,
+    default: '',
+  },
+  paymentAmount: {
+    type: String,
+    default: '',
+  },
+  paymentDescribe: {
+    type: String,
+    default: '',
+  },
+  moreButtonText: {
+    type: String,
+    default: '',
+  },
+  payButtonText: {
+    type: String,
+    default: '',
+  },
+  payButtonDisabled: {
+    type: Boolean,
+    default: false,
+  },
+  channels: {
+    type: Array as PropType<
+      ExtractPropTypes<typeof cashierProps>['channels']
+    >,
+    default: '',
+  },
+  channelLimit: {
+    type: Number,
+    default: 0,
+  },
+  modelValue: {
+    type: [Number, String],
+    default: '',
+  },
+}
+
+export const useChannel = (
+  props: ExtractPropTypes<typeof channelProps>,
+  { emit }: SetupContext<('pay' | 'update:modelValue')[]>
+) => {
+  const innerValue = computed({
+    get: () => props.modelValue,
+    set: (val) => emit(UPDATE_MODEL_EVENT, val),
+  })
+  const isSingle = computed(() => {
+    if (props.channelLimit < 1) return true
+    return props.channels.length > props.channelLimit
+  })
+
+  const currentIndex = computed(() =>
+    props.channels.findIndex(
+      (channel) => channel.value === props.modelValue
+    )
+  )
+
+  const isChannelShow = ref(false)
+  const toggleShowAllChannel = () => {
+    isChannelShow.value = !isChannelShow.value
+  }
+
+  const channelPayClick = () => {
+    const item = props.channels[currentIndex.value]
+    emit('pay', item)
+  }
+
+  const displayChannels = computed(() => {
+    if (isChannelShow.value) {
+      return props.channels
+    } else {
+      return [
+        props.channels[
+          currentIndex.value !== -1 ? currentIndex.value : 0
+        ],
+      ]
+    }
+  })
+
+  return {
+    innerValue,
+    isSingle,
+    currentIndex,
+    isChannelShow,
+    toggleShowAllChannel,
+    channelPayClick,
+    displayChannels,
   }
 }

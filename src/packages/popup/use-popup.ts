@@ -51,7 +51,9 @@ export const popupProps = {
     default: false,
   },
   preventScrollExclude: {
-    type: [Object] as PropType<HTMLElement>,
+    type: [Object, String] as PropType<
+      HTMLElement | string
+    >,
     default: undefined,
   },
 }
@@ -120,36 +122,37 @@ export const usePop = (
   }
 
   onMounted(() => {
+    const excluder =
+      typeof props.preventScrollExclude === 'string'
+        ? boxRef.value?.querySelector(
+            props.preventScrollExclude
+          )
+        : props.preventScrollExclude
+
+    const excludeHandler = (toggle = true) => {
+      if (
+        props.preventScroll &&
+        maskRef.value &&
+        boxRef.value &&
+        excluder
+      ) {
+        preventScroll(
+          toggle,
+          maskRef.value,
+          boxRef.value,
+          excluder as HTMLElement
+        )
+      }
+    }
+
     watch(
       () => props.modelValue,
       (val) => {
         if (val) {
           isPopupShow.value = val
-          if (
-            props.preventScroll &&
-            maskRef.value &&
-            boxRef.value
-          ) {
-            preventScroll(
-              true,
-              maskRef.value,
-              boxRef.value,
-              props.preventScrollExclude
-            )
-          }
+          excludeHandler()
         } else {
-          if (
-            props.preventScroll &&
-            maskRef.value &&
-            boxRef.value
-          ) {
-            preventScroll(
-              false,
-              maskRef.value,
-              boxRef.value,
-              props.preventScrollExclude
-            )
-          }
+          excludeHandler(false)
         }
       },
       {
