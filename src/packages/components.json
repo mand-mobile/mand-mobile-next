@@ -163,13 +163,8 @@
         "name": "Cashier",
         "path": "/cashier",
         "icon": "cashier",
-        "text": "收银台"
-      },
-      {
-        "name": "Chart",
-        "path": "/chart",
-        "icon": "chart",
-        "text": "折线图表"
+        "text": "收银台",
+        "complete": true
       },
       {
         "name": "Landscape",
@@ -184,12 +179,6 @@
         "icon": "result-page",
         "text": "结果页",
         "complete": true
-      },
-      {
-        "name": "Ruler",
-        "path": "/ruler",
-        "icon": "ruler",
-        "text": "刻度尺"
       },
       {
         "name": "WaterMark",

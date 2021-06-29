@@ -90,7 +90,7 @@ mand-mobile-next 可以在原来的版本之上继续迭代，维持 2.x 的版�
   - [x] Amount
   - [x] Bill
   - [x] Captcha
-  - [ ] Cashier
+  - [x] Cashier
   - [ ] Chart
   - [x] Landscape
   - [x] ResultPage
