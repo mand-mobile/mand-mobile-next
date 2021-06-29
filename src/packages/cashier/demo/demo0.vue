@@ -38,14 +38,34 @@ const cashierChannels = ref([
   },
 ])
 
+const cashier = ref<any>(null)
 const payHanlder = () => {
-  console.log('pay')
+  console.log(cashier.value)
+  cashier.value.next('captcha', {
+    text: 'Verification code sent to 156 **** 8965',
+    brief: 'The latest verification code is still valid',
+    autoCountdown: false,
+    countNormalText: 'Send Verification code',
+    countActiveText: 'Retransmission after {$1}s',
+    onSend: (countdown: any) => {
+      console.log('[Mand Mobile] Send Captcha')
+      countdown()
+    },
+    onSubmit: (code: number) => {
+      console.log(`[Mand Mobile] Send Submit ${code}`)
+      cashier.value.next('loading')
+      setTimeout(() => {
+        cashier.value.next('success')
+      }, 2000)
+    },
+  })
 }
 </script>
 
 <template>
   <md-button @click="show = !show">唤起收银台</md-button>
   <MdCashier
+    ref="cashier"
     v-model:visible="show"
     class="md-cashier-demo"
     :channels="cashierChannels"
