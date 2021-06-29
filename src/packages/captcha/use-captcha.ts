@@ -155,7 +155,7 @@ export const useCaptcha = (
 
   const sendHandler = () => {
     if (props.autoSend) {
-      emit(SEND_EVENT)
+      emit(SEND_EVENT, countdown)
       props.autoCountdown && countdown()
     }
   }
