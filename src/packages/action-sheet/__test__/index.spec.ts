@@ -27,11 +27,12 @@ describe('ActionSheet.vue', () => {
 
   test('render', () => {
     const wrapper = mount(ActionSheet, {
-      props: {
-        name: 'scan',
-      },
+      props: {},
     })
-    expect(wrapper.classes()).toContain('md-action-sheet')
+    expect(
+      document.querySelector('.md-action-sheet')
+    ).toBeTruthy()
+    wrapper.unmount()
   })
 
   test('empty options', () => {
