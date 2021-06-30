@@ -1,16 +1,7 @@
 <template>
   <div class="home-page">
     <!-- 顶部信息 -->
-    <h1 class="md-title">
-      Mand-Mobile v3
-      <md-progress
-        class="custom-prog"
-        color="#111a34"
-        :size="12"
-        :value="1"
-        :width="2"
-      />
-    </h1>
+    <h1 class="md-title">Mand-Mobile v3</h1>
     <h1 class="md-cg-subtitle">
       面向金融场景的移动端Vue3.0组件库
     </h1>
@@ -50,11 +41,6 @@
             class="cg-category-item"
             @click="goToComponent(item.path)"
           >
-            <md-icon
-              v-if="item?.complete"
-              :name="'checked'"
-              size="xs"
-            />
             <div class="cg-category-item-inner">
               {{ item.name }} - {{ item.text }}
               <md-icon
