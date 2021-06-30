@@ -1,5 +1,6 @@
 const plugins =
-  process.env.NODE_ENV === 'build'
+  process.env.NODE_ENV === 'build' ||
+  process.argv[1].includes('vitepress')
     ? {
         autoprefixer: {},
       }

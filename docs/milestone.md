@@ -24,8 +24,6 @@ mand-mobile-next 可以在原来的版本之上继续迭代，维持 2.x 的版�
 
 ## 开发计划
 
-## 任务
-
 - mand-mobile-next 国际化 @zouhang (**5月底前完成**)
 - mand-mobile-next UI 走查、开源、试用 (**6月中旬前完成**)
 - mand-mobile-vue3 (**6月底前完成**)
@@ -78,10 +76,8 @@ mand-mobile-next 可以在原来的版本之上继续迭代，维持 2.x 的版�
   - [x] Bill
   - [x] Captcha
   - [x] Cashier
-  - [ ] Chart
   - [x] Landscape
   - [x] ResultPage
-  - [ ] Ruler
   - [x] WaterMark
 - 手势 (**6月第三周开发完毕**)
   - [x] ScrollView
