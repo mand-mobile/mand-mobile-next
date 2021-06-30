@@ -16,26 +16,13 @@ mand-mobile-next 可以在原来的版本之上继续迭代，维持 2.x 的版�
 - 基于 vite 的开发容器
 - 基于 vue-press（vite） 的组件文档，（已有）
 - vite rollup esbuild 的构建流
-- 合法的 esm / umd 构建产物
+- 合法的 esm / iife 构建产物
 - 更为抽象的组件 VCA
 - 细腻的交互动画和细节
 - 完备的类型推导
 - 服务端渲染
 
 ## 开发计划
-
-- [x] 脚手架
-- [x] 新增组件、template、cz husky 等工程脚本
-- [ ] 18个基础组件 开发中
-- [ ] 20个 FeedBack/Form 待开发
-- [ ] Scroll 待开发
-- [ ] 单元测试，与开发同步进行
-
-## 开源计划
-
-开发完毕，审核过了就开源
-
-## 开发计划（含mand-mobile-next）
 
 ## 任务
 
@@ -98,19 +85,3 @@ mand-mobile-next 可以在原来的版本之上继续迭代，维持 2.x 的版�
   - [x] WaterMark
 - 手势 (**6月第三周开发完毕**)
   - [x] ScrollView
-
-#### 开发人员
-
-xupinge,liman,xiaojiahui,zouhang
-
-### mand-mobile-next 国际化
-
-参考 mand-mobilex@2.5.17 实现即可 (**5月底实现**)
-
-#### 开发人员
-
-zouhang
-
-### mand-mobile-next UI 走查 *WIP*
-
-### mand-mobile-next 应用与开源 *WIP*
