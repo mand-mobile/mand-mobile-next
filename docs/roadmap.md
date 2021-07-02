@@ -31,53 +31,53 @@ mand-mobile-next 可以在原来的版本之上继续迭代，维持 2.x 的版�
 ### mand-mobile-vue3
 
 - 基础组件 (**5月底之前开发完毕**)
-  - [x] ActionBar
-  - [x] ActivityIndicator
-  - [x] Button
-  - [x] CellItem
-  - [x] DetailItem
-  - [x] DropMenu
-  - [x] Icon
-  - [x] ImageReader
-  - [x] ImageViewer
-  - [x] NoticeBar
-  - [x] Progress
-  - [x] Skeleton
-  - [x] Stepper
-  - [x] Steps
-  - [x] Swiper
-  - [x] TabBar
-  - [x] Tabs
-  - [x] Tag
+  - ActionBar
+  - ActivityIndicator
+  - Button
+  - CellItem
+  - DetailItem
+  - DropMenu
+  - Icon
+  - ImageReader
+  - ImageViewer
+  - NoticeBar
+  - Progress
+  - Skeleton
+  - Stepper
+  - Steps
+  - Swiper
+  - TabBar
+  - Tabs
+  - Tag
 - 表单 (**6月第一周开发完毕**)
-  - [x] Agree
-  - [x] Check
-  - [x] Codebox
-  - [x] Field
-  - [x] InputItem
-  - [x] NumberKeyboard
-  - [x] Radio
-  - [x] Slider
-  - [x] Switch
-  - [x] TextareaItem
+  - Agree
+  - Check
+  - Codebox
+  - Field
+  - InputItem
+  - NumberKeyboard
+  - Radio
+  - Slider
+  - Switch
+  - TextareaItem
 - 操作反馈 (**6月第二周开发完毕**)
-  - [x] ActionSheet
-  - [ ] DatePicker
-  - [x] Dialog
-  - [x] Picker
-  - [x] Popup
-  - [x] Selector
-  - [x] TabPicker
-  - [x] Tip
-  - [x] Toast
-  - [x] Transition
+  - ActionSheet
+  - DatePicker
+  - Dialog
+  - Picker
+  - Popup
+  - Selector
+  - TabPicker
+  - Tip
+  - Toast
+  - Transition
 - 业务组件 (**6月第三周开发完毕**)
-  - [x] Amount
-  - [x] Bill
-  - [x] Captcha
-  - [x] Cashier
-  - [x] Landscape
-  - [x] ResultPage
-  - [x] WaterMark
+  - Amount
+  - Bill
+  - Captcha
+  - Cashier
+  - Landscape
+  - ResultPage
+  - WaterMark
 - 手势 (**6月第三周开发完毕**)
-  - [x] ScrollView
+  - ScrollView
