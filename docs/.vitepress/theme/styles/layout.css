@@ -176,6 +176,9 @@ tr {
 tr:nth-child(2n) {
   background-color: #f6f8fa;
 }
+.dark tr:nth-child(2n) {
+  background-color: #4c4747;
+}
 
 th,
 td {

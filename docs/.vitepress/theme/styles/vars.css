@@ -71,6 +71,8 @@
   --code-font-size: 14px;
   --code-inline-bg-color: rgba(27, 31, 35, 0.05);
   --code-bg-color: #282c34;
+
+  --sidebar-width: 17.5rem;
 }
 
 html.dark {
