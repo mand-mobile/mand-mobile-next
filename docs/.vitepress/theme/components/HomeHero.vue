@@ -51,7 +51,7 @@ onMounted(() => {
       "
     >
       <div ref="container" class="w-1/2 <sm:w-auto">
-        <div ref="inner" class="inner transition-transform">
+        <div ref="inner" class="inner">
           <img src="https://pt-starimg.didistatic.com/static/starimg/img/23iUuVLsnS1605512486154.png" class="block">
         </div>
       </div>
@@ -200,6 +200,10 @@ onMounted(() => {
 }
 .rounded-full :deep(.item) {
   width: 140px;
+}
+
+.inner {
+  transition: transform 0.5s;
 }
 
 .animate-text {

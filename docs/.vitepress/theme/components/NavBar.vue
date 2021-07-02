@@ -4,7 +4,8 @@ import { useRepo } from '../composables/repo'
 import NavBarTitle from './NavBarTitle.vue'
 import NavLinks from './NavLinks.vue'
 import ToggleSideBarButton from './ToggleSideBarButton.vue'
-import GithubLink from './GithubLink.vue' 
+import GithubLink from './GithubLink.vue'
+import DarkSwitch from './DarkSwtich.vue'
 
 defineEmit(['toggle'])
 
@@ -17,7 +18,7 @@ defineProps({
 </script>
 
 <template>
-  <header class="nav-bar" :class="[!showSidebar ? 'pl-1.5rem' : 'pl-16']">
+  <header class="nav-bar" :class="[!showSidebar ? 'pl-1.5rem' : 'pl-16 border-bottom']">
     <ToggleSideBarButton v-show="showSidebar" @toggle="$emit('toggle')" />
 
     <NavBarTitle />
@@ -28,7 +29,10 @@ defineProps({
       <NavLinks />
     </div>
 
-    <GithubLink v-if="repo && isGithub()" :item="repo" />
+    <div class="nav-icons flex items-center gap-2">
+      <GithubLink v-if="repo && isGithub()" :item="repo" />
+      <DarkSwitch />
+    </div>
 
     <slot name="search" />
   </header>
@@ -44,12 +48,16 @@ defineProps({
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* border-bottom: 1px solid var(--c-divider); */
+  border-bottom: 1px solid transparent;
   padding-top: 0.7rem;
   padding-right: 1.5rem;
   padding-bottom: 0.7rem;
   height: var(--header-height);
   background-color: var(--c-bg);
+}
+
+.nav-bar.border-bottom {
+  border-bottom: 1px solid var(--c-divider);
 }
 
 @media (min-width: 720px) {
@@ -70,5 +78,10 @@ defineProps({
   .nav {
     display: block;
   }
+}
+
+.nav-icons {
+  margin-left: 12px;
+  padding-left: .5rem;
 }
 </style>
