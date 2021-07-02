@@ -9,16 +9,17 @@ interface HeaderWithChildren extends Header {
 }
 
 export const SideBarLink: FunctionalComponent<{
-  item: DefaultTheme.SideBarItem
+  item: DefaultTheme.SideBarItem & { name?: string }
   depth?: number
 }> = (props) => {
   const route = useRoute()
   const { site, frontmatter } = useData()
   const depth = props.depth || 1
-  const maxDepth = frontmatter.value.sidebarDepth || Infinity
+  const maxDepth = frontmatter.value.sidebarDepth || 4
 
   const headers = route.data.headers
   const text = props.item.text
+  const name = props.item.name
   const link = resolveLink(site.value.base, props.item.link)
   const children = (props.item as DefaultTheme.SideBarGroup).children
   const active = isActive(route, props.item.link)
@@ -34,7 +35,10 @@ export const SideBarLink: FunctionalComponent<{
         class: { 'sidebar-link-item': true, active },
         href: link
       },
-      text
+      [
+        // h('span', { class: 'sidebar-link-item__name' }, name),
+        h('span', { class: 'sidebar-link-item__text'}, text),
+      ]
     ),
     childItems
   ])

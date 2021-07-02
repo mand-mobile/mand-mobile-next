@@ -18,7 +18,7 @@ defineProps({
 </script>
 
 <template>
-  <header class="nav-bar" :class="[!showSidebar ? 'pl-1.5rem' : 'pl-16 border-bottom']">
+  <header class="nav-bar" :class="[!showSidebar ? 'pl-1.5rem' : 'pl-16']">
     <ToggleSideBarButton v-show="showSidebar" @toggle="$emit('toggle')" />
 
     <NavBarTitle />

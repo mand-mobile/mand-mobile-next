@@ -27,8 +27,8 @@ defineProps({
   bottom: 0;
   left: 0;
   z-index: var(--z-index-sidebar);
-  border-right: 1px solid var(--c-divider);
-  width: 16.4rem;
+  /* border-right: 1px solid var(--c-divider); */
+  width: var(--sidebar-width);
   background-color: var(--c-bg);
   overflow-y: auto;
   transform: translateX(-100%);
@@ -41,11 +41,11 @@ defineProps({
   }
 }
 
-@media (min-width: 960px) {
+/* @media (min-width: 960px) {
   .sidebar {
     width: 20rem;
   }
-}
+} */
 
 .sidebar.open {
   transform: translateX(0);

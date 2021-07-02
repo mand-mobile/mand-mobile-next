@@ -24,20 +24,20 @@ import NextAndPrevLinks from './NextAndPrevLinks.vue'
 
 @media (min-width: 720px) {
   .page {
-    margin-left: 16.4rem;
+    margin-left: var(--sidebar-width);
   }
 }
 
 @media (min-width: 960px) {
   .page {
-    margin-left: 20rem;
+    margin-left: var(--sidebar-width);
   }
 }
 
 .container {
   margin: 0 auto;
   padding: 0 1.5rem 4rem;
-  max-width: 48rem;
+  max-width: 100%;
 }
 
 .content {

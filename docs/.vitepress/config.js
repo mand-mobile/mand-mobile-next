@@ -1,3 +1,56 @@
+const componentsJson = require('../../src/packages/components.json')
+const genPath = comp => ({
+  text: `${comp.text}`,
+  link: `/components/zh${comp.path}`,
+  name: `${comp.name}`,
+})
+
+const componentsSidebarConfig = [
+  {
+    name: 'components',
+    title: 'COMPONENTS',
+    children: [
+      {
+        text: '更新日志',
+        link: ''
+      },
+      {
+        text: '快速开始',
+        link: '/components/'
+      },
+      {
+        text: 'Basic',
+        children: [
+          ...componentsJson[0].list.map(genPath),
+        ],
+      }, {
+        text: 'Feedback',
+        children: [
+          ...componentsJson[1].list.map(genPath),
+        ],
+      }, {
+        text: 'Business',
+        children: [
+          ...componentsJson[3].list.map(genPath),
+        ],
+      }, {
+        text: 'Form',
+        children: [
+          ...componentsJson[2].list.map(genPath),
+        ],
+      }, {
+        text: 'Gesture',
+        children: [
+          ...componentsJson[4].list.map(genPath),
+        ],
+      }
+    ]
+  }
+]
+
+/**
+ * @type {import('vitepress').UserConfig}
+ */
 module.exports = {
   title: 'Mand Mobile',
   description: 'mand mobile doc',
@@ -23,9 +76,10 @@ module.exports = {
     nav: [
       { text: '组件', link: '/components/' },
       { text: 'RoadMap', link: '/roadmap' },
+      { text: '2.x', link: 'https://didi.github.io/mand-mobile/' }
     ],
-
     sidebar: {
+      '/components/' : [ ...componentsSidebarConfig ]
     }
   }
 }
