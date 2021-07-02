@@ -17,16 +17,14 @@ const showHero = computed(() => {
 })
 
 const heroText = computed(() => frontmatter.value.heroText || site.value.title)
-
-const isWebResource = (path: string) =>  /^(https{0,1}\:){0,1}\/\//.test(path)
 </script>
 
 <template>
   <header v-if="showHero" class="home-hero">
-    <figure v-if="frontmatter.heroImage" class="figure">
+    <!-- <figure v-if="frontmatter.heroImage" class="figure">
       <img
         class="image"
-        :src="isWebResource(frontmatter.heroImage) ? frontmatter.heroImage : withBase(frontmatter.heroImage)"
+        :src="checkPath(frontmatter.heroImage)"
         :alt="frontmatter.heroAlt"
       />
     </figure>
@@ -34,22 +32,45 @@ const isWebResource = (path: string) =>  /^(https{0,1}\:){0,1}\/\//.test(path)
     <h1 v-if="heroText" id="main-title" class="title">{{ heroText }}</h1>
     <p v-if="frontmatter.tagline" class="description">
       {{ frontmatter.tagline }}
-    </p>
+    </p> -->
+    <section class="
+        container
+        mx-auto
+        flex
+        <lg:flex-row
+        <lg:justify-center
+        <md:flex-col
+        <md:items-center
+      "
+    >
+      <div class="w-1/2 <sm:w-auto">
+        <img src="https://pt-starimg.didistatic.com/static/starimg/img/23iUuVLsnS1605512486154.png" alt="">
+      </div>
+      <div class="w-1/2 flex flex-col justify-center items-start p-16 <sm:w-full <sm:items-center <sm:p-0">
+        <p v-if="heroText" class="relative font-sans text-6xl <md:text-3xl <md:text-center <md:w-full">
+          {{ heroText }} <sub class="absolute top-0 -right-12 text-2xl animate-text <sm:text-sm <sm:right-12">next</sub>
+        </p>
+        <p v-if="frontmatter.tagline" class="text-base text-gray-500">
+          {{ frontmatter.tagline }}
+        </p>
+        <div class="home-text-action <sm:w-full <sm:flex <sm:flex-col">
+          <NavLink
+            v-if="frontmatter.actionLink && frontmatter.actionText"
+            :item="{ link: frontmatter.actionLink, text: frontmatter.actionText }"
+            class="action overflow-hidden rounded-full"
+          />
 
-    <NavLink
-      v-if="frontmatter.actionLink && frontmatter.actionText"
-      :item="{ link: frontmatter.actionLink, text: frontmatter.actionText }"
-      class="action"
-    />
-
-    <NavLink
-      v-if="frontmatter.altActionLink && frontmatter.altActionText"
-      :item="{
-        link: frontmatter.altActionLink,
-        text: frontmatter.altActionText
-      }"
-      class="action alt"
-    />
+          <NavLink
+            v-if="frontmatter.altActionLink && frontmatter.altActionText"
+            :item="{
+              link: frontmatter.altActionLink,
+              text: frontmatter.altActionText
+            }"
+            class="action alt overflow-hidden rounded-full <md:ml-0 lg:ml-4"
+          />
+        </div>
+      </div>
+    </section>
   </header>
 </template>
 
@@ -121,9 +142,9 @@ const isWebResource = (path: string) =>  /^(https{0,1}\:){0,1}\/\//.test(path)
   display: inline-block;
 }
 
-.action.alt {
+/* .action.alt {
   margin-left: 1.5rem;
-}
+} */
 
 @media (min-width: 420px) {
   .action {
@@ -141,7 +162,8 @@ const isWebResource = (path: string) =>  /^(https{0,1}\:){0,1}\/\//.test(path)
   font-weight: 500;
   color: var(--c-bg);
   background-color: var(--c-brand);
-  border: 2px solid var(--c-brand);
+  border: 1px solid var(--c-brand);
+  border-radius: inherit;
   transition: background-color 0.1s ease;
 }
 
@@ -152,8 +174,8 @@ const isWebResource = (path: string) =>  /^(https{0,1}\:){0,1}\/\//.test(path)
 
 .action :deep(.item:hover) {
   text-decoration: none;
-  color: var(--c-bg);
-  background-color: var(--c-brand-light);
+  /* color: var(--c-bg);
+  background-color: var(--c-brand-light); */
 }
 
 @media (min-width: 420px) {
@@ -162,6 +184,30 @@ const isWebResource = (path: string) =>  /^(https{0,1}\:){0,1}\/\//.test(path)
     line-height: 52px;
     font-size: 1.2rem;
     font-weight: 500;
+  }
+}
+.font-sans {
+  font-family: DINAlternate-Bold;
+}
+.rounded-full :deep(.item) {
+  width: 140px;
+}
+
+.animate-text {
+  animation: animate 2s linear infinite;
+}
+@keyframes animate {
+  0%, 100% {
+    text-shadow: -1px -1px 0 #0ff, 1px 1px 0 #f00;
+  }
+  25% {
+    text-shadow: 1px 1px 0 #0ff, -1px -1px 0 #f00;
+  }
+  50% {
+    text-shadow: 1px -1px 0 #0ff, 1px -1px 0 #f00;
+  }
+  75% {
+    text-shadow: -1px 1px 0 #0ff, -1px 1px 0 #f00;
   }
 }
 </style>

@@ -1,15 +1,24 @@
 <script setup lang="ts">
-import { defineEmit } from 'vue'
+import { defineEmit, defineProps} from 'vue'
+import { useRepo } from '../composables/repo'
 import NavBarTitle from './NavBarTitle.vue'
 import NavLinks from './NavLinks.vue'
 import ToggleSideBarButton from './ToggleSideBarButton.vue'
+import GithubLink from './GithubLink.vue' 
 
 defineEmit(['toggle'])
+
+const repo = useRepo()
+const isGithub = () => repo.value?.text.toLowerCase() === 'github'
+
+defineProps({
+  showSidebar: { type: Boolean, required: true },
+})
 </script>
 
 <template>
-  <header class="nav-bar">
-    <ToggleSideBarButton @toggle="$emit('toggle')" />
+  <header class="nav-bar" :class="[!showSidebar ? 'pl-1.5rem' : 'pl-16']">
+    <ToggleSideBarButton v-show="showSidebar" @toggle="$emit('toggle')" />
 
     <NavBarTitle />
 
@@ -18,6 +27,8 @@ defineEmit(['toggle'])
     <div class="nav">
       <NavLinks />
     </div>
+
+    <GithubLink v-if="repo && isGithub()" :item="repo" />
 
     <slot name="search" />
   </header>
@@ -33,8 +44,10 @@ defineEmit(['toggle'])
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--c-divider);
-  padding: 0.7rem 1.5rem 0.7rem 4rem;
+  /* border-bottom: 1px solid var(--c-divider); */
+  padding-top: 0.7rem;
+  padding-right: 1.5rem;
+  padding-bottom: 0.7rem;
   height: var(--header-height);
   background-color: var(--c-bg);
 }

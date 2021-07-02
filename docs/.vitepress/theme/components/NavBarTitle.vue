@@ -1,18 +1,19 @@
 <script setup lang="ts">
 import { withBase, useData } from 'vitepress'
+import { checkPath } from '../utils'
 const { site, theme, localePath } = useData()
 </script>
 
 <template>
   <a
-    class="nav-bar-title"
+    class="nav-bar-title flex items-center"
     :href="localePath"
     :aria-label="`${site.title}, back to home`"
   >
     <img
       v-if="theme.logo"
       class="logo"
-      :src="withBase(theme.logo)"
+      :src="checkPath(theme.logo)"
       alt="Logo"
     />
     {{ site.title }}
