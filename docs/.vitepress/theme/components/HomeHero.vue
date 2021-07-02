@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useData, withBase } from 'vitepress'
+import { computed, ref, onMounted } from 'vue'
+import { useData } from 'vitepress'
 import NavLink from './NavLink.vue'
+import { mouseFollow } from '../effects/mouse-follow'
 
 const { site, frontmatter } = useData()
 
@@ -17,6 +18,12 @@ const showHero = computed(() => {
 })
 
 const heroText = computed(() => frontmatter.value.heroText || site.value.title)
+
+const container = ref<HTMLElement>()
+const inner = ref<HTMLElement>()
+onMounted(() => {
+  mouseFollow(container.value, inner.value)
+})
 </script>
 
 <template>
@@ -43,8 +50,10 @@ const heroText = computed(() => frontmatter.value.heroText || site.value.title)
         <md:items-center
       "
     >
-      <div class="w-1/2 <sm:w-auto">
-        <img src="https://pt-starimg.didistatic.com/static/starimg/img/23iUuVLsnS1605512486154.png" alt="">
+      <div ref="container" class="w-1/2 <sm:w-auto">
+        <div ref="inner" class="inner transition-transform">
+          <img src="https://pt-starimg.didistatic.com/static/starimg/img/23iUuVLsnS1605512486154.png" class="block">
+        </div>
       </div>
       <div class="w-1/2 flex flex-col justify-center items-start p-16 <sm:w-full <sm:items-center <sm:p-0">
         <p v-if="heroText" class="relative font-sans text-6xl <md:text-3xl <md:text-center <md:w-full">
