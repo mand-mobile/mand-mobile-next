@@ -19,6 +19,27 @@ Vue.component(Button.name, Button)
 
 ## 代码演示
 
+<demos>
+  <demo0 />
+  <demo1 />
+</demos>
+
+<script setup>
+import '../../../dist/es/button/index.css'
+import demo0 from '../../../src/packages/button/demo/demo0.vue'
+import demo1 from '../../../src/packages/button/demo/demo1.vue'
+</script>
+
+<style>
+@media (max-width: 640px) {
+  .demo-wrapper {
+    .md-button {
+      font-size: 18px;
+    }
+  }
+}
+</style>
+
 ## API
 
 ### Button Props

@@ -11,5 +11,5 @@ actionLink: /components/
 altActionText: 了解更多
 altActionLink: /roadmap
 
-footer: MFE
+footer: 滴滴金融泛前端 ❤ MFE
 ---
