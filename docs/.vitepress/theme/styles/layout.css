@@ -82,7 +82,7 @@ h1 {
 h2 {
   margin-top: 2.25rem;
   margin-bottom: 1.25rem;
-  border-bottom: 1px solid var(--c-divider);
+  border-bottom: 1px solid transparent;
   padding-bottom: 0.3rem;
   line-height: 1.25;
   font-size: 1.65rem;

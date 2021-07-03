@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { defineEmit, defineProps} from 'vue'
+import { defineEmit, defineProps, computed } from 'vue'
+import { useWindowScroll } from '@vueuse/core'
 import { useRepo } from '../composables/repo'
 import NavBarTitle from './NavBarTitle.vue'
 import NavLinks from './NavLinks.vue'
@@ -9,16 +10,23 @@ import DarkSwitch from './DarkSwtich.vue'
 
 defineEmit(['toggle'])
 
+defineProps({
+  showSidebar: { type: Boolean, required: true },
+})
+
 const repo = useRepo()
 const isGithub = () => repo.value?.text.toLowerCase() === 'github'
 
-defineProps({
-  showSidebar: { type: Boolean, required: true },
+const { y } = useWindowScroll()
+const shadowStyle = computed(() => {
+  return {
+    boxShadow: `0 0 5px rgb(10 16 20 / ${ y.value / 10 > 10 ? 10 : y.value / 10 }%)`
+  }
 })
 </script>
 
 <template>
-  <header class="nav-bar" :class="[!showSidebar ? 'pl-1.5rem' : 'pl-16']">
+  <header class="nav-bar" :class="[!showSidebar ? 'pl-1.5rem' : 'pl-16']" :style="shadowStyle">
     <ToggleSideBarButton v-show="showSidebar" @toggle="$emit('toggle')" />
 
     <NavBarTitle />

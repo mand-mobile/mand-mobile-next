@@ -81,8 +81,3 @@ export function ensureEndingSlash(path: string): string {
 export function removeExtention(path: string): string {
   return path.replace(/(index)?(\.(md|html))?$/, '') || '/'
 }
-
-export const checkPath = (path: string) => {
-  if (/^(https?:)?\/\//.test(path)) return path
-  return withBase(path)
-}

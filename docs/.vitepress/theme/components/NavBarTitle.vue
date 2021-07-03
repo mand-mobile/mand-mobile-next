@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { withBase, useData } from 'vitepress'
-import { checkPath } from '../utils'
 const { site, theme, localePath } = useData()
 </script>
 
@@ -13,7 +12,7 @@ const { site, theme, localePath } = useData()
     <img
       v-if="theme.logo"
       class="logo"
-      :src="checkPath(theme.logo)"
+      :src="withBase(theme.logo)"
       alt="Logo"
     />
     {{ site.title }}

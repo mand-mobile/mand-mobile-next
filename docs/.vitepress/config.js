@@ -12,11 +12,11 @@ const componentsSidebarConfig = [
     children: [
       {
         text: '更新日志',
-        link: ''
+        link: '/components/'
       },
       {
         text: '快速开始',
-        link: '/components/'
+        link: '/components/quick-start'
       },
       {
         text: 'Basic',
