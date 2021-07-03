@@ -37,7 +37,7 @@ export const emits: EmitsType[] = [
   SHOW_EVENT,
 ]
 
-type DataOpstions = {
+export type DataOpstions = {
   name: string
   label: string
   options: Array<{

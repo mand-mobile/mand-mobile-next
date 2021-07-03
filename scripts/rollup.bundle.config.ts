@@ -44,7 +44,7 @@ configs.push({
       tsconfigOverride: {
         compilerOptions: {
           declaration: true,
-          emitDeclarationOnly: true,
+          emitDeclarationOnly: false,
         },
         include: [
           'src/packages/**/*',
@@ -54,6 +54,7 @@ configs.push({
           'node_modules',
           'src/packages/**/__test__/*',
           'src/packages/**/demo/*',
+          'docs',
         ],
         abortOnError: false,
       },

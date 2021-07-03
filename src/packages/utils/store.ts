@@ -84,7 +84,7 @@ export function compareArrays(
   return result
 }
 
-export function deepEquals(a: unknown, b: unknown) {
+export function deepEquals(a: any, b: any) {
   if (a instanceof Array && b instanceof Array)
     return compareArrays(a, b)
   if (
