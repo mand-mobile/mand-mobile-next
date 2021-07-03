@@ -62,12 +62,7 @@ import type { PropsItem } from './use-tab-bar'
 export default defineComponent({
   name: 'MdTabBar',
   props: tabBarProps,
-  emits: {
-    [CHANGE_EVENT](item: PropsItem, index: number) {
-      return true
-    },
-    [UPDATE_MODEL_EVENT]: (name: string) => true,
-  },
+  emits: [CHANGE_EVENT, UPDATE_MODEL_EVENT],
   setup(props, context) {
     const {
       wrapRef,

@@ -10,13 +10,17 @@ import './styles/sidebar-links.css'
 import { Theme } from 'vitepress'
 import Layout from './Layout.vue'
 import NotFound from './NotFound.vue'
-import Demo from './Demo.vue'
+import DemoWrapper from './DemoWrapper.vue'
+
+if (import.meta.env.DEV) {
+  import('../../../dist/es/mand-mobile.min.css')
+}
 
 const theme: Theme = {
   Layout,
   NotFound,
   enhanceApp({ app }) {
-    app.component('Demos', Demo)
+    app.component('DemoWrapper', DemoWrapper)
   }
 }
 

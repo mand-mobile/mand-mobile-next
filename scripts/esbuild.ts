@@ -21,6 +21,7 @@ async function run(options?: BuildOptions) {
       'jpeg-js',
     ],
     format: 'esm',
+    minify: true,
     ...options,
   })
 }
@@ -40,6 +41,7 @@ async function bundle(options?: BuildOptions) {
       'jpeg-js',
     ],
     format: 'esm',
+    minify: true,
     ...options,
   })
 }
@@ -87,6 +89,18 @@ async function combineCss() {
     fs.promises.writeFile(
       `${cwd()}/dist/lib/mand-mobile.umd.css`,
       content
+    ),
+  ])
+
+  const name = 'mand-mobile.min.css'
+  await Promise.all([
+    fs.promises.rename(
+      `${cwd()}/dist/es/mand-mobile.esm.css`,
+      `${cwd()}/dist/es/${name}`
+    ),
+    fs.promises.rename(
+      `${cwd()}/dist/lib/mand-mobile.umd.css`,
+      `${cwd()}/dist/lib/${name}`
     ),
   ])
 }
