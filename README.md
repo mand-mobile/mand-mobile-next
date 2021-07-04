@@ -32,9 +32,10 @@ import Icon from 'mand-mobile/icon'
 - [Jest](https://jestjs.io/zh-Hans/)
 - [vue-test-utils](https://next.vue-test-utils.vuejs.org/)
 
-## E2E **WIP**
+## 编写组件文档
 
-- [cypress](https://github.com/cypress-io/cypress)
+- 使用 [vitepress](https://vitepress.vuejs.org/) 编写文档  
+- 文档案例请参考 [Button](./docs/components/zh/button)
 
 ## 其他
 
