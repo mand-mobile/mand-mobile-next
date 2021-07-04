@@ -19,13 +19,13 @@ Vue.component(Button.name, Button)
 
 ## 代码演示
 
-<DemoWrapper :demos="demos" />
+<demo-wrapper :demos="demos" />
 
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/button/demo/demo*.vue')
 </script>
 
-<style>
+<style lang="stylus">
 @media (max-width: 640px) {
   .demo-wrapper {
     .md-button {

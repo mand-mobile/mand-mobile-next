@@ -21,7 +21,7 @@ const theme: Theme = {
   NotFound,
   enhanceApp({ app }) {
     app.component('DemoWrapper', DemoWrapper)
-  }
+  },
 }
 
 export default theme
