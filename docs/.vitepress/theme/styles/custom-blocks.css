@@ -68,3 +68,7 @@
   margin-bottom: -0.4rem;
   font-weight: 600;
 }
+
+.dark .custom-block.tip {
+  background-color: var(--c-bg);
+}
