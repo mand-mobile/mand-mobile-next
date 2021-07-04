@@ -22,6 +22,13 @@ export default defineConfig({
       fontFamily: {
         mono: "'IBM Plex Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace",
       },
+      borderColor: (theme) => ({
+        ...theme('colors'),
+        DEFAULT: theme('colors.gray.300', 'currentColor'),
+        primary: '#eeeeee',
+        secondary: '#ffed4a',
+        danger: '#e3342f',
+      }),
     },
   },
 })

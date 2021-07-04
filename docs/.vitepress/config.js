@@ -71,6 +71,7 @@ module.exports = {
     //   }
     // },
     repo: 'https://github.com/mand-mobile/mand-mobile-next',
+    docsBranch: 'vue3',
     editLinks: true,
     editLinkText: '为此文档提供修改建议',
     logo: 'https://pt-starimg.didistatic.com/static/starimg/img/ySOsAunfGm1610683661213.png',
@@ -81,6 +82,12 @@ module.exports = {
     ],
     sidebar: {
       '/components/' : [ ...componentsSidebarConfig ]
+    }
+  },
+
+  markdown: {
+    config: (md) => {
+      md.use(require('./plugins/demo'))
     }
   }
 }
