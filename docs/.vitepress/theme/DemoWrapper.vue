@@ -1,76 +1,119 @@
 <script setup lang="ts">
-import { defineProps, shallowReactive } from 'vue'
-import { useData } from 'vitepress'
+import { defineProps, shallowReactive, computed, ref } from 'vue'
+import { useClipboard } from '@vueuse/core'
 
 const props = defineProps({
   demos: { type: Object, required: true },
+  htmlStrs: { type: String, required: true },
+  codeStrs: { type: String, required: true },
 })
+
 const comps = props.demos
-  ? shallowReactive(
-      Object
-        .entries(props.demos)
-        .map((demo) => ({
-          ...demo[1].default,
-          showCodeExample: false,
-        }))
-    )
+  ? Object
+    .entries(props.demos)
+    .map((demo) => (shallowReactive({
+      component: demo[1].default,
+      showCodeExample: false,
+      copied: false,
+    })))
   : []
+
+const decodedHtmlStrs = computed(() =>
+  [...props.htmlStrs.split('&&').map(html => decodeURIComponent(html.replace(/\&/g, "'")))]
+)
+
+const decodeCodeRaws = computed(() =>
+  [...props.codeStrs.split('&&').map(html => decodeURIComponent(html.replace(/\&/g, "'")))]
+)
+
+const copyHandler = (index: number) => {
+  const { text, copy, copied, isSupported } = useClipboard({
+    source: decodeCodeRaws.value[index]
+  })
+
+  isSupported && copy()
+
+  if (comps[index].copied) return
+
+  comps[index].copied = true
+  globalThis.setTimeout(() => {
+    comps[index].copied = false
+  }, 2000)
+}
 </script>
 
 <template>
-  <article class="demo-wrapper m-auto <lg:justify-center lg:justify-between" v-bind="$attrs">
-    <div
-      v-for="(demo, index) in comps"
-      :key="index"
-      class="
-        md-example-section
-        flex flex-col
-        mb-16 rounded-lg border-1 border-primary border-solid
-      "
+  <ClientOnly>
+    <article class="
+      demo-wrapper flex flex-col m-auto 
+      <lg:justify-center lg:justify-between"
+      v-bind="$attrs"
     >
       <div
+        v-for="(demo, index) in comps"
+        :key="index"
         class="
-          md-example-title text-3xl py-4 px-4 text-true-gray-600 font-600
-          <sm:text-xl <sm:py-2
-        "
-        v-text="demo.title"
-      ></div>
-      <div
-        v-if="demo.describe"
-        class="md-example-describe text-2xl my-2 <sm:text-lg <sm:my-1 "
-        v-text="demo.describe"
-      ></div>
-      <div class="
-          md-example-content
-          flex-1 px-32 py-12
-          <sm:p-4
+          md-example-section
+          flex flex-col
+          mb-16 rounded-lg border-1 border-primary border-solid
         "
       >
-        <component :is="demo" class="demo-component"></component>
+        <div
+          class="
+            md-example-title text-lg py-2 px-2 text-true-gray-600 font-600
+            <sm:text-md
+          "
+          v-text="demo.component.title"
+        ></div>
+        <div
+          v-if="demo.component.describe"
+          class="md-example-describe text-md my-1 <sm:text-xs <sm:my-1 "
+          v-text="demo.component.describe"
+        ></div>
+        <div class="
+            md-example-content
+            flex-1 px-32 py-12
+            <sm:p-4
+          "
+        >
+          <component :is="demo.component" class="demo-component"></component>
+        </div>
+        <div class="operations relative py-2 px-2 text-center">
+          <fluent:clipboard-code-24-regular
+            class="text-md cursor-pointer <sm:text-sm"
+            @click="copyHandler(index)"
+          />
+          <ant-design:code-outlined
+            class="text-md cursor-pointer ml-12 <sm:text-sm"
+            :class="[ demo.showCodeExample? 'active-code' : '']"
+            @click="demo.showCodeExample = !demo.showCodeExample"
+          />
+
+          <transition name="fade">
+            <span
+              v-show="demo.copied"
+              class="
+                block absolute left-1/2 top-0
+                text-xs text-blue-500 bg-blue-gray-50
+                rounded-md
+                shadow-sm
+              "
+              style="padding: 4px 10px; z-index: 999; transform: translate(-96%, -80%);"
+            >复制成功!</span>
+          </transition>
+        </div>
+        <div
+          v-if="demo.showCodeExample"
+          class="md-example-code language-vue"
+          v-html="decodedHtmlStrs[index]"
+        >
+        </div>
       </div>
-      <div class="operations py-4 px-4 text-center">
-        <fluent:clipboard-code-24-regular class="text-2xl cursor-pointer mr-8 <sm:text-xl" />
-        <ant-design:code-outlined class="text-2xl cursor-pointer <sm:text-xl" />
-      </div>
-      <div v-if="demo.showCodeExample" class="md-example-code">
-        666
-      </div>
-    </div>
-  </article>
+    </article>
+  </ClientOnly>
 </template>
 
 <style lang="stylus">
-.demo-wrapper {
-  max-width: 100%;
-  zoom: .5;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.demo-wrapper::after {
-  content: '';
-  flex: 0 0 45%;
-}
 
 .demo-wrapper > div {
   flex: 0 0 45%;
@@ -80,8 +123,26 @@ const comps = props.demos
   border-bottom: 1px solid  #eee;
 }
 
+.md-example-content {
+  zoom: .5;
+}
+
+.demo-component {
+  width: 750px;
+  margin: 0 auto;
+}
+
 .operations {
   border-top: 1px dashed  #eee;
+}
+
+.active-code {
+  color: var(--c-brand);
+}
+
+.md-example-code {
+  margin: 0 auto !important;
+  width: 100%;
 }
 
 @media (max-width: 640px) {
@@ -103,10 +164,6 @@ const comps = props.demos
   .demo-wrapper > div {
     flex: 0 0 100%;
   }
-  .demo-component {
-    width: 750px;
-    margin: 0 auto;
-  }
 }
 
 .demo-wrapper
@@ -114,4 +171,12 @@ const comps = props.demos
     margin-bottom 12px
     &.inline, &.link
       margin-right 12px
+
+.fade
+  &-enter-from, &-leave-to
+    opacity 0.01
+  &-enter-active
+    transition opacity 300ms cubic-bezier(0.215, 0.61, 0.355, 1)
+  &-leave-active
+    transition opacity 250ms linear
 </style>
