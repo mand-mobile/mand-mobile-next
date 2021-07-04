@@ -16,9 +16,6 @@ this.$dialog.alert({ content: '' }) // 全量引入
 ```
 
 ## 代码演示
-<!-- DEMO -->
-
-
 
 ## API
 
@@ -36,7 +33,7 @@ this.$dialog.alert({ content: '' }) // 全量引入
 | append-to | 组件的挂载节点 | HTMLElement | `document.body`| |
 | has-mask | 是否有蒙层 | Boolean | `true`| |
 | mask-closable | 点击蒙层是否可关闭弹出层 | Boolean | `false`| |
-| transition | 弹出层过度动画 | String | 可选值参考[Transition](/mand-mobile/packages/components/src/transition) |
+| transition | 弹出层过度动画 | String | 可选值参考Transition |
 
 #### DialogBtnOptions
 

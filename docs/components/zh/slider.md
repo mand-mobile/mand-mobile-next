@@ -12,15 +12,13 @@ Vue.component(Slider.name, Slider)
 ```
 
 ## 代码演示
-<!-- DEMO -->
-
 
 ## API
 
 ### Slider Props
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
-|value|双向绑定的值|number/number[]|`0`|当开启<code>range</code>时, 其值为数组形式</code>|
+|value|双向绑定的值|number/number[]|`0`|当开启 range 时, 其值为数组形式|
 |disabled|是否禁用滑块|Boolean|`false`|-|
 |min|可拖动的最小值|number|`0`|-|
 |max|可拖动的最大值|number|`100`|-|
