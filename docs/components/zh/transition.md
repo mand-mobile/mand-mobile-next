@@ -14,8 +14,6 @@ Vue.component(Transition.name, Transition)
 ```
 
 ## 代码演示
-<!-- DEMO -->
-
 
 ## API
 `md-transition`组件为Vue内置`transtion`的一层封装，支持所有Transition的属性参数。

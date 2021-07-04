@@ -26,17 +26,17 @@ const componentsSidebarConfig = [
       }, {
         text: 'Feedback',
         children: [
-          ...componentsJson[1].list.map(genPath),
+          ...componentsJson[2].list.map(genPath),
         ],
       }, {
         text: 'Business',
         children: [
-          ...componentsJson[3].list.map(genPath),
+          ...componentsJson[1].list.map(genPath),
         ],
       }, {
         text: 'Form',
         children: [
-          ...componentsJson[2].list.map(genPath),
+          ...componentsJson[3].list.map(genPath),
         ],
       }, {
         text: 'Gesture',
