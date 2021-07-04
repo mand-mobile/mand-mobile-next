@@ -41,6 +41,11 @@ const demos = import.meta.globEager('../../../src/packages/action-bar/demo/demo*
     background: ghostwhite;
   }
 }
+@media (max-width: 640px) {
+  .demo-wrapper .md-action-bar .price {
+    font-size: 24px;
+  }
+}
 </style>
 
 ## API
