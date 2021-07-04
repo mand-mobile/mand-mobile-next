@@ -56,6 +56,7 @@ const copyHandler = (index: number) => {
           md-example-section
           flex flex-col
           mb-16 rounded-lg border-1 border-primary border-solid
+          last:mb-0
         "
       >
         <div
