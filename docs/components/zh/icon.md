@@ -31,6 +31,24 @@ Vue.component(Icon.name, Icon)
 const demos = import.meta.globEager('../../../src/packages/icon/demo/demo*.vue')
 </script>
 
+<style>
+  .md-example-child-icon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: ghostwhite;
+  }
+
+  .md-example-child-icon .md-example-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px
+  }
+</style>
+
 ## API
 
 #### Icon Props
