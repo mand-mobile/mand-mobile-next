@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/tab-bar
 
 # TabBar 标签栏
 
-
 用于创建不含内容区域的标签栏
 
 ## 引入
@@ -16,7 +15,6 @@ import { TabBar } from 'mand-mobile'
 
 Vue.component(TabBar.name, TabBar)
 ```
-
 
 ## 代码演示
 
@@ -28,9 +26,6 @@ Vue.component(TabBar.name, TabBar)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/tab-bar/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

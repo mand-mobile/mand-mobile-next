@@ -18,7 +18,6 @@ Vue.component(CheckGroup.name, CheckGroup)
 Vue.component(CheckList.name, CheckList)
 ```
 
-
 ## 代码演示
 
 <demo-wrapper
@@ -29,9 +28,6 @@ Vue.component(CheckList.name, CheckList)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/check/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

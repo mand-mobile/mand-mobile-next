@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/progress
 
 # Progress 进度
 
-
 进度圆环，用于将数据直观地传达给用户
 
 ## 引入
@@ -16,7 +15,6 @@ import { Progress } from 'mand-mobile'
 
 Vue.component(Progress.name, Progress)
 ```
-
 
 ## 代码演示
 
@@ -28,9 +26,6 @@ Vue.component(Progress.name, Progress)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/progress/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

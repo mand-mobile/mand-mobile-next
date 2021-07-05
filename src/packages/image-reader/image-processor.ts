@@ -2,7 +2,7 @@ import {
   dataURIToArrayBuffer,
   dataURItoBlob,
 } from './image-dataurl'
-import { noop } from 'mand-mobile/utils'
+import { noop, inBrowser } from 'mand-mobile/utils'
 
 // Import jpeg_encoder_basic for compatibility if necessary
 import JPEGEncoder from 'jpeg-js'
@@ -12,33 +12,43 @@ type MaxWidth = number
 type MaxHeight = number
 type Quality = number
 
-const UA = ((userAgent) => {
-  const isOldIos = /OS (\d)_.* like Mac OS X/g.exec(
-    userAgent
-  )
-  const isOldAndroid =
-    /Android (\d.*?);/g.exec(userAgent) ||
-    /Android\/(\d.*?) /g.exec(userAgent)
+const UA = inBrowser
+  ? ((userAgent) => {
+      const isOldIos = /OS (\d)_.* like Mac OS X/g.exec(
+        userAgent
+      )
+      const isOldAndroid =
+        /Android (\d.*?);/g.exec(userAgent) ||
+        /Android\/(\d.*?) /g.exec(userAgent)
 
-  // IOS8.3-
-  // ndroid4.5-
-  // ios
-  // android
-  // QQ Browser
+      // IOS8.3-
+      // ndroid4.5-
+      // ios
+      // android
+      // QQ Browser
 
-  const oldIos = isOldIos?.pop()
-  const OldAndroid = isOldAndroid?.pop()
+      const oldIos = isOldIos?.pop()
+      const OldAndroid = isOldAndroid?.pop()
 
-  return {
-    oldIOS: oldIos ? +oldIos < 8.3 : false,
-    oldAndroid: OldAndroid
-      ? +OldAndroid.substr(0, 3) < 4.5
-      : false,
-    ios: /\(i[^;]+;( U;)? CPU.+Mac OS X/.test(userAgent),
-    android: /Android/g.test(userAgent),
-    mQQBrowser: /MQQBrowser/g.test(userAgent),
-  }
-})(navigator.userAgent)
+      return {
+        oldIOS: oldIos ? +oldIos < 8.3 : false,
+        oldAndroid: OldAndroid
+          ? +OldAndroid.substr(0, 3) < 4.5
+          : false,
+        ios: /\(i[^;]+;( U;)? CPU.+Mac OS X/.test(
+          userAgent
+        ),
+        android: /Android/g.test(userAgent),
+        mQQBrowser: /MQQBrowser/g.test(userAgent),
+      }
+    })(navigator.userAgent)
+  : {
+      oldIOS: false,
+      oldAndroid: false,
+      ios: false,
+      android: false,
+      mQQBrowser: false,
+    }
 
 /**
  * Get Orientation of EXIF
@@ -153,6 +163,7 @@ function makeCanvas(
   maxHeight: MaxWidth,
   quality: Quality
 ) {
+  if (!inBrowser) return
   const { width, height } = getImageSize(
     img,
     orientation,

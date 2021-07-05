@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/drop-menu
 
 # DropMenu 下拉菜单
 
-
 下拉菜单可用于列表筛选
 
 ## 引入
@@ -16,7 +15,6 @@ import { DropMenu } from 'mand-mobile'
 
 Vue.component(DropMenu.name, DropMenu)
 ```
-
 
 ## 代码演示
 
@@ -28,9 +26,6 @@ Vue.component(DropMenu.name, DropMenu)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/drop-menu/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

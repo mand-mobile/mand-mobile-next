@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/steps
 
 # Steps 步骤条
 
-
 用于引导用户按照流程完成任务的导航条，显示当前所在步骤
 
 ## 引入
@@ -16,7 +15,6 @@ import { Steps } from 'mand-mobile'
 
 Vue.component(Steps.name, Steps)
 ```
-
 
 ## 代码演示
 
@@ -28,9 +26,6 @@ Vue.component(Steps.name, Steps)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/steps/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

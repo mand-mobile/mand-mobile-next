@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/detail-item
 
 # DetailItem 清单项
 
-
 清单列表用于展示一些列表信息，如账单
 
 ## 引入
@@ -16,7 +15,6 @@ import { DetailItem } from 'mand-mobile'
 
 Vue.component(DetailItem.name, DetailItem)
 ```
-
 
 ## 代码演示
 
@@ -28,9 +26,6 @@ Vue.component(DetailItem.name, DetailItem)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/detail-item/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

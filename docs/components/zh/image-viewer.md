@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/image-viewer
 
 # ImageViewer 图片查看器
 
-
 用于浏览多张图片，并可对图片进行滑动切换
 
 ### 引入
@@ -17,8 +16,6 @@ import { ImageViewer } from 'mand-mobile'
 Vue.component(ImageViewer.name, ImageViewer)
 ```
 
-
-#
 ## 代码演示
 
 <demo-wrapper
@@ -29,8 +26,6 @@ Vue.component(ImageViewer.name, ImageViewer)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/image-viewer/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
 
 ### API
 

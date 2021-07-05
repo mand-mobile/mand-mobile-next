@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/toast
 
 # Toast 轻提示
 
-
 弹出式消息提示
 
 ## 引入
@@ -21,7 +20,6 @@ this.$toast.info('提示') // 全量引入
 Vue.component(Toast.name, Toast) // 组件引入
 ```
 
-
 ## 代码演示
 
 <demo-wrapper
@@ -32,9 +30,6 @@ Vue.component(Toast.name, Toast) // 组件引入
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/toast/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

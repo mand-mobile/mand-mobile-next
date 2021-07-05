@@ -17,7 +17,6 @@ import { CellItem } from 'mand-mobile'
 Vue.component(CellItem.name, CellItem)
 ```
 
-
 ## 代码演示
 
 <demo-wrapper
@@ -28,9 +27,6 @@ Vue.component(CellItem.name, CellItem)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/cell-item/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

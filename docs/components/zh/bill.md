@@ -17,7 +17,6 @@ import { Bill } from 'mand-mobile'
 Vue.component(Bill.name, Bill)
 ```
 
-#
 ## 代码演示
 
 <demo-wrapper
@@ -28,8 +27,6 @@ Vue.component(Bill.name, Bill)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/bill/demo/demo*.vue')
 </script>
-
-
 
 ### API
 

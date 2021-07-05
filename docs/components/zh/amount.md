@@ -21,8 +21,6 @@ Vue.component(Amount.name, Amount)
 组件中使用字体`DINPro-Medium`仅用于案例展示，如有必要可重置`.md-amount`的`font-family`
 :::
 
-
-
 ## 代码演示
 
 <demo-wrapper
@@ -33,9 +31,6 @@ Vue.component(Amount.name, Amount)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/amount/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

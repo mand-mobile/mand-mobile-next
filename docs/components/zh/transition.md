@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/transition
 
 # Transition 动画
 
-
 复用动画切换组件
 
 ## 引入
@@ -16,7 +15,6 @@ import { Transition } from 'mand-mobile'
 
 Vue.component(Transition.name, Transition)
 ```
-
 
 ## 代码演示
 
@@ -28,7 +26,6 @@ Vue.component(Transition.name, Transition)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/transition/demo/demo*.vue')
 </script>
-
 
 ## API
 `md-transition`组件为Vue内置`transtion`的一层封装，支持所有Transition的属性参数。
