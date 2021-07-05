@@ -11,7 +11,7 @@ const headers = computed(() => {
 
 <template>
   <teleport to="body">
-    <ul class="right-slug <xl:hidden">
+    <ul class="right-slug">
       <li
         v-for="{ level, title, slug } of headers"
         :class="`slug-item level-${level}`"
@@ -59,15 +59,15 @@ const headers = computed(() => {
   width: var(--slug-width);
   padding: 50px 24px 0 0;
   border-right: 1px solid var(--c-divider);
-  background-color: #fff;
+  background: var(--c-bg);
   z-index: 3;
   overflow-y: auto;
-  transform: translateX(100%);
+  transform: translateX(0);
   transition: transform 0.25s ease;
 }
-@media (min-width: 900px) {
+@media (max-width: 1280px) {
   .right-slug {
-    transform: translateX(0);
+    transform: translateX(100%);
   }
 }
 </style>
