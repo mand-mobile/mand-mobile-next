@@ -19,7 +19,7 @@ Vue.component(Ruler.name, Ruler)
 
 
 ## 代码演示
-
+<!-- 
 <demo-wrapper
   src="src/packages/ruler/demo"
   :demos="demos"
@@ -27,7 +27,7 @@ Vue.component(Ruler.name, Ruler)
 
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/ruler/demo/demo*.vue')
-</script>
+</script> -->
 
 <!-- DEMO -->
 

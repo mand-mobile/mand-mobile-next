@@ -20,14 +20,14 @@ Vue.component(Chart.name, Chart)
 #
 ## 代码演示
 
-<demo-wrapper
+<!-- <demo-wrapper
   src="src/packages/chart/demo"
   :demos="demos"
 />
 
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/chart/demo/demo*.vue')
-</script>
+</script> -->
 
 <!-- DEMO -->
 
