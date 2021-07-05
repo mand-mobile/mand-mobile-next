@@ -32,12 +32,12 @@ export const SideBarLink: FunctionalComponent<{
     h(
       link ? 'a' : 'p',
       {
-        class: { 'sidebar-link-item': true, active },
+        class: { 'sidebar-link-item': true, active, head: !link },
         href: link
       },
       [
         // h('span', { class: 'sidebar-link-item__name' }, name),
-        h('span', { class: 'sidebar-link-item__text'}, text),
+        h('span', { class: `sidebar-link-item__text level-${depth}`}, text),
       ]
     ),
     childItems

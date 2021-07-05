@@ -49,7 +49,7 @@ a.sidebar-link-item.active {
   }
 }
 
-.sidebar > .sidebar-links > .sidebar-link > .sidebar-link-item {
+/* .sidebar > .sidebar-links > .sidebar-link > .sidebar-link-item {
   padding: 0.35rem 1.5rem 0.35rem 1.25rem;
   font-size: 1.1rem;
   font-weight: 700;
@@ -113,4 +113,101 @@ a.sidebar-link-item.active {
   line-height: 1.4;
   font-size: 0.9rem;
   font-weight: 400;
+} */
+
+/* override */
+
+.sidebar > .sidebar-links > .sidebar-link > .sidebar-link-item,
+.sidebar-link-item.head {
+  padding: 0.35rem 1rem 0.35rem 1rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  opacity: 0.5;
+}
+
+.sidebar > .sidebar-links > .sidebar-link > a.sidebar-link-item.active {
+  border-left-color: var(--c-brand);
+  font-weight: 400;
+}
+
+.sidebar
+  > .sidebar-links
+  > .sidebar-link
+  > .sidebar-links
+  > .sidebar-link
+  > .sidebar-link-item {
+  display: block;
+  padding: 0.45rem 1rem 0.45rem 1rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  line-height: 1.4;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.sidebar
+  > .sidebar-links
+  > .sidebar-link
+  > .sidebar-links
+  > .sidebar-link
+  > a.sidebar-link-item.active {
+  border-left-color: var(--c-brand);
+  font-weight: 400;
+}
+
+.sidebar
+  > .sidebar-links
+  > .sidebar-link
+  > .sidebar-links
+  > .sidebar-link
+  > .sidebar-links
+  > .sidebar-link
+  > .sidebar-link-item {
+  display: block;
+  padding: 0.45rem 1.5rem 0.45rem 1rem;
+  line-height: 1.4;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.sidebar
+  > .sidebar-links
+  > .sidebar-link
+  > .sidebar-links
+  > .sidebar-link
+  > .sidebar-links
+  > .sidebar-link
+  > .sidebar-links
+  > .sidebar-link
+  > .sidebar-link-item {
+  display: block;
+  padding: 0.45rem 1.5rem 0.45rem 2rem;
+  line-height: 1.4;
+  font-size: 0.9rem;
+  font-weight: 400;
+  background: none;
+}
+
+.sidebar {
+  padding: 0 1rem 1rem;
+}
+
+a.sidebar-link-item:hover {
+  text-decoration: none;
+  @apply bg-blue-gray-100 dark:bg-dark-400 rounded-md;
+}
+
+a.sidebar-link-item.active {
+  @apply  bg-blue-gray-100 dark:bg-dark-400 rounded-md;
+}
+
+p.sidebar-link-item {
+  padding: .35rem 1rem .35rem 1rem;
+  text-transform: uppercase;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  opacity: .5;
 }
