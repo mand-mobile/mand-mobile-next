@@ -13,6 +13,18 @@ const config: UserConfig = {
       )}/`,
     },
   },
+  css: {
+    preprocessorOptions: {
+      stylus: {
+        imports: [
+          `${path.join(
+            __dirname,
+            '../src/styles/index.styl'
+          )}`,
+        ],
+      },
+    },
+  },
   optimizeDeps: {
     exclude: ['vue-demi', '@vueuse/shared', '@vueuse/core'],
   },
