@@ -77,7 +77,9 @@ const copyHandler = (index: number) => {
             <sm:p-4
           "
         >
-          <component :is="demo.component" class="demo-component"></component>
+          <div class="demo-component">
+            <component :is="demo.component"></component>
+          </div>
         </div>
         <div class="operations relative py-2 px-2 text-center">
           <fluent:clipboard-code-24-regular
