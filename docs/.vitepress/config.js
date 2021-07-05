@@ -7,17 +7,17 @@ const genPath = comp => ({
 
 const componentsSidebarConfig = [
   {
+    text: '更新日志',
+    link: '/components/'
+  },
+  {
+    text: '快速开始',
+    link: '/components/quick-start'
+  },
+  {
     name: 'components',
-    title: 'COMPONENTS',
+    text: 'COMPONENTS',
     children: [
-      {
-        text: '更新日志',
-        link: '/components/'
-      },
-      {
-        text: '快速开始',
-        link: '/components/quick-start'
-      },
       {
         text: 'Basic',
         children: [

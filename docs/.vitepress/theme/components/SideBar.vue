@@ -49,6 +49,7 @@ defineProps({
 
 .sidebar.open {
   transform: translateX(0);
+  box-shadow: 0 0 5px rgb(10 16 20 / 12%);
 }
 
 .nav {

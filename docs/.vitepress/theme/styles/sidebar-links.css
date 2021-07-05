@@ -121,10 +121,10 @@ a.sidebar-link-item.active {
 .sidebar-link-item.head {
   padding: 0.35rem 1rem 0.35rem 1rem;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  /* font-size: 0.8rem; */
   font-weight: 600;
   letter-spacing: 1px;
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 
 .sidebar > .sidebar-links > .sidebar-link > a.sidebar-link-item.active {
@@ -152,9 +152,37 @@ a.sidebar-link-item.active {
   > .sidebar-link
   > .sidebar-links
   > .sidebar-link
-  > a.sidebar-link-item.active {
-  border-left-color: var(--c-brand);
+  > p.sidebar-link-item {
+  display: block;
+  padding: 0.45rem 1rem 0.45rem 1rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  line-height: 1.4;
+  font-size: 0.9rem;
   font-weight: 400;
+  opacity: .5;
+}
+
+.sidebar
+  > .sidebar-links
+  > .sidebar-link
+  > .sidebar-links
+  > .sidebar-link
+  > a.sidebar-link-item.active {
+  /* border-left-color: var(--c-brand); */
+  font-weight: 400;
+  background: none;
+}
+
+.sidebar
+  > .sidebar-links
+  > .sidebar-link
+  > .sidebar-links
+  > .sidebar-link
+  > a.sidebar-link-item:hover {
+  /* border-left-color: var(--c-brand); */
+  font-weight: 400;
+  background: none;
 }
 
 .sidebar
@@ -204,10 +232,10 @@ a.sidebar-link-item.active {
 }
 
 p.sidebar-link-item {
-  padding: .35rem 1rem .35rem 1rem;
+  /* padding: .35rem 1rem .35rem 1rem;
   text-transform: uppercase;
   font-size: .8rem;
   font-weight: 600;
   letter-spacing: 1px;
-  opacity: .5;
+  opacity: .5; */
 }
