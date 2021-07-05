@@ -27,6 +27,17 @@ Vue.component(DropMenu.name, DropMenu)
 const demos = import.meta.globEager('../../../src/packages/drop-menu/demo/demo*.vue')
 </script>
 
+<style>
+  .demo-wrapper .md-drop-menu {
+    position: static;
+  }
+
+  .demo-wrapper .md-drop-menu .md-popup {
+    position: absolute;
+    z-index: 9999;
+  }
+</style>
+
 ## API
 
 ### DropMenu Props
