@@ -1,7 +1,11 @@
 ---
+component: number-keyboard
 title: NumberKeyboard 数字键盘
 preview: https://didi.github.io/mand-mobile/examples/#/number-keyboard
 ---
+
+# NumberKeyboard 数字键盘
+
 
 一般用于密码，验证码或支付金额输入等金融场景
 
@@ -13,7 +17,18 @@ import { NumberKeyboard } from 'mand-mobile'
 Vue.component(NumberKeyboard.name, NumberKeyboard)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/number-keyboard/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/number-keyboard/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

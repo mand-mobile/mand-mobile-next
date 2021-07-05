@@ -1,7 +1,11 @@
 ---
+component: switch
 title: Switch 开关
 preview: https://didi.github.io/mand-mobile/examples/#/switch
 ---
+
+# Switch 开关
+
 
 开关按钮，用于表示开关状态/两种状态之间的切换
 
@@ -13,7 +17,18 @@ import { Switch } from 'mand-mobile'
 Vue.component(Switch.name, Switch)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/switch/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/switch/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

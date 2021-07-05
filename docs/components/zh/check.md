@@ -1,7 +1,11 @@
 ---
+component: check
 title: Check 复选项
 preview: https://didi.github.io/mand-mobile/examples/#/check
 ---
+
+# Check 复选项
+
 
 ## 引入
 
@@ -14,7 +18,18 @@ Vue.component(CheckGroup.name, CheckGroup)
 Vue.component(CheckList.name, CheckList)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/check/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/check/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

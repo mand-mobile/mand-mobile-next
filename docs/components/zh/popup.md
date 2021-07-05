@@ -1,7 +1,11 @@
 ---
+component: popup
 title: Popup 弹出层
 preview: https://didi.github.io/mand-mobile/examples/#/popup
 ---
+
+# Popup 弹出层
+
 
 由其他控件触发，屏幕滑出或弹出一块自定义内容区域
 
@@ -14,7 +18,18 @@ Vue.component(Popup.name, Popup)
 Vue.component(PopupTitleBar.name, PopupTitleBar)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/popup/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/popup/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

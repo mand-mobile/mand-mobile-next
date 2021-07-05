@@ -1,7 +1,11 @@
 ---
+component: skeleton
 title: Skeleton 骨架屏
 preview: https://didi.github.io/mand-mobile/examples/#/skeleton
 ---
+
+# Skeleton 骨架屏
+
 
 骨架屏，一般用于数据尚未加载前先展示出页面的大致结构的加载状态
 
@@ -13,7 +17,18 @@ import { Skeleton } from 'mand-mobile'
 Vue.component(Skeleton.name, Skeleton)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/skeleton/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/skeleton/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

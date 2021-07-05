@@ -1,7 +1,11 @@
 ---
+component: ruler
 title: Ruler 刻度尺
 preview: https://didi.github.io/mand-mobile/examples/#/ruler
 ---
+
+# Ruler 刻度尺
+
 
 可滑动刻度尺
 
@@ -13,7 +17,18 @@ import { Ruler } from 'mand-mobile'
 Vue.component(Ruler.name, Ruler)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/ruler/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/ruler/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

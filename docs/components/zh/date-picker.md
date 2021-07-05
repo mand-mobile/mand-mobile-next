@@ -1,7 +1,11 @@
 ---
+component: date-picker
 title: DatePicker 时间选择器
 preview: https://didi.github.io/mand-mobile/examples/#/date-picker
 ---
+
+# DatePicker 时间选择器
+
 
 选择日期或者时间，支持年/月/日/时/分和按照范围选择
 
@@ -13,7 +17,18 @@ import { DatePicker } from 'mand-mobile'
 Vue.component(DatePicker.name, DatePicker)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/date-picker/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/date-picker/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

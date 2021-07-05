@@ -1,7 +1,11 @@
 ---
+component: image-viewer
 title: ImageViewer 图片查看器
 preview: https://didi.github.io/mand-mobile/examples/#/image-viewer
 ---
+
+# ImageViewer 图片查看器
+
 
 用于浏览多张图片，并可对图片进行滑动切换
 
@@ -14,7 +18,18 @@ Vue.component(ImageViewer.name, ImageViewer)
 ```
 
 
-### 代码演示
+#
+## 代码演示
+
+<demo-wrapper
+  src="src/packages/image-viewer/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/image-viewer/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 ### API

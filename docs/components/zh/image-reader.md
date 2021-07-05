@@ -1,7 +1,11 @@
 ---
+component: image-reader
 title: ImageReader 图片选择器
 preview: https://didi.github.io/mand-mobile/examples/#/image-reader
 ---
+
+# ImageReader 图片选择器
+
 
 用于相册照片读取或拉起拍照
 
@@ -13,7 +17,18 @@ import { ImageReader } from 'mand-mobile'
 Vue.component(ImageReader.name, ImageReader)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/image-reader/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/image-reader/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

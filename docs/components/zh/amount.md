@@ -1,7 +1,11 @@
 ---
+component: amount
 title: Amount 金融数字
 preview: https://didi.github.io/mand-mobile/examples/#/amount
 ---
+
+# Amount 金融数字
+
 
 金融数字，一般用于金额，数量等
 
@@ -18,7 +22,18 @@ Vue.component(Amount.name, Amount)
 :::
 
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/amount/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/amount/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

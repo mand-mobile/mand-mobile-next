@@ -1,7 +1,11 @@
 ---
+component: bill
 title: Bill 票据
 preview: https://didi.github.io/mand-mobile/examples/#/bill
 ---
+
+# Bill 票据
+
 
 电子账单或票据
 
@@ -13,7 +17,18 @@ import { Bill } from 'mand-mobile'
 Vue.component(Bill.name, Bill)
 ```
 
-### 代码演示
+#
+## 代码演示
+
+<demo-wrapper
+  src="src/packages/bill/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/bill/demo/demo*.vue')
+</script>
+
 
 
 ### API

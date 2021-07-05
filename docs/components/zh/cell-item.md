@@ -1,7 +1,11 @@
 ---
+component: cell-item
 title: CellItem 单元格
 preview: https://didi.github.io/mand-mobile/examples/#/cell-item
 ---
+
+# CellItem 单元格
+
 
 列表用于展现并列层级的信息内容，列表可承载功能入口、功能操作、信息展示等功能。
 
@@ -13,7 +17,18 @@ import { CellItem } from 'mand-mobile'
 Vue.component(CellItem.name, CellItem)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/cell-item/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/cell-item/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

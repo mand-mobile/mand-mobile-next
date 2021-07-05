@@ -1,7 +1,11 @@
 ---
+component: tab-picker
 title: TabPicker 多级联动选择器
 preview: https://didi.github.io/mand-mobile/examples/#/tab-picker
 ---
+
+# TabPicker 多级联动选择器
+
 
 底部级联选择的tab切换面板
 
@@ -13,7 +17,18 @@ import { TabPicker } from 'mand-mobile'
 Vue.component(TabPicker.name, TabPicker)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/tab-picker/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/tab-picker/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

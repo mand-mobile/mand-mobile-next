@@ -1,7 +1,11 @@
 ---
+component: tip
 title: Tip 气泡提示
 preview: https://didi.github.io/mand-mobile/examples/#/tip
 ---
+
+# Tip 气泡提示
+
 
 ## 引入
 
@@ -11,7 +15,18 @@ import { Tip } from 'mand-mobile'
 Vue.component(Tip.name, Tip)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/tip/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/tip/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

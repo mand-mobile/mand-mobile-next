@@ -1,7 +1,11 @@
 ---
+component: textarea-item
 title: TextareaItem 多行输入框
 preview: https://didi.github.io/mand-mobile/examples/#/TextareaItem
 ---
+
+# TextareaItem 多行输入框
+
 
 多行文本输入框
 
@@ -13,7 +17,18 @@ import { TextareaItem } from 'mand-mobile'
 Vue.component(TextareaItem.name, TextareaItem)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/textarea-item/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/textarea-item/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

@@ -1,7 +1,11 @@
 ---
+component: slider
 title: Slider 滑块
 preview: https://didi.github.io/mand-mobile/examples/#/slider
 ---
+
+# Slider 滑块
+
 
 ## 引入
 
@@ -11,7 +15,18 @@ import { Slider } from 'mand-mobile'
 Vue.component(Slider.name, Slider)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/slider/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/slider/demo/demo*.vue')
+</script>
+
 
 ## API
 

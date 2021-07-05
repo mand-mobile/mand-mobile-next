@@ -1,7 +1,11 @@
 ---
+component: notice-bar
 title: NoticeBar 通告栏
 preview: https://didi.github.io/mand-mobile/examples/#/notice-bar
 ---
+
+# NoticeBar 通告栏
+
 
 通常用于系统提醒、活动提醒等通知
 
@@ -14,7 +18,18 @@ Vue.component(NoticeBar.name, NoticeBar)
 ```
 
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/notice-bar/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/notice-bar/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

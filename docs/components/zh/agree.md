@@ -1,7 +1,11 @@
 ---
+component: agree
 title: Agree 勾选按钮
 preview: https://didi.github.io/mand-mobile/examples/#/agree
 ---
+
+# Agree 勾选按钮
+
 
 用于标记切换某种状态，如协议勾选
 
@@ -13,7 +17,18 @@ import { Agree } from 'mand-mobile'
 Vue.component(Agree.name, Agree)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/agree/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/agree/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 
