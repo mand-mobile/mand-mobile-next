@@ -27,6 +27,12 @@ Vue.component(Tag.name, Tag)
 const demos = import.meta.globEager('../../../src/packages/tag/demo/demo*.vue')
 </script>
 
+<style>
+  .demo-wrapper .md-tag {
+    position: relative;
+  }
+</style>
+
 ## API
 
 ### Tag Props
