@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/tip
 
 # Tip 气泡提示
 
-
 ## 引入
 
 ```javascript
@@ -26,9 +25,6 @@ Vue.component(Tip.name, Tip)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/tip/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

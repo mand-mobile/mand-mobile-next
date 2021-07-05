@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/tabs
 
 # Tabs 标签页
 
-
 用于创建包含内容区域的标签页
 
 ## 引入
@@ -18,7 +17,6 @@ Vue.component(Tabs.name, Tabs)
 Vue.component(TabPane.name, TabPane)
 ```
 
-
 ## 代码演示
 
 <demo-wrapper
@@ -29,9 +27,6 @@ Vue.component(TabPane.name, TabPane)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/tabs/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

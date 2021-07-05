@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/stepper
 
 # Stepper 步进器
 
-
 增加，减少或修改当前数值
 
 ## 引入
@@ -16,7 +15,6 @@ import { Stepper } from 'mand-mobile'
 
 Vue.component(Stepper.name, Stepper)
 ```
-
 
 ## 代码演示
 
@@ -28,9 +26,6 @@ Vue.component(Stepper.name, Stepper)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/stepper/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

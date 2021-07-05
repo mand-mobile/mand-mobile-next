@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/scroll-view
 
 # ScrollView 滚动区域
 
-
 用于模拟原生的滚动区域，并支持下拉刷新和加载更多
 
 ## 引入
@@ -35,9 +34,6 @@ Vue.component(ScrollView.name, ScrollView)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/scroll-view/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

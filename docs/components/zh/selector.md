@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/selector
 
 # Selector 列表选择器
 
-
 用于弹出列表中选择一项
 
 ## 引入
@@ -16,7 +15,6 @@ import { Selector } from 'mand-mobile'
 
 Vue.component(Selector.name, Selector)
 ```
-
 
 ## 代码演示
 
@@ -28,10 +26,6 @@ Vue.component(Selector.name, Selector)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/selector/demo/demo*.vue')
 </script>
-
-
-<!-- DEMO -->
-
 
 ## API
 

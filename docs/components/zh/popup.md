@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/popup
 
 # Popup 弹出层
 
-
 由其他控件触发，屏幕滑出或弹出一块自定义内容区域
 
 ## 引入
@@ -18,7 +17,6 @@ Vue.component(Popup.name, Popup)
 Vue.component(PopupTitleBar.name, PopupTitleBar)
 ```
 
-
 ## 代码演示
 
 <demo-wrapper
@@ -29,9 +27,6 @@ Vue.component(PopupTitleBar.name, PopupTitleBar)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/popup/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/landscape
 
 # Landscape 输入框
 
-
 用于在浮层中显示广告或说明
 
 ## 引入
@@ -16,7 +15,6 @@ import { Landscape } from 'mand-mobile'
 
 Vue.component(Landscape.name, Landscape)
 ```
-
 
 ## 代码演示
 
@@ -28,9 +26,6 @@ Vue.component(Landscape.name, Landscape)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/landscape/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

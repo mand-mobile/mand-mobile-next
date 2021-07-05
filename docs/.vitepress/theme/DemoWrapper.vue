@@ -182,4 +182,10 @@ const copyHandler = (index: number) => {
     transition opacity 300ms cubic-bezier(0.215, 0.61, 0.355, 1)
   &-leave-active
     transition opacity 250ms linear
+
+.demo-wrapper,.md-popup
+  ol, li, ul
+    padding 0
+    margin 0
+    list-style none  
 </style>

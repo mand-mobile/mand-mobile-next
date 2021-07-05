@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/tag
 
 # Tag 标签
 
-
 用于表示区域的状态的标签
 
 ## 引入
@@ -16,7 +15,6 @@ import { Tag } from 'mand-mobile'
 
 Vue.component(Tag.name, Tag)
 ```
-
 
 ## 代码演示
 
@@ -28,9 +26,6 @@ Vue.component(Tag.name, Tag)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/tag/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

@@ -17,7 +17,6 @@ import { Captcha } from 'mand-mobile'
 Vue.component(Captcha.name, Captcha)
 ```
 
-
 ## 代码演示
 
 <demo-wrapper
@@ -28,8 +27,6 @@ Vue.component(Captcha.name, Captcha)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/captcha/demo/demo*.vue')
 </script>
-
-
 
 ## API
 

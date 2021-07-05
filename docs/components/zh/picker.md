@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/picker
 
 # Picker 选择器
 
-
 滚动多列选择
 
 ## 引入
@@ -16,7 +15,6 @@ import { Picker } from 'mand-mobile'
 
 Vue.component(Picker.name, Picker)
 ```
-
 
 ## 代码演示
 
@@ -28,9 +26,6 @@ Vue.component(Picker.name, Picker)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/picker/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

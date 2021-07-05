@@ -17,7 +17,6 @@ import { Cashier } from 'mand-mobile'
 Vue.component(Cashier.name, Cashier)
 ```
 
-
 ## 代码演示
 
 <demo-wrapper
@@ -28,9 +27,6 @@ Vue.component(Cashier.name, Cashier)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/cashier/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 

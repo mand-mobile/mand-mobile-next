@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/result-page
 
 # ResultPage 结果页
 
-
 用于展示流程结束页面的控件
 
 ## 引入
@@ -21,7 +20,6 @@ Vue.component(ResultPage.name, ResultPage)
 
 建议将组建的父元素设置填满视窗，以达到居中的效果。页面上的图片会根据`type`设置相应的默认值
 
-
 ## 代码演示
 
 <demo-wrapper
@@ -32,9 +30,6 @@ Vue.component(ResultPage.name, ResultPage)
 <script setup>
 const demos = import.meta.globEager('../../../src/packages/result-page/demo/demo*.vue')
 </script>
-
-<!-- DEMO -->
-
 
 ## API
 
