@@ -1,7 +1,11 @@
 ---
+component: cashier
 title: Cashier 收银台
 preview: https://didi.github.io/mand-mobile/examples/#/cashier
 ---
+
+# Cashier 收银台
+
 
 业务支付弹窗，支持支付渠道选择和支付验证码发送
 
@@ -13,7 +17,18 @@ import { Cashier } from 'mand-mobile'
 Vue.component(Cashier.name, Cashier)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/cashier/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/cashier/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

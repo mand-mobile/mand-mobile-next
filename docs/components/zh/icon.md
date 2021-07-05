@@ -1,7 +1,11 @@
 ---
+component: icon
 title: Icon 图标
 preview: https://didi.github.io/mand-mobile/examples/#/icon
 ---
+
+# Icon 图标
+
 
 IconFont、SVG 图标
 
@@ -17,7 +21,18 @@ Vue.component(Icon.name, Icon)
 
 自定义svg图标和引入本地字体文件，请参考<a href="#附录">附录</a>
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/icon/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/icon/demo/demo*.vue')
+</script>
+
 
 ## API
 

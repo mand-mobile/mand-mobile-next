@@ -1,7 +1,11 @@
 ---
+component: water-mark
 title: WaterMark 水印
 preview: https://didi.github.io/mand-mobile/examples/#/water-mark
 ---
+
+# WaterMark 水印
+
 
 自带水印背景的容器
 
@@ -13,7 +17,18 @@ import { WaterMark } from 'mand-mobile'
 Vue.component(WaterMask.name, WaterMark)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/water-mark/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/water-mark/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

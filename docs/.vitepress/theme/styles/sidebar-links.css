@@ -13,7 +13,7 @@
 
 a.sidebar-link-item:hover {
   text-decoration: none;
-  color: var(--c-brand);
+  /* color: var(--c-brand); */
 }
 
 a.sidebar-link-item.active {
@@ -159,7 +159,7 @@ a.sidebar-link-item.active {
   margin-bottom: 0.2rem;
   line-height: 1.4;
   font-size: 0.9rem;
-  font-weight: 400;
+  font-weight: 600;
   opacity: .5;
 }
 
@@ -198,6 +198,8 @@ a.sidebar-link-item.active {
   line-height: 1.4;
   font-size: 0.9rem;
   font-weight: 400;
+  margin-top: .2rem;
+  margin-bottom: .2rem;
 }
 
 .sidebar

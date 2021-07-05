@@ -1,7 +1,11 @@
 ---
+component: detail-item
 title: DetailItem 清单项
 preview: https://didi.github.io/mand-mobile/examples/#/detail-item
 ---
+
+# DetailItem 清单项
+
 
 清单列表用于展示一些列表信息，如账单
 
@@ -13,7 +17,18 @@ import { DetailItem } from 'mand-mobile'
 Vue.component(DetailItem.name, DetailItem)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/detail-item/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/detail-item/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

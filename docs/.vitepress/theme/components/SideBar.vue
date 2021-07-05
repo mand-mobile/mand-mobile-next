@@ -2,6 +2,7 @@
 import { defineProps } from 'vue'
 import NavLinks from './NavLinks.vue'
 import SideBarLinks from './SideBarLinks.vue'
+import Slugs from './Slugs.vue'
 
 defineProps({
   open: { type: Boolean, required: true }
@@ -18,6 +19,8 @@ defineProps({
 
     <slot name="sidebar-bottom" />
   </aside>
+
+  <Slugs />
 </template>
 
 <style scoped>

@@ -1,7 +1,11 @@
 ---
+component: codebox
 title: CodeBox 验证码输入框
 preview: https://didi.github.io/mand-mobile/examples/#/codebox
 ---
+
+# CodeBox 验证码输入框
+
 
 验证码输入框
 
@@ -13,7 +17,18 @@ import { Codebox } from 'mand-mobile'
 Vue.component(Codebox.name, Codebox)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/codebox/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/codebox/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

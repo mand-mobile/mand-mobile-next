@@ -1,7 +1,11 @@
 ---
+component: action-sheet
 title: ActionSheet 动作面板
 preview: https://didi.github.io/mand-mobile/examples/#/action-sheet
 ---
+
+# ActionSheet 动作面板
+
 
 用于提供场景相关的多个操作动作
 
@@ -15,7 +19,18 @@ Vue.component(ActionSheet.name, ActionSheet)
 this.$actionsheet.create({ /* ... */ }) // 全量引入
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/action-sheet/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/action-sheet/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

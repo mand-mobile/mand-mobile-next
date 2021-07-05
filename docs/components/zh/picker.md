@@ -1,7 +1,11 @@
 ---
+component: picker
 title: Picker 选择器
 preview: https://didi.github.io/mand-mobile/examples/#/picker
 ---
+
+# Picker 选择器
+
 
 滚动多列选择
 
@@ -13,7 +17,18 @@ import { Picker } from 'mand-mobile'
 Vue.component(Picker.name, Picker)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/picker/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/picker/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

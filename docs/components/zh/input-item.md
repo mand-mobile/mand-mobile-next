@@ -1,7 +1,11 @@
 ---
+component: input-item
 title: InputItem 输入框
 preview: https://didi.github.io/mand-mobile/examples/#/input-item
 ---
+
+# InputItem 输入框
+
 
 单行文本输入框，支持特殊场景文本格式化
 
@@ -19,7 +23,18 @@ Vue.component(InputItem.name, InputItem)
 表单校验可使用第三方工具，如[vee-validate](https://baianat.github.io/vee-validate/)，使用示例可参考[表单校验](#表单校验)
 :::
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/input-item/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/input-item/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

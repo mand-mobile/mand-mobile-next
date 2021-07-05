@@ -1,7 +1,11 @@
 ---
+component: swiper
 title: Swiper 轮播
 preview: https://didi.github.io/mand-mobile/examples/#/swiper
 ---
+
+# Swiper 轮播
+
 
 走马灯，用于一组图片或卡片轮播
 
@@ -14,7 +18,18 @@ Vue.component(Swiper.name, Swiper)
 Vue.component(SwiperItem.name, SwiperItem)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/swiper/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/swiper/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 <!-- DEMO -->
 

@@ -1,7 +1,11 @@
 ---
+component: scroll-view
 title: ScrollView 滚动区域/下拉刷新
 preview: https://didi.github.io/mand-mobile/examples/#/scroll-view
 ---
+
+# ScrollView 滚动区域
+
 
 用于模拟原生的滚动区域，并支持下拉刷新和加载更多
 
@@ -20,7 +24,18 @@ Vue.component(ScrollView.name, ScrollView)
 * **组件容器需具有高度，否则会出现无法滚动或回弹问题。** 更多使用的常见问题请查看<a href="#附录">附录</a>
 :::
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/scroll-view/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/scroll-view/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

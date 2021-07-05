@@ -1,7 +1,11 @@
 ---
+component: captcha
 title: Captcha 验证码
 preview: https://didi.github.io/mand-mobile/examples/#/captcha
 ---
+
+# Captcha 验证码
+
 
 验证码校验窗口
 
@@ -13,7 +17,18 @@ import { Captcha } from 'mand-mobile'
 Vue.component(Captcha.name, Captcha)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/captcha/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/captcha/demo/demo*.vue')
+</script>
+
 
 
 ## API

@@ -1,7 +1,11 @@
 ---
+component: dialog
 title: Dialog 模态窗
 preview: https://didi.github.io/mand-mobile/examples/#/dialog
 ---
+
+# Dialog 模态窗
+
 
 交互式模态窗口
 
@@ -15,7 +19,18 @@ Dialog.alert({ content: '' })
 this.$dialog.alert({ content: '' }) // 全量引入
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/dialog/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/dialog/demo/demo*.vue')
+</script>
+
 
 ## API
 

@@ -1,7 +1,11 @@
 ---
+component: toast
 title: Toast 轻提示
 preview: https://didi.github.io/mand-mobile/examples/#/toast
 ---
+
+# Toast 轻提示
+
 
 弹出式消息提示
 
@@ -17,7 +21,18 @@ this.$toast.info('提示') // 全量引入
 Vue.component(Toast.name, Toast) // 组件引入
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/toast/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/toast/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

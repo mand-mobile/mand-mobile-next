@@ -6,7 +6,7 @@ import NavBarTitle from './NavBarTitle.vue'
 import NavLinks from './NavLinks.vue'
 import ToggleSideBarButton from './ToggleSideBarButton.vue'
 import GithubLink from './GithubLink.vue'
-import DarkSwitch from './DarkSwtich.vue'
+import DarkSwitch from './DarkSwitch.vue'
 
 defineEmit(['toggle'])
 

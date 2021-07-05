@@ -1,7 +1,11 @@
 ---
+component: chart
 title: Chart 折线图表
 preview: https://didi.github.io/mand-mobile/examples/#/chart
 ---
+
+# Chart 折线图表
+
 
 SVG折线图表, 可绘制多条折线并配置不同的显示规则。
 
@@ -13,7 +17,18 @@ import { Chart } from 'mand-mobile'
 Vue.component(Chart.name, Chart)
 ```
 
-### 代码演示
+#
+## 代码演示
+
+<demo-wrapper
+  src="src/packages/chart/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/chart/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 ### API

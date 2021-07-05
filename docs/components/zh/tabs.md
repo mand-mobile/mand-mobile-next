@@ -1,7 +1,11 @@
 ---
+component: tabs
 title: Tabs 标签页
 preview: https://didi.github.io/mand-mobile/examples/#/tabs
 ---
+
+# Tabs 标签页
+
 
 用于创建包含内容区域的标签页
 
@@ -14,7 +18,18 @@ Vue.component(Tabs.name, Tabs)
 Vue.component(TabPane.name, TabPane)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/tabs/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/tabs/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

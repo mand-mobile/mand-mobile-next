@@ -1,7 +1,11 @@
 ---
+component: radio
 title: Radio 单选框
 preview: https://didi.github.io/mand-mobile/examples/#/radio
 ---
+
+# Radio 单选框
+
 
 可自定义或编辑单选框
 
@@ -16,7 +20,18 @@ Vue.component(RadioGroup.name, RadioGroup)
 Vue.component(RadioList.name, RadioList)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/radio/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/radio/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 

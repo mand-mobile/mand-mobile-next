@@ -1,7 +1,11 @@
 ---
+component: selector
 title: Selector 列表选择器
 preview: https://didi.github.io/mand-mobile/examples/#/selector
 ---
+
+# Selector 列表选择器
+
 
 用于弹出列表中选择一项
 
@@ -13,7 +17,18 @@ import { Selector } from 'mand-mobile'
 Vue.component(Selector.name, Selector)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/selector/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/selector/demo/demo*.vue')
+</script>
+
 
 <!-- DEMO -->
 

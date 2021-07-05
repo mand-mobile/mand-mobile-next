@@ -1,7 +1,11 @@
 ---
+component: field
 title: Field 区域列表组合
 preview: https://didi.github.io/mand-mobile/examples/#/field
 ---
+
+# Field 区域列表组合
+
 
 区域列表垂直排列，显示当前的内容、状态和可进行的操作。
 
@@ -14,7 +18,18 @@ Vue.component(Field.name, Field)
 Vue.component(FieldItem.name, FieldItem)
 ```
 
+
 ## 代码演示
+
+<demo-wrapper
+  src="src/packages/field/demo"
+  :demos="demos"
+/>
+
+<script setup>
+const demos = import.meta.globEager('../../../src/packages/field/demo/demo*.vue')
+</script>
+
 <!-- DEMO -->
 
 
