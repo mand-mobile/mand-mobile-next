@@ -96,10 +96,6 @@ const demos = import.meta.globEager('../../../src/packages/dialog/demo/demo*.vue
 
 ### Dialog Static Methods
 
-::: tip
-Uniapp内会调用内置[Modal组件](https://uniapp.dcloud.io/api/ui/prompt?id=showmodal)
-:::
-
 #### Dialog.confirm(props)
 静态方法创建确认模态窗口, 返回Dialog实例
 

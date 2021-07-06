@@ -63,10 +63,6 @@ const demos = import.meta.globEager('../../../src/packages/action-sheet/demo/dem
 
 ### ActionSheet Static Methods
 
-::: tip
-Uniapp内会调用内置[ActionSheet组件](https://uniapp.dcloud.io/api/ui/prompt?id=showactionsheet)
-:::
-
 #### create(props)
 静态方法创建操作菜单, 返回ActionSheet实例。可以通过控制实例的`value`属性来控制显示或隐藏操作菜单。
 

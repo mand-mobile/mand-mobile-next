@@ -73,10 +73,6 @@ const demos = import.meta.globEager('../../../src/packages/toast/demo/demo*.vue'
 
 ### Toast Static Methods
 
-::: tip
-Uniapp内会调用内置[Toast组件](https://uniapp.dcloud.io/api/ui/prompt?id=showtoast)
-:::
-
 #### Toast.create(ToastOptions)
 显示自定义提示
 

@@ -59,10 +59,6 @@ const demos = import.meta.globEager('../../../src/packages/image-reader/demo/dem
 |file|图片对象|File|-|
 |blob |图片Blob对象，可用于`formData`|Blob|-|
 
-:::tip
-Uniapp中需使用[uni.uploadFile](https://uniapp.dcloud.io/api/request/network-file?id=uploadfile)上传图片
-:::
-
 #### @error(name, { code, msg })
 图片选择读取失败事件
 
@@ -76,10 +72,6 @@ Uniapp中需使用[uni.uploadFile](https://uniapp.dcloud.io/api/request/network-
 
 
 用于图片轴向修正，图片质量压缩，宽高控制
-
-:::tip
-Uniapp中需使用[uni.compressImage](https://uniapp.dcloud.io/api/media/image?id=compressimage)压缩图片
-:::
 
 ### 引入
 
