@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { defineProps, shallowReactive, computed, ref } from 'vue'
+import { defineProps, shallowReactive, computed } from 'vue'
 import { useClipboard } from '@vueuse/core'
+import { useData } from 'vitepress'
 
 const props = defineProps({
   demos: { type: Object, required: true },
@@ -40,6 +41,10 @@ const copyHandler = (index: number) => {
     comps[index].copied = false
   }, 2000)
 }
+
+
+const { frontmatter } = useData()
+const name = frontmatter.value.component
 </script>
 
 <template>
@@ -47,6 +52,7 @@ const copyHandler = (index: number) => {
     <article class="
       demo-wrapper flex flex-col m-auto 
       <lg:justify-center lg:justify-between"
+      :class="`${name}-demo`"
       v-bind="$attrs"
     >
       <div
@@ -61,7 +67,7 @@ const copyHandler = (index: number) => {
       >
         <div
           class="
-            md-example-title text-lg py-2 px-2 text-true-gray-600 font-600
+            md-example-title text-lg py-2 px-2 font-600
             <sm:text-md
           "
           v-text="demo.component.title"
@@ -117,11 +123,6 @@ const copyHandler = (index: number) => {
 </template>
 
 <style lang="stylus">
-
-.demo-wrapper > div {
-  flex: 0 0 45%;
-}
-
 .md-example-title {
   border-bottom: 1px solid  #eee;
 }

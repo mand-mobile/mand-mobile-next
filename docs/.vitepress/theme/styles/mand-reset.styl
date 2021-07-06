@@ -1,7 +1,8 @@
 /* override */
-.md-dialog .md-popup-box, .md-toast, .md-slide-up, .md-popup {
+.md-dialog .md-popup-box, .md-slide-up, .md-toast, .md-popup {
   zoom: .6 !important;
 }
+
 .md-popup-box {
   box-shadow: none !important;
 }
@@ -11,11 +12,39 @@
 }
 
 .demo-wrapper {
+  .md-example-content {
+    position relative;
+    overflow hidden;
+  }
+
+  .md-dialog .md-popup-box, .md-slide-up, .md-toast, .md-popup {
+    zoom: 1 !important;
+  }
+
   .md-action-bar {
     position: static;
     background: ghostwhite;
   }
+
+  &.drop-menu-demo {
+    .md-drop-menu-list {
+      padding: 0px;
+    }
+
+    .md-example-section {
+      height: 300px;
+    }
+
+    .md-drop-menu + .content {
+      font-size: 18px;
+    }   
+  }
+
+  .md-example-child-stepper {
+  
+  }
 }
+
 @media (max-width: 640px) {
   .demo-wrapper {
     .md-icon.icon-font.md {
@@ -48,9 +77,66 @@
     .md-detail-item {
       font-size: 14px;
     }
+
+    .md-drop-menu, .md-cell-item-content, .md-steps .step-wrapper .icon-wrapper .md-icon {
+      font-size: 16px !important;
+    }
+
+    .md-field-item-title {
+      font-size: 17px;
+    }
+
+    .md-drop-menu-bar {
+      z-index: 2;
+    }
+
+    .md-example-child-drop-menu-3 .md-drop-menu-custom-title {
+      font-size: 14px;
+    }
+  
+    .md-example-child-drop-menu-3 .md-drop-menu-custom-brief, .md-tag .size-large {
+      font-size: 12px;
+    }
+
+    .md-notice-bar, .md-steps .step-wrapper .text-wrapper .name, .md-tab-bar-item {
+      font-size: 14px;
+    }
+
+    .md-example-child-progress .progress-value, .slide-page, .md-example-child-swiper-3 .banner-item, .md-example-child-tab-bar-4 .custom-item .text {
+      font-size: 12px;
+    }
+
+    .md-stepper-number input {
+      position relative;
+      top: -24px;
+      font-size: 13px;
+    }
+
+    .md-tag .size-small {
+      font-size: 10px;
+    }
   }
 
   .demo-wrapper .md-action-bar .price {
     font-size: 24px;
+  }
+
+  .md-example-child-tabs-0 .content {
+    margin: 0 !important;
+    font-size: 14px !important;
+  }
+}
+
+.dark {
+  .md-field {
+    background-color: var(--c-bg);
+  }
+
+  .md-example-child-tabs .md-tab-bar {
+    background-color: var(--c-bg);
+  }
+
+  .md-example-child-tabs-0 .content {
+    background-color: var(--c-bg);
   }
 }
