@@ -1,0 +1,56 @@
+/* override */
+.md-dialog .md-popup-box, .md-toast, .md-slide-up, .md-popup {
+  zoom: .6 !important;
+}
+.md-popup-box {
+  box-shadow: none !important;
+}
+
+.popup p {
+  background: #fff;
+}
+
+.demo-wrapper {
+  .md-action-bar {
+    position: static;
+    background: ghostwhite;
+  }
+}
+@media (max-width: 640px) {
+  .demo-wrapper {
+    .md-icon.icon-font.md {
+      font-size: 16px;
+    }
+
+    .md-button {
+      font-size: 18px !important;
+    }
+    .md-button.link {
+      font-size: 12px !important;
+    }
+
+    .md-field .md-cell-item-body{
+      .md-cell-item-content {
+        font-size: 18px;
+      }
+      .md-cell-item-right {
+        font-size: 14px;
+      }
+      .md-cell-item-brief {
+        font-size: 12px;
+      }
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .md-detail-item {
+      font-size: 14px;
+    }
+  }
+
+  .demo-wrapper .md-action-bar .price {
+    font-size: 24px;
+  }
+}

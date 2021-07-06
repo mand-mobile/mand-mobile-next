@@ -6,6 +6,7 @@ import './styles/layout.css'
 import './styles/code.css'
 import './styles/custom-blocks.css'
 import './styles/sidebar-links.css'
+import './styles/mand-reset.styl'
 
 import { Theme } from 'vitepress'
 import Layout from './Layout.vue'

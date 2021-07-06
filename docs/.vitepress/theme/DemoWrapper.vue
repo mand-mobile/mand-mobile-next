@@ -184,7 +184,7 @@ const copyHandler = (index: number) => {
     transition opacity 250ms linear
 
 .demo-wrapper,.md-popup
-  ol, li, ul
+  ol, li, ul, p
     padding 0
     margin 0
     list-style none  
