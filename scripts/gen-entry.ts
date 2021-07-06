@@ -64,7 +64,7 @@ async function parseComponentExports() {
   str += `
     const install = (app: App) => {
       components.forEach((component) => {
-        app.component(component.name, component)
+        component.name && app.component(component.name, component)
       })
     }\n
   `
