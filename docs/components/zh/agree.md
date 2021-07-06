@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/agree
 ## 引入
 
 ```javascript
-import { Agree } from 'mand-mobile'
+import { Agree } from 'mand-mobile-next'
 
 Vue.component(Agree.name, Agree)
 ```

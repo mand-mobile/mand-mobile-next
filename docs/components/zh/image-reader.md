@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/image-reader
 ## 引入
 
 ```javascript
-import { ImageReader } from 'mand-mobile'
+import { ImageReader } from 'mand-mobile-next'
 
 Vue.component(ImageReader.name, ImageReader)
 ```

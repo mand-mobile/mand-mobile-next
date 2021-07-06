@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/input-item
 ## 引入
 
 ```javascript
-import { InputItem } from 'mand-mobile'
+import { InputItem } from 'mand-mobile-next'
 
 Vue.component(InputItem.name, InputItem)
 ```

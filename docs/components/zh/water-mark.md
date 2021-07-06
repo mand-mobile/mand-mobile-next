@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/water-mark
 ## 引入
 
 ```javascript
-import { WaterMark } from 'mand-mobile'
+import { WaterMark } from 'mand-mobile-next'
 
 Vue.component(WaterMask.name, WaterMark)
 ```

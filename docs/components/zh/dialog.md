@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/dialog
 ## 引入
 
 ```javascript
-import { Dialog } from 'mand-mobile'
+import { Dialog } from 'mand-mobile-next'
 
 Dialog.alert({ content: '' })
 

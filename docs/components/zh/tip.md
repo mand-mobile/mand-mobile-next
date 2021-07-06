@@ -9,7 +9,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/tip
 ## 引入
 
 ```javascript
-import { Tip } from 'mand-mobile'
+import { Tip } from 'mand-mobile-next'
 
 Vue.component(Tip.name, Tip)
 ```

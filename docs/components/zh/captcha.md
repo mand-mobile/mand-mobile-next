@@ -12,7 +12,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/captcha
 ## 引入
 
 ```javascript
-import { Captcha } from 'mand-mobile'
+import { Captcha } from 'mand-mobile-next'
 
 Vue.component(Captcha.name, Captcha)
 ```

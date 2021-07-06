@@ -12,7 +12,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/bill
 ## 引入
 
 ```javascript
-import { Bill } from 'mand-mobile'
+import { Bill } from 'mand-mobile-next'
 
 Vue.component(Bill.name, Bill)
 ```

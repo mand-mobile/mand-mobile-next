@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/scroll-view
 ## 引入
 
 ```javascript
-import { ScrollView, ScrollViewRefresh, ScrollViewMore } from 'mand-mobile'
+import { ScrollView, ScrollViewRefresh, ScrollViewMore } from 'mand-mobile-next'
 
 Vue.component(ScrollView.name, ScrollView)
 ```

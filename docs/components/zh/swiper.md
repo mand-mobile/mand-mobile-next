@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/swiper
 ## 引入
 
 ```javascript
-import { Swiper, SwiperItem } from 'mand-mobile'
+import { Swiper, SwiperItem } from 'mand-mobile-next'
 
 Vue.component(Swiper.name, Swiper)
 Vue.component(SwiperItem.name, SwiperItem)

@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/stepper
 ## 引入
 
 ```javascript
-import { Stepper } from 'mand-mobile'
+import { Stepper } from 'mand-mobile-next'
 
 Vue.component(Stepper.name, Stepper)
 ```

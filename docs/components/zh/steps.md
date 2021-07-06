@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/steps
 ## 引入
 
 ```javascript
-import { Steps } from 'mand-mobile'
+import { Steps } from 'mand-mobile-next'
 
 Vue.component(Steps.name, Steps)
 ```

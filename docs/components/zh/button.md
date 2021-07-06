@@ -12,7 +12,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/button
 ## 引入
 
 ```javascript
-import { Button } from 'mand-mobile'
+import { Button } from 'mand-mobile-next'
 
 Vue.component(Button.name, Button)
 ```

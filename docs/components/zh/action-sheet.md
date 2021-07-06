@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/action-sheet
 ## 引入
 
 ```javascript
-import { ActionSheet } from 'mand-mobile'
+import { ActionSheet } from 'mand-mobile-next'
 
 Vue.component(ActionSheet.name, ActionSheet)
 

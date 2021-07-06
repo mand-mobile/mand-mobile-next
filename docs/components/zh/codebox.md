@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/codebox
 ## 引入
 
 ```javascript
-import { Codebox } from 'mand-mobile'
+import { Codebox } from 'mand-mobile-next'
 
 Vue.component(Codebox.name, Codebox)
 ```

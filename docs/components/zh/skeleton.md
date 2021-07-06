@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/skeleton
 ## 引入
 
 ```javascript
-import { Skeleton } from 'mand-mobile'
+import { Skeleton } from 'mand-mobile-next'
 
 Vue.component(Skeleton.name, Skeleton)
 ```

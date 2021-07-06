@@ -12,7 +12,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/activity-indicator
 ## 引入
 
 ```javascript
-import { ActivityIndicator } from 'mand-mobile'
+import { ActivityIndicator } from 'mand-mobile-next'
 
 Vue.component(ActivityIndicator.name, ActivityIndicator)
 ```

@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/landscape
 ## 引入
 
 ```javascript
-import { Landscape } from 'mand-mobile'
+import { Landscape } from 'mand-mobile-next'
 
 Vue.component(Landscape.name, Landscape)
 ```

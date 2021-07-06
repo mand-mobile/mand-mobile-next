@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/image-viewer
 ### 引入
 
 ```javascript
-import { ImageViewer } from 'mand-mobile'
+import { ImageViewer } from 'mand-mobile-next'
 
 Vue.component(ImageViewer.name, ImageViewer)
 ```
