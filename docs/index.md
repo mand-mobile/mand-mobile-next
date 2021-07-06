@@ -3,7 +3,7 @@ home: true
 heroImage: https://pt-starimg.didistatic.com/static/starimg/img/ySOsAunfGm1610683661213.png
 heroAlt: 
 heroText: Mand Mobile
-tagline: 面向金融场景，基于 Vue 3.0 的组件库
+tagline: 面向金融场景，基于 Vue 3.0 移动端组件库
 
 actionText: 开始使用
 actionLink: /components/
