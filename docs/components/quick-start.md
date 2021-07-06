@@ -65,10 +65,10 @@ export default defineConfig({
         esModule: true,
         ensureStyleFile: true,
         resolveStyle: (name) => {
-          return `mand-mobile-next/es/${name}.scss`;
+          return `mand-mobile-next/dist/es/${name}.scss`;
         },
         resolveComponent: (name) => {
-          return `mand-mobile-next/es/${name}`;
+          return `mand-mobile-next/dist/es/${name}`;
         },
       }]
     })
