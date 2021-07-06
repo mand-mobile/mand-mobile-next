@@ -17,7 +17,6 @@ Vue.component(ScrollView.name, ScrollView)
 ```
 
 ::: tip
-* Uniapp内会调用内置[ScrollView组件](https://uniapp.dcloud.io/component/scroll-view)
 * `ScrollViewRefresh`为组件库内置的下拉刷新组件，仅用于作为视觉展示，需在插槽<a href="#refresh">refresh</a>中使用，下拉刷新组件也可自定义
 * `ScrollViewMore`为组件库内置的加载更多组件，仅用于作为视觉展示，需在插槽<a href="#more">more</a>中使用，加载更多组件也可自定义
 * **组件容器需具有高度，否则会出现无法滚动或回弹问题。** 更多使用的常见问题请查看<a href="#附录">附录</a>

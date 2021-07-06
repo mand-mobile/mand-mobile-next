@@ -53,16 +53,12 @@ const demos = import.meta.globEager('../../../src/packages/cashier/demo/demo*.vu
 |icon|渠道图标名称|String||`icon`可作为`className`或组件`Icon`的`name`属性|
 |iconSvg |是否使用svg图标|Boolean|||
 |img|渠道图片链接|String||与`icon`二选一|
-|action|特殊动作回调|Function||在Uniapp中请使用[setChannels](#setchannels)设置`channels`|
+|action|特殊动作回调|Function|||
 
 ### Cashier Methods
 
 #### setChannels(channels: CashierChannel)
 手动设置支付渠道数据源
-
-:::tip
-在Uniapp中通过`Props`设置渠道数据中不能包含Function类型的字段，如果数据中包含特殊动作回调，请手动设置
-:::
 
 #### next(scene, option?)
 进入收银台下一步
