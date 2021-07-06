@@ -283,14 +283,3 @@ li > svg {
   vertical-align: middle;
   transform: translateY(-10%);
 }
-
-.md-popup-box {
-  transform: scale(.5);
-}
-.md-popup-box {
-  box-shadow: none !important;
-}
-
-.popup p {
-  background: #fff;
-}

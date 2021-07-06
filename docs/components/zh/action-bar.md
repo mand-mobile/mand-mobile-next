@@ -34,20 +34,6 @@ Vue.component(ActionBar.name, ActionBar)
 const demos = import.meta.globEager('../../../src/packages/action-bar/demo/demo*.vue')
 </script>
 
-<style lang="stylus">
-.demo-wrapper {
-  .md-action-bar {
-    position: static;
-    background: ghostwhite;
-  }
-}
-@media (max-width: 640px) {
-  .demo-wrapper .md-action-bar .price {
-    font-size: 24px;
-  }
-}
-</style>
-
 ## API
 
 ### ActionBar Props

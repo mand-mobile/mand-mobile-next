@@ -28,19 +28,6 @@ Vue.component(Button.name, Button)
 const demos = import.meta.globEager('../../../src/packages/button/demo/demo*.vue')
 </script>
 
-<style lang="stylus">
-@media (max-width: 640px) {
-  .demo-wrapper {
-    .md-button {
-      font-size: 18px !important;
-    }
-    .md-button.link {
-      font-size: 14px !important;
-    }
-  }
-}
-</style>
-
 ## API
 
 ### Button Props
