@@ -29,7 +29,7 @@ yarn add mand-mobile-next@alpha
 ```typescript
 import { createApp } from 'vue'
 import MandMobile from 'mand-mobile-next';
-import 'mand-mobile-next/es/mand-mobile-next.min.css';
+import 'mand-mobile-next/dist/es/mand-mobile-next.min.css';
 import App from './App.vue';
 
 const app = createApp(App)

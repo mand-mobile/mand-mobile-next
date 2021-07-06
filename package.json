@@ -1,18 +1,13 @@
 {
   "name": "mand-mobile-next",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.1-alpha.1",
   "files": [
     "dist",
     "src"
   ],
-  "main": "./dist/lib/mand-mobile.umd.js",
-  "module": "./dist/es/mand-mobile.es.js",
-  "exports": {
-    ".": {
-      "import": "./dist/es/mand-mobile.esm.js",
-      "require": "./dist/lib/mand-mobile.umd.js"
-    }
-  },
+  "main": "dist/lib/mand-mobile.umd.js",
+  "module": "dist/es/mand-mobile.esm.js",
+  "typings": "dist/es/mand-mobile.d.ts",
   "scripts": {
     "dev": "vite --host",
     "dev:preview": "NODE_ENV=preview vite --mode bundle --host",
