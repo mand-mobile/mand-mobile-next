@@ -41,6 +41,10 @@ const demos = import.meta.globEager('../../../src/packages/icon/demo/demo*.vue')
     background: ghostwhite;
   }
 
+  .dark .md-example-child-icon {
+    background: var(--c-bg);
+  }
+
   .md-example-child-icon .md-example-item {
     display: flex;
     flex-direction: column;
