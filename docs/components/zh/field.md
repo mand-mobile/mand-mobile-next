@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/field
 ## 引入
 
 ```javascript
-import { Field, FieldItem } from 'mand-mobile'
+import { Field, FieldItem } from 'mand-mobile-next'
 
 Vue.component(Field.name, Field)
 Vue.component(FieldItem.name, FieldItem)

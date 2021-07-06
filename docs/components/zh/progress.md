@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/progress
 ## 引入
 
 ```javascript
-import { Progress } from 'mand-mobile'
+import { Progress } from 'mand-mobile-next'
 
 Vue.component(Progress.name, Progress)
 ```

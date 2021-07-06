@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/tab-picker
 ## 引入
 
 ```javascript
-import { TabPicker } from 'mand-mobile'
+import { TabPicker } from 'mand-mobile-next'
 
 Vue.component(TabPicker.name, TabPicker)
 ```

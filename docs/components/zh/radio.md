@@ -12,7 +12,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/radio
 ## 引入
 
 ```javascript
-import { Radio, RadioBox, RadioGroup, RadioList } from 'mand-mobile'
+import { Radio, RadioBox, RadioGroup, RadioList } from 'mand-mobile-next'
 
 Vue.component(Radio.name, Radio)
 Vue.component(RadioBox.name, RadioBox)

@@ -10,7 +10,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/check
 ## 引入
 
 ```javascript
-import { Check, CheckBox, CheckGroup, CheckList } from 'mand-mobile'
+import { Check, CheckBox, CheckGroup, CheckList } from 'mand-mobile-next'
 
 Vue.component(Check.name, Check)
 Vue.component(CheckBox.name, CheckBox)

@@ -21,7 +21,7 @@ async function run(options?: BuildOptions) {
       'jpeg-js',
     ],
     format: 'esm',
-    minify: true,
+    minify: false,
     ...options,
   })
 }
@@ -53,11 +53,11 @@ Promise.all([
     format: 'cjs',
     outdir: `${cwd()}/dist/lib`,
   }),
-  bundle(),
-  bundle({
-    outfile: `${cwd()}/dist/lib/mand-mobile.umd.js`,
-    format: 'iife',
-  }),
+  // bundle(),
+  // bundle({
+  //   outfile: `${cwd()}/dist/lib/mand-mobile.umd.js`,
+  //   format: 'iife',
+  // }),
 ])
   .then(async () => {
     await combineCss()

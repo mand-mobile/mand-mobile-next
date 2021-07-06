@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/detail-item
 ## 引入
 
 ```javascript
-import { DetailItem } from 'mand-mobile'
+import { DetailItem } from 'mand-mobile-next'
 
 Vue.component(DetailItem.name, DetailItem)
 ```

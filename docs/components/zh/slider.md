@@ -9,7 +9,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/slider
 ## 引入
 
 ```javascript
-import { Slider } from 'mand-mobile'
+import { Slider } from 'mand-mobile-next'
 
 Vue.component(Slider.name, Slider)
 ```

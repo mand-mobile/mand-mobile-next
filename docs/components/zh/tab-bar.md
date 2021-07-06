@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/tab-bar
 ## 引入
 
 ```javascript
-import { TabBar } from 'mand-mobile'
+import { TabBar } from 'mand-mobile-next'
 
 Vue.component(TabBar.name, TabBar)
 ```

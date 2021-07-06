@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/notice-bar
 ## 引入
 
 ```javascript
-import { NoticeBar } from 'mand-mobile'
+import { NoticeBar } from 'mand-mobile-next'
 
 Vue.component(NoticeBar.name, NoticeBar)
 ```

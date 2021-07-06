@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/tabs
 ## 引入
 
 ```javascript
-import { Tabs, TabPane } from 'mand-mobile'
+import { Tabs, TabPane } from 'mand-mobile-next'
 
 Vue.component(Tabs.name, Tabs)
 Vue.component(TabPane.name, TabPane)

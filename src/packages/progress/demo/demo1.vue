@@ -54,7 +54,6 @@ export default {
 
 <script setup lang="ts">
 import MdProgress from 'mand-mobile/progress'
-// import { Amount, Progress } from 'mand-mobile'
 </script>
 
 <style lang="stylus">

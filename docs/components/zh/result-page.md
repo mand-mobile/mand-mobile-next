@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/result-page
 ## 引入
 
 ```javascript
-import { ResultPage } from 'mand-mobile'
+import { ResultPage } from 'mand-mobile-next'
 
 Vue.component(ResultPage.name, ResultPage)
 ```

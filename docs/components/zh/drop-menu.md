@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/drop-menu
 ## 引入
 
 ```javascript
-import { DropMenu } from 'mand-mobile'
+import { DropMenu } from 'mand-mobile-next'
 
 Vue.component(DropMenu.name, DropMenu)
 ```

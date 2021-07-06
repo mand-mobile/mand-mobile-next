@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/popup
 ## 引入
 
 ```javascript
-import { Popup, PopupTitleBar } from 'mand-mobile'
+import { Popup, PopupTitleBar } from 'mand-mobile-next'
 
 Vue.component(Popup.name, Popup)
 Vue.component(PopupTitleBar.name, PopupTitleBar)

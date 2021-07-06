@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/tag
 ## 引入
 
 ```javascript
-import { Tag } from 'mand-mobile'
+import { Tag } from 'mand-mobile-next'
 
 Vue.component(Tag.name, Tag)
 ```

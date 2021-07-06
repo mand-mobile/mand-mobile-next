@@ -12,7 +12,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/cashier
 ## 引入
 
 ```javascript
-import { Cashier } from 'mand-mobile'
+import { Cashier } from 'mand-mobile-next'
 
 Vue.component(Cashier.name, Cashier)
 ```

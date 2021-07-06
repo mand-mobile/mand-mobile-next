@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/number-keyboard
 ## 引入
 
 ```javascript
-import { NumberKeyboard } from 'mand-mobile'
+import { NumberKeyboard } from 'mand-mobile-next'
 
 Vue.component(NumberKeyboard.name, NumberKeyboard)
 ```

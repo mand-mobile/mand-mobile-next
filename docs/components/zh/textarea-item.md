@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/TextareaItem
 ## 引入
 
 ```javascript
-import { TextareaItem } from 'mand-mobile'
+import { TextareaItem } from 'mand-mobile-next'
 
 Vue.component(TextareaItem.name, TextareaItem)
 ```

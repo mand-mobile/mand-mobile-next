@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/date-picker
 ## 引入
 
 ```javascript
-import { DatePicker } from 'mand-mobile'
+import { DatePicker } from 'mand-mobile-next'
 
 Vue.component(DatePicker.name, DatePicker)
 ```

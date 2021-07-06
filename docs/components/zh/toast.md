@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/toast
 ## 引入
 
 ```javascript
-import { Toast } from 'mand-mobile'
+import { Toast } from 'mand-mobile-next'
 
 Toast.succeed('操作成功')
 

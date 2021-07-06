@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/picker
 ## 引入
 
 ```javascript
-import { Picker } from 'mand-mobile'
+import { Picker } from 'mand-mobile-next'
 
 Vue.component(Picker.name, Picker)
 ```

@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/selector
 ## 引入
 
 ```javascript
-import { Selector } from 'mand-mobile'
+import { Selector } from 'mand-mobile-next'
 
 Vue.component(Selector.name, Selector)
 ```

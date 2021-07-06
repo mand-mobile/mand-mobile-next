@@ -12,7 +12,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/action-bar
 ## 引入
 
 ```javascript
-import { ActionBar } from 'mand-mobile'
+import { ActionBar } from 'mand-mobile-next'
 
 Vue.component(ActionBar.name, ActionBar)
 ```

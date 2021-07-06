@@ -12,7 +12,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/cell-item
 ## 引入
 
 ```javascript
-import { CellItem } from 'mand-mobile'
+import { CellItem } from 'mand-mobile-next'
 
 Vue.component(CellItem.name, CellItem)
 ```
