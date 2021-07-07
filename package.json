@@ -1,6 +1,9 @@
 {
   "name": "mand-mobile-next",
   "version": "0.0.1-alpha.1",
+  "engines": {
+    "node": ">=14.16.1"
+  },
   "files": [
     "dist",
     "src"
