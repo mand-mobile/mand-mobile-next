@@ -252,6 +252,7 @@ form {
   opacity: 1;
 }
 .nav-btn svg {
+  display: block;
   margin: auto;
 }
 

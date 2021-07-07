@@ -7,6 +7,7 @@ import NavLinks from './NavLinks.vue'
 import ToggleSideBarButton from './ToggleSideBarButton.vue'
 import GithubLink from './GithubLink.vue'
 import DarkSwitch from './DarkSwitch.vue'
+import LangSwitch from './LangSwitch.vue'
 
 defineEmit(['toggle'])
 
@@ -40,6 +41,7 @@ const shadowStyle = computed(() => {
     <div class="nav-icons flex items-center gap-2">
       <GithubLink v-if="repo && isGithub()" :item="repo" />
       <DarkSwitch />
+      <LangSwitch />
     </div>
 
     <slot name="search" />
