@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { withBase, useData, inBrowser } from 'vitepress'
+import { withBase, useData, inBrowser, useRoute } from 'vitepress'
 import { computed } from 'vue'
 const { site, theme, localePath } = useData()
 
+const route = useRoute()
+
 const currentPath = computed(() => {
-  if (!inBrowser) return localePath.value
-  const pathName = window.location.pathname
-  const origin = window.origin
-  return pathName.startsWith('/zh-CN/') ? origin + '/zh-CN/' : origin + '/en-US/'
+  return route.path.startsWith('/zh-CN/') ? '/zh-CN/' : '/en-US/'
 })
 </script>
 

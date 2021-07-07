@@ -8,7 +8,7 @@ replace: true
 import { inBrowser, useRouter } from 'vitepress'
 import { onMounted } from 'vue'
 
-if (inBrowser) {
-  window.location.replace(window.location.href + 'zh-CN/')
-}
+onMounted(() => {
+  useRouter().go('/zh-CN/')
+})
 </script>
