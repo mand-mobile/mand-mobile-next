@@ -2,8 +2,6 @@
 import { useRoute } from 'vitepress'
 import { isZh, isEn, useCurrentPath } from '../composables/i18n'
 const route = useRoute()
-
-
 </script>
 
 <template>
