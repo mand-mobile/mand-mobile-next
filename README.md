@@ -1,3 +1,17 @@
+# mand-mobile-next
+
+<p>
+  <a href="https://www.npmjs.org/package/mand-mobile-next">
+    <img src="https://img.shields.io/npm/v/mand-mobile-next.svg">
+  </a>
+</p>
+
+面向金融场景，基于 Vue 3.0 移动端组件库
+
+## 文档
+
+- [中文文档](https://chrome.zouhaha.site/) *完善中*
+
 ## 开发
 
 ```bash
