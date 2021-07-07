@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { defineProps, toRefs } from 'vue'
+import { defineProps, toRefs, computed } from 'vue'
 import type { DefaultTheme } from '../config'
 import { useNavLink } from '../composables/navLink'
+import { useCurrentPath } from '../composables/i18n'
 import OutboundLink from './icons/OutboundLink.vue'
 
 const props = defineProps<{
@@ -11,11 +12,18 @@ const props = defineProps<{
 const propsRefs = toRefs(props)
 
 const { props: linkProps, isExternal } = useNavLink(propsRefs.item)
+
+const currentLinkProps = computed<any>(() => {
+  return {
+    ...linkProps.value,
+    href: useCurrentPath(linkProps.value.href),
+  }
+})
 </script>
 
 <template>
   <div class="nav-link">
-    <a class="item" v-bind="linkProps">
+    <a class="item" v-bind="currentLinkProps">
       {{ item.text }} <OutboundLink v-if="isExternal" />
     </a>
   </div>
