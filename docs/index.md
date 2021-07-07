@@ -1,15 +1,14 @@
 ---
-home: true
-heroImage: https://pt-starimg.didistatic.com/static/starimg/img/ySOsAunfGm1610683661213.png
-heroAlt: 
-heroText: Mand Mobile
-tagline: 面向金融场景，基于 Vue 3.0 移动端组件库
-
-actionText: 开始使用
-actionLink: /components/
-
-altActionText: 了解更多
-altActionLink: /roadmap
-
-footer: 滴滴金融泛前端 ❤ MFE
+navbar: false
+sidebar: false
+editLink: false
+replace: true
 ---
+<script setup>
+import { inBrowser, useRouter } from 'vitepress'
+import { onMounted } from 'vue'
+
+if (inBrowser) {
+  window.location.replace(window.location.href + 'zh-CN/')
+}
+</script>
