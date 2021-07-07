@@ -1,18 +1,18 @@
 const componentsJson = require('../../src/packages/components.json')
 const genPath = comp => ({
   text: `${comp.text}`,
-  link: `/components/zh${comp.path}`,
+  link: `/zh-CN/components${comp.path}`,
   name: `${comp.name}`,
 })
 
 const componentsSidebarConfig = [
   {
     text: '更新日志',
-    link: '/components/'
+    link: '/zh-CN/components/'
   },
   {
     text: '快速开始',
-    link: '/components/quick-start'
+    link: '/zh-CN/components/quick-start'
   },
   {
     name: 'components',
@@ -76,12 +76,12 @@ module.exports = {
     editLinkText: '为此文档提供修改建议',
     logo: 'https://pt-starimg.didistatic.com/static/starimg/img/ySOsAunfGm1610683661213.png',
     nav: [
-      { text: '组件', link: '/components/' },
+      { text: '组件', link: '/zh-CN/components/' },
       { text: 'RoadMap', link: '/roadmap' },
       { text: '2.x', link: 'https://didi.github.io/mand-mobile/' }
     ],
     sidebar: {
-      '/components/' : [ ...componentsSidebarConfig ]
+      '/zh-CN/components/' : [ ...componentsSidebarConfig ]
     }
   },
 

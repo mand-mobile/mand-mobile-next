@@ -16,7 +16,7 @@ export function useEditLink() {
       editLinks
     } = theme.value
 
-    const showEditLink = frontmatter.value.editLink || editLinks
+    const showEditLink = typeof frontmatter.value.editLink === 'boolean' ? frontmatter.value.editLink : (frontmatter.value.editLink || editLinks)
     const { relativePath } = page.value
 
     if (!showEditLink || !relativePath || !repo) {
