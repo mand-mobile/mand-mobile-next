@@ -1,11 +1,52 @@
 const componentsJson = require('../../src/packages/components.json')
-const genPath = comp => ({
+const genZhPath = comp => ({
   text: `${comp.text}`,
   link: `/zh-CN/components${comp.path}`,
   name: `${comp.name}`,
 })
 
-const componentsSidebarConfig = [
+const genEnPath = comp => ({
+  name: `${comp.text}`,
+  link: `/en-US/components${comp.path}`,
+  text: `${comp.name}`,
+})
+
+const componenSidebar = (pathGenor) => (
+  {
+    name: 'components',
+    text: 'COMPONENTS',
+    children: [
+      {
+        text: 'Basic',
+        children: [
+          ...componentsJson[0].list.map(pathGenor),
+        ],
+      }, {
+        text: 'Feedback',
+        children: [
+          ...componentsJson[2].list.map(pathGenor),
+        ],
+      }, {
+        text: 'Business',
+        children: [
+          ...componentsJson[1].list.map(pathGenor),
+        ],
+      }, {
+        text: 'Form',
+        children: [
+          ...componentsJson[3].list.map(pathGenor),
+        ],
+      }, {
+        text: 'Gesture',
+        children: [
+          ...componentsJson[4].list.map(pathGenor),
+        ],
+      }
+    ]
+  }
+)
+
+const zhComponentsSidebarConfig = [
   {
     text: '更新日志',
     link: '/zh-CN/components/'
@@ -14,38 +55,7 @@ const componentsSidebarConfig = [
     text: '快速开始',
     link: '/zh-CN/components/quick-start'
   },
-  {
-    name: 'components',
-    text: 'COMPONENTS',
-    children: [
-      {
-        text: 'Basic',
-        children: [
-          ...componentsJson[0].list.map(genPath),
-        ],
-      }, {
-        text: 'Feedback',
-        children: [
-          ...componentsJson[2].list.map(genPath),
-        ],
-      }, {
-        text: 'Business',
-        children: [
-          ...componentsJson[1].list.map(genPath),
-        ],
-      }, {
-        text: 'Form',
-        children: [
-          ...componentsJson[3].list.map(genPath),
-        ],
-      }, {
-        text: 'Gesture',
-        children: [
-          ...componentsJson[4].list.map(genPath),
-        ],
-      }
-    ]
-  }
+  componenSidebar(genZhPath),
 ]
 
 /**
@@ -63,13 +73,6 @@ module.exports = {
   ],
   lang: 'zh-CN',
   themeConfig: {
-    // algolia: {
-    //   apiKey: 'your_api_key',
-    //   indexName: 'index_name',
-    //   searchParameters: {
-    //     facetFilters: ['tags:guide,api']
-    //   }
-    // },
     repo: 'https://github.com/mand-mobile/mand-mobile-next',
     docsBranch: 'vue3',
     editLinks: true,
@@ -81,7 +84,18 @@ module.exports = {
       { text: '2.x', link: 'https://didi.github.io/mand-mobile/' }
     ],
     sidebar: {
-      '/zh-CN/components/' : [ ...componentsSidebarConfig ]
+      '/zh-CN/components/': [ ...zhComponentsSidebarConfig ],
+      '/en-US/components/': [
+        {
+          text: 'Changelog',
+          link: '/en-US/components/'
+        },
+        {
+          text: 'QuickStart',
+          link: '/en-US/components/quick-start'
+        },
+        componenSidebar(genEnPath),
+      ]
     }
   },
 

@@ -59,7 +59,7 @@ onMounted(() => {
         <p v-if="heroText" class="relative font-sans text-6xl <md:text-3xl <md:text-center <md:w-full">
           {{ heroText }} <sub class="absolute top-0 -right-12 text-2xl animate-text <sm:text-sm <sm:right-12">next</sub>
         </p>
-        <p v-if="frontmatter.tagline" class="text-base text-gray-500">
+        <p v-if="frontmatter.tagline" class="text-base text-gray-500 lg:text-left">
           {{ frontmatter.tagline }}
         </p>
         <div class="home-text-action <sm:w-full <sm:flex <sm:flex-col">
