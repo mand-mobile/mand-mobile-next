@@ -1,7 +1,7 @@
 const { highlight } = require('vitepress/dist/node/markdown/plugins/highlight')
 const fs = require('fs')
 const klawSync =require('klaw-sync')
-
+const anchor = '&-&'
 /**
  * @type {(md: import('markdown-it')) => void}
  */
@@ -23,8 +23,8 @@ module.exports = function demoPlugin(md) {
         const { demoCodeStrs, demoCodeRaws } = demoFileHtmlStr(getDemoTruePath(content.trim()))
         return content.replace('<demo-wrapper', `
           <demo-wrapper
-            htmlStrs=${demoCodeStrs.join('&&')}
-            codeStrs=${demoCodeRaws.join('&&')}
+            htmlStrs=${demoCodeStrs.join(anchor)}
+            codeStrs=${demoCodeRaws.join(anchor)}
         `)
       }
       return content

@@ -19,12 +19,14 @@ const comps = props.demos
     })))
   : []
 
+const anchor = '&-&'
+
 const decodedHtmlStrs = computed(() =>
-  [...props.htmlStrs.split('&&').map(html => decodeURIComponent(html.replace(/\&/g, "'")))]
+  [...props.htmlStrs.split(anchor).map(html => decodeURIComponent(html.replace(/\&/g, "'")))]
 )
 
 const decodeCodeRaws = computed(() =>
-  [...props.codeStrs.split('&&').map(html => decodeURIComponent(html.replace(/\&/g, "'")))]
+  [...props.codeStrs.split(anchor).map(html => decodeURIComponent(html.replace(/\&/g, "'")))]
 )
 
 const copyHandler = (index: number) => {
