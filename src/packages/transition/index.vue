@@ -4,9 +4,17 @@ import { h, Transition } from 'vue'
 /**
  * for function override
  */
-export default function MdTransition(_: any, context: any) {
+type MdTransitionType = {
+  (...args: any[]): any
+  install?: any
+}
+let MdTransition: MdTransitionType
+
+MdTransition = function (_: any, context: any) {
   return h(Transition, context.attrs, context.slots)
 }
+
+export default MdTransition
 </script>
 
 <style lang="stylus">

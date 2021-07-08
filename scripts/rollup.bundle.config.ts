@@ -22,22 +22,6 @@ const getPlugins = () => [
       'import.meta.env.PROD': 'true',
     },
   }),
-  // typescript({
-  //   tsconfigOverride: {
-  //     compilerOptions: {
-  //       declaration: true,
-  //       emitDeclarationOnly: false,
-  //     },
-  //     include: ['src/packages/**/*', 'src/shims-vue.d.ts'],
-  //     exclude: [
-  //       'node_modules',
-  //       'src/packages/**/__test__/*',
-  //       'src/packages/**/demo/*',
-  //       'docs',
-  //     ],
-  //     abortOnError: false,
-  //   },
-  // }),
   nodeResolve(),
   vue({
     target: 'browser',
