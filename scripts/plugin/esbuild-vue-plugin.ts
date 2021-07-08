@@ -1,3 +1,6 @@
+/**
+ * fork from https://github.com/egoist/esbuild-plugin-vue
+ */
 import fs from 'fs'
 import path from 'path'
 import { Plugin } from 'esbuild'
