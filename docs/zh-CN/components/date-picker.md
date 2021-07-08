@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/date-picker
 ```javascript
 import { DatePicker } from 'mand-mobile-next'
 
-Vue.component(DatePicker.name, DatePicker)
+Vue.createApp().component(DatePicker.name, DatePicker)
 ```
 
 ## 代码演示

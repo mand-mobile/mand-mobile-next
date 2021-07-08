@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/progress
 ```javascript
 import { Progress } from 'mand-mobile-next'
 
-Vue.component(Progress.name, Progress)
+Vue.createApp().component(Progress.name, Progress)
 ```
 
 ## 代码演示

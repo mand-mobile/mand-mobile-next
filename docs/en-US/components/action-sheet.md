@@ -14,7 +14,7 @@ Support scenario-relevent operations
 ```javascript
 import { ActionSheet } from 'mand-mobile'
 
-Vue.component(ActionSheet.name, ActionSheet)
+Vue.createApp().component(ActionSheet.name, ActionSheet)
 
 this.$actionsheet.create({ /* ... */ }) // Totally Import
 ```

@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/notice-bar
 ```javascript
 import { NoticeBar } from 'mand-mobile-next'
 
-Vue.component(NoticeBar.name, NoticeBar)
+Vue.createApp().component(NoticeBar.name, NoticeBar)
 ```
 
 ## 代码演示

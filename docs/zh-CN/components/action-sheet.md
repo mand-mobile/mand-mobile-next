@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/action-sheet
 ```javascript
 import { ActionSheet } from 'mand-mobile-next'
 
-Vue.component(ActionSheet.name, ActionSheet)
+Vue.createApp().component(ActionSheet.name, ActionSheet)
 
 this.$actionsheet.create({ /* ... */ }) // 全量引入
 ```

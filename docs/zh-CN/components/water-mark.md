@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/water-mark
 ```javascript
 import { WaterMark } from 'mand-mobile-next'
 
-Vue.component(WaterMask.name, WaterMark)
+Vue.createApp().component(WaterMask.name, WaterMark)
 ```
 
 ## 代码演示

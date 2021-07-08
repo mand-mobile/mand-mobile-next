@@ -14,7 +14,7 @@ For selecting an item from the popup list
 ```javascript
 import { Selector } from 'mand-mobile'
 
-Vue.component(Selector.name, Selector)
+Vue.createApp().component(Selector.name, Selector)
 ```
 
 ### Code Examples

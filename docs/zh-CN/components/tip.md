@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/tip
 ```javascript
 import { Tip } from 'mand-mobile-next'
 
-Vue.component(Tip.name, Tip)
+Vue.createApp().component(Tip.name, Tip)
 ```
 
 

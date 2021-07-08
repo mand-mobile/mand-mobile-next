@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/tab-picker
 ```javascript
 import { TabPicker } from 'mand-mobile-next'
 
-Vue.component(TabPicker.name, TabPicker)
+Vue.createApp().component(TabPicker.name, TabPicker)
 ```
 
 ## 代码演示

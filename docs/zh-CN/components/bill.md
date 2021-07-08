@@ -14,7 +14,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/bill
 ```javascript
 import { Bill } from 'mand-mobile-next'
 
-Vue.component(Bill.name, Bill)
+Vue.createApp().component(Bill.name, Bill)
 ```
 
 ## 代码演示

@@ -14,7 +14,7 @@ Single-line text input, supports text formatting in exact scenarios
 ```javascript
 import { InputItem } from 'mand-mobile'
 
-Vue.component(InputItem.name, InputItem)
+Vue.createApp().component(InputItem.name, InputItem)
 ```
 
 ### Instruction

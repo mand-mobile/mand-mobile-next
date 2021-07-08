@@ -14,10 +14,10 @@ preview: https://didi.github.io/mand-mobile/examples/#/radio
 ```javascript
 import { Radio, RadioBox, RadioGroup, RadioList } from 'mand-mobile-next'
 
-Vue.component(Radio.name, Radio)
-Vue.component(RadioBox.name, RadioBox)
-Vue.component(RadioGroup.name, RadioGroup)
-Vue.component(RadioList.name, RadioList)
+Vue.createApp().component(Radio.name, Radio)
+Vue.createApp().component(RadioBox.name, RadioBox)
+Vue.createApp().component(RadioGroup.name, RadioGroup)
+Vue.createApp().component(RadioList.name, RadioList)
 ```
 
 

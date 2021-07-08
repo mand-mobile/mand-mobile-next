@@ -14,7 +14,7 @@ Date or time selecting, supports year/month/day/hour/minute and range selecting
 ```javascript
 import { DatePicker } from 'mand-mobile'
 
-Vue.component(DatePicker.name, DatePicker)
+Vue.createApp().component(DatePicker.name, DatePicker)
 ```
 
 ### Code Examples

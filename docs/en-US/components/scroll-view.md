@@ -14,7 +14,7 @@ Used to simulate native scrolling areas and support pull-down refresh and load m
 ```javascript
 import { ScrollView, ScrollViewRefresh, ScrollViewMore } from 'mand-mobile'
 
-Vue.component(ScrollView.name, ScrollView)
+Vue.createApp().component(ScrollView.name, ScrollView)
 ```
 
 ### Instruction

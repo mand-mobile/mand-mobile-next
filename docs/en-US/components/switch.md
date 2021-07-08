@@ -14,7 +14,7 @@ Switch between two status
 ```javascript
 import { Switch } from 'mand-mobile'
 
-Vue.component(Switch.name, Switch)
+Vue.createApp().component(Switch.name, Switch)
 ```
 
 ### Code Examples

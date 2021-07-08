@@ -14,7 +14,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/captcha
 ```javascript
 import { Captcha } from 'mand-mobile-next'
 
-Vue.component(Captcha.name, Captcha)
+Vue.createApp().component(Captcha.name, Captcha)
 ```
 
 ## 代码演示

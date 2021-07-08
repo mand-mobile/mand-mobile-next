@@ -14,7 +14,7 @@ Tooltip
 ```javascript
 import { Tip } from 'mand-mobile'
 
-Vue.component(Tip.name, Tip)
+Vue.createApp().component(Tip.name, Tip)
 ```
 
 ### Code Examples

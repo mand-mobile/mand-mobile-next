@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/result-page
 ```javascript
 import { ResultPage } from 'mand-mobile-next'
 
-Vue.component(ResultPage.name, ResultPage)
+Vue.createApp().component(ResultPage.name, ResultPage)
 ```
 
 ## 使用指南

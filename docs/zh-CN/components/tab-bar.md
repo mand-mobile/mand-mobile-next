@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/tab-bar
 ```javascript
 import { TabBar } from 'mand-mobile-next'
 
-Vue.component(TabBar.name, TabBar)
+Vue.createApp().component(TabBar.name, TabBar)
 ```
 
 ## 代码演示

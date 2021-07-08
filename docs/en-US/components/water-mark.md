@@ -14,7 +14,7 @@ Container with watermark background
 ```javascript
 import { WaterMark } from 'mand-mobile'
 
-Vue.component(WaterMark.name, WaterMark)
+Vue.createApp().component(WaterMark.name, WaterMark)
 ```
 
 ### Code Examples

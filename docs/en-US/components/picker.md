@@ -14,7 +14,7 @@ Scrollable multi-column selector
 ```javascript
 import { Picker } from 'mand-mobile'
 
-Vue.component(Picker.name, Picker)
+Vue.createApp().component(Picker.name, Picker)
 ```
 
 ### Code Examples

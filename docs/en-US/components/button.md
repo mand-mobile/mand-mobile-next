@@ -14,7 +14,7 @@ Button components for configuring different button styles
 ```javascript
 import { Button } from 'mand-mobile'
 
-Vue.component(Button.name, Button)
+Vue.createApp().component(Button.name, Button)
 ```
 
 ### Code Examples

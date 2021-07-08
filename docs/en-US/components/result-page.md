@@ -14,7 +14,7 @@ To display the process ending page
 ```javascript
 import { ResultPage } from 'mand-mobile'
 
-Vue.component(ResultPage.name, ResultPage)
+Vue.createApp().component(ResultPage.name, ResultPage)
 ```
 
 ### Instruction

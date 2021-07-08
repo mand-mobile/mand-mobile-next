@@ -14,10 +14,10 @@ UI renderless check group component
 ```javascript
 import { Check, CheckBox, CheckGroup, CheckList } from 'mand-mobile'
 
-Vue.component(Check.name, Check)
-Vue.component(CheckBox.name, CheckBox)
-Vue.component(CheckGroup.name, CheckGroup)
-Vue.component(CheckList.name, CheckList)
+Vue.createApp().component(Check.name, Check)
+Vue.createApp().component(CheckBox.name, CheckBox)
+Vue.createApp().component(CheckGroup.name, CheckGroup)
+Vue.createApp().component(CheckList.name, CheckList)
 ```
 
 ### Code Examples

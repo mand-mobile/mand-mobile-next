@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/image-reader
 ```javascript
 import { ImageReader } from 'mand-mobile-next'
 
-Vue.component(ImageReader.name, ImageReader)
+Vue.createApp().component(ImageReader.name, ImageReader)
 ```
 
 ## 代码演示

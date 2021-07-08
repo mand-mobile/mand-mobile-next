@@ -14,7 +14,7 @@ Arrange vertically and display current contents, status and other allowable oper
 ```javascript
 import { CellItem } from 'mand-mobile'
 
-Vue.component(CellItem.name, CellItem)
+Vue.createApp().component(CellItem.name, CellItem)
 ```
 
 ### Code Examples

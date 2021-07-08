@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/switch
 ```javascript
 import { Switch } from 'mand-mobile-next'
 
-Vue.component(Switch.name, Switch)
+Vue.createApp().component(Switch.name, Switch)
 ```
 
 ## 代码演示

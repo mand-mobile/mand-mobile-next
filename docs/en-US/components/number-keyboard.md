@@ -14,7 +14,7 @@ Generally used for financial scenarios such as password, verification code or pa
 ```javascript
 import { NumberKeyboard } from 'mand-mobile'
 
-Vue.component(NumberKeyboard.name, NumberKeyboard)
+Vue.createApp().component(NumberKeyboard.name, NumberKeyboard)
 ```
 
 ### Code Examples

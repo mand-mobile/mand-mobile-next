@@ -14,8 +14,8 @@ To create a tab page with a content area
 ```javascript
 import { Tabs, TabPane } from 'mand-mobile'
 
-Vue.component(Tabs.name, Tabs)
-Vue.component(TabPane.name, TabPane)
+Vue.createApp().component(Tabs.name, Tabs)
+Vue.createApp().component(TabPane.name, TabPane)
 ```
 
 ### Code Examples

@@ -16,7 +16,7 @@ Toast.succeed('Good Job!')
 
 this.$toast.info('hint') // Totally Import
 
-Vue.component(Toast.name, Toast) // Component Import
+Vue.createApp().component(Toast.name, Toast) // Component Import
 ```
 
 ### Instruction

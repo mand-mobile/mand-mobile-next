@@ -14,7 +14,7 @@ Activity indicator, generally used for ongoing tasks, only support web
 ```javascript
 import { ActivityIndicator } from 'mand-mobile'
 
-Vue.component(ActivityIndicator.name, ActivityIndicator)
+Vue.createApp().component(ActivityIndicator.name, ActivityIndicator)
 ```
 
 ### Code Examples

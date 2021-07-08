@@ -14,7 +14,7 @@ Financial figures, generally used for amounts, quantities, etc
 ```javascript
 import { Amount } from 'mand-mobile'
 
-Vue.component(Amount.name, Amount)
+Vue.createApp().component(Amount.name, Amount)
 ```
 
 ### Tips

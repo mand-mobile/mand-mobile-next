@@ -14,7 +14,7 @@ To create a tab bar without a content area
 ```javascript
 import { TabBar } from 'mand-mobile'
 
-Vue.component(TabBar.name, TabBar)
+Vue.createApp().component(TabBar.name, TabBar)
 ```
 
 ### Code Examples

@@ -11,7 +11,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/slider
 ```javascript
 import { Slider } from 'mand-mobile-next'
 
-Vue.component(Slider.name, Slider)
+Vue.createApp().component(Slider.name, Slider)
 ```
 
 ## 代码演示

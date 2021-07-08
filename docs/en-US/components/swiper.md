@@ -15,8 +15,8 @@ Carousel, used to cycle through a set of pictures or cards
 ```javascript
 import { Swiper, SwiperItem } from 'mand-mobile'
 
-Vue.component(Swiper.name, Swiper)
-Vue.component(SwiperItem.name, SwiperItem)
+Vue.createApp().component(Swiper.name, Swiper)
+Vue.createApp().component(SwiperItem.name, SwiperItem)
 ```
 
 ### Code Examples
