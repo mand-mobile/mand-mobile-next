@@ -14,7 +14,7 @@ Detail list usually used as bill details, inventory details and so on.
 ```javascript
 import { DetailItem } from 'mand-mobile'
 
-Vue.component(DetailItem.name, DetailItem)
+Vue.createApp().component(DetailItem.name, DetailItem)
 ```
 
 ### Code Examples

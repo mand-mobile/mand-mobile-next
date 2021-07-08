@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/stepper
 ```javascript
 import { Stepper } from 'mand-mobile-next'
 
-Vue.component(Stepper.name, Stepper)
+Vue.createApp().component(Stepper.name, Stepper)
 ```
 
 ## 代码演示

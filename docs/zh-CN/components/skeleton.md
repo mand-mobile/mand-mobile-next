@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/skeleton
 ```javascript
 import { Skeleton } from 'mand-mobile-next'
 
-Vue.component(Skeleton.name, Skeleton)
+Vue.createApp().component(Skeleton.name, Skeleton)
 ```
 
 ## 代码演示

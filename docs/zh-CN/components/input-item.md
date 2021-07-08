@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/input-item
 ```javascript
 import { InputItem } from 'mand-mobile-next'
 
-Vue.component(InputItem.name, InputItem)
+Vue.createApp().component(InputItem.name, InputItem)
 ```
 
 ## 使用指南

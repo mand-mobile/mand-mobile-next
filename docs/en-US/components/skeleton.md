@@ -14,7 +14,7 @@ Skeleton screen, generally used to display the loading state of the general stru
 ```javascript
 import { Skeleton } from 'mand-mobile'
 
-Vue.component(Skeleton.name, Skeleton)
+Vue.createApp().component(Skeleton.name, Skeleton)
 ```
 
 ### Code Examples

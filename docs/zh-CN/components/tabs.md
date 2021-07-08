@@ -13,8 +13,8 @@ preview: https://didi.github.io/mand-mobile/examples/#/tabs
 ```javascript
 import { Tabs, TabPane } from 'mand-mobile-next'
 
-Vue.component(Tabs.name, Tabs)
-Vue.component(TabPane.name, TabPane)
+Vue.createApp().component(Tabs.name, Tabs)
+Vue.createApp().component(TabPane.name, TabPane)
 ```
 
 ## 代码演示

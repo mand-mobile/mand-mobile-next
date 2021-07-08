@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/TextareaItem
 ```javascript
 import { TextareaItem } from 'mand-mobile-next'
 
-Vue.component(TextareaItem.name, TextareaItem)
+Vue.createApp().component(TextareaItem.name, TextareaItem)
 ```
 
 ## 代码演示

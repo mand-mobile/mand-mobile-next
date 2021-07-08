@@ -14,7 +14,7 @@ Business payment pop-up window, supports payment channel selecting and payment v
 ```javascript
 import { Cashier } from 'mand-mobile'
 
-Vue.component(Cashier.name, Cashier)
+Vue.createApp().component(Cashier.name, Cashier)
 ```
 
 ### Code Examples

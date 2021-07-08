@@ -17,7 +17,7 @@ import imageProcessor from 'mand-mobile/lib/image-reader/image-processor'
 
 // Image processing plugin, refer to #imageProcessor for usage，only support web
 
-Vue.component(ImageReader.name, ImageReader)
+Vue.createApp().component(ImageReader.name, ImageReader)
 ```
 
 ### Code Examples

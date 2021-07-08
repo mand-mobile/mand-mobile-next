@@ -13,7 +13,7 @@ IconFont、SVG 图标
 ```javascript
 import { Icon } from 'mand-mobile-next'
 
-Vue.component(Icon.name, Icon)
+Vue.createApp().component(Icon.name, Icon)
 ```
 
 ## 使用指南

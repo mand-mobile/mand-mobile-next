@@ -14,7 +14,7 @@ Bottom sidebar with a number of texts or action buttons that can be used to pres
 ```javascript
 import { ActionBar } from 'mand-mobile'
 
-Vue.component(ActionBar.name, ActionBar)
+Vue.createApp().component(ActionBar.name, ActionBar)
 ```
 
 ### Instruction

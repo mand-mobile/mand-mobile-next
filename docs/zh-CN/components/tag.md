@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/tag
 ```javascript
 import { Tag } from 'mand-mobile-next'
 
-Vue.component(Tag.name, Tag)
+Vue.createApp().component(Tag.name, Tag)
 ```
 
 ## 代码演示

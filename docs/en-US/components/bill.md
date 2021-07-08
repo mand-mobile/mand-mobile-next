@@ -14,7 +14,7 @@ Electronic bill
 ```javascript
 import { Bill } from 'mand-mobile'
 
-Vue.component(Bill.name, Bill)
+Vue.createApp().component(Bill.name, Bill)
 ```
 
 ### 代码演示

@@ -12,10 +12,10 @@ preview: https://didi.github.io/mand-mobile/examples/#/check
 ```javascript
 import { Check, CheckBox, CheckGroup, CheckList } from 'mand-mobile-next'
 
-Vue.component(Check.name, Check)
-Vue.component(CheckBox.name, CheckBox)
-Vue.component(CheckGroup.name, CheckGroup)
-Vue.component(CheckList.name, CheckList)
+Vue.createApp().component(Check.name, Check)
+Vue.createApp().component(CheckBox.name, CheckBox)
+Vue.createApp().component(CheckGroup.name, CheckGroup)
+Vue.createApp().component(CheckList.name, CheckList)
 ```
 
 ## 代码演示

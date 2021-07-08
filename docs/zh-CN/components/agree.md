@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/agree
 ```javascript
 import { Agree } from 'mand-mobile-next'
 
-Vue.component(Agree.name, Agree)
+Vue.createApp().component(Agree.name, Agree)
 ```
 
 ## 代码演示

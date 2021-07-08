@@ -14,7 +14,7 @@ To display ads or descriptions in a floating layer
 ```javascript
 import { Landscape } from 'mand-mobile'
 
-Vue.component(Landscape.name, Landscape)
+Vue.createApp().component(Landscape.name, Landscape)
 ```
 
 ### Code Examples

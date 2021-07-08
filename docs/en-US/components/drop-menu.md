@@ -14,7 +14,7 @@ Drop-down menu is for list filtering
 ```javascript
 import { DropMenu } from 'mand-mobile'
 
-Vue.component(DropMenu.name, DropMenu)
+Vue.createApp().component(DropMenu.name, DropMenu)
 ```
 
 ### Code Examples

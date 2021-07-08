@@ -13,8 +13,8 @@ preview: https://didi.github.io/mand-mobile/examples/#/swiper
 ```javascript
 import { Swiper, SwiperItem } from 'mand-mobile-next'
 
-Vue.component(Swiper.name, Swiper)
-Vue.component(SwiperItem.name, SwiperItem)
+Vue.createApp().component(Swiper.name, Swiper)
+Vue.createApp().component(SwiperItem.name, SwiperItem)
 ```
 
 ## 代码演示

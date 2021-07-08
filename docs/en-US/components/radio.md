@@ -14,7 +14,7 @@ Customizable or editable radio buttons
 ```javascript
 import { Radio } from 'mand-mobile'
 
-Vue.component(Radio.name, Radio)
+Vue.createApp().component(Radio.name, Radio)
 ```
 
 ### Code Examples

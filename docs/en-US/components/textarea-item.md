@@ -14,7 +14,7 @@ Multi-line text input <sup class="version-after">2.5.0+</sup>
 ```javascript
 import { TextareaItem } from 'mand-mobile'
 
-Vue.component(TextareaItem.name, TextareaItem)
+Vue.createApp().component(TextareaItem.name, TextareaItem)
 ```
 
 ### Code Examples

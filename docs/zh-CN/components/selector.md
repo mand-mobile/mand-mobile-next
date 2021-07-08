@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/selector
 ```javascript
 import { Selector } from 'mand-mobile-next'
 
-Vue.component(Selector.name, Selector)
+Vue.createApp().component(Selector.name, Selector)
 ```
 
 ## 代码演示

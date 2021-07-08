@@ -14,7 +14,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/transition
 ```javascript
 import { Transition } from 'mand-mobile'
 
-Vue.component(Transition.name, Transition)
+Vue.createApp().component(Transition.name, Transition)
 ```
 
 ### 代码演示

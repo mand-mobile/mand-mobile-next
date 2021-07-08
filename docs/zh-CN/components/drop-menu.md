@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/drop-menu
 ```javascript
 import { DropMenu } from 'mand-mobile-next'
 
-Vue.component(DropMenu.name, DropMenu)
+Vue.createApp().component(DropMenu.name, DropMenu)
 ```
 
 ## 代码演示

@@ -14,7 +14,7 @@ For toggling states
 ```javascript
 import { Agree } from 'mand-mobile'
 
-Vue.component(Agree.name, Agree)
+Vue.createApp().component(Agree.name, Agree)
 ```
 
 ### Code Examples

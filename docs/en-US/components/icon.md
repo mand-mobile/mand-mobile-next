@@ -14,7 +14,7 @@ IconFont、SVG Icons
 ```javascript
 import { Icon } from 'mand-mobile'
 
-Vue.component(Icon.name, Icon)
+Vue.createApp().component(Icon.name, Icon)
 ```
 
 ### Instruction

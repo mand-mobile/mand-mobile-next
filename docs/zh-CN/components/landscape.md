@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/landscape
 ```javascript
 import { Landscape } from 'mand-mobile-next'
 
-Vue.component(Landscape.name, Landscape)
+Vue.createApp().component(Landscape.name, Landscape)
 ```
 
 ## 代码演示

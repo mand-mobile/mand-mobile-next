@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/detail-item
 ```javascript
 import { DetailItem } from 'mand-mobile-next'
 
-Vue.component(DetailItem.name, DetailItem)
+Vue.createApp().component(DetailItem.name, DetailItem)
 ```
 
 ## 代码演示

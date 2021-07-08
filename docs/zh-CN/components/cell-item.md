@@ -14,7 +14,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/cell-item
 ```javascript
 import { CellItem } from 'mand-mobile-next'
 
-Vue.component(CellItem.name, CellItem)
+Vue.createApp().component(CellItem.name, CellItem)
 ```
 
 ## 代码演示

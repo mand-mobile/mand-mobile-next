@@ -14,7 +14,7 @@ Mostly for system alerts, event reminders, etc
 ```javascript
 import { NoticeBar } from 'mand-mobile'
 
-Vue.component(NoticeBar.name, NoticeBar)
+Vue.createApp().component(NoticeBar.name, NoticeBar)
 ```
 
 

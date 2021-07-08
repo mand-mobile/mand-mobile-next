@@ -14,7 +14,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/action-bar
 ```javascript
 import { ActionBar } from 'mand-mobile-next'
 
-Vue.component(ActionBar.name, ActionBar)
+Vue.createApp().component(ActionBar.name, ActionBar)
 ```
 
 ## 使用指南

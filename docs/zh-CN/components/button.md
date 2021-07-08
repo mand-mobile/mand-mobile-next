@@ -14,7 +14,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/button
 ```javascript
 import { Button } from 'mand-mobile-next'
 
-Vue.component(Button.name, Button)
+Vue.createApp().component(Button.name, Button)
 ```
 
 ## 代码演示

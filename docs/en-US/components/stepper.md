@@ -14,7 +14,7 @@ Increase, decrease or modify the current value
 ```javascript
 import { Stepper } from 'mand-mobile'
 
-Vue.component(Stepper.name, Stepper)
+Vue.createApp().component(Stepper.name, Stepper)
 ```
 
 ### Code Examples

@@ -13,7 +13,7 @@ SMS code confirming dialog
 ```javascript
 import { Captcha } from 'mand-mobile'
 
-Vue.component(Captcha.name, Captcha)
+Vue.createApp().component(Captcha.name, Captcha)
 ```
 
 ### Code Examples

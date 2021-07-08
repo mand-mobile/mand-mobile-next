@@ -13,8 +13,8 @@ preview: https://didi.github.io/mand-mobile/examples/#/popup
 ```javascript
 import { Popup, PopupTitleBar } from 'mand-mobile-next'
 
-Vue.component(Popup.name, Popup)
-Vue.component(PopupTitleBar.name, PopupTitleBar)
+Vue.createApp().component(Popup.name, Popup)
+Vue.createApp().component(PopupTitleBar.name, PopupTitleBar)
 ```
 
 ## 代码演示

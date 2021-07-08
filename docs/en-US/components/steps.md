@@ -14,7 +14,7 @@ A navigation bar helps users complete tasks through the process and displays the
 ```javascript
 import { Steps } from 'mand-mobile'
 
-Vue.component(Steps.name, Steps)
+Vue.createApp().component(Steps.name, Steps)
 ```
 
 ### Code Examples

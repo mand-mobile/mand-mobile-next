@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/codebox
 ```javascript
 import { Codebox } from 'mand-mobile-next'
 
-Vue.component(Codebox.name, Codebox)
+Vue.createApp().component(Codebox.name, Codebox)
 ```
 
 ## 代码演示

@@ -14,7 +14,7 @@ For	 browsing multiple pictures and swiping to switch pictures
 ```javascript
 import { ImageViewer } from 'mand-mobile'
 
-Vue.component(ImageViewer.name, ImageViewer)
+Vue.createApp().component(ImageViewer.name, ImageViewer)
 ```
 
 

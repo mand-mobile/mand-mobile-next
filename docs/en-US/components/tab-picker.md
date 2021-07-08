@@ -14,7 +14,7 @@ Support cascaded selections in the footer
 ```javascript
 import { TabPicker } from 'mand-mobile'
 
-Vue.component(TabPicker.name, TabPicker)
+Vue.createApp().component(TabPicker.name, TabPicker)
 ```
 
 ### Code Examples

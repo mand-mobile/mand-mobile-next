@@ -13,8 +13,8 @@ A customized content area slides out or pops up on the screen, triggered by othe
 ```javascript
 import { Popup, PopupTitleBar } from 'mand-mobile'
 
-Vue.component(Popup.name, Popup)
-Vue.component(PopupTitleBar.name, PopupTitleBar)
+Vue.createApp().component(Popup.name, Popup)
+Vue.createApp().component(PopupTitleBar.name, PopupTitleBar)
 ```
 
 ### Code Examples

@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/scroll-view
 ```javascript
 import { ScrollView, ScrollViewRefresh, ScrollViewMore } from 'mand-mobile-next'
 
-Vue.component(ScrollView.name, ScrollView)
+Vue.createApp().component(ScrollView.name, ScrollView)
 ```
 
 ::: tip

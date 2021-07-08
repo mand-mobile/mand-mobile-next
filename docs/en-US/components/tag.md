@@ -14,7 +14,7 @@ For showing the area status
 ```javascript
 import { Tag } from 'mand-mobile'
 
-Vue.component(Tag.name, Tag)
+Vue.createApp().component(Tag.name, Tag)
 ```
 
 ### Code Examples

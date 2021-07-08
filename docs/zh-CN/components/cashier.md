@@ -14,7 +14,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/cashier
 ```javascript
 import { Cashier } from 'mand-mobile-next'
 
-Vue.component(Cashier.name, Cashier)
+Vue.createApp().component(Cashier.name, Cashier)
 ```
 
 ## 代码演示

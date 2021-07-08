@@ -17,7 +17,7 @@ Toast.succeed('操作成功')
 
 this.$toast.info('提示') // 全量引入
 
-Vue.component(Toast.name, Toast) // 组件引入
+Vue.createApp().component(Toast.name, Toast) // 组件引入
 ```
 
 ## 代码演示

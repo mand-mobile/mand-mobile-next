@@ -14,7 +14,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/activity-indicator
 ```javascript
 import { ActivityIndicator } from 'mand-mobile-next'
 
-Vue.component(ActivityIndicator.name, ActivityIndicator)
+Vue.createApp().component(ActivityIndicator.name, ActivityIndicator)
 ```
 
 ## 代码演示

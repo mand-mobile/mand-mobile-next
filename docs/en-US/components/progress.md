@@ -14,7 +14,7 @@ Progress circle, generally used to communicate data intuitively to users
 ```javascript
 import { Progress } from 'mand-mobile'
 
-Vue.component(Progress.name, Progress)
+Vue.createApp().component(Progress.name, Progress)
 ```
 
 ### Code Examples

@@ -14,7 +14,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/amount
 ```javascript
 import { Amount } from 'mand-mobile-next'
 
-Vue.component(Amount.name, Amount)
+Vue.createApp().component(Amount.name, Amount)
 ```
 
 :::tip

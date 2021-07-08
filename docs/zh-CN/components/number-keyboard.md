@@ -13,7 +13,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/number-keyboard
 ```javascript
 import { NumberKeyboard } from 'mand-mobile-next'
 
-Vue.component(NumberKeyboard.name, NumberKeyboard)
+Vue.createApp().component(NumberKeyboard.name, NumberKeyboard)
 ```
 
 ## 代码演示

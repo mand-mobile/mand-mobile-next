@@ -12,7 +12,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/slider
 ```javascript
 import { Slider } from 'mand-mobile'
 
-Vue.component(Slider.name, Slider)
+Vue.createApp().component(Slider.name, Slider)
 ```
 
 ### Code Examples
