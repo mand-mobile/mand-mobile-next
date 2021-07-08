@@ -1,48 +1,43 @@
+import path from 'path'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
 import vue from 'rollup-plugin-vue'
+import alias from '@rollup/plugin-alias'
 import typescript from 'rollup-plugin-typescript2'
+import esbuild from 'rollup-plugin-esbuild'
 import replace from '@rollup/plugin-replace'
-import { terser } from 'rollup-plugin-terser'
-// import { genCss } from './plugin/rollup-plugin-gencss'
 
 const outPubOptions = {
   globals: {
     vue: 'Vue',
-  },
-  paths: (id) => {
-    if (/^mand-mobile/.test(id)) {
-      return id.replace('mand-mobile/', './')
-    }
   },
 }
 
 const input = 'src/packages/mand-mobile.ts'
 
 const getPlugins = () => [
-  terser(),
   replace({
     preventAssignment: true,
     values: {
       'import.meta.env.PROD': 'true',
     },
   }),
-  typescript({
-    tsconfigOverride: {
-      compilerOptions: {
-        declaration: true,
-        emitDeclarationOnly: false,
-      },
-      include: ['src/packages/**/*', 'src/shims-vue.d.ts'],
-      exclude: [
-        'node_modules',
-        'src/packages/**/__test__/*',
-        'src/packages/**/demo/*',
-        'docs',
-      ],
-      abortOnError: false,
-    },
-  }),
+  // typescript({
+  //   tsconfigOverride: {
+  //     compilerOptions: {
+  //       declaration: true,
+  //       emitDeclarationOnly: false,
+  //     },
+  //     include: ['src/packages/**/*', 'src/shims-vue.d.ts'],
+  //     exclude: [
+  //       'node_modules',
+  //       'src/packages/**/__test__/*',
+  //       'src/packages/**/demo/*',
+  //       'docs',
+  //     ],
+  //     abortOnError: false,
+  //   },
+  // }),
   nodeResolve(),
   vue({
     target: 'browser',
@@ -53,6 +48,20 @@ const getPlugins = () => [
       },
     },
     exposeFilename: false,
+  }),
+  alias({
+    entries: [
+      {
+        find: /^(mand-mobile\/)(.*)/,
+        replacement: `${path.resolve(
+          __dirname,
+          '../src/packages'
+        )}/$2/index.ts`,
+      },
+    ],
+  }),
+  esbuild({
+    minify: true,
   }),
   // genCss(),
   postcss({
@@ -75,7 +84,6 @@ configs.push({
       /^vue/.test(id) ||
       /^@vue/.test(id) ||
       /^@better-scroll/.test(id) ||
-      /^mand-mobile\//.test(id) ||
       /^jpeg-js/.test(id)
     return reg
   },
