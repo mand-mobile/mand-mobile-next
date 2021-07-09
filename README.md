@@ -1,10 +1,6 @@
 # mand-mobile-next
 
-<p>
-  <a href="https://www.npmjs.org/package/mand-mobile-next">
-    <img src="https://img.shields.io/npm/v/mand-mobile-next.svg">
-  </a>
-</p>
+[![npm](https://img.shields.io/npm/v/mand-mobile-next.svg)](https://www.npmjs.org/package/mand-mobile-next) [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/mand-mobile/mand-mobile-next)  
 
 面向金融场景，基于 Vue 3.0 移动端组件库
 
