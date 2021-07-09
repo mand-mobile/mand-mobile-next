@@ -10,22 +10,22 @@ export const useCurrentPath = (path: string, toggle = false) => {
   const PATH_RE = /^\/\w+\-\w+\//
 
   if (isZh(pathName)) {
-    return path.replace(PATH_RE, toggle ? EN : ZH)
+    return path.replace(ZH, toggle ? EN : ZH)
   } else if (isEn(pathName)) {
-    return path.replace(PATH_RE, toggle ? ZH : EN)
+    return path.replace(EN, toggle ? ZH : EN)
   } else {
     return path
   }
 }
 
 export function isZh(path: string) {
-  const ZH = '/zh-CN/'
+  const ZH = '/mand-mobile-next/zh-CN/'
 
   return path.startsWith(ZH)
 }
 
 export function isEn(path: string) {
-  const EN = '/en-US/'
+  const EN = '/mand-mobile-next/en-US/'
 
   return path.startsWith(EN)
 }

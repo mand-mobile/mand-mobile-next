@@ -9,6 +9,6 @@ import { inBrowser, useRouter } from 'vitepress'
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  useRouter().go('/zh-CN/')
+  useRouter().go('/mand-mobile-next/zh-CN/')
 })
 </script>

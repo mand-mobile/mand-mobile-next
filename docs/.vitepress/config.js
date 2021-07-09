@@ -62,6 +62,7 @@ const zhComponentsSidebarConfig = [
  * @type {import('vitepress').UserConfig}
  */
 module.exports = {
+  base: '/mand-mobile-next/',
   title: 'Mand Mobile',
   description: 'mand mobile doc',
   head: [
