@@ -1,0 +1,1 @@
+import{H as o,S as s,a as e}from"./index.22509486.js";import{h as i}from"./app.dd25191e.js";function p(p,t){const a=i({get:()=>p.visible,set:()=>n()}),n=()=>{t(e,!1)};return{popupShow:a,onHide:()=>{t(o),n()},onShow:()=>{t(s)},hide:n}}export{p as u};
