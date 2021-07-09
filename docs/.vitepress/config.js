@@ -66,7 +66,7 @@ module.exports = {
   title: 'Mand Mobile',
   description: 'mand mobile doc',
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/mand-mobile-next/favicon.png' }],
     ['link', { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' }],
     ['link', { rel: 'preconnect', crossorigin: 'anonymous', href: 'https://fonts.gstatic.com' }],
     ['link', { href: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200;400;500&family=Inter:wght@200;400;500;600', rel: 'stylesheet' }],
