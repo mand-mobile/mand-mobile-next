@@ -65,7 +65,7 @@ export default defineConfig({
         esModule: true,
         ensureStyleFile: true,
         resolveStyle: (name) => {
-          return `mand-mobile-next/dist/es/${name}.css`;
+          return `mand-mobile-next/dist/es/${name}/index.css`;
         },
         resolveComponent: (name) => {
           return `mand-mobile-next/dist/es/${name}`;
