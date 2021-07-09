@@ -1,5 +1,7 @@
 # Quick Start
 
+[![npm](https://img.shields.io/npm/v/mand-mobile-next.svg)](https://www.npmjs.org/package/mand-mobile-next) [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/mand-mobile/mand-mobile-next)[![build](https://github.com/mand-mobile/mand-mobile-next/actions/workflows/build.yml/badge.svg?branch=vue3)](https://github.com/mand-mobile/mand-mobile-next/actions)  
+
 ## Install
 
 快速开始最好的方式就是使用 `vite` 初始化项目工程，添加 `mand-mobile-next` 即可。
