@@ -23,7 +23,7 @@ export function useEditLink() {
       return null
     }
 
-    return createUrl(repo, docsRepo, docsDir, docsBranch, relativePath)
+    return createUrl(repo, docsRepo, docsDir, docsBranch + '/docs', relativePath)
   })
 
   const text = computed(() => {
