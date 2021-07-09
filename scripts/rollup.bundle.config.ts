@@ -3,7 +3,6 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
 import vue from 'rollup-plugin-vue'
 import alias from '@rollup/plugin-alias'
-import typescript from 'rollup-plugin-typescript2'
 import esbuild from 'rollup-plugin-esbuild'
 import replace from '@rollup/plugin-replace'
 
