@@ -6,7 +6,7 @@ const { site, theme, localePath } = useData()
 const route = useRoute()
 
 const currentPath = computed(() => {
-  return route.path.startsWith('/zh-CN/') ? '/zh-CN/' : '/en-US/'
+  return route.path.startsWith('/mand-mobile-next/zh-CN/') ? '/mand-mobile-next/zh-CN/' : '/mand-mobile-next/en-US/'
 })
 </script>
 

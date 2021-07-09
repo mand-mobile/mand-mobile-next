@@ -6,7 +6,7 @@
 
 ## 文档
 
-- [中文文档](https://chrome.zouhaha.site/) *完善中*
+- [中文文档](https://mand-mobile.github.io/mand-mobile-next/) *完善中*
 
 ## 开发
 
