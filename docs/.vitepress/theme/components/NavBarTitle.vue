@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { withBase, useData, inBrowser, useRoute } from 'vitepress'
+import { withBase, useData, useRoute } from 'vitepress'
 import { computed } from 'vue'
 const { site, theme, localePath } = useData()
 
 const route = useRoute()
 
 const currentPath = computed(() => {
-  return route.path.startsWith('/mand-mobile-next/zh-CN/') ? '/mand-mobile-next/zh-CN/' : '/mand-mobile-next/en-US/'
+  return route.path.includes('/zh-CN/') ? withBase('/zh-CN/') : withBase('/en-US/')
 })
 </script>
 
