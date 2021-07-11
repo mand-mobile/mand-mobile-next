@@ -5,10 +5,10 @@ editLink: false
 replace: true
 ---
 <script setup>
-import { inBrowser, useRouter } from 'vitepress'
+import { inBrowser, useRouter, withBase } from 'vitepress'
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  useRouter().go('/mand-mobile-next/zh-CN/')
+  useRouter().go(withBase('/zh-CN/'))
 })
 </script>

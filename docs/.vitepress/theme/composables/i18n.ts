@@ -1,31 +1,11 @@
-import { inBrowser } from 'vitepress'
-
-export const useCurrentPath = (path: string, toggle = false) => {
-  if (!inBrowser) return path
-
-  const pathName = window.location.pathname
-
-  const ZH = '/zh-CN/'
-  const EN = '/en-US/'
-  const PATH_RE = /^\/\w+\-\w+\//
-
-  if (isZh(pathName)) {
-    return path.replace(ZH, toggle ? EN : ZH)
-  } else if (isEn(pathName)) {
-    return path.replace(EN, toggle ? ZH : EN)
-  } else {
-    return path
-  }
-}
-
 export function isZh(path: string) {
-  const ZH = '/mand-mobile-next/zh-CN/'
+  const ZH = '/zh-CN/'
 
-  return path.startsWith(ZH)
+  return path.includes(ZH)
 }
 
 export function isEn(path: string) {
-  const EN = '/mand-mobile-next/en-US/'
+  const EN = '/en-US/'
 
-  return path.startsWith(EN)
+  return path.includes(EN)
 }
