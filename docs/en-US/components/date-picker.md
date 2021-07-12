@@ -7,7 +7,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/date-picker
 # DatePicker
 
 
-Date or time selecting, supports year/month/day/hour/minute and range selecting
+Date or time selecting, supports year/month/day/hour/minute/second custom selecting
 
 ### Import
 
@@ -35,90 +35,38 @@ const demos = import.meta.globEager('../../../src/packages/date-picker/demo/demo
 #### DatePicker Props
 |Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
+|v-model:visible|display date picker or not|Boolean|`false`|-|
+|v-model|initial selected date|Date/Array|`new Date()`|value is an Array including hour, miniute and second such as [23, 59, 59] when `type` is `time`, otherwise value is a Date|
 |type|type of selection|String|`date`|`date`, `time`, `datetime`, `custom`|
-|custom-types|customized type contains `date element`, `[yyyy, MM, dd, hh, mm]`|Array|-|valid when the value of type is `custom`|
+|custom-types|customized type contains `date element`, `[yyyy, MM, dd, hh, mm, ss]`|Array|-|valid when the value of type is `custom`|
 |min-date|selectable min date(time)|Date|-|-|
 |max-date|selectable max date(time)|Date|-|-|
-|default-date|initial selected date|Date|-|-|
-|minute-step|increasing steps of minutes|Number|`1`|-|
-|unit-text|element unit for text displaying|Array|`['y', 'M', 'd', 'h', 'm']`|`text-render` for complex logic|
+|unit-text|element unit for text displaying|Array|`['Year', 'Month', 'Day', 'Hour', 'Minute', 'Second']`|`text-render` for complex logic|
 |text-render|customized option for text displaying|Function(typeFormat, column0Value, column1Value, ...): String|-|`unit-text` is invalid when using `text-render`, refer to `Appendix`|              
 |today-text|displaying text of today|String|`today`|use `&` to take placeholder date, like `&(today)`| 
 |line-height|line height of options|Number|`45`|unit `px`| 
-|keep-index <sup class="version-after">2.5.2+</sup>|keep last stop position when the column data changes|Boolean|`false`|-|          
+|keep-index|keep last stop position when the column data changes|Boolean|`false`|-|          
 |is-view|inline-display in page, otherwise it shows as `Popup`|Boolean|`false`|-| 
 |title|title of date-picker|String|-|-|
 |describe|description of date-picker|String|-|-|
 |ok-text|confirmation text|String|`confirm`|-| 
 |cancel-text|cancellation text|String|`cancel`|-| 
-|large-radius <sup class="version-after">2.4.0+</sup>|large radius of title bar|Boolean|`false`|-|
+|large-radius|large radius of title bar|Boolean|`false`|-|
 |mask-closable|picker will be closed when clicking mask|String|`true`|-|
 
 #### DatePicker Methods
 
-##### getFormatDate(format): dateStr
-Get a date string in a specific format (the `date element` of `format` exists in the column data), which is called after `initialed` event is invoked or asynchronously called
-
-|Parameters | Description | Type | Default |
-|----|-----|------|------|
-|format|format|String|`yyyy-MM-dd hh:mm`|
-
-Returns
-
-|Props | Description | Type |
-|----|-----|------|
-|dateStr|date string|String|
-
-> Refer to #Appendix for attributes of list items
-
-##### getColumnValue(index): activeItemValue
-Get value of the currently selected item in the column, which is called after `initialed` event is invoked or asynchronously called
-
-|Parameters | Description | Type|
-|----|-----|------|
-|index|index of column|Number|
-
-Returns
-
-|Props | Description | Type|
-|----|-----|------|
-|activeItemValue|value of selected item|Object: {value, lable, ...}|
-
 ##### getColumnValues(): columnsValue
-Get all values of currently seleted items, which is called after `initialed` event is invoked or asynchronously called
+Get all values of currently seleted items
 
 Returns
 
 |Props | Description | Type|
 |----|-----|------|
-|columnsValue|values of all selected items in the column|Array<{value, lable, ...}>|
+|columnsValue|values of all selected items in the column|Array<{value, text, ...}>|
 
-##### getColumnIndex(index): activeItemIndex
-Get the index of the currently selected item in the column, which is called after `initialed` event is invoked or asynchronously called
-
-|Parameters | Description | Type|
-|----|-----|------|
-|index|index of column|Number|
-
-Returns
-
-|Props | Description | Type|
-|----|-----|------|
-|activeItemIndex|index of selected item|Number|
-
-##### getColumnIndexs(): columnsIndex
-Get all indexes in the column, which is called after `initialed` event is invoked or asynchronously called
-
-Returns
-
-|Props | Description | Type|
-|----|-----|------|
-|columnsIndex|indexes of seletced items in the column|Array|
 
 #### DatePicker Events
-
-##### @initialed()
-Initialize date picker, callable functions are `getColumnIndex`, `getColumnIndexs`, `getColumnValue`, `getColumnValues`
 
 ##### @change(columnIndex, itemIndex, value)
 Change selections of date picker
@@ -127,14 +75,20 @@ Change selections of date picker
 |----|-----|------|
 |columnIndex|change the index of column|Number|
 |itemIndex|change the index of selected item|Number|
-|value|change the value of selected item|Object: {value, lable, ...}|
+|value|change the value of selected item|Object: {value, text, ...}|
 
-##### @confirm(columnsValue)
+##### @confirm()
 Confirm the selection of date picker(only when `is-view` is `false`）
 
-|Parameters | Description | Type|
-|----|-----|------|
-|columnsValue|values of selected items in the column|Array<{value, lable, ...}>|
+##### @cancel()
+Cancel date picker's selection (only when `is-view` is `false`）
+
+##### @show()
+Show date picker (only when `is-view` is `false`）
+
+##### @hide()
+Hide date picker (only when `is-view` is `false`）
+
 
 #### Appendix
 
@@ -143,49 +97,54 @@ Confirm the selection of date picker(only when `is-view` is `false`）
 ```javascript
 
 const columnData = [
-  // year
+  // 年
   [
     {
-      text: 'Year 2017', // display date
-      value: 2017, // display value
-      typeFormat: 'yyyy' // the type of date: yyyy, MM, dd, hh, mm, HalfDay
+      text: '2017年', // 日期元素展示文案
+      value: 2017, // 日期元素数字
+      typeFormat: 'yyyy' // 日期元素类型 yyyy, MM, dd, hh, mm, HalfDay
     }
   ],
-  // month, day, hour, minute
-  [
-    //..,
-  ],
-  // AM/PM
+  // 月
   [
     {
-      text: 'am',
-      value: 0,
-      typeFormat: 'HalfDay'
-    }, {
-      text: 'pm',
-      value: 1,
-      typeFormat: 'HalfDay'
+      text: '1月', // 日期元素展示文案
+      value: 1, // 日期元素数字
+      typeFormat: 'MM' // 日期元素类型 yyyy, MM, dd, hh, mm, HalfDay
     }
+  ],
+  // 日, 时, 分, 秒
+  [
+    ...,
   ]
 ]
 ```
 
 * textRender
 
-```javascript
+```typescript
+  const MONTH_MAP = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sept',
+    'Oct',
+    'Nov',
+    'Dec',
+  ]
 
-  export default {
-    // ...
-    methods: {
-      textRender() {
-        const args = Array.prototype.slice.call(arguments)
-        const typeFormat = args[0] // type
-        const column0Value = args[1] // selected items in the first column
-        const column1Value = args[2] // selected items in the second column
-        const column2Value = args[3] // selected items in the third column
-        // ...
-      },
+  const textRender = (
+    typeFormat: string,
+    columnValue: number
+  ) => {
+    if (typeFormat === 'MM') {
+      return MONTH_MAP[columnValue - 1]
     }
-    // ...
+    return
   }
 ```
