@@ -173,6 +173,7 @@ const name = frontmatter.value.component
 }
 
 .demo-wrapper
+  margin-top 1rem
   .md-button
     margin-bottom 12px
     &.inline, &.link

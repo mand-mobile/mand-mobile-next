@@ -97,23 +97,23 @@ Hide date picker (only when `is-view` is `false`）
 ```javascript
 
 const columnData = [
-  // 年
+  // year
   [
     {
-      text: '2017年', // 日期元素展示文案
-      value: 2017, // 日期元素数字
-      typeFormat: 'yyyy' // 日期元素类型 yyyy, MM, dd, hh, mm, HalfDay
+      text: '2017年', // display year text
+      value: 2017, // display year value
+      typeFormat: 'yyyy' // the type of date: yyyy, MM, dd, hh, mm, ss
     }
   ],
-  // 月
+  // month
   [
     {
-      text: '1月', // 日期元素展示文案
-      value: 1, // 日期元素数字
-      typeFormat: 'MM' // 日期元素类型 yyyy, MM, dd, hh, mm, HalfDay
+      text: '1月', // display month text
+      value: 1, // display month value
+      typeFormat: 'MM' // the type of date: yyyy, MM, dd, hh, mm, ss
     }
   ],
-  // 日, 时, 分, 秒
+  // day, hour, minute, second
   [
     ...,
   ]
