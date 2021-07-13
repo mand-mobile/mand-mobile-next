@@ -22,6 +22,10 @@ jobs:
 
       - name: Build docs
         run: yarn docs:build
+      - name: Build example
+        run: yarn build:example
+      - name: Move example
+        run: mv example docs/.vitepress/dist
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
