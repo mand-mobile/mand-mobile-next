@@ -8,8 +8,8 @@ import App from './App.vue'
 
 import './assets/stylus/app.styl'
 
-if (import.meta.env.VITE_BUILD_BUNDLE) {
-  import('dist/mand-mobile.esm.css')
+if (import.meta.env.PROD) {
+  import('dist/mand-mobile.min.css')
 }
 
 const router = createRouter({
