@@ -51,7 +51,7 @@ import Icon from 'mand-mobile/icon'
 
 ### example
 
-![img](https://pt-starimg.didistatic.com/static/starimg/img/CrPs2OPjgL1623749247621.png)
+![img](./docs/public/qrcode_mand-mobile.github.io.png)
 
 ### 参考文档
 
