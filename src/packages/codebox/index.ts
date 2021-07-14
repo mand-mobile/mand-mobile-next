@@ -5,6 +5,6 @@ Codebox.install = (app: App) => {
   app.component(Codebox.name, Codebox)
 }
 
-export { focusAndOpenKeyboard } from './use-codebox'
 export { Codebox }
+export { focusAndOpenKeyboard } from './use-codebox'
 export default Codebox

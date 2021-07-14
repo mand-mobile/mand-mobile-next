@@ -7,6 +7,6 @@ InputItem.install = (app: App) => {
   app.component(FakeInputItem.name, FakeInputItem)
 }
 
-export { formatMoney } from './use-input'
 export { InputItem }
+export { formatMoney } from './use-input'
 export default InputItem

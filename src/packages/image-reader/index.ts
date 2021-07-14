@@ -13,8 +13,8 @@ ImageReader.install = (app: App) => {
 }
 
 export {
-  imageReaderProps,
   ImageReader,
+  imageReaderProps,
   CreateImageReader,
   imageProcessor,
   dataURIToArrayBuffer,
