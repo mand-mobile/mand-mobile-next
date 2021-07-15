@@ -58,8 +58,8 @@ export default defineComponent({
   display flex
   justify-content center
   align-items center
-  background number-keyboard-key-bg
+  background var(--md-number-keyboard-key-bg)
   transition background .3s
-  hairline(right, number-keyboard-key-border-color)
-  hairline(top, number-keyboard-key-border-color)
+  hairline(right, var(--md-number-keyboard-key-border-color))
+  hairline(top, var(--md-number-keyboard-key-border-color))
 </style>

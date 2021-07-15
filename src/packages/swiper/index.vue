@@ -132,5 +132,5 @@ export default defineComponent({
   background #ddd
   margin 0 3px
   &.md-swiper-indicator-active
-    background swiper-indicator-fill
+    background var(--md-color-primary)
 </style>

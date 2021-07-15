@@ -94,12 +94,14 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-popup
   absolute-pos()
   position fixed
   display flex
   pointer-events none
-  z-index popup-zindex
+  z-index var(--md-popup-zindex)
 
   &.center
     align-items center
@@ -128,17 +130,15 @@ export default defineComponent({
       height 100%
 
   &.inner-popup .md-popup-box
-    background-color color-bg-inverse
-    border-radius popup-title-bar-radius popup-title-bar-radius 0 0
-  &.large-radius.inner-popup .md-popup-box
-    border-radius popup-title-bar-radius-large popup-title-bar-radius-large 0 0
+    background-color var(--md-color-bg-inverse)
+    border-radius var(--md-popup-title-bar-radius) var(--md-popup-title-bar-radius) 0 0
 
 .md-popup-mask
   absolute-pos()
   position absolute
   pointer-events auto
   z-index 1
-  background-color popup-mask-bg
+  background-color var(--md-popup-mask-bg)
 
 .md-popup-box
   position relative
@@ -153,7 +153,7 @@ export default defineComponent({
   position absolute
   pointer-events auto
   z-index 1
-  background-color popup-mask-bg
+  background-color var(--md-popup-mask-bg)
 
 .md-mask-fade
   &-enter-from, &-leave-to

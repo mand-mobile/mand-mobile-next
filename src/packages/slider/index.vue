@@ -98,6 +98,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-slider
   position relative
   width 100%
@@ -110,7 +112,7 @@ export default defineComponent({
     right 0
     height 4px
     border-radius 2px
-    background-color slider-bg-base
+    background-color var(--md-slider-bg-base)
   &.is-disabled
     pointer-events none
     .md-slider-bar
@@ -123,7 +125,7 @@ export default defineComponent({
   left 0
   top 28px
   height 4px
-  background-color slider-bg-tap
+  background-color var(--md-slider-bg-tap)
   border-radius 2px
   z-index 5
 
@@ -167,11 +169,11 @@ export default defineComponent({
     cursor pointer
     width 40px
     height 40px
-    background-color slider-handle-bg
+    background-color var(--md-slider-handle-bg)
     border-radius 50%
     box-shadow 0 1px 2px rgba(0, 0, 0, 0.2)
     transition transform 200ms
 .md-tip-content.slider-tip
   padding 8px 16px
-  border-radius radius-normal
+  border-radius var(--md-radius-normal)
 </style>

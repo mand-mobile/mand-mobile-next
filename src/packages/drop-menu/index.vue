@@ -127,25 +127,27 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-drop-menu
   position fixed
-  z-index drop-menu-zindex
+  z-index var(--md-drop-menu-zindex)
   top 0
   left 0
   right 0
-  height drop-menu-height
+  height var(--md-drop-menu-height)
   box-sizing border-box
-  color color-text-minor
-  font-size drop-menu-font-size
-  font-weight drop-menu-font-weight
+  color var(--md-color-text-minor)
+  font-size var(--md-drop-menu-font-size)
+  font-weight var(--md-drop-menu-font-weight)
 
 .md-drop-menu-bar
   position relative
-  z-index drop-menu-zindex
+  z-index var(--md-drop-menu-zindex)
   display flex
   height 100%
-  background drop-menu-bar-bg
-  hairline(bottom, drop-menu-bar-border-color)
+  background var(--md-drop-menu-bar-bg)
+  hairline(bottom, var(--md-drop-menu-bar-border-color))
   .bar-item
     display flex
     flex 1
@@ -165,25 +167,25 @@ export default defineComponent({
         margin-top -4px
         border-left solid 8px transparent
         border-right solid 8px transparent
-        border-top solid 9px color-border-element
+        border-top solid 9px var(--md-color-border-element)
         transition transform .3s ease-in-out-quint
     &.active
-      color drop-menu-color
+      color var(--md-drop-menu-color)
       span:after
         transform rotate(180deg)
-        border-top-color drop-menu-color
+        border-top-color var(--md-drop-menu-color)
     &.selected
-      color drop-menu-color
+      color var(--md-drop-menu-color)
     &.disabled
-      opacity drop-menu-disabled-opacity
+      opacity var(--md-drop-menu-disabled-opacity)
 
 .md-drop-menu-list
   width 100%
-  padding-top drop-menu-height
-  background drop-menu-list-bg
+  padding-top var(--md-drop-menu-height)
+  background var(--md-drop-menu-list-bg)
   box-sizing border-box
   .md-radio-item
-    font-weight font-weight-normal
+    font-weight var(--md-font-weight-normal)
     &.is-selected .md-cell-item-title
-      color color-primary
+      color var(--md-color-primary)
 </style>

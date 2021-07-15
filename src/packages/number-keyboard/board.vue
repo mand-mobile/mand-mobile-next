@@ -161,7 +161,7 @@ export default defineComponent({
 
   .keyboard-key
     position relative
-    background number-keyboard-bg
+    background var(--md-number-keyboard-bg)
     flex 3
     display flex
     flex-wrap wrap
@@ -170,9 +170,9 @@ export default defineComponent({
       position relative
       flex-basis 33.33%
       height 107px
-      font-size number-keyboard-key-font-size
-      font-weight number-keyboard-key-font-weight
-      font-family font-family-number
+      font-size var(--md-number-keyboard-key-font-size)
+      font-weight var(--md-number-keyboard-key-font-weight)
+      font-family var(--md-font-family-number)
 
       &.no-bg
         background transparent
@@ -182,14 +182,14 @@ export default defineComponent({
         background-size 46px
 
       &.slidedown
-        background number-keyboard-key-bg url("./images/keyboard-hide.png") center no-repeat
+        background var(--md-number-keyboard-key-bg) url("./images/keyboard-hide.png") center no-repeat
         background-size 54px
 
       &.large-item
         flex-grow 1
 
       &:active, &.active
-        background-color number-keyboard-key-bg-tap
+        background-color var(--md-number-keyboard-key-bg-tap)
 
   .keyboard-operate
     position relative
@@ -202,14 +202,14 @@ export default defineComponent({
       flex 1
 
       &.delete
-        background number-keyboard-key-bg url("./images/keyboard-del.png") center no-repeat
+        background var(--md-number-keyboard-key-bg) url("./images/keyboard-del.png") center no-repeat
         background-size 42px
         &.active
-          background-color number-keyboard-key-bg-tap
+          background-color var(--md-number-keyboard-key-bg-tap)
       &.confirm
-        color number-keyboard-key-confirm-color
-        font-size font-caption-large
-        background number-keyboard-key-confirm-bg
+        color var(--md-number-keyboard-key-confirm-color)
+        font-size var(--md-font-caption-large)
+        background var(--md-number-keyboard-key-confirm-bg)
         &.active
-          background-color number-keyboard-key-confirm-bg-tap
+          background-color var(--md-number-keyboard-key-confirm-bg-tap)
 </style>

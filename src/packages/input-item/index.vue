@@ -122,6 +122,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-input-item
   .md-field-item-content
     padding-top 0
@@ -132,21 +134,21 @@ export default defineComponent({
 
 .md-input-item-clear
   padding 10px 0
-  color input-item-icon
+  color var(--md-input-item-icon)
   .md-icon
     display flex
-    background color-bg-base
-    border-radius radius-circle
+    background var(--md-color-bg-base)
+    border-radius var(--md-radius-circle)
 
 .md-input-item-input,
 .md-fake-input
   // display flex
   width 100%
-  height input-item-height
-  color input-item-color
-  font-size input-item-font-size
-  font-weight input-item-font-weight
-  font-family font-family-normal
+  height var(--md-input-item-height)
+  color var(--md-input-item-color)
+  font-size var(--md-input-item-font-size)
+  font-weight var(--md-input-item-font-weight)
+  font-family var(--md-font-family-normal)
   line-height 1
   -webkit-appearance none
   border none
@@ -160,13 +162,13 @@ export default defineComponent({
   &:disabled, &[disabled]
     opacity 1
   &::-webkit-input-placeholder
-    color input-item-placeholder
-    font-weight font-weight-normal
+    color var(--md-input-item-placeholder)
+    font-weight var(--md-font-weight-normal)
   &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
     -webkit-appearance none
 
 .md-fake-input
-  line-height input-item-height
+  line-height var(--md-input-item-height)
   word-ellipsis()
   cursor text
   &::after
@@ -174,8 +176,8 @@ export default defineComponent({
     z-index 2
     display none
     content " "
-    height input-item-font-size-large
-    border-right solid 1.5px color-text-base
+    height var(--md-input-item-font-size-large)
+    border-right solid 1.5px var(--md-color-text-base)
   &.is-focus:after
     display inline
   &.is-waiting:after
@@ -186,8 +188,8 @@ export default defineComponent({
   top 0
   left 0
   width 100%
-  color input-item-placeholder
-  font-weight font-weight-normal
+  color var(--md-input-item-placeholder)
+  font-weight var(--md-font-weight-normal)
 
 .md-input-item-msg,
 .md-input-item-brief
@@ -196,12 +198,12 @@ export default defineComponent({
     margin-bottom 10px
 
 .md-input-item-brief
-  font-size input-item-font-size-brief
-  color input-item-color-brief
+  font-size var(--md-input-item-font-size-brief)
+  color var(--md-input-item-color-brief)
 
 .md-input-item-msg
-  font-size input-item-font-size-error
-  color input-item-color-error
+  font-size var(--md-input-item-font-size-error)
+  color var(--md-input-item-color-error)
 
 .md-input-item
   &.left
@@ -225,8 +227,8 @@ export default defineComponent({
       top 50%
       left 0
       height auto
-      font-size input-item-title-latent-font-size
-      color input-item-title-latent-color
+      font-size var(--md-input-item-title-latent-font-size)
+      color var(--md-input-item-title-latent-color)
       transform translate3d(0, -50%, 0)
       transition all .3s ease
       opacity 0
@@ -248,36 +250,36 @@ export default defineComponent({
   &.is-highlight
     &.is-focus
       .md-field-item-content
-        hairline(bottom, input-item-color-highlight, 0, 4px)
+        hairline(bottom, var(--md-input-item-color-highlight), 0, 4px)
 
   &.is-disabled
     .md-input-item-input,
     .md-input-item-fake,
     .md-input-item-fake-placeholder
-      -webkit-text-fill-color input-item-color-disabled
-      color input-item-color-disabled
+      -webkit-text-fill-color var(--md-input-item-color-disabled)
+      color var(--md-input-item-color-disabled)
 
   &.is-amount
     .md-input-item-input,
     .md-input-item-fake
-      font-family font-family-number
+      font-family var(--md-font-family-number)
     &.large
       .md-input-item-input,
       .md-fake-input
-        padding-top v-gap-xs
+        padding-top var(--md-v-gap-xs)
 
   &.large
     .md-input-item-input,
     .md-fake-input
       padding-bottom 15px
-      font-size input-item-font-size-large
+      font-size var(--md-input-item-font-size-large)
     .md-input-item-input::-webkit-input-placeholder
         font-size 60px
         line-height 100px
 
   &.is-error
     .md-field-item-content
-      hairline(bottom, input-item-color-error, 0, 4px)
+      hairline(bottom, var(--md-input-item-color-error), 0, 4px)
 
   &.is-ios
     .md-input-item-input::-webkit-input-placeholder
@@ -289,10 +291,10 @@ export default defineComponent({
       border-radius 2px
   &.is-android
     .md-fake-input::after
-      border-right solid 4px color-text-base
+      border-right solid 4px var(--md-color-text-base)
     .md-input-item-input,
     .md-fake-input
-      font-weight input-item-font-weight-android
+      font-weight var(--md-input-item-font-weight-android)
 
 @-webkit-keyframes keyboard-cursor
   0%

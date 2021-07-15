@@ -87,6 +87,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-cell-item
   position relative
   &.no-border .md-cell-item-body
@@ -98,14 +100,14 @@ export default defineComponent({
   display flex
   align-items center
   justify-content space-between
-  min-height cell-item-min-height
-  padding-top cell-item-padding-v
-  padding-bottom cell-item-padding-v
+  min-height var(--md-cell-item-min-height)
+  padding-top var(--md-cell-item-padding-v)
+  padding-bottom var(--md-cell-item-padding-v)
   box-sizing border-box
-  hairline(bottom, cell-item-border-color)
+  hairline(bottom, var(--md-cell-item-border-color))
   &.multilines
-    padding-top cell-item-multilines-padding-v
-    padding-bottom cell-item-multilines-padding-v
+    padding-top var(--md-cell-item-multilines-padding-v)
+    padding-bottom var(--md-cell-item-multilines-padding-v)
 
 .md-cell-item-left
   flex-shrink 0
@@ -113,8 +115,8 @@ export default defineComponent({
 
 .md-cell-item-content
   flex 1 1 0%
-  color cell-item-title-color
-  font-size cell-item-title-font-size
+  color var(--md-cell-item-title-color)
+  font-size var(--md-cell-item-title-font-size)
   line-height 1.2
 
 .md-cell-item-right
@@ -123,24 +125,24 @@ export default defineComponent({
   display inline-flex
   align-items center
   justify-content flex-end
-  color cell-item-right-color
-  font-size cell-item-right-font-size
+  color var(--md-cell-item-right-color)
+  font-size var(--md-cell-item-right-font-size)
   .md-icon-arrow-right
     margin-left 6px
     margin-right -6px
-    color color-text-placeholder
+    color var(--md-color-text-placeholder)
 
 .md-cell-item-title
   line-height 1.2
 
 .md-cell-item-brief
-  color cell-item-brief-color
-  font-size cell-item-brief-font-size
+  color var(--md-cell-item-brief-color)
+  font-size var(--md-cell-item-brief-font-size)
   line-height 1.4
   margin-top v-gap-xs
 
 .md-cell-item-children
-  padding cell-item-padding-v 0
+  padding var(--md-cell-item-padding-v) 0
 
 .md-cell-item
   &.is-disabled
@@ -152,5 +154,5 @@ export default defineComponent({
     .md-cell-item-left,
     .md-cell-item-right,
     .md-cell-item-children
-      color color-text-disabled
+      color var(--md-color-text-disabled)
 </style>

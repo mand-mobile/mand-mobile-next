@@ -75,6 +75,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-field
   padding field-padding-v field-padding-h
   border none

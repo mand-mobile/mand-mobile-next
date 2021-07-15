@@ -102,28 +102,30 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-textarea-item
   &-msg
-    color textarea-item-color-error
+    color var(--md-textarea-item-color-error)
   .md-field-item-content
     align-items normal
   &.is-disabled
     .md-textarea-item__textarea
-      -webkit-text-fill-color textarea-item-color-disabled
-      color textarea-item-color-disabled
+      -webkit-text-fill-color var(--md-textarea-item-color-disabled)
+      color var(--md-textarea-item-color-disabled)
   .md-field-item-right
     align-items start
   &__clear
     padding 6px 0
-    color textarea-item-icon
+    color var(--md-textarea-item-icon)
     .md-icon
       display flex
   &__textarea
     box-sizing border-box
     width 100%
-    font textarea-item-font-weight textarea-item-font-size font-family-normal
-    line-height textarea-item-line-height
-    color textarea-item-color
+    font var(--md-textarea-item-font-weight) var(--md-textarea-item-font-size) var(--md-font-family-normal)
+    line-height var(--md-textarea-item-line-height)
+    color var(--md-textarea-item-color)
     background transparent
     border none
     outline none
@@ -131,9 +133,9 @@ export default defineComponent({
     appearance none
     -webkit-tap-highlight-color transparent
     &::-webkit-input-placeholder
-      color textarea-item-placeholder-color
-      font-weight textarea-item-placeholder-weight
+      color var(--md-textarea-item-placeholder-color)
+      font-weight var(--md-textarea-item-placeholder-weight)
   &.is-error
     .md-field-item-content
-      hairline(bottom, textarea-item-color-error, 0, 4px)
+      hairline(bottom, var(--md-textarea-item-color-error), 0, 4px)
 </style>

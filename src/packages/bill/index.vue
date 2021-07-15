@@ -55,9 +55,11 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-bill
   position relative
-  background bill-bg
+  background var(--md-bill-bg)
 
 .md-bill-header
   display flex
@@ -66,14 +68,14 @@ export default defineComponent({
   padding 28px 32px 8px
 
 .md-bill-title
-  color bill-name-color
-  font-size bill-name-font-size
+  color var(--md-bill-name-color)
+  font-size var(--md-bill-name-font-size)
   font-weight font-weight-medium
   font-family Songti SC
 
 .md-bill-no
-  color bill-no-color
-  font-size bill-no-font-size
+  color var(--md-bill-no-color)
+  font-size var(--md-bill-no-font-size)
 
 .md-bill-neck
   position relative
@@ -88,7 +90,7 @@ export default defineComponent({
     left 10px
     right 10px
     height 1px
-    border-top dashed 1px color-border-element
+    border-top dashed 1px var(--md-color-border-element)
 
 .md-bill-content
   padding 0 32px 20px 32px

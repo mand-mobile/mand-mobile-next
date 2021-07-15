@@ -114,6 +114,6 @@ export default defineComponent({
 
 .water-mark-item
   float left
-  font-size font-body-large
-  color color-text-caption
+  font-size var(--md-font-body-large)
+  color var(--md-color-text-caption)
 </style>

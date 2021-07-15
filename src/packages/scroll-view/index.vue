@@ -109,7 +109,7 @@ export default defineComponent({
     text-align center
     color #999
   .scroll-pullup-wrapper
-    font-size font-minor-large
+    font-size var(--md-font-minor-large)
     text-align center
-    color color-text-caption
+    color var(--md-color-text-caption)
 </style>

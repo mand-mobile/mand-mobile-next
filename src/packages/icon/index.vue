@@ -61,6 +61,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-icon
   background-size contain
   fill currentColor
@@ -83,35 +85,35 @@ export default defineComponent({
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
     &.xss
-      font-size icon-size-xxs
+      font-size var(--md-icon-size-xxs)
     &.xs
-      font-size icon-size-xs
+      font-size var(--md-icon-size-xs)
     &.sm
-      font-size icon-size-sm
+      font-size var(--md-icon-size-sm)
     &.md
-      font-size icon-size-md
+      font-size var(--md-icon-size-md)
     &.lg
-      font-size icon-size-lg
+      font-size var(--md-icon-size-lg)
     &:before
       position relative
       z-index 2
 
   &.icon-svg
     &.xss
-      width icon-size-xxs
-      vertical-height(icon-size-xxs)
+      width var(--md-icon-size-xxs)
+      vertical-height(var(--md-icon-size-xxs))
     &.xs
-      width icon-size-xs
-      vertical-height(icon-size-xs)
+      width var(--md-icon-size-xs)
+      vertical-height(var(--md-icon-size-xs))
     &.sm
-      width icon-size-sm
-      vertical-height(icon-size-sm)
+      width var(--md-icon-size-sm)
+      vertical-height(var(--md-icon-size-sm))
     &.md
-      width icon-size-md
-      vertical-height(icon-size-md)
+      width var(--md-icon-size-md)
+      vertical-height(var(--md-icon-size-md))
     &.lg
-      width icon-size-lg
-      vertical-height(icon-size-lg)
+      width var(--md-icon-size-lg)
+      vertical-height(var(--md-icon-size-lg))
 // name
 .md-icon-rectangle:before
   content "\e900"
@@ -227,5 +229,5 @@ export default defineComponent({
   font-weight normal
   /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
   /* Version is required */
-  src icon-font-family
+  src url("https://manhattan.didistatic.com/static/manhattan/mand-mobile/icon/2.0.2/iconfont.woff") format("woff"), url("https://manhattan.didistatic.com/static/manhattan/mand-mobile/icon/2.0.2/iconfont.ttf") format("truetype")
 </style>

@@ -100,17 +100,17 @@ export default defineComponent({
 
 <style lang="stylus">
 .md-tab-picker
-  z-index tab-picker-zindex
+  z-index var(--md-tab-picker-zindex)
   .md-tab-bar
     position relative
-    margin-left tab-picker-h-gap
-    margin-right tab-picker-h-gap
+    margin-left var(--md-tab-picker-h-gap)
+    margin-right var(--md-tab-picker-h-gap)
     padding-left 0
     padding-right 0
-    background-color tab-picker-bg
-    hairline(bottom, color-border-base)
+    background-color var(--md-tab-picker-bg)
+    hairline(bottom, var(--md-color-border-base))
   .md-tabs-content
-    height tab-picker-height
+    height var(--md-tab-picker-height)
     overflow auto
     -webkit-overflow-scrolling touch
     &::-webkit-scrollbar
@@ -121,18 +121,18 @@ export default defineComponent({
       flex none
       margin 0 0
       padding 0 30px
-      font-size font-caption-normal
+      font-size var(--md-font-caption-normal)
   .md-tab-pane
-    padding-left tab-picker-h-gap
-    padding-right tab-picker-h-gap
+    padding-left var(--md-tab-picker-h-gap)
+    padding-right var(--md-tab-picker-h-gap)
     box-sizing border-box
   .md-popup-cancel
     width 90px !important
 .md-tab-picker-content
-  background-color tab-picker-bg
+  background-color var(--md-tab-picker-bg)
   .md-radio-item.is-selected
     .md-cell-item-body .md-cell-item-title
-      color radio-color
+      color var(--md-radio-color)
   .md-tabs
     display flex
     flex-direction column

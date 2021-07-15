@@ -102,11 +102,13 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-picker-view
   position relative
   width 100%
-  padding 0 picker-padding-h
-  background color-bg-inverse
+  padding 0 var(--md-picker-padding-h)
+  background var(--md-color-bg-inverse)
   box-sizing border-box
   transform translate3d(0, 0, 0)
   .md-picker-view_container
@@ -128,13 +130,13 @@ export default defineComponent({
         top 0
         &:after
           bottom: 0
-          border-bottom solid 1px picker-border-color
+          border-bottom solid 1px var(--md-picker-border-color)
           transform-origin 0 bottom
       &--bottom
         bottom 0
         &:before
           top 0
-          border-top solid 1px picker-border-color
+          border-top solid 1px var(--md-picker-border-color)
           transform-origin 0 top
     .md-picker-view_wheel_wrapper
       display flex
@@ -147,15 +149,15 @@ export default defineComponent({
       margin-top 100px
       &--item
         width 100%
-        padding 0 h-gap-sm
+        padding 0 var(--md-h-gap-sm)
         box-sizing border-box
-        color picker-color
-        font-size picker-font-size
+        color var(--md-picker-color)
+        font-size var(--md-picker-font-size)
         text-align center
         word-ellipsis()
         &.active
-          color picker-color-active
-          font-weight picker-font-weight-active
+          color var(--md-picker-color-active)
+          font-weight var(--md-picker-font-weight-active)
       &--disabled-item
-        opacity picker-disabled-opacity
+        opacity var(--md-picker-disabled-opacity)
 </style>

@@ -69,5 +69,5 @@ export default defineComponent({
 <style lang="stylus">
 .md-amount
   &.numerical
-    font-family font-family-number
+    font-family var(--md-font-family-number)
 </style>

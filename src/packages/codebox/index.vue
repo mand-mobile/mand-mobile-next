@@ -144,6 +144,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-codebox-wrapper
   .md-codebox-input
     position absolute
@@ -161,23 +163,19 @@ export default defineComponent({
 
 .md-codebox-box
   position relative
-  flex 0 1 codebox-width
-  width codebox-width
-  height codebox-height
+  flex 0 1 var(--md-codebox-width)
+  width var(--md-codebox-width)
+  height var(--md-codebox-height)
   display flex
   align-items center
   justify-content center
-  color codebox-color
-  font-family font-family-number
-  font-size codebox-font-size
+  color var(--md-codebox-color)
+  font-family var(--md-font-family-number)
+  font-size var(--md-codebox-font-size)
   font-weight normal
   line-height 1.2
-  if codebox-gutter is a 'unit'
-    margin-left (codebox-gutter / 2)
-    margin-right (codebox-gutter / 2)
-  else
-    margin-left "calc(%s / 2)" % codebox-gutter
-    margin-right "calc(%s / 2)" % codebox-gutter
+  margin-left "calc(%s / 2)" % var(--md-codebox-gutter)
+  margin-right "calc(%s / 2)" % var(--md-codebox-gutter)
 
   hairline(bottom, color-border-element)
   &:first-child
@@ -185,16 +183,13 @@ export default defineComponent({
   &:last-child
     margin-right 0
   &.is-active, &.is-filled
-    border-color codebox-border-active-color
+    border-color var(--md-codebox-border-active-color)
 
 .md-codebox-blink
   display block
-  if tab-height is a 'unit'
-    height (codebox-height * 0.8)
-  else
-    height "calc(%s * 0.8)" % codebox-height
+  height "calc(%s * 0.8)" % var(--md-codebox-height)
   width 2px
-  background-color codebox-blink-color
+  background-color var(--md-codebox-blink-color)
   animation md-codebox-flash steps(2) 1s infinite
 
 .md-codebox-dot
@@ -202,47 +197,47 @@ export default defineComponent({
   height 10px
   width 10px
   border-radius 5px
-  background-color codebox-dot-color
+  background-color var(--md-codebox-dot-color)
 
 .md-codebox-holder
   pointer-events none
-  height codebox-height
-  line-height codebox-height
-  padding 0 codebox-holder-space
+  height var(--md-codebox-height)
+  line-height var(--md-codebox-height)
+  padding 0 var(--md-codebox-holder-space)
   width 100%
   text-align center
-  font-size codebox-font-size
+  font-size var(--md-codebox-font-size)
   outline none
-  color codebox-color
+  color var(--md-codebox-color)
   letter-spacing 0.1em
   border-radius 0
   border-style solid
-  border-width 0 0 codebox-border-width 0
-  border-color codebox-border-color
+  border-width 0 0 var(--md-codebox-border-width) 0
+  border-color var(--md-codebox-border-color)
   background none
   box-shadow none
   box-sizing border-box
   -webkit-appearance none
-  -webkit-text-fill-color codebox-color
+  -webkit-text-fill-color var(--md-codebox-color)
   &[disabled],
   &[readonly]
     opacity 1
-    color codebox-color
-    border-color codebox-border-color
+    color var(--md-codebox-color)
+    border-color var(--md-codebox-border-color)
   &.is-active
-    border-color codebox-border-active-color
+    border-color var(--md-codebox-border-active-color)
 
 .md-codebox.is-disabled
   .md-codebox-box
-    color codebox-disabled-color
-    border-color codebox-disabled-color
+    color var(--md-codebox-disabled-color)
+    border-color var(--md-codebox-disabled-color)
   .md-codebox-blink
     display none
   .md-codebox-dot
-    background-color codebox-disabled-color
+    background-color var(--md-codebox-disabled-color)
   .md-codebox-holder
-    color codebox-disabled-color
-    border-color codebox-disabled-color
+    color var(--md-codebox-disabled-color)
+    border-color var(--md-codebox-disabled-color)
 
 @keyframes md-codebox-flash
   from

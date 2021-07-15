@@ -99,6 +99,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-picker
   width 100%
   .md-popup

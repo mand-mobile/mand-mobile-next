@@ -108,7 +108,7 @@ export default defineComponent({
     align-items center
     .indicator-text
       margin 0 0 0 15px
-      color color-text-minor
+      color var(--md-color-text-minor)
     &.vertical
       flex-direction column
       justify-content center

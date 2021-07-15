@@ -463,14 +463,14 @@ export default defineComponent({
   top 0
   display flex
   align-items center
-  padding tip-padding
-  color tip-color
-  font-size tip-font-size
+  padding var(--md-tip-padding)
+  color var(--md-tip-color)
+  font-size var(--md-tip-font-size)
   line-height 1.2
-  border-radius tip-radius
+  border-radius var(--md-tip-radius)
   background-color #717382
-  box-shadow tip-shadow
-  z-index tip-zindex
+  box-shadow var(--md-tip-shadow)
+  z-index var(--md-tip-zindex)
   &.has-close
     padding-right 12px
   &.is-bottom

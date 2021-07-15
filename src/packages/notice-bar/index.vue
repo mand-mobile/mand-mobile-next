@@ -108,24 +108,26 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-notice-bar
   display flex
-  z-index notice-bar-zindex
-  font-size notice-bar-font-size
+  z-index var(--md-notice-bar-zindex)
+  font-size var(--md-notice-bar-font-size)
   min-height 64px
-  background-color notice-bar-fill
-  color notice-bar-color
+  background-color var(--md-notice-bar-fill)
+  color var(--md-notice-bar-color)
   position relative
   padding-left 32px
   box-sizing border-box
   &.md-notice-bar-round
-    border-radius notice-bar-border-radius
+    border-radius var(--md-notice-bar-border-radius)
   &.activity
-    background-color notice-bar-fill-activity
-    color notice-bar-color-activity
+    background-color var(--md-notice-bar-fill-activity)
+    color var(--md-notice-bar-color-activity)
   &.warning
-    background-color notice-bar-fill-warning
-    color notice-bar-color-warning
+    background-color var(--md-notice-bar-fill-warning)
+    color var(--md-notice-bar-color-warning)
 
 .md-notice-bar-left,
 .md-notice-bar-right
@@ -147,8 +149,8 @@ export default defineComponent({
   white-space nowrap
   overflow hidden
   &.md-notice-bar-multi-content
-    padding h-gap-md 0
-    line-height font-caption-large
+    padding var(--md-h-gap-md) 0
+    line-height var(--md-font-caption-large)
     white-space normal
   .md-notice-bar-content-animate
     padding-left 100%

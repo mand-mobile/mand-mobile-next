@@ -20,8 +20,8 @@ export default defineComponent({
 </script>
 <style lang="stylus">
 .md-scroll-pullup
-  padding v-gap-lg 0
-  font-size font-minor-large
+  padding var(--md-v-gap-lg) 0
+  font-size var(--md-font-minor-large)
   text-align center
-  color color-text-caption
+  color var(--md-color-text-caption)
 </style>

@@ -102,6 +102,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-landscape
   &.is-full
     .md-popup-box
@@ -110,7 +112,7 @@ export default defineComponent({
     .md-landscape-body
       width 100%
       height 100%
-      background landscape-fullscreen-bg
+      background var(--md-landscape-fullscreen-bg)
     .md-landscape-content
       width 100%
       height 100%
@@ -123,7 +125,7 @@ export default defineComponent({
       margin auto
 
   .md-popup, .md-popup-box
-    z-index landscape-zindex
+    z-index var(--md-landscape-zindex)
 
   .md-icon.md-landscape-close
     position relative
@@ -134,14 +136,14 @@ export default defineComponent({
     height 50px
     line-height 50px
     text-align center
-    color color-text-base-inverse
+    color var(--md-color-text-base-inverse)
     &.dark
-      color color-text-base
+      color var(--md-color-text-base)
       opacity 0.5
 
 .md-landscape-content
-  width landscape-width
-  font-size font-body-large
+  width var(--md-landscape-width)
+  font-size var(--md-font-body-large)
   overflow auto
   -webkit-overflow-scrolling touch
   box-sizing border-box

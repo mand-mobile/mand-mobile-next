@@ -163,7 +163,7 @@ export default defineComponent({
   left 0
   bottom 0
   right 0
-  z-index image-viewer-zindex
+  z-index var(--md-image-viewer-zindex)
   transform translate3d(0,0,0)
   overflow hidden
   .md-swipper-warp

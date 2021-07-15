@@ -127,6 +127,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-steps
   display flex
   justify-content space-around
@@ -142,19 +144,19 @@ export default defineComponent({
       flex-direction column
       &.reached
         .text-wrapper .name
-          color steps-text-color
+          color var(--md-steps-text-color)
       &.current
         .text-wrapper .name
-          color steps-color-active
+          color var(--md-steps-color-active)
     .text-wrapper
       top 100%
-      padding-top steps-text-gap-horizontal
+      padding-top var(--md-steps-text-gap-horizontal)
       text-align center
       .name
-        color steps-desc-color
+        color var(--md-steps-desc-color)
       .desc
         margin-top 10px
-        color steps-desc-color
+        color var(--md-steps-desc-color)
     &.no-current
       .reached:last-of-type
         display none !important
@@ -175,24 +177,24 @@ export default defineComponent({
       .icon-wrapper
         position relative
         .step-node-default
-          min-width steps-icon-size
-          min-height steps-icon-size
+          min-width var(--md-steps-icon-size)
+          min-height var(--md-steps-icon-size)
       .text-wrapper
-        left steps-icon-size
-        padding-left steps-text-gap-vertical
+        left var(--md-steps-icon-size)
+        padding-left var(--md-steps-text-gap-vertical)
         .name, .desc
           white-space normal
         .name
-          color steps-text-color
+          color var(--md-steps-text-color)
         .desc
           margin-top 18px
-          color steps-desc-color
+          color var(--md-steps-desc-color)
 
   .icon-wrapper
     display flex
     justify-content center
     align-items center
-    color steps-color
+    color var(--md-steps-color)
 
     >div
       display flex
@@ -202,40 +204,40 @@ export default defineComponent({
       display none
 
     .step-node-default-icon
-      background steps-color
+      background var(--md-steps-color)
 
   .step-wrapper
     display flex
     position relative
-    min-width steps-icon-size
-    min-height steps-icon-size
+    min-width var(--md-steps-icon-size)
+    min-height var(--md-steps-icon-size)
     .icon-wrapper
-      min-width steps-icon-size
-      min-height steps-icon-size
+      min-width var(--md-steps-icon-size)
+      min-height var(--md-steps-icon-size)
       .md-icon
-        width steps-icon-size
-        height steps-icon-size
-        font-size steps-icon-size
-        line-height steps-icon-size
+        width var(--md-steps-icon-size)
+        height var(--md-steps-icon-size)
+        font-size var(--md-steps-icon-size)
+        line-height var(--md-steps-icon-size)
     .text-wrapper
       position absolute
       .name, .desc
         white-space nowrap
       .name
-        line-height steps-text-font-size
-        font-size steps-text-font-size
+        line-height var(--md-steps-text-font-size)
+        font-size var(--md-steps-text-font-size)
       .desc
-        line-height steps-text-font-size
-        font-size steps-desc-font-size
+        line-height var(--md-steps-text-font-size)
+        font-size var(--md-steps-desc-font-size)
     &.reached, &.current
       .icon-wrapper
-        color steps-color-active
+        color var(--md-steps-color-active)
         .step-node-default-icon
-          background steps-color-active
+          background var(--md-steps-color-active)
 
   .bar
     position relative
-    background-color steps-color
+    background-color var(--md-steps-color)
     overflow hidden
     .bar-inner
       z-index 10
@@ -247,19 +249,19 @@ export default defineComponent({
       transition all linear 1s
     &.horizontal-bar
       flex 1
-      height steps-border-size
+      height var(--md-steps-border-size)
       .bar-inner
         width 100%
-        height steps-border-size
-        background-color steps-color-active
+        height var(--md-steps-border-size)
+        background-color var(--md-steps-color-active)
     &.vertical-bar
       left 16px
-      width steps-border-size
+      width var(--md-steps-border-size)
       transform translateX(-50%)
       .bar-inner
-        width steps-border-size
+        width var(--md-steps-border-size)
         height 100%
-        background-color steps-color-active
+        background-color var(--md-steps-color-active)
     &:last-of-type
       &.horizontal-bar
         display none

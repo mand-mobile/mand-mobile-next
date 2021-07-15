@@ -37,30 +37,30 @@ export default defineComponent({
   position relative
   display inline-flex
   text-align center
-  color checkbox-color
-  font-size checkbox-font-size
-  padding v-gap-sm h-gap-md
-  border 1px solid checkbox-border-color
-  border-radius checkbox-border-radius
+  color var(--md-checkbox-color)
+  font-size var(--md-checkbox-font-size)
+  padding var(--md-v-gap-sm) var(--md-h-gap-md)
+  border 1px solid var(--md-checkbox-border-color)
+  border-radius var(--md-checkbox-border-radius)
   box-sizing border-box
   overflow hidden
   transition all .08s
   &.is-checked
-    color checkbox-active-color
-    border-color checkbox-active-border-color
+    color var(--md-checkbox-active-color)
+    border-color var(--md-checkbox-active-border-color)
     &.is-disabled
-      color checkbox-active-color
-      border-color checkbox-active-border-color
+      color var(--md-checkbox-active-color)
+      border-color var(--md-checkbox-active-border-color)
       opacity 0.6
   &.is-disabled
-    color checkbox-disabled-color
-    border-color checkbox-disabled-color
+    color var(--md-checkbox-disabled-color)
+    border-color var(--md-checkbox-disabled-color)
 
   .md-icon
     position absolute
     top 0
     right -8px
-    background-color checkbox-active-color
+    background-color var(--md-checkbox-active-color)
     border-bottom-left-radius 2000px
     color #fff
 </style>

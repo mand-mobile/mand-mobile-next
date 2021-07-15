@@ -152,31 +152,33 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-selector
   .md-popup
-    z-index selector-zindex
+    z-index var(--md-selector-zindex)
   .md-radio-item
-    padding-left h-gap-sl
-    padding-right h-gap-sl
-    transition background-color .3s
+    padding-left var(--md-h-gap-sl)
+    padding-right var(--md-h-gap-sl)
+    transition var(--md-background-color) .3s
     .md-cell-item-body.multilines .md-cell-item-title
-      font-weight font-weight-normal
+      font-weight var(--md-font-weight-normal)
     &.is-selected
       .md-cell-item-title
-        color color-primary
+        color var(--md-color-primary)
     &:active
-      background-color color-bg-tap
+      background-color var(--md-color-bg-tap)
   &.is-check
     .md-radio-item.is-selected
       .md-cell-item-title
         color inherit
   .md-check-item
-    padding-left h-gap-sl
-    padding-right h-gap-sl
+    padding-left var(--md-h-gap-sl)
+    padding-right var(--md-h-gap-sl)
 
 
 .md-selector-container
-  background-color color-bg-inverse
+  background-color var(--md-color-bg-inverse)
   padding-bottom calc(constant(safe-area-inset-bottom))
   padding-bottom calc(env(safe-area-inset-bottom))
   overflow auto

@@ -200,7 +200,7 @@ export default defineComponent({
 
 .md-radio-list
   .md-cell-item-body.multilines .md-cell-item-title
-    font-weight font-weight-medium
+    font-weight var(--md-font-weight-medium)
   &.is-align-center
     .md-cell-item-content
       text-align center

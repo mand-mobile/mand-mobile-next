@@ -51,24 +51,26 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-radio
   display flex
   align-items center
   line-height 1.5
-  margin-top v-gap-sm
-  margin-bottom v-gap-sm
+  margin-top var(--md-v-gap-sm)
+  margin-bottom var(--md-v-gap-sm)
   &_icon
-    color color-text-placeholder
+    color var(--md-color-text-placeholder)
     .md-icon
       display flex
   &--is-checked
     .md-radio_icon
-      color radio-color
+      color var(--md-radio-color)
   &--is-disabled
     pointer-events none
     .md-radio_icon
     .md-radio_label
-      color color-text-disabled
+      color var(--md-color-text-disabled)
   &--is-inline
     display inline-flex
     margin-right 30px
@@ -78,7 +80,7 @@ export default defineComponent({
   flex-shrink 0
 
 .md-radio_label
-  margin-left h-gap-sm
+  margin-left var(--md-h-gap-sm)
   font-size inherit
-  font-weight font-weight-normal
+  font-weight var(--md-font-weight-normal)
 </style>
