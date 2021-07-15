@@ -83,43 +83,45 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-action-sheet
-  color action-sheet-color
+  color var(--md-action-sheet-color)
   -webkit-font-smoothing antialiased
 
 .md-action-sheet-content
   position relative
   width 100%
   border-radius 28px 28px 0 0
-  background action-sheet-bg
-  font-size action-sheet-font-size
+  background var(--md-action-sheet-bg)
+  font-size var(--md-action-sheet-font-size)
   text-align center
   overflow auto
 
 .md-action-sheet-header
   position relative
-  vertical-height(action-sheet-height)
-  hairline(bottom, color-border-base)
+  vertical-height(var(--md-action-sheet-height))
+  hairline(bottom, var(--md-color-border-base))
   word-ellipsis()
   overflow visible
 
 .md-action-sheet-item
   position relative
-  vertical-height(action-sheet-height)
-  padding 0 action-sheet-padding-h
+  vertical-height(var(--md-action-sheet-height))
+  padding 0 var(--md-action-sheet-padding-h)
   box-sizing border-box
-  font-size action-sheet-font-size
+  font-size var(--md-action-sheet-font-size)
   transition background-color .3s
   -webkit-user-select none
   &.active
-    color action-sheet-color-highlight
+    color var(--md-action-sheet-color-highlight)
   &.disabled .md-action-sheet-item-section
-    opacity action-sheet-disabled-opacity
+    opacity var(--md-action-sheet-disabled-opacity)
   &:first-of-type
     .md-action-sheet-item-wrapper:after
       display none
   &:active
-    background-color color-bg-tap
+    background-color var(--md-color-bg-tap)
     &.disabled
       background-color transparent
 
@@ -130,11 +132,11 @@ export default defineComponent({
 .md-action-sheet-cancel
   height 132px
   line-height 120px
-  color action-sheet-color-cancel
-  font-weight font-weight-medium
+  color var(--md-action-sheet-color-cancel)
+  font-weight var(--md-font-weight-medium)
   &::before
     display block
     content ''
     height 12px
-    background action-sheet-cancel-gap-bg
+    background var(--md-action-sheet-cancel-gap-bg)
 </style>

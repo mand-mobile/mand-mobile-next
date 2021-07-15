@@ -21,10 +21,11 @@ export function genCss() {
   }
 }
 
-export function injectStylusVars(code) {
+export function injectStylusVars(code, filePath = '') {
   return new Promise((resolve, reject) => {
     stylus(code, {
       imports: [`${process.cwd()}/src/styles/index.styl`],
+      paths: [filePath],
     }).render((err, css) => {
       if (err) {
         reject(err)
