@@ -207,7 +207,8 @@ export default (): Plugin => {
               const compiled =
                 await compiler.compileStyleAsync({
                   source: await injectStylusVars(
-                    style.content
+                    style.content,
+                    path.dirname(filepath)
                   ),
                   filename: filepath,
                   id,

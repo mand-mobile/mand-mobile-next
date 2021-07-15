@@ -103,4 +103,19 @@ async function combineCss() {
       `${cwd()}/dist/lib/${name}`
     ),
   ])
+
+  await Promise.all([
+    build({
+      entryPoints: [`${cwd()}/dist/es/${name}`],
+      minify: true,
+      outfile: `${cwd()}/dist/es/${name}`,
+      allowOverwrite: true,
+    }),
+    build({
+      entryPoints: [`${cwd()}/dist/lib/${name}`],
+      minify: true,
+      outfile: `${cwd()}/dist/lib/${name}`,
+      allowOverwrite: true,
+    }),
+  ])
 }

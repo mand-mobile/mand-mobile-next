@@ -98,15 +98,17 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-action-bar
   position fixed
-  z-index action-bar-zindex
+  z-index var(--md-action-bar-zindex)
   left 0
   bottom 0
   right 0
   display flex
-  padding action-bar-padding-v action-bar-padding-h
-  background color-bg-inverse
+  padding var(--md-action-bar-padding-v) var(--md-action-bar-padding-h)
+  background var(--md-color-bg-inverse)
   clearfix()
 
 .md-action-bar-container
@@ -118,8 +120,8 @@ export default defineComponent({
 .md-action-bar-text
   display flex
   flex 1
-  height action-bar-slot-height
-  margin-right action-bar-button-gap
+  height var(--md-action-bar-slot-height)
+  margin-right var(--md-action-bar-button-gap)
   align-items center
   overflow hidden
 
@@ -135,5 +137,5 @@ export default defineComponent({
   justify-content center
   flex 1
   &:nth-of-type(2)
-    margin-left action-bar-button-gap
+    margin-left var(--md-action-bar-button-gap)
 </style>

@@ -7,12 +7,13 @@ export default {
 <script setup lang="ts">
 import { reactive } from 'vue'
 import MdActionBar from 'mand-mobile/action-bar'
+import Toast from 'mand-mobile/toast'
 
 const data = reactive([
   {
     text: '主要按钮',
     onClick: (ev: Event, action: any) => {
-      console.log('action', ev, action)
+      Toast.info('点击主要按钮')
     },
   },
 ])

@@ -84,6 +84,11 @@ module.exports = {
       { text: 'RoadMap', link: '/roadmap' },
       { text: '2.x', link: 'https://didi.github.io/mand-mobile/' }
     ],
+    navEn: [
+      { text: 'Components', link: '/en-US/components/' },
+      { text: 'RoadMap', link: '/roadmap' },
+      { text: '2.x', link: 'https://didi.github.io/mand-mobile/' }
+    ],
     sidebar: {
       '/zh-CN/components/': [ ...zhComponentsSidebarConfig ],
       '/en-US/components/': [
