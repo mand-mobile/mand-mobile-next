@@ -103,26 +103,26 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './title-bar.styl'
+
 .md-popup-title-bar
   position relative
   width 100%
   // height popup-title-bar-height
-  background-color popup-title-bar-bg
-  border-radius popup-title-bar-radius popup-title-bar-radius 0 0
+  background-color var(--md-popup-title-bar-bg)
+  border-radius var(--md-popup-title-bar-radius) var(--md-popup-title-bar-radius) 0 0
   overflow hidden
   &.large
-    height popup-title-bar-height-large
-  &.large-radius
-    border-radius popup-title-bar-radius-large popup-title-bar-radius-large 0 0
+    height var(--md-popup-title-bar-height-large)
   &.title-align-left
     .title-bar-title
-      padding-left h-gap-sl
+      padding-left var(--md-h-gap-sl)
       align-items flex-start
     .title-bar-left
       display none
   &.title-align-right
     .title-bar-title
-      padding-right h-gap-sl
+      padding-right var(--md-h-gap-sl)
       align-items flex-end
     .title-bar-right
       display none
@@ -142,9 +142,9 @@ export default defineComponent({
     position absolute
     top 0
     width 20%
-    max-height popup-title-bar-height
-    font-size popup-title-bar-font-size-button
-    font-weight popup-title-bar-font-weight-button
+    max-height var(--md-popup-title-bar-height)
+    font-size var(--md-popup-title-bar-font-size-button)
+    font-weight var(--md-popup-title-bar-font-weight-button)
     box-sizing border-box
     line-height 1
   .title-bar-title
@@ -155,26 +155,26 @@ export default defineComponent({
     line-height 1
     p.title
       height 50px
-      font-size popup-title-bar-font-size-title
-      color popup-title-bar-color-title
+      font-size var(--md-popup-title-bar-font-size-title)
+      color var(--md-popup-title-bar-color-title)
     p.describe
       margin-top 15px
-      font-size popup-title-bar-font-size-describe
-      color popup-title-bar-color-describe
+      font-size var(--md-popup-title-bar-font-size-describe)
+      color var(--md-popup-title-bar-color-describe)
   .title-bar-left
     left 0
-    padding-left h-gap-sl
+    padding-left var(--md-h-gap-sl)
     align-items flex-start
   .title-bar-right
     right 0
-    padding-right h-gap-sl
+    padding-right var(--md-h-gap-sl)
     align-items flex-end
   .md-popup-cancel
-    color popup-title-bar-color-button-left
+    color var(--md-popup-title-bar-color-button-left)
   .md-popup-confirm
-    color popup-title-bar-color-button-right
+    color var(--md-popup-title-bar-color-button-right)
   .md-popup-close
-    padding-top h-gap-sl
-    color popup-title-bar-color-button-left
+    padding-top var(--md-h-gap-sl)
+    color var(--md-popup-title-bar-color-button-left)
     justify-content flex-start
 </style>

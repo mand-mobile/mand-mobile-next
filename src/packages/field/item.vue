@@ -144,6 +144,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './item.styl'
+
 .md-field-item
   position relative
 
@@ -152,67 +154,67 @@ export default defineComponent({
   display flex
   align-items center
   justify-content space-between
-  min-height field-item-min-height
-  padding-top field-item-padding-v
-  padding-bottom field-item-padding-v
+  min-height var(--md-field-item-min-height)
+  padding-top var(--md-field-item-padding-v)
+  padding-bottom var(--md-field-item-padding-v)
   box-sizing border-box
-  hairline(bottom, field-item-border-color)
+  hairline(bottom, var(--md-field-item-border-color))
 
 .md-field-item-title
   flex-shrink 0
-  margin-right field-item-title-gap
-  font-size field-item-font-size
+  margin-right var(--md-field-item-title-gap)
+  font-size var(--md-field-item-font-size)
 
 .md-field-item-left
   flex-shrink 0
-  margin-right h-gap-sm
+  margin-right var(--md-h-gap-sm)
   display inline-flex
   align-items center
   justify-content flex-start
-  color field-item-addon-color
-  font-size field-item-addon-font-size
+  color var(--md-field-item-addon-color)
+  font-size var(--md-field-item-addon-font-size)
 
 .md-field-item-control
   position relative
   flex 1 1 0%
-  color field-item-color
-  font-size field-item-font-size
+  color var(--md-field-item-color)
+  font-size var(--md-field-item-font-size)
   font-weight field-item-font-weight
 
 .md-field-item-placeholder
-  color field-item-placeholder-color
-  font-weight font-weight-normal
+  color var(--md-field-item-placeholder-color)
+  font-weight var(--md-font-weight-normal)
 
 .md-field-item-right
   position relative
   flex-shrink 0
-  margin-left h-gap-sm
+  margin-left var(--md-h-gap-sm)
   display inline-flex
   align-items center
   justify-content flex-end
-  color field-item-addon-color
-  font-size field-item-addon-font-size
+  color var(--md-field-item-addon-color)
+  font-size var(--md-field-item-addon-font-size)
   .md-icon-arrow-right
     margin-right -6px
-    color color-text-placeholder
+    color var(--md-color-text-placeholder)
 
 .md-field-item-children
-  font-size field-item-children-font-size
-  margin-top v-gap-md
+  font-size var(--md-field-item-children-font-size)
+  margin-top var(--md-v-gap-md)
 
 .md-field-item
   &.is-solid
     .md-field-item-title
-      width field-item-title-width
+      width var(--md-field-item-title-width)
   &.is-disabled
     .md-field-item-control,
     .md-field-item-left,
     .md-field-item-right
-      color color-text-disabled
+      color var(--md-color-text-disabled)
   &.is-align-right
     .md-field-item-control
       text-align right
   &.is-android
     .md-field-item-control
-      font-weight field-title-font-weight-android
+      font-weight var(--md-field-title-font-weight-android)
 </style>

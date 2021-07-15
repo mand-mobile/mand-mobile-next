@@ -101,12 +101,12 @@ export default defineComponent({
 <style lang="stylus">
 .md-toast
   .md-popup
-    z-index toast-zindex
+    z-index var(--md-toast-zindex)
   .md-icon
     flex-shrink 0
-    color toast-color
+    color var(--md-toast-color)
   .md-icon + .md-toast-text
-    margin-left h-gap-xs
+    margin-left var(--md-h-gap-xs)
   .md-popup
     .md-popup-box
       width 540px
@@ -132,13 +132,13 @@ export default defineComponent({
   align-items center
   max-width 100%
   min-width 80px
-  padding toast-padding
-  border-radius toast-radius
-  font-size toast-font-size
+  padding var(--md-toast-padding)
+  border-radius var(--md-toast-radius)
+  font-size var(--md-toast-font-size)
   text-align left
   line-height 1.42857142
-  color toast-color
-  background-color toast-fill
+  color var(--md-toast-color)
+  background-color var(--md-toast-fill)
   box-sizing border-box
   overflow hidden
 

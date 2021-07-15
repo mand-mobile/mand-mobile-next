@@ -96,11 +96,13 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-tab-bar
   position relative
-  padding-left tab-offset
-  padding-right tab-offset
-  background-color tab-bg
+  padding-left var(--md-tab-offset)
+  padding-right var(--md-tab-offset)
+  background-color var(--md-tab-bg)
 
 .md-tab-bar-inner
   position relative
@@ -121,31 +123,31 @@ export default defineComponent({
   display inline-flex
   align-items center
   justify-content center
-  color tab-text-color
-  font-size tab-font-size
-  font-weight tab-font-weight
-  min-height tab-height
-  padding 0 tab-item-gap
+  color var(--md-tab-text-color)
+  font-size var(--md-tab-font-size)
+  font-weight var(--md-tab-font-weight)
+  min-height var(--md-tab-height)
+  padding 0 var(--md-tab-item-gap)
   margin 0 auto
   transition all 300ms
   box-sizing border-box
   -webkit-user-select none
   -webkit-tap-highlight-color transparent
   &.is-active
-    color tab-active-color
+    color var(--md-tab-active-color)
   &.is-disabled
-    color tab-disabled-color
+    color var(--md-tab-disabled-color)
 
 .md-tab-bar-ink
   position absolute
   bottom 0
   left 0
   display block
-  height tab-ink-height
-  background-color tab-active-color
+  height var(--md-tab-ink-height)
+  background-color var(--md-tab-active-color)
   transition all 300ms
   &.is-disabled
-    background-color tab-disabled-color
+    background-color var(--md-tab-disabled-color)
 
 .md-tab-bar-start,
 .md-tab-bar-end
@@ -153,7 +155,7 @@ export default defineComponent({
   top 0
   left 0
   width 14px
-  height tab-height
+  height var(--md-tab-height)
   overflow hidden
   &::after
     content ''
@@ -166,8 +168,8 @@ export default defineComponent({
       margin-top 0 - tab-height * 0.4
       height tab-height * 0.8
     else
-      margin-top "calc(0 - %s * 0.4)" % tab-height
-      height "calc(%s * 0.8)" % tab-height
+      margin-top "calc(0 - %s * 0.4)" % var(--md-tab-height)
+      height "calc(%s * 0.8)" % var(--md-tab-height)
     border-radius 50%
     box-shadow: -1px 0 12px 0 rgba(0,0,0,0.2)
 .md-tab-bar-end

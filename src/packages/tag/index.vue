@@ -69,7 +69,7 @@ export default defineComponent({
 
 <style lang="stylus">
 .md-tag
-  color color-text-base
+  color var(--md-color-text-base)
   font-size 28px
   text-align center
   display inline-block
@@ -77,8 +77,8 @@ export default defineComponent({
 
   .default
     background rgba(0,0,0,0)
-    color tag-color
-    border-color tag-color
+    color var(--md-tag-color)
+    border-color var(--md-tag-color)
   .shape-square
     padding 0 12px
     border-radius 50%
@@ -87,7 +87,7 @@ export default defineComponent({
     border-radius 0
   .shape-fillet
     padding 2px 8px
-    border-radius tag-fillet-radius
+    border-radius var(--md-tag-fillet-radius)
   .shape-quarter
     position relative
     display flex
@@ -111,7 +111,7 @@ export default defineComponent({
       left 0
       width 200%
       height 200%
-      border-radius radius-circle
+      border-radius var(--md-radius-circle)
     .quarter-wrap
       display inline-block
       padding 16px 12px 10px 26px
@@ -158,7 +158,7 @@ export default defineComponent({
   .shape-bubble
     width 50px
     padding 6px 0
-    border-radius radius-circle
+    border-radius var(--md-radius-circle)
     border-bottom-left-radius 0
     box-sizing border-box
 
@@ -170,16 +170,16 @@ export default defineComponent({
       padding 2px 0
 
   .size-large
-    font-size tag-large-font-size
+    font-size var(--md-tag-large-font-size)
   .size-small
-    font-size tag-small-font-size
+    font-size var(--md-tag-small-font-size)
   .size-tiny
-    font-size tag-tiny-font-size
+    font-size var(--md-tag-tiny-font-size)
   .type-fill
-    color color-text-base-inverse
-    background tag-color
+    color var(--md-color-text-base-inverse)
+    background var(--md-tag-color)
   .type-ghost
-    border 1px solid tag-color
+    border 1px solid var(--md-tag-color)
     background rgba(0,0,0,0)
 
   .font-weight-normal

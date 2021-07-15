@@ -46,6 +46,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-check
   display flex
   align-items center
@@ -53,20 +55,20 @@ export default defineComponent({
   margin-bottom v-gap-sm
   &.is-checked
     .md-check-icon
-      color check-color
+      color var(--md-check-color)
   &.is-disabled
     .md-check-icon
     .md-check-label
-      color color-text-disabled
+      color var(--md-color-text-disabled)
 
 .md-check-icon
   position relative
-  color color-text-placeholder
+  color var(--md-color-text-placeholder)
   .md-icon
     display flex
     transition all .04s
 
 .md-check-label
-  margin-left h-gap-sm
+  margin-left var(--md-h-gap-sm)
   font-size inherit
 </style>

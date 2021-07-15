@@ -109,27 +109,26 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
-// .md-dialog
-//   z-index dialog-zindex
+@import './index.styl'
 
 .md-dialog-content
-  width dialog-width
-  border-radius dialog-radius
-  background-color color-bg-inverse
+  width var(--md-dialog-width)
+  border-radius var(--md-dialog-radius)
+  background-color var(--md-color-bg-inverse)
   overflow hidden
 
 .md-dialog-body
-  color dialog-text-color
-  font-size dialog-text-font-size
+  color var(--md-dialog-text-color)
+  font-size var(--md-dialog-text-font-size)
   text-align left
-  padding dialog-body-padding
+  padding var(--md-dialog-body-padding)
 
 .md-dialog-icon
   position relative
   display block
-  width dialog-icon-size
-  height dialog-icon-size
-  margin v-gap-md auto 28px
+  width var(--md-dialog-icon-size)
+  height var(--md-dialog-icon-size)
+  margin var(--md-v-gap-md) auto 28px
 .md-dialog .md-dialog-icon .md-icon
 .md-dialog .md-dialog-icon .md-icon.icon-svg
 .md-dialog .md-dialog-icon .md-icon.icon-font
@@ -139,25 +138,25 @@ export default defineComponent({
   position absolute
   top 0
   left 0
-  width dialog-icon-size
-  height dialog-icon-size
-  fill dialog-icon-fill
-  color dialog-icon-fill
-  font-size dialog-icon-size
-  line-height dialog-icon-size
+  width var(--md-dialog-icon-size)
+  height var(--md-dialog-icon-size)
+  fill var(--md-dialog-icon-fill)
+  color var(--md-dialog-icon-fill)
+  font-size var(--md-dialog-icon-size)
+  line-height var(--md-dialog-icon-size)
 
 .md-dialog-close
   position absolute
-  color dialog-close-color
+  color var(--md-dialog-close-color)
   top 32px
   right 32px
   z-index 15
 
 .md-dialog-title
-  color dialog-title-color
+  color var(--md-dialog-title-color)
   text-align center
-  font-size dialog-title-font-size
-  font-weight font-weight-normal
+  font-size var(--md-dialog-title-font-size)
+  font-weight var(--md-font-weight-normal)
   line-height 1.2
   margin 0 0 28px 0
 
@@ -168,18 +167,18 @@ export default defineComponent({
 .md-dialog-actions
   position relative
   display flex
-  hairline(top, dialog-action-border-color)
+  hairline(top, var(--md-dialog-action-border-color))
   &.is-column
     flex-direction column
     .md-dialog-btn
       flex 0 0 auto
       remove-hairline(right)
       &:not(:first-child)
-        hairline(top, dialog-action-border-color)
+        hairline(top, var(--md-dialog-action-border-color))
       &:last-child
         color color-text-minor
       &:first-child
-        color dialog-action-highlight-color
+        color var(--md-dialog-action-highlight-color)
 
 .md-dialog-btn
   position relative
@@ -187,36 +186,36 @@ export default defineComponent({
   display flex
   align-items center
   justify-content center
-  height dialog-action-height
-  font-size dialog-action-font-size
-  font-weight dialog-action-font-weight
-  color color-text-minor
+  height var(--md-dialog-action-height)
+  font-size var(--md-dialog-action-font-size)
+  font-weight var(--md-dialog-action-font-weight)
+  color var(--md-color-text-minor)
   text-align center
-  hairline(right, dialog-action-border-color)
-  transition background-color .3s
+  hairline(right, var(--md-dialog-action-border-color))
+  transition var(--md-background-color) .3s
   -webkit-user-select none
   -webkit-tap-highlight-color transparent
   &.warning
-    color color-text-error !important
+    color var(--md-color-text-error) !important
     .md-dialog-btn-loading .md-activity-indicator-svg .circle circle
-      stroke color-text-error !important
+      stroke var(--md-color-text-error) !important
   &.disabled
-    color color-text-disabled !important
+    color var(--md-color-text-disabled) !important
     .md-dialog-btn-loading .md-activity-indicator-svg .circle circle
-      stroke color-text-disabled !important
+      stroke var(--md-color-text-disabled) !important
   &:last-child
-    color dialog-action-highlight-color
+    color var(--md-dialog-action-highlight-color)
     remove-hairline(right)
     .md-dialog-btn-loading .md-activity-indicator-svg .circle circle
-      stroke dialog-action-highlight-color
+      stroke var(--md-dialog-action-highlight-color)
   &:not(.disabled):active
-    background-color color-bg-tap
+    background-color var(--md-color-bg-tap)
   .md-dialog-btn-loading .md-activity-indicator-svg
     width 32px !important
     height 32px !important
     margin-right 10px
     .circle circle
-      stroke color-text-minor
+      stroke var(--md-color-text-minor)
   .md-dialog-btn-icon
     margin-right 10px
 </style>

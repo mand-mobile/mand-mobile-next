@@ -151,7 +151,7 @@ export default defineComponent({
     margin-bottom 0
     pointer-events none
   .md-cell-item-body.multilines .md-cell-item-title
-    font-weight font-weight-medium
+    font-weight var(--md-font-weight-medium)
 
 .md-check-list.is-align-center
   .md-cell-item-content

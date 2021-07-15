@@ -111,6 +111,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-result
   display flex
   align-items center
@@ -121,20 +123,20 @@ export default defineComponent({
   text-align center
 
 .md-result-image
-  width result-page-image-size
+  width var(--md-result-page-image-size)
   img
     width 100%
     margin-bottom 40px
 
 .md-result-text
   margin 20px 20px 0
-  color result-page-title-color
-  font-size result-page-title-font-size
+  color var(--md-result-page-title-color)
+  font-size var(--md-result-page-title-font-size)
 
 .md-result-subtext
   margin-top 16px
-  color result-page-describe-color
-  font-size result-page-describe-font-size
+  color var(--md-result-page-describe-color)
+  font-size var(--md-result-page-describe-font-size)
 
 .md-result-buttons
   display flex

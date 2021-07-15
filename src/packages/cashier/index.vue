@@ -203,18 +203,20 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-cashier
   .md-popup-title-bar .md-popup-cancel
     .md-icon
       align-self flex-start
-      margin-left h-gap-lg
+      margin-left var(--md-h-gap-lg)
   .md-popup-box
-    background-color color-bg-inverse
-    border-radius popup-title-bar-radius popup-title-bar-radius 0 0
+    background-color var(--md-color-bg-inverse)
+    border-radius var(--md-popup-title-bar-radius) var(--md-popup-title-bar-radius) 0 0
   .md-cashier-container
     block()
     position relative
-    background cashier-bg
+    background var(--md-cashier-bg)
     -webkit-touch-callout none
     user-select none
     transition all .3s
@@ -236,13 +238,13 @@ export default defineComponent({
         block()
         margin-top 20px
         margin-bottom 180px
-        font-size font-minor-large
-        color color-text-minor
+        font-size var(--md-font-minor-large)
+        color var(--md-color-text-minor)
         text-align center
       .md-cashier-block-btn
         block()
         padding 0 40px 40px
-        box-sizing border-box
+        box-sizing var(--md-border-box)
       // &.md-cashier-choose
 
       &.md-cashier-captcha
@@ -251,7 +253,7 @@ export default defineComponent({
         .md-captcha-content
           margin-top 44px
           margin-bottom 20px
-          color color-text-caption
+          color var(--md-color-text-caption)
         .md-codebox
           margin-bottom 26px
         .md-captcha-content,

@@ -94,15 +94,17 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-fake-input
   position relative
   width 100%
-  height input-item-height
-  color input-item-color
-  font-size input-item-font-size
-  font-weight input-item-font-weight
-  font-family font-family-normal
-  line-height input-item-height
+  height var(--md-input-item-height)
+  color var(--md-input-item-color)
+  font-size var(--md-input-item-font-size)
+  font-weight var(--md-input-item-font-weight)
+  font-family var(--md-font-family-normal)
+  line-height var(--md-input-item-height)
   -webkit-appearance none
   border none
   background transparent
@@ -112,7 +114,7 @@ export default defineComponent({
   appearance none
 
 .md-fake-input
-  line-height input-item-height
+  line-height var(--md-input-item-height)
   word-ellipsis()
   cursor text
   &::after
@@ -120,8 +122,8 @@ export default defineComponent({
     z-index 2
     display none
     content " "
-    height input-item-font-size-large
-    border-right solid 1.5px color-text-base
+    height var(--md-input-item-font-size-large)
+    border-right solid 1.5px var(--md-color-text-base)
   &.is-focus:after
     display inline
   &.is-waiting:after
@@ -132,11 +134,11 @@ export default defineComponent({
   top 0
   left 0
   width 100%
-  color input-item-placeholder
-  font-weight font-weight-normal
+  color var(--md-input-item-placeholder)
+  font-weight var(--md-font-weight-normal)
 
 .fake-input-keyboard
-  hairline(top, number-keyboard-key-border-color)
+  hairline(top, var(--md-number-keyboard-key-border-color))
   &::after
     top .5px
 </style>

@@ -106,17 +106,17 @@ export default defineComponent({
     p
       text-align center
       &.choose-title
-        font-size cashier-choose-title-font-size
-        color cashier-choose-title-color
+        font-size var(--md-cashier-choose-title-font-size)
+        color var(--md-cashier-choose-title-color)
       &.choose-number
         margin-top 20px
-        font-size cashier-choose-amount-font-size
-        font-family font-family-number
-        color cashier-choose-amount-color
+        font-size var(--md-cashier-choose-amount-font-size)
+        font-family var(--md-font-family-number)
+        color var(--md-cashier-choose-amount-color)
         letter-spacing -2px
       &.choose-describe
-        font-size cashier-choose-describe-font-size
-        color cashier-choose-describe-color
+        font-size var(--md-cashier-choose-describe-font-size)
+        color var(--md-cashier-choose-describe-color)
   .choose-channel
     display flex
     flex-direction column
@@ -146,8 +146,8 @@ export default defineComponent({
       justify-content center
       align-items center
       margin-top 10px
-      font-size cashier-choose-more-font-size
-      color cashier-choose-more-color
+      font-size var(--md-cashier-choose-more-font-size)
+      color var(--md-cashier-choose-more-color)
       text-align center
       &::after
         content ""
@@ -157,7 +157,7 @@ export default defineComponent({
         margin-left 10px
         border-left solid 8px transparent
         border-right solid 8px transparent
-        border-top solid 8px color-text-caption
+        border-top solid 8px var(--md-color-text-caption)
       &.disabled
         visibility hidden
       &.active

@@ -29,31 +29,33 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-detail-item
   display flex
   align-items center
   justify-content space-between
   line-height 1.35
-  font-size detail-item-font-size
-  padding-top detail-item-gap
-  padding-bottom detail-item-gap
+  font-size var(--md-detail-item-font-size)
+  padding-top var(--md-detail-item-gap)
+  padding-bottom var(--md-detail-item-gap)
 
 .md-detail-title
   flex-shrink 0
-  color detail-item-title-color
+  color var(--md-detail-item-title-color)
 
 .md-detail-content
   flex 1 1 0%
-  color detail-item-content-color
+  color var(--md-detail-item-content-color)
   display flex
   align-items center
   justify-content flex-end
-  margin-left h-gap-sm
+  margin-left var(--md-h-gap-sm)
 
 .md-detail-item
   &.is-bold
     .md-detail-title,
     .md-detail-content
       font-weight bold
-      color detail-item-content-color
+      color var(--md-detail-item-content-color)
 </style>

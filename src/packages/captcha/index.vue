@@ -96,27 +96,29 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-captcha
   &.md-dialog
     .md-popup
-      z-index captcha-zindex
+      z-index var(--md-captcha-zindex)
     .md-dialog-body
       padding 60px 60px 30px 60px
     .md-dialog-content
-      margin-bottom number-keyboard-height
+      margin-bottom var(--md-number-keyboard-height)
   .md-codebox
     margin-bottom 28px
 
 .md-captcha-content
-  font-size captcha-font-size
-  color captcha-color
+  font-size var(--md-captcha-font-size)
+  color var(--md-captcha-color)
   text-align center
   line-height 1.2
   margin-bottom 50px
 
 .md-captcha-title
-  color captcha-title-color
-  font-size captcha-title-font-size
+  color var(--md-captcha-title-color)
+  font-size var(--md-captcha-title-font-size)
   font-weight normal
   line-height 1.15
   margin 0 0 16px 0
@@ -124,7 +126,7 @@ export default defineComponent({
 .md-captcha-footer
   margin 28px 0
   display flex
-  font-size captcha-footer-font-size
+  font-size var(--md-captcha-footer-font-size)
   justify-content space-between
   align-items center
   overflow hidden
@@ -132,19 +134,19 @@ export default defineComponent({
 .md-captcha-error, .md-captcha-brief
   flex 1 1 0%
 .md-captcha-error
-  color captcha-error-color
+  color var(--md-captcha-error-color)
 .md-captcha-brief
-  color captcha-brief-color
+  color var(--md-captcha-brief-color)
 
 .md-captcha-btn
   display inline-block
-  color captcha-btn-color
-  font-size captcha-footer-font-size
+  color var(--md-captcha-btn-color)
+  font-size var(--md-captcha-footer-font-size)
   padding 0
   margin 0 0 0 12px
   border 0
   border-radius 0
   background none
   &:disabled
-    color color-text-disabled
+    color var(--md-color-text-disabled)
 </style>

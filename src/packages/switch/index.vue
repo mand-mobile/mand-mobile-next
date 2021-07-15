@@ -37,16 +37,18 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-switch
   box-sizing border-box
   position relative
   width 80px
   height 48px
   border-radius 48px
-  background-color switch-fill-inverse
+  background-color var(--md-switch-fill-inverse)
   transition background .3s
   &.disabled
-    opacity switch-item-color-disabled
+    opacity var(--md-switch-item-color-disabled)
     pointer-events none
   &::before, &::after
     content ""
@@ -58,16 +60,16 @@ export default defineComponent({
     width 80px
     height 48px
     border-radius 24px
-    background-color switch-fill-inverse
+    background-color var(--md-switch-fill-inverse)
   &::after
     top 4px
     left 4px
     width 40px
     height 40px
-    background-color switch-handle-color
+    background-color var(--md-switch-handle-color)
     border-radius 50%
   &.active
-    background-color switch-fill
+    background-color var(--md-switch-fill)
   &.active::before
       transform scale(0)
   &.active::after

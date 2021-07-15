@@ -38,11 +38,13 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-agree
   display flex
   align-items center
   &.disabled
-    opacity agree-disabled-opacity
+    opacity var(--md-agree-disabled-opacity)
   .md-agree-icon
     display flex
     justify-content center
@@ -50,7 +52,7 @@ export default defineComponent({
     align-self flex-start
     flex-shrink 0
     position relative
-    margin-right h-gap-sm
+    margin-right var(--md-h-gap-sm)
     color agree-fill
     width 50px
     height 50px
@@ -70,11 +72,11 @@ export default defineComponent({
           color transparent
           transition all .3s ease-in-out-quint
         &.md-icon-check
-          color agree-fill
+          color var(--md-agree-fill)
     &.checked .md-agree-icon-container
       .md-icon-checked
         transform scale(1)
-        color agree-fill
+        color var(--md-agree-fill)
       .md-icon-check
         opacity 0.8
 .md-example-child-agree

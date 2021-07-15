@@ -47,25 +47,25 @@ export default defineComponent({
 
 <style lang="stylus">
 .md-stepper
-  color stepper-color
+  color var(--md-stepper-color)
   -webkit-font-smoothing antialiased
-  font-size stepper-font-size
-  height stepper-height
+  font-size var(--md-stepper-font-size)
+  height var(--md-stepper-height)
   display flex
   &.disabled
     .md-stepper-button
       &:before,
       &:after
-        opacity stepper-disabled-opacity
+        opacity var(--md-stepper-disabled-opacity)
     input
-      opacity stepper-disabled-opacity
+      opacity var(--md-stepper-disabled-opacity)
 
 .md-stepper-button
   position relative
-  width stepper-width-button
-  height stepper-height
-  background-color stepper-fill
-  border-radius stepper-radius-button
+  width var(--md-stepper-width-button)
+  height var(--md-stepper-height)
+  background-color var(--md-stepper-fill)
+  border-radius var(--md-stepper-radius-button)
   &:after
     content ""
     position absolute
@@ -73,7 +73,7 @@ export default defineComponent({
     height 2px
     top 50%
     left 50%
-    background stepper-color
+    background var(--md-stepper-color)
     transform translate(-50%, -50%)
   &.md-stepper-button-add
     &:before
@@ -83,30 +83,30 @@ export default defineComponent({
       height 24px
       top 50%
       left 50%
-      background stepper-color
+      background var(--md-stepper-color)
       transform translate(-50%, -50%)
   &.disabled
     &:before,
     &:after
-      opacity stepper-disabled-opacity
+      opacity var(--md-stepper-disabled-opacity)
 
 .md-stepper-number
   margin 0 4px
-  min-width stepper-width-input
-  height stepper-height
+  min-width var(--md-stepper-width-input)
+  height var(--md-stepper-height)
   padding 0 4px
   text-align center
-  border-radius stepper-radius-input
-  background-color stepper-fill
+  border-radius var(--md-stepper-radius-input)
+  background-color var(--md-stepper-fill)
   input
     width 100%
-    height stepper-height
+    height var(--md-stepper-height)
     border none
     outline none
-    font-size stepper-input-font-size
-    line-height stepper-height
+    font-size var(--md-stepper-input-font-size)
+    line-height var(--md-stepper-height)
     background-color transparent
     box-sizing border-box
     text-align center
-    color stepper-color
+    color var(--md-stepper-color)
 </style>
