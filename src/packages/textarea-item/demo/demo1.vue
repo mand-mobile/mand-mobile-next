@@ -39,7 +39,6 @@ const change = (v: Ref<string>) => {
   >
     <md-field>
       <md-textarea-item
-        ref="demo1"
         v-model="value"
         title="错误提示"
         class="example"
