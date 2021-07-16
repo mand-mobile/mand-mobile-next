@@ -9,6 +9,35 @@ import type { Ref, WatchStopHandle } from 'vue'
 
 let stopWatchCssVar: WatchStopHandle | null = null
 
+/**
+ * If you pass a Ref vars param, it will generate a watch handler.
+ *
+ * In main.ts:
+ *
+ * ```ts
+ * const themeVars ={
+ *  '--md-color-primary': '#f44336',
+ *  '--md-color-white': '#2196f3',
+ * }
+ * useCssVar(themeVars)
+ * ```
+ *
+ * In components' steup:
+ *
+ * ```ts
+ * setup() {
+ *  const themeVars = ref({
+ *    '--md-button-default-background-color': '#f44336',
+ *    '--md-button-default-font-color': '#2196f3',
+ *  })
+ *  const stop = useCssVar(themeVars)
+ *
+ *  onUnmount(() => {
+ *   stop()
+ *  })
+ * }
+ * ```
+ */
 export function useCssVar(
   vars:
     | Ref<Record<string, string>>
