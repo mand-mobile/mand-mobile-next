@@ -24,7 +24,7 @@ yarn add mand-mobile-next@alpha
 
 ## Use
 
-### Fully import
+#### Fully import
 
 在 `main.ts` 写入一下内容
 
@@ -39,7 +39,7 @@ app.use(MandMobile)
 app.mount('#app')
 ```
 
-### On demand
+#### On demand
 
 **在 `vite` 中按需引入**
 
@@ -107,3 +107,115 @@ export default {
   }
 }
 ```
+
+## Custom Themes
+
+Mand mobile next uses CSS [var](https://developer.mozilla.org/zh-CN/docs/Web/CSS/var) to implement theme switching, and users can implement custom themes by the following way
+
+- In `main.ts`:
+
+```ts
+Import { useCssVar } from 'mand-mobile-next/dist/es/composable'.
+
+const themeVars = {
+  '--md-color-primary': '#f44336',
+}
+
+useCssVar(themeVars)
+```
+
+- In the component `setup`:
+
+```vue
+<script setup ts>
+import { useCssVar } from 'mand-mobile-next/dist/es/composable'.
+import { ref } from 'vue'.
+
+const themeVars = ref({
+  '--md-color-primary': '#f44336',
+})
+
+useCssVar(themeVars)
+</script>
+```
+
+#### Base variables
+
+```css
+/// Brand color
+--md-color-primary : #4280EB // Brand color
+
+/// Text color
+--md-color-text-base : #111A34 // important information, such as first-level headings
+--md-color-text-base-inverse : #FFF
+--md-color-text-body : #41485d // General information, such as the main body of a first-level header
+--md-color-text-minor : #666f83 // Secondary information, e.g. point of interest, summary
+--md-color-text-caption : #858b9c // auxiliary information, such as list content description
+--md-color-text-disabled : #c5cad5 // Disabled status
+--md-color-text-placeholder : #c5cad5 // Default prompt input or placeholder
+--md-color-text-highlight : --md-color-primary // Highlighted state
+--md-color-text-warn : #ff7d41 // point-of-interest, warning prompt
+--md-color-text-error : #ff5257 // Strong hint for error
+--md-color-text-link : #5878b4 // Text link
+
+/// Border and background colors
+--md-color-border-base : #e2e4ea // Borders for entries
+--md-color-border-element : #c5cad5 // element border, e.g. button
+--md-color-bg-base : #f9fafb // element, container background
+--md-color-bg-inverse : #FFF
+--md-color-bg-disabled : #e2e4ea // Disable element background
+--md-color-bg-tap : #F9FAFB // Entry click state
+--md-color-mask : rgba(37, 38, 45, .7) // popup mask
+
+/// Text size
+--md-font-heading-large : 60px
+--md-font-heading-medium : 52px
+--md-font-heading-normal : 44px
+--md-font-caption-large : 36px
+--md-font-caption-normal : 32px
+--md-font-body-large : 28px
+--md-font-body-normal : 26px
+--md-font-minor-large : 24px
+--md-font-minor-normal : 20px
+
+--md-font-weight-light : 300
+--md-font-weight-normal : 400
+--md-font-weight-medium : 500
+--md-font-weight-semibold : 600
+
+/// Radius size
+--md-radius-normal : 8px
+--md-radius-circle : 50%.
+
+/// Border size
+--md-border-width-base : 2px
+
+/// Spacing size
+--md-h-gap-xs : 8px
+--md-h-gap-sm : 12px
+--md-h-gap-md : 20px
+--md-h-gap-lg : 32px
+--md-h-gap-sl : 40px
+
+--md-v-gap-xs : 8px
+--md-v-gap-sm : 12px
+--md-v-gap-md : 20px
+--md-v-gap-lg : 32px
+--md-v-gap-sl : 40px
+
+/// Transition
+--md-ease-in-out-quint : cubic-bezier(.86, 0, .07, 1)
+
+/// Opaqueness
+--md-opacity-disabled : .3 // Disable opacity of the button, switch, agree
+
+/// Font family
+--md-font-family-normal : "Helvetica Neue",Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Microsoft Ya Black",Arial, sans-serif
+--md-font-family-number : DINPro-Medium, DIN Alternate, "Helvetica Neue",Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", " Microsoft YaHei", Arial,sans-serif
+```
+
+#### component variables
+
+:::tip
+You can check the corresponding component code to get
+:::
