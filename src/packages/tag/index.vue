@@ -68,6 +68,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-tag
   color var(--md-color-text-base)
   font-size 28px

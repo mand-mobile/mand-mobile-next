@@ -458,6 +458,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-tip-content
   position absolute
   top 0

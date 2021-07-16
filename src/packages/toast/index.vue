@@ -99,6 +99,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-toast
   .md-popup
     z-index var(--md-toast-zindex)

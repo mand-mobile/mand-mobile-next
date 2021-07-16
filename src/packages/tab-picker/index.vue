@@ -99,6 +99,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-tab-picker
   z-index var(--md-tab-picker-zindex)
   .md-tab-bar

@@ -46,6 +46,8 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+@import './index.styl'
+
 .md-stepper
   color var(--md-stepper-color)
   -webkit-font-smoothing antialiased
