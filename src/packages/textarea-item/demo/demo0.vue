@@ -35,7 +35,6 @@ const format = (curValue: string) => {
   >
     <md-field>
       <md-textarea-item
-        ref="demo0"
         v-model="value"
         title="普通"
         autosize
@@ -43,7 +42,6 @@ const format = (curValue: string) => {
         placeholder="普通文本域"
       />
       <md-textarea-item
-        ref="demo0"
         v-model="value2"
         title="自动适应"
         class="example"
@@ -53,7 +51,6 @@ const format = (curValue: string) => {
         :max-height="150"
       />
       <md-textarea-item
-        ref="demo0"
         title="删除图标"
         class="example"
         :autosize="true"
@@ -63,7 +60,6 @@ const format = (curValue: string) => {
         :max-height="150"
       />
       <md-textarea-item
-        ref="demo0"
         title="禁用"
         class="example"
         :autosize="true"
@@ -73,7 +69,6 @@ const format = (curValue: string) => {
         disabled
       />
       <md-textarea-item
-        ref="demo0"
         title="只读"
         class="example"
         :autosize="true"
@@ -83,7 +78,6 @@ const format = (curValue: string) => {
         readonly
       />
       <md-textarea-item
-        ref="demo0"
         v-model="value3"
         title="格式化"
         autosize

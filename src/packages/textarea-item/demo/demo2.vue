@@ -23,7 +23,6 @@ const value = ref('')
   >
     <md-field>
       <md-textarea-item
-        ref="demo2"
         v-model="value"
         class="demo2"
         :autosize="true"
