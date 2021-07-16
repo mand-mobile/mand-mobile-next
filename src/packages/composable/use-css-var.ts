@@ -1,5 +1,7 @@
-import { ref, computed, watch, isRef } from 'vue'
-import type { Ref } from 'vue'
+import { watch, isRef } from 'vue'
+import type { Ref, WatchStopHandle } from 'vue'
+
+let stopWatchCssVar: WatchStopHandle | null = null
 
 export function useCssVar(
   vars:
@@ -20,8 +22,13 @@ export function useCssVar(
     })
   }
 
+  if (stopWatchCssVar) {
+    stopWatchCssVar()
+    stopWatchCssVar = null
+  }
+
   isRef(vars)
-    ? watch(
+    ? (stopWatchCssVar = watch(
         vars,
         (val) => {
           setVars(val)
@@ -29,6 +36,8 @@ export function useCssVar(
         {
           immediate: true,
         }
-      )
+      ))
     : setVars(vars)
+
+  return stopWatchCssVar
 }
