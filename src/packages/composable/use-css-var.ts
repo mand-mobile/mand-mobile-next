@@ -94,6 +94,7 @@ export function useCssVar(
           },
           {
             immediate: true,
+            deep: true,
           }
         ))
       : setVars(elRef.value, {

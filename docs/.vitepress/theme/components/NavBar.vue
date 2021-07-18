@@ -8,6 +8,7 @@ import ToggleSideBarButton from './ToggleSideBarButton.vue'
 import GithubLink from './GithubLink.vue'
 import DarkSwitch from './DarkSwitch.vue'
 import LangSwitch from './LangSwitch.vue'
+import ThemeSwitch from './ThemeSwitch.vue'
 
 defineEmit(['toggle'])
 
@@ -42,6 +43,7 @@ const shadowStyle = computed(() => {
       <GithubLink v-if="repo && isGithub()" :item="repo" />
       <DarkSwitch />
       <LangSwitch />
+      <ThemeSwitch />
     </div>
 
     <slot name="search" />
