@@ -153,7 +153,7 @@ useCssVar(themeVars)
 --md-color-text-caption : #858b9c // auxiliary information, such as list content description
 --md-color-text-disabled : #c5cad5 // Disabled status
 --md-color-text-placeholder : #c5cad5 // Default prompt input or placeholder
---md-color-text-highlight : --md-color-primary // Highlighted state
+--md-color-text-highlight : var(--md-color-primary) // Highlighted state
 --md-color-text-warn : #ff7d41 // point-of-interest, warning prompt
 --md-color-text-error : #ff5257 // Strong hint for error
 --md-color-text-link : #5878b4 // Text link
