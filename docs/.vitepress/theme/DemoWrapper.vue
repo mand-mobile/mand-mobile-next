@@ -130,11 +130,11 @@ const name = frontmatter.value.component
 }
 
 .md-example-content {
-  zoom: .5;
+  // zoom: .5;
 }
 
 .demo-component {
-  width: 750px;
+  width: 375px;
   margin: 0 auto;
 }
 

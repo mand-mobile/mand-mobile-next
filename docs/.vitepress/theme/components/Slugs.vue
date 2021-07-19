@@ -55,7 +55,7 @@ const headers = computed(() => {
   position: fixed;
   top: var(--header-height);
   right: 0;
-  /* max-height: calc(100% - var(--header-height) - 10rem); */
+  max-height: calc(100% - var(--header-height) - 10rem);
   width: var(--slug-width);
   padding: 50px 24px 0 0;
   border-right: 1px solid var(--c-divider);

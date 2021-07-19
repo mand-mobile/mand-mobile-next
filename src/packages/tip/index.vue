@@ -142,6 +142,9 @@ export default defineComponent({
         height?: string
         transform?: string
       } = { top: '0', left: '0' }
+
+      const scrollY = window?.scrollY ?? 0
+
       switch (props.placement) {
         case 'top':
           style = {
@@ -151,7 +154,8 @@ export default defineComponent({
             top: `${
               (triggerPosition.value.top || 0) -
               (arrowPosition.value?.height || 0) +
-              props.offset.top
+              props.offset.top +
+              scrollY
             }px`,
             left: `${
               (triggerPosition.value.left || 0) +
@@ -170,7 +174,8 @@ export default defineComponent({
               (triggerPosition.value.top || 0) +
               (triggerPosition.value.height || 0) +
               (arrowPosition.value?.height || 0) +
-              props.offset.top
+              props.offset.top +
+              scrollY
             }px`,
             left: `${
               (triggerPosition.value.left || 0) +
@@ -188,7 +193,8 @@ export default defineComponent({
             top: `${
               (triggerPosition.value.top || 0) +
               (triggerPosition.value.height || 0) / 2 +
-              props.offset.top
+              props.offset.top +
+              scrollY
             }px`,
             left: `${
               (triggerPosition.value.left || 0) +
@@ -207,7 +213,8 @@ export default defineComponent({
             top: `${
               (triggerPosition.value.top || 0) +
               (triggerPosition.value.height || 0) / 2 +
-              props.offset.top
+              props.offset.top +
+              scrollY
             }px`,
             left: `${
               (triggerPosition.value.left || 0) +
