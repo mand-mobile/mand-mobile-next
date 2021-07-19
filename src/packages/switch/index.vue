@@ -42,9 +42,9 @@ export default defineComponent({
 .md-switch
   box-sizing border-box
   position relative
-  width 80px
-  height 48px
-  border-radius 48px
+  width var(--md-switch-width)
+  height var(--md-switch-height)
+  border-radius var(--md-switch-height)
   background-color var(--md-switch-fill-inverse)
   transition background .3s
   &.disabled
@@ -57,15 +57,15 @@ export default defineComponent({
   &::before
     top 0
     left 0
-    width 80px
-    height 48px
-    border-radius 24px
+    width var(--md-switch-width)
+    height var(--md-switch-height)
+    border-radius calc(var(--md-switch-height) / 2)
     background-color var(--md-switch-fill-inverse)
   &::after
     top 4px
     left 4px
-    width 40px
-    height 40px
+    width calc(var(--md-switch-width) / 2)
+    height calc(var(--md-switch-width) / 2)
     background-color var(--md-switch-handle-color)
     border-radius 50%
   &.active

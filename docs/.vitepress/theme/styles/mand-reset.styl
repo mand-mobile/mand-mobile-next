@@ -119,18 +119,29 @@
     font-size: 12px;
   }
 
-  .md-stepper-number input {
-    position relative;
-    top: -24px;
-    font-size: 13px;
-  }
-
   .md-tag .size-small {
     font-size: 10px;
   }
 
   .md-amount {
     font-size: 18px !important;
+  }
+
+  .md-switch:after {
+    top: 2px;
+    left: 2px;
+  }
+
+  .md-switch.active:after {
+    transform: translate(16px);
+  }
+
+  .md-number-keyboard-container .keyboard-key .keyboard-key-item.delete {
+    background-size: 23px;
+  }
+
+  .md-number-keyboard-container .keyboard-key .keyboard-key-item.slidedown {
+    background-size: 27px;
   }
 }
 
@@ -322,6 +333,9 @@
   --md-steps-icon-size: 15px !important
   --md-steps-text-gap-horizontal: 10px !important
   --md-steps-text-gap-vertical: 20px !important
+
+  --md-switch-width: 40px
+  --md-switch-height: 24px
 
   --md-tab-height: 50px !important
   --md-tab-ink-height: 1px !important

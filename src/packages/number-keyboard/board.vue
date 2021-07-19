@@ -169,7 +169,7 @@ export default defineComponent({
     .keyboard-key-item
       position relative
       flex-basis 33.33%
-      height 107px
+      height var(--md-number-keyboard-key-height)
       font-size var(--md-number-keyboard-key-font-size)
       font-weight var(--md-number-keyboard-key-font-weight)
       font-family var(--md-font-family-number)

@@ -78,9 +78,9 @@ export default defineComponent({
 @import './index.styl'
 
 .md-field
-  padding field-padding-v field-padding-h
+  padding var(--md-field-padding-v) var(--md-field-padding-h)
   border none
-  background-color field-bg-color
+  background-color var(--md-field-bg-color)
   &--is-plain
     padding 0
     background-color transparent
@@ -90,7 +90,7 @@ export default defineComponent({
   display flex
   align-items center
   justify-content space-between
-  margin-bottom field-header-gap
+  margin-bottom var(--md-field-header-gap)
 
 .md-field_header_heading
   flex 1 1 0%
@@ -101,24 +101,24 @@ export default defineComponent({
   align-items center
   align-self flex-start
   justify-content flex-end
-  margin-left h-gap-sm
-  color field-action-color
-  font-size field-action-font-size
+  margin-left var(--md-h-gap-sm)
+  color var(--md-field-action-color)
+  font-size var(--md-field-action-font-size)
 
 .md-field_header_title
-  color field-title-color
-  font-size field-title-font-size
-  font-weight field-title-font-weight
+  color var(--md-field-title-color)
+  font-size var(--md-field-title-font-size)
+  font-weight var(--md-field-title-font-weight)
   line-height 1
 
 .md-field_header_brief
-  margin-top v-gap-xs
-  color field-brief-color
-  font-size field-brief-font-size
+  margin-top var(--md-v-gap-xs)
+  color var(--md-field-brief-color)
+  font-size var(--md-field-brief-font-size)
   line-height 1.4
 
 .md-field_footer
-  margin-top field-footer-gap
+  margin-top var(--md-field-footer-gap)
 
 .md-field
   &:disabled,
@@ -128,5 +128,5 @@ export default defineComponent({
     .md-field_header_action,
     .md-field_content,
     .md-field_footer
-      color color-text-disabled
+      color var(--md-color-text-disabled)
 </style>
