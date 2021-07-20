@@ -5,11 +5,26 @@ export default {
 }
 </script>
 <script setup lang="ts">
+import { ref } from 'vue'
 import MdTabs from 'mand-mobile/tabs'
+import MdButton from 'mand-mobile/button'
+import MdIcon from 'mand-mobile/icon'
 import MdTabPane from '../pane.vue'
 
 const change = (item: any) => {
   console.log(item)
+}
+
+const disabled = ref(true)
+const tabs = ref<any>(null)
+
+const goToThree = () => {
+  disabled.value = false
+  setTimeout(() => {
+    tabs.value.$refs.swiper
+      .getSwiperInstance()
+      ?.goToPage(2, 0)
+  })
 }
 </script>
 
@@ -22,6 +37,7 @@ const change = (item: any) => {
     "
   >
     <md-tabs
+      ref="tabs"
       :default-index="0"
       :immediate="true"
       @change="change"
@@ -31,12 +47,16 @@ const change = (item: any) => {
       </md-tab-pane>
       <md-tab-pane class="content" name="p2" label="第二章">
         又是一年，她又遇到了他，他正牵着孩子的手，走的飞快。
+        <md-button type="link" @click="goToThree">
+          支付0元，解锁第三章
+          <md-icon name="arrow-right" size="xs" />
+        </md-button>
       </md-tab-pane>
       <md-tab-pane
         class="content"
         name="p3"
         label="第三章"
-        disabled
+        :disabled="disabled"
       >
         你的腿？她有些诧异。腿？我的腿怎么了？他更诧异。后来，她才知道他的腿，那天只是坐麻了而已。
       </md-tab-pane>
