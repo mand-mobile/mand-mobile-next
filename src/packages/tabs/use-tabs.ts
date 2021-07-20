@@ -6,6 +6,7 @@ import {
   onMounted,
   watch,
   onBeforeUnmount,
+  nextTick,
 } from 'vue'
 import { CHANGE_EVENT } from 'mand-mobile/utils'
 
@@ -92,6 +93,7 @@ export const useTabs = (
   const swiperRef =
     ref<ComponentPublicInstance<{
       getSwiperInstance: () => Slide
+      resetSwiper: () => void
     }> | null>(null)
   const currentIndex = ref(props.defaultIndex)
 
@@ -106,11 +108,6 @@ export const useTabs = (
   ) {
     currentIndex.value = index
     swiperRef.value?.getSwiperInstance()?.goToPage(index, 0)
-
-    emit(CHANGE_EVENT, {
-      ...tabItems.value[currentIndex.value],
-      index: currentIndex.value,
-    })
   }
 
   const swiperChangeHandler = (_: number, to: number) => {
@@ -127,9 +124,9 @@ export const useTabs = (
   watch(
     tabItems,
     () => {
-      ;(
-        swiperRef.value?.getSwiperInstance() as unknown as BScroll
-      )?.refresh()
+      nextTick(() => {
+        swiperRef.value?.resetSwiper()
+      })
     },
     {
       deep: true,

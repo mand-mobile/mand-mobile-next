@@ -17,6 +17,7 @@ import { NoticeBar } from 'mand-mobile/notice-bar'
 
 export default {
   name: 'NoticeBarDemo',
+  title: '基本',
   /* DELETE */
   background: '#fff',
   /* DELETE */
