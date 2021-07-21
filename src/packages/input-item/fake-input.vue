@@ -129,13 +129,14 @@ export default defineComponent({
   &.is-waiting:after
     animation keyboard-cursor infinite 1s step-start
 
-.md-fake-input-placeholder
-  position absolute
-  top 0
-  left 0
-  width 100%
-  color var(--md-input-item-placeholder)
-  font-weight var(--md-font-weight-normal)
+.is-title-latent
+  .md-fake-input-placeholder
+    position absolute
+    top 20px
+    left 0
+    width 100%
+    color var(--md-input-item-placeholder)
+    font-weight var(--md-font-weight-normal)
 
 .fake-input-keyboard
   hairline(top, var(--md-number-keyboard-key-border-color))

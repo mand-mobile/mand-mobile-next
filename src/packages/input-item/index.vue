@@ -8,13 +8,18 @@
       disabled ? 'is-disabled' : '',
       isAmount ? 'is-amount' : '',
       clearable ? 'is-clear' : '',
+      $slots.error || error !== '' ? 'is-error' : '',
+      ($slots.brief || brief !== '') &&
+      !($slots.error || error !== '')
+        ? 'with-brief'
+        : '',
       align,
       size,
     ]"
     :title="title"
     :solid="solid && !isTitleLatent"
   >
-    <template #left>
+    <template v-if="$slots.left" #left>
       <slot name="left"></slot>
     </template>
 
@@ -48,6 +53,8 @@
       :hide-dot="hideDot"
       :disorder="disorder"
       @update:modelValue="fakeInputHandler"
+      @focus="focusHandler"
+      @blur="blurHandler"
     >
       <template #keyboard="props">
         <slot v-bind="props"></slot>
@@ -57,12 +64,34 @@
     <template #right>
       <div
         v-if="clearable"
-        v-show="isNativeInputFocus"
+        v-show="isNativeInputFocus && innerValue.length > 0"
         class="md-input-item-clear"
+        @mousedown.prevent
+        @click="clearHandler"
       >
         <md-icon name="clear" />
       </div>
       <slot name="right"></slot>
+    </template>
+
+    <template #children>
+      <div
+        v-if="$slots.error || error !== ''"
+        class="md-input-item-msg"
+      >
+        <p v-if="error !== ''" v-text="error"></p>
+        <slot v-else name="error"></slot>
+      </div>
+      <div
+        v-if="
+          ($slots.brief || brief !== '') &&
+          !($slots.error || error !== '')
+        "
+        class="md-input-item-brief"
+      >
+        <p v-if="brief !== ''" v-text="brief"></p>
+        <slot v-else name="brief"></slot>
+      </div>
     </template>
   </md-field-item>
 </template>
@@ -101,6 +130,7 @@ export default defineComponent({
       nativeInputHandler,
       fakeInputHandler,
       nativeInputMaxLength,
+      clearHandler,
     } = useInput(props, context)
 
     return {
@@ -110,6 +140,7 @@ export default defineComponent({
       nativeInputRef,
       nativeInputHandler,
       fakeInputHandler,
+      clearHandler,
 
       nativeInputMaxLength,
 
@@ -239,9 +270,10 @@ export default defineComponent({
     .md-field-item-left,
     .md-field-item-right,
     .md-input-item-input,
-    .md-input-item-fake
+    .md-input-item-fake,
+    .md-fake-input
       padding-top 20px
-    &.is-active
+    &.is-focus
       .md-field-item-title
         opacity 1
         top 20px

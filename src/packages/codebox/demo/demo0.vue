@@ -12,5 +12,5 @@ const code = ref('')
 </script>
 
 <template>
-  <MdCodebox v-model="code" />
+  <MdCodebox v-model="code" autofocus />
 </template>

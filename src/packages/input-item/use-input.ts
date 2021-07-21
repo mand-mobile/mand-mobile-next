@@ -203,12 +203,18 @@ export const useInput = (
     emit(UPDATE_MODEL_EVENT, val)
   }
 
+  const clearHandler = () => {
+    innerValue.value = ''
+    emit(UPDATE_MODEL_EVENT, '')
+  }
+
   return {
     innerValue,
     nativeInputRef,
 
     nativeInputHandler,
     fakeInputHandler,
+    clearHandler,
 
     nativeInputMaxLength,
   }
