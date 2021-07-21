@@ -97,13 +97,15 @@ export const useFakeInput = (
 
   const clickHandler = () => {
     isFocus.value = true
-    emit(FOCUS_EVENT)
   }
 
   const blurHandler = () => {
     isFocus.value = false
-    emit(BLUR_EVENT)
   }
+
+  watch(isFocus, (val) =>
+    val ? emit(FOCUS_EVENT) : emit(BLUR_EVENT)
+  )
 
   const innerValue = ref<number | string>('')
   const displayValue = computed(() => {

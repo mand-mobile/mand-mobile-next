@@ -16,7 +16,7 @@
           :class="[
             'md-codebox-box',
             i === code.length + 1 && focused && 'is-active',
-            code[i - 1] !== '' && 'is-filled',
+            code[i - 1] && 'is-filled',
           ]"
         >
           <template v-if="code[i - 1]">
@@ -177,13 +177,14 @@ export default defineComponent({
   margin-left "calc(%s / 2)" % var(--md-codebox-gutter)
   margin-right "calc(%s / 2)" % var(--md-codebox-gutter)
 
-  hairline(bottom, color-border-element)
+  hairline(bottom, var(--md-color-border-element))
   &:first-child
     margin-left 0
   &:last-child
     margin-right 0
   &.is-active, &.is-filled
-    border-color var(--md-codebox-border-active-color)
+    &::before
+      border-color var(--md-codebox-border-active-color)
 
 .md-codebox-blink
   display block

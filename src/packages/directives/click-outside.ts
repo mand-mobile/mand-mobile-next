@@ -33,15 +33,15 @@ function clickHandler(e: UIEvent) {
 }
 
 export const clickOutside: ObjectDirective<HTMLElement> = {
-  beforeMount(el, binding) {
+  mounted(el, binding) {
     nodeList.set(el, {
       bindingFn: binding.value,
       excludes: Array.isArray(binding.arg)
         ? binding.arg
         : [binding.arg],
     })
-    document &&
-      document.addEventListener('click', clickHandler)
+    document?.removeEventListener('click', clickHandler)
+    document?.addEventListener('click', clickHandler)
   },
   updated(el, binding) {
     nodeList.set(el, {
@@ -50,12 +50,11 @@ export const clickOutside: ObjectDirective<HTMLElement> = {
         ? binding.arg
         : [binding.arg],
     })
-    document &&
-      document.addEventListener('click', clickHandler)
+    document?.removeEventListener('click', clickHandler)
+    document?.addEventListener('click', clickHandler)
   },
   unmounted(el) {
     nodeList.delete(el)
-    document &&
-      document.removeEventListener('click', clickHandler)
+    document?.removeEventListener('click', clickHandler)
   },
 }
