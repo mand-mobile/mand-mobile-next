@@ -18,7 +18,6 @@ import MdField from 'mand-mobile/field'
       <md-input-item
         title="普通文本"
         placeholder="普通文本"
-        is-amount
         :maxlength="5"
       ></md-input-item>
       <md-input-item

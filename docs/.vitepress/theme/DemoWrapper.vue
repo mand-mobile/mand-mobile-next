@@ -136,6 +136,7 @@ const name = frontmatter.value.component
 .demo-component {
   width: 375px;
   margin: 0 auto;
+  padding: 4px 0;
 }
 
 .operations {
