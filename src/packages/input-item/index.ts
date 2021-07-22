@@ -8,5 +8,10 @@ InputItem.install = (app: App) => {
 }
 
 export { InputItem }
-export { formatMoney } from './use-input'
+export {
+  formatValue,
+  formatMoney,
+  formatBankCard,
+  formatPhoneNumber,
+} from './use-input'
 export default InputItem
