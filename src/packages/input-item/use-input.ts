@@ -1,4 +1,4 @@
-import { computed, ref, watchEffect } from 'vue'
+import { computed, ref, watchEffect, watch } from 'vue'
 import {
   UPDATE_MODEL_EVENT,
   FOCUS_EVENT,
@@ -12,6 +12,7 @@ import type {
   PropType,
   ExtractPropTypes,
   SetupContext,
+  WatchStopHandle,
 } from 'vue'
 
 export const inputProps = {
@@ -166,16 +167,34 @@ export const useInput = (
 
     emit(
       UPDATE_MODEL_EVENT,
-      isNativeInputFormative.value
+      isPreview.value
+        ? ''
+        : isNativeInputFormative.value
         ? formatterValue.replace(/\s|,/g, '')
         : curValue
     )
   }
 
+  const isPreview = ref(
+    props.previewType !== '' ? true : false
+  )
+  let previewStopper: WatchStopHandle | null = null
+
+  isPreview.value &&
+    (previewStopper = watch(
+      () => props.modelValue,
+      () => {
+        isPreview.value = false
+        previewStopper?.()
+      }
+    ))
+
   watchEffect(() => {
     innerValue.value = formatValue(
       props.modelValue ? '' + props.modelValue : '',
-      props.type || 'text',
+      isPreview.value
+        ? props.previewType
+        : props.type || 'text',
       props.formation
     )
   })

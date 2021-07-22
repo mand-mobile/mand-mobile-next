@@ -1,7 +1,6 @@
 import {
   computed,
   nextTick,
-  onMounted,
   ref,
   watch,
   watchEffect,
@@ -19,6 +18,7 @@ import type {
   SetupContext,
   ExtractPropTypes,
   PropType,
+  WatchStopHandle,
 } from 'vue'
 
 export const fakeInputProps = {
@@ -46,9 +46,9 @@ export const fakeInputProps = {
     type: [Object, String],
     default: undefined,
   },
-  gap: {
-    type: Boolean,
-    default: false,
+  previewType: {
+    type: String,
+    default: '',
   },
   type: {
     type: String as PropType<
@@ -109,18 +109,36 @@ export const useFakeInput = (
 
   const innerValue = ref<number | string>('')
   const displayValue = computed(() => {
-    return formatValue(innerValue.value + '', props.type)
-  })
-
-  watchEffect(() => {
-    innerValue.value = `${props.modelValue}`.replace(
-      /\s|,/g,
-      ''
+    return formatValue(
+      innerValue.value + '',
+      isPreview.value
+        ? props.previewType
+        : props.type || 'text'
     )
   })
 
+  const isPreview = ref(
+    props.previewType !== '' ? true : false
+  )
+  let previewStopper: WatchStopHandle | null = null
+
+  isPreview.value &&
+    (previewStopper = watch(
+      () => props.modelValue,
+      () => {
+        isPreview.value = false
+        previewStopper?.()
+      }
+    ))
+
+  watchEffect(() => {
+    innerValue.value = isPreview.value
+      ? props.modelValue
+      : `${props.modelValue}`.replace(/\s|,/g, '')
+  })
+
   watch(innerValue, (val) => {
-    emit(UPDATE_MODEL_EVENT, val)
+    emit(UPDATE_MODEL_EVENT, isPreview.value ? '' : val)
   })
 
   const inputHandler = (val: string) => {
