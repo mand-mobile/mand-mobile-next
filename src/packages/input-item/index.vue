@@ -8,11 +8,8 @@
       disabled ? 'is-disabled' : '',
       isAmount ? 'is-amount' : '',
       clearable ? 'is-clear' : '',
-      $slots.error || error !== '' ? 'is-error' : '',
-      ($slots.brief || brief !== '') &&
-      !($slots.error || error !== '')
-        ? 'with-brief'
-        : '',
+      isInputError ? 'is-error' : '',
+      isInputBrief && !isInputError ? 'with-brief' : '',
       align,
       size,
     ]"
@@ -52,6 +49,7 @@
       :ok-text="okText"
       :hide-dot="hideDot"
       :disorder="disorder"
+      :preview-type="previewType"
       @update:modelValue="fakeInputHandler"
       @focus="focusHandler"
       @blur="blurHandler"
@@ -83,10 +81,7 @@
         <slot v-else name="error"></slot>
       </div>
       <div
-        v-if="
-          ($slots.brief || brief !== '') &&
-          !($slots.error || error !== '')
-        "
+        v-if="isInputBrief && !isInputError"
         class="md-input-item-brief"
       >
         <p v-if="brief !== ''" v-text="brief"></p>
@@ -123,6 +118,8 @@ export default defineComponent({
       isNativeInputFocus,
       focusHandler,
       blurHandler,
+      isInputError,
+      isInputBrief,
     } = useInputDisplay(props, context)
     const {
       innerValue,
@@ -143,6 +140,8 @@ export default defineComponent({
       clearHandler,
 
       nativeInputMaxLength,
+      isInputError,
+      isInputBrief,
 
       isNativeInputFocus,
       focusHandler,

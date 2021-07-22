@@ -9,6 +9,10 @@ export default {
 <script setup lang="ts">
 import MdInputItem from 'mand-mobile/input-item'
 import MdField from 'mand-mobile/field'
+import { ref } from 'vue'
+
+const card = ref('6222 **** **** 1234')
+const name = ref('张**')
 </script>
 
 <template>
@@ -17,16 +21,16 @@ import MdField from 'mand-mobile/field'
   >
     <md-field>
       <md-input-item
+        v-model="name"
         preview-type="text"
-        model-value="张**"
         title="真实姓名"
         placeholder="投保人姓名"
         is-title-latent
       ></md-input-item>
       <md-input-item
+        v-model="card"
         type="bankCard"
         preview-type="text"
-        model-value="6222 **** **** 1234"
         title="银行卡号"
         placeholder="投保人银行卡号"
         is-title-latent
