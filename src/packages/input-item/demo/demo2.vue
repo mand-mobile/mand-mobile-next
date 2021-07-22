@@ -27,7 +27,7 @@ const val = ref('')
       title="手机号"
       type="phone"
       placeholder="phone xxx xxxx xxxx"
-      :maxlength="13"
+      :maxlength="11"
     />
     <MdInputItem
       v-model="val"
