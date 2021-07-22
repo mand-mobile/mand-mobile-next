@@ -32,7 +32,9 @@
       :readonly="readonly"
       :value="innerValue"
       :maxlength="
-        nativeInputMaxLength ? Infinity : maxlength
+        nativeInputMaxLength
+          ? nativeInputMaxLength
+          : Infinity
       "
       @focus="focusHandler"
       @blur="blurHandler"

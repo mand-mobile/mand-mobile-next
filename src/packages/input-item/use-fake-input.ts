@@ -138,7 +138,14 @@ export const useFakeInput = (
   })
 
   watch(innerValue, (val) => {
-    emit(UPDATE_MODEL_EVENT, isPreview.value ? '' : val)
+    emit(
+      UPDATE_MODEL_EVENT,
+      isPreview.value
+        ? `${val}`.length < `${props.modelValue}`.length
+          ? ''
+          : `${val}`.replace(`${props.modelValue}`, '')
+        : val
+    )
   })
 
   const inputHandler = (val: string) => {

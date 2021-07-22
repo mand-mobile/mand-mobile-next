@@ -168,7 +168,9 @@ export const useInput = (
     emit(
       UPDATE_MODEL_EVENT,
       isPreview.value
-        ? ''
+        ? curValue.length < `${props.modelValue}`.length
+          ? ''
+          : curValue.replace(`${props.modelValue}`, '')
         : isNativeInputFormative.value
         ? formatterValue.replace(/\s|,/g, '')
         : curValue
@@ -209,7 +211,10 @@ export const useInput = (
   )
 
   const nativeInputMaxLength = computed(() =>
-    isNativeInputFormative.value ? '' : props.maxlength
+    isNativeInputFormative.value
+      ? props.maxlength +
+        (innerValue.value.match(/\s|,/g)?.length ?? 0)
+      : ''
   )
 
   /**
