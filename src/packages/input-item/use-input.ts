@@ -325,7 +325,7 @@ export function formatValue(
   return formatValue
 }
 
-function formatBankCard(value: string) {
+export function formatBankCard(value: string) {
   if (!value) return ''
   value = value.replace(/[\sA-Za-z]/g, '')
 
@@ -340,7 +340,7 @@ function formatBankCard(value: string) {
   ).trim()
 }
 
-function formatPhoneNumber(value: string) {
+export function formatPhoneNumber(value: string) {
   if (!value) return ''
   value = value.replace(/[\sA-Za-z]/g, '')
 
