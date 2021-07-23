@@ -180,6 +180,7 @@ tr:nth-child(2n) {
 
 thead th {
   @apply font-sans;
+  @apply text-left;
 }
 
 th,
