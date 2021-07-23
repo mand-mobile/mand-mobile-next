@@ -19,7 +19,11 @@ const config: UserConfig = {
         imports: [
           `${path.join(
             __dirname,
-            '../src/styles/index.styl'
+            '../src/styles/variable.styl'
+          )}`,
+          `${path.join(
+            __dirname,
+            '../src/styles/util.styl'
           )}`,
         ],
       },
