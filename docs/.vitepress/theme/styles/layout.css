@@ -169,27 +169,23 @@ li > ol {
 }
 
 table {
-  display: block;
-  border-collapse: collapse;
-  margin: 1rem 0;
-  overflow-x: auto;
-}
-
-tr {
-  border-top: 1px solid #dfe2e5;
+  @apply
+    font-mono text-sm my-4 overflow-x-auto border-collapse
+    relative w-full table-auto whitespace-pre-wrap;
 }
 
 tr:nth-child(2n) {
-  background-color: #f6f8fa;
+  @apply bg-gray-400 bg-opacity-2;
 }
-.dark tr:nth-child(2n) {
-  background-color: #4c4747;
+
+thead th {
+  @apply font-sans;
 }
 
 th,
 td {
-  border: 1px solid #dfe2e5;
-  padding: 0.6em 1em;
+  border-bottom: 1px solid var(--c-divider-light);
+  @apply px-2 py-1 break-words overflow-hidden md:(px-4 py-2 break-normal);
 }
 
 blockquote {

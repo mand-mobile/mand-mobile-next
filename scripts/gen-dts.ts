@@ -109,12 +109,16 @@ const genVueTypes = async () => {
       await Promise.all([
         fs.promises.writeFile(
           esPath,
-          outputFile.getText(),
+          outputFile
+            .getText()
+            .replace('mand-mobile-next/', '../'),
           'utf8'
         ),
         fs.promises.writeFile(
           libPath,
-          outputFile.getText(),
+          outputFile
+            .getText()
+            .replace('mand-mobile-next/', '../'),
           'utf8'
         ),
       ])
