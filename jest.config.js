@@ -36,6 +36,6 @@ module.exports = {
   // for example, ['<rootDir>/packages/input']
   roots: ['<rootDir>'],
   moduleNameMapper: {
-    '^mand-mobile/(.*)': '<rootDir>/src/packages/$1',
+    '^mand-mobile-next/(.*)': '<rootDir>/src/packages/$1',
   },
 }
