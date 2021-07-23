@@ -31,26 +31,26 @@ const demos = import.meta.globEager('../../../src/packages/tabs/demo/demo*.vue')
 ## API
 
 ### Tabs Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
-|value|双向绑定的标签对象`name`|String| | |
-|immediate|初始化后立即就触发一次`change`事件|Boolean|`false`| |
+| default-index | 默认显示第几项 | Number | 0 | 数组索引 |
+| has-ink |是否显示下划线|Boolean|`true`| |
+| ink-length |下划线宽度|Number|`0`|该数值为下划线占标签按钮宽度的百分比，须在`1-100`之间|
+| immediate |初始化后立即就触发一次`change`事件|Boolean|`false`| |
 
 ### TabPane Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |name|唯一键名|String| |必须|
 |label|菜单标题|String| |必须|
 |disabled|是否禁用|Boolean|`false`| |
 
-### Tabs Methods
-
-#### reflowTabBar()
-重新计算`TabBar`样式布局
-
 ### Tabs Events
 
 #### @change(tab)
+
 当用户选择标签触发
 
 |属性 | 说明 | 类型|

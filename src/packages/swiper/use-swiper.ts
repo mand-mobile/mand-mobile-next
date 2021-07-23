@@ -47,10 +47,6 @@ export const swiperProps = {
       return ['slide', 'slideY', 'fade'].includes(value)
     },
   },
-  transitionDuration: {
-    type: Number,
-    default: 250,
-  },
   defaultIndex: {
     // display index
     type: Number,
@@ -72,10 +68,6 @@ export const swiperProps = {
     default: true,
   },
   dragable: {
-    type: Boolean,
-    default: true,
-  },
-  useNativeDriver: {
     type: Boolean,
     default: true,
   },
