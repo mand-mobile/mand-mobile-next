@@ -5,7 +5,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdSteps from 'mand-mobile/steps'
+import MdSteps from 'mand-mobile-next/steps'
 import { ref } from 'vue'
 const steps = [
   {

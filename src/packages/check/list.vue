@@ -58,8 +58,8 @@ import {
   PropType,
   onBeforeUpdate,
 } from 'vue'
-import MdCellItem from 'mand-mobile/cell-item'
-import { UPDATE_MODEL_EVENT } from 'mand-mobile/utils'
+import MdCellItem from 'mand-mobile-next/cell-item'
+import { UPDATE_MODEL_EVENT } from 'mand-mobile-next/utils'
 import MdCheckGroup from './group.vue'
 import MdCheck from './index.vue'
 

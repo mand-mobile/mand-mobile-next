@@ -1,5 +1,5 @@
-import { formatMoney } from 'mand-mobile/input-item'
-import { Animate, noop } from 'mand-mobile/utils'
+import { formatMoney } from 'mand-mobile-next/input-item'
+import { Animate, noop } from 'mand-mobile-next/utils'
 import { capitalize } from './number-capital'
 import type { ExtractPropTypes } from 'vue'
 

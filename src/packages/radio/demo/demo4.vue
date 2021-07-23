@@ -6,7 +6,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RadioBox as MdRadioBox } from 'mand-mobile/radio'
+import { RadioBox as MdRadioBox } from 'mand-mobile-next/radio'
 
 const checked = ref('0')
 </script>

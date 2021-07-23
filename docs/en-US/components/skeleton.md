@@ -12,7 +12,7 @@ Skeleton screen, generally used to display the loading state of the general stru
 ### Import
 
 ```javascript
-import { Skeleton } from 'mand-mobile'
+import { Skeleton } from  'mand-mobile-next'
 
 Vue.createApp().component(Skeleton.name, Skeleton)
 ```

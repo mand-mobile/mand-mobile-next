@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { ActivityIndicator } from 'mand-mobile/activity-indicator'
+import { ActivityIndicator } from 'mand-mobile-next/activity-indicator'
 
 export default {
   name: 'ActivityIndicatorDemo',

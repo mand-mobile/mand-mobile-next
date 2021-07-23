@@ -6,9 +6,9 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdLandscape from 'mand-mobile/landscape'
-import MdButton from 'mand-mobile/button'
-import Toast from 'mand-mobile/toast'
+import MdLandscape from 'mand-mobile-next/landscape'
+import MdButton from 'mand-mobile-next/button'
+import Toast from 'mand-mobile-next/toast'
 
 const showPic = ref(false)
 const showNoMask = ref(false)

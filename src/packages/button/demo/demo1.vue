@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import Button from 'mand-mobile/button'
+import Button from 'mand-mobile-next/button'
 
 export default {
   name: 'ButtonDemo',

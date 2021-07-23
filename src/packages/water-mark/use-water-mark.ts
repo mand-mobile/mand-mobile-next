@@ -1,5 +1,5 @@
 import { computed, onMounted, ref } from 'vue'
-import { getDpr } from 'mand-mobile/utils'
+import { getDpr } from 'mand-mobile-next/utils'
 import type { ExtractPropTypes } from 'vue'
 
 const FONT_SIZE = 14

@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { NoticeBar } from 'mand-mobile/notice-bar'
+import { NoticeBar } from 'mand-mobile-next/notice-bar'
 
 export default {
   name: 'NoticeBarDemo',

@@ -12,11 +12,14 @@ import {
   CHANGE_EVENT,
   CONFIRM_EVENT,
   CANCEL_EVENT,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 
-import { t } from 'mand-mobile/locale'
+import { t } from 'mand-mobile-next/locale'
 
-import { popupProps, usePopup } from 'mand-mobile/picker'
+import {
+  popupProps,
+  usePopup,
+} from 'mand-mobile-next/picker'
 
 import type {
   ExtractPropTypes,

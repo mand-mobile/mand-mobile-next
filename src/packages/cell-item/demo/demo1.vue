@@ -6,9 +6,9 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdCellItem from 'mand-mobile/cell-item'
-import MdSwitch from 'mand-mobile/switch'
-import MdField from 'mand-mobile/field'
+import MdCellItem from 'mand-mobile-next/cell-item'
+import MdSwitch from 'mand-mobile-next/switch'
+import MdField from 'mand-mobile-next/field'
 
 const open = ref(true)
 </script>

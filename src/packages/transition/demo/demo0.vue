@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import MdTransition from 'mand-mobile/transition'
-import MdButton from 'mand-mobile/button'
+import MdTransition from 'mand-mobile-next/transition'
+import MdButton from 'mand-mobile-next/button'
 import { ref } from 'vue'
 
 const show = ref(false)

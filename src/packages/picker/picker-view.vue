@@ -62,7 +62,7 @@ import { defineComponent } from 'vue'
 import {
   UPDATE_MODEL_EVENT,
   CHANGE_EVENT,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 import { pickerProps, usePicker } from './use-picker'
 
 export default defineComponent({

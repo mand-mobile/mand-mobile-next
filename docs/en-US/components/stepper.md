@@ -12,7 +12,7 @@ Increase, decrease or modify the current value
 ### Import
 
 ```javascript
-import { Stepper } from 'mand-mobile'
+import { Stepper } from  'mand-mobile-next'
 
 Vue.createApp().component(Stepper.name, Stepper)
 ```

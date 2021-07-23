@@ -78,12 +78,12 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
-import MdCellItem from 'mand-mobile/cell-item'
-import MdInputItem from 'mand-mobile/input-item'
+import MdCellItem from 'mand-mobile-next/cell-item'
+import MdInputItem from 'mand-mobile-next/input-item'
 import {
   UPDATE_MODEL_EVENT,
   CHANGE_EVENT,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 import MdRadio from './index.vue'
 import { useRadioList } from './use-radio'
 

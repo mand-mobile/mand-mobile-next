@@ -32,7 +32,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import MdWaterMark from 'mand-mobile/water-mark'
+import MdWaterMark from 'mand-mobile-next/water-mark'
 
 export default defineComponent({
   name: 'MdBill',

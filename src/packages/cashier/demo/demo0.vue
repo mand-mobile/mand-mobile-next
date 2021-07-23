@@ -5,8 +5,8 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdCashier from 'mand-mobile/cashier'
-import MdButton from 'mand-mobile/button'
+import MdCashier from 'mand-mobile-next/cashier'
+import MdButton from 'mand-mobile-next/button'
 import { ref } from 'vue'
 
 const show = ref(false)

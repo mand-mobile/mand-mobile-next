@@ -2,7 +2,7 @@ import {
   dataURIToArrayBuffer,
   dataURItoBlob,
 } from './image-dataurl'
-import { noop, inBrowser } from 'mand-mobile/utils'
+import { noop, inBrowser } from 'mand-mobile-next/utils'
 
 // Import jpeg_encoder_basic for compatibility if necessary
 import JPEGEncoder from 'jpeg-js'

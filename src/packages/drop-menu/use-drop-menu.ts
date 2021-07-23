@@ -5,7 +5,7 @@ import {
   SHOW_EVENT,
   HIDE_EVENT,
   CHANGE_EVENT,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 import type { Ref, SetupContext } from 'vue'
 
 /**

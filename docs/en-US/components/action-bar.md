@@ -12,7 +12,7 @@ Bottom sidebar with a number of texts or action buttons that can be used to pres
 ### Import
 
 ```javascript
-import { ActionBar } from 'mand-mobile'
+import { ActionBar } from  'mand-mobile-next'
 
 Vue.createApp().component(ActionBar.name, ActionBar)
 ```

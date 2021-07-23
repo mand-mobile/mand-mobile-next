@@ -5,7 +5,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdResultPage from 'mand-mobile/result-page'
+import MdResultPage from 'mand-mobile-next/result-page'
 </script>
 
 <template>

@@ -12,7 +12,7 @@ To display the process ending page
 ### Import
 
 ```javascript
-import { ResultPage } from 'mand-mobile'
+import { ResultPage } from  'mand-mobile-next'
 
 Vue.createApp().component(ResultPage.name, ResultPage)
 ```

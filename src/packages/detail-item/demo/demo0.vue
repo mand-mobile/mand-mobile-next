@@ -5,8 +5,8 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdDetailItem from 'mand-mobile/detail-item'
-import MdField from 'mand-mobile/field'
+import MdDetailItem from 'mand-mobile-next/detail-item'
+import MdField from 'mand-mobile-next/field'
 </script>
 
 <template>

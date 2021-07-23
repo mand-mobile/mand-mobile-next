@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Icon from 'mand-mobile/icon'
+import Icon from 'mand-mobile-next/icon'
 
 export default defineComponent({
   name: 'MdActivityIndicatorSpinning',

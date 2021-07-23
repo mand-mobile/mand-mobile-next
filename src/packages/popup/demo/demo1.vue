@@ -6,9 +6,9 @@ export default {
 </script>
 <script setup lang="ts">
 import { reactive } from 'vue'
-import MdPopup from 'mand-mobile/popup'
-import MdPopupTitleBar from 'mand-mobile/popup-title-bar'
-import MdButton from 'mand-mobile/button'
+import MdPopup from 'mand-mobile-next/popup'
+import MdPopupTitleBar from 'mand-mobile-next/popup-title-bar'
+import MdButton from 'mand-mobile-next/button'
 
 const configs = reactive<
   Array<{

@@ -14,7 +14,7 @@ import {
   KEYDOWN_EVENT,
   noop,
   randomId,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 
 import type {
   ExtractPropTypes,

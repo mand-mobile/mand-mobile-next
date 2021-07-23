@@ -2,7 +2,7 @@ import {
   HIDE_EVENT,
   SHOW_EVENT,
   UPDATE_VISIBLE_EVENT,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 import { computed } from 'vue'
 import type { SetupContext } from 'vue'
 

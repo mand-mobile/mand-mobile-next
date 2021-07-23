@@ -12,7 +12,7 @@ Detail list usually used as bill details, inventory details and so on.
 ### Import
 
 ```javascript
-import { DetailItem } from 'mand-mobile'
+import { DetailItem } from  'mand-mobile-next'
 
 Vue.createApp().component(DetailItem.name, DetailItem)
 ```

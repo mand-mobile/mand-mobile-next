@@ -6,9 +6,9 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdRadio from 'mand-mobile/radio'
-import MdField from 'mand-mobile/field'
-import MdFieldItem from 'mand-mobile/field-item'
+import MdRadio from 'mand-mobile-next/radio'
+import MdField from 'mand-mobile-next/field'
+import MdFieldItem from 'mand-mobile-next/field-item'
 
 const checked = ref('0')
 </script>

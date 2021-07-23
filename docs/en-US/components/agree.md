@@ -12,7 +12,7 @@ For toggling states
 ### Import
 
 ```javascript
-import { Agree } from 'mand-mobile'
+import { Agree } from  'mand-mobile-next'
 
 Vue.createApp().component(Agree.name, Agree)
 ```

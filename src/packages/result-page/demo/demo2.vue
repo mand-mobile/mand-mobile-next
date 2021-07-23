@@ -6,8 +6,8 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdResultPage from 'mand-mobile/result-page'
-import Toast from 'mand-mobile/toast'
+import MdResultPage from 'mand-mobile-next/result-page'
+import Toast from 'mand-mobile-next/toast'
 
 const buttons = ref([
   {

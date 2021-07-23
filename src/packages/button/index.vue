@@ -29,8 +29,8 @@
 </template>
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
-import { ActivityIndicatorRolling } from 'mand-mobile/activity-indicator'
-import Icon from 'mand-mobile/icon'
+import { ActivityIndicatorRolling } from 'mand-mobile-next/activity-indicator'
+import Icon from 'mand-mobile-next/icon'
 
 export default defineComponent({
   name: 'MdButton',

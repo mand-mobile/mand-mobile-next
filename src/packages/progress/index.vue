@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import { ActivityIndicatorRolling } from 'mand-mobile/activity-indicator'
+import { ActivityIndicatorRolling } from 'mand-mobile-next/activity-indicator'
 import { useProgress, progressProps } from './use-progress'
 
 export default defineComponent({

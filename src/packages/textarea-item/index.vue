@@ -45,8 +45,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import FieldItem from 'mand-mobile/field-item'
-import Icon from 'mand-mobile/icon'
+import FieldItem from 'mand-mobile-next/field-item'
+import Icon from 'mand-mobile-next/icon'
 import {
   textareaItemProps as props,
   emits,

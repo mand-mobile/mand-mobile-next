@@ -15,7 +15,7 @@
     "declarationDir": "dist/types",
     "outDir": "dist",
     "paths": {
-      "mand-mobile/*": [
+      "mand-mobile-next/*": [
         "./src/packages/*"
       ],
       "dist/*": [

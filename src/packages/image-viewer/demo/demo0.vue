@@ -6,7 +6,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdImageViewer from 'mand-mobile/image-viewer'
+import MdImageViewer from 'mand-mobile-next/image-viewer'
 
 const dataList = ref([
   {

@@ -39,8 +39,8 @@
 import { defineComponent, ref, computed } from 'vue'
 import type { PropType, ExtractPropTypes } from 'vue'
 import MdNumberKeyboardContainer from './board.vue'
-import MdPopup from 'mand-mobile/popup'
-import { t } from 'mand-mobile/locale'
+import MdPopup from 'mand-mobile-next/popup'
+import { t } from 'mand-mobile-next/locale'
 
 export default defineComponent({
   name: 'MdNumberKeyboard',

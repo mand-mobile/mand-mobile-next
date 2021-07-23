@@ -1,5 +1,5 @@
 import { ref, watch, onMounted } from 'vue'
-import { inBrowser, Animate } from 'mand-mobile/utils'
+import { inBrowser, Animate } from 'mand-mobile-next/utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 
 export const progressProps = {

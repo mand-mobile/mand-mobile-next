@@ -8,7 +8,7 @@ import {
   onBeforeUnmount,
   nextTick,
 } from 'vue'
-import { CHANGE_EVENT } from 'mand-mobile/utils'
+import { CHANGE_EVENT } from 'mand-mobile-next/utils'
 
 import type {
   InjectionKey,

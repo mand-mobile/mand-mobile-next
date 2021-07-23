@@ -4,7 +4,7 @@ import {
   DELETE_EVENT,
   UPDATE_VISIBLE_EVENT,
   UPDATE_LIST_EVENT,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 
 import type { ExtractPropTypes, SetupContext } from 'vue'
 

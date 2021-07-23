@@ -5,8 +5,8 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdCellItem from 'mand-mobile/cell-item'
-import MdField from 'mand-mobile/field'
+import MdCellItem from 'mand-mobile-next/cell-item'
+import MdField from 'mand-mobile-next/field'
 
 const onClickHandler = (e: UIEvent) => {
   console.log(e.target)

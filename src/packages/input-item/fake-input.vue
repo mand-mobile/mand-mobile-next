@@ -45,9 +45,9 @@ import {
   FOCUS_EVENT,
   BLUR_EVENT,
   UPDATE_MODEL_EVENT,
-} from 'mand-mobile/utils'
-import { clickOutside } from 'mand-mobile/directives'
-import MdNumberKeyboard from 'mand-mobile/number-keyboard'
+} from 'mand-mobile-next/utils'
+import { clickOutside } from 'mand-mobile-next/directives'
+import MdNumberKeyboard from 'mand-mobile-next/number-keyboard'
 import {
   useFakeInput,
   fakeInputProps,

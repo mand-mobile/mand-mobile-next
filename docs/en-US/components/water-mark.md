@@ -12,7 +12,7 @@ Container with watermark background
 ### Instruction
 
 ```javascript
-import { WaterMark } from 'mand-mobile'
+import { WaterMark } from  'mand-mobile-next'
 
 Vue.createApp().component(WaterMark.name, WaterMark)
 ```

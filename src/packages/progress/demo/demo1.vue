@@ -53,7 +53,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import MdProgress from 'mand-mobile/progress'
+import MdProgress from 'mand-mobile-next/progress'
 </script>
 
 <style lang="stylus">

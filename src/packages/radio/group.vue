@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
-import { UPDATE_MODEL_EVENT } from 'mand-mobile/utils'
+import { UPDATE_MODEL_EVENT } from 'mand-mobile-next/utils'
 import { useRadioGroup } from './use-radio'
 
 export default defineComponent({

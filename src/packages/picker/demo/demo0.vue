@@ -6,7 +6,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdPicker from 'mand-mobile/picker'
+import MdPicker from 'mand-mobile-next/picker'
 import yearData from './data/simple'
 
 const pickerData = ref(yearData)

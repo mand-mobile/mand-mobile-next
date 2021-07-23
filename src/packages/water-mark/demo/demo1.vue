@@ -5,7 +5,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdWaterMark from 'mand-mobile/water-mark'
+import MdWaterMark from 'mand-mobile-next/water-mark'
 </script>
 
 <template>

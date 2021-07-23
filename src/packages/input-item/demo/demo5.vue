@@ -7,8 +7,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import MdInputItem from 'mand-mobile/input-item'
-import MdField from 'mand-mobile/field'
+import MdInputItem from 'mand-mobile-next/input-item'
+import MdField from 'mand-mobile-next/field'
 import { ref } from 'vue'
 
 const val = ref('1999999999999')

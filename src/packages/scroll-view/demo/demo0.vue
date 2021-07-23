@@ -8,7 +8,7 @@ export default {
 import MdScrollView, {
   PullDown,
   PullUp,
-} from 'mand-mobile/scroll-view'
+} from 'mand-mobile-next/scroll-view'
 import { ref } from 'vue'
 
 const sleep = (time = 1500) =>

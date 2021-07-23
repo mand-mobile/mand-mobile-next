@@ -60,9 +60,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import MdIcon from 'mand-mobile/icon'
-import MdButton from 'mand-mobile/button'
-import { RadioList as MdRadioList } from 'mand-mobile/radio'
+import MdIcon from 'mand-mobile-next/icon'
+import MdButton from 'mand-mobile-next/button'
+import { RadioList as MdRadioList } from 'mand-mobile-next/radio'
 import {
   channelProps as props,
   useChannel,

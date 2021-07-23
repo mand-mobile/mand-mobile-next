@@ -12,7 +12,7 @@ Generally used for financial scenarios such as password, verification code or pa
 ### Import
 
 ```javascript
-import { NumberKeyboard } from 'mand-mobile'
+import { NumberKeyboard } from  'mand-mobile-next'
 
 Vue.createApp().component(NumberKeyboard.name, NumberKeyboard)
 ```

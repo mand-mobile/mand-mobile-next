@@ -12,7 +12,7 @@ Support cascaded selections in the footer
 ### Import
 
 ```javascript
-import { TabPicker } from 'mand-mobile'
+import { TabPicker } from  'mand-mobile-next'
 
 Vue.createApp().component(TabPicker.name, TabPicker)
 ```

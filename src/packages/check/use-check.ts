@@ -5,7 +5,7 @@ import {
   reactive,
   toRefs,
 } from 'vue'
-import { UPDATE_MODEL_EVENT } from 'mand-mobile/utils'
+import { UPDATE_MODEL_EVENT } from 'mand-mobile-next/utils'
 
 import type {
   InjectionKey,

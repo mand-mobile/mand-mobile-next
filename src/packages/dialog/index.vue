@@ -82,9 +82,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import MdPopup from 'mand-mobile/popup'
-import MdIcon from 'mand-mobile/icon'
-import { ActivityIndicatorRolling as MdActivityIndicatorRolling } from 'mand-mobile/activity-indicator'
+import MdPopup from 'mand-mobile-next/popup'
+import MdIcon from 'mand-mobile-next/icon'
+import { ActivityIndicatorRolling as MdActivityIndicatorRolling } from 'mand-mobile-next/activity-indicator'
 import {
   dialogProps as props,
   emits,

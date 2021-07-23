@@ -5,8 +5,8 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdTip from 'mand-mobile/tip'
-import MdButton from 'mand-mobile/button'
+import MdTip from 'mand-mobile-next/tip'
+import MdButton from 'mand-mobile-next/button'
 import { ref } from 'vue'
 
 const showHandler = () => {

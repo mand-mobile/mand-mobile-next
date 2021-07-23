@@ -55,8 +55,8 @@ import {
   inject,
   PropType,
 } from 'vue'
-import MdIcon from 'mand-mobile/icon'
-import { isIOS, isAndroid } from 'mand-mobile/utils'
+import MdIcon from 'mand-mobile-next/icon'
+import { isIOS, isAndroid } from 'mand-mobile-next/utils'
 
 export default defineComponent({
   name: 'MdFieldItem',

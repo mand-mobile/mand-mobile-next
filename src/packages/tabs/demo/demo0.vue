@@ -6,9 +6,9 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdTabs from 'mand-mobile/tabs'
-import MdButton from 'mand-mobile/button'
-import MdIcon from 'mand-mobile/icon'
+import MdTabs from 'mand-mobile-next/tabs'
+import MdButton from 'mand-mobile-next/button'
+import MdIcon from 'mand-mobile-next/icon'
 import MdTabPane from '../pane.vue'
 
 const change = (item: any) => {

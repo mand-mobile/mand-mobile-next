@@ -6,10 +6,10 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import MdInputItem from 'mand-mobile/input-item'
-import MdField from 'mand-mobile/field'
-import MdIcon from 'mand-mobile/icon'
-import Toast from 'mand-mobile/toast'
+import MdInputItem from 'mand-mobile-next/input-item'
+import MdField from 'mand-mobile-next/field'
+import MdIcon from 'mand-mobile-next/icon'
+import Toast from 'mand-mobile-next/toast'
 
 const val = ref('')
 const size = computed<any>(() =>

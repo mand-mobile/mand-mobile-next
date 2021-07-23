@@ -6,7 +6,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import MdImageUploader from 'mand-mobile/image-uploader'
+import MdImageUploader from 'mand-mobile-next/image-uploader'
 const fileList = ref([
   {
     dataUrl:

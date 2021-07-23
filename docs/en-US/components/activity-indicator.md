@@ -12,7 +12,7 @@ Activity indicator, generally used for ongoing tasks, only support web
 ### Import
 
 ```javascript
-import { ActivityIndicator } from 'mand-mobile'
+import { ActivityIndicator } from  'mand-mobile-next'
 
 Vue.createApp().component(ActivityIndicator.name, ActivityIndicator)
 ```

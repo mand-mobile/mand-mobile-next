@@ -74,10 +74,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import MdSwiper from 'mand-mobile/swiper'
-import MdTag from 'mand-mobile/tag'
-import MdIcon from 'mand-mobile/icon'
-import MdTransition from 'mand-mobile/transition'
+import MdSwiper from 'mand-mobile-next/swiper'
+import MdTag from 'mand-mobile-next/tag'
+import MdIcon from 'mand-mobile-next/icon'
+import MdTransition from 'mand-mobile-next/transition'
 import {
   imageViewerProps,
   useImageViewer,

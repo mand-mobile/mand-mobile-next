@@ -12,7 +12,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/transition
 ### 引入
 
 ```javascript
-import { Transition } from 'mand-mobile'
+import { Transition } from  'mand-mobile-next'
 
 Vue.createApp().component(Transition.name, Transition)
 ```

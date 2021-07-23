@@ -12,7 +12,7 @@ Arrange vertically and display current contents, status and other allowable oper
 ### Import
 
 ```javascript
-import { Field, FieldItem } from 'mand-mobile'
+import { Field, FieldItem } from  'mand-mobile-next'
 
 Vue.createApp().component(Field.name, Field)
 Vue.createApp().component(FieldItem.name, FieldItem)

@@ -6,8 +6,8 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import { CheckList as MdCheckList } from 'mand-mobile/check'
-import MdField from 'mand-mobile/field'
+import { CheckList as MdCheckList } from 'mand-mobile-next/check'
+import MdField from 'mand-mobile-next/field'
 
 const fruits = ref([
   { value: 'watermelon', label: '西瓜' },

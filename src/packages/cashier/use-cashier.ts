@@ -1,13 +1,13 @@
 import { ref, computed, reactive, watch } from 'vue'
-import { useShow } from 'mand-mobile/composable'
-import { t } from 'mand-mobile/locale'
+import { useShow } from 'mand-mobile-next/composable'
+import { t } from 'mand-mobile-next/locale'
 import {
   UPDATE_VISIBLE_EVENT,
   UPDATE_MODEL_EVENT,
   HIDE_EVENT,
   SHOW_EVENT,
   noop,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 
 import type {
   ExtractPropTypes,

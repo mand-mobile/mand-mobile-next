@@ -4,9 +4,9 @@ import {
   FOCUS_EVENT,
   BLUR_EVENT,
   randomId,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 
-import { t } from 'mand-mobile/locale'
+import { t } from 'mand-mobile-next/locale'
 
 import type {
   PropType,

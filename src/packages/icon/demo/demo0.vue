@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import { Icon } from 'mand-mobile/icon'
+import { Icon } from 'mand-mobile-next/icon'
 
 export default {
   name: 'IconDemo',

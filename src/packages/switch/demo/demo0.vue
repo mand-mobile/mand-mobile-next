@@ -6,7 +6,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdSwitch from 'mand-mobile/switch'
+import MdSwitch from 'mand-mobile-next/switch'
 
 const isActive = ref(false)
 const isActive_one = ref(true)

@@ -12,7 +12,7 @@ Electronic bill
 ### 引入
 
 ```javascript
-import { Bill } from 'mand-mobile'
+import { Bill } from  'mand-mobile-next'
 
 Vue.createApp().component(Bill.name, Bill)
 ```

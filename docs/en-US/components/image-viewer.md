@@ -12,7 +12,7 @@ For	 browsing multiple pictures and swiping to switch pictures
 ### Import
 
 ```javascript
-import { ImageViewer } from 'mand-mobile'
+import { ImageViewer } from  'mand-mobile-next'
 
 Vue.createApp().component(ImageViewer.name, ImageViewer)
 ```

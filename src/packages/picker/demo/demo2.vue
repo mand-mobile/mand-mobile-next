@@ -6,9 +6,9 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdPicker from 'mand-mobile/picker'
-import MdField from 'mand-mobile/field'
-import MdFieldItem from 'mand-mobile/field-item'
+import MdPicker from 'mand-mobile-next/picker'
+import MdField from 'mand-mobile-next/field'
+import MdFieldItem from 'mand-mobile-next/field-item'
 import yearData from './data/simple'
 import areaData from './data/area'
 

@@ -4,8 +4,11 @@ import type {
   ExtractPropTypes,
   VNode,
 } from 'vue'
-import { t } from 'mand-mobile/locale'
-import { createComponent, noop } from 'mand-mobile/utils'
+import { t } from 'mand-mobile-next/locale'
+import {
+  createComponent,
+  noop,
+} from 'mand-mobile-next/utils'
 import DialogContstructor from './index.vue'
 import { dialogProps } from './use-dialog'
 

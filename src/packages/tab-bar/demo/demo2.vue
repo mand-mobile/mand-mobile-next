@@ -5,7 +5,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdTabBar from 'mand-mobile/tab-bar'
+import MdTabBar from 'mand-mobile-next/tab-bar'
 import { ref } from 'vue'
 
 const current = ref(1)

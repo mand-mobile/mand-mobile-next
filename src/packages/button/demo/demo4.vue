@@ -14,8 +14,8 @@
 </template>
 
 <script lang="ts">
-import { Button } from 'mand-mobile/button'
-import { Icon } from 'mand-mobile/icon'
+import { Button } from 'mand-mobile-next/button'
+import { Icon } from 'mand-mobile-next/icon'
 
 export default {
   name: 'ButtonDemo',

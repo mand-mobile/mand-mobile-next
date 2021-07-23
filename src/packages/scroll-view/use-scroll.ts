@@ -8,7 +8,7 @@ import {
 import BScroll from '@better-scroll/core'
 import PullDown from '@better-scroll/pull-down'
 import Pullup from '@better-scroll/pull-up'
-import { t } from 'mand-mobile/locale'
+import { t } from 'mand-mobile-next/locale'
 
 import type {
   ExtractPropTypes,

@@ -1,5 +1,5 @@
 import { computed, onMounted, ref, watchEffect } from 'vue'
-import { UPDATE_MODEL_EVENT } from 'mand-mobile/utils'
+import { UPDATE_MODEL_EVENT } from 'mand-mobile-next/utils'
 import type {
   ExtractPropTypes,
   SetupContext,

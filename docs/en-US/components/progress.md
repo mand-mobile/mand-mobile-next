@@ -12,7 +12,7 @@ Progress circle, generally used to communicate data intuitively to users
 ### Import
 
 ```javascript
-import { Progress } from 'mand-mobile'
+import { Progress } from  'mand-mobile-next'
 
 Vue.createApp().component(Progress.name, Progress)
 ```

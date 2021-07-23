@@ -11,9 +11,11 @@ preview: https://didi.github.io/mand-mobile/examples/#/scroll-view
 ## 引入
 
 ```javascript
-import { ScrollView, ScrollViewRefresh, ScrollViewMore } from 'mand-mobile-next'
+import { ScrollView, PullDown, PullUp } from 'mand-mobile-next'
 
 Vue.createApp().component(ScrollView.name, ScrollView)
+Vue.createApp().component(PullDown.name, PullDown)
+Vue.createApp().component(PullUp.name, PullUp)
 ```
 
 ::: tip
@@ -54,22 +56,19 @@ const demos = import.meta.globEager('../../../src/packages/scroll-view/demo/demo
 
 ---
 
-### ScrollViewRefresh Props
+### PullDown Props
 
 
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
-|scroll-top | 距离顶部距离 | Number | `0` | 单位`px` |
-|is-refresh-active | 释放可刷新状态 | Boolean | `false` | - |
-|is-refreshing | 刷新中状态 | Boolean | `false` | - |
-|refresh-text | 待刷新文案 | String | `下拉刷新` | - |
-|refresh-active-text | 释放可刷新文案 | String | `释放刷新` | - |
-|refreshing-text | 刷新中文案 | String | `刷新中...` | - |
+| percent | 进度条百分比 | Number | | - |
+|isPullingDown | 刷新中状态 | Boolean | `false` | - |
+|pullDownText | 显示的文案 | String | | - |
 |roller-color| 进度条颜色 | String | `#2F86F6` | - |
 
 ---
 
-### ScrollViewMore Props
+### PullUp Props
 
 
 |属性 | 说明 | 类型 | 默认值 | 备注|

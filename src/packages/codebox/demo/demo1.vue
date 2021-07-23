@@ -6,7 +6,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdCodebox from 'mand-mobile/codebox'
+import MdCodebox from 'mand-mobile-next/codebox'
 
 const code = ref('')
 </script>

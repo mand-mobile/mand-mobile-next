@@ -49,8 +49,14 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { PickerView, popupProps } from 'mand-mobile/picker'
-import { Popup, PopupTitleBar } from 'mand-mobile/popup'
+import {
+  PickerView,
+  popupProps,
+} from 'mand-mobile-next/picker'
+import {
+  Popup,
+  PopupTitleBar,
+} from 'mand-mobile-next/popup'
 import {
   datePickerProps,
   useDatePicker,

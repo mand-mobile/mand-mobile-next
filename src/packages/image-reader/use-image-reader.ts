@@ -9,7 +9,7 @@ import {
   SELECT_EVENT,
   COMPLETE_EVENT,
   ERROR_EVENT,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 
 import type { ExtractPropTypes, SetupContext } from 'vue'
 import type { ICompleteResult } from './image-reader'

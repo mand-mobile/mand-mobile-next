@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { ActivityIndicatorRolling } from 'mand-mobile/activity-indicator'
+import { ActivityIndicatorRolling } from 'mand-mobile-next/activity-indicator'
 
 export default defineComponent({
   name: 'MdScrollViewPulldown',

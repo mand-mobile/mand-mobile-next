@@ -12,7 +12,7 @@ IconFont、SVG Icons
 ### Import
 
 ```javascript
-import { Icon } from 'mand-mobile'
+import { Icon } from  'mand-mobile-next'
 
 Vue.createApp().component(Icon.name, Icon)
 ```
@@ -89,7 +89,7 @@ module.exports = {
 <script>
 import 'src/my-project-svg-folder/hello.svg'
 import 'src/my-project-svg-folder/world.svg'
-import { Icon } from 'mand-mobile'
+import { Icon } from  'mand-mobile-next'
 
 export default {
   name: 'icon-demo',

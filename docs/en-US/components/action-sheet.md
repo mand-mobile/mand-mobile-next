@@ -12,7 +12,7 @@ Support scenario-relevent operations
 ### Import
 
 ```javascript
-import { ActionSheet } from 'mand-mobile'
+import { ActionSheet } from  'mand-mobile-next'
 
 Vue.createApp().component(ActionSheet.name, ActionSheet)
 

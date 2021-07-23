@@ -51,10 +51,13 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import { Popup, PopupTitleBar } from 'mand-mobile/popup'
-import MdTabs from 'mand-mobile/tabs'
-import MdTabPane from 'mand-mobile/tab-pane'
-import MdRadioList from 'mand-mobile/radio-list'
+import {
+  Popup,
+  PopupTitleBar,
+} from 'mand-mobile-next/popup'
+import MdTabs from 'mand-mobile-next/tabs'
+import MdTabPane from 'mand-mobile-next/tab-pane'
+import MdRadioList from 'mand-mobile-next/radio-list'
 import {
   tabPickerProps as props,
   emits,

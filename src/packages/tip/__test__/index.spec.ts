@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { h } from 'vue'
-import MdButton from 'mand-mobile/button'
+import MdButton from 'mand-mobile-next/button'
 import Tip from '../index'
 
 const Wrapped = (props: any) => {

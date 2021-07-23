@@ -6,7 +6,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import { CheckBox as MdCheckBox } from 'mand-mobile/check'
+import { CheckBox as MdCheckBox } from 'mand-mobile-next/check'
 
 const pay = ref('')
 const check = ref(true)

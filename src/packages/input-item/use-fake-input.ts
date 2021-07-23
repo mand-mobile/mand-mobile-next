@@ -9,8 +9,8 @@ import {
   UPDATE_MODEL_EVENT,
   FOCUS_EVENT,
   BLUR_EVENT,
-} from 'mand-mobile/utils'
-import { t } from 'mand-mobile/locale'
+} from 'mand-mobile-next/utils'
+import { t } from 'mand-mobile-next/locale'
 import { formatValue } from './use-input'
 
 import type {

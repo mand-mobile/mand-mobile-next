@@ -6,11 +6,11 @@ export default {
 </script>
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { Button } from 'mand-mobile/button'
+import { Button } from 'mand-mobile-next/button'
 import {
   Check as MdCheck,
   CheckGroup,
-} from 'mand-mobile/check'
+} from 'mand-mobile-next/check'
 import type { ComponentPublicInstance } from 'vue'
 
 const favorites = reactive<Array<string | number>>([

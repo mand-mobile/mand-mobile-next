@@ -36,9 +36,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import MdIcon from 'mand-mobile/icon'
-import MdImageReader from 'mand-mobile/image-reader'
-import MdImageViewer from 'mand-mobile/image-viewer'
+import MdIcon from 'mand-mobile-next/icon'
+import MdImageReader from 'mand-mobile-next/image-reader'
+import MdImageViewer from 'mand-mobile-next/image-viewer'
 
 // use logic
 import {

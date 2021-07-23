@@ -16,10 +16,10 @@ import {
   randomId,
   SHOW_EVENT,
   HIDE_EVENT,
-} from 'mand-mobile/utils'
-import MdTransition from 'mand-mobile/transition'
-import MdIcon from 'mand-mobile/icon'
-import { clickOutside } from 'mand-mobile/directives'
+} from 'mand-mobile-next/utils'
+import MdTransition from 'mand-mobile-next/transition'
+import MdIcon from 'mand-mobile-next/icon'
+import { clickOutside } from 'mand-mobile-next/directives'
 
 import type { PropType, ComponentPublicInstance } from 'vue'
 

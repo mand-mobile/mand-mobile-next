@@ -102,10 +102,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Popup, PopupTitleBar } from 'mand-mobile/popup'
-// import MdScrollView from 'mand-mobile/scroll-view'
-import MdRadioList from 'mand-mobile/radio-list'
-import MdCheckList from 'mand-mobile/check-list'
+import {
+  Popup,
+  PopupTitleBar,
+} from 'mand-mobile-next/popup'
+// import MdScrollView from 'mand-mobile-next/scroll-view'
+import MdRadioList from 'mand-mobile-next/radio-list'
+import MdCheckList from 'mand-mobile-next/check-list'
 import {
   selectorProps as props,
   emits,

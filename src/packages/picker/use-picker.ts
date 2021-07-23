@@ -19,7 +19,7 @@ import {
   UPDATE_MODEL_EVENT,
   CHANGE_EVENT,
   getDpr,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 
 import type {
   ExtractPropTypes,

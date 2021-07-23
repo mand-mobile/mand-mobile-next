@@ -12,7 +12,7 @@ Tooltip
 ### Import
 
 ```javascript
-import { Tip } from 'mand-mobile'
+import { Tip } from  'mand-mobile-next'
 
 Vue.createApp().component(Tip.name, Tip)
 ```

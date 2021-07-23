@@ -12,7 +12,7 @@ Customizable or editable radio buttons
 ### Import
 
 ```javascript
-import { Radio } from 'mand-mobile'
+import { Radio } from  'mand-mobile-next'
 
 Vue.createApp().component(Radio.name, Radio)
 ```

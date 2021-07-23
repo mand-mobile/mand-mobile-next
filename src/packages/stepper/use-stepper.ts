@@ -5,7 +5,7 @@ import {
   UPDATE_MODEL_EVENT,
   CHANGE_EVENT,
   MathSign,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 
 const INCREASE_EVENT = 'increase'
 const DECREASE_EVENT = 'decrease'

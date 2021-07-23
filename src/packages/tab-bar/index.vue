@@ -55,7 +55,7 @@ import { defineComponent } from 'vue'
 import {
   UPDATE_MODEL_EVENT,
   CHANGE_EVENT,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 import { tabBarProps, useTabBar } from './use-tab-bar'
 import type { PropsItem } from './use-tab-bar'
 

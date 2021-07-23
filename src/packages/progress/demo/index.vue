@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import { createDemoModule } from 'mand-mobile/utils/index'
+import { createDemoModule } from 'mand-mobile-next/utils/index'
 const demos = import.meta.globEager('./demo*.vue')
 export default createDemoModule(
   'Progress',

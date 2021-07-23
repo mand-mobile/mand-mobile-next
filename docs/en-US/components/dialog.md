@@ -12,7 +12,7 @@ A floating layer to get users' feedback or display information.
 ### Import
 
 ```javascript
-import { Dialog } from 'mand-mobile'
+import { Dialog } from  'mand-mobile-next'
 
 Dialog.alert({ content: '' })
 

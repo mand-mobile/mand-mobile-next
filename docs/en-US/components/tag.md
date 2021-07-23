@@ -12,7 +12,7 @@ For showing the area status
 ### Import
 
 ```javascript
-import { Tag } from 'mand-mobile'
+import { Tag } from  'mand-mobile-next'
 
 Vue.createApp().component(Tag.name, Tag)
 ```

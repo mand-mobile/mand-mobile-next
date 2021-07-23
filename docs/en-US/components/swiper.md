@@ -13,7 +13,7 @@ Carousel, used to cycle through a set of pictures or cards
 ### Import
 
 ```javascript
-import { Swiper, SwiperItem } from 'mand-mobile'
+import { Swiper, SwiperItem } from  'mand-mobile-next'
 
 Vue.createApp().component(Swiper.name, Swiper)
 Vue.createApp().component(SwiperItem.name, SwiperItem)

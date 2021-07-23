@@ -39,7 +39,7 @@
 
 <script lang="ts">
 import { defineComponent, computed, PropType } from 'vue'
-import MdButton from 'mand-mobile/button'
+import MdButton from 'mand-mobile-next/button'
 
 interface IAction {
   text?: string

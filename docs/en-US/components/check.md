@@ -12,7 +12,7 @@ UI renderless check group component
 ### Import
 
 ```javascript
-import { Check, CheckBox, CheckGroup, CheckList } from 'mand-mobile'
+import { Check, CheckBox, CheckGroup, CheckList } from  'mand-mobile-next'
 
 Vue.createApp().component(Check.name, Check)
 Vue.createApp().component(CheckBox.name, CheckBox)

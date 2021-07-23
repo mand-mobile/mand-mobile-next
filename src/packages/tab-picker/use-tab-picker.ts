@@ -6,15 +6,15 @@ import {
   ref,
   watch,
 } from 'vue'
-import { t } from 'mand-mobile/locale'
+import { t } from 'mand-mobile-next/locale'
 import {
   UPDATE_MODEL_EVENT,
   UPDATE_VISIBLE_EVENT,
   HIDE_EVENT,
   SHOW_EVENT,
   CHANGE_EVENT,
-} from 'mand-mobile/utils'
-import { useShow } from 'mand-mobile/composable'
+} from 'mand-mobile-next/utils'
+import { useShow } from 'mand-mobile-next/composable'
 import type {
   ExtractPropTypes,
   SetupContext,

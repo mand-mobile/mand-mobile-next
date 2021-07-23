@@ -26,8 +26,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import MdIcon from 'mand-mobile/icon'
-import { UPDATE_MODEL_EVENT } from 'mand-mobile/utils'
+import MdIcon from 'mand-mobile-next/icon'
+import { UPDATE_MODEL_EVENT } from 'mand-mobile-next/utils'
 import { radioProps, useRadio } from './use-radio'
 
 export default defineComponent({

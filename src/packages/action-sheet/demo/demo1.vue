@@ -6,8 +6,8 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdActionSheet from 'mand-mobile/action-sheet'
-import MdButton from 'mand-mobile/button'
+import MdActionSheet from 'mand-mobile-next/action-sheet'
+import MdButton from 'mand-mobile-next/button'
 
 const val = ref<number | string>('')
 const clickHandler = () => {

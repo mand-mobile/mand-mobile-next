@@ -6,8 +6,8 @@ export default {
 </script>
 <script setup lang="ts">
 import { reactive } from 'vue'
-import MdActionBar from 'mand-mobile/action-bar'
-import Toast from 'mand-mobile/toast'
+import MdActionBar from 'mand-mobile-next/action-bar'
+import Toast from 'mand-mobile-next/toast'
 
 const data = reactive([
   {

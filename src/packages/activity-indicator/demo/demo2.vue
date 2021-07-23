@@ -26,8 +26,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import { ActivityIndicator } from 'mand-mobile/activity-indicator'
-import { Button } from 'mand-mobile/button'
+import { ActivityIndicator } from 'mand-mobile-next/activity-indicator'
+import { Button } from 'mand-mobile-next/button'
 
 export default defineComponent({
   name: 'ActivityIndicatorDemo',

@@ -6,7 +6,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdSkeleton from 'mand-mobile/skeleton'
+import MdSkeleton from 'mand-mobile-next/skeleton'
 </script>
 <template>
   <div

@@ -8,8 +8,8 @@ import {
   watch,
   nextTick,
 } from 'vue'
-import { UPDATE_MODEL_EVENT } from 'mand-mobile/utils'
-import { Dragger } from 'mand-mobile/swiper'
+import { UPDATE_MODEL_EVENT } from 'mand-mobile-next/utils'
+import { Dragger } from 'mand-mobile-next/swiper'
 import type {
   ComponentPublicInstance,
   ComponentInternalInstance,

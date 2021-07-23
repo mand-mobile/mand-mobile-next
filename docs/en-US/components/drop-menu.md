@@ -12,7 +12,7 @@ Drop-down menu is for list filtering
 ### Import
 
 ```javascript
-import { DropMenu } from 'mand-mobile'
+import { DropMenu } from  'mand-mobile-next'
 
 Vue.createApp().component(DropMenu.name, DropMenu)
 ```

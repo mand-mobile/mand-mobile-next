@@ -3,7 +3,10 @@ import type {
   ComponentPublicInstance,
   VNode,
 } from 'vue'
-import { createComponent, close } from 'mand-mobile/utils'
+import {
+  createComponent,
+  close,
+} from 'mand-mobile-next/utils'
 import ToastConstructor from './index.vue'
 
 type ToastFactory = typeof ToastConstructor & {

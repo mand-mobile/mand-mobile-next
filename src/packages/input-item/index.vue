@@ -95,13 +95,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import MdFieldItem from 'mand-mobile/field-item'
-import MdIcon from 'mand-mobile/icon'
+import MdFieldItem from 'mand-mobile-next/field-item'
+import MdIcon from 'mand-mobile-next/icon'
 import {
   UPDATE_MODEL_EVENT,
   FOCUS_EVENT,
   BLUR_EVENT,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 import MdFakeInput from './fake-input.vue'
 import {
   useInput,

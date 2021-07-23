@@ -32,8 +32,8 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from 'vue'
-import { t } from 'mand-mobile/locale'
-import MdButton from 'mand-mobile/button'
+import { t } from 'mand-mobile-next/locale'
+import MdButton from 'mand-mobile-next/button'
 
 export default defineComponent({
   name: 'MdResultPage',

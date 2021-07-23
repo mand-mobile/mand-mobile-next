@@ -8,10 +8,10 @@ import {
   CHANGE_EVENT,
   CONFIRM_EVENT,
   CANCEL_EVENT,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 
-import { useShow } from 'mand-mobile/composable'
-import { t } from 'mand-mobile/locale'
+import { useShow } from 'mand-mobile-next/composable'
+import { t } from 'mand-mobile-next/locale'
 
 type EmitsType =
   | 'update:modelValue'

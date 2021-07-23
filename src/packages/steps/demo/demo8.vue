@@ -5,9 +5,9 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdSteps from 'mand-mobile/steps'
-import MdIcon from 'mand-mobile/icon'
-// import MdAmount from 'mand-mobile/amount'
+import MdSteps from 'mand-mobile-next/steps'
+import MdIcon from 'mand-mobile-next/icon'
+// import MdAmount from 'mand-mobile-next/amount'
 const steps0 = [
   {
     name: '还款申请已提交',

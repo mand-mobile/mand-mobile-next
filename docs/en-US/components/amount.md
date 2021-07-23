@@ -12,7 +12,7 @@ Financial figures, generally used for amounts, quantities, etc
 ### Import
 
 ```javascript
-import { Amount } from 'mand-mobile'
+import { Amount } from  'mand-mobile-next'
 
 Vue.createApp().component(Amount.name, Amount)
 ```

@@ -51,8 +51,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { UPDATE_MODEL_EVENT } from 'mand-mobile/utils'
-import MdTip from 'mand-mobile/tip'
+import { UPDATE_MODEL_EVENT } from 'mand-mobile-next/utils'
+import MdTip from 'mand-mobile-next/tip'
 import {
   sliderProps as props,
   useSlider,

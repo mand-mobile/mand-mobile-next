@@ -6,8 +6,8 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdButton from 'mand-mobile/button'
-import MdPicker from 'mand-mobile/picker'
+import MdButton from 'mand-mobile-next/button'
+import MdPicker from 'mand-mobile-next/picker'
 import areaData from './data/area'
 import districtData from './data/district'
 

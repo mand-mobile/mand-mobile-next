@@ -12,7 +12,7 @@ Scrollable multi-column selector
 ### Import
 
 ```javascript
-import { Picker } from 'mand-mobile'
+import { Picker } from  'mand-mobile-next'
 
 Vue.createApp().component(Picker.name, Picker)
 ```

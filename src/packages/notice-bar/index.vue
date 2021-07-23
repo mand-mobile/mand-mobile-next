@@ -50,7 +50,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
-import { Icon } from 'mand-mobile/icon'
+import { Icon } from 'mand-mobile-next/icon'
 import { useNotice } from './use-notice'
 
 export default defineComponent({

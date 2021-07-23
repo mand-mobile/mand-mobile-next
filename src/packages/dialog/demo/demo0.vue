@@ -5,10 +5,10 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdDialog from 'mand-mobile/dialog'
-import MdButton from 'mand-mobile/button'
+import MdDialog from 'mand-mobile-next/dialog'
+import MdButton from 'mand-mobile-next/button'
 import { ref } from 'vue'
-import Toast from 'mand-mobile/toast'
+import Toast from 'mand-mobile-next/toast'
 
 const show = ref(false)
 const onBasicCancel = () => {

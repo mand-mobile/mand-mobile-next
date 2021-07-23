@@ -12,7 +12,7 @@ Switch between two status
 ### Import
 
 ```javascript
-import { Switch } from 'mand-mobile'
+import { Switch } from  'mand-mobile-next'
 
 Vue.createApp().component(Switch.name, Switch)
 ```

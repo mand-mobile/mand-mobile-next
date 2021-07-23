@@ -6,8 +6,8 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdRadio from 'mand-mobile/radio'
-import MdRadioGroup from 'mand-mobile/radio-group'
+import MdRadio from 'mand-mobile-next/radio'
+import MdRadioGroup from 'mand-mobile-next/radio-group'
 
 const favorites = ref('apple')
 </script>

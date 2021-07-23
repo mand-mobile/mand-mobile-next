@@ -6,8 +6,8 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import Toast from 'mand-mobile/toast'
-import MdButton from 'mand-mobile/button'
+import Toast from 'mand-mobile-next/toast'
+import MdButton from 'mand-mobile-next/button'
 
 const showToast = () => {
   Toast.succeed('所有文案部分字数最多展示15个字')

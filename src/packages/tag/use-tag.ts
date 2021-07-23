@@ -7,7 +7,7 @@ import {
 } from 'vue'
 
 import type { ExtractPropTypes } from 'vue'
-import { transformCamelCase } from 'mand-mobile/utils'
+import { transformCamelCase } from 'mand-mobile-next/utils'
 
 export const tagProps = {
   size: {

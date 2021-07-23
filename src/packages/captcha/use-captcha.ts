@@ -1,12 +1,12 @@
 import { ref, watchEffect, nextTick, watch } from 'vue'
-import { t } from 'mand-mobile/locale'
-import { useShow } from 'mand-mobile/composable'
+import { t } from 'mand-mobile-next/locale'
+import { useShow } from 'mand-mobile-next/composable'
 import {
   UPDATE_VISIBLE_EVENT,
   HIDE_EVENT,
   SHOW_EVENT,
   SUBMIT_EVNENT,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 import type {
   ExtractPropTypes,
   PropType,

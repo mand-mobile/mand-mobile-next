@@ -8,7 +8,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdDropMenu from 'mand-mobile/drop-menu'
+import MdDropMenu from 'mand-mobile-next/drop-menu'
 
 const data = ref([
   {

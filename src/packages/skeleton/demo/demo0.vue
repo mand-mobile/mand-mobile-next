@@ -6,7 +6,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdSkeleton from 'mand-mobile/skeleton'
+import MdSkeleton from 'mand-mobile-next/skeleton'
 
 const loading = ref(true)
 </script>

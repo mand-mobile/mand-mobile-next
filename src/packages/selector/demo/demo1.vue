@@ -6,10 +6,10 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdSelector from 'mand-mobile/selector'
-import MdField from 'mand-mobile/field'
-import MdFieldItem from 'mand-mobile/field-item'
-import MdIcon from 'mand-mobile/icon'
+import MdSelector from 'mand-mobile-next/selector'
+import MdField from 'mand-mobile-next/field'
+import MdFieldItem from 'mand-mobile-next/field-item'
+import MdIcon from 'mand-mobile-next/icon'
 
 const data = ref([
   {

@@ -12,7 +12,7 @@ To create a tab bar without a content area
 ### Import
 
 ```javascript
-import { TabBar } from 'mand-mobile'
+import { TabBar } from  'mand-mobile-next'
 
 Vue.createApp().component(TabBar.name, TabBar)
 ```

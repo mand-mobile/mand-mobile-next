@@ -5,9 +5,9 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdField from 'mand-mobile/field'
-import MdFieldItem from 'mand-mobile/field-item'
-import MdIcon from 'mand-mobile/icon'
+import MdField from 'mand-mobile-next/field'
+import MdFieldItem from 'mand-mobile-next/field-item'
+import MdIcon from 'mand-mobile-next/icon'
 
 const onClick = () => {
   console.log('zzzz')

@@ -12,7 +12,7 @@ Used to simulate native scrolling areas and support pull-down refresh and load m
 ### Import
 
 ```javascript
-import { ScrollView, ScrollViewRefresh, ScrollViewMore } from 'mand-mobile'
+import { ScrollView, ScrollViewRefresh, ScrollViewMore } from  'mand-mobile-next'
 
 Vue.createApp().component(ScrollView.name, ScrollView)
 ```

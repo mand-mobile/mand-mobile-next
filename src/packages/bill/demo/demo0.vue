@@ -7,10 +7,10 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdDetailItem from 'mand-mobile/detail-item'
-import MdIcon from 'mand-mobile/icon'
-import MdBill from 'mand-mobile/bill'
-import MdTag from 'mand-mobile/tag'
+import MdDetailItem from 'mand-mobile-next/detail-item'
+import MdIcon from 'mand-mobile-next/icon'
+import MdBill from 'mand-mobile-next/bill'
+import MdTag from 'mand-mobile-next/tag'
 </script>
 
 <template>

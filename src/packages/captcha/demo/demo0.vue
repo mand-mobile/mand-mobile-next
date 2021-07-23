@@ -5,16 +5,16 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdCaptcha from 'mand-mobile/captcha'
-import Button from 'mand-mobile/button'
-import Toast from 'mand-mobile/toast'
-import MdInputItem from 'mand-mobile/input-item'
-import MdField from 'mand-mobile/field'
-import MdFieldItem from 'mand-mobile/field-item'
-import MdSwitch from 'mand-mobile/switch'
-import { focusAndOpenKeyboard } from 'mand-mobile/codebox'
+import MdCaptcha from 'mand-mobile-next/captcha'
+import Button from 'mand-mobile-next/button'
+import Toast from 'mand-mobile-next/toast'
+import MdInputItem from 'mand-mobile-next/input-item'
+import MdField from 'mand-mobile-next/field'
+import MdFieldItem from 'mand-mobile-next/field-item'
+import MdSwitch from 'mand-mobile-next/switch'
+import { focusAndOpenKeyboard } from 'mand-mobile-next/codebox'
 import { ref, watch } from 'vue'
-import { isIOS } from 'mand-mobile/utils'
+import { isIOS } from 'mand-mobile-next/utils'
 
 const show = ref(false)
 const limit = ref(false)

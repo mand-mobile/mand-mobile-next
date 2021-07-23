@@ -95,8 +95,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import MdNumberKeyboard from 'mand-mobile/number-keyboard'
-import { clickOutside } from 'mand-mobile/directives'
+import MdNumberKeyboard from 'mand-mobile-next/number-keyboard'
+import { clickOutside } from 'mand-mobile-next/directives'
 import {
   codeboxProps as props,
   emits,

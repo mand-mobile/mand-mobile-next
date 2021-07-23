@@ -12,7 +12,7 @@ Button components for configuring different button styles
 ### Import
 
 ```javascript
-import { Button } from 'mand-mobile'
+import { Button } from  'mand-mobile-next'
 
 Vue.createApp().component(Button.name, Button)
 ```

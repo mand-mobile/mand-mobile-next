@@ -8,7 +8,7 @@ import {
 } from 'vue'
 
 import type { ExtractPropTypes } from 'vue'
-import { toArray } from 'mand-mobile/utils'
+import { toArray } from 'mand-mobile-next/utils'
 
 export const stepsProps = {
   steps: {

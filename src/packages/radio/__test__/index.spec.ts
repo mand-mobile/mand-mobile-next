@@ -1,7 +1,7 @@
 import { mount, VueWrapper } from '@vue/test-utils'
 import Radio from '../index'
-import { RadioList as MdRadioList } from 'mand-mobile/radio'
-import MdRadioGroup from 'mand-mobile/radio-group'
+import { RadioList as MdRadioList } from 'mand-mobile-next/radio'
+import MdRadioGroup from 'mand-mobile-next/radio-group'
 
 describe('Radio.vue', () => {
   test('render', () => {

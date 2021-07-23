@@ -10,7 +10,7 @@ import {
 import {
   CHANGE_EVENT,
   UPDATE_MODEL_EVENT,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 import type {
   InjectionKey,
   ComponentPublicInstance,

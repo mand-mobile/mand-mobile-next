@@ -12,7 +12,7 @@ Mostly for system alerts, event reminders, etc
 ### Import
 
 ```javascript
-import { NoticeBar } from 'mand-mobile'
+import { NoticeBar } from  'mand-mobile-next'
 
 Vue.createApp().component(NoticeBar.name, NoticeBar)
 ```

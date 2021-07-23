@@ -7,7 +7,7 @@ import path from 'path'
 const config: UserConfig = {
   resolve: {
     alias: {
-      'mand-mobile/': `${path.resolve(
+      'mand-mobile-next/': `${path.resolve(
         __dirname,
         '../dist/es'
       )}/`,

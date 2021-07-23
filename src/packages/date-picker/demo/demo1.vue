@@ -6,7 +6,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import MdDatePicker from 'mand-mobile/date-picker'
+import MdDatePicker from 'mand-mobile-next/date-picker'
 
 const selectedTime = ref([23, 0, 0])
 const unit = ['小时', '分', '秒']

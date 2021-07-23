@@ -3,8 +3,11 @@ import type {
   VNode,
   ComponentPublicInstance,
 } from 'vue'
-import { createComponent, noop } from 'mand-mobile/utils'
-import { t } from 'mand-mobile/locale'
+import {
+  createComponent,
+  noop,
+} from 'mand-mobile-next/utils'
+import { t } from 'mand-mobile-next/locale'
 import ActionSheetConstructor from './index.vue'
 
 type ActionSheetFactory = typeof ActionSheetConstructor & {

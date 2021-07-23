@@ -45,13 +45,13 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
-import Popup from 'mand-mobile/popup'
-import { RadioList as MdRadioList } from 'mand-mobile/radio'
+import Popup from 'mand-mobile-next/popup'
+import { RadioList as MdRadioList } from 'mand-mobile-next/radio'
 import {
   SHOW_EVENT,
   HIDE_EVENT,
   CHANGE_EVENT,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 import { useDropMenu } from './use-drop-menu'
 
 export default defineComponent({

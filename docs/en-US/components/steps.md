@@ -12,7 +12,7 @@ A navigation bar helps users complete tasks through the process and displays the
 ### Import
 
 ```javascript
-import { Steps } from 'mand-mobile'
+import { Steps } from  'mand-mobile-next'
 
 Vue.createApp().component(Steps.name, Steps)
 ```

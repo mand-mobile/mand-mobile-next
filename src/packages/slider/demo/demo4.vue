@@ -5,7 +5,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdSlider from 'mand-mobile/slider'
+import MdSlider from 'mand-mobile-next/slider'
 import { ref } from 'vue'
 
 const range = ref([10, 80])

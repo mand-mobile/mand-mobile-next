@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { UPDATE_MODEL_EVENT } from 'mand-mobile/utils'
+import { UPDATE_MODEL_EVENT } from 'mand-mobile-next/utils'
 
 export default defineComponent({
   name: 'MdSwitch',

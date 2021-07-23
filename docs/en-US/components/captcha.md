@@ -11,7 +11,7 @@ SMS code confirming dialog
 ### Import
 
 ```javascript
-import { Captcha } from 'mand-mobile'
+import { Captcha } from  'mand-mobile-next'
 
 Vue.createApp().component(Captcha.name, Captcha)
 ```

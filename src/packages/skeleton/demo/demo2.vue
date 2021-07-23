@@ -5,9 +5,9 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdSkeleton from 'mand-mobile/skeleton'
-import MdField from 'mand-mobile/field'
-import MdCellItem from 'mand-mobile/cell-item'
+import MdSkeleton from 'mand-mobile-next/skeleton'
+import MdField from 'mand-mobile-next/field'
+import MdCellItem from 'mand-mobile-next/cell-item'
 import { ref, onMounted } from 'vue'
 
 const loading = ref(true)

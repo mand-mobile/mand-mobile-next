@@ -5,7 +5,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdAmount from 'mand-mobile/amount'
+import MdAmount from 'mand-mobile-next/amount'
 import { ref } from 'vue'
 
 const val = ref(1000)

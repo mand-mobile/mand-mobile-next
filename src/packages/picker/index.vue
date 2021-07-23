@@ -52,7 +52,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Popup, PopupTitleBar } from 'mand-mobile/popup'
+import {
+  Popup,
+  PopupTitleBar,
+} from 'mand-mobile-next/popup'
 import PickerView from './picker-view.vue'
 import { pickerProps } from './use-picker'
 import { popupProps, usePopup, emits } from './use-popup'

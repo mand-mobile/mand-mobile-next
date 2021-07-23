@@ -4,7 +4,7 @@ import {
   CheckBox as MdCheckBox,
   CheckList as MdCheckList,
   CheckGroup,
-} from 'mand-mobile/check'
+} from 'mand-mobile-next/check'
 import { nextTick } from 'vue'
 import type { Component } from 'vue'
 

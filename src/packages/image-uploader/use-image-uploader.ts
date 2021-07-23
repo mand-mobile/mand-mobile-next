@@ -6,9 +6,9 @@ import {
   ERROR_EVENT,
   UPDATE_MODEL_EVENT,
   DELETE_EVENT,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 
-import { imageReaderProps } from 'mand-mobile/image-reader'
+import { imageReaderProps } from 'mand-mobile-next/image-reader'
 
 import type { ExtractPropTypes, SetupContext } from 'vue'
 

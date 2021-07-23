@@ -6,9 +6,9 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdField from 'mand-mobile/field'
-import MdFieldItem from 'mand-mobile/field-item'
-import MdTabPicker from 'mand-mobile/tab-picker'
+import MdField from 'mand-mobile-next/field'
+import MdFieldItem from 'mand-mobile-next/field-item'
+import MdTabPicker from 'mand-mobile-next/tab-picker'
 import data from './data.json'
 
 const show = ref(false)

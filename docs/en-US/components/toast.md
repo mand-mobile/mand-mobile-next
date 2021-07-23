@@ -10,7 +10,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/toast
 ### Import
 
 ```javascript
-import { Toast } from 'mand-mobile'
+import { Toast } from  'mand-mobile-next'
 
 Toast.succeed('Good Job!')
 

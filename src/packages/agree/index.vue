@@ -17,7 +17,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import MdIcon from 'mand-mobile/icon'
+import MdIcon from 'mand-mobile-next/icon'
 import {
   agreeProps as props,
   emits,

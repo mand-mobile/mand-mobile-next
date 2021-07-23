@@ -6,9 +6,9 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import MdDatePicker from 'mand-mobile/date-picker'
-import MdField from 'mand-mobile/field'
-import MdFieldItem from 'mand-mobile/field-item'
+import MdDatePicker from 'mand-mobile-next/date-picker'
+import MdField from 'mand-mobile-next/field'
+import MdFieldItem from 'mand-mobile-next/field-item'
 
 const minDate = new Date('2013/9/9')
 const maxDate = new Date('2022/9/9')

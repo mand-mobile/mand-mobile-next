@@ -5,7 +5,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdNumberKeyboard from 'mand-mobile/number-keyboard'
+import MdNumberKeyboard from 'mand-mobile-next/number-keyboard'
 </script>
 
 <template>

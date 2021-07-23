@@ -38,8 +38,8 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
-import MdTransition from 'mand-mobile/transition'
-import { UPDATE_MODEL_EVENT } from 'mand-mobile/utils'
+import MdTransition from 'mand-mobile-next/transition'
+import { UPDATE_MODEL_EVENT } from 'mand-mobile-next/utils'
 import {
   usePop,
   popupProps,

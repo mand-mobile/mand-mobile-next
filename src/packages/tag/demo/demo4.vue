@@ -5,8 +5,8 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdTag from 'mand-mobile/tag'
-import MdIcon from 'mand-mobile/icon'
+import MdTag from 'mand-mobile-next/tag'
+import MdIcon from 'mand-mobile-next/icon'
 </script>
 
 <template>

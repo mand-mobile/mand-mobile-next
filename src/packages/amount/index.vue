@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, h, ref, watch } from 'vue'
-import { inBrowser } from 'mand-mobile/utils'
+import { inBrowser } from 'mand-mobile-next/utils'
 import {
   amountProps as props,
   useAmount,

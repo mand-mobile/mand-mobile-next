@@ -142,10 +142,10 @@
 import { defineComponent } from 'vue'
 import MdPopup, {
   PopupTitleBar as MdPopupTitleBar,
-} from 'mand-mobile/popup'
-import MdIcon from 'mand-mobile/icon'
-import MdCaptcha from 'mand-mobile/captcha'
-import { ActivityIndicatorSuccess as MdActivityIndicatorSuccess } from 'mand-mobile/activity-indicator'
+} from 'mand-mobile-next/popup'
+import MdIcon from 'mand-mobile-next/icon'
+import MdCaptcha from 'mand-mobile-next/captcha'
+import { ActivityIndicatorSuccess as MdActivityIndicatorSuccess } from 'mand-mobile-next/activity-indicator'
 import MdCashierChannel from './channel.vue'
 import MdCashierChannelButton from './channel-button.vue'
 import {

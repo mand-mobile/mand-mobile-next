@@ -5,7 +5,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdTag from 'mand-mobile/tag'
+import MdTag from 'mand-mobile-next/tag'
 </script>
 
 <template>

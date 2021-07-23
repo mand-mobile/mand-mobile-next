@@ -12,7 +12,7 @@ Business payment pop-up window, supports payment channel selecting and payment v
 ### Import
 
 ```javascript
-import { Cashier } from 'mand-mobile'
+import { Cashier } from  'mand-mobile-next'
 
 Vue.createApp().component(Cashier.name, Cashier)
 ```

@@ -6,9 +6,9 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdSelector from 'mand-mobile/selector'
-import MdField from 'mand-mobile/field'
-import MdFieldItem from 'mand-mobile/field-item'
+import MdSelector from 'mand-mobile-next/selector'
+import MdField from 'mand-mobile-next/field'
+import MdFieldItem from 'mand-mobile-next/field-item'
 
 const data = ref([
   {

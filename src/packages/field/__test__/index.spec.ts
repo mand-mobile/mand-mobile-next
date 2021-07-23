@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import Field from '../index'
-import MdFieldItem from 'mand-mobile/field-item'
+import MdFieldItem from 'mand-mobile-next/field-item'
 
 describe('Field.vue', () => {
   test('render', () => {

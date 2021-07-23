@@ -7,7 +7,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdAgree from 'mand-mobile/agree'
+import MdAgree from 'mand-mobile-next/agree'
 import { ref } from 'vue'
 
 const agreeConf = ref({

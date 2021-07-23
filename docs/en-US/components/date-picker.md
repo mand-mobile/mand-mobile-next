@@ -12,7 +12,7 @@ Date or time selecting, supports year/month/day/hour/minute/second custom select
 ### Import
 
 ```javascript
-import { DatePicker } from 'mand-mobile'
+import { DatePicker } from  'mand-mobile-next'
 
 Vue.createApp().component(DatePicker.name, DatePicker)
 ```

@@ -6,10 +6,10 @@ export default {
 </script>
 <script setup lang="ts">
 import { reactive } from 'vue'
-import MdTag from 'mand-mobile/tag'
-import MdIcon from 'mand-mobile/icon'
-import Toast from 'mand-mobile/toast'
-import MdImageReader from 'mand-mobile/image-reader'
+import MdTag from 'mand-mobile-next/tag'
+import MdIcon from 'mand-mobile-next/icon'
+import Toast from 'mand-mobile-next/toast'
+import MdImageReader from 'mand-mobile-next/image-reader'
 
 const imageList = reactive<{
   reader0: string[]

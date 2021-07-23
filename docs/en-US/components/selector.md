@@ -12,7 +12,7 @@ For selecting an item from the popup list
 ### Import
 
 ```javascript
-import { Selector } from 'mand-mobile'
+import { Selector } from  'mand-mobile-next'
 
 Vue.createApp().component(Selector.name, Selector)
 ```

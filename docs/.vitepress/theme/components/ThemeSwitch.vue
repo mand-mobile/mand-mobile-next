@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useCssVar } from 'mand-mobile/composable'
+import { useCssVar } from 'mand-mobile-next/composable'
 
 const theme = ref ({
   'color-primary': '#4280EB'

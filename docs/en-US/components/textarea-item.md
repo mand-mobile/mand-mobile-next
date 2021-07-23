@@ -12,7 +12,7 @@ Multi-line text input <sup class="version-after">2.5.0+</sup>
 ### Import
 
 ```javascript
-import { TextareaItem } from 'mand-mobile'
+import { TextareaItem } from  'mand-mobile-next'
 
 Vue.createApp().component(TextareaItem.name, TextareaItem)
 ```

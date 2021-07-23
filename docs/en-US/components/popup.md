@@ -11,7 +11,7 @@ A customized content area slides out or pops up on the screen, triggered by othe
 ### Import
 
 ```javascript
-import { Popup, PopupTitleBar } from 'mand-mobile'
+import { Popup, PopupTitleBar } from  'mand-mobile-next'
 
 Vue.createApp().component(Popup.name, Popup)
 Vue.createApp().component(PopupTitleBar.name, PopupTitleBar)

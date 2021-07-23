@@ -46,7 +46,7 @@
 import { defineComponent, computed } from 'vue'
 import MdNumberKeyboardItem from './key.vue'
 import type { PropType } from 'vue'
-import { t } from 'mand-mobile/locale'
+import { t } from 'mand-mobile-next/locale'
 
 export default defineComponent({
   name: 'MdNumberKeyboardContainer',

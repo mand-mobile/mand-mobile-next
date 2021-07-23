@@ -5,7 +5,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdSwiper from 'mand-mobile/swiper'
+import MdSwiper from 'mand-mobile-next/swiper'
 
 const pageData = [
   {

@@ -12,7 +12,7 @@ For photo album reading or photos taking
 ### Import
 
 ```javascript
-import { ImageReader } from 'mand-mobile'
+import { ImageReader } from  'mand-mobile-next'
 import imageProcessor from 'mand-mobile/lib/image-reader/image-processor'
 
 // Image processing plugin, refer to #imageProcessor for usage，only support web

@@ -23,9 +23,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import MdSwiper from 'mand-mobile/swiper'
-import MdTabBar from 'mand-mobile/tab-bar'
-import { CHANGE_EVENT } from 'mand-mobile/utils'
+import MdSwiper from 'mand-mobile-next/swiper'
+import MdTabBar from 'mand-mobile-next/tab-bar'
+import { CHANGE_EVENT } from 'mand-mobile-next/utils'
 import { useTabs, tabsProps } from './use-tabs'
 
 export default defineComponent({

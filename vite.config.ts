@@ -45,7 +45,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      'mand-mobile/':
+      'mand-mobile-next/':
         process.env.NODE_ENV !== 'preview'
           ? `${path.resolve(__dirname, './src/packages')}/`
           : `${path.resolve(__dirname, './dist/es')}/`,

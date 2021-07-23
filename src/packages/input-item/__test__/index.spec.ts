@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import { triggerEvent } from 'mand-mobile/utils/trigger-event'
+import { triggerEvent } from 'mand-mobile-next/utils/trigger-event'
 import InputItem from '../index'
 import demo0 from '../demo/demo0.vue'
 

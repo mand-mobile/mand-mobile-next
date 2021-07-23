@@ -5,9 +5,9 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdField from 'mand-mobile/field'
-import MdFieldItem from 'mand-mobile/field-item'
-import MdStepper from 'mand-mobile/stepper'
+import MdField from 'mand-mobile-next/field'
+import MdFieldItem from 'mand-mobile-next/field-item'
+import MdStepper from 'mand-mobile-next/stepper'
 import { ref } from 'vue'
 
 const value = ref(0)

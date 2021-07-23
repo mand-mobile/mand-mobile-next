@@ -46,7 +46,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import MdPopup from 'mand-mobile/popup'
+import MdPopup from 'mand-mobile-next/popup'
 import {
   actionSheetProps as props,
   useActionSheet,

@@ -12,7 +12,7 @@ To display ads or descriptions in a floating layer
 ### Import
 
 ```javascript
-import { Landscape } from 'mand-mobile'
+import { Landscape } from  'mand-mobile-next'
 
 Vue.createApp().component(Landscape.name, Landscape)
 ```

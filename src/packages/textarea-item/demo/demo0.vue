@@ -5,8 +5,8 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdTextareaItem from 'mand-mobile/textarea-item'
-import MdField from 'mand-mobile/field'
+import MdTextareaItem from 'mand-mobile-next/textarea-item'
+import MdField from 'mand-mobile-next/field'
 import { ref } from 'vue'
 
 const value = ref('')

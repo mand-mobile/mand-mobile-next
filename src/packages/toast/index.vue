@@ -32,8 +32,8 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
-import Popup from 'mand-mobile/popup'
-import Icon from 'mand-mobile/icon'
+import Popup from 'mand-mobile-next/popup'
+import Icon from 'mand-mobile-next/icon'
 import { useToast } from './use-toast'
 
 export default defineComponent({

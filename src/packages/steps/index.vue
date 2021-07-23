@@ -110,7 +110,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { stepsProps, useSteps } from './use-steps'
-import MdIcon from 'mand-mobile/icon'
+import MdIcon from 'mand-mobile-next/icon'
 
 export default defineComponent({
   name: 'MdSteps',

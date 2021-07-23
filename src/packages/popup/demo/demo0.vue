@@ -6,9 +6,9 @@ export default {
 </script>
 <script setup lang="ts">
 import { reactive } from '@vue/reactivity'
-import MdPopup from 'mand-mobile/popup'
-import MdButton from 'mand-mobile/button'
-import MdIcon from 'mand-mobile/icon'
+import MdPopup from 'mand-mobile-next/popup'
+import MdButton from 'mand-mobile-next/button'
+import MdIcon from 'mand-mobile-next/icon'
 
 const positions = reactive<
   Array<{

@@ -23,8 +23,8 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue'
-import { NoticeBar } from 'mand-mobile/notice-bar'
-import { Icon } from 'mand-mobile/icon'
+import { NoticeBar } from 'mand-mobile-next/notice-bar'
+import { Icon } from 'mand-mobile-next/icon'
 
 export default defineComponent({
   name: 'NoticeBarDemo',

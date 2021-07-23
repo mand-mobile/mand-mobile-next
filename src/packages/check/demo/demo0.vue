@@ -6,7 +6,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue'
-import MdCheck from 'mand-mobile/check'
+import MdCheck from 'mand-mobile-next/check'
 
 const checked = ref(false)
 const pay = ref('')

@@ -27,13 +27,13 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref } from 'vue'
-import MdIcon from 'mand-mobile/icon'
-import MdPopup from 'mand-mobile/popup'
+import MdIcon from 'mand-mobile-next/icon'
+import MdPopup from 'mand-mobile-next/popup'
 import {
   HIDE_EVENT,
   SHOW_EVENT,
   UPDATE_MODEL_EVENT,
-} from 'mand-mobile/utils'
+} from 'mand-mobile-next/utils'
 
 export default defineComponent({
   name: 'MdLandscape',

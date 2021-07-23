@@ -5,8 +5,8 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdSteps from 'mand-mobile/steps'
-import MdIcon from 'mand-mobile/icon'
+import MdSteps from 'mand-mobile-next/steps'
+import MdIcon from 'mand-mobile-next/icon'
 const steps = [
   {
     name: '登录',

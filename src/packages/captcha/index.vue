@@ -50,8 +50,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import MdDialog from 'mand-mobile/dialog'
-import MdCodebox from 'mand-mobile/codebox'
+import MdDialog from 'mand-mobile-next/dialog'
+import MdCodebox from 'mand-mobile-next/codebox'
 import {
   useCaptcha,
   emits,

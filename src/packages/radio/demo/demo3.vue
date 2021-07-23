@@ -6,8 +6,8 @@ export default {
 </script>
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { RadioList as MdRadioList } from 'mand-mobile/radio'
-import MdField from 'mand-mobile/field'
+import { RadioList as MdRadioList } from 'mand-mobile-next/radio'
+import MdField from 'mand-mobile-next/field'
 
 const myBank = ref('')
 const banks = reactive([

@@ -5,8 +5,8 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import Toast from 'mand-mobile/toast'
-import MdButton from 'mand-mobile/button'
+import Toast from 'mand-mobile-next/toast'
+import MdButton from 'mand-mobile-next/button'
 
 const showTextToast = () => {
   Toast.info('一段文字')

@@ -5,9 +5,9 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import MdNumberKeyboard from 'mand-mobile/number-keyboard'
-import MdButton from 'mand-mobile/button'
-import Toast from 'mand-mobile/toast'
+import MdNumberKeyboard from 'mand-mobile-next/number-keyboard'
+import MdButton from 'mand-mobile-next/button'
+import Toast from 'mand-mobile-next/toast'
 import { ref } from 'vue'
 
 const showPopup = ref(false)
