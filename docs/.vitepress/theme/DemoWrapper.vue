@@ -137,7 +137,7 @@ const name = frontmatter.value.component
   width: 375px;
   margin: 0 auto;
   padding: 4px;
-  box-shadow: 0 0 1px #b7b2b2;
+  box-shadow: 0 0 4px #dadadc96;
   border-radius: 8px;
 }
 

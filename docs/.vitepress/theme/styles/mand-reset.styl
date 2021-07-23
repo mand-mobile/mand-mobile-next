@@ -116,7 +116,7 @@
   }
 
   .md-example-child-progress .progress-value, .slide-page, .md-example-child-swiper-3 .banner-item, .md-example-child-tab-bar-4 .custom-item .text {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .md-tag .size-small {
@@ -269,6 +269,40 @@
     margin-left: 0 !important;
     font-size: 12px !important;
   }
+}
+
+.demo-wrapper *, *::after, *::before {
+  border-width: 1px !important;
+}
+
+.demo-wrapper .md-drop-menu-bar .bar-item span:after {
+  border-width: 8px !important;
+}
+
+.md-example-section:last-child .md-example-child-button-3 {
+  display: flex;
+}
+
+.md-example-child-reader .image-reader-list .image-reader-item .image-reader-item-del {
+  transform: scale(0.5);
+  transform-origin: top right;
+}
+
+.md-example-child-reader .image-reader-list .image-reader-item.add p {
+  font-size: 10px !important;
+}
+
+.md-image-item {
+  width: 100px !important;
+  height: 100px !important;
+}
+
+.md-skeleton {
+  zoom: .5 !important;
+}
+
+.md-stepper-button::after, .md-stepper-button::before {
+  zoom: .5 !important;
 }
 
 :root, .demo-component
