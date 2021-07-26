@@ -357,6 +357,7 @@ export default defineComponent({
     /**
      * render dom
      */
+    const slotContent = slots.content?.() ?? []
     const content = () =>
       withDirectives(
         h(
@@ -380,11 +381,13 @@ export default defineComponent({
                   svg: props.iconSvg,
                 })
               : null,
-            h(
-              'div',
-              { class: 'content-text' },
-              props.content
-            ),
+            slotContent.length !== 0
+              ? h(Fragment, null, slotContent)
+              : h(
+                  'div',
+                  { class: 'content-text' },
+                  props.content
+                ),
             props.closable
               ? h(MdIcon, {
                   name: 'close',
