@@ -65,13 +65,16 @@ export default (): Plugin => {
         }
       )
       /**
-       * replace mand-mobile
+       * replace mand-mobile-next
        */
       build.onResolve(
-        { filter: /^mand-mobile\/.*/ },
+        { filter: /^mand-mobile-next\/.*/ },
         (args) => {
           return {
-            path: args.path.replace('mand-mobile/', '../'),
+            path: args.path.replace(
+              'mand-mobile-next/',
+              '../'
+            ),
             external: true,
           }
         }

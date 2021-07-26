@@ -17,8 +17,8 @@ const outPubOptions = {
     vue: 'Vue',
   },
   paths: (id) => {
-    if (/^mand-mobile/.test(id)) {
-      return id.replace('mand-mobile/', '../')
+    if (/^mand-mobile-next/.test(id)) {
+      return id.replace('mand-mobile-next/', '../')
     }
   },
 }
@@ -84,7 +84,7 @@ componentEntrys.map((path, index) => {
       const reg =
         /^vue/.test(id) ||
         /^@vue/.test(id) ||
-        /^mand-mobile\/.*/.test(id) ||
+        /^mand-mobile-next\/.*/.test(id) ||
         /^@better-scroll/.test(id) ||
         /^jpeg-js/.test(id) ||
         /^\.\.\/.*/.test(id)

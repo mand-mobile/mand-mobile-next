@@ -35,7 +35,7 @@ const getPlugins = () => [
   alias({
     entries: [
       {
-        find: /^(mand-mobile\/)(.*)/,
+        find: /^(mand-mobile-next\/)(.*)/,
         replacement: `${path.resolve(
           __dirname,
           '../src/packages'

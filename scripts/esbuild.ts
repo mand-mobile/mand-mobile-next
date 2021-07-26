@@ -15,7 +15,7 @@ async function run(options?: BuildOptions) {
     loader: { '.png': 'dataurl' },
     external: [
       'vue',
-      'mand-mobile/*',
+      'mand-mobile-next/*',
       '@vue/*',
       '@better-scroll/*',
       'jpeg-js',
@@ -35,7 +35,7 @@ async function bundle(options?: BuildOptions) {
     loader: { '.png': 'dataurl' },
     external: [
       'vue',
-      'mand-mobile/*',
+      'mand-mobile-next/*',
       '@vue/*',
       '@better-scroll/*',
       'jpeg-js',
