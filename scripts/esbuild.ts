@@ -1,8 +1,10 @@
 import { build, BuildOptions } from 'esbuild'
 import { cwd } from 'process'
 import fs from 'fs'
+import { resolve } from 'path'
 import ora from 'ora'
 import klawSync from 'klaw-sync'
+import stylus from 'stylus'
 import vue from './plugin/esbuild-vue-plugin'
 import { componentEntrys } from './rollup.config'
 
@@ -73,7 +75,35 @@ async function combineCss() {
     depthLimit: 0,
   }).map((dir) => dir.path + '/index.css')
 
-  let content = ''
+  const compilerCSS = (file: string) => {
+    const code = fs.readFileSync(file, 'utf-8')
+    return new Promise((resolve, reject) => {
+      stylus(code).render((err, css) => {
+        if (err) {
+          console.log(err)
+          reject(err)
+        } else {
+          resolve(css)
+        }
+      })
+    })
+  }
+
+  // build vars.styl
+  const cssResult = (await compilerCSS(
+    resolve(cwd(), 'src/styles/vars.styl')
+  )) as string
+  const varsName = 'mand-mobile-next.vars.css'
+  await fs.promises.writeFile(
+    resolve(cwd(), 'dist/es', varsName),
+    cssResult
+  )
+  await fs.promises.writeFile(
+    resolve(cwd(), 'dist/lib', varsName),
+    cssResult
+  )
+
+  let content = cssResult
   for (const css of allCss) {
     if (fs.existsSync(css)) {
       content += await fs.promises.readFile(css, 'utf8')
@@ -92,7 +122,7 @@ async function combineCss() {
     ),
   ])
 
-  const name = 'mand-mobile.min.css'
+  const name = 'mand-mobile-next.min.css'
   await Promise.all([
     fs.promises.rename(
       `${cwd()}/dist/es/mand-mobile.esm.css`,

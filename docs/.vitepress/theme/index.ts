@@ -15,7 +15,7 @@ import NotFound from './NotFound.vue'
 import DemoWrapper from './DemoWrapper.vue'
 
 if (import.meta.env.DEV) {
-  import('../../../dist/es/mand-mobile.min.css')
+  import('../../../dist/es/mand-mobile-next.min.css')
 }
 
 const theme: Theme = {

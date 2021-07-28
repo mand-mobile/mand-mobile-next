@@ -20,7 +20,7 @@
     "build": "rm -rf dist && esno ./scripts/gen-dts.ts && yarn build:bundle && yarn build:lib",
     "build:example": "vite build --base=./",
     "docs:dev": "vitepress dev docs --host",
-    "docs:build": "cp dist/es/mand-mobile.min.css docs/public && vitepress build docs",
+    "docs:build": "cp dist/es/mand-mobile-next.min.css docs/public && vitepress build docs",
     "docs:serve": "vitepress serve docs",
     "serve": "vite preview",
     "lint": "eslint --ext .ts,.vue --ignore-path .gitignore .eslintrc.js . --fix",
