@@ -26,7 +26,7 @@ yarn add mand-mobile-next@alpha
 
 #### 全量引入
 
-在 `main.ts` 写入一下内容
+在 `main.ts` 写入以下内容
 
 ```typescript
 import { createApp } from 'vue'
@@ -40,6 +40,12 @@ app.mount('#app')
 ```
 
 #### 按需引入
+
+在 `main.ts` 引入组件库所需的[基础变量](#基础变量)
+
+```typescript
+import 'mand-mobile-next/dist/es/mand-mobile-next.vars.css';
+```
 
 **在 `vite` 中按需引入**
 
