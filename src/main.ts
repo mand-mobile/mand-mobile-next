@@ -10,7 +10,7 @@ import './assets/stylus/app.styl'
 import './styles/vars.styl'
 
 if (import.meta.env.PROD) {
-  import('dist/mand-mobile.min.css')
+  import('dist/mand-mobil-next.min.css')
 }
 
 const router = createRouter({
