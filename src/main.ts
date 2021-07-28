@@ -7,6 +7,7 @@ import routes from 'virtual:generated-pages'
 import App from './App.vue'
 
 import './assets/stylus/app.styl'
+import './styles/vars.styl'
 
 if (import.meta.env.PROD) {
   import('dist/mand-mobile.min.css')

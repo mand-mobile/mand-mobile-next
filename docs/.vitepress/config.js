@@ -70,7 +70,7 @@ module.exports = {
     ['link', { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' }],
     ['link', { rel: 'preconnect', crossorigin: 'anonymous', href: 'https://fonts.gstatic.com' }],
     ['link', { href: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200;400;500&family=Inter:wght@200;400;500;600', rel: 'stylesheet' }],
-    ['link', { rel: 'stylesheet', href: '/mand-mobile-next/mand-mobile.min.css' }],
+    ['link', { rel: 'stylesheet', href: '/mand-mobile-next/mand-mobile-next.min.css' }],
   ],
   lang: 'zh-CN',
   themeConfig: {
