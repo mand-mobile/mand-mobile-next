@@ -44,6 +44,7 @@ const demos = import.meta.globEager('../../../src/packages/action-sheet/demo/dem
 ### ActionSheet Events
 
 #### <badge>v-model</badge> @update:modelValue(value)
+
 选择事件
 
 |属性 | 说明 | 类型 |
@@ -57,12 +58,15 @@ const demos = import.meta.globEager('../../../src/packages/action-sheet/demo/dem
 |value| 控制显示隐藏 | boolean |
 
 #### @cancel()
+
 取消选择事件
 
 #### @show()
+
 面板展示事件
 
 #### @hide()
+
 面板隐藏事件
 
 ---
@@ -70,6 +74,7 @@ const demos = import.meta.globEager('../../../src/packages/action-sheet/demo/dem
 ### ActionSheet 静态方法
 
 #### create(props)
+
 静态方法创建操作菜单, 返回ActionSheet实例；创建之后会立即显示。考虑到使用的规范性，不建议直接修改 `props` 来控制显示隐藏，**建议使用实例上的 `updateProps` 方法来更新 `props`, 使用 `remove` 方法来销毁实例**。
 
 |属性 | 说明 | 类型 | 默认值 | 备注 |

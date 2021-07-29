@@ -35,7 +35,7 @@ const demos = import.meta.globEager('../../../src/packages/dialog/demo/demo*.vue
 
 |属性 | 说明 | 类型 | 默认值|备注|
 |----|-----|------|------|------|
-| value | 双向绑定是否显示窗口 | Boolean | `false`| |
+| model-value | 双向绑定是否显示窗口 | Boolean | `false`| |
 | title | 窗口标题 | String | | |
 | icon | Icon组件图标名称 | String | | |
 | icon-svg | svg图标 | Boolean |`false`|如需自定义图标, 请查看`Icon`组件|
@@ -46,6 +46,7 @@ const demos = import.meta.globEager('../../../src/packages/dialog/demo/demo*.vue
 | has-mask | 是否有蒙层 | Boolean | `true`| |
 | mask-closable | 点击蒙层是否可关闭弹出层 | Boolean | `false`| |
 | transition | 弹出层过度动画 | String | 可选值参考Transition |
+| appendTo | dialog 节点的插入位置 | String | 选择器 | `body` |
 
 #### DialogBtnOptions
 
@@ -70,33 +71,26 @@ const demos = import.meta.globEager('../../../src/packages/dialog/demo/demo*.vue
 
 顶部插槽，一般用于放置图片等
 
-
-### Dialog Methods
-
-#### close()
-隐藏弹窗
-
 ### Dialog Events
 
+#### <badge>v-model</badge> @update:modelValue(value)
+
+显示隐藏双向绑定
+
 #### @show()
+
 模态窗口显示后触发的事件
 
 #### @hide()
+
 模态窗口隐藏后触发的事件
-
-#### @click(btn, index)
-按钮被点击后触发的事件
-
-|属性 | 说明 | 类型 |
-|----|-----|------|
-|btn|btns列表中被点击按钮对应的对象|Object: [DialogBtnOptions](#dialogbtnoptions)|
-|index|btns列表中被点击按钮对应的对象的数组下标|Number|
 
 ---
 
 ### Dialog Static Methods
 
 #### Dialog.confirm(props)
+
 静态方法创建确认模态窗口, 返回Dialog实例
 
 |属性 | 说明 | 类型 | 默认值|
@@ -114,6 +108,7 @@ const demos = import.meta.globEager('../../../src/packages/dialog/demo/demo*.vue
 | onHide | 窗口隐藏后回调函数 | Function | |
 
 #### Dialog.alert(props)
+
 静态方法创建警告模态窗口, 返回Dialog实例
 
 |属性 | 说明 | 类型 | 默认值|
@@ -128,6 +123,7 @@ const demos = import.meta.globEager('../../../src/packages/dialog/demo/demo*.vue
 | onHide | 窗口隐藏后回调函数 | Function | |
 
 #### Dialog.succeed(props)
+
 静态方法创建成功确认模态窗口, 返回Dialog实例
 
 |属性 | 说明 | 类型 | 默认值|
@@ -141,6 +137,7 @@ const demos = import.meta.globEager('../../../src/packages/dialog/demo/demo*.vue
 | onHide | 窗口隐藏后回调函数 | Function | |
 
 #### Dialog.failed(props)
+
 静态方法创建失败确认模态窗口, 返回Dialog实例
 
 |属性 | 说明 | 类型 | 默认值|
@@ -154,4 +151,5 @@ const demos = import.meta.globEager('../../../src/packages/dialog/demo/demo*.vue
 | onHide | 窗口隐藏后回调函数 | Function | |
 
 ##### Dialog.closeAll()
+
 静态方法关闭所有动态创建的全局Dialog
