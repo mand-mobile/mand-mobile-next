@@ -30,9 +30,11 @@ const demos = import.meta.globEager('../../../src/packages/selector/demo/demo*.v
 ## API
 
 ### Selector Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
-|value|选择器是否可见|Boolean|false| |
+|visible|选择器是否可见|Boolean|false| |
+|model-value|默认选中的值| String，Number | | options[number].value |
 |data|数据源|Array\<{value,text,disabled,...}\>|`[]`|`text`可为`html`片段|
 |default-value|选择器初始选中项的值|any| |`multi`为`true`时，`default-value`应该传数组|
 |title|选择器标题|String| | |
@@ -54,25 +56,39 @@ const demos = import.meta.globEager('../../../src/packages/selector/demo/demo*.v
 
 ### Selector Events
 
-### @choose({value, text, ...})
+#### <badge>v-model</badge> @update:modelValue(value)
+
 选择器选中某选项事件
 
+|属性 | 说明 | 类型 |
+|----|-----|------|
+|value| 选中项的值 | String, Number |
+
+### <badge>v-model:visible</badge> @update:visible(value)
+
+|属性 | 说明 | 类型 |
+|----|-----|------|
+|value| 控制显示隐藏 | boolean |
+
 ### @confirm({value, text, ...})
+
 选择器确认选中事件
 
 ### @cancel()
+
 选择器取消选中事件
 
 ### @show()
+
 选择器展示事件
 
 ### @hide()
+
 选择器隐藏事件
 
 ### Selector Slots
 
 #### default
-
 
 ```html
 <md-selector>
@@ -84,8 +100,8 @@ const demos = import.meta.globEager('../../../src/packages/selector/demo/demo*.v
 
 #### header
 
-顶部插槽     
+顶部插槽
 
 #### footer
 
-底部插槽   
+底部插槽
