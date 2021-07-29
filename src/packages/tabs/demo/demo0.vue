@@ -21,6 +21,7 @@ const tabs = ref<any>(null)
 const goToThree = () => {
   disabled.value = false
   setTimeout(() => {
+    tabs.value.$refs.swiper?.resetSwiper() // 重绘宽度
     tabs.value.$refs.swiper
       .getSwiperInstance()
       ?.goToPage(2, 0)

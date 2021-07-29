@@ -124,9 +124,9 @@ export const useTabs = (
   watch(
     tabItems,
     () => {
-      nextTick(() => {
-        swiperRef.value?.resetSwiper()
-      })
+      ;(
+        swiperRef.value?.getSwiperInstance() as unknown as BScroll
+      )?.refresh()
     },
     {
       deep: true,
