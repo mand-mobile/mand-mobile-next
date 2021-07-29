@@ -12,7 +12,8 @@ import './styles/prism.styl'
 import { Theme } from 'vitepress'
 import Layout from './Layout.vue'
 import NotFound from './NotFound.vue'
-import DemoWrapper from './DemoWrapper.vue'
+import DemoWrapper from './components/DemoWrapper.vue'
+import Badge from './components/Badge.vue'
 
 if (import.meta.env.DEV) {
   import('../../../dist/es/mand-mobile-next.min.css')
@@ -23,6 +24,7 @@ const theme: Theme = {
   NotFound,
   enhanceApp({ app }) {
     app.component('DemoWrapper', DemoWrapper)
+    app.component('badge', Badge)
   },
 }
 

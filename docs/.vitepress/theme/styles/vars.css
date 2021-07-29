@@ -15,7 +15,7 @@
   --c-text-light-2: #476582;
   --c-text-light-3: #90a4b7;
 
-  --c-brand: #2f86f6;
+  --c-brand: var(--md-color-primary);
   --c-brand-light: #99caf3;
 
   /**

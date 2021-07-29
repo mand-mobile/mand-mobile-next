@@ -34,21 +34,27 @@ const demos = import.meta.globEager('../../../src/packages/action-sheet/demo/dem
 ### ActionSheet Props
 |属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------|------|
-|value|面板是否可见|Boolean| `false`|-|
+| model-value | 选中值 | String, Number | | options[number].value |
+| visible |面板是否可见|Boolean| `false`|-|
 |title|面板标题|String|-|-|
 |options|面板选项| Array<{text, value}>| `[]`|-|
-|default-index|默认选中项| Boolean| `0`|-|
 |invalid-index|禁用选择项索引 |Number|`-1`|-|
-|cancel-text|取消按钮文案 |String |-|-|
+|cancel-text|取消按钮文案 |String | 取消 |-|
 
 ### ActionSheet Events
 
-#### @selected(item)
+#### <badge>v-model</badge> @update:modelValue(value)
 选择事件
 
 |属性 | 说明 | 类型 |
 |----|-----|------|
-|item| 选中项的值 | Object: {text, value} |
+|value| 选中项的值 | String, Number |
+
+### <badge>v-model:visible</badge> @update:visible(value)
+
+|属性 | 说明 | 类型 |
+|----|-----|------|
+|value| 控制显示隐藏 | boolean |
 
 #### @cancel()
 取消选择事件
@@ -61,17 +67,16 @@ const demos = import.meta.globEager('../../../src/packages/action-sheet/demo/dem
 
 ---
 
-### ActionSheet Static Methods
+### ActionSheet 静态方法
 
 #### create(props)
-静态方法创建操作菜单, 返回ActionSheet实例。可以通过控制实例的`value`属性来控制显示或隐藏操作菜单。
+静态方法创建操作菜单, 返回ActionSheet实例；创建之后会立即显示。考虑到使用的规范性，不建议直接修改 `props` 来控制显示隐藏，**建议使用实例上的 `updateProps` 方法来更新 `props`, 使用 `remove` 方法来销毁实例**。
 
 |属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------|------|
-|value|面板是否立即可见|Boolean| `true`|-|
+|model-value|默认选中的值| String，Number | | options[number].value |
 |title|面板标题|String|-|-|
 |options|面板选项| Array<{text, value}>| `[]`|-|
-|defaultIndex|默认选中项| Boolean| `0`|-|
 |invalidIndex|禁用选择项索引 |Number|`-1`|-|
 |cancelText|取消按钮文案 |String |-|-|
 |maxHeight|面板最高高度, 超出后可滚动|Number|400|单位`px`|
@@ -79,9 +84,4 @@ const demos = import.meta.globEager('../../../src/packages/action-sheet/demo/dem
 |onHide|面板隐藏回调|Function|-|-|
 |onCancel|取消选择回调|Function|-|-|
 |onSelected|选择回调|Function(item: {text, value})|-|-|
-
-#### closeAll()
-关闭所有全局操作菜单
-
-#### destroyAll()
-关闭并销毁所有全局操作菜单
+| onMaskClick | 点击蒙层回调 | Function|-| 一般此回调直接隐藏组件即可，见示例 |
