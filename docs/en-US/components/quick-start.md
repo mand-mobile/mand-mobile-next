@@ -73,7 +73,7 @@ export default defineConfig({
         esModule: true,
         ensureStyleFile: true,
         resolveStyle: (name) => {
-          return `mand-mobile-next/dist/es/${name}/index.css`;
+          return `mand-mobile-next/dist/es/${name}/style.js`;
         },
         resolveComponent: (name) => {
           return `mand-mobile-next/dist/es/${name}`;
@@ -225,108 +225,3 @@ useCssVar(themeVars)
 :::tip
 You can check the corresponding component code to get
 :::
-
-## Advanced Guides
-
-The current on-demand loading has some problems, when there are complex components referencing simple components, the `CSS` files they need may not be loaded correctly. This `vite-plugin` can be enhanced with：
-
-```ts
-import { parse, init } from 'es-module-lexer'
-import { hyphenate } from '@vue/shared'
-import fs from 'fs'
-import { resolve, join } from 'path'
-import { transformImportVar } from 'vite-plugin-style-import'
-import type { Plugin } from 'vite'
-
-const r = (...args: string[]) => resolve(__dirname, ...args)
-const removeQuery = (p: string) => p.replace(/\?.+$/, '')
-
-export const injectCss = (
-  libraryName = 'mand-mobile-next',
-  resolveStyle?: (...args: string[]) => string
-): Plugin => {
-  return {
-    name: 'inject-css',
-    async transform(code, id) {
-      await init
-      if (removeQuery(id).endsWith('.vue')) {
-        const [imports] = parse(code)
-        const libImports = imports
-          .flat()
-          .filter((item) => item.n === libraryName)
-
-        libImports.forEach((lib) => {
-          transformImportVar(
-            code.slice(lib.ss, lib.se)
-          ).forEach((vars) => {
-            code += '\n'
-            code += getDependenCompsCSS(
-              vars,
-              libraryName,
-              resolveStyle
-            )
-              .map((file) => `import '${file}'`)
-              .join('\n')
-          })
-        })
-      }
-      return {
-        code,
-        map: null,
-      }
-    },
-  }
-}
-
-function getDependenCompsCSS(
-  file: ((...args: string[]) => string) | string,
-  libName: string,
-  css:
-    | ((...args: string[]) => string)
-    | string = 'index.css'
-) {
-  const code = fs.readFileSync(
-    typeof file === 'function'
-      ? file()
-      : r(
-          'node_modules',
-          libName,
-          'dist/es',
-          hyphenate(file),
-          'index.js'
-        ),
-    'utf8'
-  )
-  const PATH_RE = /^\.*\//
-  const [imports, _] = parse(code)
-  return imports
-    .flat()
-    .map((item) => item.n)
-    .filter((n) => PATH_RE.test(n))
-    .map((n) => n.replace(PATH_RE, ''))
-    .filter((n) => {
-      return fs.existsSync(
-        typeof css === 'function'
-          ? css(n)
-          : r(
-              'node_modules',
-              libName,
-              'dist/es',
-              hyphenate(n),
-              css ?? 'index.css'
-            )
-      )
-    })
-    .map((n) =>
-      typeof css === 'function'
-        ? css(n)
-        : r(
-            'node_modules',
-            libName,
-            'dist/es',
-            hyphenate(n),
-            css ?? 'index.css'
-          )
-    )
-}
-```
