@@ -33,9 +33,9 @@ const demos = import.meta.globEager('../../../src/packages/date-picker/demo/demo
 |属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------|------|
 |v-model:visible|日期选择器是否可见|Boolean|`false`|-|
-|v-model|选中日期|Date/Array|`new Date()`|如果`type`是`time`, 选中日期是时分秒的`Array`, 如[23,59,59], 其他`type`则是`Date`类型|
+|v-model|选中日期|Date/Array|`new Date()`|如果`type`是`time`或者`custom`, 选中时间是`Array`, 如[23,59,59], 其他`type`则是`Date`类型|
 |type|日期选择类型|String|`date`|`date`, `time`, `datetime`, `custom`|
-|custom-types|自定义类型包含的日期元素, `[yyyy, MM, dd, hh, mm, ss]`|Array|-|仅用于type为`custom`|
+|custom-types|自定义类型包含的日期元素: `'yyyy', 'MM', 'dd', 'hh', 'mm', 'ss'`|Array|-|仅用于type为`custom`|
 |min-date|最小可选日期（时间）|Date|-|-|
 |max-date|最大可选日期（时间）|Date|-|-|
 |unit-text|元素单位展示文案设置|Array|`['年', '月', '日', '时', '分', '秒']`|复杂逻辑使用`text-render`|
