@@ -199,7 +199,8 @@ export const useDatePicker = (
     set: (val) => {
       if (
         innerValue.value instanceof Date &&
-        props.type !== 'time'
+        props.type !== 'time' &&
+        props.type !== 'custom'
       ) {
         const date = toDate(columnTypes.value, val as any)
         innerValue.value = new Date(date)
@@ -214,9 +215,12 @@ export const useDatePicker = (
   const selectedValues = computed({
     get: () => {
       if (innerValue.value instanceof Date) {
-        if (props.type === 'time') {
+        if (
+          props.type === 'time' ||
+          props.type === 'custom'
+        ) {
           warn(
-            'v-model should be array when date picker type is time'
+            `v-model should be array when date picker type is ${props.type}`
           )
           return
         }

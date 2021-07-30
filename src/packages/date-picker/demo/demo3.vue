@@ -8,9 +8,9 @@ export default {
 import { ref, watch } from 'vue'
 import MdDatePicker from 'mand-mobile-next/date-picker'
 
-const minDate = new Date('2013/9/9 12:00:00')
-const maxDate = new Date('2022/9/9 09:00:00')
-const selectedDateTime = ref(new Date())
+const minDate = new Date('2021/1/1 12:00:00')
+const maxDate = new Date('2030/9/9 09:00:00')
+const selectedDateTime = ref([18, 10, 2021])
 const customTypes = ['dd', 'MM', 'yyyy']
 const MONTH_MAP = [
   'Jan',
