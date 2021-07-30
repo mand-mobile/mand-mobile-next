@@ -36,9 +36,9 @@ const demos = import.meta.globEager('../../../src/packages/date-picker/demo/demo
 |Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
 |v-model:visible|display date picker or not|Boolean|`false`|-|
-|v-model|initial selected date|Date/Array|`new Date()`|value is an Array including hour, miniute and second such as [23, 59, 59] when `type` is `time`, otherwise value is a Date|
+|v-model|initial selected date|Date/Array|`new Date()`|value is an Array including such as [23, 59, 59] when `type` is `time` or `custom`, otherwise value is a Date|
 |type|type of selection|String|`date`|`date`, `time`, `datetime`, `custom`|
-|custom-types|customized type contains `date element`, `[yyyy, MM, dd, hh, mm, ss]`|Array|-|valid when the value of type is `custom`|
+|custom-types|customized element contains `'yyyy', 'MM', 'dd', 'hh', 'mm', 'ss'`|Array|-|valid when type is `custom`|
 |min-date|selectable min date(time)|Date|-|-|
 |max-date|selectable max date(time)|Date|-|-|
 |unit-text|element unit for text displaying|Array|`['Year', 'Month', 'Day', 'Hour', 'Minute', 'Second']`|`text-render` for complex logic|
