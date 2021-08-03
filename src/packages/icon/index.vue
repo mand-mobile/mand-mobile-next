@@ -115,16 +115,18 @@ export default defineComponent({
       width var(--md-icon-size-lg)
       vertical-height(var(--md-icon-size-lg))
 // name
+.md-icon-arrow:before
+  content "\e68d"
 .md-icon-rectangle:before
-  content "\e900"
+  content "\e68e"
 .md-icon-invisible:before
   content "\e601"
 .md-icon-visible:before
   content "\e602"
 .md-icon-right:before
-  content "\e905"
+  content "\e68f"
 .md-icon-wrong:before
-  content "\e906"
+  content "\e68c"
 .md-icon-info:before
   content "\e605"
 .md-icon-service:before
@@ -132,23 +134,23 @@ export default defineComponent({
 .md-icon-edit:before
   content "\e607"
 .md-icon-refresh:before
-  content "\e901"
+  content "\e60a"
 .md-icon-question:before
   content "\e608"
 .md-icon-setting:before
   content "\e609"
 .md-icon-wait:before
-  content "\e902"
+  content "\e690"
 .md-icon-check:before
   content "\e904"
 .md-icon-check-disabled:before
   content "\e903"
 .md-icon-checked:before, .md-icon-success:before
-  content "\e908"
+  content "\e60d"
 .md-icon-clear:before, .md-icon-fail:before
   content "\e60e"
 .md-icon-info-solid:before
-  content "\e907"
+  content "\e635"
 .md-icon-warn:before
   content "\e60b"
 .md-icon-security:before
@@ -229,5 +231,5 @@ export default defineComponent({
   font-weight normal
   /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
   /* Version is required */
-  src url("https://manhattan.didistatic.com/static/manhattan/mand-mobile/icon/2.0.2/iconfont.woff") format("woff"), url("https://manhattan.didistatic.com/static/manhattan/mand-mobile/icon/2.0.2/iconfont.ttf") format("truetype")
+  src url("https://manhattan.didistatic.com/static/manhattan/mand-mobile/icon/2.1.0/iconfont.woff") format("woff"), url("https://manhattan.didistatic.com/static/manhattan/mand-mobile/icon/2.1.0/iconfont.ttf") format("truetype")
 </style>
