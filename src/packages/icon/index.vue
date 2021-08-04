@@ -126,7 +126,7 @@ export default defineComponent({
 .md-icon-right:before
   content "\e68f"
 .md-icon-wrong:before
-  content "\e68c"
+  content "\e604"
 .md-icon-info:before
   content "\e605"
 .md-icon-service:before
@@ -224,7 +224,7 @@ export default defineComponent({
 .md-icon-arrow-down:before
   content "\e634"
 .md-icon-close:before
-  content "\e604"
+  content "\e68c"
 @font-face
   font-family Mand-Mobile-Icon
   font-style normal
