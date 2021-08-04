@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { useCssVar } from 'mand-mobile-next/composable'
 
 const theme = ref ({
-  'color-primary': '#4280EB'
+  'color-primary': '#198cff'
 })
 
 useCssVar(theme)

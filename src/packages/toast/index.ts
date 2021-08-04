@@ -170,7 +170,7 @@ ToastConstructor.loading = (
   hasMask = true
 ) => {
   return ToastConstructor.create({
-    icon: 'spinner',
+    icon: 'ring',
     iconSvg: true,
     content,
     duration,
