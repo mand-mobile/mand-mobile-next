@@ -90,6 +90,10 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    transitionName: {
+      type: String,
+      default: 'md-fade-tip',
+    },
   },
   emits: [SHOW_EVENT, HIDE_EVENT],
   setup(props, { emit, slots, expose }) {
@@ -143,7 +147,9 @@ export default defineComponent({
         transform?: string
       } = { top: '0', left: '0' }
 
-      const scrollY = window?.scrollY ?? 0
+      const scrollY = props.follow
+        ? window?.scrollY ?? 0
+        : 0
 
       switch (props.placement) {
         case 'top':
@@ -415,7 +421,7 @@ export default defineComponent({
           h(
             MdTransition,
             {
-              name: 'md-fade-tip',
+              name: props.transitionName,
             },
             {
               default: content,
