@@ -142,9 +142,9 @@ export default defineComponent({
 .md-icon-wait:before
   content "\e690"
 .md-icon-check:before
-  content "\e904"
+  content "\e60c"
 .md-icon-check-disabled:before
-  content "\e903"
+  content "\e636"
 .md-icon-checked:before, .md-icon-success:before
   content "\e60d"
 .md-icon-clear:before, .md-icon-fail:before
