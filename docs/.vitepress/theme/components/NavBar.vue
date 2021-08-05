@@ -9,6 +9,7 @@ import GithubLink from './GithubLink.vue'
 import DarkSwitch from './DarkSwitch.vue'
 import LangSwitch from './LangSwitch.vue'
 import ThemeSwitch from './ThemeSwitch.vue'
+import QrCode from './QrCode.vue'
 
 defineEmit(['toggle'])
 
@@ -40,6 +41,7 @@ const shadowStyle = computed(() => {
     </div>
 
     <div class="nav-icons flex items-center gap-2">
+      <QrCode />
       <GithubLink v-if="repo && isGithub()" :item="repo" />
       <DarkSwitch />
       <LangSwitch />
