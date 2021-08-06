@@ -5,6 +5,7 @@ import { Project, SourceFile } from 'ts-morph'
 import vueCompiler from '@vue/compiler-sfc'
 import klawSync from 'klaw-sync'
 import ora from 'ora'
+import { parseComponentExports } from './gen-entry'
 
 const TSCONFIG_PATH = path.resolve(cwd(), 'tsconfig.json')
 const DEMO_RE = /\/demo\/\w+\.vue$/
@@ -27,6 +28,15 @@ const genVueTypes = async () => {
   })
 
   const sourceFiles: SourceFile[] = []
+
+  const entry = await parseComponentExports()
+  const entrySourceFile = project.createSourceFile(
+    path.resolve(cwd(), 'src/packages/mand-mobile.ts'),
+    entry,
+    { overwrite: true }
+  )
+
+  sourceFiles.push(entrySourceFile)
 
   const filePaths = klawSync(
     path.resolve(cwd(), 'src/packages'),
@@ -94,34 +104,16 @@ const genVueTypes = async () => {
     const emitOutput = sourceFile.getEmitOutput()
     for (const outputFile of emitOutput.getOutputFiles()) {
       const filepath = outputFile.getFilePath()
-      const esPath = filepath.replace('/types/', '/es/')
-      const libPath = esPath.replace('/es/', '/lib/')
-
-      await Promise.all([
-        fs.promises.mkdir(path.dirname(esPath), {
-          recursive: true,
-        }),
-        fs.promises.mkdir(path.dirname(libPath), {
-          recursive: true,
-        }),
-      ])
-
-      await Promise.all([
-        fs.promises.writeFile(
-          esPath,
-          outputFile
-            .getText()
-            .replace('mand-mobile-next/', '../'),
-          'utf8'
-        ),
-        fs.promises.writeFile(
-          libPath,
-          outputFile
-            .getText()
-            .replace('mand-mobile-next/', '../'),
-          'utf8'
-        ),
-      ])
+      await fs.promises.mkdir(path.dirname(filepath), {
+        recursive: true,
+      })
+      await fs.promises.writeFile(
+        filepath,
+        outputFile
+          .getText()
+          .replace('mand-mobile-next/', '../'),
+        'utf8'
+      )
     }
   }
 }
