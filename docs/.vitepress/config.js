@@ -105,7 +105,6 @@ module.exports = {
     logo: 'https://pt-starimg.didistatic.com/static/starimg/img/ySOsAunfGm1610683661213.png',
     nav: [
       { text: '组件', link: '/zh-CN/components/' },
-      { text: 'RoadMap', link: '/roadmap' },
       {
         text: '2.x',
         link: 'https://didi.github.io/mand-mobile/',
@@ -113,7 +112,6 @@ module.exports = {
     ],
     navEn: [
       { text: 'Components', link: '/en-US/components/' },
-      { text: 'RoadMap', link: '/roadmap' },
       {
         text: '2.x',
         link: 'https://didi.github.io/mand-mobile/',
