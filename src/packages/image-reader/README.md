@@ -20,16 +20,13 @@ Vue.createApp().component(ImageReader.name, ImageReader)
 
 <demo-wrapper
   src="src/packages/image-reader/demo"
-  :demos="demos"
+  
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/image-reader/demo/demo*.vue')
-</script>
 
 ## API
 
 ### ImageReader Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |name|标识|String| |可用于区分多个选择器|
@@ -42,6 +39,7 @@ const demos = import.meta.globEager('../../../src/packages/image-reader/demo/dem
 ### ImageReader Events
 
 #### @select(name, { files })
+
 图片选择完成事件，还未开始读取
 
 |属性 | 说明 | 类型| 备注|
@@ -50,6 +48,7 @@ const demos = import.meta.globEager('../../../src/packages/image-reader/demo/dem
 |files|图片对象集合|Array\<File\>|-|
 
 #### @complete(name, { dataUrl, blob, file })
+
 图片选择读取完成事件
 
 |属性 | 说明 | 类型| 备注|
@@ -60,6 +59,7 @@ const demos = import.meta.globEager('../../../src/packages/image-reader/demo/dem
 |blob |图片Blob对象，可用于`formData`|Blob|-|
 
 #### @error(name, { code, msg })
+
 图片选择读取失败事件
 
 |属性 | 说明 | 类型| 备注|
@@ -69,7 +69,6 @@ const demos = import.meta.globEager('../../../src/packages/image-reader/demo/dem
 |msg|错误信息，见附录|String|-|
 
 ## imageProcessor
-
 
 用于图片轴向修正，图片质量压缩，宽高控制
 
@@ -96,6 +95,7 @@ imageProcessor(options[, fn])
 |quality|图片质量|Number|取值范围`0-1`|
 
 ## 附录
+
 图片读取失败错误码和错误信息
 
 ```

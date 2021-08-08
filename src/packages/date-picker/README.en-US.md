@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/date-picker
 
 # DatePicker
 
-
 Date or time selecting, supports year/month/day/hour/minute/second custom selecting
 
 ### Import
@@ -21,18 +20,12 @@ Vue.createApp().component(DatePicker.name, DatePicker)
 
 <demo-wrapper
   src="src/packages/date-picker/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/date-picker/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### DatePicker Props
+
 |Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
 |v-model:visible|display date picker or not|Boolean|`false`|-|
@@ -42,21 +35,22 @@ const demos = import.meta.globEager('../../../src/packages/date-picker/demo/demo
 |min-date|selectable min date(time)|Date|-|-|
 |max-date|selectable max date(time)|Date|-|-|
 |unit-text|element unit for text displaying|Array|`['Year', 'Month', 'Day', 'Hour', 'Minute', 'Second']`|`text-render` for complex logic|
-|text-render|customized option for text displaying|Function(typeFormat, column0Value, column1Value, ...): String|-|`unit-text` is invalid when using `text-render`, refer to `Appendix`|              
-|today-text|displaying text of today|String|`today`|use `&` to take placeholder date, like `&(today)`| 
-|line-height|line height of options|Number|`45`|unit `px`| 
-|keep-index|keep last stop position when the column data changes|Boolean|`false`|-|          
-|is-view|inline-display in page, otherwise it shows as `Popup`|Boolean|`false`|-| 
+|text-render|customized option for text displaying|Function(typeFormat, column0Value, column1Value, ...): String|-|`unit-text` is invalid when using `text-render`, refer to `Appendix`|
+|today-text|displaying text of today|String|`today`|use `&` to take placeholder date, like `&(today)`|
+|line-height|line height of options|Number|`45`|unit `px`|
+|keep-index|keep last stop position when the column data changes|Boolean|`false`|-|
+|is-view|inline-display in page, otherwise it shows as `Popup`|Boolean|`false`|-|
 |title|title of date-picker|String|-|-|
 |describe|description of date-picker|String|-|-|
-|ok-text|confirmation text|String|`confirm`|-| 
-|cancel-text|cancellation text|String|`cancel`|-| 
+|ok-text|confirmation text|String|`confirm`|-|
+|cancel-text|cancellation text|String|`cancel`|-|
 |large-radius|large radius of title bar|Boolean|`false`|-|
 |mask-closable|picker will be closed when clicking mask|String|`true`|-|
 
 #### DatePicker Methods
 
 ##### getColumnValues(): columnsValue
+
 Get all values of currently seleted items
 
 Returns
@@ -65,10 +59,10 @@ Returns
 |----|-----|------|
 |columnsValue|values of all selected items in the column|Array<{value, text, ...}>|
 
-
 #### DatePicker Events
 
 ##### @change(columnIndex, itemIndex, value)
+
 Change selections of date picker
 
 |Parameters | Description | Type|
@@ -78,17 +72,20 @@ Change selections of date picker
 |value|change the value of selected item|Object: {value, text, ...}|
 
 ##### @confirm()
+
 Confirm the selection of date picker(only when `is-view` is `false`）
 
 ##### @cancel()
+
 Cancel date picker's selection (only when `is-view` is `false`）
 
 ##### @show()
+
 Show date picker (only when `is-view` is `false`）
 
 ##### @hide()
-Hide date picker (only when `is-view` is `false`）
 
+Hide date picker (only when `is-view` is `false`）
 
 #### Appendix
 

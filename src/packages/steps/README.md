@@ -20,16 +20,12 @@ Vue.createApp().component(Steps.name, Steps)
 
 <demo-wrapper
   src="src/packages/steps/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/steps/demo/demo*.vue')
-</script>
 
 ## API
 
 ### Steps Props
+
 | 属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------|------|
 |steps|步骤信息数组|Array\<[StepOptions](#stepoptions)\>| | |
@@ -40,6 +36,7 @@ const demos = import.meta.globEager('../../../src/packages/steps/demo/demo*.vue'
 |adaptive|步骤高度自适应|Boolean|`false`|仅用于`vertical`, **如果设置为`true`则根据容器高度自适应，需设置`.mfe-steps`高度**|
 
 ### StepOptions
+
 | 属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------|------|
 |name|步骤标题|String| | |

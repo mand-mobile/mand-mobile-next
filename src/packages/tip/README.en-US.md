@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/tip
 
 # Tip
 
-
 Tooltip
 
 ### Import
@@ -21,18 +20,12 @@ Vue.createApp().component(Tip.name, Tip)
 
 <demo-wrapper
   src="src/packages/tip/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/tip/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### Tip Props
+
 | Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
 |name|the name of tip|String/Number|-|generally used for special class names|
@@ -46,7 +39,9 @@ const demos = import.meta.globEager('../../../src/packages/tip/demo/demo*.vue')
 #### Tip Events
 
 ##### @show()
+
 Invoked after dialog is shown
 
 ##### @hide()
+
 Invoked after dialog is hidden

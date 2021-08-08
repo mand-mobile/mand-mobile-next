@@ -20,12 +20,7 @@ Vue.createApp().component(Swiper.name, Swiper)
 
 <demo-wrapper
   src="src/packages/swiper/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/swiper/demo/demo*.vue')
-</script>
 
 ## API
 

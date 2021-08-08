@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/progress
 
 # Progress
 
-
 Progress circle, generally used to communicate data intuitively to users
 
 ### Import
@@ -21,18 +20,12 @@ Vue.createApp().component(Progress.name, Progress)
 
 <demo-wrapper
   src="src/packages/progress/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/progress/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### Progress Props
+
 |Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
 |value|progress value|Number|`0`|`0-1`|
@@ -49,7 +42,9 @@ const demos = import.meta.globEager('../../../src/packages/progress/demo/demo*.v
 #### Progress Slots
 
 ##### default
+
 slot inside circle, generally used to add text
 
 ##### defs
+
 slot inside circle svg, generally used to add `defs`, `use` elements, etc

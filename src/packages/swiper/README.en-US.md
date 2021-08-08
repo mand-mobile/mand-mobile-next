@@ -6,9 +6,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/swiper
 
 # Swiper
 
-
 Carousel, used to cycle through a set of pictures or cards
-
 
 ### Import
 
@@ -23,14 +21,7 @@ Vue.createApp().component(SwiperItem.name, SwiperItem)
 
 <demo-wrapper
   src="src/packages/swiper/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/swiper/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
@@ -51,6 +42,7 @@ const demos = import.meta.globEager('../../../src/packages/swiper/demo/demo*.vue
 #### Swiper Methods
 
 ##### play(autoplay)
+
 enable autoplay
 
 | Args | Description | Type | Default | Note |
@@ -62,6 +54,7 @@ vm.$refs.swiper.play(5000)
 ```
 
 ##### stop()
+
 stop autoplay
 
 ```js
@@ -69,6 +62,7 @@ vm.$refs.swiper.stop()
 ```
 
 ##### prev()
+
 switch to the previous item
 
 ```js
@@ -76,6 +70,7 @@ vm.$refs.swiper.prev()
 ```
 
 ##### next()
+
 switch to the next item
 
 ```js
@@ -83,6 +78,7 @@ vm.$refs.swiper.next()
 ```
 
 ##### goto(index)
+
 switch to `index`
 
 | Args | Description | Type | Default | Note |
@@ -94,6 +90,7 @@ vm.$refs.swiper.goto(2)
 ```
 
 ##### getIndex()
+
 get the index on display
 
 | Args | Description | Type |
@@ -105,7 +102,9 @@ var index = vm.$refs.swiper.getIndex()
 ```
 
 #### Swiper Events
+
 ##### @beforeChange(from, to)
+
 event to be triggered before the slide is changed
 
 | Args | Description | Type |
@@ -114,6 +113,7 @@ event to be triggered before the slide is changed
 | to     | the next index | Number          |
 
 ##### @afterChange(from, to)
+
 event to be triggered after the slide is changed
 
 | Args | Description | Type |

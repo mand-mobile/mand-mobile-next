@@ -21,12 +21,7 @@ Vue.createApp().component(TabPane.name, TabPane)
 
 <demo-wrapper
   src="src/packages/tabs/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/tabs/demo/demo*.vue')
-</script>
 
 ## API
 

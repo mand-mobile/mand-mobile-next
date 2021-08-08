@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/image-reader
 
 # ImageReader
 
-
 For photo album reading or photos taking
 
 ### Import
@@ -24,18 +23,12 @@ Vue.createApp().component(ImageReader.name, ImageReader)
 
 <demo-wrapper
   src="src/packages/image-reader/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/image-reader/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### ImageReader Props
+
 |Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
 |name|identifier|String|-|used to distinguish multiple readers|
@@ -48,6 +41,7 @@ const demos = import.meta.globEager('../../../src/packages/image-reader/demo/dem
 #### ImageReader Events
 
 ##### @select(name, { files })
+
 Picture selection completed, while reading hasn't been started yet，only support web
 
 |Parameters | Description | Type| Note|
@@ -56,6 +50,7 @@ Picture selection completed, while reading hasn't been started yet，only suppor
 |files|image file objects set|Array\<File\>|-|
 
 ##### @complete(name, { dataUrl, blob, file })
+
 Picture reading completed
 
 |Parameters | Description | Type| Note|
@@ -66,6 +61,7 @@ Picture reading completed
 |file|image file object|File|-|
 
 ##### @error(name, { code, msg })
+
 Picture selection and reading failed
 
 |Parameters | Description | Type| Note|
@@ -102,6 +98,7 @@ imageProcessor(options[, fn])
 |quality|picture quality|Number|value range `0-1`|
 
 ### Appendix
+
 Picture read failed error code and error message
 
 ```

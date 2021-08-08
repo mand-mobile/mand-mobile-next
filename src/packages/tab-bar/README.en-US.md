@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/tab-bar
 
 # TabBar
 
-
 To create a tab bar without a content area
 
 ### Import
@@ -21,18 +20,12 @@ Vue.createApp().component(TabBar.name, TabBar)
 
 <demo-wrapper
   src="src/packages/tab-bar/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/tab-bar/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### TabBar Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 | v-model | key of selected menu | String | - | - |
@@ -44,11 +37,13 @@ const demos = import.meta.globEager('../../../src/packages/tab-bar/demo/demo*.vu
 #### TabBar Methods
 
 ##### reflow(index)
+
 relayout tabbar
 
 #### TabBar Events
 
 ##### @change(item, index, prevIndex)
+
 selected menu index changes
 
 |Props | Description | Type|
@@ -58,6 +53,7 @@ selected menu index changes
 | index | index of previous selected menu | Number |
 
 #### TabBar Slot
+
 ```javascript
 <md-tab-bar>
   <template slot="item" slot-scope="{ item, currentName, index, items }">

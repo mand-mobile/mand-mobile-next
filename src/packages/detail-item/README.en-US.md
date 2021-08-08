@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/detail-item
 
 # DetailItem
 
-
 Detail list usually used as bill details, inventory details and so on.
 
 ### Import
@@ -21,18 +20,12 @@ Vue.createApp().component(DetailItem.name, DetailItem)
 
 <demo-wrapper
   src="src/packages/detail-item/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/detail-item/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### CellItem Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |title|title|String|-|-|

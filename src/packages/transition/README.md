@@ -20,14 +20,10 @@ Vue.createApp().component(Transition.name, Transition)
 
 <demo-wrapper
   src="src/packages/transition/demo"
-  :demos="demos"
 />
 
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/transition/demo/demo*.vue')
-</script>
-
 ## API
+
 `md-transition`组件为Vue内置`transtion`的一层封装，支持所有Transition的属性参数。
 
 其中内置动画`name`参数如下：
@@ -44,4 +40,3 @@ const demos = import.meta.globEager('../../../src/packages/transition/demo/demo*
 - `md-bounce`
 - `md-punch`
 - `md-zoom`
-

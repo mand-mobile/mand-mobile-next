@@ -20,16 +20,12 @@ Vue.createApp().component(TextareaItem.name, TextareaItem)
 
 <demo-wrapper
   src="src/packages/textarea-item/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/textarea-item/demo/demo*.vue')
-</script>
 
 ## API
 
 ### TextareaItem Props
+
 | 属性                                              | 说明                                             | 类型          | 默认值  | 备注           |
 | ------------------------------------------------- | ------------------------------------------------ | ------------- | ------- | -------------- |
 | title                                             | 标题                                             | String        | -       | -              |
@@ -54,27 +50,35 @@ const demos = import.meta.globEager('../../../src/packages/textarea-item/demo/de
 ### TextareaItem Events
 
 #### focus()
+
 文本域获得焦点
 
 #### blur()
+
 文本域失去焦点
 
 #### getValue()
+
 获取文本域值
 
 ### TextItem Events
 
 #### @focus(name)
+
 文本域获得焦点事件
 
 #### @blur(name)
+
 文本域失去焦点事件
 
 #### @change(name, value)
+
 文本域值变化事件
 
 #### @keyup(name, event)
+
 文本域按键按下事件
 
 #### @keydown(name, event)
+
 文本域按键释放事件

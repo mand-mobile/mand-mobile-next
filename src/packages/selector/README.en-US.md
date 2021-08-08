@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/selector
 
 # Selector
 
-
 For selecting an item from the popup list
 
 ### Import
@@ -21,19 +20,14 @@ Vue.createApp().component(Selector.name, Selector)
 
 <demo-wrapper
   src="src/packages/selector/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/selector/demo/demo*.vue')
-</script>
-
 
 <!-- DEMO -->
 
 ### API
 
 #### Selector Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |v-model|display selector or not|Boolean|false|-|
@@ -57,22 +51,26 @@ const demos = import.meta.globEager('../../../src/packages/selector/demo/demo*.v
 |icon-position|the position of icon|String|`right`|`left`, `right`|
 |multi<sup class="version-after">2.3.0+</sup>|support multi select|Boolean|`false`|`multi` must be with `ok-text` prop|
 
-
 #### Selector Events
 
 #### @choose({value, text, ...})
+
 Select one item
 
 #### @confirm({value, text, ...})
+
 Confirm selection
 
 #### @cancel()
+
 Cancel selection
 
 #### @show()
+
 Show selector
 
 #### @hide()
+
 Hide selector
 
 #### Selector Slots
@@ -89,8 +87,8 @@ Hide selector
 
 ##### header
 
-header slot <sup class="version-after">2.4.0+</sup>    
+header slot <sup class="version-after">2.4.0+</sup>
 
 ##### footer
 
-footer slot <sup class="version-after">2.4.0+</sup>     
+footer slot <sup class="version-after">2.4.0+</sup>

@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/radio
 
 # Radio 单选框
 
-
 可自定义或编辑单选框
 
 ## 引入
@@ -20,24 +19,18 @@ Vue.createApp().component(RadioGroup.name, RadioGroup)
 Vue.createApp().component(RadioList.name, RadioList)
 ```
 
-
 ## 代码演示
 
 <demo-wrapper
   src="src/packages/radio/demo"
-  :demos="demos"
 />
 
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/radio/demo/demo*.vue')
-</script>
-
 <!-- DEMO -->
-
 
 ## API
 
 ### Radio Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |value|选中项的`name`|any|-|
@@ -54,6 +47,7 @@ const demos = import.meta.globEager('../../../src/packages/radio/demo/demo*.vue'
 ---
 
 ### RadioBox Props
+
 单选框
 
 |属性 | 说明 | 类型 | 默认值 | 备注 |
@@ -65,6 +59,7 @@ const demos = import.meta.globEager('../../../src/packages/radio/demo/demo*.vue'
 ---
 
 ### RadioGroup Props
+
 单选组，用以选中多个单选项。与`Radio`或`RadioBox`组合使用
 
 |属性 | 说明 | 类型 | 默认值 | 备注 |
@@ -82,6 +77,7 @@ const demos = import.meta.globEager('../../../src/packages/radio/demo/demo*.vue'
 ---
 
 ### Radio List Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |value|选中项的`value`|any|-|
@@ -100,6 +96,7 @@ const demos = import.meta.globEager('../../../src/packages/radio/demo/demo*.vue'
 ### Radio List Methods
 
 #### select(value)
+
 设置选中项
 
 |参数 | 说明 | 类型|
@@ -109,6 +106,7 @@ const demos = import.meta.globEager('../../../src/packages/radio/demo/demo*.vue'
 ### Radio List Events
 
 #### @change(option, index)
+
 切换选中项事件
 
 |属性 | 说明 | 类型|
@@ -117,6 +115,7 @@ const demos = import.meta.globEager('../../../src/packages/radio/demo/demo*.vue'
 |index|当前选中项的索引|Number|
 
 ### Radio List Slots
+
 ```html
 <template>
   <md-radio-list :options="data">

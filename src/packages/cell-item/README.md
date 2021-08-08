@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/cell-item
 
 # CellItem 单元格
 
-
 列表用于展现并列层级的信息内容，列表可承载功能入口、功能操作、信息展示等功能。
 
 ## 引入
@@ -21,16 +20,12 @@ Vue.createApp().component(CellItem.name, CellItem)
 
 <demo-wrapper
   src="src/packages/cell-item/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/cell-item/demo/demo*.vue')
-</script>
 
 ## API
 
 ### CellItem Props
+
 |属性 | 说明 | 类型 | 默认值|备注|
 |----|-----|------|------|------|
 |title|标题|String| | |
@@ -41,19 +36,25 @@ const demos = import.meta.globEager('../../../src/packages/cell-item/demo/demo*.
 |no-border|去除边框|Boolean|`false`| |
 
 ### CellItem Events
+
 #### @click(event)
+
 非禁用状态下的点击事件
 
 ### CellItem Slots
 
 #### default
+
 内容默认插槽
 
 #### left
+
 起始区域插槽
 
 #### right
+
 末尾附加内容插槽
 
 #### children
+
 额外内容插槽

@@ -21,12 +21,7 @@ Vue.createApp().component(ActivityIndicator.name, ActivityIndicator)
 
 <demo-wrapper
   src="src/packages/activity-indicator/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/activity-indicator/demo/demo*.vue')
-</script>
 
 ### API
 

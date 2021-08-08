@@ -20,12 +20,7 @@ Vue.createApp().component(TabBar.name, TabBar)
 
 <demo-wrapper
   src="src/packages/tab-bar/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/tab-bar/demo/demo*.vue')
-</script>
 
 ## API
 

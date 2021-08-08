@@ -20,12 +20,10 @@ Vue.createApp().component(Stepper.name, Stepper)
 
 <demo-wrapper
   src="src/packages/stepper/demo"
-  :demos="demos"
+  
 />
 
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/stepper/demo/demo*.vue')
-</script>
+
 
 ## API
 

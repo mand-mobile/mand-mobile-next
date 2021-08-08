@@ -24,16 +24,12 @@ Vue.createApp().component(ResultPage.name, ResultPage)
 
 <demo-wrapper
   src="src/packages/result-page/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/result-page/demo/demo*.vue')
-</script>
 
 ## API
 
 ### ResultPage Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |type | 页面类别 | String | `empty` | type可取`lost`, `network`和`empty`三个值，分别代表页面丢失、网络出错和空信息。根据类别不同，组件会拥有不同的默认图片和文案|
@@ -43,6 +39,7 @@ const demos = import.meta.globEager('../../../src/packages/result-page/demo/demo
 |buttons | 按钮列表 | Array\<[ButtonOptions](#buttonoptions)\> |  | 按钮对象数组，按钮可参考`Button`|
 
 #### ButtonOptions
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |text | 按钮文字 | String | - | - |
@@ -58,4 +55,5 @@ const demos = import.meta.globEager('../../../src/packages/result-page/demo/demo
 ### ResultPage Events
 
 ### @action(button: [ButtonOptions](#buttonoptions))
+
 点击按钮时触发，也可以直接配置[ButtonOptions](#buttonoptions)中的handler

@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/toast
 
 # Toast
 
-
 ### Import
 
 ```javascript
@@ -25,20 +24,14 @@ Vue.createApp().component(Toast.name, Toast) // Component Import
 
 <demo-wrapper
   src="src/packages/toast/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/toast/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### Toast Static Methods
 
 ##### Toast.create({content, icon, iconSvg, duration, position, hasMask, parentNode})
+
 Dynamically create a toast
 
 | Props | Description | Type | Default | Note |
@@ -52,6 +45,7 @@ Dynamically create a toast
 | parentNode | portal node of toast | HTMLElement | `document.body`| - |
 
 ##### Toast.info(content, duration, hasMask, parentNode)
+
 Dynamically create a text toast
 
 | Props | Description | Type | Default | Note |
@@ -62,6 +56,7 @@ Dynamically create a text toast
 | parentNode | portal node of toast | HTMLElement | `document.body`| - |
 
 ##### Toast.succeed(content, duration, hasMask, parentNode)
+
 Dynamically create a success toast
 
 | Props | Description | Type | Default | Note |
@@ -72,6 +67,7 @@ Dynamically create a success toast
 | parentNode | portal node of toast | HTMLElement | `document.body`| - |
 
 ##### Toast.failed(content, duration, hasMask, parentNode)
+
 Dynamically create a failed toast
 
 | Props | Description | Type | Default | Note |
@@ -82,6 +78,7 @@ Dynamically create a failed toast
 | parentNode | portal node of toast | HTMLElement | `document.body`| - |
 
 ##### Toast.loading(content, duration, hasMask, parentNode)
+
 Dynamically create a loading toast
 
 | Props | Description | Type | Default | Note |
@@ -92,6 +89,7 @@ Dynamically create a loading toast
 | parentNode | portal node of toast | HTMLElement | `document.body`| - |
 
 ##### Toast.hide()
+
 Hide current toast
 
 #### Toast.component Props
@@ -118,9 +116,11 @@ Hide current toast
 <sup class="version-after">2.3.0+</sup>
 
 ##### show()
+
 Show toast
 
 ##### hide()
+
 Hide toast
 
 #### Toast.component Events
@@ -128,7 +128,9 @@ Hide toast
 <sup class="version-after">2.3.0+</sup>
 
 ##### @show()
+
 Toast show event
 
 ##### @hide()
+
 Toast hidden event

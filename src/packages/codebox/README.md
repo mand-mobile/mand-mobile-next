@@ -20,16 +20,12 @@ Vue.createApp().component(Codebox.name, Codebox)
 
 <demo-wrapper
   src="src/packages/codebox/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/codebox/demo/demo*.vue')
-</script>
 
 ## API
 
 ### Codebox Props
+
 |属性 | 说明 | 类型 | 默认值|
 |----|-----|------|------|
 |value|验证码字符串|String| |
@@ -47,12 +43,15 @@ const demos = import.meta.globEager('../../../src/packages/codebox/demo/demo*.vu
 ### Codebox Methods
 
 #### focus()
+
 聚焦输入
 
 #### blur()
+
 失焦隐藏键盘
 
 ### Codebox Events
 
 #### @submit(code)
+
 用户提交输入内容事件

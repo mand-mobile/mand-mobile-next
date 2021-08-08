@@ -20,16 +20,12 @@ Vue.createApp().component(Skeleton.name, Skeleton)
 
 <demo-wrapper
   src="src/packages/skeleton/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/skeleton/demo/demo*.vue')
-</script>
 
 ## API
 
 ### Skeleton Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |loading|是否显示骨架屏|Boolean|true|-|

@@ -6,8 +6,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/tag
 
 # Tag
 
-
-For showing the area status 
+For showing the area status
 
 ### Import
 
@@ -21,18 +20,14 @@ Vue.createApp().component(Tag.name, Tag)
 
 <demo-wrapper
   src="src/packages/tag/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/tag/demo/demo*.vue')
-</script>
 
 <!-- DEMO -->
 
 ### API
 
 #### Tag Props
+
 | Props | Description | Type | Default | Value |
 |----|-----|------|------|------|
 |size| size of tag  |String|`large`|`tiny`, `small`, `large`|

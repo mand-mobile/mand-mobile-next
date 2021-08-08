@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/drop-menu
 
 # DropMenu
 
-
 Drop-down menu is for list filtering
 
 ### Import
@@ -21,18 +20,12 @@ Vue.createApp().component(DropMenu.name, DropMenu)
 
 <demo-wrapper
   src="src/packages/drop-menu/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/drop-menu/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### DropMenu Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |data|data source|Array<{text, disabled, options, ...}>|`[]`|`disabled` is whether to disable a button or not; the type of `options` is `Array<{text, disabled, ...}>`|
@@ -42,6 +35,7 @@ const demos = import.meta.globEager('../../../src/packages/drop-menu/demo/demo*.
 #### DropMenu Methods
 
 ##### getSelectedValue(index): listItem
+
 Get selected value of a `barItem`
 
 |Parameters | Description | Type| Default|
@@ -55,6 +49,7 @@ Returns
 |listItem|data of `listItem`|Object: {text, disabled, options, ...}|
 
 ##### getSelectedValues(): listItems
+
 Get selected values of all `barItem`
 
 Returns
@@ -66,6 +61,7 @@ Returns
 #### DropMenu Events
 
 ##### @change(barItem, listItem)
+
 Select some event
 
 |Props | Description | Type|
@@ -74,7 +70,9 @@ Select some event
 |listItem|data of `listItem`|Object: {text, disabled, ...}|
 
 ##### @show()
+
 Show events on drop-down menu
 
 ##### @hide()
+
 Hide events on drop-down menu

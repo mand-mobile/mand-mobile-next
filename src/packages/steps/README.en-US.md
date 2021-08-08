@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/steps
 
 # Steps
 
-
 A navigation bar helps users complete tasks through the process and displays the current step
 
 ### Import
@@ -21,25 +20,19 @@ Vue.createApp().component(Steps.name, Steps)
 
 <demo-wrapper
   src="src/packages/steps/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/steps/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### Steps Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |steps|array of step information|Array<{name, text}>|-|-|
 |current|current step|Number|`0`|support for decimal point|
 |direction| to specify the direction of the step bar|String|`horizontal`|`horizontal`, `vertical`|
 |transition|progress change transition|Boolean|`false`|-|
-|vertical-adaptive|step height adaptive|Boolean|`false`|only for `vertical`, ** if set to `true` then adaptive according to container height, setting `.mfe-steps` height is necessary**|
+|vertical-adaptive|step height adaptive|Boolean|`false`|only for `vertical`, **if set to `true` then adaptive according to container height, setting `.mfe-steps` height is necessary**|
 
 #### Steps Slots
 

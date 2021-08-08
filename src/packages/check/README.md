@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/check
 
 # Check 复选项
 
-
 ## 引入
 
 ```javascript
@@ -22,16 +21,15 @@ Vue.createApp().component(CheckList.name, CheckList)
 
 <demo-wrapper
   src="src/packages/check/demo"
-  :demos="demos"
+  
 />
 
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/check/demo/demo*.vue')
-</script>
+
 
 ## API
 
 ### Check Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------|------|
 |name|唯一键值|any|`true`|当选中时，双向绑定的值|
@@ -47,6 +45,7 @@ const demos = import.meta.globEager('../../../src/packages/check/demo/demo*.vue'
 ---
 
 ### CheckBox Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------|------|
 |name|唯一键值|any|`true`|当选中时，双向绑定的值|
@@ -56,6 +55,7 @@ const demos = import.meta.globEager('../../../src/packages/check/demo/demo*.vue'
 ---
 
 ### CheckGroup Props
+
 复选组，用以选中多个复选项。与`Check`或`CheckBox`组合使用。
 
 |属性 | 说明 | 类型 | 默认值 | 备注 |
@@ -84,6 +84,7 @@ const demos = import.meta.globEager('../../../src/packages/check/demo/demo*.vue'
 |name|需要反选的键值|String|-|
 
 #### toggleAll(checked?: Boolean)
+
 全选或者反选（对`disabled`的选项不改变其原选中状态）
 
 |参数 | 说明 | 类型 | 默认值 |
@@ -93,6 +94,7 @@ const demos = import.meta.globEager('../../../src/packages/check/demo/demo*.vue'
 ---
 
 ### CheckList Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |value|选中项的`value`|Array|-|-|
@@ -106,6 +108,7 @@ const demos = import.meta.globEager('../../../src/packages/check/demo/demo*.vue'
 |is-slot-scope|是否强制使用或不使用`slot-scope`|Boolean|-|某些情况下需要根据业务逻辑动态确定是否使用，可避免直接组件上加`if/else`|
 
 ### CheckList Slots
+
 ```html
 <template>
   <md-check-list :options="data">

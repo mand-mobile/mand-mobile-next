@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/icon
 
 # Icon
 
-
 IconFont、SVG Icons
 
 ### Import
@@ -25,18 +24,12 @@ Custom svg icons and import local font file, please refer to <a href="javascript
 
 <demo-wrapper
   src="src/packages/icon/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/icon/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### Icon Props
+
 |Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
 |name|icon name|String|-|-|
@@ -76,6 +69,7 @@ module.exports = {
   }
 }
 ```
+
 3. Import Icons
 
 ```vue
@@ -113,7 +107,7 @@ export default {
   font-weight: 400;
   src: url(~mand-mobile/components/icon/iconfont.woff) format("woff"),url(~mand-mobile/components/icon/iconfont.woff) format("truetype")
 }
-``` 
+```
 
 * Reset stylus variable when customizing theme
 

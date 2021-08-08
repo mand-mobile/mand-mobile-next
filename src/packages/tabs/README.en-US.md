@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/tabs
 
 # Tabs
 
-
 To create a tab page with a content area
 
 ### Import
@@ -22,24 +21,19 @@ Vue.createApp().component(TabPane.name, TabPane)
 
 <demo-wrapper
   src="src/packages/tabs/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/tabs/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### Tabs Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |v-model|name of selected tab|String|-|-|
 |immediate|trigger a `change` event immediately after initialization|Boolean|`false`|-|
 
 #### TabPane Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |name|unique name|String|-|required|
@@ -49,11 +43,13 @@ const demos = import.meta.globEager('../../../src/packages/tabs/demo/demo*.vue')
 #### Tabs Methods
 
 ##### reflowTabBar()
+
 relayout tabbar
 
 #### Tabs Events
 
 ##### @change(tab)
+
 when user select tab
 
 |Props | Description | Type|

@@ -20,12 +20,7 @@ Vue.createApp().component(Selector.name, Selector)
 
 <demo-wrapper
   src="src/packages/selector/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/selector/demo/demo*.vue')
-</script>
 
 ## API
 

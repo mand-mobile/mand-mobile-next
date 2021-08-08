@@ -25,12 +25,7 @@ The font `DINPro-Medium` is used in the component for the case show only, if nec
 
 <demo-wrapper
   src="src/packages/amount/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/amount/demo/demo*.vue')
-</script>
 
 <!-- DEMO -->
 

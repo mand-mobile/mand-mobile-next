@@ -20,16 +20,12 @@ Vue.createApp().component(NoticeBar.name, NoticeBar)
 
 <demo-wrapper
   src="src/packages/notice-bar/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/notice-bar/demo/demo*.vue')
-</script>
 
 ## API
 
 ### NoticeBar Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |mode|右边提示类型|String| |`closable`, `link`|
@@ -44,16 +40,19 @@ const demos = import.meta.globEager('../../../src/packages/notice-bar/demo/demo*
 ### NoticeBar Slots
 
 #### default
+
 默认内容插槽
 
 #### left
+
 左侧插槽，一般用于放置图标等
 
 #### right
+
 右侧插槽，一般用于放置图标等
 
 ### NoticeBar Events
 
 #### @close()
-通告栏关闭事件（设置`mode`为`closable`）
 
+通告栏关闭事件（设置`mode`为`closable`）
