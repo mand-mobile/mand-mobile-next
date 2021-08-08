@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/slider
 
 # Slider
 
-
 ### Import
 
 ```javascript
@@ -19,18 +18,12 @@ Vue.createApp().component(Slider.name, Slider)
 
 <demo-wrapper
   src="src/packages/slider/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/slider/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### Slider Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |v-model|the value of slider, when <code>range</code> is false, use <code>number</code>, otherwise, use <code>[number, number]</code>|number , number[]|`0`|-|

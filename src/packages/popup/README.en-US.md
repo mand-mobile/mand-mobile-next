@@ -6,8 +6,8 @@ preview: https://didi.github.io/mand-mobile/examples/#/popup
 
 # Popup
 
-
 A customized content area slides out or pops up on the screen, triggered by other controls.
+
 ### Import
 
 ```javascript
@@ -21,18 +21,12 @@ Vue.createApp().component(PopupTitleBar.name, PopupTitleBar)
 
 <demo-wrapper
   src="src/packages/popup/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/popup/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### Popup Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |v-model|display popup or not|Boolean|`false`|-|
@@ -42,6 +36,7 @@ const demos = import.meta.globEager('../../../src/packages/popup/demo/demo*.vue'
 |transition|the animation effect of popup|String|-|`fade`, `fade-bounce`, `fade-slide`, `fade-zoom`<br> `slide-up`, `slide-down`, `slide-left`, `slide-right`|
 
 #### PopupTitleBar Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |title|title of popup|String|-|-|
@@ -55,21 +50,27 @@ const demos = import.meta.globEager('../../../src/packages/popup/demo/demo*.vue'
 #### Popup Events
 
 #### @beforeShow()
+
 Popup will be shown
 
 #### @show()
+
 Show popup
 
 #### @beforeHide()
+
 Popup will be hiden
 
 #### @hide()
+
 Hide popup
 
 #### PopupTitleBar Events
 
 ##### @confirm()
+
 Confirm selection
 
 ##### @cancel()
+
 Cancel selection

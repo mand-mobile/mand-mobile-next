@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/radio
 
 # Radio
 
-
 Customizable or editable radio buttons
 
 ### Import
@@ -21,18 +20,12 @@ Vue.createApp().component(Radio.name, Radio)
 
 <demo-wrapper
   src="src/packages/radio/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/radio/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### Radio Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |v-model|selected `name`|any|-|
@@ -48,8 +41,8 @@ const demos = import.meta.globEager('../../../src/packages/radio/demo/demo*.vue'
 
 ---
 
-
 #### RadioBox Props
+
 Radio box <sup class="version-after">2.5.0+</sup>
 | Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
@@ -60,6 +53,7 @@ Radio box <sup class="version-after">2.5.0+</sup>
 ---
 
 #### RadioGroup Props
+
 Check multiple radios. Combine with `Radio` or `RadioBox` <sup class="version-after">2.5.0+</sup>
 
 | Props | Description | Type | Default | Note |
@@ -77,6 +71,7 @@ Check multiple radios. Combine with `Radio` or `RadioBox` <sup class="version-af
 ---
 
 #### Radio List Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |v-model|`value` of the selected item|any|-|-|
@@ -95,6 +90,7 @@ Check multiple radios. Combine with `Radio` or `RadioBox` <sup class="version-af
 #### Radio List Methods
 
 ##### select(value)
+
 Set selected value
 
 |Parameters | Description | Type |
@@ -104,6 +100,7 @@ Set selected value
 #### Radio List Events
 
 ##### @change(option, index)
+
 Selected option changed
 
 |Props | Description | Type |
@@ -112,6 +109,7 @@ Selected option changed
 |index|index of selected option|Number|
 
 #### Radio List Slots
+
 ```html
 <template>
   <md-radio-list :options="data">

@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/picker
 
 # Picker
 
-
 Scrollable multi-column selector
 
 ### Import
@@ -21,18 +20,12 @@ Vue.createApp().component(Picker.name, Picker)
 
 <demo-wrapper
   src="src/packages/picker/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/picker/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### Picker Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |v-model:visible|display picker or not|Boolean|`false`|-|
@@ -54,6 +47,7 @@ const demos = import.meta.globEager('../../../src/packages/picker/demo/demo*.vue
 #### Picker Methods
 
 ##### getColumnValue(index): activeItemValue
+
 Get the data of the currently selected item in a column
 
 |Parameters | Description | Type|
@@ -69,6 +63,7 @@ Returns
 #### Picker Events
 
 ##### @change(columnIndex, itemIndex, value)
+
 Change pickers' selections
 
 |Parameters | Description | Type|
@@ -78,15 +73,19 @@ Change pickers' selections
 |value|the value of changed item in the column|Object: {value, text, ...}|
 
 ##### @confirm()
+
 Confirm picker's selection (only when `is-view` is `false`）
 
 ##### @cancel()
+
 Cancel picker's selection (only when `is-view` is `false`）
 
 ##### @show()
+
 Show picker (only when `is-view` is `false`）
 
 ##### @hide()
+
 Hide picker (only when `is-view` is `false`）
 
 ### Appendix

@@ -20,16 +20,12 @@ Vue.createApp().component(WaterMask.name, WaterMark)
 
 <demo-wrapper
   src="src/packages/water-mark/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/water-mark/demo/demo*.vue')
-</script>
 
 ## API
 
 ### WaterMask Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------ |------|
 |content|水印内容|String| |复杂内容使用`scoped slot`|
@@ -42,9 +38,11 @@ const demos = import.meta.globEager('../../../src/packages/water-mark/demo/demo*
 ### WaterMark Slots
 
 #### default
+
 默认内容插槽
 
 #### watermark
+
 水印内容scoped插槽
 
 ```html

@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/tab-picker
 
 # TabPicker
 
-
 Support cascaded selections in the footer
 
 ### Import
@@ -21,18 +20,12 @@ Vue.createApp().component(TabPicker.name, TabPicker)
 
 <demo-wrapper
   src="src/packages/tab-picker/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/tab-picker/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### TabPicker Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |v-model|whether to show tabpicker or not|Boolean|`false`|-|
@@ -46,6 +39,7 @@ const demos = import.meta.globEager('../../../src/packages/tab-picker/demo/demo*
 #### TabPicker Methods
 
 ##### getSelectedValues()
+
 Get all values of selected items
 
 ```
@@ -53,6 +47,7 @@ Get all values of selected items
 ```
 
 #### getSelectedOptions()
+
 Get all options of selected items
 
 ```
@@ -66,6 +61,7 @@ Get all options of selected items
 #### TabPicker Events
 
 ##### @select(data)
+
 Option selected event
 
 ```
@@ -78,6 +74,7 @@ Option selected event
 ```
 
 ##### @change(data)
+
 Change selection in the tabpicker
 
 ```
@@ -93,12 +90,15 @@ Change selection in the tabpicker
 ```
 
 ##### @show()
+
 Show tabPicker
 
 ##### @hide()
+
 Hide tabPicker
 
 #### TabPicker Slots
+
 Custom option item slot
 
 ```

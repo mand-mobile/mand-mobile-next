@@ -20,18 +20,12 @@ Vue.createApp().component(Captcha.name, Captcha)
 
 <demo-wrapper
   src="src/packages/captcha/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/captcha/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### Captcha Props
+
 | Props | Description | Type | Default |
 |----|-----|------|------|
 | v-model | whether to show captcha or not | Boolean | `false` |
@@ -48,29 +42,34 @@ const demos = import.meta.globEager('../../../src/packages/captcha/demo/demo*.vu
 | count-normal-text |text of send verification code button |String| `发送验证码` |
 | count-active-text |text of send verification code button in countdown state|String| `{$1}秒后重发` |
 
-
-
 #### Captcha Methods
 
 #### countdown()
+
 Start the time counter
 
 ##### resetcount()
+
 Reset the time counter
 
 #### setError(message)
+
 Set and show error message
 
 #### Captcha Events
 
 ##### @show()
+
 Invoked when captcha is shown
 
 #### @hide()
+
 Invoked when captcha is hidden
 
 #### @send(countdown)
+
 Invoked when user clicks resend button. The first time you open or click the reissue button triggers and starts the countdown. If `auto-countdown` is false, you need to manually call `countdown`.
 
 #### @submit(code)
+
 Invoked when user submits

@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/cashier
 
 # Cashier 收银台
 
-
 业务支付弹窗，支持支付渠道选择和支付验证码发送
 
 ## 引入
@@ -21,16 +20,12 @@ Vue.createApp().component(Cashier.name, Cashier)
 
 <demo-wrapper
   src="src/packages/cashier/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/cashier/demo/demo*.vue')
-</script>
 
 ## API
 
 ### Cashier Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |v-model|收银台是否显示|Boolean|`false`| |
@@ -46,6 +41,7 @@ const demos = import.meta.globEager('../../../src/packages/cashier/demo/demo*.vu
 |more-button-text|更多支付渠道按钮文案|String|`更多支付方式`|支持`html fragment`|
 
 #### CashierChannel
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |text|渠道展示名称|String|||
@@ -58,9 +54,11 @@ const demos = import.meta.globEager('../../../src/packages/cashier/demo/demo*.vu
 ### Cashier Methods
 
 #### setChannels(channels: CashierChannel)
+
 手动设置支付渠道数据源
 
 #### next(scene, option?)
+
 进入收银台下一步
 
 |参数 | 说明 | 类型 | 默认值| 备注|
@@ -109,6 +107,7 @@ const demos = import.meta.globEager('../../../src/packages/cashier/demo/demo*.vu
 ### Captcha Slots
 
 #### header
+
 头部内容scoped插槽
 
 ```html
@@ -123,30 +122,39 @@ const demos = import.meta.globEager('../../../src/packages/cashier/demo/demo*.vu
 ```
 
 #### footer
+
 底部内容scoped插槽
 
 #### channel
+
 支付渠道区域插槽，可用于添加支付渠道特殊操作，如添加银行卡
 
 #### payButton
+
 发起支付插槽
 
 #### scene
+
 自定义场景插槽，使用`next('custom')`打开
 
 ### Cashier Events
 
 #### @select(item: {text, value})
+
 支付渠道选中事件
 
 #### @pay(item: {text, value})
+
 支付渠道确认并发起支付事件
 
 #### @cancel()
+
 取消支付事件
 
 #### @show()
+
 收银台弹窗展示事件
 
 #### @hide()
+
 收银台弹窗隐藏事件

@@ -19,22 +19,17 @@ Vue.createApp().component(PullUp.name, PullUp)
 ```
 
 ::: tip
+
 * `PullDown`为组件库内置的下拉刷新组件，仅用于作为视觉展示，需在插槽<a href="#pulldown">pulldown</a>中使用，下拉刷新组件也可自定义
 * `PullUp`为组件库内置的加载更多组件，仅用于作为视觉展示，需在插槽<a href="#pullup">pullup</a>中使用，加载更多组件也可自定义
 * **组件容器需具有高度，否则会出现无法滚动或回弹问题。** 更多使用的常见问题请查看<a href="#附录">附录</a>
 :::
 
-
 ## 代码演示
 
 <demo-wrapper
   src="src/packages/scroll-view/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/scroll-view/demo/demo*.vue')
-</script>
 
 ## API
 
@@ -63,7 +58,6 @@ const demos = import.meta.globEager('../../../src/packages/scroll-view/demo/demo
 |roller-color| 进度条颜色 | String | `#2F86F6` | - |
 
 ### PullUp Props
-
 
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|

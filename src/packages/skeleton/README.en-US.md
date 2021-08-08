@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/Skeleton
 
 # Skeleton
 
-
 Skeleton screen, generally used to display the loading state of the general structure of the page before the data has been loaded <sup class="version-after">2.5.0+</sup>
 
 ### Import
@@ -21,18 +20,14 @@ Vue.createApp().component(Skeleton.name, Skeleton)
 
 <demo-wrapper
   src="src/packages/skeleton/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/skeleton/demo/demo*.vue')
-</script>
 
 <!-- DEMO -->
 
 ### API
 
 #### Skeleton Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |loading|display the skeleton loading |Boolean|true|-|

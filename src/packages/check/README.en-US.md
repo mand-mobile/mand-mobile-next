@@ -24,12 +24,10 @@ Vue.createApp().component(CheckList.name, CheckList)
 
 <demo-wrapper
   src="src/packages/check/demo"
-  :demos="demos"
+  
 />
 
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/check/demo/demo*.vue')
-</script>
+
 
 <!-- DEMO -->
 

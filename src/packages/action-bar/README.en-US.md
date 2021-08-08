@@ -25,12 +25,7 @@ ActionBar is fixed at the bottom of the page by `position: fixed`. In order to a
 
 <demo-wrapper
   src="src/packages/action-bar/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/action-bar/demo/demo*.vue')
-</script>
 
 <!-- DEMO -->
 

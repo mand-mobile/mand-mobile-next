@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/codebox
 
 # Codebox
 
-
 ### Import
 
 ```javascript
@@ -19,18 +18,12 @@ Vue.createApp().component(Codebox.name, Codebox)
 
 <demo-wrapper
   src="src/packages/codebox/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/codebox/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### Codebox Props
+
 | Props | Description | Type | Default |
 |----|-----|------|------|
 | v-model | captcha | String | - |
@@ -50,9 +43,11 @@ const demos = import.meta.globEager('../../../src/packages/codebox/demo/demo*.vu
 ##### focus()
 
 ##### blur()
+
 Hide keyboard
 
 #### Codebox Events
 
 ##### @submit(code)
+
 Invoked when user submit

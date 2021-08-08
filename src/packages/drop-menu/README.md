@@ -20,12 +20,7 @@ Vue.createApp().component(DropMenu.name, DropMenu)
 
 <demo-wrapper
   src="src/packages/drop-menu/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/drop-menu/demo/demo*.vue')
-</script>
 
 <style>
   .demo-wrapper .md-drop-menu {
@@ -41,6 +36,7 @@ const demos = import.meta.globEager('../../../src/packages/drop-menu/demo/demo*.
 ## API
 
 ### DropMenu Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |data|数据源|Array\<[DropMenuBarItem](#dropmenubaritem)\>|`[]`||
@@ -64,10 +60,10 @@ const demos = import.meta.globEager('../../../src/packages/drop-menu/demo/demo*.
 |disabled|禁用|Boolean|`false`||
 |[property]|其它数据|any|||
 
-
 ### DropMenu Methods
 
 #### getSelectedValue(index)
+
 获取某菜单项选中值
 
 |参数 | 说明 | 类型 | 默认值|
@@ -81,6 +77,7 @@ const demos = import.meta.globEager('../../../src/packages/drop-menu/demo/demo*.
 |listItem|选项数据|Object: [DropMenuListItem](#dropmenulistitem)|
 
 #### getSelectedValues()
+
 获取所有菜单项选中值
 
 返回
@@ -92,6 +89,7 @@ const demos = import.meta.globEager('../../../src/packages/drop-menu/demo/demo*.
 ### DropMenu Events
 
 #### @change(barItem, listItem)
+
 选中某项事件
 
 |属性 | 说明 | 类型|
@@ -100,7 +98,9 @@ const demos = import.meta.globEager('../../../src/packages/drop-menu/demo/demo*.
 |listItem|选项数据|Object: [DropMenuListItem](#dropmenulistitem)|
 
 #### @show()
+
 下拉菜单展示事件
 
 #### @hide()
+
 下拉菜单隐藏事件

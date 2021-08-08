@@ -26,16 +26,12 @@ Vue.createApp().component(InputItem.name, InputItem)
 
 <demo-wrapper
   src="src/packages/input-item/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/input-item/demo/demo*.vue')
-</script>
 
 ## API
 
 ### InputItem Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |type|表单类型，特殊类型自带文本格式化|String|`text`|`text(文本)`,`bankCard(银行卡号)`,`phone(手机号)`,<br/>`money(金额)`,`digit(数字)`,`password(密码)`,<br/>以及其他的标准`Html Input`类型|
@@ -66,50 +62,59 @@ const demos = import.meta.globEager('../../../src/packages/input-item/demo/demo*
 ### InputItem Slots
 
 ### left
+
 左侧插槽，一般用于放置图标等
 
 ### right
+
 右侧插槽，一般用于放置图标等
 
 ### brief
 
-
 表单描述插槽，一般用于描述内容较复杂，用`Props`中`brief`无法满足的情况，需用`v-if`控制（不推荐）
 
 ### error
-
 
 表单错误插槽，一般用于错误内容较复杂，用`Props`中`error`无法满足的情况，需用`v-if`控制，参考示例中的`错误提示`（不推荐）
 
 ### InputItem Methods
 
 #### focus()
+
 表单获得焦点
 
 #### blur()
+
 表单失去焦点
 
 #### getValue()
+
 获取表单值
 
 ### InputItem Events
 
 #### @focus(name)
+
 表单获得焦点事件
 
 #### @blur(name)
+
 表单失去焦点事件
 
 #### @change(name, value)
+
 表单值变化事件
 
 #### @confirm(name, value)
+
 表单值确认事件， 仅使用金融数字键盘或组件在`form`元素内时有效
 
 #### @keyup(name, event)
+
 表单按键按下事件，仅`is-virtual-keyboard`为`false`时触发
 
 #### @keydown(name, event)
+
 表单按键释放事件，仅`is-virtual-keyboard`为`false`时触发
 
 ## 表单校验 WIP

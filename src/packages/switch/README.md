@@ -20,16 +20,12 @@ Vue.createApp().component(Switch.name, Switch)
 
 <demo-wrapper
   src="src/packages/switch/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/switch/demo/demo*.vue')
-</script>
 
 ## API
 
 ### Switch Props
+
 |属性 | 说明 | 类型 | 默认值|
 |----|-----|------|------|
 |value|打开或者关闭|Boolean|`false`|
@@ -38,6 +34,7 @@ const demos = import.meta.globEager('../../../src/packages/switch/demo/demo*.vue
 ### Switch Events
 
 #### @change(isActive)
+
 事件说明
 
 |属性 | 说明 | 类型 |

@@ -20,16 +20,12 @@ Vue.createApp().component(Progress.name, Progress)
 
 <demo-wrapper
   src="src/packages/progress/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/progress/demo/demo*.vue')
-</script>
 
 ## API
 
 ### Progress Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------|------|
 |value|进度值|Number|`0`|`0-1`|
@@ -46,7 +42,9 @@ const demos = import.meta.globEager('../../../src/packages/progress/demo/demo*.v
 ### Progress Slots
 
 #### default
+
 圆环内部内容插槽，一般用于添加文本
 
 #### defs
+
 圆环SVG内部的插槽，一般用于添加`defs`, `use`元素等

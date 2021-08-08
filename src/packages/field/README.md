@@ -21,16 +21,12 @@ Vue.createApp().component(FieldItem.name, FieldItem)
 
 <demo-wrapper
   src="src/packages/field/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/field/demo/demo*.vue')
-</script>
 
 ## API
 
 ### Field Props
+
 |属性 | 说明 | 类型 | 默认值|备注|
 |----|-----|------|------|------|
 |title|标题|String|-|-|
@@ -64,20 +60,25 @@ export default {
 ### Field Slots
 
 #### default
+
 内容默认插槽
 
 #### header
+
 页眉内容插槽
 
 #### action
+
 页眉操作区域插槽
 
 #### footer
+
 页脚内容插槽
 
 ---
 
 ### FieldItem Props
+
 |属性 | 说明 | 类型 | 默认值|备注|
 |----|-----|------|------|------|
 |title|标题|String|-|-|
@@ -88,19 +89,25 @@ export default {
 |arrow|动作箭头标识|Boolean|false|-|
 
 ### FieldItem Events
+
 #### @click(event)
+
 非禁用状态下的点击事件
 
 ### FieldItem Slots
 
 #### default
+
 内容默认插槽
 
 #### left
+
 起始区域插槽
 
 #### right
+
 末尾区域插槽
 
 #### children
+
 额外内容插槽

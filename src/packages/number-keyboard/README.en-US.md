@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/number-keyboard
 
 # NumberKeyboard
 
-
 Generally used for financial scenarios such as password, verification code or payment amount input
 
 ### Import
@@ -21,18 +20,12 @@ Vue.createApp().component(NumberKeyboard.name, NumberKeyboard)
 
 <demo-wrapper
   src="src/packages/number-keyboard/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/number-keyboard/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### NumberKeyboard Props
+
 |Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
 |v-model|display keyboard or not|Boolean|`false`|-|
@@ -52,17 +45,21 @@ const demos = import.meta.globEager('../../../src/packages/number-keyboard/demo/
   <md-icon name="security"></md-icon>&nbsp;安全支付
 </md-number-keyboard>
 ```
+
 #### NumberKeyboard Methods
 
 ##### show()
+
 Display keyboard
 
 ##### hide()
+
 Hide keyboard
 
 #### NumberKeyboard Events
 
 ##### @enter(val)
+
 Click numeric key
 
 |Props | Description | Type|
@@ -70,7 +67,9 @@ Click numeric key
 |val | value | Number|
 
 ##### @delete()
+
 Click delete key
 
 ##### @confirm()
+
 Click confirmation key

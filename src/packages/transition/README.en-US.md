@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/transition
 
 # Transition
 
-
 复用动画切换组件
 
 ### 引入
@@ -18,9 +17,13 @@ Vue.createApp().component(Transition.name, Transition)
 ```
 
 ### 代码演示
-<!-- DEMO -->
+
+<demo-wrapper
+  src="src/packages/transition/demo"
+/>
 
 ### API
+
 `md-transition` is a wrapper of vue `transtion`, support all `transition` props.
 
 built-in transition name：
@@ -37,4 +40,3 @@ built-in transition name：
 - `md-bounce`
 - `md-punch`
 - `md-zoom`
-

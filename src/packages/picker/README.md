@@ -20,16 +20,12 @@ Vue.createApp().component(Picker.name, Picker)
 
 <demo-wrapper
   src="src/packages/picker/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/picker/demo/demo*.vue')
-</script>
 
 ## API
 
 ### Picker Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |v-model:visible|选择器是否可见|Boolean|`false`|-|
@@ -51,6 +47,7 @@ const demos = import.meta.globEager('../../../src/packages/picker/demo/demo*.vue
 ### Picker Methods
 
 #### getColumnValues(): columnsValue
+
 获取所有列选中项的值
 
 返回
@@ -62,6 +59,7 @@ const demos = import.meta.globEager('../../../src/packages/picker/demo/demo*.vue
 ### Picker Events
 
 #### @change(columnIndex, itemIndex, value)
+
 选择器选中项更改事件
 
 |参数 | 说明 | 类型|
@@ -71,15 +69,19 @@ const demos = import.meta.globEager('../../../src/packages/picker/demo/demo*.vue
 |value|更改列选中项的的值|Object: {value, text, ...}|
 
 #### @confirm()
+
 选择器确认选择事件（仅`is-view`为`false`）
 
 #### @cancel()
+
 选择器取消选择事件（仅`is-view`为`false`）
 
 #### @show()
+
 选择器弹层展示事件（仅`is-view`为`false`）
 
 #### @hide()
+
 选择器弹层隐藏事件（仅`is-view`为`false`）
 
 ## 附录

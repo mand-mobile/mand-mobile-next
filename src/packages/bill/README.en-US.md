@@ -18,7 +18,10 @@ Vue.createApp().component(Bill.name, Bill)
 ```
 
 ### 代码演示
-<!-- DEMO -->
+
+<demo-wrapper
+  src="src/packages/bill/demo"
+/>
 
 ### API
 

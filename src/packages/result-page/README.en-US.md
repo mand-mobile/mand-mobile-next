@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/result-page
 
 # ResultPage
 
-
 To display the process ending page
 
 ### Import
@@ -25,18 +24,14 @@ It is recommended to set the parent element filled with windows to achieve cente
 
 <demo-wrapper
   src="src/packages/result-page/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/result-page/demo/demo*.vue')
-</script>
 
 <!-- DEMO -->
 
 ### API
 
 #### ResultPage Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |type | page type | String | `empty` | three optional vaules: `lost`, `network` and `empty`, represent missing page, network error and empty information respectively. The default images and texts of component differ according to the category|
@@ -46,6 +41,7 @@ const demos = import.meta.globEager('../../../src/packages/result-page/demo/demo
 |buttons | button list | Array | - | array of button objects, whose structure can be referred to `Button`|
 
 #### Button Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |text | button text | String | - | - |

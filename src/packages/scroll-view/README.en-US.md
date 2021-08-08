@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/scroll-view
 
 # ScrollView
 
-
 Used to simulate native scrolling areas and support pull-down refresh and load more
 
 ### Import
@@ -29,18 +28,14 @@ Vue.createApp().component(ScrollView.name, ScrollView)
 
 <demo-wrapper
   src="src/packages/scroll-view/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/scroll-view/demo/demo*.vue')
-</script>
 
 <!-- DEMO -->
 
 ### API
 
 #### ScrollView Props
+
 |Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
 |scrolling-x | horizontal scrolling | Boolean | `true` | -|
@@ -58,6 +53,7 @@ const demos = import.meta.globEager('../../../src/packages/scroll-view/demo/demo
 <img src="https://pt-starimg.didistatic.com/static/starimg/img/cSL4mjxTmW1560240984431.jpg" width="460"/>
 
 #### ScrollViewRefresh Props
+
 |Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
 |scroll-top | distance from top | Number | `0` | unit `px` |
@@ -69,6 +65,7 @@ const demos = import.meta.globEager('../../../src/packages/scroll-view/demo/demo
 |roller-color <sup class="version-after">2.2.0+</sup>| progress bar color | String | `#2F86F6` | - |
 
 #### ScrollViewMore Props
+
 |Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
 |is-finished | all loaded | Boolean | `false` | - |
@@ -78,9 +75,11 @@ const demos = import.meta.globEager('../../../src/packages/scroll-view/demo/demo
 #### ScrollView Slots
 
 ##### default
+
 Scrolling area content slot. When the content changes, you need to call `reflowScroller` to reset the scroll area. Refer to <a href="javascript:jumpAnchor('reflowScroller')">reflowScroller</a>
 
 ##### refresh
+
 Pull-down refresh component slot, you can use `slot-scoped` to get the relevant scrolling status as follows (the scrolling state can also be dynamically set by event when the `slot-scoped` is not compatible)
 
 ```html
@@ -92,24 +91,31 @@ Pull-down refresh component slot, you can use `slot-scoped` to get the relevant 
   :is-refresh-active="isRefreshActive"
 ></md-scroll-view-refresh>
 ```
+
 ##### more
+
 load-more component slot
 
 ##### header
+
 header slot
 
 ##### footer
+
 footer slot
 
 #### ScrollView Methods
 
 ##### init()
+
 Initialize the scroll area, used when `manual-init` is set to `true`.
 
 ##### reflowScroller()
+
 Reset the scroll area, which needs to be called after the content in the general scroll area changes.
 
 ##### scrollTo(left, top, animate = false)
+
 Scroll to the specified location
 
 |Parameters | Description | Type|
@@ -119,20 +125,25 @@ Scroll to the specified location
 |animate|using animation|Boolean|
 
 ##### getOffsets(): {left: number, top: number}
+
 Get scrolling position <sup class="version-after">2.5.4+</sup>
 
 ##### triggerRefresh()
+
 -
 
 ##### finishRefresh()
+
 -
 
 ##### finishLoadMore()
+
 -
 
 #### ScrollView Events
 
 ##### @scroll({scrollLeft, scrollTop})
+
 Scrolling event
 
 |Props | Description | Type|
@@ -141,12 +152,15 @@ Scrolling event
 |scrollTop|distance from top|Number|
 
 ##### @refreshActive()
+
 Release refreshable event
 
 ##### @refreshing()
+
 Refreshing event
 
 ##### @end-reached()
+
 Reached end event
 
 ### Appendix

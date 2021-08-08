@@ -20,16 +20,12 @@ Vue.createApp().component(TabPicker.name, TabPicker)
 
 <demo-wrapper
   src="src/packages/tab-picker/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/tab-picker/demo/demo*.vue')
-</script>
 
 ## API
 
 ### TabPicker 参数
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |value|控制显示或隐藏|Boolean|`false`| |
@@ -40,10 +36,10 @@ const demos = import.meta.globEager('../../../src/packages/tab-picker/demo/demo*
 |placeholder|默认提示文本|String|`请选择`| |
 |mask-closable|点击蒙层是否可关闭弹出层|Boolean|`true`| |
 
-
 ### TabPicker 实例方法
 
 #### getSelectedValues()
+
 获取所有面板选中项的值
 
 ```
@@ -51,6 +47,7 @@ const demos = import.meta.globEager('../../../src/packages/tab-picker/demo/demo*
 ```
 
 #### getSelectedOptions()
+
 获取所有面板选中项对象
 
 ```
@@ -64,6 +61,7 @@ const demos = import.meta.globEager('../../../src/packages/tab-picker/demo/demo*
 ### TabPicker 事件
 
 #### @select(data)
+
 选项选中事件
 
 ```
@@ -76,6 +74,7 @@ const demos = import.meta.globEager('../../../src/packages/tab-picker/demo/demo*
 ```
 
 #### @change(data)
+
 底部弹窗选中事件
 
 ```
@@ -91,12 +90,15 @@ const demos = import.meta.globEager('../../../src/packages/tab-picker/demo/demo*
 ```
 
 #### @show()
+
 底部弹窗弹层展示事件
 
 #### @hide()
+
 底部弹窗弹层隐藏事件
 
 ### TabPicker 插槽
+
 选项插槽自定义
 
 ```

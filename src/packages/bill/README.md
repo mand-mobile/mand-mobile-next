@@ -21,12 +21,7 @@ Vue.createApp().component(Bill.name, Bill)
 
 <demo-wrapper
   src="src/packages/bill/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/bill/demo/demo*.vue')
-</script>
 
 ### API
 

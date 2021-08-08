@@ -20,12 +20,7 @@ Vue.createApp().component(Tag.name, Tag)
 
 <demo-wrapper
   src="src/packages/tag/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/tag/demo/demo*.vue')
-</script>
 
 <style>
   .demo-wrapper .md-tag {
@@ -36,6 +31,7 @@ const demos = import.meta.globEager('../../../src/packages/tag/demo/demo*.vue')
 ## API
 
 ### Tag Props
+
 |属性 | 说明 | 类型 | 默认值 |可选值|
 |----|-----|------|------|------|
 |size|标签大小|String|`large`|`tiny`, `small`, `large`|

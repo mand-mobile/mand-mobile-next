@@ -23,12 +23,7 @@ this.$actionsheet.create({ /* ... */ }) // Totally Import
 
 <demo-wrapper
   src="src/packages/action-sheet/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/action-sheet/demo/demo*.vue')
-</script>
 
 <!-- DEMO -->
 

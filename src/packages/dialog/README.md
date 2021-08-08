@@ -22,12 +22,7 @@ this.$dialog.alert({ content: '' }) // 全量引入
 
 <demo-wrapper
   src="src/packages/dialog/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/dialog/demo/demo*.vue')
-</script>
 
 ## API
 

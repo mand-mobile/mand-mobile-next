@@ -21,16 +21,12 @@ Vue.createApp().component(PopupTitleBar.name, PopupTitleBar)
 
 <demo-wrapper
   src="src/packages/popup/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/popup/demo/demo*.vue')
-</script>
 
 ## API
 
 ### Popup Props
+
 |属性 | 说明 | 类型 | 默认值| 备注|
 |----|-----|------|------|------|
 |model-value|弹出层是否可见|Boolean|`false`| |
@@ -40,6 +36,7 @@ const demos = import.meta.globEager('../../../src/packages/popup/demo/demo*.vue'
 |transition|弹出层过渡动画|String|`fade`|`fade`, `fade-bounce`, `fade-slide`, `fade-zoom`<br> `slide-up`, `slide-down`, `slide-left`, `slide-right`|
 
 ### PopupTitleBar Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |title|标题|String| | |
@@ -52,21 +49,27 @@ const demos = import.meta.globEager('../../../src/packages/popup/demo/demo*.vue'
 ### Popup Events
 
 ### @beforeShow()
+
 弹出层即将展示事件
 
 ### @show()
+
 弹出层展示事件
 
 ### @beforeHide()
+
 弹出层即将隐藏事件
 
 ### @hide()
+
 弹出层隐藏事件
 
 ### PopupTitleBar Events
 
 #### @confirm()
+
 确认选择事件
 
 #### @cancel()
+
 取消选择事件

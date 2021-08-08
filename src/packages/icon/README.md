@@ -24,12 +24,7 @@ Vue.createApp().component(Icon.name, Icon)
 
 <demo-wrapper
   src="src/packages/icon/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/icon/demo/demo*.vue')
-</script>
 
 <style>
   .md-example-child-icon {
@@ -56,6 +51,7 @@ const demos = import.meta.globEager('../../../src/packages/icon/demo/demo*.vue')
 ## API
 
 #### Icon Props
+
 |属性 | 说明 | 类型 | 默认值| 备注|
 |----|-----|------|------|------|
 |name|图标名称|String| | |
@@ -66,7 +62,6 @@ const demos = import.meta.globEager('../../../src/packages/icon/demo/demo*.vue')
 ## 附录
 
 ### 自定义svg图标
-
 
 自定义svg图标需使用<a href="https://github.com/kisenka/svg-sprite-loader" target="_blank">svg-sprite-loader</a>，svg文件名即图标名称
 
@@ -96,6 +91,7 @@ module.exports = {
   }
 }
 ```
+
 3. 引入图标
 
 ```vue
@@ -123,7 +119,7 @@ export default {
 
 ### 引入本地字体文件
 
-> 注意：webpack配置[url-loader](https://github.com/webpack-contrib/url-loader)需要包含mand-mobile 
+> 注意：webpack配置[url-loader](https://github.com/webpack-contrib/url-loader)需要包含mand-mobile
 
 * 重置css中的图标字体  
 
@@ -134,7 +130,7 @@ export default {
   font-weight: 400;
   src: url(~mand-mobile/components/icon/iconfont.woff) format("woff"),url(~mand-mobile/components/icon/iconfont.woff) format("truetype")
 }
-``` 
+```
 
 * 自定义主题时重置stylus变量
 

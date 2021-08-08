@@ -14,21 +14,16 @@ import { Tip } from 'mand-mobile-next'
 Vue.createApp().component(Tip.name, Tip)
 ```
 
-
 ## 代码演示
 
 <demo-wrapper
   src="src/packages/tip/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/tip/demo/demo*.vue')
-</script>
 
 ## API
 
 ### Tip Props
+
 |属性 | 说明 | 类型 | 默认值|备注|
 |----|-----|------|------|------|
 |name|提示名称|String\/Number| |一般用于特殊类名|
@@ -42,7 +37,9 @@ const demos = import.meta.globEager('../../../src/packages/tip/demo/demo*.vue')
 ### Tip Events
 
 #### @show()
+
 提示框显示后触发的事件
 
 #### @hide()
+
 提示框隐藏后触发的事件

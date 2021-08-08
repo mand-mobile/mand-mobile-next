@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/switch
 
 # Switch
 
-
 Switch between two status
 
 ### Import
@@ -21,18 +20,12 @@ Vue.createApp().component(Switch.name, Switch)
 
 <demo-wrapper
   src="src/packages/switch/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/switch/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### Switch Props
+
 | Props | Description | Type | Default |
 |----|-----|------|------|
 |v-model| Whether it is on or off |Boolean|`false`|

@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/notice-bar
 
 # NoticeBar
 
-
 Mostly for system alerts, event reminders, etc
 
 ### Import
@@ -17,23 +16,16 @@ import { NoticeBar } from  'mand-mobile-next'
 Vue.createApp().component(NoticeBar.name, NoticeBar)
 ```
 
-
 ### Code Examples
 
 <demo-wrapper
   src="src/packages/notice-bar/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/notice-bar/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### NoticeBar Props
+
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |mode|notice bar mode|String|-|`closable`, `link`|
@@ -48,15 +40,19 @@ const demos = import.meta.globEager('../../../src/packages/notice-bar/demo/demo*
 #### NoticeBar Slots
 
 #### default
+
 Default slot of content
 
 #### left
+
 Left slot, generally is used to place icons, etc
 
 #### right
+
 Right slot, generally is used to place icons, etc
 
 #### NoticeBar Events
 
 ##### @close()
+
 Notice bar close event (set `mode` to 'closable' or `closable` to true)

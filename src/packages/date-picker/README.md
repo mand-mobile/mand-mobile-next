@@ -20,16 +20,12 @@ Vue.createApp().component(DatePicker.name, DatePicker)
 
 <demo-wrapper
   src="src/packages/date-picker/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/date-picker/demo/demo*.vue')
-</script>
 
 ## API
 
 ### DatePicker Props
+
 |属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------|------|
 |v-model:visible|日期选择器是否可见|Boolean|`false`|-|
@@ -40,20 +36,21 @@ const demos = import.meta.globEager('../../../src/packages/date-picker/demo/demo
 |max-date|最大可选日期（时间）|Date|-|-|
 |unit-text|元素单位展示文案设置|Array|`['年', '月', '日', '时', '分', '秒']`|复杂逻辑使用`text-render`|
 |text-render|自定义选项展示文案方法|Function(typeFormat, column0Value, column1Value, ...): String|-|如果使用`text-render`则`unit-text`无效, 示例见附录|
-|today-text|今天展示文案设置|String|`今天`|使用`&`可占位日期数字，如`&(今天)`| 
+|today-text|今天展示文案设置|String|`今天`|使用`&`可占位日期数字，如`&(今天)`|
 |line-height|选择器选项行高|Number|`45`|单位`px`|  
-|keep-index|当列数据变化时保持上次停留的位置|Boolean|`false`|-|        
-|is-view|是否内嵌在页面内展示, 否则以弹层形式|Boolean|`false`|-| 
+|keep-index|当列数据变化时保持上次停留的位置|Boolean|`false`|-|
+|is-view|是否内嵌在页面内展示, 否则以弹层形式|Boolean|`false`|-|
 |title|选择器标题|String|-|-|
 |describe|选择器描述|String|-|-|
-|ok-text|选择器确认文案|String|`确认`|-| 
-|cancel-text|选择器取消文案|String|`取消`|-| 
+|ok-text|选择器确认文案|String|`确认`|-|
+|cancel-text|选择器取消文案|String|`取消`|-|
 |large-radius|选择器标题栏大圆角模式|Boolean|`false`|-|
 |mask-closable|点击蒙层是否可关闭弹出层|Boolean|`true`|-|
 
 ### DatePicker Methods
 
 #### getColumnValues(): columnsValue
+
 获取所有列选中项的值
 
 返回
@@ -65,6 +62,7 @@ const demos = import.meta.globEager('../../../src/packages/date-picker/demo/demo
 ### DatePicker Events
 
 #### @change(columnIndex, itemIndex, value)
+
 选择器选中项更改事件
 
 |参数 | 说明 | 类型 |
@@ -74,8 +72,8 @@ const demos = import.meta.globEager('../../../src/packages/date-picker/demo/demo
 |value|更改列选中项的的值|Object: {text, value, typeFormat}|
 
 #### @confirm()
-选择器确认选择事件（仅`is-view`为`false`）
 
+选择器确认选择事件（仅`is-view`为`false`）
 
 ### 附录
 

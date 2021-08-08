@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/water-mark
 
 # WaterMark
 
-
 Container with watermark background
 
 ### Instruction
@@ -21,18 +20,12 @@ Vue.createApp().component(WaterMark.name, WaterMark)
 
 <demo-wrapper
   src="src/packages/water-mark/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/water-mark/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### WaterMark Props
+
 |Props | Description | Type | Default | Note |
 |----|-----|------|------ |------|
 |content|-|String|-|complex content using `scoped slot`|
@@ -45,9 +38,11 @@ const demos = import.meta.globEager('../../../src/packages/water-mark/demo/demo*
 #### WaterMark Slots
 
 ##### default
+
 Default slot of content
 
 ##### watermark
+
 scoped slot of watermark content
 
 ```html

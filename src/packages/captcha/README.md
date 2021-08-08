@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/captcha
 
 # Captcha 验证码
 
-
 验证码校验窗口
 
 ## 引入
@@ -21,16 +20,12 @@ Vue.createApp().component(Captcha.name, Captcha)
 
 <demo-wrapper
   src="src/packages/captcha/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/captcha/demo/demo*.vue')
-</script>
 
 ## API
 
 ### Captcha Props
+
 |属性 | 说明 | 类型 | 默认值|
 |----|-----|------|------|
 |value|验证码窗口是否显示|Boolean|`false`|
@@ -50,24 +45,31 @@ const demos = import.meta.globEager('../../../src/packages/captcha/demo/demo*.vu
 ### Captcha Methods
 
 #### countdown()
+
 开始倒计时
 
 #### resetcount()
+
 重置倒计时
 
 #### setError(message)
+
 设置报错信息并显示
 
 ### Captcha Events
 
 #### @show()
+
 验证码组件显示事件
 
 #### @hide()
+
 验证码组件隐藏事件
 
 #### @send(countdown)
+
 发送验证码事件, 第一次打开时或点击重发按钮后触发并开始倒计时，如果`auto-countdown`为`false`需手动调用`countdown`开始倒计时
 
 #### @submit(code)
+
 用户提交输入内容事件

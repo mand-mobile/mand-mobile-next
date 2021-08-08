@@ -27,12 +27,7 @@ Vue.createApp().component(ActionBar.name, ActionBar)
 
 <demo-wrapper
   src="src/packages/action-bar/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/action-bar/demo/demo*.vue')
-</script>
 
 ## API
 

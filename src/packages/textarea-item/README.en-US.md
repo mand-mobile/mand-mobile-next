@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/TextareaItem
 
 # TextareaItem
 
-
 Multi-line text input <sup class="version-after">2.5.0+</sup>
 
 ### Import
@@ -21,18 +20,12 @@ Vue.createApp().component(TextareaItem.name, TextareaItem)
 
 <demo-wrapper
   src="src/packages/textarea-item/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/textarea-item/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### TextareaItem Props
+
 | Props                                             | Description                                     | Type          | Default | Note               |
 | ------------------------------------------------- | ----------------------------------------------- | ------------- | ------- | ------------------ |
 | title                                             | title of textarea                               | String        | -       | -                  |
@@ -57,27 +50,35 @@ the slot of footer
 #### TextareaItem Events
 
 ##### focus()
+
 Input gets focus
 
 ##### blur()
+
 Input loses focus
 
 ##### getValue()
+
 Get value of input
 
 #### TextItem Events
 
 ##### @focus(name)
+
 Textarea gets focus
 
 ##### @blur(name)
+
 Textarea loses blur
 
 ##### @change(name, value)
+
 Change the value of Textarea
 
 ##### @keyup(name, event)
+
 key press
 
 ##### @keydown(name, event)
+
 key release

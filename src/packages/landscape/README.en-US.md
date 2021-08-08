@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/landscape
 
 # Landscape
 
-
 To display ads or descriptions in a floating layer
 
 ### Import
@@ -21,18 +20,14 @@ Vue.createApp().component(Landscape.name, Landscape)
 
 <demo-wrapper
   src="src/packages/landscape/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/landscape/demo/demo*.vue')
-</script>
 
 <!-- DEMO -->
 
 ### API
 
 #### Landscape Props
+
 |Props | Description | Type | Default | Note |
 |----|-----|------|------|----- |
 |v-model|display popup layer or not|Boolean|`false`| - |
@@ -40,10 +35,13 @@ const demos = import.meta.globEager('../../../src/packages/landscape/demo/demo*.
 |mask-closable|if popup layer can be closed through clicking on the mask|Boolean|`false`| - |
 |full-screen|whether display as full screen|Boolean|`false`| - |
 | transition | the animation effect of dialog | String | when `full-screen` is `true`, the default value is `md-fade`;otherwise the default value is `md-punch` |refer to [Transition](https://didi.github.io/mand-mobile/#/en-US/docs/components/feedback/transition?anchor=API) for optional values |
+
 #### Landscape Events
 
 ##### @show()
+
 Display popup
 
 ##### @hide()
+
 Hide popup

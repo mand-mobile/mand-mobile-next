@@ -20,16 +20,12 @@ Vue.createApp().component(DetailItem.name, DetailItem)
 
 <demo-wrapper
   src="src/packages/detail-item/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/detail-item/demo/demo*.vue')
-</script>
 
 ## API
 
 ### DetailItem Props
+
 |属性 | 说明 | 类型 | 默认值|备注|
 |----|-----|------|------|------|
 |title|标题|String| | |

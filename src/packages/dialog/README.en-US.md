@@ -6,7 +6,6 @@ preview: https://didi.github.io/mand-mobile/examples/#/dialog
 
 # Dialog
 
-
 A floating layer to get users' feedback or display information.
 
 ### Import
@@ -23,18 +22,12 @@ this.$dialog.alert({ content: '' }) // Totally Import
 
 <demo-wrapper
   src="src/packages/dialog/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/dialog/demo/demo*.vue')
-</script>
-
-<!-- DEMO -->
 
 ### API
 
 #### Dialog Props
+
 | Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
 | v-model | whether to show a dialog or not | Boolean | `false` | - |
@@ -77,17 +70,21 @@ Header slot, generally used for placing pictures, etc <sup class="version-after"
 #### Dialog Instance Methods
 
 ##### close()
+
 Hide dialog
 
 #### Dialog Instance Events
 
 ##### @show()
+
 Invoked after dialog is shown
 
 ##### @hide()
+
 Invoked after dialog is hidden
 
 ##### @click(btn, index)
+
 Invoked after some button is clicked
 
 |Props | Description | Type |
@@ -95,11 +92,12 @@ Invoked after some button is clicked
 |btn|object corresponding to the clicked button in the btns list|Object: DialogBtnOptions|
 |index|index of object corresponding to the clicked button in the btns list|Number|
 
-
 #### Dialog Static Methods
+
 Dynamically create interactive dialogs
 
 ##### Dialog.confirm(props)
+
 Dynamically create a confirmation dialog
 
 | Props | Description | Type | Default |
@@ -117,6 +115,7 @@ Dynamically create a confirmation dialog
 | onHide <sup class="version-after">2.5.0+</sup>| callback function is invoked when dialog is hidden | Function | -|
 
 ##### Dialog.alert(props)
+
 Dynamically create an alert dialog
 
 | Props | Description | Type | Default |
@@ -131,6 +130,7 @@ Dynamically create an alert dialog
 | onHide | callback function is invoked when dialog is hidden | Function | -|
 
 ##### Dialog.succeed(props)
+
 Dynamically create a success dialog
 
 | Props | Description | Type | Default |
@@ -144,6 +144,7 @@ Dynamically create a success dialog
 | onHide | callback function is invoked when dialog is hidden | Function | -|
 
 ##### Dialog.failed(props)
+
 Dynamically create a fail dialog
 
 | Props | Description | Type | Default |
@@ -157,4 +158,5 @@ Dynamically create a fail dialog
 | onHide | callback function is invoked when dialog is hidden | Function | -|
 
 ##### Dialog.closeAll()
+
 Close all global dialogs

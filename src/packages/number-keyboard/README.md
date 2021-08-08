@@ -20,16 +20,12 @@ Vue.createApp().component(NumberKeyboard.name, NumberKeyboard)
 
 <demo-wrapper
   src="src/packages/number-keyboard/demo"
-  :demos="demos"
 />
-
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/number-keyboard/demo/demo*.vue')
-</script>
 
 ## API
 
 ### NumberKeyboard Props
+
 |属性 | 说明 | 类型 | 默认值| 备注|
 |----|-----|------|------|------|
 |value|键盘是否展示|Boolean|`false`|-|
@@ -54,14 +50,17 @@ const demos = import.meta.globEager('../../../src/packages/number-keyboard/demo/
 ### NumberKeyboard Methods
 
 #### show()
+
 展示键盘
 
 #### hide()
+
 隐藏键盘
 
 ### NumberKeyboard Events
 
 #### @enter(val)
+
 数字键点击事件
 
 属性 | 说明 | 类型
@@ -69,7 +68,9 @@ const demos = import.meta.globEager('../../../src/packages/number-keyboard/demo/
 val     | 数字 | Number
 
 #### @delete()
+
 回退键点击事件
 
 #### @confirm()
+
 确认键点击事件

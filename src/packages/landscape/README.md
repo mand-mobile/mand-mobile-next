@@ -20,12 +20,10 @@ Vue.createApp().component(Landscape.name, Landscape)
 
 <demo-wrapper
   src="src/packages/landscape/demo"
-  :demos="demos"
+  
 />
 
-<script setup>
-const demos = import.meta.globEager('../../../src/packages/landscape/demo/demo*.vue')
-</script>
+
 
 ## API
 
