@@ -12,7 +12,6 @@ import { UPDATE_MODEL_EVENT } from 'mand-mobile-next/utils'
 import { Dragger } from 'mand-mobile-next/swiper'
 import type {
   ComponentPublicInstance,
-  ComponentInternalInstance,
   ExtractPropTypes,
   PropType,
   SetupContext,
@@ -101,9 +100,7 @@ export const useSlider = (
     right: 0,
   })
 
-  const draggers = ref<
-    (Element | ComponentInternalInstance | null)[]
-  >([])
+  const draggers = ref<(Element | null)[]>([])
   const currentDragger = ref<HTMLElement | null>(null)
 
   const { position, winDragger } = initWindowDrag()
