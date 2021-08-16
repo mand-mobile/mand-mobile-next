@@ -2,6 +2,7 @@
 component: action-bar
 title: ActionBar
 preview: https://didi.github.io/mand-mobile/examples/#/action-bar
+sidebarDepth: 3
 ---
 
 # ActionBar
