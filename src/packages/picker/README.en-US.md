@@ -28,7 +28,6 @@ Vue.createApp().component(Picker.name, Picker)
 
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
-|v-model:visible|display picker or not|Boolean|`false`|-|
 |v-model|values of initially selected items in each column|Array|`[]`|Available key `value`|
 |data|data source|Array<{value, text, ...}>[]|`[]`|-|
 |cols|number of columns|Number|`1`|-|
@@ -41,7 +40,6 @@ Vue.createApp().component(Picker.name, Picker)
 |describe|description of picker|String|-|-|
 |ok-text|confirmation text|String|`confirm`|-|
 |cancel-text|cancellation text|String|`cancel`|-|
-|large-radius|large radius of title bar|Boolean|`false`|-|
 |mask-closable|picker will be closed when clicking mask|Boolean|`true`|-|
 
 #### Picker Methods

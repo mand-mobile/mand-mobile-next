@@ -2,7 +2,6 @@ import { ref, onUpdated, onMounted, computed } from 'vue'
 import type { SetupContext } from 'vue'
 interface InoticeProps {
   mode: string
-  closable: boolean
   time: number
   scrollable: boolean
 }
@@ -34,7 +33,7 @@ export const useNotice = (
   }
 
   const close = () => {
-    if (props.mode === 'closable' || props.closable) {
+    if (props.mode === 'closable') {
       isShow.value = false
     }
     emit('close')

@@ -28,7 +28,6 @@ Vue.createApp().component(Picker.name, Picker)
 
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
-|v-model:visible|选择器是否可见|Boolean|`false`|-|
 |v-model|选择器各列初始选中项值|Array|`[]`|选项值字段`value`|
 |data|数据源|Array<{value, text, ...}>[]|`[]`|-|
 |cols|数据列数|Number|`1`|-|
@@ -41,7 +40,6 @@ Vue.createApp().component(Picker.name, Picker)
 |describe|选择器描述|String|-|-|
 |ok-text|选择器确认文案|String|`确认`|-|
 |cancel-text|选择器取消文案|String|`取消`|-|
-|large-radius|选择器标题栏大圆角模式|Boolean|`false`|-|
 |mask-closable|点击蒙层是否可关闭弹出层|Boolean|`true`|-|
 
 ### Picker Methods

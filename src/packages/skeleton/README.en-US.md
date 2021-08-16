@@ -6,7 +6,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/Skeleton
 
 # Skeleton
 
-Skeleton screen, generally used to display the loading state of the general structure of the page before the data has been loaded <sup class="version-after">2.5.0+</sup>
+Skeleton screen, generally used to display the loading state of the general structure of the page before the data has been loaded 
 
 ### Import
 

@@ -65,7 +65,7 @@ export default defineComponent({
       default: false,
     },
     size: {
-      type: String as PropType<'largin' | 'small'>,
+      type: String as PropType<'large' | 'small'>,
       default: 'large', // large, small
     },
     plain: {

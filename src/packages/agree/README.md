@@ -24,11 +24,11 @@ Vue.createApp().component(Agree.name, Agree)
 
 ## API
 
-### Agree Props
+#### Agree Props
 |属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------|------|
-|value|是否选中|Boolean|`false`| |
-|disabled|是否禁用|Boolean|`false`| |
+|v-model|是否选中|Boolean|`false`|-|
+|disabled|是否禁用|Boolean|`false`|-|
 |size|按钮大小|String|`md`|可选值参考组件`Icon`|
 
 ### Agree Events

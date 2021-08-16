@@ -31,14 +31,10 @@ Vue.createApp().component(TabBar.name, TabBar)
 | v-model | key of selected menu | String | - | - |
 |items|menus data|Array<{name: String, label: String, disabled: Boolean}>|-|-|
 | has-ink | display underline ink bar | Boolean | `true` | - |
-| ink-length | the width of ink bar | Number | `80` | the percentage width of ink bar, between `0-100` |
+| ink-length | the width of ink bar | Number | `80` | the percentage width of ink bar, between `1-100` |
 |immediate|trigger a `change` event immediately after initialization|Boolean|`false`|-|
 
 #### TabBar Methods
-
-##### reflow(index)
-
-relayout tabbar
 
 #### TabBar Events
 

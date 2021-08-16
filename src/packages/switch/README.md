@@ -28,7 +28,7 @@ Vue.createApp().component(Switch.name, Switch)
 
 |属性 | 说明 | 类型 | 默认值|
 |----|-----|------|------|
-|value|打开或者关闭|Boolean|`false`|
+|v-model|打开或者关闭|Boolean|`false`|
 |disabled|是否禁用|Boolean|`false`|
 
 ### Switch Events

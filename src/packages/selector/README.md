@@ -29,7 +29,7 @@ Vue.createApp().component(Selector.name, Selector)
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |visible|选择器是否可见|Boolean|false| |
-|model-value|默认选中的值| String，Number | | options[number].value |
+|v-model|默认选中的值| String，Number | | options[number].value |
 |data|数据源|Array\<{value,text,disabled,...}\>|`[]`|`text`可为`html`片段|
 |default-value|选择器初始选中项的值|any| |`multi`为`true`时，`default-value`应该传数组|
 |title|选择器标题|String| | |

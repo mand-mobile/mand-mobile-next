@@ -30,7 +30,7 @@ Vue.createApp().component(Landscape.name, Landscape)
 ### Landscape Props
 |属性 | 说明 | 类型 | 默认值| 备注 |
 |----|-----|------|------|-----|
-|value|是否展示|Boolean|`false`| - |
+|v-model|是否展示|Boolean|`false`| - |
 |has-mask|是否有蒙层|Boolean|`true`| - |
 |mask-closable|是否可以通过点击蒙层关闭|Boolean|`false`| - |
 |full-screen|是否全屏|Boolean|`false`| - |

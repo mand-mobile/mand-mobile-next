@@ -85,6 +85,7 @@ footer content slot
 |addon|help info text|String|-|-|
 |disabled|disable item operation|Boolean|false|-|
 |arrow|arrow indicator|Boolean|false|-|
+|placeholder|placeholder text|String|-|-|
 
 #### FieldItem Events
 

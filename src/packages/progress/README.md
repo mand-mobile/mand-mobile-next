@@ -30,11 +30,11 @@ Vue.createApp().component(Progress.name, Progress)
 |----|-----|------|------|------|
 |value|进度值|Number|`0`|`0-1`|
 |size|圆环大小|Number|`70`|单位`px`|
-|width|圆环宽度|Number| |单位`px`|
-|color|圆环高亮颜色|String|`#fc9153`| |
+|width|圆环宽度|Number|`100` |单位`px`|
+|color|圆环高亮颜色|String|`#2F86F6`| |
 |border-color|圆环颜色|String|`rgba(0, 0, 0, .1)`| |
 |fill|圆环内部填充|String|`transparent`||
-|linecap|圆环两端形状|String|`round`|`round`, `butt`|
+|linecap|圆环两端形状|String|`round`|`round`, `butt`, `square`, `inherit`|
 |rotate|圆环旋转|Number|`0`||
 |transition|进度变化是否使用动效|Boolean|`false`||
 |duration|进度变化动效时长|Number|`1000`|单位`ms`|

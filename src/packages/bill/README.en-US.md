@@ -28,7 +28,7 @@ Vue.createApp().component(Bill.name, Bill)
 #### Bill Props
 |Props | Description | Type | Default | Note |
 |----|-----|------|------ |------|
-|name|-|String|-|-|
+|title|-|String|-|-|
 |no|-|String|-|-|
 |water-mark|-|String|-|complex content using `scoped slot`|
 

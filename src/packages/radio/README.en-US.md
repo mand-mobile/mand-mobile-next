@@ -43,7 +43,7 @@ Vue.createApp().component(Radio.name, Radio)
 
 #### RadioBox Props
 
-Radio box <sup class="version-after">2.5.0+</sup>
+Radio box 
 | Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
 |name|unique name|any|`true`|-|
@@ -54,7 +54,7 @@ Radio box <sup class="version-after">2.5.0+</sup>
 
 #### RadioGroup Props
 
-Check multiple radios. Combine with `Radio` or `RadioBox` <sup class="version-after">2.5.0+</sup>
+Check multiple radios. Combine with `Radio` or `RadioBox` 
 
 | Props | Description | Type | Default | Note |
 |----|-----|------|------|------|

@@ -33,13 +33,12 @@ Vue.createApp().component(Cashier.name, Cashier)
 |channel-limit|show more payment channels button when the payment channels exceeds the limit|Number|`2`|-|
 |default-index|default selected index of payment channel |Number|`0`|-|
 |title|cashier title|String|`pay `|-|
-|large-radius <sup class="version-after">2.4.0+</sup>|large radius of title bar|Boolean|`false`|-|
+|describe|cashier describe|String|-|-|
 |payment-title|payment amount title|String|`支付金额(元)`|support `html fragment`|
 |payment-amount|payment amount|String|`0.00`|support `html fragment`|
 |payment-describe|the description of payment amount |String|-|support `html fragment`|
 |pay-button-text|confirm payment button text|String|`确认支付`|-|
 |pay-button-disabled|disable payment button|Boolean|`false`|-|
-|more-button-text|more payment channels button text|String|`更多支付方式`|support `html fragment`|
 
 #### Cashier Methods
 

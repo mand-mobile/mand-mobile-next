@@ -30,11 +30,11 @@ Vue.createApp().component(Progress.name, Progress)
 |----|-----|------|------|------|
 |value|progress value|Number|`0`|`0-1`|
 |size|circle size|Number|`70`|unit `px`|
-|width|circle stroke width|Number|-|unit `px`|
-|color|circle stroke highlight color|String|`#fc9153`|-|
+|width|circle stroke width|Number|`100`|unit `px`|
+|color|circle stroke highlight color|String|`#2F86F6`|-|
 |border-color|circle stroke color|String|`rgba(0, 0, 0, .1)`|-|
 |fill|circle fill color|String|`transparent`|-|
-|linecap|shape of end|String|`round`|`round`, `butt`|
+|linecap|shape of end|String|`round`|`round`, `butt`, `square`, `inherit`|
 |rotate|-|Number|`0`|-|
 |transition|use transition when value changes|Boolean|`false`|-|
 |duration|transition duration|Number|`1000`|unit `ms`|
