@@ -9,7 +9,6 @@ import './styles/prism.styl'
 
 import { Theme } from 'vitepress'
 import Layout from './components/Layout.vue'
-import NotFound from 'fisand-doc/dist/client/theme-default/NotFound.vue'
 import Badge from './components/Badge.vue'
 
 if (import.meta.env.DEV) {
@@ -18,7 +17,6 @@ if (import.meta.env.DEV) {
 
 const theme: Theme = {
   Layout,
-  NotFound,
   enhanceApp({ app }) {
     app.component('Badge', Badge)
   },
