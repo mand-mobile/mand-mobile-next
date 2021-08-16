@@ -1,6 +1,7 @@
 import { UserConfig } from 'vite'
 import path from 'path'
 import WindiCSS from 'vite-plugin-windicss'
+import aspectRatio from 'windicss/plugin/aspect-ratio'
 
 const config: UserConfig = {
   resolve: {
@@ -38,6 +39,9 @@ const config: UserConfig = {
             `${process.cwd()}/node_modules/fisand-doc/**/*.vue`,
           ],
         },
+        attributify: true,
+        plugins: [aspectRatio as any],
+        preflight: false,
       },
     }),
   ],
