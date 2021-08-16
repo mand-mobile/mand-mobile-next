@@ -30,7 +30,6 @@
           :describe="describe"
           :ok-text="okText"
           :cancel-text="cancelText"
-          :large-radius="largeRadius"
           @confirm="confirmHandler"
           @cancel="cancelHandler"
         ></md-popup-title-bar>

@@ -29,12 +29,12 @@ this.$actionsheet.create({ /* ... */ }) // 全量引入
 ### ActionSheet Props
 |属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------|------|
-| model-value | 选中值 | String, Number | | options[number].value |
-| visible |面板是否可见|Boolean| `false`|-|
+| v-model | 选中值 | String, Number | | options[number].value |
 |title|面板标题|String|-|-|
 |options|面板选项| Array<{text, value}>| `[]`|-|
 |invalid-index|禁用选择项索引 |Number|`-1`|-|
 |cancel-text|取消按钮文案 |String | 取消 |-|
+|default-index|默认选中下标|Boolean|`-1`|-|
 
 ### ActionSheet Events
 
@@ -74,9 +74,9 @@ this.$actionsheet.create({ /* ... */ }) // 全量引入
 
 |属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------|------|
-|model-value|默认选中的值| String，Number | | options[number].value |
+|v-model|默认选中的值| String，Number | | options[number].value |
 |title|面板标题|String|-|-|
-|options|面板选项| Array<{text, value}>| `[]`|-|
+|options|面板选项| Array<{text, value, label}>| `[]`|-|
 |invalidIndex|禁用选择项索引 |Number|`-1`|-|
 |cancelText|取消按钮文案 |String |-|-|
 |maxHeight|面板最高高度, 超出后可滚动|Number|400|单位`px`|

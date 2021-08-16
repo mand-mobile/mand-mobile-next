@@ -33,7 +33,7 @@ Vue.createApp().component(Captcha.name, Captcha)
 | maxlength | maxlength of string, set to `-1` as no restriction | Number | 4 |
 | mask | whether to mask code or not | Boolean | `false` |
 | system | Use system keyboard or simulated keyboard | Boolean | `false` |
-| auto-send <sup class="version-after">2.5.8+</sup> |whether the `send` event is triggered during the first display, otherwise you need to manually click the send button|Boolean|`true`|
+| auto-send  | whether the `send` event is triggered during the first display, otherwise you need to manually click the send button|Boolean|`true`|
 | auto-countdown |whether to automatically start the countdown after manually clicking the send button, otherwise you need to manually call `countdown`|Boolean|`true`|
 | title |-|String|-|
 | brief |-|String|-|-|

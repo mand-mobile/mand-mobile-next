@@ -47,14 +47,14 @@ Vue.createApp().component(Stepper.name, Stepper)
 Change value
 
 ##### @increase(difference)
-Triggered when the current value increases <sup class="version-after">2.2.0+</sup>
+Triggered when the current value increases 
 
 |Props | Description | Type|
 |----|-----|------|
 |difference|Increased value|Number|
 
 ##### @decrease(difference)
-Triggered when the current value decreases <sup class="version-after">2.2.0+</sup>
+Triggered when the current value decreases 
 
 |Props | Description | Type|
 |----|-----|------|

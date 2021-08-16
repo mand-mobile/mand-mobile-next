@@ -35,43 +35,47 @@ this.$actionsheet.create({ /* ... */ }) // Totally Import
 |----|-----|------|------|------|------|
 |v-model|display actionsheet or not|Boolean|`false`|-|
 |title|title of actionsheet|String|-|-|
-|options|options of actionsheet|Array<{text, value}>| [] |-|
+|options|options of actionsheet|Array<{text, value, label}>| [] |-|
 |default-index|default selected index|Boolean|0|-|
 |invalid-index|invalid index|Number| -1|-|
 |cancel-text|cancel text|String|-|-|
-|large-radius <sup class="version-after">2.4.0+</sup>|large radius|Boolean|`false`|-|
+|defaultIndex|default selected index|Boolean|-1|-|
 
 #### ActionSheet Events
 
-##### @selected(item)
+#### <badge>v-model</badge> @update:modelValue(value)
 Select event
 
-|Props | Description | Type |
+| Props | Description | Type |
 |----|-----|------|
-|item|selected value|Object: {text, value}|
+| value | selected value | String, Number |
 
-##### @selected(item)
+### <badge>v-model:visible</badge> @update:visible(value)
 
-Cancel selection
+| Props | Description | Type |
+|----|-----|------|
+| value | control show or hide | boolean |
+
+##### @cancel()
+
+cancel event
 
 ##### @show()
 
-Show actionsheet
+show event
 
-##### @hide()
+#### @hide()
 
-Hide actionsheet
-
+hide event
 #### ActionSheet Static Methods
 
 ##### create(props)
 Static create a global ActionSheet, and return instance. You can change instance `value` to toggle the visibility of ActionSheet.
 
 |----|-----|------|------|------|------|
-|value|display actionsheet or not|Boolean|`true`|-|
+|v-model|display actionsheet or not|Boolean|`true`|-|
 |title|title of actionsheet|String|-|-|
 |options|options of actionsheet|Array<{text, value}>| [] |-|
-|defaultIndex|default selected index|Boolean|0|-|
 |invalidIndex|invalid index|Number| -1|-|
 |cancelText|cancel text|String|-|-|
 |maxHeight|the maximum height of actionsheet area|Number|`400`|unit `px`|
@@ -79,9 +83,4 @@ Static create a global ActionSheet, and return instance. You can change instance
 |onHide|actionsheet hide callback|Function|-|-|
 |onCancel|cancel selection callback|Function|-|-|
 |onSelected|selection callback|Function(item: {text, value})|-|-|
-
-##### closeAll()
-Close all global ActionSheets
-
-#### destroyAll()
-Close and destroy all global ActionSheets
+| onMaskClick | click mask callback | Function|-| normally this callback simply hides the component, as shown in the example |

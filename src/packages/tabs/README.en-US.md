@@ -29,8 +29,10 @@ Vue.createApp().component(TabPane.name, TabPane)
 
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
-|v-model|name of selected tab|String|-|-|
-|immediate|trigger a `change` event immediately after initialization|Boolean|`false`|-|
+| default-index | initialize the index of tab | Number | 0 | - |
+| has-ink |display underline ink bar |Boolean|`true`| |
+| ink-length |the width of ink bar |Number|`0`| the percentage width of ink bar, between `1-100`|
+| immediate |trigger a `change` event immediately after initialization |Boolean|`false`| |
 
 #### TabPane Props
 
@@ -40,11 +42,6 @@ Vue.createApp().component(TabPane.name, TabPane)
 |label|tab label|String|-|required|
 |disabled|disable pane|Boolean|`false`|-|
 
-#### Tabs Methods
-
-##### reflowTabBar()
-
-relayout tabbar
 
 #### Tabs Events
 

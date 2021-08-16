@@ -28,7 +28,8 @@ Vue.createApp().component(ImageViewer.name, ImageViewer)
 
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
-| v-model | 是否显示查看器 | Boolean | `false` |
+| visible | 是否显示查看器 | Boolean | `false` |
 | list |展示图片列表 | Array\<String\> | `[]` | -|
-| initial-index | 初始索引值 | Number | `0` | - |
+| default-index | 初始索引值 | Number | `0` | - |
 | has-dots | 是否展示图片索引值 | Boolean | `true` | - |
+| deletable | 是否展示删除图标 | Boolean | `false` | - |

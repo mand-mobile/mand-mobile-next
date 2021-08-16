@@ -32,13 +32,12 @@ Vue.createApp().component(Selector.name, Selector)
 |----|-----|------|------|------|
 |v-model|display selector or not|Boolean|false|-|
 |data|data source|Array<{value,text,disabled,...}>|`[]`|`text` can be a `html` fragment|
-|default-value <sup class="version-after">2.3.0+</sup>|the value of initially selected item|any|-|when `multi` is `true`, `default-value` should be `array`|
+|default-value |the value of initially selected item|any|-|when `multi` is `true`, `default-value` should be `array`|
 |title|title of selector|String|-|-|
 |describe|description of selector|String|-|-|
 |ok-text|confirmation text|String|-|if empty, it will be `confirmed mode`, that is, click to select directly|
 |cancel-text|cancellation text|String|`cancel`|-|
-|large-radius <sup class="version-after">2.4.0+</sup>|large radius of title bar|Boolean|`false`|-|
-|hide-title-bar <sup class="version-after">2.4.0+</sup>|hide title bar|Boolean|`false`|-|
+|hide-title-bar |hide title bar|Boolean|`false`|-|
 |mask-closable|if the popup will be closed when clicking mask|Boolean|`true`|-|
 |is-check|has a `check` icon or not|Boolean|`false`|only for `confirmed mode`|
 |max-height|the maximum height of selectable area|Number/String|`auto`|-|
@@ -49,7 +48,7 @@ Vue.createApp().component(Selector.name, Selector)
 |icon-size|the size of icon|String|`lg`|-|
 |icon-svg|use svg icon|Boolean|`false`|-|
 |icon-position|the position of icon|String|`right`|`left`, `right`|
-|multi<sup class="version-after">2.3.0+</sup>|support multi select|Boolean|`false`|`multi` must be with `ok-text` prop|
+|multi|support multi select|Boolean|`false`|`multi` must be with `ok-text` prop|
 
 #### Selector Events
 
@@ -87,8 +86,8 @@ Hide selector
 
 ##### header
 
-header slot <sup class="version-after">2.4.0+</sup>
+header slot 
 
 ##### footer
 
-footer slot <sup class="version-after">2.4.0+</sup>
+footer slot 

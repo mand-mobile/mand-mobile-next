@@ -28,8 +28,8 @@ Vue.createApp().component(CellItem.name, CellItem)
 
 |属性 | 说明 | 类型 | 默认值|备注|
 |----|-----|------|------|------|
-|title|标题|String| | |
-|brief|描述文案|String| | |
+|title|标题|String\/Number| | |
+|brief|描述文案|String\/Number| | |
 |addon|附加文案|String| | |
 |disabled|是否禁用项目|Boolean|`false`| |
 |arrow|动作箭头标识|Boolean|`false`| |

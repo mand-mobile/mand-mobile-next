@@ -48,6 +48,7 @@ Vue.createApp().component(PullUp.name, PullUp)
 | pullUpOptions | 上拉加载配置 | Object | `{ threshold: number }` | - |
 | isFinished | 上拉加载完成 | Boolean | `false` | - |
 
+
 ### PullDown Props
 
 |属性 | 说明 | 类型 | 默认值 | 备注|

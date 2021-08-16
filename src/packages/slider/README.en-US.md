@@ -32,4 +32,6 @@ Vue.createApp().component(Slider.name, Slider)
 |max|the maximum value the slider can slide to|number|`100`|-|
 |step|the granularity the slider can step through|number|`1`|-|
 |range|dual thumb mode|Boolean|`false`|-|
+|hasTip|is show tip|Boolean|`true`| |
+|tip-Placement|tip position|String|'top'| |
 |format|slider will pass its value to <code>format</code>, and display its value in tooltip|Function|`(val) => {return val}`|-|

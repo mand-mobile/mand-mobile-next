@@ -28,7 +28,7 @@ Vue.createApp().component(NumberKeyboard.name, NumberKeyboard)
 
 |属性 | 说明 | 类型 | 默认值| 备注|
 |----|-----|------|------|------|
-|value|键盘是否展示|Boolean|`false`|-|
+|v-model|键盘是否展示|Boolean|`false`|-|
 |is-view|是否内嵌在页面内展示，否则以弹层形式|Boolean|`false`|-|
 |type|键盘类型|String|`professional`|`professional`有确认键和小数点常用于价格或金额输入，`simple`一般用于密码或验证码输入|
 |disorder|键盘数字键是否乱序|Boolean|`false`| -|

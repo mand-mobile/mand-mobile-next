@@ -39,7 +39,7 @@
       <!-- custom first -->
       <slot v-if="customRight" name="right"></slot>
       <md-icon
-        v-else-if="mode || closable"
+        v-else-if="mode"
         class="md-notice-icon md-notice-icon-right"
         :name="rightIcon"
         @click="close"
@@ -90,10 +90,6 @@ export default defineComponent({
       default: '',
     },
     iconSvg: {
-      type: Boolean,
-      default: false,
-    },
-    closable: {
       type: Boolean,
       default: false,
     },

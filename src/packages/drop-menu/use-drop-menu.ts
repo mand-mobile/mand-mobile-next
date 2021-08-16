@@ -132,6 +132,14 @@ export const useDropMenu = (
     selectedMenuListItem.value[activeIndex] = listItem
     emit(CHANGE_EVENT, barItem, listItem)
   }
+  //  Get selected values of all barItem
+  const getSelectedValues = () => {
+    return selectedMenuListItem.value
+  }
+  // Get selected value of a barItem
+  const getSelectedValue = (index: number) => {
+    return selectedMenuListItem.value[index]
+  }
 
   const scroller = ref('')
   const boxRef = ref<HTMLElement | null>(null)
@@ -163,6 +171,9 @@ export const useDropMenu = (
     scroller,
     boxRef,
     menuRef,
+
+    getSelectedValues,
+    getSelectedValue,
   }
 }
 

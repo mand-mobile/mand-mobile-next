@@ -28,7 +28,7 @@
 
   &.drop-menu-demo {
     .md-drop-menu-list {
-      padding: 0px;
+      // padding: 0px;
     }
 
     .md-example-section {
@@ -36,8 +36,18 @@
     }
 
     .md-drop-menu + .content {
-      font-size: 18px;
-    }   
+      font-size: 13px;
+      text-align: center;
+      line-height: 100px
+    }  
+
+    .md-example-child-drop-menu {
+      position: relative;
+      height: 200px;
+      background: #f9fafb;
+      overflow: hidden;
+    } 
+
   }
 
   .md-example-child-stepper {
@@ -118,7 +128,9 @@
   .md-example-child-progress .progress-value, .slide-page, .md-example-child-swiper-3 .banner-item, .md-example-child-tab-bar-4 .custom-item .text {
     font-size: 16px;
   }
-
+  .md-steps .bar.vertical-bar {
+    left: 7.5px;
+  }
   .md-tag .size-small {
     font-size: 10px;
   }
@@ -149,12 +161,27 @@
   .md-notice-bar-content {
     line-height: 32px;
   }
+
+  .md-notice-bar-right{
+    padding-right: 16px;
+  }
+
+
+ .md-drop-menu-bar {
+    z-index: 99999;
+  }
 }
 
 .demo-wrapper .md-action-bar .price {
   font-size: 24px !important;
 }
 
+.demo-wrapper .md-action-bar small {
+  font-size: 16px !important;
+}
+.md-action-bar .md-action-bar-button {
+  margin-bottom 0px !important;
+}
 .md-example-child-tabs-0 .content {
   margin: 0 !important;
   font-size: 14px !important;

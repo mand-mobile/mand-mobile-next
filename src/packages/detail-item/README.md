@@ -29,5 +29,5 @@ Vue.createApp().component(DetailItem.name, DetailItem)
 |属性 | 说明 | 类型 | 默认值|备注|
 |----|-----|------|------|------|
 |title|标题|String| | |
-|content|描述内容|String| | |
+|content|描述内容|String\/Number| | |
 |bold|是否加粗显示|Boolean|`false`| |
