@@ -1,8 +1,6 @@
 import { UserConfig } from 'vite'
-import Components from 'vite-plugin-components'
-import Icons, { ViteIconsResolver } from 'vite-plugin-icons'
-import WindiCSS from 'vite-plugin-windicss'
 import path from 'path'
+import WindiCSS from 'vite-plugin-windicss'
 
 const config: UserConfig = {
   resolve: {
@@ -29,6 +27,20 @@ const config: UserConfig = {
       },
     },
   },
+  plugins: [
+    WindiCSS({
+      config: {
+        extract: {
+          include: [
+            '**/*.md',
+            '.vitepress/theme/**/*.{md,vue}',
+            `${process.cwd()}/node_modules/fisand-doc/**/*.md`,
+            `${process.cwd()}/node_modules/fisand-doc/**/*.vue`,
+          ],
+        },
+      },
+    }),
+  ],
   optimizeDeps: {
     exclude: ['vue-demi', '@vueuse/shared', '@vueuse/core'],
   },
@@ -37,21 +49,6 @@ const config: UserConfig = {
       overlay: false,
     },
   },
-  plugins: [
-    Components({
-      dirs: ['.vitepress/theme/components'],
-      customLoaderMatcher: (id) => id.endsWith('.md'),
-      customComponentResolvers: [
-        ViteIconsResolver({
-          componentPrefix: '',
-        }),
-      ],
-    }),
-    Icons(),
-    WindiCSS({
-      preflight: false,
-    }),
-  ],
 }
 
 export default config

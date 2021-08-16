@@ -3,6 +3,7 @@ component: action-bar
 category: basic
 title: ActionBar 操作栏
 preview: https://didi.github.io/mand-mobile/examples/#/action-bar
+sidebarDepth: 3
 ---
 
 # Action-bar 操作栏

@@ -1,7 +1,9 @@
 ---
 home: true
 heroImage: https://pt-starimg.didistatic.com/static/starimg/img/ySOsAunfGm1610683661213.png
+heroBanner: https://pt-starimg.didistatic.com/static/starimg/img/23iUuVLsnS1605512486154.png
 heroAlt: 
+heroSub: 'next'
 heroText: Mand Mobile
 tagline: 面向金融场景，基于 Vue 3.0 移动端组件库
 

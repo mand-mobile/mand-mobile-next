@@ -98,6 +98,7 @@ module.exports = {
   ],
   lang: 'zh-CN',
   themeConfig: {
+    i18n: true,
     repo: 'https://github.com/mand-mobile/mand-mobile-next',
     docsBranch: 'vue3',
     editLinks: true,
@@ -130,12 +131,6 @@ module.exports = {
         },
         componenSidebar(genEnPath),
       ],
-    },
-  },
-
-  markdown: {
-    config: (md) => {
-      md.use(require('./plugins/demo'))
     },
   },
 }

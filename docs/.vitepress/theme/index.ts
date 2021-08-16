@@ -1,6 +1,4 @@
-import 'windi-base.css'
-import 'windi-components.css'
-import 'windi-utilities.css'
+import 'virtual:windi.css'
 import './styles/vars.css'
 import './styles/layout.css'
 import './styles/code.css'
@@ -10,9 +8,8 @@ import './styles/mand-reset.styl'
 import './styles/prism.styl'
 
 import { Theme } from 'vitepress'
-import Layout from './Layout.vue'
-import NotFound from './NotFound.vue'
-import DemoWrapper from './components/DemoWrapper.vue'
+import Layout from './components/Layout.vue'
+import NotFound from 'fisand-doc/dist/client/theme-default/NotFound.vue'
 import Badge from './components/Badge.vue'
 
 if (import.meta.env.DEV) {
@@ -23,8 +20,7 @@ const theme: Theme = {
   Layout,
   NotFound,
   enhanceApp({ app }) {
-    app.component('DemoWrapper', DemoWrapper)
-    app.component('badge', Badge)
+    app.component('Badge', Badge)
   },
 }
 

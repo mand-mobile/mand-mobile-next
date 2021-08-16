@@ -2,14 +2,18 @@
 import { ref } from 'vue'
 import { useCssVar } from 'mand-mobile-next/composable'
 
-const theme = ref ({
-  'color-primary': '#198cff'
+const theme = ref({
+  'color-primary': '#198cff',
 })
 
 useCssVar(theme)
 </script>
 <template>
-  <input v-model="theme['color-primary']" type="color" class="color-picker" />
+  <input
+    v-model="theme['color-primary']"
+    type="color"
+    class="color-picker"
+  />
 </template>
 
 <style lang="stylus">
