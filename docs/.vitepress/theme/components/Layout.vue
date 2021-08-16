@@ -9,7 +9,7 @@ const showTeleport = ref(false)
 onMounted(() => {
   setTimeout(() => {
     showTeleport.value = true
-  }, 1000)
+  }, 500)
 })
 </script>
 <template>
