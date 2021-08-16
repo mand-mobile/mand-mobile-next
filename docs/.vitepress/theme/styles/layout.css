@@ -322,6 +322,22 @@ li > svg {
   border-radius: 8px;
 }
 
+@media (max-width: 640px) {
+  .fisand-demo {
+    max-width: 100%;
+  }
+
+  .fisand-demo .demo-component {
+    width: 100%;
+    margin: 16px auto;
+  }
+}
+@media (min-width: 640px) and (max-width: 1024px) {
+  .fisand-demo > div {
+    flex: 0 0 100%;
+  }
+}
+
 .animate-text {
   left: 90%;
 }
