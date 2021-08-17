@@ -26,28 +26,42 @@
     background: ghostwhite;
   }
 
-  &.drop-menu-demo {
-    .md-drop-menu-list {
-      // padding: 0px;
-    }
+  .md-drop-menu-list {
+    // padding: 0px;
+  }
 
-    .md-example-section {
-      height: 300px;
-    }
+  .md-example-section {
+    height: 300px;
+  }
 
-    .md-drop-menu + .content {
-      font-size: 13px;
-      text-align: center;
-      line-height: 100px
-    }  
+  .md-drop-menu + .content {
+    font-size: 13px;
+    text-align: center;
+    line-height: 200px
+  }  
 
-    .md-example-child-drop-menu {
-      position: relative;
-      height: 200px;
-      background: #f9fafb;
-      overflow: hidden;
-    } 
+  .md-example-child-drop-menu {
+    position: relative;
+    height: 200px;
+    background: #f9fafb;
+    overflow: hidden;
+  } 
+ 
+  .md-drop-menu-bar {
+    height: 55px;
+    z-index: 9999;
+  }
 
+  .md-drop-menu {
+    height: 100%;
+  }
+
+  .md-drop-menu .md-popup {
+    position: absolute;
+  }
+
+  .md-drop-menu .md-cell-item-title {
+    margin: 0;
   }
 
   .md-example-child-stepper {
@@ -109,8 +123,8 @@
     font-size: 17px;
   }
 
-  .md-drop-menu-bar {
-    z-index: 2;
+  .md-example-child .md-drop-menu {
+    position: absolute;
   }
 
   .md-example-child-drop-menu-3 .md-drop-menu-custom-title {
@@ -166,10 +180,6 @@
     padding-right: 16px;
   }
 
-
- .md-drop-menu-bar {
-    z-index: 99999;
-  }
 }
 
 .fisand-demo-container .md-action-bar .price {
