@@ -99,6 +99,5 @@ export class Dragger {
       'touchend',
       this.endHandler
     )
-    this.position = null
   }
 }

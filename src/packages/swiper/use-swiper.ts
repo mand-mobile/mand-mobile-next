@@ -97,7 +97,6 @@ export const useSwiper = (
   {
     emit,
     slots,
-    expose,
   }: SetupContext<('beforeChange' | 'afterChange')[]>
 ) => {
   let swiperInstance: null | BScroll = null
@@ -177,9 +176,6 @@ export const useSwiper = (
     }
   }
 
-  const getSwiperInstance = () =>
-    swiperInstance as any as Slide
-
   let fadePosition: ReturnType<
     typeof onScrollHandler
   > | null = null
@@ -214,16 +210,23 @@ export const useSwiper = (
     })
   )
 
-  expose({
-    goto: getSwiperInstance()?.goToPage.bind(
-      getSwiperInstance()
-    ),
-    prev: getSwiperInstance()?.prev.bind(
-      getSwiperInstance()
-    ),
-    next: getSwiperInstance()?.next.bind(
-      getSwiperInstance()
-    ),
+  const getSwiperInstance = () =>
+    swiperInstance as any as Slide
+
+  return {
+    wrapRef,
+    renderSwiper,
+    resetSwiper,
+
+    indicatorCount,
+    currentIndex,
+
+    isVertical,
+    getSwiperInstance,
+    goto: (x: number, y: number) =>
+      getSwiperInstance()?.goToPage(x, y),
+    prev: () => getSwiperInstance()?.prev(),
+    next: () => getSwiperInstance()?.next(),
     startPlay: () => {
       props.transition === 'fade'
         ? fadePosition && (fadePosition.draging = false)
@@ -235,18 +238,6 @@ export const useSwiper = (
         : getSwiperInstance()?.pausePlay()
     },
     getIndex: () => currentIndex.value,
-  })
-
-  return {
-    wrapRef,
-    renderSwiper,
-    resetSwiper,
-
-    indicatorCount,
-    currentIndex,
-
-    getSwiperInstance,
-    isVertical,
   }
 }
 
