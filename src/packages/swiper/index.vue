@@ -54,6 +54,12 @@ export default defineComponent({
       currentIndex,
       getSwiperInstance,
       isVertical,
+      goto,
+      next,
+      prev,
+      getIndex,
+      startPlay,
+      stop,
     } = useSwiper(props, context)
 
     return {
@@ -66,6 +72,12 @@ export default defineComponent({
 
       getSwiperInstance,
       isVertical,
+      goto,
+      next,
+      prev,
+      getIndex,
+      startPlay,
+      stop,
     }
   },
 })
