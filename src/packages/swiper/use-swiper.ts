@@ -11,6 +11,7 @@ import {
   getCurrentInstance,
   onBeforeUnmount,
   watch,
+  effectScope,
 } from 'vue'
 import { Dragger } from './dragger'
 
@@ -96,6 +97,7 @@ export const useSwiper = (
   {
     emit,
     slots,
+    expose,
   }: SetupContext<('beforeChange' | 'afterChange')[]>
 ) => {
   let swiperInstance: null | BScroll = null
@@ -175,6 +177,12 @@ export const useSwiper = (
     }
   }
 
+  const getSwiperInstance = () =>
+    swiperInstance as any as Slide
+
+  let fadePosition: ReturnType<
+    typeof onScrollHandler
+  > | null = null
   onMounted(() => {
     const rect = wrapRef.value?.getBoundingClientRect()
     props.transition !== 'fade' &&
@@ -187,12 +195,12 @@ export const useSwiper = (
      */
     props.transition === 'fade' &&
       wrapRef.value &&
-      onScrollHandler(
+      (fadePosition = onScrollHandler(
         wrapRef.value,
         currentIndex,
         props,
         emit
-      )
+      ))
   })
 
   onBeforeUnmount(() => {
@@ -206,7 +214,28 @@ export const useSwiper = (
     })
   )
 
-  const getSwiperInstance = () => swiperInstance
+  expose({
+    goto: getSwiperInstance()?.goToPage.bind(
+      getSwiperInstance()
+    ),
+    prev: getSwiperInstance()?.prev.bind(
+      getSwiperInstance()
+    ),
+    next: getSwiperInstance()?.next.bind(
+      getSwiperInstance()
+    ),
+    startPlay: () => {
+      props.transition === 'fade'
+        ? fadePosition && (fadePosition.draging = false)
+        : getSwiperInstance()?.startPlay()
+    },
+    stop: () => {
+      props.transition === 'fade'
+        ? fadePosition && (fadePosition.draging = true)
+        : getSwiperInstance()?.pausePlay()
+    },
+    getIndex: () => currentIndex.value,
+  })
 
   return {
     wrapRef,
@@ -229,6 +258,7 @@ function onScrollHandler(
     ('beforeChange' | 'afterChange')[]
   >['emit']
 ) {
+  const fadeScope = effectScope()
   /**
    * get dom arrts
    */
@@ -260,56 +290,59 @@ function onScrollHandler(
   const dragger = new Dragger(wrap, position)
   onBeforeUnmount(() => dragger.destory())
 
-  /**
-   * default transition
-   * other listen touch
-   */
-  watch(
-    () => position.deltaX,
-    (val) => {
-      const slide =
-        Math.abs(val) > (itemRect?.width || 0) / 5
-      const next = val < 0
-      if (slide) {
-        next
-          ? (currentIndex.value = currentIndex.value + 1)
-          : (currentIndex.value = currentIndex.value - 1)
-        if (currentIndex.value === -1)
-          currentIndex.value = items.length - 1
-        if (currentIndex.value === items.length)
-          currentIndex.value = 0
+  fadeScope.run(() => {
+    /**
+     * default transition
+     * other listen touch
+     */
+    watch(
+      () => position.deltaX,
+      (val) => {
+        const slide =
+          Math.abs(val) > (itemRect?.width || 0) / 5
+        const next = val < 0
+        if (slide) {
+          next
+            ? (currentIndex.value = currentIndex.value + 1)
+            : (currentIndex.value = currentIndex.value - 1)
+          if (currentIndex.value === -1)
+            currentIndex.value = items.length - 1
+          if (currentIndex.value === items.length)
+            currentIndex.value = 0
+        }
       }
-    }
-  )
+    )
 
-  watch(currentIndex, (val, oldVal) => {
-    items.forEach((item) => {
-      item.style.transition = `opacity ${speed}ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`
-      item.style.opacity = '0'
-      item.style.zIndex = '0'
-      item.ontransitionend = null
-      item.ontransitionstart = null
+    watch(currentIndex, (val, oldVal) => {
+      items.forEach((item) => {
+        item.style.transition = `opacity ${speed}ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`
+        item.style.opacity = '0'
+        item.style.zIndex = '0'
+        item.ontransitionend = null
+        item.ontransitionstart = null
+      })
+      const ele = items[val]
+      ele.style.opacity = '1'
+      ele.style.zIndex = '1'
+      ele.ontransitionstart = function () {
+        emit(BEFORE_CHANGE, oldVal, val)
+      }
+      ele.ontransitionend = function () {
+        emit(AFTER_CHANGE, oldVal, val)
+      }
     })
-    const ele = items[val]
-    ele.style.opacity = '1'
-    ele.style.zIndex = '1'
-    ele.ontransitionstart = function () {
-      emit(BEFORE_CHANGE, oldVal, val)
-    }
-    ele.ontransitionend = function () {
-      emit(AFTER_CHANGE, oldVal, val)
-    }
+
+    /**
+     * loop
+     */
+    watch(
+      () => position.draging,
+      (val) => {
+        val ? stop() : startPlay()
+      }
+    )
   })
 
-  /**
-   * loop
-   */
-  watch(
-    () => position.draging,
-    (val) => {
-      val ? stop() : startPlay()
-    }
-  )
   let timer: number | null
 
   const clearTimer = () => {
@@ -343,5 +376,10 @@ function onScrollHandler(
   }
 
   startPlay()
-  onBeforeUnmount(() => stopPlay())
+  onBeforeUnmount(() => {
+    stopPlay()
+    fadeScope.stop()
+  })
+
+  return position
 }
