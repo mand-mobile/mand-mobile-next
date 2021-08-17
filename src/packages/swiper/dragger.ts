@@ -19,7 +19,7 @@ export class Dragger {
     y: number
     deltaX: number
     draging: boolean
-  }
+  } | null
 
   constructor(
     el: HTMLElement,
@@ -56,7 +56,7 @@ export class Dragger {
 
   onDragStart(e: TouchEvent) {
     this.draging = true
-    this.position.draging = true
+    this.position && (this.position.draging = true)
     this.preventHandler(e)
     this.startX = e.touches[0].pageX
     this.startY = e.touches[0].pageY
@@ -64,9 +64,9 @@ export class Dragger {
 
   onDrag(e: TouchEvent) {
     this.draging = true
-    this.position.draging = true
+    this.position && (this.position.draging = true)
     this.preventHandler(e)
-    if (e.touches[0]) {
+    if (e.touches[0] && this.position) {
       this.position.x = e.touches[0].pageX
       this.position.y = e.touches[0].pageY
     }
@@ -74,9 +74,10 @@ export class Dragger {
 
   onDragEnd(e: TouchEvent) {
     this.draging = false
-    this.position.draging = false
+    this.position && (this.position.draging = false)
     this.preventHandler(e)
-    this.position.deltaX = this.position.x - this.startX
+    this.position &&
+      (this.position.deltaX = this.position.x - this.startX)
   }
 
   preventHandler(e: TouchEvent) {
@@ -98,5 +99,6 @@ export class Dragger {
       'touchend',
       this.endHandler
     )
+    this.position = null
   }
 }

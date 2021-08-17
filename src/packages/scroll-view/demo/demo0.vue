@@ -30,7 +30,7 @@ const pullingDownHandler = async () => {
 }
 
 const pullingUpHandler = async () => {
-  await sleep(3000)
+  await sleep(1000)
   list.value = list.value + 5
   scroller.value.finishPullUp()
   isfinished.value = true

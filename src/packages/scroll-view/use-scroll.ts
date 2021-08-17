@@ -3,7 +3,7 @@ import {
   onBeforeMount,
   onMounted,
   ref,
-  watch,
+  nextTick,
 } from 'vue'
 import BScroll from '@better-scroll/core'
 import PullDown from '@better-scroll/pull-down'
@@ -197,26 +197,23 @@ export const useScroll = (
   }
 
   const pullingUpHandler = () => {
+    if (props.isFinished) {
+      getScrollerInstance()?.closePullUp()
+      return
+    }
     isPullUpLoad.value = true
     emit(PULLING_UP_EVENT)
   }
 
   const finishPullUp = () => {
     getScrollerInstance()?.finishPullUp()
-
-    globalThis.setTimeout(() => {
+    nextTick(() => {
       getScrollerInstance()?.refresh()
-    }, 100)
-
+      props.isFinished &&
+        getScrollerInstance()?.closePullUp()
+    })
     isPullUpLoad.value = false
   }
-
-  watch(
-    () => props.isFinished,
-    (val) => {
-      val && getScrollerInstance()?.closePullUp()
-    }
-  )
 
   onMounted(() => {
     initScroller()
