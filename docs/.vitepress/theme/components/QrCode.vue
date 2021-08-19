@@ -24,7 +24,7 @@
   position: fixed;
   top: var(--header-height);
   padding: 8px;
-  transform: translateX(-40%);
+  transform: translateX(-60%);
   background-color: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
   border-radius: 8px;
