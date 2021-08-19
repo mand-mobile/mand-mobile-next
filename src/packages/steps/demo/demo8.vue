@@ -7,7 +7,8 @@ export default {
 <script setup lang="ts">
 import MdSteps from 'mand-mobile-next/steps'
 import MdIcon from 'mand-mobile-next/icon'
-// import MdAmount from 'mand-mobile-next/amount'
+import MdAmount from 'mand-mobile-next/amount'
+
 const steps0 = [
   {
     name: '还款申请已提交',
@@ -50,7 +51,10 @@ const steps1 = [
         <div class="custom-content">
           <template v-if="index === 0">
             <p class="name active" v-text="step.name"></p>
-            <p class="amount">{{ step.amount }} 元</p>
+            <p class="amount">
+              <md-amount :value="+step.amount"></md-amount>
+              元
+            </p>
             <p class="desc" v-html="step.text"></p>
           </template>
           <template v-else>
@@ -71,7 +75,10 @@ const steps1 = [
         <div class="custom-content">
           <template v-if="index === 1">
             <p class="name active" v-text="step.name"></p>
-            <p class="amount">{{ step.amount }}元</p>
+            <p class="amount">
+              <md-amount :value="+step.amount"></md-amount>
+              元
+            </p>
           </template>
           <template v-else>
             <p class="name" v-text="step.name"></p>
@@ -96,6 +103,7 @@ const steps1 = [
       .md-amount
         margin-right 5px
         font-size 80px
+        font-family var(--md-font-family-number)
     .desc
       line-height 40px !important
       span

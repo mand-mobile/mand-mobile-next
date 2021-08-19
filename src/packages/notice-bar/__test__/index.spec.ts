@@ -11,15 +11,6 @@ describe('NoticeBar.vue', () => {
     expect(wrapper.classes()).toContain('md-notice-bar')
   })
 
-  test('props-close', () => {
-    const wrapper = mount(NoticeBar, {
-      props: {
-        closable: true,
-      },
-    })
-    expect(wrapper.props('closable')).toBe(true)
-  })
-
   test('props-multi', () => {
     const wrapper = mount(NoticeBar, {
       props: {
@@ -39,16 +30,6 @@ describe('NoticeBar.vue', () => {
       },
     })
     expect(wrapper.html()).toContain('md-notice-bar-round')
-  })
-
-  test('close-click', () => {
-    const wrapper = mount(NoticeBar, {
-      props: {
-        closable: true,
-      },
-    })
-    wrapper.find('.md-notice-icon-right').trigger('click')
-    expect(wrapper.emitted())
   })
 
   test('render-slot', () => {

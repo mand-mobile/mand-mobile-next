@@ -19,11 +19,19 @@ const show = ref(false)
 </script>
 
 <template>
-  <md-tip
-    placement="bottom"
-    content="bottom"
-    @show="showHandler"
+  <div
+    class="
+      md-example-child
+      md-example-child-tip
+      md-example-child-tip-1
+    "
   >
-    <md-button @click="clickHandler">click me</md-button>
-  </md-tip>
+    <md-tip
+      placement="bottom"
+      content="bottom"
+      @show="showHandler"
+    >
+      <md-button @click="clickHandler">click me</md-button>
+    </md-tip>
+  </div>
 </template>

@@ -21,7 +21,6 @@ Vue.createApp().component(CheckList.name, CheckList)
 
 <demo-wrapper
   src="src/packages/check/demo"
-  
 />
 
 
