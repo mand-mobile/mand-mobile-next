@@ -28,7 +28,7 @@ Vue.createApp().component(Captcha.name, Captcha)
 
 |属性 | 说明 | 类型 | 默认值|
 |----|-----|------|------|
-|value|验证码窗口是否显示|Boolean|`false`|
+|v-model|验证码窗口是否显示|Boolean|`false`|
 |is-view|是否内嵌在页面内展示，否则以弹层形式|Boolean|`false`|
 |maxlength|字符最大输入长度, 若为`-1`则不限制输入长度|Number|`4`|
 |mask|是否掩码|Boolean|`false`|

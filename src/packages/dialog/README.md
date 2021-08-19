@@ -30,13 +30,14 @@ this.$dialog.alert({ content: '' }) // 全量引入
 
 |属性 | 说明 | 类型 | 默认值|备注|
 |----|-----|------|------|------|
-| model-value | 双向绑定是否显示窗口 | Boolean | `false`| |
+| v-model | 双向绑定是否显示窗口 | Boolean | `false`| |
 | title | 窗口标题 | String | | |
+| content | 窗口内容 | String | | |
 | icon | Icon组件图标名称 | String | | |
 | icon-svg | svg图标 | Boolean |`false`|如需自定义图标, 请查看`Icon`组件|
 | closable | 是否显示关闭按钮 | Boolean | `true`| |
 | layout | 底部按钮组布局方式, `row, column` | String | `row` | |
-| btns | 底部操作按钮组 | Array\<[DialogBtnOptions](#dialogbtnoptions)\> | `[]`| |
+| actions | 底部操作按钮组 | Array\<[DialogBtnOptions](#dialogbtnoptions)\> | `[]`| |
 | append-to | 组件的挂载节点 | HTMLElement | `document.body`| |
 | has-mask | 是否有蒙层 | Boolean | `true`| |
 | mask-closable | 点击蒙层是否可关闭弹出层 | Boolean | `false`| |
@@ -54,7 +55,6 @@ this.$dialog.alert({ content: '' }) // 全量引入
 |loading |加载中按钮|Boolean|`false`|
 |icon|按钮图标|String| |
 |iconSvg|按钮svg图标|Boolean|`false`|
-|autoCloseDisabled|禁用自动关闭|Boolean|`false`|
 
 ### Dialog Slots
 

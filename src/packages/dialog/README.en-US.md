@@ -32,11 +32,12 @@ this.$dialog.alert({ content: '' }) // Totally Import
 |----|-----|------|------|------|
 | v-model | whether to show a dialog or not | Boolean | `false` | - |
 | title | title of dialog | String | - | - |
+| content | content of dialog | String | - | - |
 | icon | name of icon | String | - |-|
 | icon-svg | svg icon | Boolean |`false`|Refer to `Icon` component for customized icon|
 | closable | whether the close button is visible or not | Boolean | `true` | - |
 | layout | layout of action buttons, `row, column` | String | `row` | - |
-| btns | action buttons in the footer| Array\<DialogBtnOptions\> | `[]` | - |
+| actions | action buttons in the footer| Array\<DialogBtnOptions\> | `[]` | - |
 | append-to | portal node of dialog | HTMLElement | `document.body` | - |
 | has-mask | has mask or not | Boolean | `true` | - |
 | mask-closable | if the dialog will be closed when clicking mask| Boolean | `false` | - |
@@ -49,11 +50,10 @@ this.$dialog.alert({ content: '' }) // Totally Import
 |text|button text|String|-|
 |handler|click callback|Function(btn: DialogBtnOptions)|-|
 |warning|warning button|Boolean|`false`|
-|disabled <sup class="version-after">2.4.0+</sup>|disabled button|Boolean|`false`|
-|loading <sup class="version-after">2.4.0+</sup>|loading button|Boolean|`false`|
+|disabled |disabled button|Boolean|`false`|
+|loading |loading button|Boolean|`false`|
 |icon|name of icon|String|-|
 |iconSvg|svg icon|Boolean|`false`|
-|autoCloseDisabled|disabled auto close|Boolean|`false`|
 
 #### Dialog Slots
 
@@ -63,7 +63,7 @@ Default slots is used as the content of dialog
 
 ##### header
 
-Header slot, generally used for placing pictures, etc <sup class="version-after">2.4.0+</sup>
+Header slot, generally used for placing pictures, etc 
 
 ---
 
@@ -111,8 +111,8 @@ Dynamically create a confirmation dialog
 | confirmWarning | clicking the Confirm button is a warning action | Boolean | `false` |
 | onConfirm | callback function is invoked when clicking confirmation button | Function | -|
 | onCancel | callback function is invoked when clicking cancellation button | Function | -|
-| onShow <sup class="version-after">2.5.0+</sup>| callback function is invoked when dialog is shown | Function | -|
-| onHide <sup class="version-after">2.5.0+</sup>| callback function is invoked when dialog is hidden | Function | -|
+| onShow | callback function is invoked when dialog is shown | Function | -|
+| onHide | callback function is invoked when dialog is hidden | Function | -|
 
 ##### Dialog.alert(props)
 

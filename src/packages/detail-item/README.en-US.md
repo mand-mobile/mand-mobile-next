@@ -29,5 +29,5 @@ Vue.createApp().component(DetailItem.name, DetailItem)
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
 |title|title|String|-|-|
-|content|content text|String|-|-|
+|content|content text|String\/Number|-|-|
 |bold|whether emphasis content|Boolean|`false`|-|

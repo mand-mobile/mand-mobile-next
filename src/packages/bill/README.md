@@ -28,9 +28,8 @@ Vue.createApp().component(Bill.name, Bill)
 ### Bill Props
 |属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------ |------|
-|name|票据抬头|String| | |
+|title|票据抬头|String| | |
 |no|票据编号|String| | |
-|neckNotch|票据打孔颜色|String| |
 |water-mark|水印内容|String\/Object| | |
 
 ### Bill Slots

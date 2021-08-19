@@ -29,7 +29,7 @@ Vue.createApp().component(PopupTitleBar.name, PopupTitleBar)
 
 |属性 | 说明 | 类型 | 默认值| 备注|
 |----|-----|------|------|------|
-|model-value|弹出层是否可见|Boolean|`false`| |
+|v-model|弹出层是否可见|Boolean|`false`| |
 |has-mask|是否有蒙层|Boolean|`true`| |
 |mask-closable|点击蒙层是否可关闭弹出层|Boolean|`true`| |
 |position|弹出层位置|String|`center`|`center`, `top`, `bottom`, `left`, `right`|

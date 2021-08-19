@@ -33,6 +33,7 @@ Vue.createApp().component(Cashier.name, Cashier)
 |channel-limit|支付渠道超出限制数目时展示更多支付渠道按钮|Number|`2`| |
 |default-index|默认选中支付渠道索引|Number|`0`| |
 |title|收银台弹窗标题|String|`支付`| |
+|describe|收银台弹窗描述|String|-|-|
 |payment-title|支付金额标题|String|`支付金额(元)`|支持`html fragment`|
 |payment-amount|支付金额|String|`0.00`|支持`html fragment`|
 |payment-describe|支付金额说明|String|-|支持`html fragment`|

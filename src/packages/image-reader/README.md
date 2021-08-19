@@ -30,11 +30,13 @@ Vue.createApp().component(ImageReader.name, ImageReader)
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
 |name|标识|String| |可用于区分多个选择器|
-|size|图片尺寸限制|String/Number| |单位`kb`|
+|maxSize|图片尺寸限制|String/Number| |单位`kb`|
 |is-camera-only|是否只支持拍照|Boolean|`false`| |
-|amount|选择多张|Number| |只在`is-multiple`为`true`时有效|
+|max-amount|选择多张|Number| |只在`is-multiple`为`true`时有效|
 |is-multiple|是否支持选择多张|Boolean|`false`|存在[兼容问题](https://caniuse.com/#feat=input-file-multiple)|
-|mime |支持图片类型|Array|`*`|如`['jpeg','png']`|
+|accept|支持图片类型|Array|`*`|如`['jpeg','png']`|
+|disabled|是否禁用|Boolean|false|
+|is-processor|是否开启图片质量压缩|Boolean|false|
 
 ### ImageReader Events
 

@@ -28,7 +28,6 @@ Vue.createApp().component(DatePicker.name, DatePicker)
 
 |Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
-|v-model:visible|display date picker or not|Boolean|`false`|-|
 |v-model|initial selected date|Date/Array|`new Date()`|value is an Array including such as [23, 59, 59] when `type` is `time` or `custom`, otherwise value is a Date|
 |type|type of selection|String|`date`|`date`, `time`, `datetime`, `custom`|
 |custom-types|customized element contains `'yyyy', 'MM', 'dd', 'hh', 'mm', 'ss'`|Array|-|valid when type is `custom`|
@@ -44,7 +43,6 @@ Vue.createApp().component(DatePicker.name, DatePicker)
 |describe|description of date-picker|String|-|-|
 |ok-text|confirmation text|String|`confirm`|-|
 |cancel-text|cancellation text|String|`cancel`|-|
-|large-radius|large radius of title bar|Boolean|`false`|-|
 |mask-closable|picker will be closed when clicking mask|String|`true`|-|
 
 #### DatePicker Methods

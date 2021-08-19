@@ -13,7 +13,15 @@ const pay = ref('')
 </script>
 
 <template>
-  <md-check v-model="checked" label="复选项" />
-  <md-check label="禁用" disabled />
-  <md-check v-model="pay" name="month" label="月付" />
+  <div
+    class="
+      md-example-child
+      md-example-child-check
+      md-example-child-check-1
+    "
+  >
+    <md-check v-model="checked" label="复选项" />
+    <md-check label="禁用" disabled />
+    <md-check v-model="pay" name="month" label="月付" />
+  </div>
 </template>

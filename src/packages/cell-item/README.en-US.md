@@ -28,8 +28,8 @@ Vue.createApp().component(CellItem.name, CellItem)
 
 |Props | Description | Type | Default | Note|
 |----|-----|------|------|------|
-|title|title|String|-|-|
-|brief|description text|String|-|-|
+|title|title|String\/Number|-|-|
+|brief|description text|String\/Number|-|-|
 |addon|help info text|String|-|-|
 |disabled|disable item operation|Boolean|`false`|-|
 |arrow|arrow indicator|Boolean|`false`|-|

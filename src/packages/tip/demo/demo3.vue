@@ -21,25 +21,33 @@ const showCoupon = () => {
 </script>
 
 <template>
-  <md-tip
-    name="md-tip-4"
-    icon="security"
-    :offset="{ top: -10, left: 0 }"
-    fill
-    :click-outside-hide="false"
-    @show="showHandler"
-    @hide="hideHandler"
+  <div
+    class="
+      md-example-child
+      md-example-child-tip
+      md-example-child-tip-3
+    "
   >
-    <template #content>
-      <div class="content">
-        完善信息，领取5元
-        <md-button :type="'link'" @click="showCoupon">
-          免息券
-        </md-button>
-      </div>
-    </template>
-    <md-button>click me</md-button>
-  </md-tip>
+    <md-tip
+      name="md-tip-4"
+      icon="security"
+      :offset="{ top: -10, left: 0 }"
+      fill
+      :click-outside-hide="false"
+      @show="showHandler"
+      @hide="hideHandler"
+    >
+      <template #content>
+        <div class="content">
+          完善信息，领取5元
+          <md-button :type="'link'" @click="showCoupon">
+            免息券
+          </md-button>
+        </div>
+      </template>
+      <md-button>click me</md-button>
+    </md-tip>
+  </div>
 </template>
 
 <style lang="stylus">

@@ -21,7 +21,6 @@ Vue.createApp().component(CheckList.name, CheckList)
 
 <demo-wrapper
   src="src/packages/check/demo"
-  
 />
 
 
@@ -41,6 +40,7 @@ Vue.createApp().component(CheckList.name, CheckList)
 |icon-disabled|禁用项选择图标名称|String|`check-disabled`|-|
 |icon-svg|使用svg图标|Boolean|`false`|-|
 |size|图标大小|String|`md`|-|
+|icon-position|图标位置|String|`right`|-|
 
 ---
 
@@ -97,7 +97,7 @@ Vue.createApp().component(CheckList.name, CheckList)
 
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
-|value|选中项的`value`|Array|-|-|
+|v-model|选中项的`value`|Array|-|-|
 |options|选项数据源|Array<{text, value, disabled, ...}>|`[]`|`disabled`为选项是否禁用|
 |icon|选中项的图标|String|`checked`|-|
 |icon-inverse|非选中项的图标|String|`check`|-|

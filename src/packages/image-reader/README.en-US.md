@@ -32,11 +32,13 @@ Vue.createApp().component(ImageReader.name, ImageReader)
 |Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
 |name|identifier|String|-|used to distinguish multiple readers|
-|size|image size limit|String/Number|-|unit `kb`|
-|mime|supported image types，only support web|Array|`*`|such as `['jpeg','png']`|
+|maxSize|image size limit|String/Number|-|unit `kb`|
+|accept|supported image types，only support web|Array|`*`|such as `['jpeg','png']`|
 |is-camera-only|only support photographing|Boolean|`false`|-|
 |is-multiple|support selection of multiple sheets，only support web|Boolean|`false`|there is a [compatibility issue](https://caniuse.com/#feat=input-file-multiple)|
-|amount|number of sheets|Number|-|valid only when `is-multiple` is `true`|
+|max-amount|number of sheets|Number|-|valid only when `is-multiple` is `true`|
+|disabled|-|Boolean|false|-|
+|is-processor|image quality compression|Boolean|false|-|
 
 #### ImageReader Events
 

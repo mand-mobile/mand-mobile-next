@@ -34,7 +34,7 @@ The font `DINPro-Medium` is used in the component for the case show only, if nec
 #### Amount Props
 | Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
-|value|-|Number|`0`|-|
+|value|-|Number| |-|
 |precision|-|Number|`2`|length of decimal part|
 |is-round-up|number round off|Boolean|`true`|-|
 |has-separator|insert thousand separators|Boolean|`false`|-|
@@ -42,3 +42,5 @@ The font `DINPro-Medium` is used in the component for the case show only, if nec
 |is-capital|convert to chinese capital|Boolean|`false`|-|
 |transition|use transition when value changes|Boolean|`false`|-|
 |duration|transition duration|Number|`1000`|unit `ms`|
+|unit|amount of symbols|String| | |
+|reverse|after the amount symbol position|Boolean|`false`| |

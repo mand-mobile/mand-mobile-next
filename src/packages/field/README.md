@@ -87,6 +87,7 @@ export default {
 |disabled|是否禁用项目|Boolean|false|-|
 |solid|是否固定标题宽度，超出会自动换行|Boolean|false|-|
 |arrow|动作箭头标识|Boolean|false|-|
+|placeholder|占位符文案|String|-|-|
 
 ### FieldItem Events
 

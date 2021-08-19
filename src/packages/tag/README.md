@@ -35,7 +35,7 @@ Vue.createApp().component(Tag.name, Tag)
 |属性 | 说明 | 类型 | 默认值 |可选值|
 |----|-----|------|------|------|
 |size|标签大小|String|`large`|`tiny`, `small`, `large`|
-|shape|标签形状|String|`square`|`square`, `circle`, `fillet`, `quarter`, `coupon`|
+|shape|标签形状|String|`square`|`square`, `circle`, `fillet`, `quarter`, `coupon`,`bubble`|
 |sharp|标签尖角|String| |`top-left`, `top-right`, `bottom-left`, `bottom-right`|
 |type|标签样式|String|`ghost`|`fill`(填充), `ghost`(线框)|
 |fill-color|标签颜色`rgba` or `hex number`|String|`rgba(0,0,0,0)`| |

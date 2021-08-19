@@ -27,13 +27,13 @@ Vue.createApp().component(Agree.name, Agree)
 
 ### API
 
-#### Agree Props
-| Props | Description | Type | Default |
+##### Agree Props
+
+| Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
 | v-model | checked | Boolean | `false` |-|
 | disabled | - | Boolean | `false` |-|
 | size | size of icon | String | `md` | refer to `Icon` for optional values |
-
 #### Agree Instance Events
 
 ##### @change(name, checked)

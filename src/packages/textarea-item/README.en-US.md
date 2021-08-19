@@ -6,7 +6,7 @@ preview: https://didi.github.io/mand-mobile/examples/#/TextareaItem
 
 # TextareaItem
 
-Multi-line text input <sup class="version-after">2.5.0+</sup>
+Multi-line text input 
 
 ### Import
 
@@ -37,7 +37,7 @@ Vue.createApp().component(TextareaItem.name, TextareaItem)
 | solid                                             | the width of title is fixed or not              | Boolean       | `true`  |                    |
 | readonly                                          | readonly                                        | Boolean       | `false` | -                  |
 | disabled                                          | disabled                                        | Boolean       | `false` | -                  |
-| clearable <sup class="version-after">2.5.3+</sup> | clearable                                       | Boolean       | `false` | -                  |
+| clearable   | clearable                                       | Boolean       | `false` | -                  |
 | rows                                              | rows                                            | String/Number | `'3'`   | -                  |
 | error                                             | error message                                   | String        | -       | -                  |
 

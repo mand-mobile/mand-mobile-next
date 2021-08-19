@@ -33,7 +33,7 @@ Vue.createApp().component(RadioList.name, RadioList)
 
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
-|value|选中项的`name`|any|-|
+|v-model|选中项的`name`|any|-|
 |name|唯一键值|any|-|-|
 |label|描述文案|String-|-|
 |disabled|是否禁用选项|Boolean|`false`|-|
@@ -53,7 +53,7 @@ Vue.createApp().component(RadioList.name, RadioList)
 |属性 | 说明 | 类型 | 默认值 | 备注 |
 |----|-----|------|------|------|
 |name|唯一键值|any|`true`|当选中时，双向绑定的值|
-|value|选中的值|any|`false`|-|
+|v-model|选中的值|any|`false`|-|
 |disabled|是否禁用选择|Boolean|`false`|-|
 
 ---
@@ -72,7 +72,7 @@ Vue.createApp().component(RadioList.name, RadioList)
 
 |参数 | 说明 | 类型 | 默认值 |
 |----|-----|------|------|
-|name|需要选中的键值|String|-|
+|v-model|需要选中的键值|String|-|
 
 ---
 
@@ -80,7 +80,7 @@ Vue.createApp().component(RadioList.name, RadioList)
 
 |属性 | 说明 | 类型 | 默认值 | 备注|
 |----|-----|------|------|------|
-|value|选中项的`value`|any|-|
+|v-model|选中项的`value`|any|-|
 |options|选项数据源|Array<{text, value, disabled, ...}>|`[]`|`disabled`为选项是否禁用|
 |has-input|是否具有可编辑项|Boolean|`false`|-|
 |input-label|可编辑项的名称|String|-|仅用于`has-input`为`true`|
