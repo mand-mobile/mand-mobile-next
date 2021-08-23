@@ -1,8 +1,9 @@
 # Changelog
 
-### 0.0.1-alpha.7
+### 0.0.1-alpha.12
 
-`2021-07-29`
+`2021-08-20`
 
-- Feat
-  - 优化样式按需加载
+- Fix
+  - expose more `swiper` methods
+  - optimize `scroll-view` logic
