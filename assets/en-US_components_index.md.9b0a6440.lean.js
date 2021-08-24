@@ -1,0 +1,1 @@
+import{a as e,c as a,b as l}from"./app.ef2d60be.js";const o='{"title":"Changelog","description":"","frontmatter":{},"headers":[{"level":3,"title":"0.0.1-alpha.12","slug":"_0-0-1-alpha-12"}],"relativePath":"en-US/components/index.md","lastUpdated":1629807444035}',i={},r=[l('',4)];i.render=function(l,o,i,d,h,t){return e(),a("div",null,r)};export default i;export{o as __pageData};
