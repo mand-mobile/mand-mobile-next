@@ -1,0 +1,1 @@
+import{a as t,c as e}from"./app.2e4a656a.js";const a='{"title":"","description":"","frontmatter":{},"relativePath":"en-US/components/check-box.md","lastUpdated":1629946835463}',r={};r.render=function(a,r,o,n,p,c){return t(),e("div")};export default r;export{a as __pageData};

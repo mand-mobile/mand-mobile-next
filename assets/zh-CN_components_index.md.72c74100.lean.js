@@ -1,1 +1,0 @@
-import{a as e,c as a,b as l}from"./app.ef2d60be.js";const r='{"title":"更新日志","description":"","frontmatter":{},"headers":[{"level":3,"title":"0.0.1-alpha.12","slug":"_0-0-1-alpha-12"}],"relativePath":"zh-CN/components/index.md","lastUpdated":1629807444031}',d={},i=[l('',4)];d.render=function(l,r,d,t,h,o){return e(),a("div",null,i)};export default d;export{r as __pageData};
