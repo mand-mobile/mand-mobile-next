@@ -63,9 +63,9 @@ export async function parseComponentExports() {
   /**
    * export default
    */
-  str += `const version = '${version}'\n`
+  str += `export const version = '${version}'\n`
   str += `
-    const install = (app: App) => {
+    export const install = (app: App) => {
       components.forEach((component) => {
         component.name && app.component(component.name, component)
       })

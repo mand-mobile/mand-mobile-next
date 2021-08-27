@@ -6,6 +6,9 @@ import ora from 'ora'
 import klawSync from 'klaw-sync'
 import stylus from 'stylus'
 import { parse, init } from 'es-module-lexer'
+import autoprefixer from 'autoprefixer'
+import postcss from 'postcss'
+import px2rem from 'postcss-pxtorem'
 import vue from './plugin/esbuild-vue-plugin'
 import { componentEntrys } from './rollup.config'
 
@@ -65,6 +68,8 @@ Promise.all([
   .then(async () => {
     await combineCss()
     await combineDepsCss()
+    await genFullCss()
+
     spinner.succeed('Done !')
   })
   .catch(() => {
@@ -192,4 +197,25 @@ async function combineDepsCss() {
       })
     }
   })
+}
+
+async function genFullCss() {
+  const css = await fs.promises.readFile(
+    `${cwd()}/dist/lib/mand-mobile-next.min.css`
+  )
+  const result = await postcss([
+    autoprefixer(),
+    px2rem({
+      rootValue: 32,
+      propWhiteList: [],
+      minPixelValue: 2,
+    }),
+  ]).process(css, {
+    from: `${cwd()}/dist/lib/mand-mobile-next.min.css`,
+  })
+
+  await fs.promises.writeFile(
+    `${cwd()}/dist/lib/mand-mobile-next.full.css`,
+    result.css
+  )
 }

@@ -5,11 +5,13 @@ import vue from 'rollup-plugin-vue'
 import alias from '@rollup/plugin-alias'
 import esbuild from 'rollup-plugin-esbuild'
 import replace from '@rollup/plugin-replace'
+import commonjs from '@rollup/plugin-commonjs'
 
 const outPubOptions = {
   globals: {
     vue: 'Vue',
   },
+  exports: 'named',
 }
 
 const input = 'src/packages/mand-mobile.ts'
@@ -54,6 +56,7 @@ const getPlugins = () => [
 
 const configs = []
 
+// esm bundle
 configs.push({
   input,
   output: {
@@ -72,6 +75,7 @@ configs.push({
   },
 })
 
+// umd bundle
 configs.push({
   input,
   output: {
@@ -86,6 +90,22 @@ configs.push({
       /^vue/.test(id) ||
       /^@vue/.test(id) ||
       /^jpeg-js/.test(id)
+    return reg
+  },
+})
+
+// full bundle
+configs.push({
+  input,
+  output: {
+    file: `dist/lib/mand-mobile.full.js`,
+    format: 'umd',
+    name: `MandMobile`,
+    ...outPubOptions,
+  },
+  plugins: [...getPlugins(), commonjs()],
+  external(id) {
+    const reg = /^vue/.test(id)
     return reg
   },
 })

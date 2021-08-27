@@ -67,6 +67,7 @@
     "@better-scroll/wheel": "^2.3.1",
     "@iconify/json": "^1.1.368",
     "@rollup/plugin-alias": "^3.1.2",
+    "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@rollup/plugin-replace": "^2.4.2",
     "@types/jest": "^26.0.23",
