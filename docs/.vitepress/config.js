@@ -99,6 +99,7 @@ module.exports = {
   lang: 'zh-CN',
   themeConfig: {
     i18n: true,
+    codepen: true,
     repo: 'https://github.com/mand-mobile/mand-mobile-next',
     docsBranch: 'vue3',
     editLinks: true,
