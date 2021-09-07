@@ -3,9 +3,7 @@ import {
   dataURItoBlob,
 } from './image-dataurl'
 import { noop, inBrowser } from 'mand-mobile-next/utils'
-
-// Import jpeg_encoder_basic for compatibility if necessary
-import JPEGEncoder from 'jpeg-js'
+import { encode } from './encode'
 
 type Orientation = number | string
 type MaxWidth = number
@@ -238,7 +236,6 @@ function makeCanvas(
     UA.mQQBrowser ||
     !navigator.userAgent
   ) {
-    /* global JPEGEncoder */
     const newImg = ctx.getImageData(
       0,
       0,
@@ -246,7 +243,7 @@ function makeCanvas(
       canvas.height
     )
 
-    base64 = JPEGEncoder.encode(newImg, quality * 100)
+    base64 = encode(newImg, quality * 100)
   } else {
     base64 = canvas.toDataURL('image/jpeg', quality)
   }

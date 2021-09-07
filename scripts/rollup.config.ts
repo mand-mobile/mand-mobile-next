@@ -86,7 +86,6 @@ componentEntrys.map((path, index) => {
         /^@vue/.test(id) ||
         /^mand-mobile-next\/.*/.test(id) ||
         /^@better-scroll/.test(id) ||
-        /^jpeg-js/.test(id) ||
         /^\.\.\/.*/.test(id)
       return reg
     },
