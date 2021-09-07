@@ -69,8 +69,7 @@ configs.push({
     const reg =
       /^vue/.test(id) ||
       /^@vue/.test(id) ||
-      /^@better-scroll/.test(id) ||
-      /^jpeg-js/.test(id)
+      /^@better-scroll/.test(id)
     return reg
   },
 })
@@ -86,10 +85,7 @@ configs.push({
   },
   plugins: getPlugins(),
   external(id) {
-    const reg =
-      /^vue/.test(id) ||
-      /^@vue/.test(id) ||
-      /^jpeg-js/.test(id)
+    const reg = /^vue/.test(id) || /^@vue/.test(id)
     return reg
   },
 })
