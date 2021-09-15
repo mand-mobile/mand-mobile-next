@@ -4225,10 +4225,10 @@ fined@^1.0.1:
     object.pick "^1.2.0"
     parse-filepath "^1.0.1"
 
-fisand-doc@^0.0.17:
-  version "0.0.17"
-  resolved "https://registry.npmjs.org/fisand-doc/-/fisand-doc-0.0.17.tgz#4436fd76e3c4db3dd027d04075d75ce82a946938"
-  integrity sha512-J0L7K1NtTQ3PrckUD95kYdX7mNDyJFsKEBh7xiUPbYgPrBW//K212M1eFv6ZKgW+xXDZ5Q+W5V7cS/OQUA6uHw==
+fisand-doc@^0.0.18:
+  version "0.0.18"
+  resolved "https://registry.npmjs.org/fisand-doc/-/fisand-doc-0.0.18.tgz#0b0856d19c8e508bceed985ddd08b329885f34a8"
+  integrity sha512-6J/bK6BYKHkZXs2KSfqkNi94FqqZnXXkuOZKmAO2Zv0WGvpLyzPV9+GvfrH7AUHijr/+8g28GgSVPDRCM76Qqg==
   dependencies:
     "@docsearch/css" "^1.0.0-alpha.28"
     "@docsearch/js" "^1.0.0-alpha.28"
