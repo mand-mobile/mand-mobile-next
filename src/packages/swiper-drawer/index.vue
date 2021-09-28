@@ -3,14 +3,14 @@
     <div ref="contentRef" class="md-swiper-drawer__content">
       <slot></slot>
     </div>
-    <div
-      ref="operationRef"
-      class="md-swiper-drawer__operation"
-    >
-      <div class="delete">
-        <slot name="operation">删除</slot>
+    <slot :ref="operationRef" name="operation">
+      <div
+        ref="operationRef"
+        class="md-swiper-drawer__operation"
+      >
+        <div class="delete">删除</div>
       </div>
-    </div>
+    </slot>
   </div>
 </template>
 

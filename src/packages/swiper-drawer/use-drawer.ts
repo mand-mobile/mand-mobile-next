@@ -6,7 +6,7 @@ import {
   watch,
   nextTick,
 } from 'vue'
-import { Dragger } from 'mand-mobile-next/swiper/dragger'
+import { Dragger } from 'mand-mobile-next/swiper'
 import { getDpr } from 'mand-mobile-next/utils'
 
 import type { ExtractPropTypes } from 'vue'
@@ -64,7 +64,7 @@ export const useDrawer = (
             nextTick(() => {
               position.deltaX < 0 &&
                 Math.abs(position.deltaX) >
-                  (operationRect?.width ?? 0 * dpr) / 10 &&
+                  (operationRect?.width ?? 0 * dpr) / 4 &&
                 (contentRef.value?.setAttribute(
                   'style',
                   `transform: translateX(-${operationRect?.width}px); transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1)`
@@ -74,7 +74,7 @@ export const useDrawer = (
                 (position.deltaX < 0 &&
                   Math.abs(position.deltaX) <=
                     (operationRect?.width ?? 0 * dpr) /
-                      10)) &&
+                      4)) &&
                 (contentRef.value?.setAttribute(
                   'style',
                   `transform: translateX(0px); transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1)`
@@ -86,7 +86,7 @@ export const useDrawer = (
       )
 
       onBeforeUnmount(() => {
-        dragger.destory()
+        dragger.destroy()
       })
     }
   })
