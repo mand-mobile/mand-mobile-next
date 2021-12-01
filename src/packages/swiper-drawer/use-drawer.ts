@@ -11,8 +11,15 @@ import { getDpr } from 'mand-mobile-next/utils'
 
 import type { ExtractPropTypes } from 'vue'
 
+export const drawerProps = {
+  text: {
+    type: String,
+    default: '删除',
+  },
+}
+
 export const useDrawer = (
-  props?: ExtractPropTypes<any>
+  props?: ExtractPropTypes<typeof drawerProps>
 ) => {
   const contentRef = ref<HTMLElement | null>(null)
   const operationRef = ref<HTMLElement | null>(null)

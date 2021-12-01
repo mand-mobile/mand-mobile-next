@@ -8,11 +8,15 @@ export default {
 import MdCellItem from 'mand-mobile-next/cell-item'
 import MdField from 'mand-mobile-next/field'
 import MdSwiperDrawer from 'mand-mobile-next/swiper-drawer'
+
+const deleteHandler = () => {
+  console.log('delete')
+}
 </script>
 
 <template>
   <md-field style="overflow: hidden; padding: 0">
-    <md-swiper-drawer>
+    <md-swiper-drawer @delete="deleteHandler">
       <md-cell-item
         title="交通银行(尾号3089)"
         brief="展示摘要描述"

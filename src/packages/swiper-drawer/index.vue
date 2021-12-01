@@ -8,7 +8,9 @@
         ref="operationRef"
         class="md-swiper-drawer__operation"
       >
-        <div class="delete">删除</div>
+        <div class="delete" @click="deleteHandler">
+          {{ text }}
+        </div>
       </div>
     </slot>
   </div>
@@ -16,14 +18,19 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useDrawer } from './use-drawer'
+import { useDrawer, drawerProps } from './use-drawer'
 
 export default defineComponent({
   name: 'MdSwiperDrawer',
-  setup() {
+  props: drawerProps,
+  emits: ['delete'],
+  setup(_, { emit }) {
     const { contentRef, operationRef } = useDrawer()
+    const deleteHandler = () => {
+      emit('delete')
+    }
 
-    return { contentRef, operationRef }
+    return { contentRef, operationRef, deleteHandler }
   },
 })
 </script>
