@@ -110,6 +110,4 @@ export default defineComponent({
 })
 </script>
 
-<style lang="stylus">
-@import './index.styl'
-</style>
+<style lang="stylus"></style>
