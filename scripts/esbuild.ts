@@ -166,34 +166,35 @@ async function combineDepsCss() {
     const [imports] = parse(fs.readFileSync(js, 'utf-8'))
     const cssFile = resolve(dirname(js), './index.css')
 
-    if (fs.existsSync(cssFile)) {
-      const selfCss = `import './index.css'\n`
-      const depsCss = imports
-        .flat()
-        .map((item) => item.n)
-        .filter(
-          (n) =>
-            !n.endsWith('utils') &&
-            !n.endsWith('directives') &&
-            !n.endsWith('locale') &&
-            !n.endsWith('composable')
-        )
-        .filter((n) => PATH_RE.test(n))
-        .map((n) => `import '${n}/index.css'`)
-        .join('\n')
-      const styleFile = resolve(dirname(js), './style.js')
-
+    const selfCss = `import './index.css'\n`
+    const depsCss = imports
+      .flat()
+      .map((item) => item.n)
+      .filter(
+        (n) =>
+          !n.endsWith('utils') &&
+          !n.endsWith('directives') &&
+          !n.endsWith('locale') &&
+          !n.endsWith('composable')
+      )
+      .filter((n) => PATH_RE.test(n))
+      .map((n) => `import '${n}/index.css'`)
+      .join('\n')
+    const styleFile = resolve(dirname(js), './style.js')
+    if (!fs.existsSync(cssFile)) {
+      fs.writeFileSync(styleFile, depsCss + '\n')
+    } else {
       fs.writeFileSync(styleFile, depsCss + '\n' + selfCss)
-
-      buildSync({
-        entryPoints: [styleFile],
-        format: 'cjs',
-        outfile: resolve(
-          dirname(js).replace('/es/', '/lib/'),
-          './style.js'
-        ),
-      })
     }
+
+    buildSync({
+      entryPoints: [styleFile],
+      format: 'cjs',
+      outfile: resolve(
+        dirname(js).replace('/es/', '/lib/'),
+        './style.js'
+      ),
+    })
   })
 }
 
