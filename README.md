@@ -6,7 +6,7 @@
 
 ## 文档
 
-- [中文文档](https://mand-mobile.github.io/mand-mobile-next/) *完善中*
+- [使用文档](https://mand-mobile.gitee.io/mand-mobile-next/zh-CN/index.html)
 
 ## 开发
 
@@ -34,7 +34,7 @@ yarn gen ${name}
 ## 组件间相互引用
 
 ```ts
-import Icon from 'mand-mobile/icon'
+import Icon from 'mand-mobile-next/icon'
 ```
 
 ## 单元测试 / 快照**WIP**
