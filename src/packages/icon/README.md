@@ -55,7 +55,7 @@ Vue.createApp().component(Icon.name, Icon)
 |属性 | 说明 | 类型 | 默认值| 备注|
 |----|-----|------|------|------|
 |name|图标名称|String| | |
-|size|图标大小|String|`md`|`xss`, `xs`, `sm`, `md`, `lg`|
+|size|图标大小|String|`md`|`xxs`, `xs`, `sm`, `md`, `lg`|
 |color|图标颜色|String|当前字体颜色||
 |svg |使用svg图标|Boolean|`false`| |
 
