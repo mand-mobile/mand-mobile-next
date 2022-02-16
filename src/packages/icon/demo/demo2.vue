@@ -7,6 +7,10 @@
     "
   >
     <div class="md-example-item-s">
+      <md-icon name="location" size="xss"></md-icon>
+      <p>xss</p>
+    </div>
+    <div class="md-example-item-s">
       <md-icon name="location" size="xs"></md-icon>
       <p>xs</p>
     </div>
