@@ -33,7 +33,7 @@ Custom svg icons and import local font file, please refer to <a href="javascript
 |Props | Description | Type | Default | Note |
 |----|-----|------|------|------|
 |name|icon name|String|-|-|
-|size|icon size|String|`md`|`xss`, `xs`, `sm`, `md`, `lg`|
+|size|icon size|String|`md`|`xxs`, `xs`, `sm`, `md`, `lg`|
 |color|icon color|String|`currentColor`|this color value is set as the value of `fill` on the `svg` icon|
 |svg|use svg icon|Boolean|`false`|-|
 

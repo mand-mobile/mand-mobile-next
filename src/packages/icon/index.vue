@@ -34,7 +34,7 @@ export default defineComponent({
     },
     size: {
       type: String as PropType<
-        'xss' | 'xs' | 'sm' | 'md' | 'lg' | string
+        'xxs' | 'xs' | 'sm' | 'md' | 'lg' | string
       >,
       default: 'md',
     },
@@ -84,8 +84,8 @@ export default defineComponent({
     speak none
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
-    &.xss
-      font-size var(--md-icon-size-xss)
+    &.xxs
+      font-size var(--md-icon-size-xxs)
     &.xs
       font-size var(--md-icon-size-xs)
     &.sm
@@ -99,9 +99,9 @@ export default defineComponent({
       z-index 2
 
   &.icon-svg
-    &.xss
-      width var(--md-icon-size-xss)
-      vertical-height(var(--md-icon-size-xss))
+    &.xxs
+      width var(--md-icon-size-xxs)
+      vertical-height(var(--md-icon-size-xxs))
     &.xs
       width var(--md-icon-size-xs)
       vertical-height(var(--md-icon-size-xs))

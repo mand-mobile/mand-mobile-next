@@ -7,8 +7,8 @@
     "
   >
     <div class="md-example-item-s">
-      <md-icon name="location" size="xss"></md-icon>
-      <p>xss</p>
+      <md-icon name="location" size="xxs"></md-icon>
+      <p>xxs</p>
     </div>
     <div class="md-example-item-s">
       <md-icon name="location" size="xs"></md-icon>
