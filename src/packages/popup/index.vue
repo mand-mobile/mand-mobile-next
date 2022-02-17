@@ -6,14 +6,14 @@
       :class="[hasMask ? 'with-mask' : '', position]"
     >
       <!-- mask -->
-      <transition name="md-mask-fade">
+      <md-transition name="md-mask-fade">
         <div
           v-show="hasMask && modelValue"
           ref="mask"
           class="md-popup-mask"
           @click="popupMaskClick"
         ></div>
-      </transition>
+      </md-transition>
       <!-- content -->
       <md-transition
         v-bind="$attrs"
@@ -37,7 +37,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { defineComponent } from 'vue'
 import MdTransition from 'mand-mobile-next/transition'
 import { UPDATE_MODEL_EVENT } from 'mand-mobile-next/utils'
 import {

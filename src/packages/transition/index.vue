@@ -8,10 +8,12 @@ type MdTransitionType = {
   (...args: any[]): any
   install?: any
 }
-let MdTransition: MdTransitionType
 
-MdTransition = function (_: any, context: any) {
-  return h(Transition, context.attrs, context.slots)
+function MdTransition(
+  _: any,
+  context: any
+): MdTransitionType {
+  return h(Transition, context.attrs, context.slots) as any
 }
 
 export default MdTransition
