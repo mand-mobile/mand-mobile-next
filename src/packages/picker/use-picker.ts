@@ -93,7 +93,7 @@ export const usePicker = (
   const cacheColumnIndex = ref<number>(-1)
   const cacheSelectedIndexs = ref<number[]>([])
 
-  const isDestory = ref(false)
+  const isDestroy = ref(false)
 
   // init wheel item height
   const maskerHeight = computed(() => {
@@ -178,8 +178,8 @@ export const usePicker = (
           )) ||
         []
 
-      // when destory wheel, not refresh selected indexs and column data
-      if (isDestory.value) {
+      // when destroy wheel, not refresh selected indexs and column data
+      if (isDestroy.value) {
         return
       }
       curWheelIndex.value = index
@@ -234,7 +234,7 @@ export const usePicker = (
   }
 
   const destroyWheel = () => {
-    isDestory.value = true
+    isDestroy.value = true
     wheelInstance &&
       wheelInstance.map((wheel: BScroll): void => {
         // reset the wrapper class to first index
@@ -245,7 +245,7 @@ export const usePicker = (
     wheelInstance = null
     // reset selectedIndexs
     selectedIndexs.value = []
-    isDestory.value = false
+    isDestroy.value = false
   }
 
   const initPickerColumn = (

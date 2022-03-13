@@ -281,13 +281,13 @@ export const useSlider = (
       } else if (parent) {
         parent.classList.remove('is-active')
         dragEnd(currentDragger)
-        winDragger.destory()
+        winDragger.destroy()
       }
     }
   )
 
   onBeforeUnmount(() => {
-    winDragger.destory()
+    winDragger.destroy()
   })
 
   return {
@@ -322,7 +322,7 @@ function initWindowDrag() {
   )
 
   winDragger.isPrevent = false
-  winDragger.destory()
+  winDragger.destroy()
 
   return {
     winDragger,

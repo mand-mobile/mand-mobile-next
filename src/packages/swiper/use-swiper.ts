@@ -279,7 +279,7 @@ function onScrollHandler(
    * init Dragger
    */
   const dragger = new Dragger(wrap, position)
-  onBeforeUnmount(() => dragger.destory())
+  onBeforeUnmount(() => dragger.destroy())
 
   fadeScope.run(() => {
     /**

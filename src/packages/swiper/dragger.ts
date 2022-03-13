@@ -86,7 +86,7 @@ export class Dragger {
     e.stopPropagation()
   }
 
-  destory() {
+  destroy() {
     this.$el.removeEventListener(
       'touchstart',
       this.startHandler

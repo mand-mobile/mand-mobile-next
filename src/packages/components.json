@@ -40,6 +40,13 @@
         "complete": true
       },
       {
+        "name": "SwiperDrawer",
+        "path": "/swiper-drawer",
+        "icon": "swiper-drawer",
+        "text": "滑动删除",
+        "complete": true
+      },
+      {
         "name": "DropMenu",
         "path": "/drop-menu",
         "icon": "drop-menu",
