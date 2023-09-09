@@ -2,7 +2,7 @@
   "name": "mand-mobile-next",
   "version": "0.0.1-alpha.14",
   "engines": {
-    "node": ">=14.16.1"
+    "node": ">=12.0.0"
   },
   "files": [
     "dist",
@@ -16,10 +16,10 @@
   "scripts": {
     "dev": "vite --host",
     "dev:preview": "NODE_ENV=preview vite --mode bundle --host",
-    "build:bundle": "yarn gen-entry && NODE_ENV=build rollup -c ./scripts/rollup.bundle.config.ts",
+    "build:bundle": "pnpm gen-entry && NODE_ENV=build rollup -c ./scripts/rollup.bundle.config.ts",
     "build:component": "NODE_ENV=build rollup -c ./scripts/rollup.config.ts",
     "build:lib": "esno ./scripts/esbuild.ts",
-    "build": "rm -rf dist && esno ./scripts/gen-dts.ts && yarn build:bundle && yarn build:lib",
+    "build": "rm -rf dist && esno ./scripts/gen-dts.ts && pnpm build:bundle && pnpm build:lib",
     "build:example": "vite build --base=./",
     "docs:dev": "npx esno scripts/gen-docs.ts && esno ./scripts/dev-docs.ts",
     "docs:build": "npx esno scripts/gen-docs.ts && cp dist/es/mand-mobile-next.min.css docs/public && fisandoc build docs",
@@ -120,7 +120,7 @@
     "vite-plugin-svg-sprite": "^0.2.3",
     "vite-plugin-windicss": "^1.1.1",
     "vitepress": "^0.15.6",
-    "vue": "^3.2.1",
+    "vue": "^3.2.31",
     "vue-jest": "^5.0.0-alpha.7",
     "vue-router": "^4.0.6",
     "vue-tsc": "^0.0.24"

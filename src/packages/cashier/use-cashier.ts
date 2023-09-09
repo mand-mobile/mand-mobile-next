@@ -99,10 +99,9 @@ export const useCashier = (
     emit
   )
 
-  const scene =
-    ref<
-      'choose' | 'captcha' | 'loading' | 'success' | 'fail'
-    >('choose')
+  const scene = ref<
+    'choose' | 'captcha' | 'loading' | 'success' | 'fail'
+  >('choose')
   const sceneOption = reactive({
     loading: {
       text: t('md.cashier.payResultSearch'), // 支付结果查询中...
