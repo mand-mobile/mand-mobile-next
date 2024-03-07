@@ -217,7 +217,7 @@ useCssVar(themeVars)
 
 /// Font family
 --md-font-family-normal : "Helvetica Neue",Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Microsoft Ya Black",Arial, sans-serif
---md-font-family-number : DINPro-Medium, DIN Alternate, "Helvetica Neue",Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", " Microsoft YaHei", Arial,sans-serif
+--md-font-family-number : DIDIFD-Medium, "Helvetica Neue",Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", " Microsoft YaHei", Arial,sans-serif
 ```
 
 #### component variables

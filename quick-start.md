@@ -217,7 +217,7 @@ useCssVar(themeVars)
 
 /// Font Family
 --md-font-family-normal : "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif
---md-font-family-number : DINPro-Medium, DIN Alternate, "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif
+--md-font-family-number : DIDIFD-Medium, "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif
 ```
 
 #### 组件变量

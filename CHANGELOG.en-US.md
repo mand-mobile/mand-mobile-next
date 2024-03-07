@@ -1,5 +1,13 @@
 # Changelog
 
+### 0.0.1-alpha.15
+
+`2024-03-07`
+
+- Design
+  - 🍭 Financial design specification update
+    - Update numbers using `DIDIFD-Medium` font first
+
 ### 0.0.1-alpha.13
 
 `2021-08-28`
