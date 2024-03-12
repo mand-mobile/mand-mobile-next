@@ -64,5 +64,4 @@ import MdProgress from 'mand-mobile-next/progress'
     margin 0 10px
   .progress-value
     font-size 24px
-    font-family DIDIFD-Medium
 </style>

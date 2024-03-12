@@ -119,7 +119,6 @@ export default defineComponent({
     align-items center
     font-size font-heading-large
     font-weight font-weight-normal
-    font-family DIDIFD-Medium
     color color-text-base
     span
       color color-text-base
@@ -131,7 +130,6 @@ export default defineComponent({
       font-size 0.12rem
   .md-cg-subtitle
     margin-bottom 30px
-    font-family DIDIFD-Medium
     font-size font-body-normal
     font-weight 300
     color color-text-minor
@@ -162,7 +160,6 @@ export default defineComponent({
       padding 0 h-gap-lg
       line-height 120px
       font-size font-heading-normal
-      font-family DIDIFD-Medium
       // font-weight font-weight-medium
       color color-text-base
       box-sizing border-box
@@ -220,7 +217,6 @@ export default defineComponent({
           height 100px
           line-height 100px
           font-size font-body-normal
-          font-family DIDIFD-Medium
           color color-text-minor
           hairline(bottom, color-border-base)
           .md-icon
@@ -244,7 +240,6 @@ export default defineComponent({
     text-align center
     font-size font-minor-normal
     font-weight 300
-    font-family DIDIFD-Medium
     color color-text-caption
 
 .slide-fade-enter-active

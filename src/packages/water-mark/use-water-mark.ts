@@ -98,7 +98,7 @@ export const useWaterMark = (
     )
 
     if (canvasCtx.value) {
-      canvasCtx.value.font = `${fontSize}px DIDIFD-Medium, "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif`
+      canvasCtx.value.font = `${fontSize}px "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif`
       canvasCtx.value.fillStyle = FILL_COLOR
 
       let ctxX = 0
