@@ -1,1 +1,0 @@
-import"./animate.4fe17de0.js";import{H as o,S as s,b as t}from"./constants.3b37bb64.js";import{k as e}from"./vendor.cf144a98.js";function n(n,a){const i=e({get:()=>n.visible,set:()=>r()}),r=()=>{a(t,!1)};return{popupShow:i,onHide:()=>{a(o),r()},onShow:()=>{a(s)},hide:r}}export{n as u};
